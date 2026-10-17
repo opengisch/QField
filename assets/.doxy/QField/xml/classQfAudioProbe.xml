@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAudioProbe" kind="class" language="C++" prot="public">
+    <compoundname>QfAudioProbe</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QIODevice</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfAudioProbe_1ad551413c4cbab95bb4a8717ef00ea642" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfAudioProbe::QfAudioProbe</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfAudioProbe</name>
+        <qualifiedname>QfAudioProbe::QfAudioProbe</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="32" column="14" bodyfile="src/core/qfaudiorecorder.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAudioProbe_1ade4f8660aa72be0c123c464c6baa54a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>qint64</type>
+        <definition>qint64 QfAudioProbe::readData</definition>
+        <argsstring>(char *data, qint64 maxlen) override</argsstring>
+        <name>readData</name>
+        <qualifiedname>QfAudioProbe::readData</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>qint64</type>
+          <declname>maxlen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="34" column="12" bodyfile="src/core/qfaudiorecorder.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAudioProbe_1a13552f65bfd0d60381e2b8f373b66600" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>qint64</type>
+        <definition>qint64 QfAudioProbe::writeData</definition>
+        <argsstring>(const char *data, qint64 len) override</argsstring>
+        <name>writeData</name>
+        <qualifiedname>QfAudioProbe::writeData</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>qint64</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="35" column="12" bodyfile="src/core/qfaudiorecorder.cpp" bodystart="33" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfAudioProbe_1a7e9c275efae6a51d2908f2385441c656" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAudioProbe::levelCalculated</definition>
+        <argsstring>(double level)</argsstring>
+        <name>levelCalculated</name>
+        <qualifiedname>QfAudioProbe::levelCalculated</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="38" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QIODevice</label>
+      </node>
+      <node id="1">
+        <label>QfAudioProbe</label>
+        <link refid="classQfAudioProbe"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QIODevice</label>
+      </node>
+      <node id="1">
+        <label>QfAudioProbe</label>
+        <link refid="classQfAudioProbe"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfaudiorecorder.h" line="27" column="1" bodyfile="src/core/qfaudiorecorder.h" bodystart="28" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classQfAudioProbe_1a7e9c275efae6a51d2908f2385441c656" prot="public" virt="non-virtual"><scope>QfAudioProbe</scope><name>levelCalculated</name></member>
+      <member refid="classQfAudioProbe_1ad551413c4cbab95bb4a8717ef00ea642" prot="public" virt="non-virtual"><scope>QfAudioProbe</scope><name>QfAudioProbe</name></member>
+      <member refid="classQfAudioProbe_1ade4f8660aa72be0c123c464c6baa54a3" prot="public" virt="non-virtual"><scope>QfAudioProbe</scope><name>readData</name></member>
+      <member refid="classQfAudioProbe_1a13552f65bfd0d60381e2b8f373b66600" prot="public" virt="non-virtual"><scope>QfAudioProbe</scope><name>writeData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfDeltaChangesModel_1_1LayerSummary" kind="struct" language="C++" prot="private">
+    <compoundname>QfDeltaChangesModel::LayerSummary</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfDeltaChangesModel_1_1LayerSummary_1a79ecd08fc38482411c2036d7a7b19568" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfDeltaChangesModel::LayerSummary::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>QfDeltaChangesModel::LayerSummary::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="130" column="17" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDeltaChangesModel_1_1LayerSummary_1a7d47aa159f7e82592cd885b697011ed7" prot="public" static="no" mutable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfDeltaChangesModel::LayerSummary::geometryType</definition>
+        <argsstring></argsstring>
+        <name>geometryType</name>
+        <qualifiedname>QfDeltaChangesModel::LayerSummary::geometryType</qualifiedname>
+        <initializer>= Qgis::GeometryType::Unknown</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="131" column="28" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDeltaChangesModel_1_1LayerSummary_1af33493d9b84f396b7a267780d9214fd3" prot="public" static="no" mutable="no">
+        <type>QJsonArray</type>
+        <definition>QJsonArray QfDeltaChangesModel::LayerSummary::deltas</definition>
+        <argsstring></argsstring>
+        <name>deltas</name>
+        <qualifiedname>QfDeltaChangesModel::LayerSummary::deltas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="132" column="20" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDeltaChangesModel_1_1LayerSummary_1a30416ada7912a6d4ef6ca2cf4083ff28" prot="public" static="no" mutable="no">
+        <type>QList&lt; DeltaChange &gt;</type>
+        <definition>QList&lt;DeltaChange&gt; QfDeltaChangesModel::LayerSummary::changes</definition>
+        <argsstring></argsstring>
+        <name>changes</name>
+        <qualifiedname>QfDeltaChangesModel::LayerSummary::changes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="133" column="15" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="128" column="5" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="129" bodyend="134"/>
+    <listofallmembers>
+      <member refid="structQfDeltaChangesModel_1_1LayerSummary_1a30416ada7912a6d4ef6ca2cf4083ff28" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel::LayerSummary</scope><name>changes</name></member>
+      <member refid="structQfDeltaChangesModel_1_1LayerSummary_1af33493d9b84f396b7a267780d9214fd3" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel::LayerSummary</scope><name>deltas</name></member>
+      <member refid="structQfDeltaChangesModel_1_1LayerSummary_1a7d47aa159f7e82592cd885b697011ed7" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel::LayerSummary</scope><name>geometryType</name></member>
+      <member refid="structQfDeltaChangesModel_1_1LayerSummary_1a79ecd08fc38482411c2036d7a7b19568" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel::LayerSummary</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

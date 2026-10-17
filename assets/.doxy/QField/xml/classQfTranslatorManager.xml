@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfTranslatorManager" kind="class" language="C++" prot="public">
+    <compoundname>QfTranslatorManager</compoundname>
+    <includes refid="qftranslatormanager_8h" local="no">qftranslatormanager.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfTranslatorManager_1acd0f0f61c7b951d361ce5474d7910bcf" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QTranslator &gt;</type>
+        <definition>std::unique_ptr&lt;QTranslator&gt; QfTranslatorManager::mQFieldTranslator</definition>
+        <argsstring></argsstring>
+        <name>mQFieldTranslator</name>
+        <qualifiedname>QfTranslatorManager::mQFieldTranslator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftranslatormanager.h" line="52" column="21" bodyfile="src/core/qftranslatormanager.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTranslatorManager_1ad3a1f72d1f5927dd32f3affbed962fbd" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QTranslator &gt;</type>
+        <definition>std::unique_ptr&lt;QTranslator&gt; QfTranslatorManager::mQtTranslator</definition>
+        <argsstring></argsstring>
+        <name>mQtTranslator</name>
+        <qualifiedname>QfTranslatorManager::mQtTranslator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftranslatormanager.h" line="53" column="21" bodyfile="src/core/qftranslatormanager.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfTranslatorManager_1afa43146dd3f69e7a58895e918cf463f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfTranslatorManager::QfTranslatorManager</definition>
+        <argsstring>()</argsstring>
+        <name>QfTranslatorManager</name>
+        <qualifiedname>QfTranslatorManager::QfTranslatorManager</qualifiedname>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftranslatormanager.h" line="34" column="5" bodyfile="src/core/qftranslatormanager.cpp" bodystart="20" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTranslatorManager_1a47ada799ab75eee276619db77beb6146" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfTranslatorManager::QfTranslatorManager</definition>
+        <argsstring>(const QfTranslatorManager &amp;)=delete</argsstring>
+        <name>QfTranslatorManager</name>
+        <qualifiedname>QfTranslatorManager::QfTranslatorManager</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfTranslatorManager" kindref="compound">QfTranslatorManager</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Copy constructor is deleted (singleton pattern) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftranslatormanager.h" line="37" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTranslatorManager_1aa2e43e5f5e4939d75baf38e1802360c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfTranslatorManager" kindref="compound">QfTranslatorManager</ref> &amp;</type>
+        <definition>QfTranslatorManager &amp; QfTranslatorManager::operator=</definition>
+        <argsstring>(const QfTranslatorManager &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>QfTranslatorManager::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfTranslatorManager" kindref="compound">QfTranslatorManager</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Assignment operator is deleted (singleton pattern) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftranslatormanager.h" line="40" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTranslatorManager_1a3ef38589038b9db2a3c8c2fb18b5e865" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QTranslator *</type>
+        <definition>QTranslator * QfTranslatorManager::qfieldTranslator</definition>
+        <argsstring>()</argsstring>
+        <name>qfieldTranslator</name>
+        <qualifiedname>QfTranslatorManager::qfieldTranslator</qualifiedname>
+        <briefdescription>
+<para>Returns the global QField translator instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftranslatormanager.h" line="43" column="17" bodyfile="src/core/qftranslatormanager.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTranslatorManager_1ae15b94d1dc1a2a20fc33843e0e065588" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QTranslator *</type>
+        <definition>QTranslator * QfTranslatorManager::qtTranslator</definition>
+        <argsstring>()</argsstring>
+        <name>qtTranslator</name>
+        <qualifiedname>QfTranslatorManager::qtTranslator</qualifiedname>
+        <briefdescription>
+<para>Returns the global Qt framework translator instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftranslatormanager.h" line="46" column="17" bodyfile="src/core/qftranslatormanager.cpp" bodystart="31" bodyend="34"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfTranslatorManager_1a55ff17a188186b65813e8bcab78bc069" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfTranslatorManager" kindref="compound">QfTranslatorManager</ref> *</type>
+        <definition>QfTranslatorManager * QfTranslatorManager::instance</definition>
+        <argsstring>()</argsstring>
+        <name>instance</name>
+        <qualifiedname>QfTranslatorManager::instance</qualifiedname>
+        <briefdescription>
+<para>Returns the singleton instance of <ref refid="classQfTranslatorManager" kindref="compound">QfTranslatorManager</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftranslatormanager.h" line="49" column="32" bodyfile="src/core/qftranslatormanager.cpp" bodystart="36" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Provides access to shared translator instances for runtime language switching. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Translators are shared between startup (main.cpp) and runtime switching (<ref refid="classQfAppInterface_1a401287e1d623d2aea77618c2121526ec" kindref="member">QfAppInterface::changeLanguage</ref>). </para>
+    </detaileddescription>
+    <location file="src/core/qftranslatormanager.h" line="30" column="1" bodyfile="src/core/qftranslatormanager.h" bodystart="31" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classQfTranslatorManager_1a55ff17a188186b65813e8bcab78bc069" prot="public" virt="non-virtual"><scope>QfTranslatorManager</scope><name>instance</name></member>
+      <member refid="classQfTranslatorManager_1acd0f0f61c7b951d361ce5474d7910bcf" prot="private" virt="non-virtual"><scope>QfTranslatorManager</scope><name>mQFieldTranslator</name></member>
+      <member refid="classQfTranslatorManager_1ad3a1f72d1f5927dd32f3affbed962fbd" prot="private" virt="non-virtual"><scope>QfTranslatorManager</scope><name>mQtTranslator</name></member>
+      <member refid="classQfTranslatorManager_1aa2e43e5f5e4939d75baf38e1802360c5" prot="public" virt="non-virtual"><scope>QfTranslatorManager</scope><name>operator=</name></member>
+      <member refid="classQfTranslatorManager_1a3ef38589038b9db2a3c8c2fb18b5e865" prot="public" virt="non-virtual"><scope>QfTranslatorManager</scope><name>qfieldTranslator</name></member>
+      <member refid="classQfTranslatorManager_1afa43146dd3f69e7a58895e918cf463f7" prot="public" virt="non-virtual"><scope>QfTranslatorManager</scope><name>QfTranslatorManager</name></member>
+      <member refid="classQfTranslatorManager_1a47ada799ab75eee276619db77beb6146" prot="public" virt="non-virtual"><scope>QfTranslatorManager</scope><name>QfTranslatorManager</name></member>
+      <member refid="classQfTranslatorManager_1ae15b94d1dc1a2a20fc33843e0e065588" prot="public" virt="non-virtual"><scope>QfTranslatorManager</scope><name>qtTranslator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

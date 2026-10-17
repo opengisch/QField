@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_a0fecca670957e90f44ebd037fd955ed" kind="dir">
+    <compoundname>src/core/positioning</compoundname>
+    <innerfile refid="qfabstractgnssreceiver_8cpp">qfabstractgnssreceiver.cpp</innerfile>
+    <innerfile refid="qfabstractgnssreceiver_8h">qfabstractgnssreceiver.h</innerfile>
+    <innerfile refid="qfbluetoothdevicemodel_8cpp">qfbluetoothdevicemodel.cpp</innerfile>
+    <innerfile refid="qfbluetoothdevicemodel_8h">qfbluetoothdevicemodel.h</innerfile>
+    <innerfile refid="qfbluetoothlowenergyreceiver_8cpp">qfbluetoothlowenergyreceiver.cpp</innerfile>
+    <innerfile refid="qfbluetoothlowenergyreceiver_8h">qfbluetoothlowenergyreceiver.h</innerfile>
+    <innerfile refid="qfbluetoothreceiver_8cpp">qfbluetoothreceiver.cpp</innerfile>
+    <innerfile refid="qfbluetoothreceiver_8h">qfbluetoothreceiver.h</innerfile>
+    <innerfile refid="qfegenioussreceiver_8cpp">qfegenioussreceiver.cpp</innerfile>
+    <innerfile refid="qfegenioussreceiver_8h">qfegenioussreceiver.h</innerfile>
+    <innerfile refid="qffilereceiver_8cpp">qffilereceiver.cpp</innerfile>
+    <innerfile refid="qffilereceiver_8h">qffilereceiver.h</innerfile>
+    <innerfile refid="qfgeofencer_8cpp">qfgeofencer.cpp</innerfile>
+    <innerfile refid="qfgeofencer_8h">qfgeofencer.h</innerfile>
+    <innerfile refid="qfgnsspositioninformation_8cpp">qfgnsspositioninformation.cpp</innerfile>
+    <innerfile refid="qfgnsspositioninformation_8h">qfgnsspositioninformation.h</innerfile>
+    <innerfile refid="qfinternalgnssreceiver_8cpp">qfinternalgnssreceiver.cpp</innerfile>
+    <innerfile refid="qfinternalgnssreceiver_8h">qfinternalgnssreceiver.h</innerfile>
+    <innerfile refid="qfnmeagnssreceiver_8cpp">qfnmeagnssreceiver.cpp</innerfile>
+    <innerfile refid="qfnmeagnssreceiver_8h">qfnmeagnssreceiver.h</innerfile>
+    <innerfile refid="qfntripclient_8cpp">qfntripclient.cpp</innerfile>
+    <innerfile refid="qfntripclient_8h">qfntripclient.h</innerfile>
+    <innerfile refid="qfntripsettings_8cpp">qfntripsettings.cpp</innerfile>
+    <innerfile refid="qfntripsettings_8h">qfntripsettings.h</innerfile>
+    <innerfile refid="qfntripsourcetablefetcher_8cpp">qfntripsourcetablefetcher.cpp</innerfile>
+    <innerfile refid="qfntripsourcetablefetcher_8h">qfntripsourcetablefetcher.h</innerfile>
+    <innerfile refid="qfpositioning_8cpp">qfpositioning.cpp</innerfile>
+    <innerfile refid="qfpositioning_8h">qfpositioning.h</innerfile>
+    <innerfile refid="qfpositioningdevicemodel_8cpp">qfpositioningdevicemodel.cpp</innerfile>
+    <innerfile refid="qfpositioningdevicemodel_8h">qfpositioningdevicemodel.h</innerfile>
+    <innerfile refid="qfpositioninginformationmodel_8cpp">qfpositioninginformationmodel.cpp</innerfile>
+    <innerfile refid="qfpositioninginformationmodel_8h">qfpositioninginformationmodel.h</innerfile>
+    <innerfile refid="qfpositioningsource_8cpp">qfpositioningsource.cpp</innerfile>
+    <innerfile refid="qfpositioningsource_8h">qfpositioningsource.h</innerfile>
+    <innerfile refid="qfserialportmodel_8cpp">qfserialportmodel.cpp</innerfile>
+    <innerfile refid="qfserialportmodel_8h">qfserialportmodel.h</innerfile>
+    <innerfile refid="qfserialportreceiver_8cpp">qfserialportreceiver.cpp</innerfile>
+    <innerfile refid="qfserialportreceiver_8h">qfserialportreceiver.h</innerfile>
+    <innerfile refid="qftcpreceiver_8cpp">qftcpreceiver.cpp</innerfile>
+    <innerfile refid="qftcpreceiver_8h">qftcpreceiver.h</innerfile>
+    <innerfile refid="qfudpreceiver_8cpp">qfudpreceiver.cpp</innerfile>
+    <innerfile refid="qfudpreceiver_8h">qfudpreceiver.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/positioning/"/>
+  </compounddef>
+</doxygen>

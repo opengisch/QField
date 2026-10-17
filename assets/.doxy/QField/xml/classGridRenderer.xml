@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGridRenderer" kind="class" language="C++" prot="public">
+    <compoundname>GridRenderer</compoundname>
+    <basecompoundref refid="classQfGridRenderer" prot="public" virt="non-virtual">QfGridRenderer</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGridRenderer_1ad096526b064858747d7705f652d2e0cf" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var GridRenderer::annotationFont</definition>
+        <argsstring></argsstring>
+        <name>annotationFont</name>
+        <qualifiedname>GridRenderer::annotationFont</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml_compat/GridRenderer.qml" line="4" column="5" bodyfile="src/app/qml_compat/GridRenderer.qml" bodystart="4" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GridRenderer</label>
+        <link refid="classGridRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfGridRenderer</label>
+        <link refid="classQfGridRenderer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GridRenderer</label>
+        <link refid="classGridRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfGridRenderer</label>
+        <link refid="classQfGridRenderer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/GridRenderer.qml" line="3" column="1" bodyfile="src/app/qml_compat/GridRenderer.qml" bodystart="3" bodyend="5"/>
+    <listofallmembers>
+      <member refid="classQfGridRenderer_1a2b920077b6c8025f225d59f39912c3bd" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>annotationColor</name></member>
+      <member refid="classGridRenderer_1ad096526b064858747d7705f652d2e0cf" prot="private" virt="non-virtual"><scope>GridRenderer</scope><name>annotationFont</name></member>
+      <member refid="classQfGridRenderer_1ab6122a7ec69da4d46805545a64067796" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>annotationHasOutline</name></member>
+      <member refid="classQfGridRenderer_1a8189ed1aadcae9beb35f5f2a13216030" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>annotationOutlineColor</name></member>
+      <member refid="classQfGridRenderer_1a574a1067d1daf9637f37ce1867751667" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>annotationPrecision</name></member>
+      <member refid="classQfGridRenderer_1ac4a51a9d6939a8ae7316ca250f98c283" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>autoColor</name></member>
+      <member refid="classQfGridRenderer_1ad81cec9da370e922d5d54af815140ebe" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>enabled</name></member>
+      <member refid="classQfGridRenderer_1a163746e46fed4b7d76b13750a6ac4515" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>indeterminate</name></member>
+      <member refid="classQfGridRenderer_1ac39b62c12d2d5d11a3d8345f6ab23266" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>majorLineColor</name></member>
+      <member refid="classQfGridRenderer_1a5ab6b4c43268dda4ee341780ee61671a" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>mapSettings</name></member>
+      <member refid="classQfGridRenderer_1a97457289815e608bee9480a0cd315d72" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>markerColor</name></member>
+      <member refid="classQfGridRenderer_1a7d9166681e1cfb0f64746fae3d27941e" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>minorLineColor</name></member>
+      <member refid="classQfGridRenderer_1a83c0b960080a78ebbfabb182d1af691d" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>prepareAnnotations</name></member>
+      <member refid="classQfGridRenderer_1af5d6cb4f9722fcc87ca691c5425f5229" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>prepareLines</name></member>
+      <member refid="classQfGridRenderer_1aacb35bc8cd7c6ba329c945c65c79a4f4" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>prepareMarkers</name></member>
+      <member refid="classQfGridRenderer_1ac982308e01e696e96d4b7b6a27d11675" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>xInterval</name></member>
+      <member refid="classQfGridRenderer_1acdbe75eedeb6689cd615654991e316e3" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>xOffset</name></member>
+      <member refid="classQfGridRenderer_1a73f32e4ecafb000fcee60e3bd2fc2c20" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>yInterval</name></member>
+      <member refid="classQfGridRenderer_1a339a78fbfa3bf3a09dca7965debddfd9" prot="public" virt="non-virtual"><scope>GridRenderer</scope><name>yOffset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

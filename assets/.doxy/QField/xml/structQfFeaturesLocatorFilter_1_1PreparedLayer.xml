@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfFeaturesLocatorFilter_1_1PreparedLayer" kind="struct" language="C++" prot="public">
+    <compoundname>QfFeaturesLocatorFilter::PreparedLayer</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfFeaturesLocatorFilter_1_1PreparedLayer_1af69a104d7ebc14ddd74f0e494d68c3a4" prot="public" static="no" mutable="no">
+        <type>QgsExpression</type>
+        <definition>QgsExpression QfFeaturesLocatorFilter::PreparedLayer::expression</definition>
+        <argsstring></argsstring>
+        <name>expression</name>
+        <qualifiedname>QfFeaturesLocatorFilter::PreparedLayer::expression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffeatureslocatorfilter.h" line="50" column="23" bodyfile="src/core/locator/qffeatureslocatorfilter.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeaturesLocatorFilter_1_1PreparedLayer_1aef1a2b6fbf65b69e8be2a53ecdcfa499" prot="public" static="no" mutable="no">
+        <type>QgsExpressionContext</type>
+        <definition>QgsExpressionContext QfFeaturesLocatorFilter::PreparedLayer::context</definition>
+        <argsstring></argsstring>
+        <name>context</name>
+        <qualifiedname>QfFeaturesLocatorFilter::PreparedLayer::context</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffeatureslocatorfilter.h" line="51" column="30" bodyfile="src/core/locator/qffeatureslocatorfilter.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeaturesLocatorFilter_1_1PreparedLayer_1acf94046dbe56e43d40577d9ed605af7d" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsVectorLayerFeatureSource &gt;</type>
+        <definition>std::unique_ptr&lt;QgsVectorLayerFeatureSource&gt; QfFeaturesLocatorFilter::PreparedLayer::featureSource</definition>
+        <argsstring></argsstring>
+        <name>featureSource</name>
+        <qualifiedname>QfFeaturesLocatorFilter::PreparedLayer::featureSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffeatureslocatorfilter.h" line="52" column="25" bodyfile="src/core/locator/qffeatureslocatorfilter.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeaturesLocatorFilter_1_1PreparedLayer_1a0f124b366a071c520fff8e1df071cea7" prot="public" static="no" mutable="no">
+        <type>QgsFeatureRequest</type>
+        <definition>QgsFeatureRequest QfFeaturesLocatorFilter::PreparedLayer::request</definition>
+        <argsstring></argsstring>
+        <name>request</name>
+        <qualifiedname>QfFeaturesLocatorFilter::PreparedLayer::request</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffeatureslocatorfilter.h" line="53" column="27" bodyfile="src/core/locator/qffeatureslocatorfilter.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeaturesLocatorFilter_1_1PreparedLayer_1a41f237c44bc58b9cd9263dcba60f3e36" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeaturesLocatorFilter::PreparedLayer::layerName</definition>
+        <argsstring></argsstring>
+        <name>layerName</name>
+        <qualifiedname>QfFeaturesLocatorFilter::PreparedLayer::layerName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffeatureslocatorfilter.h" line="54" column="17" bodyfile="src/core/locator/qffeatureslocatorfilter.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeaturesLocatorFilter_1_1PreparedLayer_1a072a97ea6a206a40c117fe5bced0d82d" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfFeaturesLocatorFilter::PreparedLayer::layerId</definition>
+        <argsstring></argsstring>
+        <name>layerId</name>
+        <qualifiedname>QfFeaturesLocatorFilter::PreparedLayer::layerId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffeatureslocatorfilter.h" line="55" column="17" bodyfile="src/core/locator/qffeatureslocatorfilter.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeaturesLocatorFilter_1_1PreparedLayer_1a03008e87cc60e0bbca783e61fcbff64c" prot="public" static="no" mutable="no">
+        <type>QIcon</type>
+        <definition>QIcon QfFeaturesLocatorFilter::PreparedLayer::layerIcon</definition>
+        <argsstring></argsstring>
+        <name>layerIcon</name>
+        <qualifiedname>QfFeaturesLocatorFilter::PreparedLayer::layerIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffeatureslocatorfilter.h" line="56" column="15" bodyfile="src/core/locator/qffeatureslocatorfilter.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeaturesLocatorFilter_1_1PreparedLayer_1a18891aa6fb460af42c6229a1288726ac" prot="public" static="no" mutable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfFeaturesLocatorFilter::PreparedLayer::layerGeometryType</definition>
+        <argsstring></argsstring>
+        <name>layerGeometryType</name>
+        <qualifiedname>QfFeaturesLocatorFilter::PreparedLayer::layerGeometryType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qffeatureslocatorfilter.h" line="57" column="28" bodyfile="src/core/locator/qffeatureslocatorfilter.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/locator/qffeatureslocatorfilter.h" line="47" column="5" bodyfile="src/core/locator/qffeatureslocatorfilter.h" bodystart="48" bodyend="58"/>
+    <listofallmembers>
+      <member refid="structQfFeaturesLocatorFilter_1_1PreparedLayer_1aef1a2b6fbf65b69e8be2a53ecdcfa499" prot="public" virt="non-virtual"><scope>QfFeaturesLocatorFilter::PreparedLayer</scope><name>context</name></member>
+      <member refid="structQfFeaturesLocatorFilter_1_1PreparedLayer_1af69a104d7ebc14ddd74f0e494d68c3a4" prot="public" virt="non-virtual"><scope>QfFeaturesLocatorFilter::PreparedLayer</scope><name>expression</name></member>
+      <member refid="structQfFeaturesLocatorFilter_1_1PreparedLayer_1acf94046dbe56e43d40577d9ed605af7d" prot="public" virt="non-virtual"><scope>QfFeaturesLocatorFilter::PreparedLayer</scope><name>featureSource</name></member>
+      <member refid="structQfFeaturesLocatorFilter_1_1PreparedLayer_1a18891aa6fb460af42c6229a1288726ac" prot="public" virt="non-virtual"><scope>QfFeaturesLocatorFilter::PreparedLayer</scope><name>layerGeometryType</name></member>
+      <member refid="structQfFeaturesLocatorFilter_1_1PreparedLayer_1a03008e87cc60e0bbca783e61fcbff64c" prot="public" virt="non-virtual"><scope>QfFeaturesLocatorFilter::PreparedLayer</scope><name>layerIcon</name></member>
+      <member refid="structQfFeaturesLocatorFilter_1_1PreparedLayer_1a072a97ea6a206a40c117fe5bced0d82d" prot="public" virt="non-virtual"><scope>QfFeaturesLocatorFilter::PreparedLayer</scope><name>layerId</name></member>
+      <member refid="structQfFeaturesLocatorFilter_1_1PreparedLayer_1a41f237c44bc58b9cd9263dcba60f3e36" prot="public" virt="non-virtual"><scope>QfFeaturesLocatorFilter::PreparedLayer</scope><name>layerName</name></member>
+      <member refid="structQfFeaturesLocatorFilter_1_1PreparedLayer_1a0f124b366a071c520fff8e1df071cea7" prot="public" virt="non-virtual"><scope>QfFeaturesLocatorFilter::PreparedLayer</scope><name>request</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

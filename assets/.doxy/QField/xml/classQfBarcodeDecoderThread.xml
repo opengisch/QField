@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfBarcodeDecoderThread" kind="class" language="C++" prot="public">
+    <compoundname>QfBarcodeDecoderThread</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QThread</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">QThread</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfBarcodeDecoderThread_1a018c5fc8cf5d05ab2c7918eb81784b7f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfBarcodeDecoder" kindref="compound">QfBarcodeDecoder</ref> *</type>
+        <definition>QfBarcodeDecoder * QfBarcodeDecoderThread::mDecoder</definition>
+        <argsstring></argsstring>
+        <name>mDecoder</name>
+        <qualifiedname>QfBarcodeDecoderThread::mDecoder</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodedecoder.cpp" line="43" column="22" bodyfile="src/core/qfbarcodedecoder.cpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBarcodeDecoderThread_1a80307dc5be938a8bdcf1176c2ecea54a" prot="private" static="no" mutable="no">
+        <type>QImage</type>
+        <definition>QImage QfBarcodeDecoderThread::mImage</definition>
+        <argsstring></argsstring>
+        <name>mImage</name>
+        <qualifiedname>QfBarcodeDecoderThread::mImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodedecoder.cpp" line="44" column="12" bodyfile="src/core/qfbarcodedecoder.cpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfBarcodeDecoderThread_1a79bbd068a5ddca73cbd5364387767b7b" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfBarcodeDecoderThread::QfBarcodeDecoderThread</definition>
+        <argsstring>(QfBarcodeDecoder *decoder, const QImage &amp;image)</argsstring>
+        <name>QfBarcodeDecoderThread</name>
+        <qualifiedname>QfBarcodeDecoderThread::QfBarcodeDecoderThread</qualifiedname>
+        <param>
+          <type><ref refid="classQfBarcodeDecoder" kindref="compound">QfBarcodeDecoder</ref> *</type>
+          <declname>decoder</declname>
+        </param>
+        <param>
+          <type>const QImage &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodedecoder.cpp" line="27" column="14" bodyfile="src/core/qfbarcodedecoder.cpp" bodystart="27" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeDecoderThread_1a79bbd068a5ddca73cbd5364387767b7b" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfBarcodeDecoderThread::QfBarcodeDecoderThread</definition>
+        <argsstring>(QfBarcodeDecoder *decoder, const QImage &amp;image)</argsstring>
+        <name>QfBarcodeDecoderThread</name>
+        <qualifiedname>QfBarcodeDecoderThread::QfBarcodeDecoderThread</qualifiedname>
+        <param>
+          <type><ref refid="classQfBarcodeDecoder" kindref="compound">QfBarcodeDecoder</ref> *</type>
+          <declname>decoder</declname>
+        </param>
+        <param>
+          <type>const QImage &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="32" column="14" bodyfile="src/core/qfbarcodevideofilter.h" bodystart="32" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfBarcodeDecoderThread_1ac61e1fafbc4a6eb6c43b9033e6c669c7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBarcodeDecoderThread::run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <qualifiedname>QfBarcodeDecoderThread::run</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodedecoder.cpp" line="35" column="10" bodyfile="src/core/qfbarcodedecoder.cpp" bodystart="35" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeDecoderThread_1ac61e1fafbc4a6eb6c43b9033e6c669c7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBarcodeDecoderThread::run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <qualifiedname>QfBarcodeDecoderThread::run</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="40" column="10" bodyfile="src/core/qfbarcodevideofilter.h" bodystart="40" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QThread</label>
+      </node>
+      <node id="1">
+        <label>QfBarcodeDecoderThread</label>
+        <link refid="classQfBarcodeDecoderThread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QThread</label>
+      </node>
+      <node id="1">
+        <label>QfBarcodeDecoderThread</label>
+        <link refid="classQfBarcodeDecoderThread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfbarcodedecoder.cpp" line="24" column="1" bodyfile="src/core/qfbarcodedecoder.cpp" bodystart="25" bodyend="45"/>
+    <listofallmembers>
+      <member refid="classQfBarcodeDecoderThread_1a018c5fc8cf5d05ab2c7918eb81784b7f" prot="private" virt="non-virtual"><scope>QfBarcodeDecoderThread</scope><name>mDecoder</name></member>
+      <member refid="classQfBarcodeDecoderThread_1a80307dc5be938a8bdcf1176c2ecea54a" prot="private" virt="non-virtual"><scope>QfBarcodeDecoderThread</scope><name>mImage</name></member>
+      <member refid="classQfBarcodeDecoderThread_1a79bbd068a5ddca73cbd5364387767b7b" prot="public" virt="non-virtual"><scope>QfBarcodeDecoderThread</scope><name>QfBarcodeDecoderThread</name></member>
+      <member refid="classQfBarcodeDecoderThread_1a79bbd068a5ddca73cbd5364387767b7b" prot="public" virt="non-virtual"><scope>QfBarcodeDecoderThread</scope><name>QfBarcodeDecoderThread</name></member>
+      <member refid="classQfBarcodeDecoderThread_1ac61e1fafbc4a6eb6c43b9033e6c669c7" prot="private" virt="non-virtual"><scope>QfBarcodeDecoderThread</scope><name>run</name></member>
+      <member refid="classQfBarcodeDecoderThread_1ac61e1fafbc4a6eb6c43b9033e6c669c7" prot="private" virt="non-virtual"><scope>QfBarcodeDecoderThread</scope><name>run</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLayerTreeItemProperties" kind="class" language="C++" prot="public">
+    <compoundname>LayerTreeItemProperties</compoundname>
+    <basecompoundref refid="classQfLegendItemProperties" prot="public" virt="non-virtual">QfLegendItemProperties</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LayerTreeItemProperties</label>
+        <link refid="classLayerTreeItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfLegendItemProperties</label>
+        <link refid="classQfLegendItemProperties"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LayerTreeItemProperties</label>
+        <link refid="classLayerTreeItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfLegendItemProperties</label>
+        <link refid="classQfLegendItemProperties"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/LayerTreeItemProperties.qml" line="2" column="1" bodyfile="src/app/qml_compat/LayerTreeItemProperties.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfLegendItemProperties_1ad8b7d4186372b61c69d39ea2b9356027" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>index</name></member>
+      <member refid="classQfLegendItemProperties_1a5bb615327f076b5d5f46b612ed796d49" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>isShowFeaturesListButtonVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a311efb35a1d6fd2f46a8e73363982667" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>isShowVisibleFeaturesListDropdownVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a8c8350e28136daadf912247a5dc9f13e" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>isTrackingButtonVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a35483bc2e049d4114570cb469b1bc02b" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>layerTree</name></member>
+      <member refid="classQfLegendItemProperties_1ab2f0bb4787e45cfb16924d3a06fc3696" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>opacitySliderVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a0b3b86a25044db521a2b0c28929e4dee" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>reloadDataButtonVisible</name></member>
+      <member refid="classQfLegendItemProperties_1ace25836f80df3beb9a048a18fdcf5e1f" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>showFeaturesListButtonVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a7d1aea7096498f54cc99135bab70d348" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>showVisibleFeaturesListDropdownVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a518d69f4af9dffd37dc9cf2ba5cc49e4" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>trackingButtonText</name></member>
+      <member refid="classQfLegendItemProperties_1a88a8c763f6a129e865eeb6034352ae5b" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>trackingButtonVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a445f41c9a1057f3c32874397586dc41b" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>updateCredits</name></member>
+      <member refid="classQfLegendItemProperties_1aafbe8a96417f31f9c043d0c5d2335cf5" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>updateTitle</name></member>
+      <member refid="classQfLegendItemProperties_1afcccdca6c02cd9a3dcdbe018cdd33d79" prot="public" virt="non-virtual"><scope>LayerTreeItemProperties</scope><name>zoomToButtonVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,310 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPluginProxyModel" kind="class" language="C++" prot="public">
+    <compoundname>QfPluginProxyModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfPluginProxyModel_1ae533d667293bf42a2ee178a747ed964f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>PluginFilter</name>
+        <qualifiedname>QfPluginProxyModel::PluginFilter</qualifiedname>
+        <enumvalue id="classQfPluginProxyModel_1ae533d667293bf42a2ee178a747ed964fa62856f33b39164fd42ef635739647c89" prot="public">
+          <name>LocalPlugin</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfPluginProxyModel_1ae533d667293bf42a2ee178a747ed964fad9011da66bf92282d77a80aeb0836668" prot="public">
+          <name>RemotePlugin</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="144" column="5" bodyfile="src/app/qfpluginmodel.h" bodystart="145" bodyend="148"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfPluginProxyModel_1a2f9e57172ae4e4d7317f4c45af95ce53" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPluginProxyModel::searchTerm</definition>
+        <argsstring></argsstring>
+        <name>searchTerm</name>
+        <qualifiedname>QfPluginProxyModel::searchTerm</qualifiedname>
+        <read>searchTerm</read>
+        <write>setSearchTerm</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="140" column="5" bodyfile="src/app/qfpluginmodel.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPluginProxyModel_1aca6f85a9e4c5b16b75d8a5f3c1a173e5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>PluginFilter</type>
+        <definition>PluginFilter QfPluginProxyModel::filter</definition>
+        <argsstring></argsstring>
+        <name>filter</name>
+        <qualifiedname>QfPluginProxyModel::filter</qualifiedname>
+        <read>filter</read>
+        <write>setFilter</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="141" column="5" bodyfile="src/app/qfpluginmodel.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfPluginProxyModel_1aef8501c342d08cbe1f4645dddda156c4" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfPluginProxyModel::mSearchTerm</definition>
+        <argsstring></argsstring>
+        <name>mSearchTerm</name>
+        <qualifiedname>QfPluginProxyModel::mSearchTerm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="182" column="13" bodyfile="src/app/qfpluginmodel.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPluginProxyModel_1a8b4f94e2de0a08386965fe1da7e6f3a1" prot="private" static="no" mutable="no">
+        <type>PluginFilter</type>
+        <definition>PluginFilter QfPluginProxyModel::mFilter</definition>
+        <argsstring></argsstring>
+        <name>mFilter</name>
+        <qualifiedname>QfPluginProxyModel::mFilter</qualifiedname>
+        <initializer>= LocalPlugin</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="183" column="18" bodyfile="src/app/qfpluginmodel.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfPluginProxyModel_1a2e6fec70b9a91a5cb741379b9841e65f" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfPluginProxyModel::QfPluginProxyModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfPluginProxyModel</name>
+        <qualifiedname>QfPluginProxyModel::QfPluginProxyModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="151" column="14" bodyfile="src/app/qfpluginmodel.cpp" bodystart="423" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginProxyModel_1acc00bee1123248f03e4199b4c768146a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfPluginProxyModel::searchTerm</definition>
+        <argsstring>() const</argsstring>
+        <name>searchTerm</name>
+        <qualifiedname>QfPluginProxyModel::searchTerm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current search term used to filter items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="156" column="13" bodyfile="src/app/qfpluginmodel.cpp" bodystart="431" bodyend="434"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginProxyModel_1a3d60b8b7d75e65939fee0b9fd7cad452" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginProxyModel::setSearchTerm</definition>
+        <argsstring>(const QString &amp;searchTerm)</argsstring>
+        <name>setSearchTerm</name>
+        <qualifiedname>QfPluginProxyModel::setSearchTerm</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>searchTerm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the search term for filtering and updates the filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="161" column="10" bodyfile="src/app/qfpluginmodel.cpp" bodystart="436" bodyend="445"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginProxyModel_1a17bbb3ae540d4e1c2083ecec000c68b7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>PluginFilter</type>
+        <definition>QfPluginProxyModel::PluginFilter QfPluginProxyModel::filter</definition>
+        <argsstring>() const</argsstring>
+        <name>filter</name>
+        <qualifiedname>QfPluginProxyModel::filter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current plugin filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="166" column="18" bodyfile="src/app/qfpluginmodel.cpp" bodystart="492" bodyend="495"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginProxyModel_1a2e3d99b9a25379399280c045b7ad70a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginProxyModel::setFilter</definition>
+        <argsstring>(PluginFilter filter)</argsstring>
+        <name>setFilter</name>
+        <qualifiedname>QfPluginProxyModel::setFilter</qualifiedname>
+        <param>
+          <type>PluginFilter</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the plugin <emphasis>filter</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="171" column="10" bodyfile="src/app/qfpluginmodel.cpp" bodystart="470" bodyend="482"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classQfPluginProxyModel_1aa520554b462230104790180c612dcd0d" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPluginProxyModel::filterAcceptsRow</definition>
+        <argsstring>(int sourceRow, const QModelIndex &amp;sourceParent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>QfPluginProxyModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceParent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="174" column="10" bodyfile="src/app/qfpluginmodel.cpp" bodystart="447" bodyend="467"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPluginProxyModel_1a775f8b45d8e4d27ef3546addf24c9f6e" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPluginProxyModel::lessThan</definition>
+        <argsstring>(const QModelIndex &amp;sourceLeft, const QModelIndex &amp;sourceRight) const override</argsstring>
+        <name>lessThan</name>
+        <qualifiedname>QfPluginProxyModel::lessThan</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceRight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="175" column="10" bodyfile="src/app/qfpluginmodel.cpp" bodystart="484" bodyend="490"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfPluginProxyModel_1afbdc70794f2d51b76f70b42027632d7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginProxyModel::searchTermChanged</definition>
+        <argsstring>()</argsstring>
+        <name>searchTermChanged</name>
+        <qualifiedname>QfPluginProxyModel::searchTermChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="178" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPluginProxyModel_1aaa74b60e081f01a8de31912a1a333d4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPluginProxyModel::filterChanged</definition>
+        <argsstring>()</argsstring>
+        <name>filterChanged</name>
+        <qualifiedname>QfPluginProxyModel::filterChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfpluginmodel.h" line="179" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfPluginProxyModel</label>
+        <link refid="classQfPluginProxyModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfPluginProxyModel</label>
+        <link refid="classQfPluginProxyModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qfpluginmodel.h" line="137" column="1" bodyfile="src/app/qfpluginmodel.h" bodystart="138" bodyend="184"/>
+    <listofallmembers>
+      <member refid="classQfPluginProxyModel_1aca6f85a9e4c5b16b75d8a5f3c1a173e5" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>filter</name></member>
+      <member refid="classQfPluginProxyModel_1a17bbb3ae540d4e1c2083ecec000c68b7" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>filter</name></member>
+      <member refid="classQfPluginProxyModel_1aa520554b462230104790180c612dcd0d" prot="protected" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classQfPluginProxyModel_1aaa74b60e081f01a8de31912a1a333d4b" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>filterChanged</name></member>
+      <member refid="classQfPluginProxyModel_1a775f8b45d8e4d27ef3546addf24c9f6e" prot="protected" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>lessThan</name></member>
+      <member refid="classQfPluginProxyModel_1ae533d667293bf42a2ee178a747ed964fa62856f33b39164fd42ef635739647c89" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>LocalPlugin</name></member>
+      <member refid="classQfPluginProxyModel_1a8b4f94e2de0a08386965fe1da7e6f3a1" prot="private" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>mFilter</name></member>
+      <member refid="classQfPluginProxyModel_1aef8501c342d08cbe1f4645dddda156c4" prot="private" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>mSearchTerm</name></member>
+      <member refid="classQfPluginProxyModel_1ae533d667293bf42a2ee178a747ed964f" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>PluginFilter</name></member>
+      <member refid="classQfPluginProxyModel_1a2e6fec70b9a91a5cb741379b9841e65f" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>QfPluginProxyModel</name></member>
+      <member refid="classQfPluginProxyModel_1ae533d667293bf42a2ee178a747ed964fad9011da66bf92282d77a80aeb0836668" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>RemotePlugin</name></member>
+      <member refid="classQfPluginProxyModel_1a2f9e57172ae4e4d7317f4c45af95ce53" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>searchTerm</name></member>
+      <member refid="classQfPluginProxyModel_1acc00bee1123248f03e4199b4c768146a" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>searchTerm</name></member>
+      <member refid="classQfPluginProxyModel_1afbdc70794f2d51b76f70b42027632d7c" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>searchTermChanged</name></member>
+      <member refid="classQfPluginProxyModel_1a2e3d99b9a25379399280c045b7ad70a1" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>setFilter</name></member>
+      <member refid="classQfPluginProxyModel_1a3d60b8b7d75e65939fee0b9fd7cad452" prot="public" virt="non-virtual"><scope>QfPluginProxyModel</scope><name>setSearchTerm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

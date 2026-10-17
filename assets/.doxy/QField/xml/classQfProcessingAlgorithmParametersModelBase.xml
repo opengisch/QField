@@ -1,0 +1,569 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProcessingAlgorithmParametersModelBase" kind="class" language="C++" prot="public">
+    <compoundname>QfProcessingAlgorithmParametersModelBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="qfprocessingalgorithmparametersmodel_8h" local="no">qfprocessingalgorithmparametersmodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Role</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::Role</qualifiedname>
+        <enumvalue id="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0ab1a626801c12cf2854fdb25f3fd04a93" prot="public">
+          <name>ParameterTypeRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0aadb064a33b8bd1aa996827f50665d0ac" prot="public">
+          <name>ParameterDescriptionRole</name>
+          <briefdescription>
+<para>the parameter type </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0afb3fd62cc06ef7920f2247029f1ff5f0" prot="public">
+          <name>ParameterFlagsRole</name>
+          <briefdescription>
+<para>the parameter description </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0a42cf52b69a95c4d854ab8f0ced09bab5" prot="public">
+          <name>ParameterDefaultValueRole</name>
+          <briefdescription>
+<para>the parameter description </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0a2d19d248cfc1a2414f892d666f8b7efe" prot="public">
+          <name>ParameterValueRole</name>
+          <briefdescription>
+<para>the parameter default value </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0a057beff1eb409e5833d3ba744f46867f" prot="public">
+          <name>ParameterConfigurationRole</name>
+          <briefdescription>
+<para>the parameter value </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Roles of the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="171" column="5" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="172" bodyend="179"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfProcessingAlgorithmParametersModelBase_1ad540e225225408bfa16897280cfaa9a0" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfProcessingAlgorithmParametersModelBase::mAlgorithmId</definition>
+        <argsstring></argsstring>
+        <name>mAlgorithmId</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::mAlgorithmId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="266" column="13" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmParametersModelBase_1a500834648657a817d1af46ceb6d4def9" prot="private" static="no" mutable="no">
+        <type>const QgsProcessingAlgorithm *</type>
+        <definition>const QgsProcessingAlgorithm* QfProcessingAlgorithmParametersModelBase::mAlgorithm</definition>
+        <argsstring></argsstring>
+        <name>mAlgorithm</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::mAlgorithm</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="267" column="34" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmParametersModelBase_1af2b9303ef132741d7b2576b235769c07" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; QfProcessingAlgorithmParametersModelBase::mInPlaceLayer</definition>
+        <argsstring></argsstring>
+        <name>mInPlaceLayer</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::mInPlaceLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="269" column="14" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="269" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmParametersModelBase_1a3b22ead53904cf0983730767ba651405" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfProcessingAlgorithmParametersModelBase::mHasAdvancedParameters</definition>
+        <argsstring></argsstring>
+        <name>mHasAdvancedParameters</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::mHasAdvancedParameters</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="271" column="10" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmParametersModelBase_1a1607927011c91b328f3c4384a30535e5" prot="private" static="no" mutable="no">
+        <type>QList&lt; const QgsProcessingParameterDefinition * &gt;</type>
+        <definition>QList&lt;const QgsProcessingParameterDefinition *&gt; QfProcessingAlgorithmParametersModelBase::mParameters</definition>
+        <argsstring></argsstring>
+        <name>mParameters</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::mParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="273" column="11" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmParametersModelBase_1a0eb92495f39d7119b15c1eef3bf1282e" prot="private" static="no" mutable="no">
+        <type>QList&lt; QVariant &gt;</type>
+        <definition>QList&lt;QVariant&gt; QfProcessingAlgorithmParametersModelBase::mValues</definition>
+        <argsstring></argsstring>
+        <name>mValues</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::mValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="274" column="11" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="274" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1a30c4e8b98c70056b9f7af86cb3a0e369" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfProcessingAlgorithmParametersModelBase::QfProcessingAlgorithmParametersModelBase</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfProcessingAlgorithmParametersModelBase</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::QfProcessingAlgorithmParametersModelBase</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="182" column="14" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="130" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1aa56e96c8e11f2c808bd9c6f8ff35bf86" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfProcessingAlgorithmParametersModelBase::algorithmId</definition>
+        <argsstring>() const</argsstring>
+        <name>algorithmId</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::algorithmId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current algorithm ID from which parameters are taken from. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="187" column="13" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="187" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1a0c0f6ccf7c034e03fc3669be6c510803" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingAlgorithmParametersModelBase::setAlgorithmId</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>setAlgorithmId</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::setAlgorithmId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current algorithm <emphasis>ID</emphasis> from which parameters are taken from. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="192" column="10" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="167" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1adc1b146d14bd73c43bedd6beb82c7c36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfProcessingAlgorithmParametersModelBase::inPlaceLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>inPlaceLayer</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::inPlaceLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the vector <emphasis>layer</emphasis> for in-place algorithms for parameters to take details from. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="197" column="20" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="197" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1a866798f7c6a841a0bb8b54fb30464e7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingAlgorithmParametersModelBase::setInPlaceLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>setInPlaceLayer</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::setInPlaceLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the vector <emphasis>layer</emphasis> for in-place algorithm filter for parameters to take details from. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="202" column="10" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="183" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1aaaa4d3cd79fa99663396643aa3201dfd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfProcessingAlgorithmParametersModelBase::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the current model refers to a valid algorithm. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="207" column="10" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="207" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1a62754cdd0b2ed44b7bab89f698eff3fa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfProcessingAlgorithmParametersModelBase::hasParameters</definition>
+        <argsstring>() const</argsstring>
+        <name>hasParameters</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::hasParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the current model has parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="212" column="10" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="212" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1aeeaae47ee0c3bbc9563264f12891acec" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfProcessingAlgorithmParametersModelBase::hasAdvancedParameters</definition>
+        <argsstring>() const</argsstring>
+        <name>hasAdvancedParameters</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::hasAdvancedParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the current model has advanced parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="217" column="10" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="217" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1a2a7f3503dfd0595d27d3ec0464749d85" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfProcessingAlgorithmParametersModelBase::algorithmDisplayName</definition>
+        <argsstring>() const</argsstring>
+        <name>algorithmDisplayName</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::algorithmDisplayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the display name of the algorithm. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="222" column="13" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1aaa164c1fbf0af698030f4c60e5d425a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfProcessingAlgorithmParametersModelBase::algorithmShortHelp</definition>
+        <argsstring>() const</argsstring>
+        <name>algorithmShortHelp</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::algorithmShortHelp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a short description of the algorithm. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="227" column="13" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="203" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1a280b2b8d15e8ea23e27875d3b4a861db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QfProcessingAlgorithmParametersModelBase::parameters</definition>
+        <argsstring>()</argsstring>
+        <name>parameters</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::parameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a variant map of parameter names and values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="232" column="17" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="208" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1a904929a2b497cc7187a0513a9489cb80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingAlgorithmParametersModelBase::setParameters</definition>
+        <argsstring>(const QVariantMap &amp;parameters)</argsstring>
+        <name>setParameters</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::setParameters</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the values of the parameters model from variant map of parameter names and values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="237" column="10" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="218" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1af12bc274f72e4bf59180a882218478b9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfProcessingAlgorithmParametersModelBase::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="239" column="11" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="231" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1ad7e03f44a0383e4a69d3bfe1b5692965" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfProcessingAlgorithmParametersModelBase::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="240" column="9" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="244" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1a620b5f3fbb46dfc7a4d37354b33644f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfProcessingAlgorithmParametersModelBase::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="241" column="14" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="249" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1ae86e8cb57000d453e2fc35f9408cc04d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfProcessingAlgorithmParametersModelBase::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::EditRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="242" column="10" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="323" bodyend="341"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfProcessingAlgorithmParametersModelBase_1ad33b56f0c8f2ed2d1fe960a4a3700ecf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingAlgorithmParametersModelBase::algorithmIdChanged</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>algorithmIdChanged</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::algorithmIdChanged</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the algorithm ID has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="248" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfProcessingAlgorithmParametersModelBase_1a2db8a1ef2b5cde47bf1c8a1b95de83ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingAlgorithmParametersModelBase::inPlaceLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>inPlaceLayerChanged</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::inPlaceLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the in place vector layer has changed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="253" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfProcessingAlgorithmParametersModelBase_1a4a80a44c3b6fc16c66beb5f12402e761" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingAlgorithmParametersModelBase::parametersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>parametersChanged</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::parametersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the parameters have changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="258" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfProcessingAlgorithmParametersModelBase_1aca7781ea7d6a3764c87cf5166aac7f7a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingAlgorithmParametersModelBase::rebuild</definition>
+        <argsstring>()</argsstring>
+        <name>rebuild</name>
+        <qualifiedname>QfProcessingAlgorithmParametersModelBase::rebuild</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rebuilds the processing algorithm parameters model. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="264" column="10" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.cpp" bodystart="135" bodyend="165"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A model for configuring processing algorithm parameters. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfProcessingAlgorithmParametersModelBase</label>
+        <link refid="classQfProcessingAlgorithmParametersModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfProcessingAlgorithmParametersModelBase</label>
+        <link refid="classQfProcessingAlgorithmParametersModelBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/processing/qfprocessingalgorithmparametersmodel.h" line="165" column="1" bodyfile="src/core/processing/qfprocessingalgorithmparametersmodel.h" bodystart="166" bodyend="275"/>
+    <listofallmembers>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a2a7f3503dfd0595d27d3ec0464749d85" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>algorithmDisplayName</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1aa56e96c8e11f2c808bd9c6f8ff35bf86" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>algorithmId</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1ad33b56f0c8f2ed2d1fe960a4a3700ecf" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>algorithmIdChanged</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1aaa164c1fbf0af698030f4c60e5d425a9" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>algorithmShortHelp</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a620b5f3fbb46dfc7a4d37354b33644f0" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>data</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1aeeaae47ee0c3bbc9563264f12891acec" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>hasAdvancedParameters</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a62754cdd0b2ed44b7bab89f698eff3fa" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>hasParameters</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1adc1b146d14bd73c43bedd6beb82c7c36" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>inPlaceLayer</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a2db8a1ef2b5cde47bf1c8a1b95de83ff" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>inPlaceLayerChanged</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1aaaa4d3cd79fa99663396643aa3201dfd" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>isValid</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a500834648657a817d1af46ceb6d4def9" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>mAlgorithm</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1ad540e225225408bfa16897280cfaa9a0" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>mAlgorithmId</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a3b22ead53904cf0983730767ba651405" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>mHasAdvancedParameters</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1af2b9303ef132741d7b2576b235769c07" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>mInPlaceLayer</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a1607927011c91b328f3c4384a30535e5" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>mParameters</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a0eb92495f39d7119b15c1eef3bf1282e" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>mValues</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0a057beff1eb409e5833d3ba744f46867f" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>ParameterConfigurationRole</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0a42cf52b69a95c4d854ab8f0ced09bab5" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>ParameterDefaultValueRole</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0aadb064a33b8bd1aa996827f50665d0ac" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>ParameterDescriptionRole</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0afb3fd62cc06ef7920f2247029f1ff5f0" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>ParameterFlagsRole</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a280b2b8d15e8ea23e27875d3b4a861db" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>parameters</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a4a80a44c3b6fc16c66beb5f12402e761" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>parametersChanged</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0ab1a626801c12cf2854fdb25f3fd04a93" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>ParameterTypeRole</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0a2d19d248cfc1a2414f892d666f8b7efe" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>ParameterValueRole</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a30c4e8b98c70056b9f7af86cb3a0e369" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>QfProcessingAlgorithmParametersModelBase</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1aca7781ea7d6a3764c87cf5166aac7f7a" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>rebuild</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1ad6a167795c79dd53ea7fef74101223b0" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>Role</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1af12bc274f72e4bf59180a882218478b9" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>roleNames</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1ad7e03f44a0383e4a69d3bfe1b5692965" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>rowCount</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a0c0f6ccf7c034e03fc3669be6c510803" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>setAlgorithmId</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1ae86e8cb57000d453e2fc35f9408cc04d" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>setData</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a866798f7c6a841a0bb8b54fb30464e7d" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>setInPlaceLayer</name></member>
+      <member refid="classQfProcessingAlgorithmParametersModelBase_1a904929a2b497cc7187a0513a9489cb80" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmParametersModelBase</scope><name>setParameters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

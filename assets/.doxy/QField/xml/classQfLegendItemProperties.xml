@@ -1,0 +1,640 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLegendItemProperties" kind="class" language="C++" prot="public">
+    <compoundname>QfLegendItemProperties</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <derivedcompoundref refid="classLayerTreeItemProperties" prot="public" virt="non-virtual">LayerTreeItemProperties</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfLegendItemProperties_1a35483bc2e049d4114570cb469b1bc02b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::layerTree</definition>
+        <argsstring></argsstring>
+        <name>layerTree</name>
+        <qualifiedname>QfLegendItemProperties::layerTree</qualifiedname>
+        <read>dummyGetter_layerTree_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="13" column="1" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLegendItemProperties_1ad8b7d4186372b61c69d39ea2b9356027" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <qualifiedname>QfLegendItemProperties::index</qualifiedname>
+        <read>dummyGetter_index_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="15" column="1" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLegendItemProperties_1afcccdca6c02cd9a3dcdbe018cdd33d79" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLegendItemProperties::zoomToButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>zoomToButtonVisible</name>
+        <qualifiedname>QfLegendItemProperties::zoomToButtonVisible</qualifiedname>
+        <read>dummyGetter_zoomToButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="17" column="1" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLegendItemProperties_1ace25836f80df3beb9a048a18fdcf5e1f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLegendItemProperties::showFeaturesListButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>showFeaturesListButtonVisible</name>
+        <qualifiedname>QfLegendItemProperties::showFeaturesListButtonVisible</qualifiedname>
+        <read>dummyGetter_showFeaturesListButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="19" column="1" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLegendItemProperties_1a7d1aea7096498f54cc99135bab70d348" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLegendItemProperties::showVisibleFeaturesListDropdownVisible</definition>
+        <argsstring></argsstring>
+        <name>showVisibleFeaturesListDropdownVisible</name>
+        <qualifiedname>QfLegendItemProperties::showVisibleFeaturesListDropdownVisible</qualifiedname>
+        <read>dummyGetter_showVisibleFeaturesListDropdownVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="21" column="1" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLegendItemProperties_1a0b3b86a25044db521a2b0c28929e4dee" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLegendItemProperties::reloadDataButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>reloadDataButtonVisible</name>
+        <qualifiedname>QfLegendItemProperties::reloadDataButtonVisible</qualifiedname>
+        <read>dummyGetter_reloadDataButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="23" column="1" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLegendItemProperties_1a88a8c763f6a129e865eeb6034352ae5b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLegendItemProperties::trackingButtonVisible</definition>
+        <argsstring></argsstring>
+        <name>trackingButtonVisible</name>
+        <qualifiedname>QfLegendItemProperties::trackingButtonVisible</qualifiedname>
+        <read>dummyGetter_trackingButtonVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="25" column="1" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLegendItemProperties_1a518d69f4af9dffd37dc9cf2ba5cc49e4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::trackingButtonText</definition>
+        <argsstring></argsstring>
+        <name>trackingButtonText</name>
+        <qualifiedname>QfLegendItemProperties::trackingButtonText</qualifiedname>
+        <read>dummyGetter_trackingButtonText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="27" column="1" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLegendItemProperties_1ab2f0bb4787e45cfb16924d3a06fc3696" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLegendItemProperties::opacitySliderVisible</definition>
+        <argsstring></argsstring>
+        <name>opacitySliderVisible</name>
+        <qualifiedname>QfLegendItemProperties::opacitySliderVisible</qualifiedname>
+        <read>dummyGetter_opacitySliderVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="29" column="1" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a2d7852cd1c95471ea856bb24e365f286" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfLegendItemProperties::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="31" column="5" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a6f379c22a330ecdadcd8a5148ef79303" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfLegendItemProperties::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="32" column="5" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1ac0d4d4a4bc60d2647d474684b298ef87" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfLegendItemProperties::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="33" column="5" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1abc920850d9e74de011d0596fb8c88c72" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfLegendItemProperties::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="34" column="5" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a7310ca0b6e402bd75f6cf162aa1da4dc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfLegendItemProperties::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="35" column="5" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a6ccec8ae8a3d9d33eb713ec282dd3919" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfLegendItemProperties::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="36" column="5" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1ac88d439882c1c2c7c4da0a2d40dfe8c9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfLegendItemProperties::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="37" column="5" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1aa815cdade8f08e6a1181289febab1e5f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>QfLegendItemProperties::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="38" column="5" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1aa575c469d760199e1d12b0cf4e39a5f5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLegendItemProperties::onIndexChanged</definition>
+        <argsstring></argsstring>
+        <name>onIndexChanged</name>
+        <qualifiedname>QfLegendItemProperties::onIndexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="39" column="5" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a9e3fb1c1217ebd247d9a59ca752008f3" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page QfLegendItemProperties::popupContent</definition>
+        <argsstring></argsstring>
+        <name>popupContent</name>
+        <qualifiedname>QfLegendItemProperties::popupContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="40" column="6" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1acbf6634e104fe22768bf7f6ebdf2eed9" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfLegendItemProperties::popupLayout</definition>
+        <argsstring></argsstring>
+        <name>popupLayout</name>
+        <qualifiedname>QfLegendItemProperties::popupLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="41" column="14" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a7adcb8628c6f957953dd67894adab465" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfLegendItemProperties::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>QfLegendItemProperties::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="42" column="13" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a195f6131b1747ec2f6810a846b3145e2" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfLegendItemProperties::invalidText</definition>
+        <argsstring></argsstring>
+        <name>invalidText</name>
+        <qualifiedname>QfLegendItemProperties::invalidText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="43" column="6" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1aae1f26d38616798e77953ea8f06782ac" prot="private" static="no" mutable="no">
+        <type>CheckBox</type>
+        <definition>CheckBox QfLegendItemProperties::expandCheckBox</definition>
+        <argsstring></argsstring>
+        <name>expandCheckBox</name>
+        <qualifiedname>QfLegendItemProperties::expandCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="44" column="10" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a03d88dbaa97aa44298ebf95ca571cfb5" prot="private" static="no" mutable="no">
+        <type>CheckBox</type>
+        <definition>CheckBox QfLegendItemProperties::itemVisibleCheckBox</definition>
+        <argsstring></argsstring>
+        <name>itemVisibleCheckBox</name>
+        <qualifiedname>QfLegendItemProperties::itemVisibleCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="45" column="10" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a90d9d37e23c5133557f42a5316858385" prot="private" static="no" mutable="no">
+        <type>CheckBox</type>
+        <definition>CheckBox QfLegendItemProperties::itemLabelsVisibleCheckBox</definition>
+        <argsstring></argsstring>
+        <name>itemLabelsVisibleCheckBox</name>
+        <qualifiedname>QfLegendItemProperties::itemLabelsVisibleCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="46" column="10" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1abeada905a603b653260172215e6d6ad9" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfLegendItemProperties::opacitySlider</definition>
+        <argsstring></argsstring>
+        <name>opacitySlider</name>
+        <qualifiedname>QfLegendItemProperties::opacitySlider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="47" column="11" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1aea54c675b38709035bac286bc92ff7af" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSlider" kindref="compound">QfSlider</ref></type>
+        <definition>QfSlider QfLegendItemProperties::slider</definition>
+        <argsstring></argsstring>
+        <name>slider</name>
+        <qualifiedname>QfLegendItemProperties::slider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="48" column="10" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a69e1a176c9a1c4d4d2a4d3fce0901ec6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfLegendItemProperties::zoomToButton</definition>
+        <argsstring></argsstring>
+        <name>zoomToButton</name>
+        <qualifiedname>QfLegendItemProperties::zoomToButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="49" column="10" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1ad9cb6694114dfaa9e73a766dbf7bbf32" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfLegendItemProperties::showFeaturesList</definition>
+        <argsstring></argsstring>
+        <name>showFeaturesList</name>
+        <qualifiedname>QfLegendItemProperties::showFeaturesList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="50" column="10" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a877bb70202a0f0a6dc8b04747377191a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfLegendItemProperties::trackingButton</definition>
+        <argsstring></argsstring>
+        <name>trackingButton</name>
+        <qualifiedname>QfLegendItemProperties::trackingButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="51" column="10" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a4eae967a3e969e494bcb15a33a5f482d" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfLegendItemProperties::lockText</definition>
+        <argsstring></argsstring>
+        <name>lockText</name>
+        <qualifiedname>QfLegendItemProperties::lockText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="52" column="6" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1a81a1316ffc6fb2b6397785245b2787c7" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfLegendItemProperties::creditsText</definition>
+        <argsstring></argsstring>
+        <name>creditsText</name>
+        <qualifiedname>QfLegendItemProperties::creditsText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="53" column="6" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLegendItemProperties_1aef1b69865422c4fc3f34a5be2d6efc3c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QfLegendItemProperties::showFeaturesMenu</definition>
+        <argsstring></argsstring>
+        <name>showFeaturesMenu</name>
+        <qualifiedname>QfLegendItemProperties::showFeaturesMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="54" column="8" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfLegendItemProperties_1aafbe8a96417f31f9c043d0c5d2335cf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLegendItemProperties::updateTitle</definition>
+        <argsstring>()</argsstring>
+        <name>updateTitle</name>
+        <qualifiedname>QfLegendItemProperties::updateTitle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="57" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLegendItemProperties_1a445f41c9a1057f3c32874397586dc41b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLegendItemProperties::updateCredits</definition>
+        <argsstring>()</argsstring>
+        <name>updateCredits</name>
+        <qualifiedname>QfLegendItemProperties::updateCredits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="59" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLegendItemProperties_1a8c8350e28136daadf912247a5dc9f13e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLegendItemProperties::isTrackingButtonVisible</definition>
+        <argsstring>()</argsstring>
+        <name>isTrackingButtonVisible</name>
+        <qualifiedname>QfLegendItemProperties::isTrackingButtonVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="61" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLegendItemProperties_1a5bb615327f076b5d5f46b612ed796d49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLegendItemProperties::isShowFeaturesListButtonVisible</definition>
+        <argsstring>()</argsstring>
+        <name>isShowFeaturesListButtonVisible</name>
+        <qualifiedname>QfLegendItemProperties::isShowFeaturesListButtonVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="63" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLegendItemProperties_1a311efb35a1d6fd2f46a8e73363982667" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLegendItemProperties::isShowVisibleFeaturesListDropdownVisible</definition>
+        <argsstring>()</argsstring>
+        <name>isShowVisibleFeaturesListDropdownVisible</name>
+        <qualifiedname>QfLegendItemProperties::isShowVisibleFeaturesListDropdownVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLegendItemProperties.qml" line="65" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>LayerTreeItemProperties</label>
+        <link refid="classLayerTreeItemProperties"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfLegendItemProperties</label>
+        <link refid="classQfLegendItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfLegendItemProperties</label>
+        <link refid="classQfLegendItemProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfLegendItemProperties.qml" line="10" column="1" bodyfile="src/gui/qml/QfLegendItemProperties.qml" bodystart="10" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classQfLegendItemProperties_1a6ccec8ae8a3d9d33eb713ec282dd3919" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>closePolicy</name></member>
+      <member refid="classQfLegendItemProperties_1a81a1316ffc6fb2b6397785245b2787c7" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>creditsText</name></member>
+      <member refid="classQfLegendItemProperties_1aae1f26d38616798e77953ea8f06782ac" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>expandCheckBox</name></member>
+      <member refid="classQfLegendItemProperties_1ac88d439882c1c2c7c4da0a2d40dfe8c9" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>focus</name></member>
+      <member refid="classQfLegendItemProperties_1a7adcb8628c6f957953dd67894adab465" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>fontMetrics</name></member>
+      <member refid="classQfLegendItemProperties_1ac0d4d4a4bc60d2647d474684b298ef87" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>height</name></member>
+      <member refid="classQfLegendItemProperties_1ad8b7d4186372b61c69d39ea2b9356027" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>index</name></member>
+      <member refid="classQfLegendItemProperties_1a195f6131b1747ec2f6810a846b3145e2" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>invalidText</name></member>
+      <member refid="classQfLegendItemProperties_1a5bb615327f076b5d5f46b612ed796d49" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>isShowFeaturesListButtonVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a311efb35a1d6fd2f46a8e73363982667" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>isShowVisibleFeaturesListDropdownVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a8c8350e28136daadf912247a5dc9f13e" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>isTrackingButtonVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a90d9d37e23c5133557f42a5316858385" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>itemLabelsVisibleCheckBox</name></member>
+      <member refid="classQfLegendItemProperties_1a03d88dbaa97aa44298ebf95ca571cfb5" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>itemVisibleCheckBox</name></member>
+      <member refid="classQfLegendItemProperties_1a35483bc2e049d4114570cb469b1bc02b" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>layerTree</name></member>
+      <member refid="classQfLegendItemProperties_1a4eae967a3e969e494bcb15a33a5f482d" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>lockText</name></member>
+      <member refid="classQfLegendItemProperties_1aa815cdade8f08e6a1181289febab1e5f" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>onClosed</name></member>
+      <member refid="classQfLegendItemProperties_1aa575c469d760199e1d12b0cf4e39a5f5" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>onIndexChanged</name></member>
+      <member refid="classQfLegendItemProperties_1abeada905a603b653260172215e6d6ad9" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>opacitySlider</name></member>
+      <member refid="classQfLegendItemProperties_1ab2f0bb4787e45cfb16924d3a06fc3696" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>opacitySliderVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a2d7852cd1c95471ea856bb24e365f286" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>parent</name></member>
+      <member refid="classQfLegendItemProperties_1a9e3fb1c1217ebd247d9a59ca752008f3" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>popupContent</name></member>
+      <member refid="classQfLegendItemProperties_1acbf6634e104fe22768bf7f6ebdf2eed9" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>popupLayout</name></member>
+      <member refid="classQfLegendItemProperties_1a0b3b86a25044db521a2b0c28929e4dee" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>reloadDataButtonVisible</name></member>
+      <member refid="classQfLegendItemProperties_1ad9cb6694114dfaa9e73a766dbf7bbf32" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>showFeaturesList</name></member>
+      <member refid="classQfLegendItemProperties_1ace25836f80df3beb9a048a18fdcf5e1f" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>showFeaturesListButtonVisible</name></member>
+      <member refid="classQfLegendItemProperties_1aef1b69865422c4fc3f34a5be2d6efc3c" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>showFeaturesMenu</name></member>
+      <member refid="classQfLegendItemProperties_1a7d1aea7096498f54cc99135bab70d348" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>showVisibleFeaturesListDropdownVisible</name></member>
+      <member refid="classQfLegendItemProperties_1aea54c675b38709035bac286bc92ff7af" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>slider</name></member>
+      <member refid="classQfLegendItemProperties_1a877bb70202a0f0a6dc8b04747377191a" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>trackingButton</name></member>
+      <member refid="classQfLegendItemProperties_1a518d69f4af9dffd37dc9cf2ba5cc49e4" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>trackingButtonText</name></member>
+      <member refid="classQfLegendItemProperties_1a88a8c763f6a129e865eeb6034352ae5b" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>trackingButtonVisible</name></member>
+      <member refid="classQfLegendItemProperties_1a445f41c9a1057f3c32874397586dc41b" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>updateCredits</name></member>
+      <member refid="classQfLegendItemProperties_1aafbe8a96417f31f9c043d0c5d2335cf5" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>updateTitle</name></member>
+      <member refid="classQfLegendItemProperties_1a6f379c22a330ecdadcd8a5148ef79303" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>width</name></member>
+      <member refid="classQfLegendItemProperties_1abc920850d9e74de011d0596fb8c88c72" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>x</name></member>
+      <member refid="classQfLegendItemProperties_1a7310ca0b6e402bd75f6cf162aa1da4dc" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>y</name></member>
+      <member refid="classQfLegendItemProperties_1a69e1a176c9a1c4d4d2a4d3fce0901ec6" prot="private" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>zoomToButton</name></member>
+      <member refid="classQfLegendItemProperties_1afcccdca6c02cd9a3dcdbe018cdd33d79" prot="public" virt="non-virtual"><scope>QfLegendItemProperties</scope><name>zoomToButtonVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

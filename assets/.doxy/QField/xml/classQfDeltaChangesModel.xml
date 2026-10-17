@@ -1,0 +1,520 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfDeltaChangesModel" kind="class" language="C++" prot="public">
+    <compoundname>QfDeltaChangesModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="qfdeltachangesmodel_8h" local="no">qfdeltachangesmodel.h</includes>
+    <innerclass refid="structQfDeltaChangesModel_1_1DeltaChange" prot="private">QfDeltaChangesModel::DeltaChange</innerclass>
+    <innerclass refid="structQfDeltaChangesModel_1_1LayerSummary" prot="private">QfDeltaChangesModel::LayerSummary</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ColumnRole</name>
+        <qualifiedname>QfDeltaChangesModel::ColumnRole</qualifiedname>
+        <enumvalue id="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726a79f41809e1b26d4b8ded975d2d0545c6" prot="public">
+          <name>LayerIdRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726a87bf88800ff0f061b36c4cffad0ea04f" prot="public">
+          <name>MethodRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726a3259eb22c3654819d594f2971a3fecff" prot="public">
+          <name>FeatureNameRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726ada3a22654fb51b8d51e77ada991f5875" prot="public">
+          <name>AttributeChangesRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726ad1be2143cb318116754e33790bd37d22" prot="public">
+          <name>HasGeometryChangeRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="70" column="5" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="71" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfDeltaChangesModel_1a7beb27456ee84cc5b894458a25dc7ff6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>DeltaMethod</name>
+        <qualifiedname>QfDeltaChangesModel::DeltaMethod</qualifiedname>
+        <enumvalue id="classQfDeltaChangesModel_1a7beb27456ee84cc5b894458a25dc7ff6a7182d5ee1f2ad7a0c9cccbf7bbb5f3e4" prot="public">
+          <name>UnknownMethod</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfDeltaChangesModel_1a7beb27456ee84cc5b894458a25dc7ff6ae02ecb9465ccafd6c02c4b7454228aab" prot="public">
+          <name>CreateMethod</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfDeltaChangesModel_1a7beb27456ee84cc5b894458a25dc7ff6ab6f9c02f26e60d18693d3a46b53a0e8e" prot="public">
+          <name>PatchMethod</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfDeltaChangesModel_1a7beb27456ee84cc5b894458a25dc7ff6a5e8c56915535eb833bfa7f8b71959bb3" prot="public">
+          <name>DeleteMethod</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="80" column="5" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="81" bodyend="86"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfDeltaChangesModel_1a1500cdb6296546ae8e870a559f8c68a9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfDeltaFileWrapper" kindref="compound">QfDeltaFileWrapper</ref> *</type>
+        <definition>QfDeltaFileWrapper * QfDeltaChangesModel::deltaFileWrapper</definition>
+        <argsstring></argsstring>
+        <name>deltaFileWrapper</name>
+        <qualifiedname>QfDeltaChangesModel::deltaFileWrapper</qualifiedname>
+        <read>deltaFileWrapper</read>
+        <write>setDeltaFileWrapper</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="67" column="5" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfDeltaChangesModel_1a78b3b0221b9d77403706741b414422dc" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQfDeltaFileWrapper" kindref="compound">QfDeltaFileWrapper</ref> &gt;</type>
+        <definition>QPointer&lt;QfDeltaFileWrapper&gt; QfDeltaChangesModel::mDeltaFileWrapper</definition>
+        <argsstring></argsstring>
+        <name>mDeltaFileWrapper</name>
+        <qualifiedname>QfDeltaChangesModel::mDeltaFileWrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="156" column="14" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDeltaChangesModel_1a88d30bdf5bf9060eb467a43a875f8386" prot="private" static="no" mutable="no">
+        <type>QList&lt; DeltaChange &gt;</type>
+        <definition>QList&lt;DeltaChange&gt; QfDeltaChangesModel::mDeltaChanges</definition>
+        <argsstring></argsstring>
+        <name>mDeltaChanges</name>
+        <qualifiedname>QfDeltaChangesModel::mDeltaChanges</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="157" column="11" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDeltaChangesModel_1a9b6b4e08d8ec468e3e5fecb47f48fd70" prot="private" static="no" mutable="no">
+        <type>QHash&lt; QString, LayerSummary &gt;</type>
+        <definition>QHash&lt;QString, LayerSummary&gt; QfDeltaChangesModel::mLayerSummaries</definition>
+        <argsstring></argsstring>
+        <name>mLayerSummaries</name>
+        <qualifiedname>QfDeltaChangesModel::mLayerSummaries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="158" column="11" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfDeltaChangesModel_1a314f734e8c513a4ebf01034e63597443" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfDeltaChangesModel::QfDeltaChangesModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfDeltaChangesModel</name>
+        <qualifiedname>QfDeltaChangesModel::QfDeltaChangesModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="89" column="14" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDeltaChangesModel_1a0565fd8fcd9521849b5842916c18da01" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfDeltaFileWrapper" kindref="compound">QfDeltaFileWrapper</ref> *</type>
+        <definition>QfDeltaFileWrapper * QfDeltaChangesModel::deltaFileWrapper</definition>
+        <argsstring>() const</argsstring>
+        <name>deltaFileWrapper</name>
+        <qualifiedname>QfDeltaChangesModel::deltaFileWrapper</qualifiedname>
+        <briefdescription>
+<para>Returns the attached delta file wrapper, if any. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="92" column="24" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDeltaChangesModel_1aed01086b581d53c5b8080a1e175877ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDeltaChangesModel::setDeltaFileWrapper</definition>
+        <argsstring>(QfDeltaFileWrapper *deltaFileWrapper)</argsstring>
+        <name>setDeltaFileWrapper</name>
+        <qualifiedname>QfDeltaChangesModel::setDeltaFileWrapper</qualifiedname>
+        <param>
+          <type><ref refid="classQfDeltaFileWrapper" kindref="compound">QfDeltaFileWrapper</ref> *</type>
+          <declname>deltaFileWrapper</declname>
+        </param>
+        <briefdescription>
+<para>Attaches the <emphasis>deltaFileWrapper</emphasis> the rows are read from, pass NULLPTR to detach and clear the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="95" column="10" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="40" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDeltaChangesModel_1a1f8f4ed342c9923c2ff0d357c7ead861" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfDeltaChangesModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfDeltaChangesModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+<para>Returns number of rows. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="98" column="9" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="69" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDeltaChangesModel_1a433114d3db6ea16329650a5405251d1d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfDeltaChangesModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfDeltaChangesModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+<para>Returns the data at given <emphasis>index</emphasis> with given <emphasis>role</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="101" column="14" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="79" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDeltaChangesModel_1aff92f0b9bd3c37cb399301fc6960c24e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfDeltaChangesModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfDeltaChangesModel::roleNames</qualifiedname>
+        <briefdescription>
+<para>Returns the model role names. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="104" column="11" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="104" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDeltaChangesModel_1ac4010d650612f9baedcaff4b3c633926" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QfDeltaChangesModel::layerName</definition>
+        <argsstring>(const QString &amp;layerId) const</argsstring>
+        <name>layerName</name>
+        <qualifiedname>QfDeltaChangesModel::layerName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <briefdescription>
+<para>Returns the name of the layer with the given <emphasis>layerId</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="107" column="25" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDeltaChangesModel_1a8a26e86b1d7fd7b4b9da7cb4efeb4e20" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfDeltaChangesModel::layerGeometryType</definition>
+        <argsstring>(const QString &amp;layerId) const</argsstring>
+        <name>layerGeometryType</name>
+        <qualifiedname>QfDeltaChangesModel::layerGeometryType</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <briefdescription>
+<para>Returns the geometry type of the layer with the given <emphasis>layerId</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="110" column="36" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDeltaChangesModel_1abb5ab645b270399d813c8cb122d0a0d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfDeltaChangesModel::layerChangesCount</definition>
+        <argsstring>(const QString &amp;layerId) const</argsstring>
+        <name>layerChangesCount</name>
+        <qualifiedname>QfDeltaChangesModel::layerChangesCount</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <briefdescription>
+<para>Returns how many pending changes the layer with the given <emphasis>layerId</emphasis> carries. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="113" column="21" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="125" bodyend="128"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfDeltaChangesModel_1ac57f8ea4572b605b3b5a0dcd4761546d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDeltaChangesModel::deltaFileWrapperChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deltaFileWrapperChanged</name>
+        <qualifiedname>QfDeltaChangesModel::deltaFileWrapperChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="116" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classQfDeltaChangesModel_1a0b9f7f7b945b46825975e45d4ef94365" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DeltaMethod</type>
+        <definition>QfDeltaChangesModel::DeltaMethod QfDeltaChangesModel::deltaMethod</definition>
+        <argsstring>(const QJsonObject &amp;delta)</argsstring>
+        <name>deltaMethod</name>
+        <qualifiedname>QfDeltaChangesModel::deltaMethod</qualifiedname>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+<para>Returns the method <emphasis>delta</emphasis> applies. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="137" column="24" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="130" bodyend="147"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfDeltaChangesModel_1a40c3a8b772b01807e412a4a5bbce25dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDeltaChangesModel::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <qualifiedname>QfDeltaChangesModel::refresh</qualifiedname>
+        <briefdescription>
+<para>Rebuilds the rows from the attached delta file wrapper, if any. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="140" column="10" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="149" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDeltaChangesModel_1af0862ca866282a407e43df69e0b910c0" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; DeltaChange &gt;</type>
+        <definition>QList&lt; QfDeltaChangesModel::DeltaChange &gt; QfDeltaChangesModel::layerChanges</definition>
+        <argsstring>(const QString &amp;layerId, const QJsonArray &amp;deltas, QgsVectorLayer *layer) const</argsstring>
+        <name>layerChanges</name>
+        <qualifiedname>QfDeltaChangesModel::layerChanges</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <param>
+          <type>const QJsonArray &amp;</type>
+          <declname>deltas</declname>
+        </param>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Returns one row per delta of the <emphasis>deltas</emphasis> of the <emphasis>layer</emphasis> with the given <emphasis>layerId</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="143" column="11" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="209" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDeltaChangesModel_1acdc4dd016ea385cc05705229e4433a1b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; QString, QString &gt;</type>
+        <definition>QHash&lt; QString, QString &gt; QfDeltaChangesModel::featureDisplayNames</definition>
+        <argsstring>(QgsVectorLayer *layer, const QJsonArray &amp;deltas) const</argsstring>
+        <name>featureDisplayNames</name>
+        <qualifiedname>QfDeltaChangesModel::featureDisplayNames</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QJsonArray &amp;</type>
+          <declname>deltas</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the names to show for the features the <emphasis>deltas</emphasis> of the <emphasis>layer</emphasis> apply to, keyed by local primary key.</para>
+<para>Features still present in the layer are named after their display expression and fetched in a single request, the ones already gone are described by the values their delta kept of them. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="151" column="11" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="233" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDeltaChangesModel_1ac2e22e56b90e27072a0539b7b9ff6926" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="classQfDeltaAttributeChange" kindref="compound">QfDeltaAttributeChange</ref> &gt;</type>
+        <definition>QList&lt; QfDeltaAttributeChange &gt; QfDeltaChangesModel::attributeChanges</definition>
+        <argsstring>(const QJsonObject &amp;delta, DeltaMethod method) const</argsstring>
+        <name>attributeChanges</name>
+        <qualifiedname>QfDeltaChangesModel::attributeChanges</qualifiedname>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <param>
+          <type>DeltaMethod</type>
+          <declname>method</declname>
+        </param>
+        <briefdescription>
+<para>Returns the attributes the <emphasis>delta</emphasis> changed, honouring the semantics of <emphasis>method</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="154" column="11" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.cpp" bodystart="303" bodyend="317"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A list model of the deltas not uploaded to QFieldCloud yet, one row per changed feature, sorted so that the rows of a layer are adjacent and a view can section them by LayerId. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfDeltaChangesModel</label>
+        <link refid="classQfDeltaChangesModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfDeltaChangesModel</label>
+        <link refid="classQfDeltaChangesModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/qfdeltachangesmodel.h" line="63" column="1" bodyfile="src/core/qfieldcloud/qfdeltachangesmodel.h" bodystart="64" bodyend="159"/>
+    <listofallmembers>
+      <member refid="classQfDeltaChangesModel_1ac2e22e56b90e27072a0539b7b9ff6926" prot="private" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>attributeChanges</name></member>
+      <member refid="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726ada3a22654fb51b8d51e77ada991f5875" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>AttributeChangesRole</name></member>
+      <member refid="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>ColumnRole</name></member>
+      <member refid="classQfDeltaChangesModel_1a7beb27456ee84cc5b894458a25dc7ff6ae02ecb9465ccafd6c02c4b7454228aab" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>CreateMethod</name></member>
+      <member refid="classQfDeltaChangesModel_1a433114d3db6ea16329650a5405251d1d" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>data</name></member>
+      <member refid="classQfDeltaChangesModel_1a7beb27456ee84cc5b894458a25dc7ff6a5e8c56915535eb833bfa7f8b71959bb3" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>DeleteMethod</name></member>
+      <member refid="classQfDeltaChangesModel_1a1500cdb6296546ae8e870a559f8c68a9" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>deltaFileWrapper</name></member>
+      <member refid="classQfDeltaChangesModel_1a0565fd8fcd9521849b5842916c18da01" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>deltaFileWrapper</name></member>
+      <member refid="classQfDeltaChangesModel_1ac57f8ea4572b605b3b5a0dcd4761546d" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>deltaFileWrapperChanged</name></member>
+      <member refid="classQfDeltaChangesModel_1a7beb27456ee84cc5b894458a25dc7ff6" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>DeltaMethod</name></member>
+      <member refid="classQfDeltaChangesModel_1a0b9f7f7b945b46825975e45d4ef94365" prot="private" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>deltaMethod</name></member>
+      <member refid="classQfDeltaChangesModel_1acdc4dd016ea385cc05705229e4433a1b" prot="private" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>featureDisplayNames</name></member>
+      <member refid="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726a3259eb22c3654819d594f2971a3fecff" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>FeatureNameRole</name></member>
+      <member refid="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726ad1be2143cb318116754e33790bd37d22" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>HasGeometryChangeRole</name></member>
+      <member refid="classQfDeltaChangesModel_1af0862ca866282a407e43df69e0b910c0" prot="private" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>layerChanges</name></member>
+      <member refid="classQfDeltaChangesModel_1abb5ab645b270399d813c8cb122d0a0d1" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>layerChangesCount</name></member>
+      <member refid="classQfDeltaChangesModel_1a8a26e86b1d7fd7b4b9da7cb4efeb4e20" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>layerGeometryType</name></member>
+      <member refid="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726a79f41809e1b26d4b8ded975d2d0545c6" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>LayerIdRole</name></member>
+      <member refid="classQfDeltaChangesModel_1ac4010d650612f9baedcaff4b3c633926" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>layerName</name></member>
+      <member refid="classQfDeltaChangesModel_1a88d30bdf5bf9060eb467a43a875f8386" prot="private" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>mDeltaChanges</name></member>
+      <member refid="classQfDeltaChangesModel_1a78b3b0221b9d77403706741b414422dc" prot="private" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>mDeltaFileWrapper</name></member>
+      <member refid="classQfDeltaChangesModel_1a4f3700698008158171a35c856b8ec726a87bf88800ff0f061b36c4cffad0ea04f" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>MethodRole</name></member>
+      <member refid="classQfDeltaChangesModel_1a9b6b4e08d8ec468e3e5fecb47f48fd70" prot="private" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>mLayerSummaries</name></member>
+      <member refid="classQfDeltaChangesModel_1a7beb27456ee84cc5b894458a25dc7ff6ab6f9c02f26e60d18693d3a46b53a0e8e" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>PatchMethod</name></member>
+      <member refid="classQfDeltaChangesModel_1a314f734e8c513a4ebf01034e63597443" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>QfDeltaChangesModel</name></member>
+      <member refid="classQfDeltaChangesModel_1a40c3a8b772b01807e412a4a5bbce25dc" prot="private" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>refresh</name></member>
+      <member refid="classQfDeltaChangesModel_1aff92f0b9bd3c37cb399301fc6960c24e" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>roleNames</name></member>
+      <member refid="classQfDeltaChangesModel_1a1f8f4ed342c9923c2ff0d357c7ead861" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>rowCount</name></member>
+      <member refid="classQfDeltaChangesModel_1aed01086b581d53c5b8080a1e175877ba" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>setDeltaFileWrapper</name></member>
+      <member refid="classQfDeltaChangesModel_1a7beb27456ee84cc5b894458a25dc7ff6a7182d5ee1f2ad7a0c9cccbf7bbb5f3e4" prot="public" virt="non-virtual"><scope>QfDeltaChangesModel</scope><name>UnknownMethod</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

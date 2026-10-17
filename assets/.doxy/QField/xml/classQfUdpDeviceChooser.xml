@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfUdpDeviceChooser" kind="class" language="C++" prot="public">
+    <compoundname>QfUdpDeviceChooser</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classUdpDeviceChooser" prot="public" virt="non-virtual">UdpDeviceChooser</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfUdpDeviceChooser_1a2d24cc0f79056a7ba60b06b91aa7e89d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfUdpDeviceChooser::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfUdpDeviceChooser::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfUdpDeviceChooser.qml" line="10" column="5" bodyfile="src/gui/qml/QfUdpDeviceChooser.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfUdpDeviceChooser_1ae3b8fb8d2c1c119f6517871df68b8ed5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfUdpDeviceChooser::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfUdpDeviceChooser::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfUdpDeviceChooser.qml" line="11" column="5" bodyfile="src/gui/qml/QfUdpDeviceChooser.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfUdpDeviceChooser_1a3b22ac28a0d55c13920472d518320485" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfUdpDeviceChooser::udpDeviceAddress</definition>
+        <argsstring></argsstring>
+        <name>udpDeviceAddress</name>
+        <qualifiedname>QfUdpDeviceChooser::udpDeviceAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfUdpDeviceChooser.qml" line="24" column="11" bodyfile="src/gui/qml/QfUdpDeviceChooser.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfUdpDeviceChooser_1a12dc29d9ff7a9ce111f6be6498e6db38" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfUdpDeviceChooser::udpDevicePort</definition>
+        <argsstring></argsstring>
+        <name>udpDevicePort</name>
+        <qualifiedname>QfUdpDeviceChooser::udpDevicePort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfUdpDeviceChooser.qml" line="25" column="11" bodyfile="src/gui/qml/QfUdpDeviceChooser.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfUdpDeviceChooser_1a4c32329241c866014ce7de6aab603ab5" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfUdpDeviceChooser::deviceAddress</definition>
+        <argsstring></argsstring>
+        <name>deviceAddress</name>
+        <qualifiedname>QfUdpDeviceChooser::deviceAddress</qualifiedname>
+        <read>dummyGetter_deviceAddress_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfUdpDeviceChooser.qml" line="14" column="1" bodyfile="src/gui/qml/QfUdpDeviceChooser.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfUdpDeviceChooser_1acfa5b020633f8b8f131b32fe221a93b6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfUdpDeviceChooser::devicePort</definition>
+        <argsstring></argsstring>
+        <name>devicePort</name>
+        <qualifiedname>QfUdpDeviceChooser::devicePort</qualifiedname>
+        <read>dummyGetter_devicePort_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfUdpDeviceChooser.qml" line="16" column="1" bodyfile="src/gui/qml/QfUdpDeviceChooser.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfUdpDeviceChooser_1aaf6725200e47616fa397f75614f40cf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfUdpDeviceChooser::generateName</definition>
+        <argsstring>()</argsstring>
+        <name>generateName</name>
+        <qualifiedname>QfUdpDeviceChooser::generateName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfUdpDeviceChooser.qml" line="18" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfUdpDeviceChooser_1a7171f1bf05f87365ac91ae0308a7d58b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfUdpDeviceChooser::setSettings</definition>
+        <argsstring>(settings)</argsstring>
+        <name>setSettings</name>
+        <qualifiedname>QfUdpDeviceChooser::setSettings</qualifiedname>
+        <param>
+          <type>settings</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfUdpDeviceChooser.qml" line="20" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfUdpDeviceChooser_1a8cd206778d21185b273365173712abe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfUdpDeviceChooser::getSettings</definition>
+        <argsstring>()</argsstring>
+        <name>getSettings</name>
+        <qualifiedname>QfUdpDeviceChooser::getSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfUdpDeviceChooser.qml" line="22" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfUdpDeviceChooser</label>
+        <link refid="classQfUdpDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="3">
+        <label>UdpDeviceChooser</label>
+        <link refid="classUdpDeviceChooser"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfUdpDeviceChooser</label>
+        <link refid="classQfUdpDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfUdpDeviceChooser.qml" line="9" column="1" bodyfile="src/gui/qml/QfUdpDeviceChooser.qml" bodystart="9" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classQfUdpDeviceChooser_1a4c32329241c866014ce7de6aab603ab5" prot="public" virt="non-virtual"><scope>QfUdpDeviceChooser</scope><name>deviceAddress</name></member>
+      <member refid="classQfUdpDeviceChooser_1acfa5b020633f8b8f131b32fe221a93b6" prot="public" virt="non-virtual"><scope>QfUdpDeviceChooser</scope><name>devicePort</name></member>
+      <member refid="classQfUdpDeviceChooser_1aaf6725200e47616fa397f75614f40cf2" prot="public" virt="non-virtual"><scope>QfUdpDeviceChooser</scope><name>generateName</name></member>
+      <member refid="classQfUdpDeviceChooser_1a8cd206778d21185b273365173712abe3" prot="public" virt="non-virtual"><scope>QfUdpDeviceChooser</scope><name>getSettings</name></member>
+      <member refid="classQfUdpDeviceChooser_1ae3b8fb8d2c1c119f6517871df68b8ed5" prot="private" virt="non-virtual"><scope>QfUdpDeviceChooser</scope><name>height</name></member>
+      <member refid="classQfUdpDeviceChooser_1a7171f1bf05f87365ac91ae0308a7d58b" prot="public" virt="non-virtual"><scope>QfUdpDeviceChooser</scope><name>setSettings</name></member>
+      <member refid="classQfUdpDeviceChooser_1a3b22ac28a0d55c13920472d518320485" prot="private" virt="non-virtual"><scope>QfUdpDeviceChooser</scope><name>udpDeviceAddress</name></member>
+      <member refid="classQfUdpDeviceChooser_1a12dc29d9ff7a9ce111f6be6498e6db38" prot="private" virt="non-virtual"><scope>QfUdpDeviceChooser</scope><name>udpDevicePort</name></member>
+      <member refid="classQfUdpDeviceChooser_1a2d24cc0f79056a7ba60b06b91aa7e89d" prot="private" virt="non-virtual"><scope>QfUdpDeviceChooser</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

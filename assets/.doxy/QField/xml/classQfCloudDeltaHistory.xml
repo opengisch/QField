@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudDeltaHistory" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudDeltaHistory</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudDeltaHistory_1a08350c9ffcd1291260c32cf49d797008" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCloudDeltaHistory::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfCloudDeltaHistory::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="13" column="1" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1a11c21483d7ec6b8835b5e4daf7f1874f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudDeltaHistory::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfCloudDeltaHistory::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="15" column="5" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1ae1970a1681dddc0c586689b7c665e78e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudDeltaHistory::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfCloudDeltaHistory::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="16" column="5" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1a84172e4be6d910a9ad54ef4ab166d035" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudDeltaHistory::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfCloudDeltaHistory::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="17" column="5" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1ae95ddf6dc0d3a07a63b9cbbd249db160" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudDeltaHistory::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfCloudDeltaHistory::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="18" column="5" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1acac952d05b95e0aa41aad6c1c1c1f5fe" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudDeltaHistory::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfCloudDeltaHistory::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="19" column="5" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1aa0ddc0a7d4abf71bc8d90b1e71bacd84" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudDeltaHistory::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCloudDeltaHistory::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="20" column="5" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1a3eccc04ad518161a03df84318005bf48" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudDeltaHistory::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCloudDeltaHistory::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="21" column="5" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1a932ab588e7da44c12e5bc0bfb184ac70" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudDeltaHistory::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>QfCloudDeltaHistory::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="22" column="5" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1a64c2ac114b331706b50fefdf9fc3cc8b" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page QfCloudDeltaHistory::page</definition>
+        <argsstring></argsstring>
+        <name>page</name>
+        <qualifiedname>QfCloudDeltaHistory::page</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="23" column="6" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1a0500880b271064afaa2bc4cead78f9ef" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item QfCloudDeltaHistory::loadingIndicator</definition>
+        <argsstring></argsstring>
+        <name>loadingIndicator</name>
+        <qualifiedname>QfCloudDeltaHistory::loadingIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="24" column="6" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1ae08b19cd905f5f51d4475cb384b039ef" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column QfCloudDeltaHistory::loadingContent</definition>
+        <argsstring></argsstring>
+        <name>loadingContent</name>
+        <qualifiedname>QfCloudDeltaHistory::loadingContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="25" column="8" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1a5ccd3118e79829667320245d4a210d84" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator QfCloudDeltaHistory::busyIndicator</definition>
+        <argsstring></argsstring>
+        <name>busyIndicator</name>
+        <qualifiedname>QfCloudDeltaHistory::busyIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="26" column="15" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1ae4ef68535427dfabed6feabf7336d7d4" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfCloudDeltaHistory::emptyLabel</definition>
+        <argsstring></argsstring>
+        <name>emptyLabel</name>
+        <qualifiedname>QfCloudDeltaHistory::emptyLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="27" column="7" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudDeltaHistory_1af462f5e85b70b8e5bde086aff6ddcc4d" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfCloudDeltaHistory::deltaList</definition>
+        <argsstring></argsstring>
+        <name>deltaList</name>
+        <qualifiedname>QfCloudDeltaHistory::deltaList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="28" column="10" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCloudDeltaHistory_1a7e490e476324b8ce78a15c76265c554e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudDeltaHistory::deltaStatusColor</definition>
+        <argsstring>(status)</argsstring>
+        <name>deltaStatusColor</name>
+        <qualifiedname>QfCloudDeltaHistory::deltaStatusColor</qualifiedname>
+        <param>
+          <type>status</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="31" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudDeltaHistory_1a317e533cf503a7eeb898309a31bd2201" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudDeltaHistory::deltaStatusLabel</definition>
+        <argsstring>(status)</argsstring>
+        <name>deltaStatusLabel</name>
+        <qualifiedname>QfCloudDeltaHistory::deltaStatusLabel</qualifiedname>
+        <param>
+          <type>status</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="33" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudDeltaHistory_1af5d9da47f30d596930fc4cab11031a6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudDeltaHistory::deltaStatusIcon</definition>
+        <argsstring>(status)</argsstring>
+        <name>deltaStatusIcon</name>
+        <qualifiedname>QfCloudDeltaHistory::deltaStatusIcon</qualifiedname>
+        <param>
+          <type>status</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudDeltaHistory.qml" line="35" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfCloudDeltaHistory</label>
+        <link refid="classQfCloudDeltaHistory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfCloudDeltaHistory</label>
+        <link refid="classQfCloudDeltaHistory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfCloudDeltaHistory.qml" line="10" column="1" bodyfile="src/app/qml/QfCloudDeltaHistory.qml" bodystart="10" bodyend="36"/>
+    <listofallmembers>
+      <member refid="classQfCloudDeltaHistory_1a5ccd3118e79829667320245d4a210d84" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>busyIndicator</name></member>
+      <member refid="classQfCloudDeltaHistory_1ae95ddf6dc0d3a07a63b9cbbd249db160" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>closePolicy</name></member>
+      <member refid="classQfCloudDeltaHistory_1af462f5e85b70b8e5bde086aff6ddcc4d" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>deltaList</name></member>
+      <member refid="classQfCloudDeltaHistory_1a7e490e476324b8ce78a15c76265c554e" prot="public" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>deltaStatusColor</name></member>
+      <member refid="classQfCloudDeltaHistory_1af5d9da47f30d596930fc4cab11031a6a" prot="public" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>deltaStatusIcon</name></member>
+      <member refid="classQfCloudDeltaHistory_1a317e533cf503a7eeb898309a31bd2201" prot="public" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>deltaStatusLabel</name></member>
+      <member refid="classQfCloudDeltaHistory_1ae4ef68535427dfabed6feabf7336d7d4" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>emptyLabel</name></member>
+      <member refid="classQfCloudDeltaHistory_1acac952d05b95e0aa41aad6c1c1c1f5fe" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>focus</name></member>
+      <member refid="classQfCloudDeltaHistory_1a3eccc04ad518161a03df84318005bf48" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>height</name></member>
+      <member refid="classQfCloudDeltaHistory_1ae08b19cd905f5f51d4475cb384b039ef" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>loadingContent</name></member>
+      <member refid="classQfCloudDeltaHistory_1a0500880b271064afaa2bc4cead78f9ef" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>loadingIndicator</name></member>
+      <member refid="classQfCloudDeltaHistory_1a08350c9ffcd1291260c32cf49d797008" prot="public" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>model</name></member>
+      <member refid="classQfCloudDeltaHistory_1a932ab588e7da44c12e5bc0bfb184ac70" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>onAboutToShow</name></member>
+      <member refid="classQfCloudDeltaHistory_1a64c2ac114b331706b50fefdf9fc3cc8b" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>page</name></member>
+      <member refid="classQfCloudDeltaHistory_1a11c21483d7ec6b8835b5e4daf7f1874f" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>parent</name></member>
+      <member refid="classQfCloudDeltaHistory_1aa0ddc0a7d4abf71bc8d90b1e71bacd84" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>width</name></member>
+      <member refid="classQfCloudDeltaHistory_1ae1970a1681dddc0c586689b7c665e78e" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>x</name></member>
+      <member refid="classQfCloudDeltaHistory_1a84172e4be6d910a9ad54ef4ab166d035" prot="private" virt="non-virtual"><scope>QfCloudDeltaHistory</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

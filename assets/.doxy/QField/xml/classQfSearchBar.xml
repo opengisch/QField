@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfSearchBar" kind="class" language="C++" prot="public">
+    <compoundname>QfSearchBar</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfSearchBar_1a6e0baaf9e096da9d47a2bc90a6f5e653" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfSearchBar::contents</definition>
+        <argsstring></argsstring>
+        <name>contents</name>
+        <qualifiedname>QfSearchBar::contents</qualifiedname>
+        <read>dummyGetter_contents_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This is the default property </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="12" column="1" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSearchBar_1a5beacbb4512909e484e3950bf33223cd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfSearchBar::searchTerm</definition>
+        <argsstring></argsstring>
+        <name>searchTerm</name>
+        <qualifiedname>QfSearchBar::searchTerm</qualifiedname>
+        <read>dummyGetter_searchTerm_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="15" column="1" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSearchBar_1a6b7872863d33f8f63da3cab02135c410" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfSearchBar::searchHeight</definition>
+        <argsstring></argsstring>
+        <name>searchHeight</name>
+        <qualifiedname>QfSearchBar::searchHeight</qualifiedname>
+        <read>dummyGetter_searchHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="18" column="1" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSearchBar_1ab71029dc39912b86f2a313221d9ccc86" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfSearchBar::placeHolderText</definition>
+        <argsstring></argsstring>
+        <name>placeHolderText</name>
+        <qualifiedname>QfSearchBar::placeHolderText</qualifiedname>
+        <read>dummyGetter_placeHolderText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="20" column="1" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSearchBar_1ad44222883d2d76aba0eb717e23093297" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfSearchBar::enableFilterButton</definition>
+        <argsstring></argsstring>
+        <name>enableFilterButton</name>
+        <qualifiedname>QfSearchBar::enableFilterButton</qualifiedname>
+        <read>dummyGetter_enableFilterButton_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="22" column="1" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSearchBar_1a103d87790dbadba8a54eb46b1ce58df3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfSearchBar::filterActive</definition>
+        <argsstring></argsstring>
+        <name>filterActive</name>
+        <qualifiedname>QfSearchBar::filterActive</qualifiedname>
+        <read>dummyGetter_filterActive_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="24" column="1" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSearchBar_1ab416e3d74a214a1bb959fbc8ec51d856" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfSearchBar::parameterKeys</definition>
+        <argsstring></argsstring>
+        <name>parameterKeys</name>
+        <qualifiedname>QfSearchBar::parameterKeys</qualifiedname>
+        <read>dummyGetter_parameterKeys_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="26" column="1" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfSearchBar_1a900365f32923fa63ef335e62e27d99aa" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfSearchBar::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfSearchBar::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="36" column="5" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSearchBar_1aa6e46f50dfe68646350a5a091c547958" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfSearchBar::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfSearchBar::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="37" column="5" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSearchBar_1af86f805ee45ec22c94b5a8261621773e" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfSearchBar::searchBarContainer</definition>
+        <argsstring></argsstring>
+        <name>searchBarContainer</name>
+        <qualifiedname>QfSearchBar::searchBarContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="42" column="11" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSearchBar_1ad53f3916789eed46fad36a5e437ad01f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfSearchBar::clearButton</definition>
+        <argsstring></argsstring>
+        <name>clearButton</name>
+        <qualifiedname>QfSearchBar::clearButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="43" column="14" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSearchBar_1a8ff7c1e42f77d685326b276463992a99" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfSearchBar::filterButton</definition>
+        <argsstring></argsstring>
+        <name>filterButton</name>
+        <qualifiedname>QfSearchBar::filterButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="44" column="14" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSearchBar_1ae57f7e9473c2db27a578dbf2d63b47e0" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfSearchBar::searchButton</definition>
+        <argsstring></argsstring>
+        <name>searchButton</name>
+        <qualifiedname>QfSearchBar::searchButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="45" column="14" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSearchBar_1ab0793f8a8c97bf41535a3f209b4f045d" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfSearchBar::searchField</definition>
+        <argsstring></argsstring>
+        <name>searchField</name>
+        <qualifiedname>QfSearchBar::searchField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="46" column="11" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSearchBar_1a32459416fdf315744282b194992b1101" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfSearchBar::highlightOverlay</definition>
+        <argsstring></argsstring>
+        <name>highlightOverlay</name>
+        <qualifiedname>QfSearchBar::highlightOverlay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="47" column="6" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSearchBar_1a7f3d0eb644ee537651e5c676d43b19cb" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column QfSearchBar::filterContainer</definition>
+        <argsstring></argsstring>
+        <name>filterContainer</name>
+        <qualifiedname>QfSearchBar::filterContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="48" column="8" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfSearchBar_1a5f79ac3eeb17a0dc5b37d878c7ec275c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSearchBar::filterClicked</definition>
+        <argsstring>()</argsstring>
+        <name>filterClicked</name>
+        <qualifiedname>QfSearchBar::filterClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="28" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfSearchBar_1a64e27835721a06bafa2cd836e35831e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSearchBar::searchTermEdited</definition>
+        <argsstring>()</argsstring>
+        <name>searchTermEdited</name>
+        <qualifiedname>QfSearchBar::searchTermEdited</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="30" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfSearchBar_1a64eb9b84e3f635d51cb93fc1da1300ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSearchBar::searchTriggered</definition>
+        <argsstring>()</argsstring>
+        <name>searchTriggered</name>
+        <qualifiedname>QfSearchBar::searchTriggered</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="32" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfSearchBar_1ae7997a9a41e25f45c01f5d8fe6a7439b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSearchBar::cleared</definition>
+        <argsstring>()</argsstring>
+        <name>cleared</name>
+        <qualifiedname>QfSearchBar::cleared</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="34" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfSearchBar_1a1616052004518b1db9673ee4fb72bfb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSearchBar::highlightedText</definition>
+        <argsstring>(raw)</argsstring>
+        <name>highlightedText</name>
+        <qualifiedname>QfSearchBar::highlightedText</qualifiedname>
+        <param>
+          <type>raw</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="40" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSearchBar_1ac14f864b7dedd999b74b1fd1d0cadf94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSearchBar::focusOnTextField</definition>
+        <argsstring>()</argsstring>
+        <name>focusOnTextField</name>
+        <qualifiedname>QfSearchBar::focusOnTextField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="51" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSearchBar_1a68980b2a806014c55a63f69e1da31e28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSearchBar::setSearchTerm</definition>
+        <argsstring>(term)</argsstring>
+        <name>setSearchTerm</name>
+        <qualifiedname>QfSearchBar::setSearchTerm</qualifiedname>
+        <param>
+          <type>term</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="53" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSearchBar_1a36b31194580bfc2043933b4d2227285c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSearchBar::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QfSearchBar::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSearchBar.qml" line="55" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfSearchBar</label>
+        <link refid="classQfSearchBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfSearchBar</label>
+        <link refid="classQfSearchBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfSearchBar.qml" line="8" column="1" bodyfile="src/gui/qml/QfSearchBar.qml" bodystart="8" bodyend="56"/>
+    <listofallmembers>
+      <member refid="classQfSearchBar_1a36b31194580bfc2043933b4d2227285c" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>clear</name></member>
+      <member refid="classQfSearchBar_1ad53f3916789eed46fad36a5e437ad01f" prot="private" virt="non-virtual"><scope>QfSearchBar</scope><name>clearButton</name></member>
+      <member refid="classQfSearchBar_1ae7997a9a41e25f45c01f5d8fe6a7439b" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>cleared</name></member>
+      <member refid="classQfSearchBar_1aa6e46f50dfe68646350a5a091c547958" prot="private" virt="non-virtual"><scope>QfSearchBar</scope><name>clip</name></member>
+      <member refid="classQfSearchBar_1a6e0baaf9e096da9d47a2bc90a6f5e653" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>contents</name></member>
+      <member refid="classQfSearchBar_1ad44222883d2d76aba0eb717e23093297" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>enableFilterButton</name></member>
+      <member refid="classQfSearchBar_1a103d87790dbadba8a54eb46b1ce58df3" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>filterActive</name></member>
+      <member refid="classQfSearchBar_1a8ff7c1e42f77d685326b276463992a99" prot="private" virt="non-virtual"><scope>QfSearchBar</scope><name>filterButton</name></member>
+      <member refid="classQfSearchBar_1a5f79ac3eeb17a0dc5b37d878c7ec275c" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>filterClicked</name></member>
+      <member refid="classQfSearchBar_1a7f3d0eb644ee537651e5c676d43b19cb" prot="private" virt="non-virtual"><scope>QfSearchBar</scope><name>filterContainer</name></member>
+      <member refid="classQfSearchBar_1ac14f864b7dedd999b74b1fd1d0cadf94" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>focusOnTextField</name></member>
+      <member refid="classQfSearchBar_1a900365f32923fa63ef335e62e27d99aa" prot="private" virt="non-virtual"><scope>QfSearchBar</scope><name>height</name></member>
+      <member refid="classQfSearchBar_1a1616052004518b1db9673ee4fb72bfb3" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>highlightedText</name></member>
+      <member refid="classQfSearchBar_1a32459416fdf315744282b194992b1101" prot="private" virt="non-virtual"><scope>QfSearchBar</scope><name>highlightOverlay</name></member>
+      <member refid="classQfSearchBar_1ab416e3d74a214a1bb959fbc8ec51d856" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>parameterKeys</name></member>
+      <member refid="classQfSearchBar_1ab71029dc39912b86f2a313221d9ccc86" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>placeHolderText</name></member>
+      <member refid="classQfSearchBar_1af86f805ee45ec22c94b5a8261621773e" prot="private" virt="non-virtual"><scope>QfSearchBar</scope><name>searchBarContainer</name></member>
+      <member refid="classQfSearchBar_1ae57f7e9473c2db27a578dbf2d63b47e0" prot="private" virt="non-virtual"><scope>QfSearchBar</scope><name>searchButton</name></member>
+      <member refid="classQfSearchBar_1ab0793f8a8c97bf41535a3f209b4f045d" prot="private" virt="non-virtual"><scope>QfSearchBar</scope><name>searchField</name></member>
+      <member refid="classQfSearchBar_1a6b7872863d33f8f63da3cab02135c410" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>searchHeight</name></member>
+      <member refid="classQfSearchBar_1a5beacbb4512909e484e3950bf33223cd" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>searchTerm</name></member>
+      <member refid="classQfSearchBar_1a64e27835721a06bafa2cd836e35831e6" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>searchTermEdited</name></member>
+      <member refid="classQfSearchBar_1a64eb9b84e3f635d51cb93fc1da1300ed" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>searchTriggered</name></member>
+      <member refid="classQfSearchBar_1a68980b2a806014c55a63f69e1da31e28" prot="public" virt="non-virtual"><scope>QfSearchBar</scope><name>setSearchTerm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

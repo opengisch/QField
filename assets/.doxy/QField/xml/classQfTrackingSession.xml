@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfTrackingSession" kind="class" language="C++" prot="public">
+    <compoundname>QfTrackingSession</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classTrackingSession" prot="public" virt="non-virtual">TrackingSession</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfTrackingSession_1a119c1f7987bfc7f5052db67adf2570ad" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfTrackingSession::tracker</definition>
+        <argsstring></argsstring>
+        <name>tracker</name>
+        <qualifiedname>QfTrackingSession::tracker</qualifiedname>
+        <read>dummyGetter_tracker_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="12" column="1" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTrackingSession_1a86df34d144d644c11b6ad996cfc6b992" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfPositioning" kindref="compound">QfPositioning</ref></type>
+        <definition>QfPositioning QfTrackingSession::positioning</definition>
+        <argsstring></argsstring>
+        <name>positioning</name>
+        <qualifiedname>QfTrackingSession::positioning</qualifiedname>
+        <read>dummyGetter_positioning_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="14" column="1" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTrackingSession_1a3155da5511bf11229f44bd13f175d872" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfTrackingSession::filterAccuracy</definition>
+        <argsstring></argsstring>
+        <name>filterAccuracy</name>
+        <qualifiedname>QfTrackingSession::filterAccuracy</qualifiedname>
+        <read>dummyGetter_filterAccuracy_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="16" column="1" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTrackingSession_1ae05a34e866f2e6c7014a0fd5852db1a9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Project</type>
+        <definition>Project QfTrackingSession::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QfTrackingSession::project</qualifiedname>
+        <read>dummyGetter_project_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="18" column="1" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTrackingSession_1a742973fcd255f079a6c09ff61dc0be0e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>MapSettings</type>
+        <definition>MapSettings QfTrackingSession::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfTrackingSession::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="20" column="1" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTrackingSession_1abce9ab2fa35cbbfc59dae7aba08e5b61" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfTrackingSession::cloudUserInformation</definition>
+        <argsstring></argsstring>
+        <name>cloudUserInformation</name>
+        <qualifiedname>QfTrackingSession::cloudUserInformation</qualifiedname>
+        <read>dummyGetter_cloudUserInformation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="22" column="1" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfTrackingSession_1a754a5249600e264ebb2c67b868c7be7b" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component QfTrackingSession::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>QfTrackingSession::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="26" column="14" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackingSession_1ac9a18db7fdcd1fd577c79ba5e53a2d2f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTrackingSession::onFilterAccuracyChanged</definition>
+        <argsstring></argsstring>
+        <name>onFilterAccuracyChanged</name>
+        <qualifiedname>QfTrackingSession::onFilterAccuracyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="27" column="5" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackingSession_1af91f53a62ef0a921e4216f6c32cc91ae" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref></type>
+        <definition>QfRubberbandModel QfTrackingSession::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfTrackingSession::rubberbandModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="28" column="19" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackingSession_1a12a701faf3d8670f34a8f4278d1c0b48" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfRubberband" kindref="compound">QfRubberband</ref></type>
+        <definition>QfRubberband QfTrackingSession::rubberband</definition>
+        <argsstring></argsstring>
+        <name>rubberband</name>
+        <qualifiedname>QfTrackingSession::rubberband</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="29" column="14" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTrackingSession_1ae676632101ccda0ec8c5b5556e55f660" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref></type>
+        <definition>QfFeatureModel QfTrackingSession::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>QfTrackingSession::featureModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="30" column="16" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfTrackingSession_1abdbd54d682bc85d59877171ffbd08581" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTrackingSession::featureCreated</definition>
+        <argsstring>(var layer)</argsstring>
+        <name>featureCreated</name>
+        <qualifiedname>QfTrackingSession::featureCreated</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTrackingSession.qml" line="24" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfTrackingSession</label>
+        <link refid="classQfTrackingSession"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="3">
+        <label>TrackingSession</label>
+        <link refid="classTrackingSession"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfTrackingSession</label>
+        <link refid="classQfTrackingSession"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfTrackingSession.qml" line="9" column="1" bodyfile="src/gui/qml/QfTrackingSession.qml" bodystart="9" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classQfTrackingSession_1abce9ab2fa35cbbfc59dae7aba08e5b61" prot="public" virt="non-virtual"><scope>QfTrackingSession</scope><name>cloudUserInformation</name></member>
+      <member refid="classQfTrackingSession_1abdbd54d682bc85d59877171ffbd08581" prot="public" virt="non-virtual"><scope>QfTrackingSession</scope><name>featureCreated</name></member>
+      <member refid="classQfTrackingSession_1ae676632101ccda0ec8c5b5556e55f660" prot="private" virt="non-virtual"><scope>QfTrackingSession</scope><name>featureModel</name></member>
+      <member refid="classQfTrackingSession_1a3155da5511bf11229f44bd13f175d872" prot="public" virt="non-virtual"><scope>QfTrackingSession</scope><name>filterAccuracy</name></member>
+      <member refid="classQfTrackingSession_1a742973fcd255f079a6c09ff61dc0be0e" prot="public" virt="non-virtual"><scope>QfTrackingSession</scope><name>mapSettings</name></member>
+      <member refid="classQfTrackingSession_1a754a5249600e264ebb2c67b868c7be7b" prot="private" virt="non-virtual"><scope>QfTrackingSession</scope><name>onCompleted</name></member>
+      <member refid="classQfTrackingSession_1ac9a18db7fdcd1fd577c79ba5e53a2d2f" prot="private" virt="non-virtual"><scope>QfTrackingSession</scope><name>onFilterAccuracyChanged</name></member>
+      <member refid="classQfTrackingSession_1a86df34d144d644c11b6ad996cfc6b992" prot="public" virt="non-virtual"><scope>QfTrackingSession</scope><name>positioning</name></member>
+      <member refid="classQfTrackingSession_1ae05a34e866f2e6c7014a0fd5852db1a9" prot="public" virt="non-virtual"><scope>QfTrackingSession</scope><name>project</name></member>
+      <member refid="classQfTrackingSession_1a12a701faf3d8670f34a8f4278d1c0b48" prot="private" virt="non-virtual"><scope>QfTrackingSession</scope><name>rubberband</name></member>
+      <member refid="classQfTrackingSession_1af91f53a62ef0a921e4216f6c32cc91ae" prot="private" virt="non-virtual"><scope>QfTrackingSession</scope><name>rubberbandModel</name></member>
+      <member refid="classQfTrackingSession_1a119c1f7987bfc7f5052db67adf2570ad" prot="public" virt="non-virtual"><scope>QfTrackingSession</scope><name>tracker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

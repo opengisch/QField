@@ -1,0 +1,376 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudProjectFilter" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudProjectFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Pane</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudProjectFilter_1aa505b90516e9fc0d4f9292c7a32a97ea" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudProjectFilter::currentUsername</definition>
+        <argsstring></argsstring>
+        <name>currentUsername</name>
+        <qualifiedname>QfCloudProjectFilter::currentUsername</qualifiedname>
+        <read>dummyGetter_currentUsername_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="14" column="1" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectFilter_1abb7561ddbbdf34a00c3bd617588a8a9e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectFilter::isTemplateSearch</definition>
+        <argsstring></argsstring>
+        <name>isTemplateSearch</name>
+        <qualifiedname>QfCloudProjectFilter::isTemplateSearch</qualifiedname>
+        <read>dummyGetter_isTemplateSearch_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="16" column="1" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectFilter_1ae91a447088d13133aaee0df78fb14367" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfCloudProjectFilter::organizations</definition>
+        <argsstring></argsstring>
+        <name>organizations</name>
+        <qualifiedname>QfCloudProjectFilter::organizations</qualifiedname>
+        <read>dummyGetter_organizations_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="18" column="1" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectFilter_1a0999ad9bf6c076bbd7c1dea665be11f6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectFilter::organizationsFetched</definition>
+        <argsstring></argsstring>
+        <name>organizationsFetched</name>
+        <qualifiedname>QfCloudProjectFilter::organizationsFetched</qualifiedname>
+        <read>dummyGetter_organizationsFetched_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="20" column="1" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectFilter_1add057e6165f90d7f860ef45bd83a4428" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudProjectFilter::activePreset</definition>
+        <argsstring></argsstring>
+        <name>activePreset</name>
+        <qualifiedname>QfCloudProjectFilter::activePreset</qualifiedname>
+        <read>dummyGetter_activePreset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="22" column="1" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectFilter_1afb26c3a7f905a9f444820b41594737f9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfCloudProjectFilter::presets</definition>
+        <argsstring></argsstring>
+        <name>presets</name>
+        <qualifiedname>QfCloudProjectFilter::presets</qualifiedname>
+        <read>dummyGetter_presets_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="25" column="1" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectFilter_1a2bbb5a7c99dbbd61f97aef8ac9f12a3c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudProjectFilter::queryString</definition>
+        <argsstring></argsstring>
+        <name>queryString</name>
+        <qualifiedname>QfCloudProjectFilter::queryString</qualifiedname>
+        <read>dummyGetter_queryString_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="27" column="1" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudProjectFilter_1a1d27d28e807ba34ce43b11d810a9089a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudProjectFilter::blockQueryUpdate</definition>
+        <argsstring></argsstring>
+        <name>blockQueryUpdate</name>
+        <qualifiedname>QfCloudProjectFilter::blockQueryUpdate</qualifiedname>
+        <read>dummyGetter_blockQueryUpdate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="29" column="1" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudProjectFilter_1a387b26a9703f71fcef0a1c108752a4c0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudProjectFilter::onVisibleChanged</definition>
+        <argsstring></argsstring>
+        <name>onVisibleChanged</name>
+        <qualifiedname>QfCloudProjectFilter::onVisibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="39" column="5" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectFilter_1aa9913cb7f002db6c83aa566b11e5f0e8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudProjectFilter::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QfCloudProjectFilter::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="40" column="5" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectFilter_1af5981ac6bd973ccccd9607cd2e381981" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudProjectFilter::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfCloudProjectFilter::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="41" column="5" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectFilter_1ac2916f51f3a413778279db472c87d7a8" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfCloudProjectFilter::searchTermTextField</definition>
+        <argsstring></argsstring>
+        <name>searchTermTextField</name>
+        <qualifiedname>QfCloudProjectFilter::searchTermTextField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="42" column="13" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectFilter_1a2c1b62196ec2476398913de5972a0932" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfComboBox" kindref="compound">QfComboBox</ref></type>
+        <definition>QfComboBox QfCloudProjectFilter::ownerComboBox</definition>
+        <argsstring></argsstring>
+        <name>ownerComboBox</name>
+        <qualifiedname>QfCloudProjectFilter::ownerComboBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="43" column="12" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectFilter_1ad35cc640f96ace37367b7ac9e45e502d" prot="private" static="no" mutable="no">
+        <type>Switch</type>
+        <definition>Switch QfCloudProjectFilter::includePublicSwitch</definition>
+        <argsstring></argsstring>
+        <name>includePublicSwitch</name>
+        <qualifiedname>QfCloudProjectFilter::includePublicSwitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="44" column="8" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectFilter_1a97606258b6dbc381bb7bc4e51f75d0d4" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfCloudProjectFilter::searchButtonRow</definition>
+        <argsstring></argsstring>
+        <name>searchButtonRow</name>
+        <qualifiedname>QfCloudProjectFilter::searchButtonRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="45" column="11" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudProjectFilter_1a9f4bf7c92a9872d9ee4555127aac3472" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfCloudProjectFilter::searchButton</definition>
+        <argsstring></argsstring>
+        <name>searchButton</name>
+        <qualifiedname>QfCloudProjectFilter::searchButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="46" column="10" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCloudProjectFilter_1af70f9534ea54a1d5eb643f8a4d36c935" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectFilter::applyFilter</definition>
+        <argsstring>()</argsstring>
+        <name>applyFilter</name>
+        <qualifiedname>QfCloudProjectFilter::applyFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="12" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCloudProjectFilter_1a53537c2419ccf5edee41cc2805e099e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectFilter::updateQuery</definition>
+        <argsstring>()</argsstring>
+        <name>updateQuery</name>
+        <qualifiedname>QfCloudProjectFilter::updateQuery</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="31" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectFilter_1a60206f85bc2878051e4bff23b6e0f6e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectFilter::updateQueryFromString</definition>
+        <argsstring>(query)</argsstring>
+        <name>updateQueryFromString</name>
+        <qualifiedname>QfCloudProjectFilter::updateQueryFromString</qualifiedname>
+        <param>
+          <type>query</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="33" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectFilter_1a157b57d7ed8e8f0e4e387995ee55af1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectFilter::getQueryParametersFromString</definition>
+        <argsstring>(query)</argsstring>
+        <name>getQueryParametersFromString</name>
+        <qualifiedname>QfCloudProjectFilter::getQueryParametersFromString</qualifiedname>
+        <param>
+          <type>query</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="35" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudProjectFilter_1ae5ce642404dbcad07df59f5c0dac2cca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudProjectFilter::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QfCloudProjectFilter::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudProjectFilter.qml" line="37" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Pane</label>
+      </node>
+      <node id="1">
+        <label>QfCloudProjectFilter</label>
+        <link refid="classQfCloudProjectFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Pane</label>
+      </node>
+      <node id="1">
+        <label>QfCloudProjectFilter</label>
+        <link refid="classQfCloudProjectFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfCloudProjectFilter.qml" line="9" column="1" bodyfile="src/app/qml/QfCloudProjectFilter.qml" bodystart="9" bodyend="47"/>
+    <listofallmembers>
+      <member refid="classQfCloudProjectFilter_1add057e6165f90d7f860ef45bd83a4428" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>activePreset</name></member>
+      <member refid="classQfCloudProjectFilter_1af70f9534ea54a1d5eb643f8a4d36c935" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>applyFilter</name></member>
+      <member refid="classQfCloudProjectFilter_1af5981ac6bd973ccccd9607cd2e381981" prot="private" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>background</name></member>
+      <member refid="classQfCloudProjectFilter_1a1d27d28e807ba34ce43b11d810a9089a" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>blockQueryUpdate</name></member>
+      <member refid="classQfCloudProjectFilter_1ae5ce642404dbcad07df59f5c0dac2cca" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>clear</name></member>
+      <member refid="classQfCloudProjectFilter_1aa505b90516e9fc0d4f9292c7a32a97ea" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>currentUsername</name></member>
+      <member refid="classQfCloudProjectFilter_1a157b57d7ed8e8f0e4e387995ee55af1d" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>getQueryParametersFromString</name></member>
+      <member refid="classQfCloudProjectFilter_1ad35cc640f96ace37367b7ac9e45e502d" prot="private" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>includePublicSwitch</name></member>
+      <member refid="classQfCloudProjectFilter_1abb7561ddbbdf34a00c3bd617588a8a9e" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>isTemplateSearch</name></member>
+      <member refid="classQfCloudProjectFilter_1a387b26a9703f71fcef0a1c108752a4c0" prot="private" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>onVisibleChanged</name></member>
+      <member refid="classQfCloudProjectFilter_1ae91a447088d13133aaee0df78fb14367" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>organizations</name></member>
+      <member refid="classQfCloudProjectFilter_1a0999ad9bf6c076bbd7c1dea665be11f6" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>organizationsFetched</name></member>
+      <member refid="classQfCloudProjectFilter_1a2c1b62196ec2476398913de5972a0932" prot="private" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>ownerComboBox</name></member>
+      <member refid="classQfCloudProjectFilter_1aa9913cb7f002db6c83aa566b11e5f0e8" prot="private" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>padding</name></member>
+      <member refid="classQfCloudProjectFilter_1afb26c3a7f905a9f444820b41594737f9" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>presets</name></member>
+      <member refid="classQfCloudProjectFilter_1a2bbb5a7c99dbbd61f97aef8ac9f12a3c" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>queryString</name></member>
+      <member refid="classQfCloudProjectFilter_1a9f4bf7c92a9872d9ee4555127aac3472" prot="private" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>searchButton</name></member>
+      <member refid="classQfCloudProjectFilter_1a97606258b6dbc381bb7bc4e51f75d0d4" prot="private" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>searchButtonRow</name></member>
+      <member refid="classQfCloudProjectFilter_1ac2916f51f3a413778279db472c87d7a8" prot="private" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>searchTermTextField</name></member>
+      <member refid="classQfCloudProjectFilter_1a53537c2419ccf5edee41cc2805e099e8" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>updateQuery</name></member>
+      <member refid="classQfCloudProjectFilter_1a60206f85bc2878051e4bff23b6e0f6e0" prot="public" virt="non-virtual"><scope>QfCloudProjectFilter</scope><name>updateQueryFromString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

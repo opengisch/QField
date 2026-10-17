@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAndroidViewStatus" kind="class" language="C++" prot="public">
+    <compoundname>QfAndroidViewStatus</compoundname>
+    <basecompoundref refid="classQfViewStatus" prot="public" virt="non-virtual">QfViewStatus</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfAndroidViewStatus_1a977b1eab3caebe7bbe9db570fa4110cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfAndroidViewStatus::QfAndroidViewStatus</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfAndroidViewStatus</name>
+        <qualifiedname>QfAndroidViewStatus::QfAndroidViewStatus</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidviewstatus.h" line="25" column="5" bodyfile="src/core/platforms/android/qfandroidviewstatus.cpp" bodystart="20" bodyend="25"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfAndroidViewStatus_1a77a6cd467da903daa401ea9d42d68c77" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAndroidViewStatus::handleResourceOpened</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>handleResourceOpened</name>
+        <qualifiedname>QfAndroidViewStatus::handleResourceOpened</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidviewstatus.h" line="28" column="10" bodyfile="src/core/platforms/android/qfandroidviewstatus.cpp" bodystart="27" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfAndroidViewStatus_1aa511e76bfee22e743bd223aa467889cf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAndroidViewStatus::handleResourceCanceled</definition>
+        <argsstring>(const QString &amp;message)</argsstring>
+        <name>handleResourceCanceled</name>
+        <qualifiedname>QfAndroidViewStatus::handleResourceCanceled</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/android/qfandroidviewstatus.h" line="29" column="10" bodyfile="src/core/platforms/android/qfandroidviewstatus.cpp" bodystart="35" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfAndroidViewStatus</label>
+        <link refid="classQfAndroidViewStatus"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfViewStatus</label>
+        <link refid="classQfViewStatus"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfAndroidViewStatus</label>
+        <link refid="classQfAndroidViewStatus"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfViewStatus</label>
+        <link refid="classQfViewStatus"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/platforms/android/qfandroidviewstatus.h" line="22" column="1" bodyfile="src/core/platforms/android/qfandroidviewstatus.h" bodystart="23" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classQfViewStatus_1a64c6861d019e4ed31aa42a5990c97fe6" prot="public" virt="non-virtual"><scope>QfAndroidViewStatus</scope><name>finished</name></member>
+      <member refid="classQfAndroidViewStatus_1aa511e76bfee22e743bd223aa467889cf" prot="private" virt="non-virtual"><scope>QfAndroidViewStatus</scope><name>handleResourceCanceled</name></member>
+      <member refid="classQfAndroidViewStatus_1a77a6cd467da903daa401ea9d42d68c77" prot="private" virt="non-virtual"><scope>QfAndroidViewStatus</scope><name>handleResourceOpened</name></member>
+      <member refid="classQfAndroidViewStatus_1a977b1eab3caebe7bbe9db570fa4110cf" prot="public" virt="non-virtual"><scope>QfAndroidViewStatus</scope><name>QfAndroidViewStatus</name></member>
+      <member refid="classQfViewStatus_1ad370aa0fb7307f4dd71ea3d95b2e299c" prot="public" virt="non-virtual"><scope>QfAndroidViewStatus</scope><name>QfViewStatus</name></member>
+      <member refid="classQfViewStatus_1a4e25e97dfa526f6188d566a4795c0159" prot="public" virt="non-virtual"><scope>QfAndroidViewStatus</scope><name>statusReceived</name></member>
+      <member refid="classQfViewStatus_1a9bc578d3b8fb05ea8fd163a196aeb42c" prot="public" virt="virtual"><scope>QfAndroidViewStatus</scope><name>~QfViewStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

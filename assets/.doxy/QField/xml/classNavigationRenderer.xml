@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNavigationRenderer" kind="class" language="C++" prot="public">
+    <compoundname>NavigationRenderer</compoundname>
+    <basecompoundref refid="classQfNavigationRenderer" prot="public" virt="non-virtual">QfNavigationRenderer</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NavigationRenderer</label>
+        <link refid="classNavigationRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNavigationRenderer</label>
+        <link refid="classQfNavigationRenderer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NavigationRenderer</label>
+        <link refid="classNavigationRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNavigationRenderer</label>
+        <link refid="classQfNavigationRenderer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/NavigationRenderer.qml" line="2" column="1" bodyfile="src/app/qml_compat/NavigationRenderer.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfNavigationRenderer_1a915faf1da61e254863e97df40c7fd8e9" prot="public" virt="non-virtual"><scope>NavigationRenderer</scope><name>geometryWrapper</name></member>
+      <member refid="classQfNavigationRenderer_1a8a72285b8f010ab2dcd9f19392fb0f4e" prot="public" virt="non-virtual"><scope>NavigationRenderer</scope><name>mapSettings</name></member>
+      <member refid="classQfNavigationRenderer_1a58f80e97166699359193432a4492bac3" prot="public" virt="non-virtual"><scope>NavigationRenderer</scope><name>pointIndex</name></member>
+      <member refid="classQfNavigationRenderer_1af3634bfcff01625edf3fb548504465ce" prot="public" virt="non-virtual"><scope>NavigationRenderer</scope><name>pointType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

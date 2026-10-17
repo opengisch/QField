@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__gui" kind="group">
+    <compoundname>gui</compoundname>
+    <title>Gui</title>
+    <innerclass refid="classQfAttributeFormModel" prot="public">QfAttributeFormModel</innerclass>
+    <innerclass refid="classQfAttributeFormModelBase" prot="public">QfAttributeFormModelBase</innerclass>
+    <innerclass refid="classQfBarcodeImageProvider" prot="public">QfBarcodeImageProvider</innerclass>
+    <innerclass refid="classQfDrawingTemplateModel" prot="public">QfDrawingTemplateModel</innerclass>
+    <innerclass refid="classQfExpressionEvaluator" prot="public">QfExpressionEvaluator</innerclass>
+    <innerclass refid="classQfExpressionVariableModel" prot="public">QfExpressionVariableModel</innerclass>
+    <innerclass refid="classQfFeatureCheckListModelBase" prot="public">QfFeatureCheckListModelBase</innerclass>
+    <innerclass refid="classQfFocusStack" prot="public">QfFocusStack</innerclass>
+    <innerclass refid="classQfGeometryEditorsModel" prot="public">QfGeometryEditorsModel</innerclass>
+    <innerclass refid="classQfLegendImageProvider" prot="public">QfLegendImageProvider</innerclass>
+    <innerclass refid="classQfLocalFilesImageProvider" prot="public">QfLocalFilesImageProvider</innerclass>
+    <innerclass refid="classQfLocalFilesModel" prot="public">QfLocalFilesModel</innerclass>
+    <innerclass refid="classQfMessageLogModel" prot="public">QfMessageLogModel</innerclass>
+    <innerclass refid="classQfOrderedRelationModel" prot="public">QfOrderedRelationModel</innerclass>
+    <innerclass refid="classQfParameterizedImage" prot="public">QfParameterizedImage</innerclass>
+    <innerclass refid="classQfCameraPermission" prot="public">QfCameraPermission</innerclass>
+    <innerclass refid="classQfPrintLayoutListModel" prot="public">QfPrintLayoutListModel</innerclass>
+    <innerclass refid="classQfProjectsImageProvider" prot="public">QfProjectsImageProvider</innerclass>
+    <innerclass refid="classQfRecentProjectListModel" prot="public">QfRecentProjectListModel</innerclass>
+    <innerclass refid="classQfReferencingFeatureListModelBase" prot="public">QfReferencingFeatureListModelBase</innerclass>
+    <innerclass refid="classQfSensorListModel" prot="public">QfSensorListModel</innerclass>
+    <innerclass refid="classQfTheme" prot="public">QfTheme</innerclass>
+    <innerclass refid="classQfValueMapModel" prot="public">QfValueMapModel</innerclass>
+    <innerclass refid="classQfValueMapModelBase" prot="public">QfValueMapModelBase</innerclass>
+    <briefdescription>
+<para>QField GUI C++ classes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

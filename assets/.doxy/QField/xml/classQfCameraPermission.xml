@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCameraPermission" kind="class" language="C++" prot="public">
+    <compoundname>QfCameraPermission</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCameraPermission_1a6ee0b3612c4d6c38cdb562b0987e0c1f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qt::PermissionStatus</type>
+        <definition>Qt::PermissionStatus QfCameraPermission::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>QfCameraPermission::status</qualifiedname>
+        <read>status</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfpermissions.h" line="30" column="5" bodyfile="src/gui/qfpermissions.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCameraPermission_1a927961490871d2c52cdbedc8a8bf2619" prot="private" static="no" mutable="no">
+        <type>Qt::PermissionStatus</type>
+        <definition>Qt::PermissionStatus QfCameraPermission::mStatus</definition>
+        <argsstring></argsstring>
+        <name>mStatus</name>
+        <qualifiedname>QfCameraPermission::mStatus</qualifiedname>
+        <initializer>= Qt::PermissionStatus::Undetermined</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfpermissions.h" line="52" column="26" bodyfile="src/gui/qfpermissions.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCameraPermission_1a507e647cfef1630e11c23dc7b207decd" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCameraPermission::mStatusChecked</definition>
+        <argsstring></argsstring>
+        <name>mStatusChecked</name>
+        <qualifiedname>QfCameraPermission::mStatusChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfpermissions.h" line="53" column="10" bodyfile="src/gui/qfpermissions.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCameraPermission_1aa6a5c84a3f0a53b993c066a04c416247" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCameraPermission::QfCameraPermission</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfCameraPermission</name>
+        <qualifiedname>QfCameraPermission::QfCameraPermission</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfpermissions.h" line="33" column="14" bodyfile="src/gui/qfpermissions.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCameraPermission_1a7d463b843f52a4d33489a80f76e4d382" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Qt::PermissionStatus</type>
+        <definition>Qt::PermissionStatus QfCameraPermission::status</definition>
+        <argsstring>()</argsstring>
+        <name>status</name>
+        <qualifiedname>QfCameraPermission::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the permission status. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfpermissions.h" line="38" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCameraPermission_1a6576906c0f5871131008c6e8c238b8ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCameraPermission::request</definition>
+        <argsstring>()</argsstring>
+        <name>request</name>
+        <qualifiedname>QfCameraPermission::request</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Requests the permission. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfpermissions.h" line="43" column="22" bodyfile="src/gui/qfpermissions.cpp" bodystart="38" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCameraPermission_1adcb7a1fd94686d4548118af25789f249" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCameraPermission::statusChanged</definition>
+        <argsstring>()</argsstring>
+        <name>statusChanged</name>
+        <qualifiedname>QfCameraPermission::statusChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the status has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfpermissions.h" line="49" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCameraPermission</label>
+        <link refid="classQfCameraPermission"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCameraPermission</label>
+        <link refid="classQfCameraPermission"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfpermissions.h" line="26" column="1" bodyfile="src/gui/qfpermissions.h" bodystart="27" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classQfCameraPermission_1a927961490871d2c52cdbedc8a8bf2619" prot="private" virt="non-virtual"><scope>QfCameraPermission</scope><name>mStatus</name></member>
+      <member refid="classQfCameraPermission_1a507e647cfef1630e11c23dc7b207decd" prot="private" virt="non-virtual"><scope>QfCameraPermission</scope><name>mStatusChecked</name></member>
+      <member refid="classQfCameraPermission_1aa6a5c84a3f0a53b993c066a04c416247" prot="public" virt="non-virtual"><scope>QfCameraPermission</scope><name>QfCameraPermission</name></member>
+      <member refid="classQfCameraPermission_1a6576906c0f5871131008c6e8c238b8ea" prot="public" virt="non-virtual"><scope>QfCameraPermission</scope><name>request</name></member>
+      <member refid="classQfCameraPermission_1a6ee0b3612c4d6c38cdb562b0987e0c1f" prot="public" virt="non-virtual"><scope>QfCameraPermission</scope><name>status</name></member>
+      <member refid="classQfCameraPermission_1a7d463b843f52a4d33489a80f76e4d382" prot="public" virt="non-virtual"><scope>QfCameraPermission</scope><name>status</name></member>
+      <member refid="classQfCameraPermission_1adcb7a1fd94686d4548118af25789f249" prot="public" virt="non-virtual"><scope>QfCameraPermission</scope><name>statusChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

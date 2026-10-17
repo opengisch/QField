@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceQf3D" kind="namespace" language="C++">
+    <compoundname>Qf3D</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="qf3d_8cpp_1a19eed04a50ce945a99f58e65f6fee274" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3D::registerQmlTypes</definition>
+        <argsstring>()</argsstring>
+        <name>registerQmlTypes</name>
+        <qualifiedname>Qf3D::registerQmlTypes</qualifiedname>
+        <briefdescription>
+<para>Registers the 3d library&apos;s QML types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3d.cpp" line="29" column="8" bodyfile="src/3d/qf3d.cpp" bodystart="29" bodyend="47" declfile="src/3d/qf3d.h" declline="22" declcolumn="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/3d/qf3d.cpp" line="27" column="1"/>
+  </compounddef>
+</doxygen>

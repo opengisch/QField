@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfSensorInformationView" kind="class" language="C++" prot="public">
+    <compoundname>QfSensorInformationView</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <derivedcompoundref refid="classSensorInformationView" prot="public" virt="non-virtual">SensorInformationView</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfSensorInformationView_1a691179da7e497ed18e579d8dc15b8b7f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfSensorInformationView::activeSensors</definition>
+        <argsstring></argsstring>
+        <name>activeSensors</name>
+        <qualifiedname>QfSensorInformationView::activeSensors</qualifiedname>
+        <read>dummyGetter_activeSensors_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="13" column="1" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSensorInformationView_1a172e31cca465157369c628b674f5029f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfSensorInformationView::ceilsCount</definition>
+        <argsstring></argsstring>
+        <name>ceilsCount</name>
+        <qualifiedname>QfSensorInformationView::ceilsCount</qualifiedname>
+        <read>dummyGetter_ceilsCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="15" column="1" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSensorInformationView_1a52fa35ada50e855b7a878e9c25016811" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfSensorInformationView::cellHeight</definition>
+        <argsstring></argsstring>
+        <name>cellHeight</name>
+        <qualifiedname>QfSensorInformationView::cellHeight</qualifiedname>
+        <read>dummyGetter_cellHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="17" column="1" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSensorInformationView_1af635918d1ecbdfb7bae6c884cafcaa4a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfSensorInformationView::cellPadding</definition>
+        <argsstring></argsstring>
+        <name>cellPadding</name>
+        <qualifiedname>QfSensorInformationView::cellPadding</qualifiedname>
+        <read>dummyGetter_cellPadding_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="19" column="1" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSensorInformationView_1ad61b47e576de3d7fb2d92a70c47e1bd6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfSensorInformationView::backgroundColor</definition>
+        <argsstring></argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>QfSensorInformationView::backgroundColor</qualifiedname>
+        <read>dummyGetter_backgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="21" column="1" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSensorInformationView_1a23e746edbaeaf3daa4ebaf7ccec3ea2f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfSensorInformationView::alternateBackgroundColor</definition>
+        <argsstring></argsstring>
+        <name>alternateBackgroundColor</name>
+        <qualifiedname>QfSensorInformationView::alternateBackgroundColor</qualifiedname>
+        <read>dummyGetter_alternateBackgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="23" column="1" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSensorInformationView_1a850624ac2fdf87073b4d432c0c2ea9c3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfSensorInformationView::textColor</definition>
+        <argsstring></argsstring>
+        <name>textColor</name>
+        <qualifiedname>QfSensorInformationView::textColor</qualifiedname>
+        <read>dummyGetter_textColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="25" column="1" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfSensorInformationView_1a95f3c7ec7be1cbf9bbe9958cd0c808e1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfSensorInformationView::contentHeight</definition>
+        <argsstring></argsstring>
+        <name>contentHeight</name>
+        <qualifiedname>QfSensorInformationView::contentHeight</qualifiedname>
+        <read>dummyGetter_contentHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="27" column="1" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfSensorInformationView_1a4f476479194ec0818bd43573018240d5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfSensorInformationView::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfSensorInformationView::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="29" column="5" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSensorInformationView_1ab3be8d14dbd32f70e66f617223a2cb7a" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfSensorInformationView::margins</definition>
+        <argsstring></argsstring>
+        <name>margins</name>
+        <qualifiedname>QfSensorInformationView::margins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="30" column="12" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSensorInformationView_1aa372d4f91d6fcb5a7873b676b730548c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfSensorInformationView::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfSensorInformationView::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="31" column="5" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSensorInformationView_1ac3c18a9f362a75cc5021862db6d754d3" prot="private" static="no" mutable="no">
+        <type>GridView</type>
+        <definition>GridView QfSensorInformationView::grid</definition>
+        <argsstring></argsstring>
+        <name>grid</name>
+        <qualifiedname>QfSensorInformationView::grid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSensorInformationView.qml" line="32" column="10" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfSensorInformationView</label>
+        <link refid="classQfSensorInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+      <node id="3">
+        <label>SensorInformationView</label>
+        <link refid="classSensorInformationView"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfSensorInformationView</label>
+        <link refid="classQfSensorInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfSensorInformationView.qml" line="10" column="1" bodyfile="src/gui/qml/QfSensorInformationView.qml" bodystart="10" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classQfSensorInformationView_1a691179da7e497ed18e579d8dc15b8b7f" prot="public" virt="non-virtual"><scope>QfSensorInformationView</scope><name>activeSensors</name></member>
+      <member refid="classQfSensorInformationView_1a23e746edbaeaf3daa4ebaf7ccec3ea2f" prot="public" virt="non-virtual"><scope>QfSensorInformationView</scope><name>alternateBackgroundColor</name></member>
+      <member refid="classQfSensorInformationView_1ad61b47e576de3d7fb2d92a70c47e1bd6" prot="public" virt="non-virtual"><scope>QfSensorInformationView</scope><name>backgroundColor</name></member>
+      <member refid="classQfSensorInformationView_1a172e31cca465157369c628b674f5029f" prot="public" virt="non-virtual"><scope>QfSensorInformationView</scope><name>ceilsCount</name></member>
+      <member refid="classQfSensorInformationView_1a52fa35ada50e855b7a878e9c25016811" prot="public" virt="non-virtual"><scope>QfSensorInformationView</scope><name>cellHeight</name></member>
+      <member refid="classQfSensorInformationView_1af635918d1ecbdfb7bae6c884cafcaa4a" prot="public" virt="non-virtual"><scope>QfSensorInformationView</scope><name>cellPadding</name></member>
+      <member refid="classQfSensorInformationView_1aa372d4f91d6fcb5a7873b676b730548c" prot="private" virt="non-virtual"><scope>QfSensorInformationView</scope><name>color</name></member>
+      <member refid="classQfSensorInformationView_1a95f3c7ec7be1cbf9bbe9958cd0c808e1" prot="public" virt="non-virtual"><scope>QfSensorInformationView</scope><name>contentHeight</name></member>
+      <member refid="classQfSensorInformationView_1ac3c18a9f362a75cc5021862db6d754d3" prot="private" virt="non-virtual"><scope>QfSensorInformationView</scope><name>grid</name></member>
+      <member refid="classQfSensorInformationView_1ab3be8d14dbd32f70e66f617223a2cb7a" prot="private" virt="non-virtual"><scope>QfSensorInformationView</scope><name>margins</name></member>
+      <member refid="classQfSensorInformationView_1a850624ac2fdf87073b4d432c0c2ea9c3" prot="public" virt="non-virtual"><scope>QfSensorInformationView</scope><name>textColor</name></member>
+      <member refid="classQfSensorInformationView_1a4f476479194ec0818bd43573018240d5" prot="private" virt="non-virtual"><scope>QfSensorInformationView</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

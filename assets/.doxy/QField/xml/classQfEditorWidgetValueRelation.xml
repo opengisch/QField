@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfEditorWidgetValueRelation" kind="class" language="C++" prot="public">
+    <compoundname>QfEditorWidgetValueRelation</compoundname>
+    <basecompoundref refid="classQfEditorWidgetBase" prot="public" virt="non-virtual">QfEditorWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1a7da7df5ea09ee616b15713b5cef99693" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetValueRelation::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfEditorWidgetValueRelation::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="8" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1a4f55bb8fb4f259abd9351dfa167de242" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetValueRelation::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfEditorWidgetValueRelation::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="9" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1ab1218942076131af3cfb3455a634dde9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetValueRelation::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>QfEditorWidgetValueRelation::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="17" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1ac0e5910a183df6626fef6b12838e260f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetValueRelation::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>QfEditorWidgetValueRelation::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="18" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1ae14f5a7aeb3f18d073ff63708c3d1d8e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetValueRelation::onCurrentKeyValueChanged</definition>
+        <argsstring></argsstring>
+        <name>onCurrentKeyValueChanged</name>
+        <qualifiedname>QfEditorWidgetValueRelation::onCurrentKeyValueChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="23" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1a2e08d2949a49213d3fe65a170d8144e2" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfLayerResolver" kindref="compound">QfLayerResolver</ref></type>
+        <definition>QfLayerResolver QfEditorWidgetValueRelation::layerResolver</definition>
+        <argsstring></argsstring>
+        <name>layerResolver</name>
+        <qualifiedname>QfEditorWidgetValueRelation::layerResolver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="24" column="17" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1ad71fb287f1f92437677dd79e622e6fd5" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFeatureCheckListModel" kindref="compound">QfFeatureCheckListModel</ref></type>
+        <definition>QfFeatureCheckListModel QfEditorWidgetValueRelation::listModel</definition>
+        <argsstring></argsstring>
+        <name>listModel</name>
+        <qualifiedname>QfEditorWidgetValueRelation::listModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="25" column="25" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1a8316329c0dd0b8ec1b556a12e0786d06" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToggleButtonGroup" kindref="compound">QfToggleButtonGroup</ref></type>
+        <definition>QfToggleButtonGroup QfEditorWidgetValueRelation::toggleButtons</definition>
+        <argsstring></argsstring>
+        <name>toggleButtons</name>
+        <qualifiedname>QfEditorWidgetValueRelation::toggleButtons</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="26" column="21" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1ab3fd2b5837473c5628e725db1f0bb550" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfRelationCombobox" kindref="compound">QfRelationCombobox</ref></type>
+        <definition>QfRelationCombobox QfEditorWidgetValueRelation::valueRelationCombobox</definition>
+        <argsstring></argsstring>
+        <name>valueRelationCombobox</name>
+        <qualifiedname>QfEditorWidgetValueRelation::valueRelationCombobox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="27" column="20" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1a6940b03246568b3eedb175548c1be2c6" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column QfEditorWidgetValueRelation::valueRelationListComponent</definition>
+        <argsstring></argsstring>
+        <name>valueRelationListComponent</name>
+        <qualifiedname>QfEditorWidgetValueRelation::valueRelationListComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="28" column="8" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1af5e68f268189696280f3dbaf8d496f06" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSearchBar" kindref="compound">QfSearchBar</ref></type>
+        <definition>QfSearchBar QfEditorWidgetValueRelation::searchBar</definition>
+        <argsstring></argsstring>
+        <name>searchBar</name>
+        <qualifiedname>QfEditorWidgetValueRelation::searchBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="29" column="13" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1aa5adffa4ad6b42bc6b5d4955e4c51159" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfEditorWidgetValueRelation::valueRelationList</definition>
+        <argsstring></argsstring>
+        <name>valueRelationList</name>
+        <qualifiedname>QfEditorWidgetValueRelation::valueRelationList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="30" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1af5de13ba5898273560c030a607a5ddc1" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout QfEditorWidgetValueRelation::valueGridView</definition>
+        <argsstring></argsstring>
+        <name>valueGridView</name>
+        <qualifiedname>QfEditorWidgetValueRelation::valueGridView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="31" column="12" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetValueRelation_1af554f1bc987090e3a0434235527b9635" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater QfEditorWidgetValueRelation::repeater</definition>
+        <argsstring></argsstring>
+        <name>repeater</name>
+        <qualifiedname>QfEditorWidgetValueRelation::repeater</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="32" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfEditorWidgetValueRelation_1a5b114f1290291aee936fd92de977f12d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfEditorWidgetValueRelation::toggleButtonsThreshold</definition>
+        <argsstring></argsstring>
+        <name>toggleButtonsThreshold</name>
+        <qualifiedname>QfEditorWidgetValueRelation::toggleButtonsThreshold</qualifiedname>
+        <read>dummyGetter_toggleButtonsThreshold_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="13" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetValueRelation_1ab0b52f2dbc64faeb6ec1037ba286ec5b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfEditorWidgetValueRelation::useToggleButtons</definition>
+        <argsstring></argsstring>
+        <name>useToggleButtons</name>
+        <qualifiedname>QfEditorWidgetValueRelation::useToggleButtons</qualifiedname>
+        <read>dummyGetter_useToggleButtons_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="15" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfEditorWidgetValueRelation_1abae32bc6babaaa4a0a21d907b77d494e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetValueRelation::currentKeyValue</definition>
+        <argsstring></argsstring>
+        <name>currentKeyValue</name>
+        <qualifiedname>QfEditorWidgetValueRelation::currentKeyValue</qualifiedname>
+        <read>dummyGetter_currentKeyValue_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="21" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetValueRelation</label>
+        <link refid="classQfEditorWidgetValueRelation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetValueRelation</label>
+        <link refid="classQfEditorWidgetValueRelation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" line="7" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetValueRelation.qml" bodystart="7" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classQfEditorWidgetValueRelation_1abae32bc6babaaa4a0a21d907b77d494e" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>currentKeyValue</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1a4f55bb8fb4f259abd9351dfa167de242" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>enabled</name></member>
+      <member refid="classQfEditorWidgetBase_1a751317742bd0b321c34227c675cc3498" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>hasMenu</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1a7da7df5ea09ee616b15713b5cef99693" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>height</name></member>
+      <member refid="classQfEditorWidgetBase_1a944924151aa99c79141c21ea005fe496" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>isEmpty</name></member>
+      <member refid="classQfEditorWidgetBase_1a97cff9c96681d8a89e27876d58464e2b" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>isLoaded</name></member>
+      <member refid="classQfEditorWidgetBase_1a742c1296a01ae0f30812a2a4774ba10c" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>isNull</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1a2e08d2949a49213d3fe65a170d8144e2" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>layerResolver</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1ad71fb287f1f92437677dd79e622e6fd5" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>listModel</name></member>
+      <member refid="classQfEditorWidgetBase_1a4821556cd4522582f7640f7b98d688ec" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>menu</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1ae14f5a7aeb3f18d073ff63708c3d1d8e" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>onCurrentKeyValueChanged</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1af554f1bc987090e3a0434235527b9635" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>repeater</name></member>
+      <member refid="classQfEditorWidgetBase_1a33d531d2137cf20fa4a08f45071dbfc5" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>requestBarcode</name></member>
+      <member refid="classQfEditorWidgetBase_1ad70ec29cddcabbc8fc23968db9f3134c" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>requestGeometry</name></member>
+      <member refid="classQfEditorWidgetBase_1a2b20a1c25fa38abd54b3048a2371396b" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1af5e68f268189696280f3dbaf8d496f06" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>searchBar</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1ab1218942076131af3cfb3455a634dde9" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>state</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1ac0e5910a183df6626fef6b12838e260f" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>states</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1a8316329c0dd0b8ec1b556a12e0786d06" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>toggleButtons</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1a5b114f1290291aee936fd92de977f12d" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>toggleButtonsThreshold</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1ab0b52f2dbc64faeb6ec1037ba286ec5b" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>useToggleButtons</name></member>
+      <member refid="classQfEditorWidgetBase_1abd62623a424aa8d9773d73adadb2e870" prot="public" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>valueChangeRequested</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1af5de13ba5898273560c030a607a5ddc1" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>valueGridView</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1ab3fd2b5837473c5628e725db1f0bb550" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>valueRelationCombobox</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1aa5adffa4ad6b42bc6b5d4955e4c51159" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>valueRelationList</name></member>
+      <member refid="classQfEditorWidgetValueRelation_1a6940b03246568b3eedb175548c1be2c6" prot="private" virt="non-virtual"><scope>QfEditorWidgetValueRelation</scope><name>valueRelationListComponent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

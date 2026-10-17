@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfNearFieldReader" kind="class" language="C++" prot="public">
+    <compoundname>QfNearFieldReader</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfnearfieldreader_8h" local="no">qfnearfieldreader.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfNearFieldReader_1a7f45b7ba2f772edb154476a4b907e575" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNearFieldReader::active</definition>
+        <argsstring></argsstring>
+        <name>active</name>
+        <qualifiedname>QfNearFieldReader::active</qualifiedname>
+        <read>active</read>
+        <write>setActive</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="36" column="5" bodyfile="src/core/qfnearfieldreader.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNearFieldReader_1a4e71b60b4ef7ce873813b6a9630e7d07" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNearFieldReader::targetInRange</definition>
+        <argsstring></argsstring>
+        <name>targetInRange</name>
+        <qualifiedname>QfNearFieldReader::targetInRange</qualifiedname>
+        <read>targetInRange</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="37" column="5" bodyfile="src/core/qfnearfieldreader.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNearFieldReader_1a92fafba94ae1be06a77f68d9e9f837f6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfNearFieldReader::readString</definition>
+        <argsstring></argsstring>
+        <name>readString</name>
+        <qualifiedname>QfNearFieldReader::readString</qualifiedname>
+        <read>readString</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="38" column="5" bodyfile="src/core/qfnearfieldreader.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfNearFieldReader_1a0ec8b8630c39812038e56b8e1210ae18" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfNearFieldReader::mActive</definition>
+        <argsstring></argsstring>
+        <name>mActive</name>
+        <qualifiedname>QfNearFieldReader::mActive</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="88" column="10" bodyfile="src/core/qfnearfieldreader.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNearFieldReader_1a0401e04176317e75d1ad772a48fb0894" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfNearFieldReader::mTargetInRange</definition>
+        <argsstring></argsstring>
+        <name>mTargetInRange</name>
+        <qualifiedname>QfNearFieldReader::mTargetInRange</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="89" column="10" bodyfile="src/core/qfnearfieldreader.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNearFieldReader_1a188f3db9aa6c731fd0270f59535d5dd2" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfNearFieldReader::mReadString</definition>
+        <argsstring></argsstring>
+        <name>mReadString</name>
+        <qualifiedname>QfNearFieldReader::mReadString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="90" column="13" bodyfile="src/core/qfnearfieldreader.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfNearFieldReader_1ae98c77e075eab63955ef58ddb7088b61" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfNearFieldReader::QfNearFieldReader</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfNearFieldReader</name>
+        <qualifiedname>QfNearFieldReader::QfNearFieldReader</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="41" column="14" bodyfile="src/core/qfnearfieldreader.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNearFieldReader_1a71af402852983338d577462ab9b196ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfNearFieldReader::~QfNearFieldReader</definition>
+        <argsstring>()</argsstring>
+        <name>~QfNearFieldReader</name>
+        <qualifiedname>QfNearFieldReader::~QfNearFieldReader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="42" column="5" bodyfile="src/core/qfnearfieldreader.cpp" bodystart="33" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNearFieldReader_1a55eb999de20d5386d7fc13b5f5e93ae0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNearFieldReader::active</definition>
+        <argsstring>() const</argsstring>
+        <name>active</name>
+        <qualifiedname>QfNearFieldReader::active</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the device is actively scanning and reading text strings from near-field targets. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="47" column="10" bodyfile="src/core/qfnearfieldreader.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNearFieldReader_1ad81c21d3931e5ef2569df22830fdc8a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNearFieldReader::setActive</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>setActive</name>
+        <qualifiedname>QfNearFieldReader::setActive</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the device is actively scanning and reading text strings from near-field targets. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="52" column="10" bodyfile="src/core/qfnearfieldreader.cpp" bodystart="53" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNearFieldReader_1a732a01298caea26d66f66910faf0e2ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfNearFieldReader::readString</definition>
+        <argsstring>() const</argsstring>
+        <name>readString</name>
+        <qualifiedname>QfNearFieldReader::readString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the last read near-field string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="57" column="13" bodyfile="src/core/qfnearfieldreader.cpp" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNearFieldReader_1ab67e8647eafc9b0e0a46aabece03d7ae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNearFieldReader::targetInRange</definition>
+        <argsstring>() const</argsstring>
+        <name>targetInRange</name>
+        <qualifiedname>QfNearFieldReader::targetInRange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether a near-field target is currently within range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="62" column="10" bodyfile="src/core/qfnearfieldreader.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfNearFieldReader_1a17998ac43353e3a4d9a9252432c5ee9e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNearFieldReader::isSupported</definition>
+        <argsstring>()</argsstring>
+        <name>isSupported</name>
+        <qualifiedname>QfNearFieldReader::isSupported</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the current device can read near-field targets. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="67" column="17" bodyfile="src/core/qfnearfieldreader.cpp" bodystart="88" bodyend="96"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfNearFieldReader_1a825c9db0af18cf98de3d7bc2c65409b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNearFieldReader::activeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>activeChanged</name>
+        <qualifiedname>QfNearFieldReader::activeChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the active state has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="71" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNearFieldReader_1a66290c9e4c597970b1e63f3805f734d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNearFieldReader::readStringChanged</definition>
+        <argsstring>()</argsstring>
+        <name>readStringChanged</name>
+        <qualifiedname>QfNearFieldReader::readStringChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the last text string read from a near-field target has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="73" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNearFieldReader_1ab6bb7e6ac7c8b0ebb9d60fe2678246c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNearFieldReader::targetInRangeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>targetInRangeChanged</name>
+        <qualifiedname>QfNearFieldReader::targetInRangeChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when a near-field target is within range of the device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="75" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNearFieldReader_1a51e917ccfb46509be521db3f9fa2f6b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNearFieldReader::targetDetected</definition>
+        <argsstring>(const QString &amp;targetId)</argsstring>
+        <name>targetDetected</name>
+        <qualifiedname>QfNearFieldReader::targetDetected</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>targetId</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when a near-field target has been detected. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnearfieldreader.h" line="77" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classQfNearFieldReader" kindref="compound">QfNearFieldReader</ref> class allows for the scanning of near-field targets. When text strings are present on targets, the strings will be automatically read and a signal emitted with the string values. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfNearFieldReader</label>
+        <link refid="classQfNearFieldReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfNearFieldReader</label>
+        <link refid="classQfNearFieldReader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfnearfieldreader.h" line="32" column="1" bodyfile="src/core/qfnearfieldreader.h" bodystart="33" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classQfNearFieldReader_1a7f45b7ba2f772edb154476a4b907e575" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>active</name></member>
+      <member refid="classQfNearFieldReader_1a55eb999de20d5386d7fc13b5f5e93ae0" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>active</name></member>
+      <member refid="classQfNearFieldReader_1a825c9db0af18cf98de3d7bc2c65409b6" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>activeChanged</name></member>
+      <member refid="classQfNearFieldReader_1a17998ac43353e3a4d9a9252432c5ee9e" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>isSupported</name></member>
+      <member refid="classQfNearFieldReader_1a0ec8b8630c39812038e56b8e1210ae18" prot="private" virt="non-virtual"><scope>QfNearFieldReader</scope><name>mActive</name></member>
+      <member refid="classQfNearFieldReader_1a188f3db9aa6c731fd0270f59535d5dd2" prot="private" virt="non-virtual"><scope>QfNearFieldReader</scope><name>mReadString</name></member>
+      <member refid="classQfNearFieldReader_1a0401e04176317e75d1ad772a48fb0894" prot="private" virt="non-virtual"><scope>QfNearFieldReader</scope><name>mTargetInRange</name></member>
+      <member refid="classQfNearFieldReader_1ae98c77e075eab63955ef58ddb7088b61" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>QfNearFieldReader</name></member>
+      <member refid="classQfNearFieldReader_1a92fafba94ae1be06a77f68d9e9f837f6" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>readString</name></member>
+      <member refid="classQfNearFieldReader_1a732a01298caea26d66f66910faf0e2ed" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>readString</name></member>
+      <member refid="classQfNearFieldReader_1a66290c9e4c597970b1e63f3805f734d1" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>readStringChanged</name></member>
+      <member refid="classQfNearFieldReader_1ad81c21d3931e5ef2569df22830fdc8a2" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>setActive</name></member>
+      <member refid="classQfNearFieldReader_1a51e917ccfb46509be521db3f9fa2f6b5" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>targetDetected</name></member>
+      <member refid="classQfNearFieldReader_1a4e71b60b4ef7ce873813b6a9630e7d07" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>targetInRange</name></member>
+      <member refid="classQfNearFieldReader_1ab67e8647eafc9b0e0a46aabece03d7ae" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>targetInRange</name></member>
+      <member refid="classQfNearFieldReader_1ab6bb7e6ac7c8b0ebb9d60fe2678246c8" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>targetInRangeChanged</name></member>
+      <member refid="classQfNearFieldReader_1a71af402852983338d577462ab9b196ed" prot="public" virt="non-virtual"><scope>QfNearFieldReader</scope><name>~QfNearFieldReader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

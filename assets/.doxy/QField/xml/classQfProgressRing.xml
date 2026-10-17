@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProgressRing" kind="class" language="C++" prot="public">
+    <compoundname>QfProgressRing</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ProgressBar</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfProgressRing_1ac7b41ea36017889f04745eaa8ddcf63e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfProgressRing::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>QfProgressRing::size</qualifiedname>
+        <read>dummyGetter_size_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProgressRing.qml" line="12" column="1" bodyfile="src/gui/qml/QfProgressRing.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProgressRing_1a03717de7b97c934f299770ebd5437576" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfProgressRing::strokeWidth</definition>
+        <argsstring></argsstring>
+        <name>strokeWidth</name>
+        <qualifiedname>QfProgressRing::strokeWidth</qualifiedname>
+        <read>dummyGetter_strokeWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProgressRing.qml" line="14" column="1" bodyfile="src/gui/qml/QfProgressRing.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProgressRing_1a549456bcd862b410d6d6ebc37cf949b7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfProgressRing::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfProgressRing::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProgressRing.qml" line="16" column="1" bodyfile="src/gui/qml/QfProgressRing.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProgressRing_1ab5c7cd2d391fb0b199a9c36f378615b2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfProgressRing::backgroundColor</definition>
+        <argsstring></argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>QfProgressRing::backgroundColor</qualifiedname>
+        <read>dummyGetter_backgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProgressRing.qml" line="18" column="1" bodyfile="src/gui/qml/QfProgressRing.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfProgressRing_1ad1c3c00de6cd8f64d085424a52c0a18c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProgressRing::implicitWidth</definition>
+        <argsstring></argsstring>
+        <name>implicitWidth</name>
+        <qualifiedname>QfProgressRing::implicitWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProgressRing.qml" line="20" column="5" bodyfile="src/gui/qml/QfProgressRing.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProgressRing_1a1bc951355940aea6c31c51e6c153f13f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProgressRing::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>QfProgressRing::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProgressRing.qml" line="21" column="5" bodyfile="src/gui/qml/QfProgressRing.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProgressRing_1a0cdcadd3541ece3975b818b375aa8461" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProgressRing::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfProgressRing::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProgressRing.qml" line="22" column="5" bodyfile="src/gui/qml/QfProgressRing.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProgressRing_1aa8e6c8ab234d08a8a8abc926bce5f548" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProgressRing::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>QfProgressRing::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProgressRing.qml" line="23" column="5" bodyfile="src/gui/qml/QfProgressRing.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ProgressBar</label>
+      </node>
+      <node id="1">
+        <label>QfProgressRing</label>
+        <link refid="classQfProgressRing"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ProgressBar</label>
+      </node>
+      <node id="1">
+        <label>QfProgressRing</label>
+        <link refid="classQfProgressRing"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfProgressRing.qml" line="9" column="1" bodyfile="src/gui/qml/QfProgressRing.qml" bodystart="9" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classQfProgressRing_1a0cdcadd3541ece3975b818b375aa8461" prot="private" virt="non-virtual"><scope>QfProgressRing</scope><name>background</name></member>
+      <member refid="classQfProgressRing_1ab5c7cd2d391fb0b199a9c36f378615b2" prot="public" virt="non-virtual"><scope>QfProgressRing</scope><name>backgroundColor</name></member>
+      <member refid="classQfProgressRing_1a549456bcd862b410d6d6ebc37cf949b7" prot="public" virt="non-virtual"><scope>QfProgressRing</scope><name>color</name></member>
+      <member refid="classQfProgressRing_1aa8e6c8ab234d08a8a8abc926bce5f548" prot="private" virt="non-virtual"><scope>QfProgressRing</scope><name>contentItem</name></member>
+      <member refid="classQfProgressRing_1a1bc951355940aea6c31c51e6c153f13f" prot="private" virt="non-virtual"><scope>QfProgressRing</scope><name>implicitHeight</name></member>
+      <member refid="classQfProgressRing_1ad1c3c00de6cd8f64d085424a52c0a18c" prot="private" virt="non-virtual"><scope>QfProgressRing</scope><name>implicitWidth</name></member>
+      <member refid="classQfProgressRing_1ac7b41ea36017889f04745eaa8ddcf63e" prot="public" virt="non-virtual"><scope>QfProgressRing</scope><name>size</name></member>
+      <member refid="classQfProgressRing_1a03717de7b97c934f299770ebd5437576" prot="public" virt="non-virtual"><scope>QfProgressRing</scope><name>strokeWidth</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

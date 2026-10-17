@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfPositioningDeviceModel_1_1Device" kind="struct" language="C++" prot="public">
+    <compoundname>QfPositioningDeviceModel::Device</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfPositioningDeviceModel_1_1Device_1ac53f3afb1dd335db40402d57641969a8" prot="public" static="no" mutable="no">
+        <type>Type</type>
+        <definition>Type QfPositioningDeviceModel::Device::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>QfPositioningDeviceModel::Device::type</qualifiedname>
+        <initializer>= Type::InternalDevice</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioningdevicemodel.h" line="51" column="14" bodyfile="src/core/positioning/qfpositioningdevicemodel.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfPositioningDeviceModel_1_1Device_1a090f9f3aa53179211ef83ea359898e2c" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfPositioningDeviceModel::Device::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>QfPositioningDeviceModel::Device::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioningdevicemodel.h" line="52" column="17" bodyfile="src/core/positioning/qfpositioningdevicemodel.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfPositioningDeviceModel_1_1Device_1ad87e2087053dac74bee99c605f2811e2" prot="public" static="no" mutable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QfPositioningDeviceModel::Device::settings</definition>
+        <argsstring></argsstring>
+        <name>settings</name>
+        <qualifiedname>QfPositioningDeviceModel::Device::settings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioningdevicemodel.h" line="53" column="21" bodyfile="src/core/positioning/qfpositioningdevicemodel.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfPositioningDeviceModel_1_1Device_1a9fe4a988d39718ec8871fec394078bf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfPositioningDeviceModel::Device::Device</definition>
+        <argsstring>()=default</argsstring>
+        <name>Device</name>
+        <qualifiedname>QfPositioningDeviceModel::Device::Device</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioningdevicemodel.h" line="43" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfPositioningDeviceModel_1_1Device_1acf2447d5ccccf920777dc529278901e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfPositioningDeviceModel::Device::Device</definition>
+        <argsstring>(Type type, const QString &amp;name, const QVariantMap &amp;settings)</argsstring>
+        <name>Device</name>
+        <qualifiedname>QfPositioningDeviceModel::Device::Device</qualifiedname>
+        <param>
+          <type>Type</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioningdevicemodel.h" line="45" column="9" bodyfile="src/core/positioning/qfpositioningdevicemodel.h" bodystart="45" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/positioning/qfpositioningdevicemodel.h" line="41" column="5" bodyfile="src/core/positioning/qfpositioningdevicemodel.h" bodystart="42" bodyend="54"/>
+    <listofallmembers>
+      <member refid="structQfPositioningDeviceModel_1_1Device_1a9fe4a988d39718ec8871fec394078bf7" prot="public" virt="non-virtual"><scope>QfPositioningDeviceModel::Device</scope><name>Device</name></member>
+      <member refid="structQfPositioningDeviceModel_1_1Device_1acf2447d5ccccf920777dc529278901e4" prot="public" virt="non-virtual"><scope>QfPositioningDeviceModel::Device</scope><name>Device</name></member>
+      <member refid="structQfPositioningDeviceModel_1_1Device_1a090f9f3aa53179211ef83ea359898e2c" prot="public" virt="non-virtual"><scope>QfPositioningDeviceModel::Device</scope><name>name</name></member>
+      <member refid="structQfPositioningDeviceModel_1_1Device_1ad87e2087053dac74bee99c605f2811e2" prot="public" virt="non-virtual"><scope>QfPositioningDeviceModel::Device</scope><name>settings</name></member>
+      <member refid="structQfPositioningDeviceModel_1_1Device_1ac53f3afb1dd335db40402d57641969a8" prot="public" virt="non-virtual"><scope>QfPositioningDeviceModel::Device</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

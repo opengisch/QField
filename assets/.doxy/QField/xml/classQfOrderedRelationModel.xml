@@ -1,0 +1,576 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfOrderedRelationModel" kind="class" language="C++" prot="public">
+    <compoundname>QfOrderedRelationModel</compoundname>
+    <basecompoundref refid="classQfReferencingFeatureListModelBase" prot="public" virt="non-virtual">QfReferencingFeatureListModelBase</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfOrderedRelationModel_1a0e2c868811d5af932c6063b823ebb0e0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>QfOrderedRelationModel::Roles</qualifiedname>
+        <enumvalue id="classQfOrderedRelationModel_1a0e2c868811d5af932c6063b823ebb0e0a46eb72b2d94c45bfb1c15443e243683e" prot="public">
+          <name>ImagePathRole</name>
+          <initializer>= Qt::UserRole + 100</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfOrderedRelationModel_1a0e2c868811d5af932c6063b823ebb0e0a77933f3bf4c77b871358981638335302" prot="public">
+          <name>DescriptionRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfOrderedRelationModel_1a0e2c868811d5af932c6063b823ebb0e0a10a07f6500e4f3d852f92e6d0e8a7c25" prot="public">
+          <name>FeatureIdRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfOrderedRelationModel_1a0e2c868811d5af932c6063b823ebb0e0ace364d94614fc600bfe0290c98e3dbba" prot="public">
+          <name>OrderingValueRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="43" column="5" bodyfile="src/gui/qforderedrelationmodel.h" bodystart="44" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfOrderedRelationModel_1a3ae54aaf8088235689226952d1821b04" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfOrderedRelationModel::orderingField</definition>
+        <argsstring></argsstring>
+        <name>orderingField</name>
+        <qualifiedname>QfOrderedRelationModel::orderingField</qualifiedname>
+        <read>orderingField</read>
+        <write>setOrderingField</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="36" column="5" bodyfile="src/gui/qforderedrelationmodel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfOrderedRelationModel_1a019887965f060244acfc40bdfc32977e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfOrderedRelationModel::imagePath</definition>
+        <argsstring></argsstring>
+        <name>imagePath</name>
+        <qualifiedname>QfOrderedRelationModel::imagePath</qualifiedname>
+        <read>imagePath</read>
+        <write>setImagePath</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="37" column="5" bodyfile="src/gui/qforderedrelationmodel.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfOrderedRelationModel_1aea4ff195f916b8bae1cde54b3ea99812" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfOrderedRelationModel::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>QfOrderedRelationModel::description</qualifiedname>
+        <read>description</read>
+        <write>setDescription</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="38" column="5" bodyfile="src/gui/qforderedrelationmodel.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfOrderedRelationModel_1ad1f1af8a7a7ecc3661832cdc44705c64" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfOrderedRelationModel::mOrderingField</definition>
+        <argsstring></argsstring>
+        <name>mOrderingField</name>
+        <qualifiedname>QfOrderedRelationModel::mOrderingField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="73" column="13" bodyfile="src/gui/qforderedrelationmodel.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfOrderedRelationModel_1a7988f35df87a3ab4e3241f30d623676d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfOrderedRelationModel::mImagePath</definition>
+        <argsstring></argsstring>
+        <name>mImagePath</name>
+        <qualifiedname>QfOrderedRelationModel::mImagePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="74" column="13" bodyfile="src/gui/qforderedrelationmodel.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfOrderedRelationModel_1af616424221ffb8289485b1022464fa5e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfOrderedRelationModel::mDescription</definition>
+        <argsstring></argsstring>
+        <name>mDescription</name>
+        <qualifiedname>QfOrderedRelationModel::mDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="75" column="13" bodyfile="src/gui/qforderedrelationmodel.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfOrderedRelationModel_1ac977cc1c98e95437fc307b8b91dddfce" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfOrderedRelationModel::QfOrderedRelationModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfOrderedRelationModel</name>
+        <qualifiedname>QfOrderedRelationModel::QfOrderedRelationModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="41" column="14" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="27" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfOrderedRelationModel_1a4dee93e290756f5212684e5fdf8855d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfOrderedRelationModel::orderingField</definition>
+        <argsstring>() const</argsstring>
+        <name>orderingField</name>
+        <qualifiedname>QfOrderedRelationModel::orderingField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="51" column="13" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfOrderedRelationModel_1af9141a343c5869e304e68a477e4f0841" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfOrderedRelationModel::setOrderingField</definition>
+        <argsstring>(const QString &amp;orderingField)</argsstring>
+        <name>setOrderingField</name>
+        <qualifiedname>QfOrderedRelationModel::setOrderingField</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>orderingField</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="52" column="10" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="38" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfOrderedRelationModel_1acde016e0f809ac331e60f08b2c499802" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfOrderedRelationModel::imagePath</definition>
+        <argsstring>() const</argsstring>
+        <name>imagePath</name>
+        <qualifiedname>QfOrderedRelationModel::imagePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="53" column="13" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfOrderedRelationModel_1ae195eb830e45a2fc520a0d360d2dfd9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfOrderedRelationModel::setImagePath</definition>
+        <argsstring>(const QString &amp;imagePath)</argsstring>
+        <name>setImagePath</name>
+        <qualifiedname>QfOrderedRelationModel::setImagePath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>imagePath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="54" column="10" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="53" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfOrderedRelationModel_1a4d55111681885c8b24cd1905c7442708" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfOrderedRelationModel::description</definition>
+        <argsstring>() const</argsstring>
+        <name>description</name>
+        <qualifiedname>QfOrderedRelationModel::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="55" column="13" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfOrderedRelationModel_1af79206b094e7b98891bdabb843785c77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfOrderedRelationModel::setDescription</definition>
+        <argsstring>(const QString &amp;description)</argsstring>
+        <name>setDescription</name>
+        <qualifiedname>QfOrderedRelationModel::setDescription</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="56" column="10" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="68" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfOrderedRelationModel_1a28da1b2cf2bcb79696aa0ddcd0e72d51" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfOrderedRelationModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfOrderedRelationModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="57" column="14" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="90" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfOrderedRelationModel_1ae0921b8637ab6589c737022331c04c53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfOrderedRelationModel::moveItems</definition>
+        <argsstring>(const int fromIdx, const int toIdx)</argsstring>
+        <name>moveItems</name>
+        <qualifiedname>QfOrderedRelationModel::moveItems</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>fromIdx</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>toIdx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="58" column="22" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="129" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfOrderedRelationModel_1a699838161cb5bfb28a2057c7d3d1ff66" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfOrderedRelationModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfOrderedRelationModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="59" column="11" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="78" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfOrderedRelationModel_1a089cbbf1d06633187ace89d267bb6977" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfOrderedRelationModel::triggerViewCurrentFeatureChange</definition>
+        <argsstring>(int index)</argsstring>
+        <name>triggerViewCurrentFeatureChange</name>
+        <qualifiedname>QfOrderedRelationModel::triggerViewCurrentFeatureChange</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="60" column="22" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="121" bodyend="127"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfOrderedRelationModel_1a8c4f566de550bc790b6423481e8e2ea0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfOrderedRelationModel::orderingFieldChanged</definition>
+        <argsstring>()</argsstring>
+        <name>orderingFieldChanged</name>
+        <qualifiedname>QfOrderedRelationModel::orderingFieldChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="63" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfOrderedRelationModel_1a59e4652a8f262e85241f712e510c31c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfOrderedRelationModel::imagePathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>imagePathChanged</name>
+        <qualifiedname>QfOrderedRelationModel::imagePathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="64" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfOrderedRelationModel_1aac79a0aee76852d1b3396481d4778e79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfOrderedRelationModel::descriptionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>descriptionChanged</name>
+        <qualifiedname>QfOrderedRelationModel::descriptionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="65" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfOrderedRelationModel_1a799bb644368bcc2042683324e40d1f44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfOrderedRelationModel::currentFeatureChanged</definition>
+        <argsstring>(QgsFeature feature)</argsstring>
+        <name>currentFeatureChanged</name>
+        <qualifiedname>QfOrderedRelationModel::currentFeatureChanged</qualifiedname>
+        <param>
+          <type>QgsFeature</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="66" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfOrderedRelationModel_1aa453ed5dfc4a7f54a1747bca33d36cdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfOrderedRelationModel::failedReorder</definition>
+        <argsstring>()</argsstring>
+        <name>failedReorder</name>
+        <qualifiedname>QfOrderedRelationModel::failedReorder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="67" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfOrderedRelationModel_1a3b6555eb6468bc33a37bdad825a66b4b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfOrderedRelationModel::beforeDeleteFeature</definition>
+        <argsstring>(QgsVectorLayer *referencingLayer, QgsFeatureId referencingFeatureId) override</argsstring>
+        <name>beforeDeleteFeature</name>
+        <qualifiedname>QfOrderedRelationModel::beforeDeleteFeature</qualifiedname>
+        <reimplements refid="classQfReferencingFeatureListModelBase_1a03d1750a3fb1eb26fa42f3a6569f84c9">beforeDeleteFeature</reimplements>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>referencingLayer</declname>
+        </param>
+        <param>
+          <type>QgsFeatureId</type>
+          <declname>referencingFeatureId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="70" column="10" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="188" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfOrderedRelationModel_1a0e96827afce31de2f0cd295410b75f8e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfOrderedRelationModel::sortEntries</definition>
+        <argsstring>()</argsstring>
+        <name>sortEntries</name>
+        <qualifiedname>QfOrderedRelationModel::sortEntries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qforderedrelationmodel.h" line="71" column="10" bodyfile="src/gui/qforderedrelationmodel.cpp" bodystart="245" bodyend="250"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfOrderedRelationModel</label>
+        <link refid="classQfOrderedRelationModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfReferencingFeatureListModelBase</label>
+        <link refid="classQfReferencingFeatureListModelBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QAbstractItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfOrderedRelationModel</label>
+        <link refid="classQfOrderedRelationModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfReferencingFeatureListModelBase</label>
+        <link refid="classQfReferencingFeatureListModelBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qforderedrelationmodel.h" line="32" column="1" bodyfile="src/gui/qforderedrelationmodel.h" bodystart="33" bodyend="76"/>
+    <listofallmembers>
+      <member refid="classQfReferencingFeatureListModelBase_1a517e35674d6de61786fd06508cad5ca0" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attachmentDetailsChanged</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a812ecba888d63fa100d75d28b424c94f" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attachmentDocumentViewer</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a8ccb32d40b4afea19169eb4a3119893e" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attachmentDocumentViewer</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a0b2cf31f26243c5d4b049b43e7a6a695" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attachmentFieldName</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1ac506a15f5afbcc35bac088cd4c34bb50" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attachmentFieldName</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6ad5d2507d863f147ffe72b78155dd1d56" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>AttachmentPath</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a10c68ac59bb3ba644973f46639ace3bc" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attachmentStorageAuthConfigId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a165f1ab8874674139112b9206bc0c741" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attachmentStorageAuthConfigId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1aa504b84d6425e6a6a5443dee601322d5" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attachmentStorageType</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2034a2e3c0b11d87fcd6d6350d942c69" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attachmentStorageType</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a6d6c657daa3950b9859ae17fd2a574c0" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attachmentStorageUrl</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a84ac578207c9fed90cbd7b6d926600cc" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attachmentStorageUrl</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a4496ab8a765e21a6112eaa26578b0505" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>attributeFormModelChanged</name></member>
+      <member refid="classQfOrderedRelationModel_1a3b6555eb6468bc33a37bdad825a66b4b" prot="private" virt="virtual"><scope>QfOrderedRelationModel</scope><name>beforeDeleteFeature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a375d1e9adb19beb4a35256a71c86645f" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>beforeModelUpdated</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a59f706952351f1bc4299056b464e6751" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>columnCount</name></member>
+      <member refid="classQfOrderedRelationModel_1a799bb644368bcc2042683324e40d1f44" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>currentFeatureChanged</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1ab699dcbdd796191e3c06b1c639ebe44f" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>currentNmRelationId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a0745f1d3fec5cbfd0423ef43c0c518e9" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>currentNmRelationId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a69077c9a6d6397bedae6c31447473d40" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>currentRelationId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a1152fb5f7f597cb3733a5d26f3c9f281" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>currentRelationId</name></member>
+      <member refid="classQfOrderedRelationModel_1a28da1b2cf2bcb79696aa0ddcd0e72d51" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>data</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a7da7704988ca1e5aa3cbb86a07322abb" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>deleteFeature</name></member>
+      <member refid="classQfOrderedRelationModel_1aea4ff195f916b8bae1cde54b3ea99812" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>description</name></member>
+      <member refid="classQfOrderedRelationModel_1a4d55111681885c8b24cd1905c7442708" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>description</name></member>
+      <member refid="classQfOrderedRelationModel_1aac79a0aee76852d1b3396481d4778e79" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>descriptionChanged</name></member>
+      <member refid="classQfOrderedRelationModel_1a0e2c868811d5af932c6063b823ebb0e0a77933f3bf4c77b871358981638335302" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>DescriptionRole</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6a107b54e17a4cb741723b82c0c5ef101f" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>DisplayString</name></member>
+      <member refid="classQfOrderedRelationModel_1aa453ed5dfc4a7f54a1747bca33d36cdf" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>failedReorder</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a672ea2300c6b7548b5b4d9fbcf9c64d0" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>feature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a095c8ce3064d28c565e4b841d874791e" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>feature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a5bf7ec918e420b88285077aac00603cc" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>featureChanged</name></member>
+      <member refid="classQfOrderedRelationModel_1a0e2c868811d5af932c6063b823ebb0e0a10a07f6500e4f3d852f92e6d0e8a7c25" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>FeatureIdRole</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a1e359e3789c669b4cd394cfe14677c4d" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>getFeatureIdRow</name></member>
+      <member refid="classQfOrderedRelationModel_1a019887965f060244acfc40bdfc32977e" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>imagePath</name></member>
+      <member refid="classQfOrderedRelationModel_1acde016e0f809ac331e60f08b2c499802" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>imagePath</name></member>
+      <member refid="classQfOrderedRelationModel_1a59e4652a8f262e85241f712e510c31c0" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>imagePathChanged</name></member>
+      <member refid="classQfOrderedRelationModel_1a0e2c868811d5af932c6063b823ebb0e0a46eb72b2d94c45bfb1c15443e243683e" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>ImagePathRole</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a14727b61609273e7dcc83c8a711eed34" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>index</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a9839e05797e2f7c8277fdc25393e1a94" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>isLoading</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a0eb240ddc5a2c400625eb7706810123d" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>isLoading</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1af844e393d8409b52a1f1abb5fadf8e0f" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>isLoadingChanged</name></member>
+      <member refid="classQfOrderedRelationModel_1af616424221ffb8289485b1022464fa5e" prot="private" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>mDescription</name></member>
+      <member refid="classQfOrderedRelationModel_1a7988f35df87a3ab4e3241f30d623676d" prot="private" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>mImagePath</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a7f989858bd1f241382238a15e4a5f5f4" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>modelUpdated</name></member>
+      <member refid="classQfOrderedRelationModel_1ad1f1af8a7a7ecc3661832cdc44705c64" prot="private" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>mOrderingField</name></member>
+      <member refid="classQfOrderedRelationModel_1ae0921b8637ab6589c737022331c04c53" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>moveItems</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6ac1b4c49ccddfa37d131f373001572775" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>NmDisplayString</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6a21934b6d67c8dc2705921bbd0d2135fa" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>NmReferencedFeature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a514e501b9f74b679a027720527ebf78a" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>nmRelation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a506341637231ea3565daa183289bc1af" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>nmRelation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1abe810da26f6517261af88238b6111f55" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>nmRelationChanged</name></member>
+      <member refid="classQfOrderedRelationModel_1a3ae54aaf8088235689226952d1821b04" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>orderingField</name></member>
+      <member refid="classQfOrderedRelationModel_1a4dee93e290756f5212684e5fdf8855d5" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>orderingField</name></member>
+      <member refid="classQfOrderedRelationModel_1a8c4f566de550bc790b6423481e8e2ea0" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>orderingFieldChanged</name></member>
+      <member refid="classQfOrderedRelationModel_1a0e2c868811d5af932c6063b823ebb0e0ace364d94614fc600bfe0290c98e3dbba" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>OrderingValueRole</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a1b83f90b030369ea3e7857df23af5b02" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>parent</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a40e40c62d6649ba182d15d72d9a3a510" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>parentPrimariesAvailable</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a7c8bb4208d0f42a12ffa163435c0b99a" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>parentPrimariesAvailable</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1aa0d76affa8691ae1844a8fa414e04119" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>parentPrimariesAvailableChanged</name></member>
+      <member refid="classQfOrderedRelationModel_1ac977cc1c98e95437fc307b8b91dddfce" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>QfOrderedRelationModel</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a03617df3fcb24065f633aa03fdbc2521" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>QfReferencingFeatureListModelBase</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>ReferencedFeatureListRoles</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a2c61086e7753b8106d39bbad12420db6ac59c194844b5c0eebae864e7b16761a5" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>ReferencingFeature</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a3733d84283b341c66c03781cf10a0321" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>relation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a8f2fee16a770d78d476248f67ebbf1fe" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>relation</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a87217fcf6e25c9046e7d2971fa668035" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>relationChanged</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a591145acbba84b53211482705db12455" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>reload</name></member>
+      <member refid="classQfOrderedRelationModel_1a699838161cb5bfb28a2057c7d3d1ff66" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>roleNames</name></member>
+      <member refid="classQfOrderedRelationModel_1a0e2c868811d5af932c6063b823ebb0e0" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>Roles</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1adc120611b2475e8e4570e9b5658bb2d2" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>rowCount</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a61f13659fcfce63b8170e1d3fc015a61" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>setCurrentNmRelationId</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1adfff3ff9153a76a698ec9af029d9bcc0" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>setCurrentRelationId</name></member>
+      <member refid="classQfOrderedRelationModel_1af79206b094e7b98891bdabb843785c77" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>setDescription</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a185ef3eb577feeffa72efe2f7dcf7cb7" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>setFeature</name></member>
+      <member refid="classQfOrderedRelationModel_1ae195eb830e45a2fc520a0d360d2dfd9f" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>setImagePath</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a9056a3c21280861b0b3eaf89be2abb0d" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>setNmRelation</name></member>
+      <member refid="classQfOrderedRelationModel_1af9141a343c5869e304e68a477e4f0841" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>setOrderingField</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a012bbc373019dba765ff695860f4bff4" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>setParentPrimariesAvailable</name></member>
+      <member refid="classQfReferencingFeatureListModelBase_1a839318afb739fd30aeb5bc4c149bf3b6" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>setRelation</name></member>
+      <member refid="classQfOrderedRelationModel_1a0e96827afce31de2f0cd295410b75f8e" prot="private" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>sortEntries</name></member>
+      <member refid="classQfOrderedRelationModel_1a089cbbf1d06633187ace89d267bb6977" prot="public" virt="non-virtual"><scope>QfOrderedRelationModel</scope><name>triggerViewCurrentFeatureChange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

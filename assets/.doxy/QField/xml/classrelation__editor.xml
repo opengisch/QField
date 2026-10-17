@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classrelation__editor" kind="class" language="C++" prot="public">
+    <compoundname>relation_editor</compoundname>
+    <basecompoundref refid="classQfRelationEditorBase" prot="public" virt="non-virtual">QfRelationEditorBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrelation__editor_1aba1c130334ebb8687a0018ca555d4f51" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var relation_editor::relationEditorModel</definition>
+        <argsstring></argsstring>
+        <name>relationEditorModel</name>
+        <qualifiedname>relation_editor::relationEditorModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" line="10" column="5" bodyfile="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrelation__editor_1af9921e4b8cfcb7506515013190c0d4e0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var relation_editor::onToggleSortAction</definition>
+        <argsstring></argsstring>
+        <name>onToggleSortAction</name>
+        <qualifiedname>relation_editor::onToggleSortAction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" line="11" column="5" bodyfile="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrelation__editor_1a62d49ab6c848870d72046e34bdf22f13" prot="private" static="no" mutable="no">
+        <type>var listView</type>
+        <definition>var listView relation_editor::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>relation_editor::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" line="12" column="13" bodyfile="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrelation__editor_1a29971fa7ecd531eed681158b32ad0b3f" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component relation_editor::referencingFeatureDelegate</definition>
+        <argsstring></argsstring>
+        <name>referencingFeatureDelegate</name>
+        <qualifiedname>relation_editor::referencingFeatureDelegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" line="13" column="11" bodyfile="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrelation__editor_1a65785fe4c6dd12056ea2ccebdf10719f" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item relation_editor::listitem</definition>
+        <argsstring></argsstring>
+        <name>listitem</name>
+        <qualifiedname>relation_editor::listitem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" line="14" column="6" bodyfile="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrelation__editor_1a8a63b6745399f60f7eea8f2158dff65c" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea relation_editor::mouseArea</definition>
+        <argsstring></argsstring>
+        <name>mouseArea</name>
+        <qualifiedname>relation_editor::mouseArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" line="15" column="11" bodyfile="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrelation__editor_1ad91ef029e71906e52aeafd8c2a2ead22" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row relation_editor::itemRow</definition>
+        <argsstring></argsstring>
+        <name>itemRow</name>
+        <qualifiedname>relation_editor::itemRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" line="16" column="5" bodyfile="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrelation__editor_1ae0eef2613c60ef385402b140014fa01d" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text relation_editor::featureText</definition>
+        <argsstring></argsstring>
+        <name>featureText</name>
+        <qualifiedname>relation_editor::featureText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" line="17" column="6" bodyfile="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrelation__editor_1aba52cd651096a1644264082f8faf21cc" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton relation_editor::viewButton</definition>
+        <argsstring></argsstring>
+        <name>viewButton</name>
+        <qualifiedname>relation_editor::viewButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" line="18" column="14" bodyfile="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrelation__editor_1a579142614ca9668fca58d0dd9b0100d9" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton relation_editor::menuButton</definition>
+        <argsstring></argsstring>
+        <name>menuButton</name>
+        <qualifiedname>relation_editor::menuButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" line="19" column="14" bodyfile="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfRelationEditorBase</label>
+        <link refid="classQfRelationEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>relation_editor</label>
+        <link refid="classrelation__editor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfRelationEditorBase</label>
+        <link refid="classQfRelationEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>relation_editor</label>
+        <link refid="classrelation__editor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" line="9" column="1" bodyfile="src/gui/qml/editorwidgets/relationeditors/relation_editor.qml" bodystart="9" bodyend="20"/>
+    <listofallmembers>
+      <member refid="classQfRelationEditorBase_1a6862fdb8956af0aa970946a9336652a3" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>bottomMargin</name></member>
+      <member refid="classQfRelationEditorBase_1a90401d378c5d0c5f767ba699827db799" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>childMenu</name></member>
+      <member refid="classQfRelationEditorBase_1aa6400a4dadd0224766a77cbe24c41425" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>deleteDialog</name></member>
+      <member refid="classQfRelationEditorBase_1a53ef3c5eb7eb1eabd366e2528c38f162" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>embeddedPopup</name></member>
+      <member refid="classQfRelationEditorBase_1a27b8fa90159871be32bb61f486ae30ca" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>ensureEmbeddedFormLoaded</name></member>
+      <member refid="classrelation__editor_1ae0eef2613c60ef385402b140014fa01d" prot="private" virt="non-virtual"><scope>relation_editor</scope><name>featureText</name></member>
+      <member refid="classQfRelationEditorBase_1adb3542415ea6af7c298954e55768fbca" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>footer</name></member>
+      <member refid="classQfRelationEditorBase_1a977abc547239e17d2f77f4f0646b4871" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>footerContent</name></member>
+      <member refid="classQfEditorWidgetBase_1a751317742bd0b321c34227c675cc3498" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>hasMenu</name></member>
+      <member refid="classQfRelationEditorBase_1ac4979b4543ed78d6ac6ab2dfceb6d2ec" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>headerActions</name></member>
+      <member refid="classQfRelationEditorBase_1a4d3de62a4ba7270c1e8036e854c01077" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>headerEntry</name></member>
+      <member refid="classQfRelationEditorBase_1ad8e77506f096761a8b0043950104718d" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>isActionEnabled</name></member>
+      <member refid="classQfEditorWidgetBase_1a944924151aa99c79141c21ea005fe496" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>isEmpty</name></member>
+      <member refid="classQfEditorWidgetBase_1a97cff9c96681d8a89e27876d58464e2b" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>isLoaded</name></member>
+      <member refid="classQfEditorWidgetBase_1a742c1296a01ae0f30812a2a4774ba10c" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>isNull</name></member>
+      <member refid="classQfRelationEditorBase_1a6cae2e1d376ad1d5c0dca3631ce4c2af" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>itemCount</name></member>
+      <member refid="classQfRelationEditorBase_1afeaa209add9503f4e87bd45c31ff35d7" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>itemHeight</name></member>
+      <member refid="classrelation__editor_1ad91ef029e71906e52aeafd8c2a2ead22" prot="private" virt="non-virtual"><scope>relation_editor</scope><name>itemRow</name></member>
+      <member refid="classrelation__editor_1a65785fe4c6dd12056ea2ccebdf10719f" prot="private" virt="non-virtual"><scope>relation_editor</scope><name>listitem</name></member>
+      <member refid="classQfRelationEditorBase_1a9bbd146528d17ad8188d74de14b25333" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>listView</name></member>
+      <member refid="classQfRelationEditorBase_1a0c82495449f35cc2ec90b402625def3f" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>maximumVisibleItems</name></member>
+      <member refid="classQfEditorWidgetBase_1a4821556cd4522582f7640f7b98d688ec" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>menu</name></member>
+      <member refid="classrelation__editor_1a579142614ca9668fca58d0dd9b0100d9" prot="private" virt="non-virtual"><scope>relation_editor</scope><name>menuButton</name></member>
+      <member refid="classrelation__editor_1a62d49ab6c848870d72046e34bdf22f13" prot="private" virt="non-virtual"><scope>relation_editor</scope><name>model</name></member>
+      <member refid="classrelation__editor_1a8a63b6745399f60f7eea8f2158dff65c" prot="private" virt="non-virtual"><scope>relation_editor</scope><name>mouseArea</name></member>
+      <member refid="classrelation__editor_1af9921e4b8cfcb7506515013190c0d4e0" prot="private" virt="non-virtual"><scope>relation_editor</scope><name>onToggleSortAction</name></member>
+      <member refid="classQfRelationEditorBase_1a19fa5dc933e302344295e995caa6faa3" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>prepareParent</name></member>
+      <member refid="classrelation__editor_1a29971fa7ecd531eed681158b32ad0b3f" prot="private" virt="non-virtual"><scope>relation_editor</scope><name>referencingFeatureDelegate</name></member>
+      <member refid="classrelation__editor_1aba1c130334ebb8687a0018ca555d4f51" prot="private" virt="non-virtual"><scope>relation_editor</scope><name>relationEditorModel</name></member>
+      <member refid="classQfEditorWidgetBase_1a33d531d2137cf20fa4a08f45071dbfc5" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>requestBarcode</name></member>
+      <member refid="classQfRelationEditorBase_1aebe6d554e40a825e37b62bbff4432267" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>requestedGeometryReceived</name></member>
+      <member refid="classQfEditorWidgetBase_1ad70ec29cddcabbc8fc23968db9f3134c" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>requestGeometry</name></member>
+      <member refid="classQfEditorWidgetBase_1a2b20a1c25fa38abd54b3048a2371396b" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfRelationEditorBase_1a2d9bf77721b6369982ba81edcdb34b52" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>showAddFeaturePopup</name></member>
+      <member refid="classQfRelationEditorBase_1aca2050c8f177db92beca4dabf1521834" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>showAllItems</name></member>
+      <member refid="classQfRelationEditorBase_1a273cab74cd51e79ea999b6a4b6b8d1f7" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>showAtlasMenu</name></member>
+      <member refid="classQfRelationEditorBase_1aafa703c8e1efb1bfdcf15e8f1986da72" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>showSortButton</name></member>
+      <member refid="classQfRelationEditorBase_1ad2e58fc4d6c032a244415cdb0e80d0d5" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>showViewFeaturePopup</name></member>
+      <member refid="classQfRelationEditorBase_1a559af014496486a2e19ebcd1acdef978" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>toggleSortAction</name></member>
+      <member refid="classQfEditorWidgetBase_1abd62623a424aa8d9773d73adadb2e870" prot="public" virt="non-virtual"><scope>relation_editor</scope><name>valueChangeRequested</name></member>
+      <member refid="classrelation__editor_1aba52cd651096a1644264082f8faf21cc" prot="private" virt="non-virtual"><scope>relation_editor</scope><name>viewButton</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

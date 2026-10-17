@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLocationMarker" kind="class" language="C++" prot="public">
+    <compoundname>LocationMarker</compoundname>
+    <basecompoundref refid="classQfLocationMarker" prot="public" virt="non-virtual">QfLocationMarker</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LocationMarker</label>
+        <link refid="classLocationMarker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfLocationMarker</label>
+        <link refid="classQfLocationMarker"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LocationMarker</label>
+        <link refid="classLocationMarker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfLocationMarker</label>
+        <link refid="classQfLocationMarker"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/LocationMarker.qml" line="2" column="1" bodyfile="src/app/qml_compat/LocationMarker.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfLocationMarker_1aba1cecb6fedde39fed0046404d559302" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>accuracy</name></member>
+      <member refid="classQfLocationMarker_1a809cee59d16f001d0daa06570b0d1c7a" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>bubbleAction</name></member>
+      <member refid="classQfLocationMarker_1ab28c245a752c409eafcd35bf2f793a4a" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>bubbleColor</name></member>
+      <member refid="classQfLocationMarker_1a4116ff2bde008f441304bba4b770ea41" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>bubbleText</name></member>
+      <member refid="classQfLocationMarker_1ae507a02a49903bbc0bbddae0bbdb9dc3" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>bubbleTextColor</name></member>
+      <member refid="classQfLocationMarker_1a622626a38ae029202bea85fbc634d728" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>bubbleVisible</name></member>
+      <member refid="classQfLocationMarker_1aaff7b11150a3c5b0eb5247c8dfb6bb17" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>color</name></member>
+      <member refid="classQfLocationMarker_1ad2153bd4aba8514131fa85742c82d22f" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>direction</name></member>
+      <member refid="classQfLocationMarker_1ab91bacb4eb347fb78c66458fc29da2aa" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>isOnMapCanvas</name></member>
+      <member refid="classQfLocationMarker_1a69b845f8c9151665fabd0eba224885af" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>location</name></member>
+      <member refid="classQfLocationMarker_1afd12cf984bf608d2788b4942220fab11" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>mapSettings</name></member>
+      <member refid="classQfLocationMarker_1a2e0ae04a9977a319d088ea78c9df3251" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>orientation</name></member>
+      <member refid="classQfLocationMarker_1a2e18e23b7251fbc7035b7c2f9ebd5e95" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>screenAccuracy</name></member>
+      <member refid="classQfLocationMarker_1a352c003c1b7887aee6c5cf4b08744141" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>screenLocation</name></member>
+      <member refid="classQfLocationMarker_1a6c323c4b444ee43c575a03b748a671cc" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>semiOpaqueColor</name></member>
+      <member refid="classQfLocationMarker_1a4cf07a669c8ab22a4ac342c2bdc911ae" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>sizeScale</name></member>
+      <member refid="classQfLocationMarker_1a18071b4caeaae6a81159cac973ac1131" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>speed</name></member>
+      <member refid="classQfLocationMarker_1a614bce8b5a4a1ef87c9333515dd636fb" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>strokeColor</name></member>
+      <member refid="classQfLocationMarker_1a6f5fb3ce09d5f47567abe0b287df6050" prot="public" virt="non-virtual"><scope>LocationMarker</scope><name>updateScreenLocation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,977 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLocatorModelSuperBridge" kind="class" language="C++" prot="public">
+    <compoundname>QfLocatorModelSuperBridge</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QgsLocatorModelBridge</basecompoundref>
+    <includes refid="qflocatormodelsuperbridge_8h" local="no">qflocatormodelsuperbridge.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfLocatorModelSuperBridge_1a77025807c2599b8720f7fcc6ddc282d2" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfLocatorModelSuperBridge::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfLocatorModelSuperBridge::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+<para>The current project&apos;s map settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="67" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocatorModelSuperBridge_1a670c56eb88983fb09e4160a7dc067ffc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QObject *</type>
+        <definition>QObject * QfLocatorModelSuperBridge::geometryHighlighter</definition>
+        <argsstring></argsstring>
+        <name>geometryHighlighter</name>
+        <qualifiedname>QfLocatorModelSuperBridge::geometryHighlighter</qualifiedname>
+        <read>geometryHighlighter</read>
+        <write>setGeometryHighlighter</write>
+        <briefdescription>
+<para>The locator highlight geometry object through which locator actions can highhlight features. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="69" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocatorModelSuperBridge_1a828967e9fcf964247fe901fb0bbf0870" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureListExtentController" kindref="compound">QfFeatureListExtentController</ref> *</type>
+        <definition>QfFeatureListExtentController * QfLocatorModelSuperBridge::featureListController</definition>
+        <argsstring></argsstring>
+        <name>featureListController</name>
+        <qualifiedname>QfLocatorModelSuperBridge::featureListController</qualifiedname>
+        <read>featureListController</read>
+        <write>setFeatureListController</write>
+        <briefdescription>
+<para>The feature list extent controller. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="71" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocatorModelSuperBridge_1a21c989f062f641e7ec927c64d6766ef5" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer * QfLocatorModelSuperBridge::activeLayer</definition>
+        <argsstring></argsstring>
+        <name>activeLayer</name>
+        <qualifiedname>QfLocatorModelSuperBridge::activeLayer</qualifiedname>
+        <read>activeLayer</read>
+        <write>setActiveLayer</write>
+        <briefdescription>
+<para>The current project&apos;s active layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="73" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocatorModelSuperBridge_1a2f0d7e48fc0de9dce31bc8802ef99709" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfBookmarkModel" kindref="compound">QfBookmarkModel</ref> *</type>
+        <definition>QfBookmarkModel * QfLocatorModelSuperBridge::bookmarks</definition>
+        <argsstring></argsstring>
+        <name>bookmarks</name>
+        <qualifiedname>QfLocatorModelSuperBridge::bookmarks</qualifiedname>
+        <read>bookmarks</read>
+        <write>setBookmarks</write>
+        <briefdescription>
+<para>The bookmark manager containing user and current project bookmarks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="75" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocatorModelSuperBridge_1a990dc94ce9601e7b40ac9ba2f8951c58" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfNavigation" kindref="compound">QfNavigation</ref> *</type>
+        <definition>QfNavigation * QfLocatorModelSuperBridge::navigation</definition>
+        <argsstring></argsstring>
+        <name>navigation</name>
+        <qualifiedname>QfLocatorModelSuperBridge::navigation</qualifiedname>
+        <read>navigation</read>
+        <write>setNavigation</write>
+        <briefdescription>
+<para>The navigation object from which destination can be set or modified. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="77" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocatorModelSuperBridge_1a6c9a5210f1f25e1d63693366ea04fedf" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLocatorModelSuperBridge::keepScale</definition>
+        <argsstring></argsstring>
+        <name>keepScale</name>
+        <qualifiedname>QfLocatorModelSuperBridge::keepScale</qualifiedname>
+        <read>keepScale</read>
+        <write>setKeepScale</write>
+        <briefdescription>
+<para>The keep scale flag. When turned on, locator actions should not result in changed scale. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="79" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLocatorModelSuperBridge_1a902281ac061493327ebb9257b01f18e2" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfLocatorModelSuperBridge::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfLocatorModelSuperBridge::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="178" column="25" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorModelSuperBridge_1a5169841f1c15eecb1d5df258ecd94bd1" prot="private" static="no" mutable="no">
+        <type>QObject *</type>
+        <definition>QObject* QfLocatorModelSuperBridge::mGeometryHighlighter</definition>
+        <argsstring></argsstring>
+        <name>mGeometryHighlighter</name>
+        <qualifiedname>QfLocatorModelSuperBridge::mGeometryHighlighter</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="179" column="13" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorModelSuperBridge_1acbd0cbb296c317b420a0c18eaec71e18" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFeatureListExtentController" kindref="compound">QfFeatureListExtentController</ref> *</type>
+        <definition>QfFeatureListExtentController* QfLocatorModelSuperBridge::mFeatureListController</definition>
+        <argsstring></argsstring>
+        <name>mFeatureListController</name>
+        <qualifiedname>QfLocatorModelSuperBridge::mFeatureListController</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="180" column="35" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorModelSuperBridge_1aeaae04aeab8da4e30400f3d9f5816349" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsMapLayer &gt;</type>
+        <definition>QPointer&lt;QgsMapLayer&gt; QfLocatorModelSuperBridge::mActiveLayer</definition>
+        <argsstring></argsstring>
+        <name>mActiveLayer</name>
+        <qualifiedname>QfLocatorModelSuperBridge::mActiveLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="181" column="14" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorModelSuperBridge_1a87143577528fb6d1744c4ae17f9aeb4f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfLocatorModelSuperBridge::mKeepScale</definition>
+        <argsstring></argsstring>
+        <name>mKeepScale</name>
+        <qualifiedname>QfLocatorModelSuperBridge::mKeepScale</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="182" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorModelSuperBridge_1ad024718fc712d6578b2d48f75eef0f29" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfPeliasGeocoder" kindref="compound">QfPeliasGeocoder</ref> *</type>
+        <definition>QfPeliasGeocoder* QfLocatorModelSuperBridge::mFinlandGeocoder</definition>
+        <argsstring></argsstring>
+        <name>mFinlandGeocoder</name>
+        <qualifiedname>QfLocatorModelSuperBridge::mFinlandGeocoder</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="184" column="22" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorModelSuperBridge_1a715e6a014dc7fa4860077bad2f686a21" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfBookmarkModel" kindref="compound">QfBookmarkModel</ref> *</type>
+        <definition>QfBookmarkModel* QfLocatorModelSuperBridge::mBookmarks</definition>
+        <argsstring></argsstring>
+        <name>mBookmarks</name>
+        <qualifiedname>QfLocatorModelSuperBridge::mBookmarks</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="185" column="21" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorModelSuperBridge_1a538bc5b22b80c55c1007687c0081e21f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfNavigation" kindref="compound">QfNavigation</ref> *</type>
+        <definition>QfNavigation* QfLocatorModelSuperBridge::mNavigation</definition>
+        <argsstring></argsstring>
+        <name>mNavigation</name>
+        <qualifiedname>QfLocatorModelSuperBridge::mNavigation</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="186" column="18" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a070523c69c537f7b3c003276fdf83915" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfLocatorModelSuperBridge::QfLocatorModelSuperBridge</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfLocatorModelSuperBridge</name>
+        <qualifiedname>QfLocatorModelSuperBridge::QfLocatorModelSuperBridge</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="82" column="14" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="38" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a49fd17c0246b36487b6ded6ea4e65a17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfLocatorModelSuperBridge::~QfLocatorModelSuperBridge</definition>
+        <argsstring>()=default</argsstring>
+        <name>~QfLocatorModelSuperBridge</name>
+        <qualifiedname>QfLocatorModelSuperBridge::~QfLocatorModelSuperBridge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="83" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a5e857cac3ffccffd93247fcf8f73bf3a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfLocatorModelSuperBridge::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfLocatorModelSuperBridge::mapSettings</qualifiedname>
+        <briefdescription>
+<para>The current project&apos;s map settings.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="86" column="25" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1ae99be0fd3c1870404ae125b73b0eea66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfLocatorModelSuperBridge::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+<para>The current project&apos;s map settings.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="88" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="100" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1ac5f5a507464da8d5ff831bde877ae12d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfBookmarkModel" kindref="compound">QfBookmarkModel</ref> *</type>
+        <definition>QfBookmarkModel * QfLocatorModelSuperBridge::bookmarks</definition>
+        <argsstring>() const</argsstring>
+        <name>bookmarks</name>
+        <qualifiedname>QfLocatorModelSuperBridge::bookmarks</qualifiedname>
+        <briefdescription>
+<para>The bookmark manager containing user and current project bookmarks.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="91" column="21" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a6a44ca3da58929182236c451de3a4cd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::setBookmarks</definition>
+        <argsstring>(QfBookmarkModel *bookmarks)</argsstring>
+        <name>setBookmarks</name>
+        <qualifiedname>QfLocatorModelSuperBridge::setBookmarks</qualifiedname>
+        <param>
+          <type><ref refid="classQfBookmarkModel" kindref="compound">QfBookmarkModel</ref> *</type>
+          <declname>bookmarks</declname>
+        </param>
+        <briefdescription>
+<para>The bookmark manager containing user and current project bookmarks.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="93" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="85" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1ac4a8cfbc36b47ed05bd9ce96bdde55e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNavigation" kindref="compound">QfNavigation</ref> *</type>
+        <definition>QfNavigation * QfLocatorModelSuperBridge::navigation</definition>
+        <argsstring>() const</argsstring>
+        <name>navigation</name>
+        <qualifiedname>QfLocatorModelSuperBridge::navigation</qualifiedname>
+        <briefdescription>
+<para>The navigation object from which destination can be set or modified.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="96" column="18" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="65" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a10616097c53b8ed23af8107264425421" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::setNavigation</definition>
+        <argsstring>(QfNavigation *navigation)</argsstring>
+        <name>setNavigation</name>
+        <qualifiedname>QfLocatorModelSuperBridge::setNavigation</qualifiedname>
+        <param>
+          <type><ref refid="classQfNavigation" kindref="compound">QfNavigation</ref> *</type>
+          <declname>navigation</declname>
+        </param>
+        <briefdescription>
+<para>The navigation object from which destination can be set or modified.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="98" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="70" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a636c2877cb74a0587ebf726573df8224" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QObject *</type>
+        <definition>QObject * QfLocatorModelSuperBridge::geometryHighlighter</definition>
+        <argsstring>() const</argsstring>
+        <name>geometryHighlighter</name>
+        <qualifiedname>QfLocatorModelSuperBridge::geometryHighlighter</qualifiedname>
+        <briefdescription>
+<para>The locator highlight geometry object through which locator actions can highhlight features.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="101" column="13" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="116" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a8c9b984cdc9d07ffa8a8ea465a2d098d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::setGeometryHighlighter</definition>
+        <argsstring>(QObject *geometryHighlighter)</argsstring>
+        <name>setGeometryHighlighter</name>
+        <qualifiedname>QfLocatorModelSuperBridge::setGeometryHighlighter</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>geometryHighlighter</declname>
+        </param>
+        <briefdescription>
+<para>The locator highlight geometry object through which locator actions can highhlight features.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="103" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="121" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a07f392f361a7fdf9489a2de29503c995" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfFeatureListExtentController" kindref="compound">QfFeatureListExtentController</ref> *</type>
+        <definition>QfFeatureListExtentController * QfLocatorModelSuperBridge::featureListController</definition>
+        <argsstring>() const</argsstring>
+        <name>featureListController</name>
+        <qualifiedname>QfLocatorModelSuperBridge::featureListController</qualifiedname>
+        <briefdescription>
+<para>The feature list extent controller.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="106" column="35" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="130" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1aea955a2acc6edcd173c21b7e136de777" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::setFeatureListController</definition>
+        <argsstring>(QfFeatureListExtentController *featureListController)</argsstring>
+        <name>setFeatureListController</name>
+        <qualifiedname>QfLocatorModelSuperBridge::setFeatureListController</qualifiedname>
+        <param>
+          <type><ref refid="classQfFeatureListExtentController" kindref="compound">QfFeatureListExtentController</ref> *</type>
+          <declname>featureListController</declname>
+        </param>
+        <briefdescription>
+<para>The feature list extent controller.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="108" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="135" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a99f9b1baad27908748a9057a276c0fe2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer * QfLocatorModelSuperBridge::activeLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>activeLayer</name>
+        <qualifiedname>QfLocatorModelSuperBridge::activeLayer</qualifiedname>
+        <briefdescription>
+<para>The current project&apos;s active layer.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="111" column="17" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="144" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a4ff252d1d3ea3037b908ba1dff709f21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::setActiveLayer</definition>
+        <argsstring>(QgsMapLayer *layer)</argsstring>
+        <name>setActiveLayer</name>
+        <qualifiedname>QfLocatorModelSuperBridge::setActiveLayer</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>The current project&apos;s active layer.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="113" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="149" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1acea1cc587b33e2243753416dc19eb9bb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfLocatorModelSuperBridge::keepScale</definition>
+        <argsstring>() const</argsstring>
+        <name>keepScale</name>
+        <qualifiedname>QfLocatorModelSuperBridge::keepScale</qualifiedname>
+        <briefdescription>
+<para>The keep scale flag. When turned on, locator actions should not result in changed scale.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="116" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="158" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a05d7311ae4306a046a153f3bcd3a3675" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::setKeepScale</definition>
+        <argsstring>(bool keepScale)</argsstring>
+        <name>setKeepScale</name>
+        <qualifiedname>QfLocatorModelSuperBridge::setKeepScale</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>keepScale</declname>
+        </param>
+        <briefdescription>
+<para>The keep scale flag. When turned on, locator actions should not result in changed scale.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="118" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="163" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a06251f906b1abc3f413ae6fd3b2a5770" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfLocatorModelSuperBridge::requestSearch</definition>
+        <argsstring>(const QString &amp;text)</argsstring>
+        <name>requestSearch</name>
+        <qualifiedname>QfLocatorModelSuperBridge::requestSearch</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Requests a <emphasis>text</emphasis> query against the search bar. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="123" column="22" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="172" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1af454748fdf2bed1575f1a2f698676fd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::requestSearchTextChange</definition>
+        <argsstring>(const QString &amp;text)</argsstring>
+        <name>requestSearchTextChange</name>
+        <qualifiedname>QfLocatorModelSuperBridge::requestSearchTextChange</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Requests for the current text in the search bar to be changed to the provided <emphasis>text</emphasis> string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="129" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="177" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a1ea2822a196596eefef3fa9c94b124c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classQfLocatorActionsModel" kindref="compound">QfLocatorActionsModel</ref> *</type>
+        <definition>QfLocatorActionsModel * QfLocatorModelSuperBridge::contextMenuActionsModel</definition>
+        <argsstring>(const int row)</argsstring>
+        <name>contextMenuActionsModel</name>
+        <qualifiedname>QfLocatorModelSuperBridge::contextMenuActionsModel</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the actions model for a given locator search result list item. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="134" column="39" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="182" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1ac4ec61d1e782cca97de54a58bc4bcead" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QfLocatorModelSuperBridge::getLocatorModelDescription</definition>
+        <argsstring>(const int row)</argsstring>
+        <name>getLocatorModelDescription</name>
+        <qualifiedname>QfLocatorModelSuperBridge::getLocatorModelDescription</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the description for a given locator search result list item. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="139" column="25" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="205" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a02e813415f5e84200a1e4ebef8efc89f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QfLocatorModelSuperBridge::getPrefixFromSearchString</definition>
+        <argsstring>(const QString &amp;string)</argsstring>
+        <name>getPrefixFromSearchString</name>
+        <qualifiedname>QfLocatorModelSuperBridge::getPrefixFromSearchString</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Looks for and if present returns the locator filter prefix from a given search string. If not prefix is detected, an empty string will be returned. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="146" column="25" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="214" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a6540282eea2ea286626705b1a5c30400" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfLocatorModelSuperBridge::registerQFieldLocatorFilter</definition>
+        <argsstring>(QfLocatorFilter *filter)</argsstring>
+        <name>registerQFieldLocatorFilter</name>
+        <qualifiedname>QfLocatorModelSuperBridge::registerQFieldLocatorFilter</qualifiedname>
+        <param>
+          <type><ref refid="classQfLocatorFilter" kindref="compound">QfLocatorFilter</ref> *</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Registers a given <emphasis>filter</emphasis> with the locator. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="151" column="22" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="53" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a62ebf451fd6b89724fcf961d5372c0c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfLocatorModelSuperBridge::deregisterQFieldLocatorFilter</definition>
+        <argsstring>(QfLocatorFilter *filter)</argsstring>
+        <name>deregisterQFieldLocatorFilter</name>
+        <qualifiedname>QfLocatorModelSuperBridge::deregisterQFieldLocatorFilter</qualifiedname>
+        <param>
+          <type><ref refid="classQfLocatorFilter" kindref="compound">QfLocatorFilter</ref> *</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Deregisters a given <emphasis>filter</emphasis> with the locator. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="156" column="22" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="59" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorModelSuperBridge_1a4220d609489c607eedd5347c2fb26823" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::emitMessage</definition>
+        <argsstring>(const QString &amp;text)</argsstring>
+        <name>emitMessage</name>
+        <qualifiedname>QfLocatorModelSuperBridge::emitMessage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="158" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="229" bodyend="232"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1a9aa380968af6c81b38a6a9aa8d0f4c6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfLocatorModelSuperBridge::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="161" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1a2ba4aa6762212a74bb712983fdfe9ce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::bookmarksChanged</definition>
+        <argsstring>()</argsstring>
+        <name>bookmarksChanged</name>
+        <qualifiedname>QfLocatorModelSuperBridge::bookmarksChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="162" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1ab0474a93ab9adb1a939d9bb2e222554f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::navigationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>navigationChanged</name>
+        <qualifiedname>QfLocatorModelSuperBridge::navigationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="163" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1ac13c1b20a437bb936f29c4ae8381d0a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::geometryHighlighterChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryHighlighterChanged</name>
+        <qualifiedname>QfLocatorModelSuperBridge::geometryHighlighterChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="164" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1a0f0748e3a089d8a41962f2b09ef31239" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::featureListControllerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureListControllerChanged</name>
+        <qualifiedname>QfLocatorModelSuperBridge::featureListControllerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="165" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1a82eacd53956ab3eaebf331754946e8cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::activeLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>activeLayerChanged</name>
+        <qualifiedname>QfLocatorModelSuperBridge::activeLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="166" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1af942baa7f379f08c32c880256d12649c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::messageEmitted</definition>
+        <argsstring>(const QString &amp;text)</argsstring>
+        <name>messageEmitted</name>
+        <qualifiedname>QfLocatorModelSuperBridge::messageEmitted</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="167" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1aa7ff9fc0c466ad55a3742e3021185c16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::keepScaleChanged</definition>
+        <argsstring>()</argsstring>
+        <name>keepScaleChanged</name>
+        <qualifiedname>QfLocatorModelSuperBridge::keepScaleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="168" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1a8aaba03dacee085d37b27e97270174d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::searchRequested</definition>
+        <argsstring>(const QString &amp;text)</argsstring>
+        <name>searchRequested</name>
+        <qualifiedname>QfLocatorModelSuperBridge::searchRequested</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="169" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1a621dd01ef45e81302026fee15c251d86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::searchTextChangeRequested</definition>
+        <argsstring>(const QString &amp;text)</argsstring>
+        <name>searchTextChangeRequested</name>
+        <qualifiedname>QfLocatorModelSuperBridge::searchTextChangeRequested</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="170" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1afdab6160d5ac5e31f0615f8c1035aad9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::locatorFiltersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>locatorFiltersChanged</name>
+        <qualifiedname>QfLocatorModelSuperBridge::locatorFiltersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="171" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfLocatorModelSuperBridge_1a4e2d362cfcb009aaf92fd8fad217f6c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorModelSuperBridge::requestJumpToPoint</definition>
+        <argsstring>(const QgsPoint &amp;center, const double &amp;scale=-1.0, bool handleMargins=false)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>QfLocatorModelSuperBridge::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>scale</declname>
+          <defval>-1.0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="172" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classQfLocatorModelSuperBridge_1a35f32842dc6fef6393222000e1362535" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfLocatorModelSuperBridge::triggerResultAtRow</definition>
+        <argsstring>(const int row, const int id=-1)</argsstring>
+        <name>triggerResultAtRow</name>
+        <qualifiedname>QfLocatorModelSuperBridge::triggerResultAtRow</qualifiedname>
+        <param>
+          <type>const int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>id</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="175" column="22" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="234" bodyend="239"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> reimplements QgsLocatorModelBridge for specific needs of QField / QML implementation. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfLocatorModelSuperBridge</label>
+        <link refid="classQfLocatorModelSuperBridge"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorModelBridge</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfLocatorModelSuperBridge</label>
+        <link refid="classQfLocatorModelSuperBridge"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QgsLocatorModelBridge</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/qflocatormodelsuperbridge.h" line="59" column="1" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="60" bodyend="187"/>
+    <listofallmembers>
+      <member refid="classQfLocatorModelSuperBridge_1a21c989f062f641e7ec927c64d6766ef5" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>activeLayer</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a99f9b1baad27908748a9057a276c0fe2" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>activeLayer</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a82eacd53956ab3eaebf331754946e8cd" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>activeLayerChanged</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a2f0d7e48fc0de9dce31bc8802ef99709" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>bookmarks</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1ac5f5a507464da8d5ff831bde877ae12d" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>bookmarks</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a2ba4aa6762212a74bb712983fdfe9ce3" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>bookmarksChanged</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a1ea2822a196596eefef3fa9c94b124c3" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>contextMenuActionsModel</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a62ebf451fd6b89724fcf961d5372c0c7" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>deregisterQFieldLocatorFilter</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a4220d609489c607eedd5347c2fb26823" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>emitMessage</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a828967e9fcf964247fe901fb0bbf0870" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>featureListController</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a07f392f361a7fdf9489a2de29503c995" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>featureListController</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a0f0748e3a089d8a41962f2b09ef31239" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>featureListControllerChanged</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a670c56eb88983fb09e4160a7dc067ffc" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>geometryHighlighter</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a636c2877cb74a0587ebf726573df8224" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>geometryHighlighter</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1ac13c1b20a437bb936f29c4ae8381d0a5" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>geometryHighlighterChanged</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1ac4ec61d1e782cca97de54a58bc4bcead" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>getLocatorModelDescription</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a02e813415f5e84200a1e4ebef8efc89f" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>getPrefixFromSearchString</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a6c9a5210f1f25e1d63693366ea04fedf" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>keepScale</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1acea1cc587b33e2243753416dc19eb9bb" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>keepScale</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1aa7ff9fc0c466ad55a3742e3021185c16" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>keepScaleChanged</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1afdab6160d5ac5e31f0615f8c1035aad9" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>locatorFiltersChanged</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1aeaae04aeab8da4e30400f3d9f5816349" prot="private" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>mActiveLayer</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a77025807c2599b8720f7fcc6ddc282d2" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>mapSettings</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a5e857cac3ffccffd93247fcf8f73bf3a" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>mapSettings</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a9aa380968af6c81b38a6a9aa8d0f4c6f" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a715e6a014dc7fa4860077bad2f686a21" prot="private" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>mBookmarks</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1af942baa7f379f08c32c880256d12649c" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>messageEmitted</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1acbd0cbb296c317b420a0c18eaec71e18" prot="private" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>mFeatureListController</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1ad024718fc712d6578b2d48f75eef0f29" prot="private" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>mFinlandGeocoder</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a5169841f1c15eecb1d5df258ecd94bd1" prot="private" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>mGeometryHighlighter</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a87143577528fb6d1744c4ae17f9aeb4f" prot="private" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>mKeepScale</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a902281ac061493327ebb9257b01f18e2" prot="private" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>mMapSettings</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a538bc5b22b80c55c1007687c0081e21f" prot="private" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>mNavigation</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a990dc94ce9601e7b40ac9ba2f8951c58" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>navigation</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1ac4a8cfbc36b47ed05bd9ce96bdde55e6" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>navigation</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1ab0474a93ab9adb1a939d9bb2e222554f" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>navigationChanged</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a070523c69c537f7b3c003276fdf83915" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>QfLocatorModelSuperBridge</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a6540282eea2ea286626705b1a5c30400" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>registerQFieldLocatorFilter</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a4e2d362cfcb009aaf92fd8fad217f6c1" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a06251f906b1abc3f413ae6fd3b2a5770" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>requestSearch</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1af454748fdf2bed1575f1a2f698676fd1" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>requestSearchTextChange</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a8aaba03dacee085d37b27e97270174d0" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>searchRequested</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a621dd01ef45e81302026fee15c251d86" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>searchTextChangeRequested</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a4ff252d1d3ea3037b908ba1dff709f21" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>setActiveLayer</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a6a44ca3da58929182236c451de3a4cd9" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>setBookmarks</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1aea955a2acc6edcd173c21b7e136de777" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>setFeatureListController</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a8c9b984cdc9d07ffa8a8ea465a2d098d" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>setGeometryHighlighter</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a05d7311ae4306a046a153f3bcd3a3675" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>setKeepScale</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1ae99be0fd3c1870404ae125b73b0eea66" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>setMapSettings</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a10616097c53b8ed23af8107264425421" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>setNavigation</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a35f32842dc6fef6393222000e1362535" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>triggerResultAtRow</name></member>
+      <member refid="classQfLocatorModelSuperBridge_1a49fd17c0246b36487b6ded6ea4e65a17" prot="public" virt="non-virtual"><scope>QfLocatorModelSuperBridge</scope><name>~QfLocatorModelSuperBridge</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

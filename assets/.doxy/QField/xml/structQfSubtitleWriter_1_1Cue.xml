@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfSubtitleWriter_1_1Cue" kind="struct" language="C++" prot="private">
+    <compoundname>QfSubtitleWriter::Cue</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfSubtitleWriter_1_1Cue_1a0a55d302b03703119dd724848455dc00" prot="public" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 QfSubtitleWriter::Cue::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <qualifiedname>QfSubtitleWriter::Cue::start</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="89" column="16" bodyfile="src/core/qfsubtitlewriter.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfSubtitleWriter_1_1Cue_1a64508df98a59912592a42c2c9afff4a1" prot="public" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 QfSubtitleWriter::Cue::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <qualifiedname>QfSubtitleWriter::Cue::end</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="90" column="16" bodyfile="src/core/qfsubtitlewriter.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfSubtitleWriter_1_1Cue_1afdeb5a6719acfc94b7d1d5392b0e557b" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfSubtitleWriter::Cue::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>QfSubtitleWriter::Cue::text</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="91" column="17" bodyfile="src/core/qfsubtitlewriter.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfsubtitlewriter.h" line="87" column="5" bodyfile="src/core/qfsubtitlewriter.h" bodystart="88" bodyend="92"/>
+    <listofallmembers>
+      <member refid="structQfSubtitleWriter_1_1Cue_1a64508df98a59912592a42c2c9afff4a1" prot="public" virt="non-virtual"><scope>QfSubtitleWriter::Cue</scope><name>end</name></member>
+      <member refid="structQfSubtitleWriter_1_1Cue_1a0a55d302b03703119dd724848455dc00" prot="public" virt="non-virtual"><scope>QfSubtitleWriter::Cue</scope><name>start</name></member>
+      <member refid="structQfSubtitleWriter_1_1Cue_1afdeb5a6719acfc94b7d1d5392b0e557b" prot="public" virt="non-virtual"><scope>QfSubtitleWriter::Cue</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCogoParameterDistance" kind="class" language="C++" prot="public">
+    <compoundname>QfCogoParameterDistance</compoundname>
+    <basecompoundref refid="classQfCogoParameterWidgetBase" prot="public" virt="non-virtual">QfCogoParameterWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCogoParameterDistance_1a4c782f84d63dbac501c7d889c787d865" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoParameterDistance::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCogoParameterDistance::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterDistance.qml" line="8" column="5" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterDistance.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoParameterDistance_1a06dea3ba9eba00a7dee682d0c2c3e6b1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoParameterDistance::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCogoParameterDistance::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterDistance.qml" line="9" column="5" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterDistance.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoParameterDistance_1ad6b4e576f7ca64d811ffe36ae013166b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfCogoParameterDistance::distanceField</definition>
+        <argsstring></argsstring>
+        <name>distanceField</name>
+        <qualifiedname>QfCogoParameterDistance::distanceField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterDistance.qml" line="10" column="13" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterDistance.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCogoParameterDistance_1a9ac4cb3021471dd5c2cef3b6c2094c3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoParameterDistance::processValue</definition>
+        <argsstring>()</argsstring>
+        <name>processValue</name>
+        <qualifiedname>QfCogoParameterDistance::processValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterDistance.qml" line="13" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCogoParameterDistance</label>
+        <link refid="classQfCogoParameterDistance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoParameterWidgetBase</label>
+        <link refid="classQfCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCogoParameterDistance</label>
+        <link refid="classQfCogoParameterDistance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoParameterWidgetBase</label>
+        <link refid="classQfCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterDistance.qml" line="7" column="1" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterDistance.qml" bodystart="7" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classQfCogoParameterDistance_1ad6b4e576f7ca64d811ffe36ae013166b" prot="private" virt="non-virtual"><scope>QfCogoParameterDistance</scope><name>distanceField</name></member>
+      <member refid="classQfCogoParameterDistance_1a06dea3ba9eba00a7dee682d0c2c3e6b1" prot="private" virt="non-virtual"><scope>QfCogoParameterDistance</scope><name>height</name></member>
+      <member refid="classQfCogoParameterDistance_1a9ac4cb3021471dd5c2cef3b6c2094c3a" prot="public" virt="non-virtual"><scope>QfCogoParameterDistance</scope><name>processValue</name></member>
+      <member refid="classQfCogoParameterWidgetBase_1a31b2a7aa825831608188d5c97cf5d8a6" prot="public" virt="non-virtual"><scope>QfCogoParameterDistance</scope><name>requestPosition</name></member>
+      <member refid="classQfCogoParameterWidgetBase_1a021ef367435f055140add8a42b7ea339" prot="public" virt="non-virtual"><scope>QfCogoParameterDistance</scope><name>valueChangeRequested</name></member>
+      <member refid="classQfCogoParameterDistance_1a4c782f84d63dbac501c7d889c787d865" prot="private" virt="non-virtual"><scope>QfCogoParameterDistance</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

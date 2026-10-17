@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfFeatureModel_1_1RememberValues" kind="struct" language="C++" prot="public">
+    <compoundname>QfFeatureModel::RememberValues</compoundname>
+    <includes refid="qffeaturemodel_8h" local="no">qffeaturemodel.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfFeatureModel_1_1RememberValues_1a6bee3ba42259dd2756697a7d0f427d42" prot="public" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfFeatureModel::RememberValues::rememberedFeature</definition>
+        <argsstring></argsstring>
+        <name>rememberedFeature</name>
+        <qualifiedname>QfFeatureModel::RememberValues::rememberedFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="58" column="20" bodyfile="src/core/qffeaturemodel.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeatureModel_1_1RememberValues_1ab8d8564fbbb6eaa84e35d62bc1f68928" prot="public" static="no" mutable="no">
+        <type>QVector&lt; bool &gt;</type>
+        <definition>QVector&lt;bool&gt; QfFeatureModel::RememberValues::rememberedAttributes</definition>
+        <argsstring></argsstring>
+        <name>rememberedAttributes</name>
+        <qualifiedname>QfFeatureModel::RememberValues::rememberedAttributes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturemodel.h" line="59" column="17" bodyfile="src/core/qffeaturemodel.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>keeping the information what attributes are remembered and the last edited feature </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qffeaturemodel.h" line="56" column="5" bodyfile="src/core/qffeaturemodel.h" bodystart="57" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structQfFeatureModel_1_1RememberValues_1ab8d8564fbbb6eaa84e35d62bc1f68928" prot="public" virt="non-virtual"><scope>QfFeatureModel::RememberValues</scope><name>rememberedAttributes</name></member>
+      <member refid="structQfFeatureModel_1_1RememberValues_1a6bee3ba42259dd2756697a7d0f427d42" prot="public" virt="non-virtual"><scope>QfFeatureModel::RememberValues</scope><name>rememberedFeature</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

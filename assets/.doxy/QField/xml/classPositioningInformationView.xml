@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningInformationView" kind="class" language="C++" prot="public">
+    <compoundname>PositioningInformationView</compoundname>
+    <basecompoundref refid="classQfPositioningInformationView" prot="public" virt="non-virtual">QfPositioningInformationView</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PositioningInformationView</label>
+        <link refid="classPositioningInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPositioningInformationView</label>
+        <link refid="classQfPositioningInformationView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PositioningInformationView</label>
+        <link refid="classPositioningInformationView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPositioningInformationView</label>
+        <link refid="classQfPositioningInformationView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/PositioningInformationView.qml" line="2" column="1" bodyfile="src/app/qml_compat/PositioningInformationView.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfPositioningInformationView_1af39a489fd482103acefe122e3d1b29ee" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>alternateBackgroundColor</name></member>
+      <member refid="classQfPositioningInformationView_1a1285467c5133bfb84ae98003e1953ed3" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>antennaHeight</name></member>
+      <member refid="classQfPositioningInformationView_1a29d2eafbac4cb9c594b3dd0a83ecb57f" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>backgroundColor</name></member>
+      <member refid="classQfPositioningInformationView_1a5283314f852ce32982e6c025d49002c1" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>cellHeight</name></member>
+      <member refid="classQfPositioningInformationView_1a1d6a8ba3f64ac9ca3066fefdec4a4832" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>cellPadding</name></member>
+      <member refid="classQfPositioningInformationView_1a6d821070abbd2b25ab422a76e6099715" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>contentHeight</name></member>
+      <member refid="classQfPositioningInformationView_1aec42269da7354e347df9dafde3f22575" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>positionSource</name></member>
+      <member refid="classQfPositioningInformationView_1a847a264156fecc9e8441354cc2619535" prot="public" virt="non-virtual"><scope>PositioningInformationView</scope><name>textColor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

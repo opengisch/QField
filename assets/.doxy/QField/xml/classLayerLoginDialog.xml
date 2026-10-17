@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLayerLoginDialog" kind="class" language="C++" prot="public">
+    <compoundname>LayerLoginDialog</compoundname>
+    <basecompoundref refid="classQfLayerLoginDialog" prot="public" virt="non-virtual">QfLayerLoginDialog</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LayerLoginDialog</label>
+        <link refid="classLayerLoginDialog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Page</label>
+      </node>
+      <node id="2">
+        <label>QfLayerLoginDialog</label>
+        <link refid="classQfLayerLoginDialog"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LayerLoginDialog</label>
+        <link refid="classLayerLoginDialog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Page</label>
+      </node>
+      <node id="2">
+        <label>QfLayerLoginDialog</label>
+        <link refid="classQfLayerLoginDialog"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/LayerLoginDialog.qml" line="2" column="1" bodyfile="src/app/qml_compat/LayerLoginDialog.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfLayerLoginDialog_1a2ed18c5bc98d653ce24f1ea6339944b0" prot="public" virt="non-virtual"><scope>LayerLoginDialog</scope><name>cancel</name></member>
+      <member refid="classQfLayerLoginDialog_1a758aa75859be0a1081d86720f353f0da" prot="public" virt="non-virtual"><scope>LayerLoginDialog</scope><name>credentialTitle</name></member>
+      <member refid="classQfLayerLoginDialog_1a93e977477753a6860880ad0ea96e1e67" prot="public" virt="non-virtual"><scope>LayerLoginDialog</scope><name>enter</name></member>
+      <member refid="classQfLayerLoginDialog_1a24b5cec905584c474a93291dbbf00f30" prot="public" virt="non-virtual"><scope>LayerLoginDialog</scope><name>inCancelation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfCloudDelta" kind="struct" language="C++" prot="public">
+    <compoundname>QfCloudDelta</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Status</name>
+        <qualifiedname>QfCloudDelta::Status</qualifiedname>
+        <enumvalue id="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29a776944f15db874a8f900aefd9ab9493e" prot="public">
+          <name>PendingStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29aeefb51954f53dd061214c348be32c83e" prot="public">
+          <name>BusyStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29a46884f34ff60a3d205c7b1f46f0b2e2e" prot="public">
+          <name>AppliedStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29a61d97517c30e59de442b5b4d977d4d22" prot="public">
+          <name>ConflictStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29a4217151de44e127087d4bd861a6a3f33" prot="public">
+          <name>NotAppliedStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29ad713ca60281fe03a257b64c591a10276" prot="public">
+          <name>ErrorStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29afedb7bb09709b9067dfadc9935c8dcf0" prot="public">
+          <name>IgnoredStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29ae0551441ebf18cee3fde8c3d9f066f7f" prot="public">
+          <name>UnpermittedStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="101" column="5" bodyfile="src/core/utils/qfcloudutils.h" bodystart="102" bodyend="111"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfCloudDelta_1ad62b8c74016f344f9872a525e9de613a" prot="public" static="no" mutable="no">
+        <type>QUuid</type>
+        <definition>QUuid QfCloudDelta::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>QfCloudDelta::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="115" column="11" bodyfile="src/core/utils/qfcloudutils.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudDelta_1aad294e71e28e3819b67c23c7d298f66d" prot="public" static="no" mutable="no">
+        <type>QUuid</type>
+        <definition>QUuid QfCloudDelta::deltafileId</definition>
+        <argsstring></argsstring>
+        <name>deltafileId</name>
+        <qualifiedname>QfCloudDelta::deltafileId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="116" column="11" bodyfile="src/core/utils/qfcloudutils.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudDelta_1a4b610e837928c6a869fc8bf160ab5b7a" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudDelta::createdBy</definition>
+        <argsstring></argsstring>
+        <name>createdBy</name>
+        <qualifiedname>QfCloudDelta::createdBy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="117" column="13" bodyfile="src/core/utils/qfcloudutils.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudDelta_1a8663cfa0653d3862c9e109c90a3a147b" prot="public" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QfCloudDelta::createdAt</definition>
+        <argsstring></argsstring>
+        <name>createdAt</name>
+        <qualifiedname>QfCloudDelta::createdAt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="118" column="15" bodyfile="src/core/utils/qfcloudutils.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudDelta_1a9a9b8bd1a0f92ab7b53a171948a27ad0" prot="public" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QfCloudDelta::updatedAt</definition>
+        <argsstring></argsstring>
+        <name>updatedAt</name>
+        <qualifiedname>QfCloudDelta::updatedAt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="119" column="15" bodyfile="src/core/utils/qfcloudutils.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudDelta_1a414ca695f20221772f4d22e2ebb9e0a3" prot="public" static="no" mutable="no">
+        <type>Status</type>
+        <definition>Status QfCloudDelta::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>QfCloudDelta::status</qualifiedname>
+        <initializer>= PendingStatus</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="120" column="12" bodyfile="src/core/utils/qfcloudutils.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudDelta_1ab1470480b7622b452796716587a88d17" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudDelta::summary</definition>
+        <argsstring></argsstring>
+        <name>summary</name>
+        <qualifiedname>QfCloudDelta::summary</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="121" column="13" bodyfile="src/core/utils/qfcloudutils.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudDelta_1ac164ad398b0c0d28951986e2dabfc582" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudDelta::output</definition>
+        <argsstring></argsstring>
+        <name>output</name>
+        <qualifiedname>QfCloudDelta::output</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="122" column="13" bodyfile="src/core/utils/qfcloudutils.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/utils/qfcloudutils.h" line="96" column="1" bodyfile="src/core/utils/qfcloudutils.h" bodystart="97" bodyend="123"/>
+    <listofallmembers>
+      <member refid="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29a46884f34ff60a3d205c7b1f46f0b2e2e" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>AppliedStatus</name></member>
+      <member refid="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29aeefb51954f53dd061214c348be32c83e" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>BusyStatus</name></member>
+      <member refid="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29a61d97517c30e59de442b5b4d977d4d22" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>ConflictStatus</name></member>
+      <member refid="structQfCloudDelta_1a8663cfa0653d3862c9e109c90a3a147b" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>createdAt</name></member>
+      <member refid="structQfCloudDelta_1a4b610e837928c6a869fc8bf160ab5b7a" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>createdBy</name></member>
+      <member refid="structQfCloudDelta_1aad294e71e28e3819b67c23c7d298f66d" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>deltafileId</name></member>
+      <member refid="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29ad713ca60281fe03a257b64c591a10276" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>ErrorStatus</name></member>
+      <member refid="structQfCloudDelta_1ad62b8c74016f344f9872a525e9de613a" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>id</name></member>
+      <member refid="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29afedb7bb09709b9067dfadc9935c8dcf0" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>IgnoredStatus</name></member>
+      <member refid="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29a4217151de44e127087d4bd861a6a3f33" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>NotAppliedStatus</name></member>
+      <member refid="structQfCloudDelta_1ac164ad398b0c0d28951986e2dabfc582" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>output</name></member>
+      <member refid="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29a776944f15db874a8f900aefd9ab9493e" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>PendingStatus</name></member>
+      <member refid="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>Status</name></member>
+      <member refid="structQfCloudDelta_1a414ca695f20221772f4d22e2ebb9e0a3" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>status</name></member>
+      <member refid="structQfCloudDelta_1ab1470480b7622b452796716587a88d17" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>summary</name></member>
+      <member refid="structQfCloudDelta_1adade66b7146c4329a7c89e9fc550ec29ae0551441ebf18cee3fde8c3d9f066f7f" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>UnpermittedStatus</name></member>
+      <member refid="structQfCloudDelta_1a9a9b8bd1a0f92ab7b53a171948a27ad0" prot="public" virt="non-virtual"><scope>QfCloudDelta</scope><name>updatedAt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

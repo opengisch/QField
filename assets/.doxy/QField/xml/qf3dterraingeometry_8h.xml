@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qf3dterraingeometry_8h" kind="file" language="C++">
+    <compoundname>qf3dterraingeometry.h</compoundname>
+    <includes local="no">QQuick3DGeometry</includes>
+    <includes local="no">QSize</includes>
+    <includes local="no">QVector3D</includes>
+    <includes local="no">QVector</includes>
+    <includedby refid="qf3d_8cpp" local="yes">src/3d/qf3d.cpp</includedby>
+    <includedby refid="qf3dterraingeometry_8cpp" local="yes">src/3d/qf3dterraingeometry.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/3d/qf3dterraingeometry.h</label>
+        <link refid="qf3dterraingeometry_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="3">
+        <label>QSize</label>
+      </node>
+      <node id="5">
+        <label>QVector</label>
+      </node>
+      <node id="4">
+        <label>QVector3D</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classQf3DTerrainGeometry" prot="public">Qf3DTerrainGeometry</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>qf3dterraingeometry.h<sp/>-<sp/>Qf3DTerrainGeometry</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>26.1.2026</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2026<sp/>by<sp/>Mohsen<sp/>Dehghanzadeh</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mohsen@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QF3DTERRAINGEOMETRY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QF3DTERRAINGEOMETRY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QQuick3DGeometry&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSize&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QVector3D&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QVector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classQf3DTerrainGeometry" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQf3DTerrainGeometry" kindref="compound">Qf3DTerrainGeometry</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QQuick3DGeometry</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="classQf3DTerrainGeometry_1a0ad2eef868e0d4cb1024dfd28b112a23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QSize<sp/><ref refid="classQf3DTerrainGeometry_1a0ad2eef868e0d4cb1024dfd28b112a23" kindref="member">gridSize</ref><sp/>READ<sp/><ref refid="classQf3DTerrainGeometry_1a0ad2eef868e0d4cb1024dfd28b112a23" kindref="member">gridSize</ref><sp/>WRITE<sp/><ref refid="classQf3DTerrainGeometry_1a7b348cf672cd56a0dfed6064f8f184ff" kindref="member">setGridSize</ref><sp/>NOTIFY<sp/>gridSizeChanged<sp/>)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46" refid="classQf3DTerrainGeometry_1a0ffd2e546f5017176b6d12f9b94d29a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QSizeF<sp/><ref refid="classQf3DTerrainGeometry_1a0ffd2e546f5017176b6d12f9b94d29a4" kindref="member">size</ref><sp/>READ<sp/><ref refid="classQf3DTerrainGeometry_1a0ffd2e546f5017176b6d12f9b94d29a4" kindref="member">size</ref><sp/>WRITE<sp/><ref refid="classQf3DTerrainGeometry_1a24729bedf80b7cdc63c2f5174a8f9d04" kindref="member">setSize</ref><sp/>NOTIFY<sp/>sizeChanged<sp/>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="classQf3DTerrainGeometry_1a486d6d388a9249b20861884a68158c54" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QVariantList<sp/><ref refid="classQf3DTerrainGeometry_1a486d6d388a9249b20861884a68158c54" kindref="member">heightData</ref><sp/>READ<sp/><ref refid="classQf3DTerrainGeometry_1a486d6d388a9249b20861884a68158c54" kindref="member">heightData</ref><sp/>WRITE<sp/><ref refid="classQf3DTerrainGeometry_1af57f69ee625547f0ca5faca412188d27" kindref="member">setHeightData</ref><sp/>NOTIFY<sp/>heightDataChanged<sp/>)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="classQf3DTerrainGeometry_1a3d33d8f54856a866ad5df477b5196225" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QVector3D<sp/><ref refid="classQf3DTerrainGeometry_1a3d33d8f54856a866ad5df477b5196225" kindref="member">boundsMin</ref><sp/>READ<sp/><ref refid="classQf3DTerrainGeometry_1a3d33d8f54856a866ad5df477b5196225" kindref="member">boundsMin</ref><sp/>NOTIFY<sp/>boundsMinMaxChanged<sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="classQf3DTerrainGeometry_1a1516abddb1efc201ff9b7483c928dc21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QVector3D<sp/><ref refid="classQf3DTerrainGeometry_1a1516abddb1efc201ff9b7483c928dc21" kindref="member">boundsMax</ref><sp/>READ<sp/><ref refid="classQf3DTerrainGeometry_1a1516abddb1efc201ff9b7483c928dc21" kindref="member">boundsMax</ref><sp/>NOTIFY<sp/>boundsMinMaxChanged<sp/>)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="classQf3DTerrainGeometry_1a3060ac1af974222e1ec0854d33a55de6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QVector3D<sp/><ref refid="classQf3DTerrainGeometry_1a3060ac1af974222e1ec0854d33a55de6" kindref="member">offsetVector</ref><sp/>READ<sp/><ref refid="classQf3DTerrainGeometry_1a3060ac1af974222e1ec0854d33a55de6" kindref="member">offsetVector</ref><sp/>WRITE<sp/>setOffsetVector<sp/>NOTIFY<sp/>offsetVectorChanged<sp/>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="classQf3DTerrainGeometry_1adecc98230045fba4a82561d9bb29c1c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQf3DTerrainGeometry_1adecc98230045fba4a82561d9bb29c1c9" kindref="member">offsetScale</ref><sp/>READ<sp/><ref refid="classQf3DTerrainGeometry_1adecc98230045fba4a82561d9bb29c1c9" kindref="member">offsetScale</ref><sp/>WRITE<sp/>setOffsetScale<sp/>NOTIFY<sp/>offsetScaleChanged<sp/>)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classQf3DTerrainGeometry" kindref="compound">Qf3DTerrainGeometry</ref>(<sp/>QQuick3DObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="classQf3DTerrainGeometry_1a933bc9655172829ab3b35921382650a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QSize<sp/><ref refid="classQf3DTerrainGeometry_1a0ad2eef868e0d4cb1024dfd28b112a23" kindref="member">gridSize</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mGridSize;<sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DTerrainGeometry_1a7b348cf672cd56a0dfed6064f8f184ff" kindref="member">setGridSize</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QSize<sp/>&amp;<ref refid="classQf3DTerrainGeometry_1a0ffd2e546f5017176b6d12f9b94d29a4" kindref="member">size</ref><sp/>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="classQf3DTerrainGeometry_1aa18dba2eacfdcfa8274182cfe4c9b10c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QSizeF<sp/><ref refid="classQf3DTerrainGeometry_1aa18dba2eacfdcfa8274182cfe4c9b10c" kindref="member">size</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mSize;<sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DTerrainGeometry_1a24729bedf80b7cdc63c2f5174a8f9d04" kindref="member">setSize</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QSizeF<sp/>&amp;<ref refid="classQf3DTerrainGeometry_1a0ffd2e546f5017176b6d12f9b94d29a4" kindref="member">size</ref><sp/>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantList<sp/><ref refid="classQf3DTerrainGeometry_1a486d6d388a9249b20861884a68158c54" kindref="member">heightData</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DTerrainGeometry_1af57f69ee625547f0ca5faca412188d27" kindref="member">setHeightData</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantList<sp/>&amp;data<sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>QVector3D<sp/><ref refid="classQf3DTerrainGeometry_1a3060ac1af974222e1ec0854d33a55de6" kindref="member">offsetVector</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOffsetVector;<sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setOffsetVector(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVector3D<sp/>&amp;<ref refid="classQf3DTerrainGeometry_1a3060ac1af974222e1ec0854d33a55de6" kindref="member">offsetVector</ref><sp/>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQf3DTerrainGeometry_1adecc98230045fba4a82561d9bb29c1c9" kindref="member">offsetScale</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mOffsetScale;<sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setOffsetScale(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQf3DTerrainGeometry_1adecc98230045fba4a82561d9bb29c1c9" kindref="member">offsetScale</ref><sp/>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DTerrainGeometry_1a18864262ffe5e22b84dde355c48dd7ac" kindref="member">buildMetagridFromProvider</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref><sp/>*provider<sp/>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQf3DTerrainGeometry_1a99ded900e0e06622a67b0d3ee04a54d2" kindref="member">restoreHeightsFromProvider</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref><sp/>*provider<sp/>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>gridSizeChanged();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>sizeChanged();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>heightDataChanged();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>boundsMinMaxChanged();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>offsetVectorChanged();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>offsetScaleChanged();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateGeometry();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>applyShiftedHeights();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>QVector3D<sp/>calculateNormal(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>z<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getHeight(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>z<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>QSize<sp/>mGridSize<sp/>=<sp/>QSize(<sp/>64,<sp/>64<sp/>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>QSizeF<sp/>mSize;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>QVector&lt;float&gt;<sp/>mHeights;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>QVector&lt;float&gt;<sp/>mMetagridHeights;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mMetagridWidth<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mMetagridHeight<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>QVector3D<sp/>mOffsetVector;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mOffsetScale<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mDirty<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QF3DTERRAINGEOMETRY_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/3d/qf3dterraingeometry.h"/>
+  </compounddef>
+</doxygen>
