@@ -15,6 +15,7 @@ vcpkg_from_github(
         processing.patch # Needed to avoid link issue with tinygltf (ATM embedded into QGIS) and _GEOSQueryCallback defined multiple times
         mesh.patch
         vector_tiles_dpi_fix.patch
+        project_load_optimization.patch
 )
 
 
