@@ -453,6 +453,8 @@ ApplicationWindow {
     onBackgroundModeChanged: {
       if (trackings.count > 0) {
         if (backgroundMode) {
+          replayTimer.stop();
+          busyOverlay.state = "hidden";
           trackingModel.suspendUntilReplay();
         } else {
           busyOverlay.text = qsTr("Replaying collected positions, hold on");
@@ -469,6 +471,10 @@ ApplicationWindow {
     interval: 250
     repeat: false
     onTriggered: {
+      if (positionSource.backgroundMode) {
+        busyOverlay.state = "hidden";
+        return;
+      }
       mapCanvasMap.freeze('trackerreplay');
       let list = positionSource.getBackgroundPositionInformation();
       // Qt bug weirdly returns an empty list on first invokation to source, call twice to insure we've got the actual list
