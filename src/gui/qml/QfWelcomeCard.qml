@@ -159,7 +159,7 @@ SwipeView {
       height: 44
       visible: panel.closable
       iconSource: QfTheme.getThemeVectorIcon("ic_close_white_24dp")
-      iconColor: QfTheme.mainColor
+      iconColor: QfTheme.mainTextColor
 
       onClicked: {
         panel.closeClicked();
