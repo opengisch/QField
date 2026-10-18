@@ -13,6 +13,7 @@ Page {
   id: welcomeScreen
 
   property bool firstShown: false
+  property bool showNews: false
 
   property alias model: table.model
 
@@ -139,6 +140,114 @@ Page {
       }
 
       QfWelcomeCard {
+        id: newsOptInView
+        visible: false
+
+        Layout.margins: 6
+        Layout.topMargin: 0
+        Layout.bottomMargin: 24
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        Layout.fillWidth: true
+        Layout.maximumWidth: 410
+
+        QfWelcomeCard.Panel {
+          message: qsTr("%1 can display its latest news and useful tips on launch.").arg(Qfield.name)
+
+          QfButton {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 36
+            Layout.preferredWidth: 0
+            text: qsTr('I prefer not')
+            bgcolor: "transparent"
+            color: QfTheme.mainColor
+
+            onClicked: {
+              qfieldSettings.showNews = false;
+              newsOptInView.visible = false;
+            }
+          }
+
+          QfButton {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 36
+            Layout.preferredWidth: 0
+            text: qsTr('I agree')
+
+            onClicked: {
+              qfieldSettings.showNews = true;
+              newsOptInView.visible = false;
+            }
+          }
+        }
+      }
+
+      QfWelcomeCard {
+        id: newsView
+        visible: newsParser.items.length > 0 && !(feedbackView.visible && !feedbackView.collapsed) && !(collectionView.visible && !collectionView.collapsed)
+        interactive: count > 1
+        uniformHeight: true
+
+        Layout.margins: 6
+        Layout.topMargin: 0
+        Layout.bottomMargin: newsPageIndicator.visible ? 0 : 24
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+        Layout.fillWidth: true
+        Layout.maximumWidth: 410
+
+        Repeater {
+          model: newsParser.items
+
+          QfWelcomeCard.Panel {
+            required property var modelData
+
+            closable: true
+            collapseOnClose: false
+            title: modelData.title
+            message: QfStringUtils.snippet(modelData.description, 160)
+            messageMaximumLineCount: 3
+            imageSource: modelData.imageUrl
+
+            onCloseClicked: newsParser.dismiss(modelData.uuid)
+
+            QfButton {
+              Layout.fillWidth: true
+              Layout.preferredHeight: 36
+              text: qsTr("Read more")
+              bgcolor: "transparent"
+              color: QfTheme.mainColor
+
+              onClicked: {
+                Qt.openUrlExternally(modelData.url);
+                newsParser.dismiss(modelData.uuid);
+              }
+            }
+          }
+        }
+      }
+
+      PageIndicator {
+        id: newsPageIndicator
+        visible: newsView.count > 1
+
+        Layout.topMargin: 6
+        Layout.bottomMargin: 8
+        padding: 0
+        Layout.alignment: Qt.AlignHCenter
+        count: newsView.count
+        currentIndex: newsView.currentIndex
+
+        delegate: Rectangle {
+          required property int index
+
+          implicitWidth: 6
+          implicitHeight: 6
+          radius: 3
+          color: QfTheme.mainColor
+          opacity: index === newsPageIndicator.currentIndex ? 1 : 0.3
+        }
+      }
+
+      QfWelcomeCard {
         id: feedbackView
         visible: false
 
@@ -157,7 +266,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             text: qsTr("Reach out")
             icon.source: QfTheme.getThemeVectorIcon('ic_create_white_24dp')
 
@@ -176,7 +285,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             Layout.preferredWidth: 0
             text: qsTr("Could be better")
             icon.source: QfTheme.getThemeVectorIcon('ic_thumb_down_white_24dp')
@@ -191,7 +300,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             Layout.preferredWidth: 0
             text: qsTr("Loving it")
             icon.source: QfTheme.getThemeVectorIcon('ic_thumb_up_white_24dp')
@@ -214,7 +323,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             text: qsTr("Rate us")
             icon.source: QfTheme.getThemeVectorIcon('ic_star_white_24dp')
 
@@ -255,7 +364,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             Layout.preferredWidth: 0
             text: qsTr('I prefer not')
             bgcolor: "transparent"
@@ -269,7 +378,7 @@ Page {
 
           QfButton {
             Layout.fillWidth: true
-            Layout.preferredHeight: 44
+            Layout.preferredHeight: 36
             Layout.preferredWidth: 0
             text: qsTr('I agree')
 
@@ -849,8 +958,23 @@ Page {
     }
   }
 
+  QfNewsParser {
+    id: newsParser
+    feedUrl: "https://qfield.org/blog/feed.xml"
+    enabled: welcomeScreen.showNews
+
+    onEnabledChanged: {
+      if (enabled) {
+        fetch();
+      }
+    }
+  }
+
   Component.onCompleted: {
     adjustWelcomeScreen();
+    if (newsParser.enabled) {
+      newsParser.fetch();
+    }
     const runCount = settings.value("/QField/RunCount", 0) * 1;
     if (runCount > 0) {
       // Avoid throwing new guides to pre-existing users upgrading
@@ -881,6 +1005,13 @@ Page {
         settings.setValue("/QField/CollectionFormShownV2", true);
       }
     }
+    if (Qfield.name.indexOf("QField") >= 0 && !welcomeScreen.showNews && !collectionView.visible && !feedbackView.visible) {
+      const newsFormShown = settings.value("/QField/NewsFormShown", false);
+      if (!newsFormShown) {
+        newsOptInView.visible = true;
+        settings.setValue("/QField/NewsFormShown", true);
+      }
+    }
     settings.setValue("/QField/RunCount", runCount + 1);
     if (registry.defaultProject != '') {
       if (!QfFileUtils.fileExists(registry.defaultProject)) {
@@ -894,6 +1025,7 @@ Page {
       welcomeText.text = "";
       feedbackView.visible = false;
       collectionView.visible = false;
+      newsOptInView.visible = false;
       firstShown = true;
     }
   }

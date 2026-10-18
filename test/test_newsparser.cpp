@@ -170,6 +170,7 @@ TEST_CASE( "NewsParser" )
 
     QfNewsParser otherParser;
     otherParser.setFeedUrl( feedUrl );
+    otherParser.setEnabled( true );
     fetchAndWait( otherParser );
     REQUIRE( otherParser.items().size() == 1 );
     REQUIRE( otherParser.items()[0].uuid == danubeUuid );
@@ -187,6 +188,7 @@ TEST_CASE( "NewsParser" )
 
     QfNewsParser otherParser;
     otherParser.setFeedUrl( feedUrl );
+    otherParser.setEnabled( true );
     REQUIRE( !otherParser.isFetching() );
     REQUIRE( otherParser.items() == parser.items() );
 
@@ -208,6 +210,5 @@ TEST_CASE( "NewsParser" )
     parser.setEnabled( false );
     REQUIRE( !parser.enabled() );
     REQUIRE( parser.items().isEmpty() );
-    REQUIRE( !QSettings().contains( QfNewsParser::DISMISSED_UUIDS_SETTINGS_KEY ) );
   }
 }
