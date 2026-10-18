@@ -13,6 +13,7 @@ Page {
   id: welcomeScreen
 
   property bool firstShown: false
+  property bool showNews: false
 
   property alias model: table.model
 
@@ -960,21 +961,20 @@ Page {
   QfNewsParser {
     id: newsParser
     feedUrl: "https://qfield.org/blog/feed.xml"
-  }
+    enabled: welcomeScreen.showNews
 
-  Connections {
-    target: qfieldSettings
-
-    function onShowNewsChanged() {
-      newsParser.enabled = qfieldSettings.showNews;
-      newsParser.fetch();
+    onEnabledChanged: {
+      if (enabled) {
+        fetch();
+      }
     }
   }
 
   Component.onCompleted: {
     adjustWelcomeScreen();
-    newsParser.enabled = qfieldSettings.showNews;
-    newsParser.fetch();
+    if (newsParser.enabled) {
+      newsParser.fetch();
+    }
     const runCount = settings.value("/QField/RunCount", 0) * 1;
     if (runCount > 0) {
       // Avoid throwing new guides to pre-existing users upgrading
@@ -1005,7 +1005,7 @@ Page {
         settings.setValue("/QField/CollectionFormShownV2", true);
       }
     }
-    if (Qfield.name.indexOf("QField") >= 0 && !qfieldSettings.showNews && !collectionView.visible && !feedbackView.visible) {
+    if (Qfield.name.indexOf("QField") >= 0 && !welcomeScreen.showNews && !collectionView.visible && !feedbackView.visible) {
       const newsFormShown = settings.value("/QField/NewsFormShown", false);
       if (!newsFormShown) {
         newsOptInView.visible = true;

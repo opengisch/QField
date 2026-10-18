@@ -49,44 +49,51 @@ void QfNewsParser::setFeedUrl( const QUrl &url )
 
   clearItems();
 
-  if ( enabled() && !mFeedUrl.isEmpty() )
+  if ( mEnabled && !mFeedUrl.isEmpty() )
   {
-    QFile cacheFile( cacheFilePath() );
-    if ( cacheFile.exists() && cacheFile.open( QIODevice::ReadOnly ) )
-    {
-      const QList<QfNewsItem> feedItems = parseFeed( cacheFile.readAll() );
-      if ( !feedItems.isEmpty() )
-      {
-        updateItems( feedItems );
-      }
-    }
+    restoreItemsFromCache();
   }
 }
 
 bool QfNewsParser::enabled() const
 {
-  return QSettings().value( ENABLED_SETTINGS_KEY, false ).toBool();
+  return mEnabled;
 }
 
 void QfNewsParser::setEnabled( bool enabled )
 {
-  if ( this->enabled() == enabled )
+  if ( mEnabled == enabled )
   {
     return;
   }
 
-  QSettings settings;
-  settings.setValue( ENABLED_SETTINGS_KEY, enabled );
-  settings.remove( DISMISSED_UUIDS_SETTINGS_KEY );
-
+  mEnabled = enabled;
   emit enabledChanged();
 
   clearItems();
+
+  if ( mEnabled && !mFeedUrl.isEmpty() )
+  {
+    restoreItemsFromCache();
+  }
+}
+
+void QfNewsParser::restoreItemsFromCache()
+{
+  QFile cacheFile( cacheFilePath() );
+  if ( cacheFile.exists() && cacheFile.open( QIODevice::ReadOnly ) )
+  {
+    const QList<QfNewsItem> feedItems = parseFeed( cacheFile.readAll() );
+    if ( !feedItems.isEmpty() )
+    {
+      updateItems( feedItems );
+    }
+  }
 }
 
 void QfNewsParser::fetch()
 {
-  if ( !enabled() || mFeedUrl.isEmpty() || mIsFetching )
+  if ( !mEnabled || mFeedUrl.isEmpty() || mIsFetching )
   {
     return;
   }

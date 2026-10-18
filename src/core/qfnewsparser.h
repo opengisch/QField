@@ -77,12 +77,6 @@ class QfNewsParser : public QObject
     Q_PROPERTY( QList<QfNewsItem> items READ items NOTIFY itemsChanged )
 
   public:
-    static inline const QString ENABLED_SETTINGS_KEY = QStringLiteral( "/QField/News/Enabled" );
-    static inline const QString DISMISSED_UUIDS_SETTINGS_KEY = QStringLiteral( "/QField/News/DismissedUuids" );
-
-    //! News items older than this number of days are no longer shown
-    static constexpr int MAXIMUM_AGE_DAYS = 45;
-
     //! The news parser constructor
     explicit QfNewsParser( QObject *parent = nullptr );
 
@@ -127,6 +121,9 @@ class QfNewsParser : public QObject
    */
     static QList<QfNewsItem> parseFeed( const QByteArray &data );
 
+    //! Dismissed news items settings key (exposed for testing purpose)
+    static inline const QString DISMISSED_UUIDS_SETTINGS_KEY = QStringLiteral( "/QField/News/DismissedUuids" );
+
   signals:
     //! Emitted when the RSS feed URL has changed
     void feedUrlChanged();
@@ -141,10 +138,16 @@ class QfNewsParser : public QObject
     void itemsChanged();
 
   private:
+    //! News items older than this number of days are no longer shown
+    static constexpr int MAXIMUM_AGE_DAYS = 45;
+
     QString cacheFilePath() const;
+    void restoreItemsFromCache();
+
     void clearItems();
     void updateItems( const QList<QfNewsItem> &feedItems );
 
+    bool mEnabled = false;
     QUrl mFeedUrl;
     bool mIsFetching = false;
     QList<QfNewsItem> mItems;

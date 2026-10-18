@@ -5490,6 +5490,7 @@ ApplicationWindow {
     objectName: "welcomeScreen"
     visible: !iface.hasProjectOnLaunch()
 
+    showNews: qfieldSettings.showNews
     model: QfRecentProjectListModel {
       id: recentProjectListModel
     }
