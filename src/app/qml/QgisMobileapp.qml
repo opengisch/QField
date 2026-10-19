@@ -3349,7 +3349,7 @@ ApplicationWindow {
       QfDigitizingToolbar {
         id: digitizingToolbar
 
-        property bool digitizingAllowed: dashBoard.activeLayer && !dashBoard.activeLayer.readOnly && !QfLayerUtils.isFeatureAdditionLocked(dashBoard.activeLayer) && (projectInfo.editRights || projectInfo.insertRights)
+        property bool digitizingAllowed: dashBoard.activeLayer && dashBoard.activeLayer.supportsEditing && !dashBoard.activeLayer.readOnly && !QfLayerUtils.isFeatureAdditionLocked(dashBoard.activeLayer) && (projectInfo.editRights || projectInfo.insertRights)
         property string previousStateMachineState: ''
 
         stateVisible: !screenLocker.enabled && (!positioningSettings.geofencingPreventDigitizingDuringAlert || !geofencer.isAlerting) && ((stateMachine.state === "digitize" && digitizingAllowed && !geometryEditorsToolbar.stateVisible && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible) || stateMachine.state === 'measure' || (stateMachine.state === "digitize" && digitizingToolbar.geometryRequested))
@@ -3725,24 +3725,29 @@ ApplicationWindow {
       let activeLayerLocked = false;
       for (let i = 0; i < layerTree.rowCount(); i++) {
         let index = layerTree.index(i, 0);
+        let vectorLayer = layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer);
+        if (vectorLayer === null) {
+          continue;
+        }
+
         if (firstEditableLayer === null) {
-          if (layerTree.data(index, QfFlatLayerTreeModel.Type) === QfFlatLayerTreeModel.Layer && layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === false) {
-            firstEditableLayer = layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer);
+          if (vectorLayer.supportsEditing && layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === false) {
+            firstEditableLayer = vectorLayer;
           }
         }
-        if (activeLayer !== null && activeLayer === layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer)) {
-          if (layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === true || layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === true) {
+        if (activeLayer !== null && activeLayer === vectorLayer) {
+          if (vectorLayer.supportsEditing && layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === true || layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === true) {
             activeLayerLocked = true;
           } else {
             break;
           }
         }
-        if (firstEditableLayer !== null && (activeLayer == null || activeLayerLocked)) {
+        if (firstEditableLayer !== null && (activeLayer === null || activeLayerLocked)) {
           activeLayer = firstEditableLayer;
           break;
         }
       }
-      if (firstEditableLayer == null && (activeLayer == null || activeLayerLocked)) {
+      if (firstEditableLayer == null && (activeLayer === null || activeLayerLocked)) {
         if (markupManager.collections.length > 0) {
           activeCollection = markupManager.collections[0];
         }

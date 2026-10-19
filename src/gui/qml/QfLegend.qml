@@ -39,8 +39,9 @@ ListView {
       enabled: (allowActiveLayerChange || (projectInfo.activeLayer != VectorLayerPointer))
       acceptedButtons: Qt.LeftButton | Qt.RightButton
       onClicked: mouse => {
-        if (!allowActiveLayerChange)
+        if (!allowActiveLayerChange) {
           return;
+        }
         if (VectorLayerPointer && VectorLayerPointer.isValid) {
           activeLayer = VectorLayerPointer;
           projectInfo.activeLayer = VectorLayerPointer;
