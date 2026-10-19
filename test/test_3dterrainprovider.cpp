@@ -75,6 +75,13 @@ TEST_CASE( "3D terrain provider heights" )
     REQUIRE( terrainProvider.normalizedHeightAt( x + cellWidth / 2, y ) == Catch::Approx( ( firstHeight + secondHeight ) / 2 ) );
   }
 
+  SECTION( "on the far corner" )
+  {
+    const double lastHeight = terrainProvider.normalizedData().last().toDouble();
+    REQUIRE( terrainProvider.normalizedHeightAt( extent.xMaximum(), extent.yMinimum() ) == Catch::Approx( lastHeight ) );
+    REQUIRE( terrainProvider.normalizedHeightAt( extent.xMaximum() + 1000, extent.yMinimum() - 1000 ) == Catch::Approx( lastHeight ) );
+  }
+
   SECTION( "outside the terrain" )
   {
     REQUIRE( terrainProvider.normalizedHeightAt( x - 1000, y + 1000 ) == Catch::Approx( firstHeight ) );

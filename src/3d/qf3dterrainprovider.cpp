@@ -261,15 +261,18 @@ double Qf3DTerrainProvider::normalizedHeightAt( double x, double y ) const
 
   const double column = std::clamp( ( x - mNormalizedDataExtent.xMinimum() ) / mNormalizedDataExtent.width(), 0.0, 1.0 ) * ( gridWidth - 1 );
   const double row = std::clamp( ( mNormalizedDataExtent.yMaximum() - y ) / mNormalizedDataExtent.height(), 0.0, 1.0 ) * ( gridHeight - 1 );
-  const int left = std::min( static_cast<int>( column ), gridWidth - 2 );
-  const int top = std::min( static_cast<int>( row ), gridHeight - 2 );
+  const int left = static_cast<int>( column );
+  const int top = static_cast<int>( row );
+
+  const int right = std::min( left + 1, gridWidth - 1 );
+  const int bottom = std::min( top + 1, gridHeight - 1 );
   const double columnFraction = column - left;
   const double rowFraction = row - top;
 
   const double topLeft = mNormalizedData.at( top * gridWidth + left ).toDouble();
-  const double topRight = mNormalizedData.at( top * gridWidth + left + 1 ).toDouble();
-  const double bottomLeft = mNormalizedData.at( ( top + 1 ) * gridWidth + left ).toDouble();
-  const double bottomRight = mNormalizedData.at( ( top + 1 ) * gridWidth + left + 1 ).toDouble();
+  const double topRight = mNormalizedData.at( top * gridWidth + right ).toDouble();
+  const double bottomLeft = mNormalizedData.at( bottom * gridWidth + left ).toDouble();
+  const double bottomRight = mNormalizedData.at( bottom * gridWidth + right ).toDouble();
 
   double height = 0.0;
   if ( columnFraction + rowFraction <= 1.0 )
