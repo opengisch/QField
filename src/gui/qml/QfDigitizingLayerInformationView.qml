@@ -192,8 +192,10 @@ Rectangle {
           icon.height: 16
           icon.color: QfTheme.mainTextColor
 
-          text: digitizingLayerComboBox.currentText
-          font: QfTheme.tipFont
+          font.pointSize: QfTheme.tipFont.pointSize
+          font.italic: digitizingLayerComboBox.currentIndex === -1
+          palette.text: digitizingLayerComboBox.currentIndex === -1 ? QfTheme.secondaryTextColor : QfTheme.mainTextColor
+          text: digitizingLayerComboBox.currentIndex === -1 ? qsTr("Pick a digitizing layer") : digitizingLayerComboBox.currentText
 
           onClicked: if (digitizingLayerInformationView.allowActiveDigitizingLayerChange) {
             digitizingLayerComboBox.popup.open();
