@@ -3770,6 +3770,14 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
         <source>%1 Settings</source>
         <translation>%1 Configuració</translation>
     </message>
+    <message>
+        <source>Show news on the welcome screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAttributeFormModelBase</name>
@@ -8727,6 +8735,14 @@ projecte</translation>
     <message>
         <source>Loving it</source>
         <translation>M&apos;encanta</translation>
+    </message>
+    <message>
+        <source>%1 can display its latest news and useful tips on launch.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read more</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

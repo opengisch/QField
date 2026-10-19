@@ -3762,6 +3762,14 @@ Hủy để thay vào đó chỉ quét thiết bị ở mức tối thiểu.</tr
         <source>%1 Settings</source>
         <translation>Cài đặt %1</translation>
     </message>
+    <message>
+        <source>Show news on the welcome screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAttributeFormModelBase</name>
@@ -8707,6 +8715,14 @@ mới</translation>
     </message>
     <message>
         <source>Loving it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 can display its latest news and useful tips on launch.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read more</source>
         <translation type="unfinished"/>
     </message>
 </context>

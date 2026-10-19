@@ -3765,6 +3765,14 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <source>%1 Settings</source>
         <translation>%1 beállítások</translation>
     </message>
+    <message>
+        <source>Show news on the welcome screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAttributeFormModelBase</name>
@@ -8714,6 +8722,14 @@ készítése</translation>
     </message>
     <message>
         <source>Loving it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 can display its latest news and useful tips on launch.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read more</source>
         <translation type="unfinished"/>
     </message>
 </context>

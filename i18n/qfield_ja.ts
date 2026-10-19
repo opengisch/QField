@@ -3767,6 +3767,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>%1 Settings</source>
         <translation>%1 設定</translation>
     </message>
+    <message>
+        <source>Show news on the welcome screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAttributeFormModelBase</name>
@@ -8715,6 +8723,14 @@ project</source>
     </message>
     <message>
         <source>Loving it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 can display its latest news and useful tips on launch.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Read more</source>
         <translation type="unfinished"/>
     </message>
 </context>

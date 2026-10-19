@@ -3773,6 +3773,14 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>%1 Settings</source>
         <translation>Ustawienia %1</translation>
     </message>
+    <message>
+        <source>Show news on the welcome screen</source>
+        <translation>Pokaż aktualności na ekranie powitalnym</translation>
+    </message>
+    <message>
+        <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
+        <translation>Jeśli ta opcja jest włączona, na ekranie powitalnym będą wyświetlane najnowsze wiadomości i przydatne wskazówki.</translation>
+    </message>
 </context>
 <context>
     <name>QfAttributeFormModelBase</name>
@@ -5217,11 +5225,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Nie da się sklonować projektu, bo masz zapełnioną przestrzeń dyskową.</translation>
     </message>
     <message>
         <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Nie da się utworzyć projektu, bo masz zapełnioną dostępną przestrzeń dyskową.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
@@ -8732,6 +8740,14 @@ projekt</translation>
     <message>
         <source>Loving it</source>
         <translation>Bardzo mi się to podoba</translation>
+    </message>
+    <message>
+        <source>%1 can display its latest news and useful tips on launch.</source>
+        <translation>%1 może wyświetlać najnowsze wiadomości i przydatne porady już na starcie.</translation>
+    </message>
+    <message>
+        <source>Read more</source>
+        <translation>Dowiedz się więcej</translation>
     </message>
 </context>
 <context>

@@ -3767,6 +3767,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>%1 Settings</source>
         <translation>%1设置</translation>
     </message>
+    <message>
+        <source>Show news on the welcome screen</source>
+        <translation>在欢迎屏幕显示资讯</translation>
+    </message>
+    <message>
+        <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
+        <translation>如果启用，欢迎屏幕将显示最新资讯和实用提示。</translation>
+    </message>
 </context>
 <context>
     <name>QfAttributeFormModelBase</name>
@@ -5211,11 +5219,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>由于您的可用存储空间已满，无法克隆工程。</translation>
     </message>
     <message>
         <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>由于您的可用存储空间已满，无法创建工程。</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
@@ -8720,6 +8728,14 @@ project</source>
     <message>
         <source>Loving it</source>
         <translation>超爱</translation>
+    </message>
+    <message>
+        <source>%1 can display its latest news and useful tips on launch.</source>
+        <translation>%1可以在启动时展示其最新资讯和实用提示。</translation>
+    </message>
+    <message>
+        <source>Read more</source>
+        <translation>了解更多</translation>
     </message>
 </context>
 <context>
