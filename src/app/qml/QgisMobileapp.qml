@@ -4968,6 +4968,10 @@ ApplicationWindow {
       welcomeScreen.focus = false;
       projectCreationScreen.visible = false;
       projectCreationScreen.focus = false;
+      if (overlayFeatureFormDrawer.opened) {
+        // discard the feature being added, its layer belongs to the project being closed
+        overlayFeatureFormDrawer.featureForm.cancel();
+      }
       dashBoard.layerTree.freeze();
       mapCanvasMap.stopRendering();
       mapCanvasMap.freeze('projectload');
