@@ -2049,9 +2049,8 @@ ApplicationWindow {
 
     digitizingLayerInformationView.visible: stateMachine.state === "digitize"
     digitizingLayerInformationView.allowActiveDigitizingLayerChange: dashBoard.allowActiveLayerChange && !digitizingToolbar.geometryRequested
-    digitizingLayerInformationView.activeDigitizingLayer: dashBoard.activeLayer
-    digitizingLayerInformationView.activeDigitizingCollection: dashBoard.activeCollection
     digitizingLayerInformationView.overwriteDigitizingLayer: digitizingToolbar.geometryRequested ? digitizingToolbar.geometryRequestedLayer : null
+
     digitizingLayerInformationView.onActiveDigitizingLayerChanged: {
       if (digitizingLayerInformationView.activeDigitizingLayer && dashBoard.activeLayer !== digitizingLayerInformationView.activeDigitizingLayer) {
         dashBoard.activeLayer = digitizingLayerInformationView.activeDigitizingLayer;
@@ -3715,6 +3714,18 @@ ApplicationWindow {
       qfieldLocalDataPickerScreen.visible = true;
     }
 
+    onActiveLayerChanged: {
+      if (informationDrawer.digitizingLayerInformationView.activeDigitizingLayer !== activeLayer) {
+        informationDrawer.digitizingLayerInformationView.activeDigitizingLayer = activeLayer;
+      }
+    }
+
+    onActiveCollectionChanged: {
+      if (informationDrawer.digitizingLayerInformationView.activeDigitizingCollection !== activeCollection) {
+        informationDrawer.digitizingLayerInformationView.activeDigitizingCollection = activeCollection;
+      }
+    }
+
     // If the user clicks the "Return home" button in the middle of digitizing, we will ask if they want to discard their changes.
     // If they press cancel, nothing will happen, but if they press discard, we will discard their digitizing.
     // We will also use `shouldReturnHome` to know that we need to return home as well or not.
@@ -3726,7 +3737,7 @@ ApplicationWindow {
       for (let i = 0; i < layerTree.rowCount(); i++) {
         let index = layerTree.index(i, 0);
         let vectorLayer = layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer);
-        if (vectorLayer === null) {
+        if (vectorLayer == null) {
           continue;
         }
 
