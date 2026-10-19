@@ -333,7 +333,7 @@ QfPlatformUtilities::Capabilities QfIosPlatformUtilities::capabilities() const {
   QfPlatformUtilities::Capabilities capabilities =
       Capabilities() | NativeCamera | AdjustBrightness | FilePicker |
       CustomImport | CustomSend | CustomExport | UpdateProjectFromArchive |
-      VolumeKeys | FileImport;
+      VolumeKeys | CustomFileAssociation;
 #if WITH_SENTRY
   capabilities |= SentryFramework;
 #endif
@@ -775,7 +775,7 @@ void QfIosPlatformUtilities::importDatasets() const {
   [root presentViewController:picker animated:YES completion:nil];
 }
 
-void QfIosPlatformUtilities::importFile(const QString &path) const {
+void QfIosPlatformUtilities::handleFileAssociation(const QString &path) const {
   QFileInfo fileInfo(path);
   if (!fileInfo.exists() || !fileInfo.isFile() || !QfAppInterface::instance()) {
     return;

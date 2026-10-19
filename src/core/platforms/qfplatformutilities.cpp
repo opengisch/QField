@@ -291,7 +291,7 @@ void QfPlatformUtilities::importProjectArchive() const
 void QfPlatformUtilities::importDatasets() const
 {}
 
-void QfPlatformUtilities::importFile( const QString &path ) const
+void QfPlatformUtilities::handleFileAssociation( const QString &path ) const
 {
   Q_UNUSED( path )
 }
