@@ -3772,11 +3772,11 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Show news on the welcome screen</source>
-        <translation type="unfinished"/>
+        <translation>Mostra les notícies a la pantalla de benvinguda</translation>
     </message>
     <message>
         <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
-        <translation type="unfinished"/>
+        <translation>Si està activat, les darreres notícies i consells útils es mostraran a la pantalla de benvinguda.</translation>
     </message>
 </context>
 <context>
@@ -5223,11 +5223,11 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>El projecte no es pot clonar perquè l&apos;emmagatzematge disponible està ple.</translation>
     </message>
     <message>
         <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>No es pot crear el projecte perquè l&apos;emmagatzematge disponible està ple.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
@@ -8738,11 +8738,11 @@ projecte</translation>
     </message>
     <message>
         <source>%1 can display its latest news and useful tips on launch.</source>
-        <translation type="unfinished"/>
+        <translation>%1 pot mostrar les darreres notícies i consells útils en el moment de l&apos;arrencada.</translation>
     </message>
     <message>
         <source>Read more</source>
-        <translation type="unfinished"/>
+        <translation>Més informació</translation>
     </message>
 </context>
 <context>

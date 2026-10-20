@@ -3773,11 +3773,11 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Show news on the welcome screen</source>
-        <translation type="unfinished"/>
+        <translation>Näytä uutiset tervetulonäytöllä</translation>
     </message>
     <message>
         <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
-        <translation type="unfinished"/>
+        <translation>Jos käytössä, uusimmat uutiset ja hyödylliset vinkit näytetään tervetulonäytöllä.</translation>
     </message>
 </context>
 <context>
@@ -4754,11 +4754,11 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
     </message>
     <message>
         <source>Uploading %1%</source>
-        <translation type="unfinished"/>
+        <translation>Ladataan %1 %</translation>
     </message>
     <message>
         <source>Uploading</source>
-        <translation type="unfinished"/>
+        <translation>Ladataan</translation>
     </message>
     <message>
         <source>Connecting...</source>
@@ -5223,11 +5223,11 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projektia ei voi kloonata, koska tallennustilasi on täynnä.</translation>
     </message>
     <message>
         <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projektia ei voi luoda, koska tallennustilasi on täynnä.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
@@ -5309,19 +5309,19 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>The project folder could not be found.</source>
-        <translation type="unfinished"/>
+        <translation>Projektikansiota ei löytynyt.</translation>
     </message>
     <message>
         <source>The project folder contains more than one project file, move the project into a folder of its own and try again.</source>
-        <translation type="unfinished"/>
+        <translation>Projektikansio sisältää useamman kuin yhden projektitiedoston. Siirrä projekti omaan kansioonsa ja yritä uudelleen.</translation>
     </message>
     <message>
         <source>The project folder does not contain a valid project file.</source>
-        <translation type="unfinished"/>
+        <translation>Projektikansio ei sisällä kelvollista projektitiedostoa.</translation>
     </message>
     <message>
         <source>The project folder does not contain a project file.</source>
-        <translation type="unfinished"/>
+        <translation>Projektikansiossa ei ole projektitiedostoa.</translation>
     </message>
 </context>
 <context>
@@ -5417,19 +5417,19 @@ epäonnistui, syy: %2</translation>
     </message>
     <message>
         <source>Markups</source>
-        <translation type="unfinished"/>
+        <translation>Merkinnät</translation>
     </message>
     <message>
         <source>Create Collection</source>
-        <translation type="unfinished"/>
+        <translation>Luo kokoelma</translation>
     </message>
     <message>
         <source>Markup Collection Creation</source>
-        <translation type="unfinished"/>
+        <translation>Merkintäkokoelman luonti</translation>
     </message>
     <message>
         <source>Enter your new collection name</source>
-        <translation type="unfinished"/>
+        <translation>Syötä uuden kokoelman nimi</translation>
     </message>
 </context>
 <context>
@@ -5459,11 +5459,11 @@ epäonnistui, syy: %2</translation>
     <name>QfDigitizingLayerInformationView</name>
     <message>
         <source>Map Layers</source>
-        <translation type="unfinished"/>
+        <translation>Karttatasot</translation>
     </message>
     <message>
         <source>Markups</source>
-        <translation type="unfinished"/>
+        <translation>Merkinnät</translation>
     </message>
 </context>
 <context>
@@ -6550,7 +6550,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message numerus="yes">
         <source>%n item(s) selected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Valittu %n kohdetta</numerusform><numerusform>Valittu %n kohdetta</numerusform></translation>
     </message>
     <message>
         <source>Folders</source>
@@ -6622,15 +6622,15 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Lataa kansio WebDAV-palvelimelle</translation>
     </message>
     <message>
         <source>Upload file to WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Lataa tiedosto WebDAV-palvelimelle</translation>
     </message>
     <message>
         <source>Download folder from WebDAV</source>
-        <translation type="unfinished"/>
+        <translation>Lataa kansio WebDAV-palvelimelta</translation>
     </message>
     <message>
         <source>Delete folder</source>
@@ -6897,11 +6897,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QfMarkupCollection</name>
     <message>
         <source>Markups</source>
-        <translation type="unfinished"/>
+        <translation>Merkinnät</translation>
     </message>
     <message>
         <source>Markup item</source>
-        <translation type="unfinished"/>
+        <translation>Merkintäkohde</translation>
     </message>
     <message>
         <source>Color</source>
@@ -6909,7 +6909,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Label</source>
-        <translation type="unfinished"/>
+        <translation>Selite</translation>
     </message>
     <message>
         <source>Description</source>
@@ -6924,11 +6924,11 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Zoom to collection</source>
-        <translation type="unfinished"/>
+        <translation>Kohdista kokoelmaan</translation>
     </message>
     <message>
         <source>The collection has no features</source>
-        <translation type="unfinished"/>
+        <translation>Kokoelmassa ei ole kohteita.</translation>
     </message>
     <message>
         <source>Show features list</source>
@@ -6936,22 +6936,22 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     </message>
     <message>
         <source>Export collection</source>
-        <translation type="unfinished"/>
+        <translation>Vie kokoelma</translation>
     </message>
 </context>
 <context>
     <name>QfMarkupManager</name>
     <message>
         <source>Unnamed collection</source>
-        <translation type="unfinished"/>
+        <translation>Nimeämätön kokoelma</translation>
     </message>
     <message>
         <source>Default collection</source>
-        <translation type="unfinished"/>
+        <translation>Oletuskokoelma</translation>
     </message>
     <message>
         <source>Untitled collection</source>
-        <translation type="unfinished"/>
+        <translation>Nimetön kokoelma</translation>
     </message>
 </context>
 <context>
@@ -8718,27 +8718,27 @@ project</source>
     </message>
     <message>
         <source>How&apos;s %1 working for you?</source>
-        <translation type="unfinished"/>
+        <translation>Miten %1 toimii kohdallasi?</translation>
     </message>
     <message>
         <source>One tap is all it takes.</source>
-        <translation type="unfinished"/>
+        <translation>Yksi napautus riittää.</translation>
     </message>
     <message>
         <source>Could be better</source>
-        <translation type="unfinished"/>
+        <translation>Voisi olla parempi</translation>
     </message>
     <message>
         <source>Loving it</source>
-        <translation type="unfinished"/>
+        <translation>Mahtava</translation>
     </message>
     <message>
         <source>%1 can display its latest news and useful tips on launch.</source>
-        <translation type="unfinished"/>
+        <translation>%1 voi näyttää uusimmat uutiset ja hyödylliset vinkit käynnistyksen yhteydessä.</translation>
     </message>
     <message>
         <source>Read more</source>
-        <translation type="unfinished"/>
+        <translation>Lue lisää</translation>
     </message>
 </context>
 <context>
