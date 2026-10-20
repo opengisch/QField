@@ -2350,7 +2350,8 @@ ApplicationWindow {
       anchors.topMargin: mainWindow.sceneTopMargin + 4
       anchors.rightMargin: mainWindow.sceneRightMargin + 4
 
-      visible: !screenLocker.enabled && stateMachine.state !== 'measure'
+      z: 10
+      visible: !screenLocker.enabled
 
       onStateChanged: {
         if (state == "off") {
@@ -2366,6 +2367,7 @@ ApplicationWindow {
 
     QfDropShadow {
       anchors.fill: locatorItem
+      z: locatorItem.z
       visible: locatorItem.searchFieldVisible
       verticalOffset: 2
       radius: 10
