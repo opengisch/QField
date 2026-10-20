@@ -4968,9 +4968,22 @@ ApplicationWindow {
       welcomeScreen.focus = false;
       projectCreationScreen.visible = false;
       projectCreationScreen.focus = false;
-      if (overlayFeatureFormDrawer.opened) {
-        // discard the feature being added, its layer belongs to the project being closed
+      // abort any ongoing feature addition or digitizing, they are tied to the project being closed
+      if (digitizingToolbar.geometryRequested) {
+        // prevent the digitizing cancellation below from re-opening the feature addition drawer
+        digitizingToolbar.geometryRequested = false;
+      }
+      if (overlayFeatureFormDrawer.isAdding) {
         overlayFeatureFormDrawer.featureForm.cancel();
+        overlayFeatureFormDrawer.isAdding = false;
+      }
+      if (digitizingToolbar.isDigitizing) {
+        digitizingToolbar.digitizingLogger.clearCoordinates();
+        digitizingToolbar.rubberbandModel.reset();
+        digitizingToolbar.cancel();
+      }
+      if (geometryEditingVertexModel.vertexCount > 0) {
+        geometryEditorsToolbar.cancelEditors();
       }
       dashBoard.layerTree.freeze();
       mapCanvasMap.stopRendering();
