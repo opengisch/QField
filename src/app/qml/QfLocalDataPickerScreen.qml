@@ -14,7 +14,7 @@ Page {
 
   property bool openedOnce: false
   property bool projectFolderView: false
-  property alias model: table.model
+  property alias model: localFilesModel
 
   signal finished(var loading)
 
@@ -183,6 +183,28 @@ Page {
           border.color: QfTheme.controlBorderColor
           border.width: 1
           radius: 2
+
+          QfBadge {
+            parent: ItemHasThumbnail ? thumbnail : type
+            z: 2
+            alignment: QfBadge.Alignment.BottomRight
+            visible: ItemCloudStatus !== QfLocalFilesModel.LocalOnly
+            width: parent.width / 2.5
+            height: width
+            border.width: 2
+            bottomMargin: -2
+            rightMargin: -2
+            color: QfTheme.cloudColor
+
+            Image {
+              anchors.centerIn: parent
+              width: parent.width - (ItemCloudStatus === QfLocalFilesModel.Divergent ? 9 : 6)
+              height: width
+              source: QfTheme.getThemeVectorIcon(ItemCloudStatus === QfLocalFilesModel.Divergent ? 'ic_create_white_24dp' : 'ic_check_white_24dp')
+              sourceSize.width: width * screen.devicePixelRatio
+              sourceSize.height: height * screen.devicePixelRatio
+            }
+          }
 
           RowLayout {
             id: line
