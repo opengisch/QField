@@ -303,6 +303,18 @@ class QfAppInterface : public QObject
   private:
     QObject *rootObject() const;
 
+    /**
+     * Imports a local file into the Imported Projects or Imported Datasets folder, extracts it
+     * when it is a compressed project, and reports the outcome through importEnded().
+     * \param filePath the file to import, which is moved rather than copied
+     * \param loadOnImport set to TRUE to load the imported project or dataset when it is supported
+     * \param fileName the name to import the file as, defaults to the name of \a filePath
+     * \param originalUrl the URL the file was downloaded from, if any
+     */
+    void importLocalFile( const QString &filePath, bool loadOnImport = false, const QString &fileName = QString(), const QString &originalUrl = QString() );
+
+    friend class QfIosPlatformUtilities;
+
     static QfAppInterface *sAppInterface;
 
     QQmlEngine *mEngine = nullptr;

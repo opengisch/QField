@@ -41,6 +41,7 @@ class QfIosPlatformUtilities : public QfPlatformUtilities
     void importProjectFolder() const override;
     void importProjectArchive() const override;
     void importDatasets() const override;
+    void handleFileAssociation( const QString &path ) const override;
     void exportDatasetTo( const QString &path ) const override;
     void exportFolderTo( const QString &path ) const override;
     void sendDatasetTo( const QString &path ) const override;

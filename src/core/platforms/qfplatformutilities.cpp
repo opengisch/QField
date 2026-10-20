@@ -291,6 +291,11 @@ void QfPlatformUtilities::importProjectArchive() const
 void QfPlatformUtilities::importDatasets() const
 {}
 
+void QfPlatformUtilities::handleFileAssociation( const QString &path ) const
+{
+  Q_UNUSED( path )
+}
+
 void QfPlatformUtilities::updateProjectFromArchive( const QString &projectPath ) const
 {
   const QString zipFilePath = QFileDialog::getOpenFileName( nullptr,
