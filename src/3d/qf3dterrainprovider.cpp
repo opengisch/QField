@@ -252,8 +252,39 @@ double Qf3DTerrainProvider::heightAt( double x, double y ) const
 
 double Qf3DTerrainProvider::normalizedHeightAt( double x, double y ) const
 {
-  const double realHeight = heightAt( x, y );
-  return ( realHeight - mMinRealHeight ) * mHeightScale / mOffsetScale;
+  const int gridWidth = mGridSize.width();
+  const int gridHeight = mGridSize.height();
+  if ( mNormalizedDataExtent.isEmpty() || gridWidth < 2 || gridHeight < 2 || mNormalizedData.size() != static_cast<qsizetype>( gridWidth ) * gridHeight )
+  {
+    return 0.0;
+  }
+
+  const double column = std::clamp( ( x - mNormalizedDataExtent.xMinimum() ) / mNormalizedDataExtent.width(), 0.0, 1.0 ) * ( gridWidth - 1 );
+  const double row = std::clamp( ( mNormalizedDataExtent.yMaximum() - y ) / mNormalizedDataExtent.height(), 0.0, 1.0 ) * ( gridHeight - 1 );
+  const int left = static_cast<int>( column );
+  const int top = static_cast<int>( row );
+
+  const int right = std::min( left + 1, gridWidth - 1 );
+  const int bottom = std::min( top + 1, gridHeight - 1 );
+  const double columnFraction = column - left;
+  const double rowFraction = row - top;
+
+  const double topLeft = mNormalizedData.at( top * gridWidth + left ).toDouble();
+  const double topRight = mNormalizedData.at( top * gridWidth + right ).toDouble();
+  const double bottomLeft = mNormalizedData.at( bottom * gridWidth + left ).toDouble();
+  const double bottomRight = mNormalizedData.at( bottom * gridWidth + right ).toDouble();
+
+  double height = 0.0;
+  if ( columnFraction + rowFraction <= 1.0 )
+  {
+    height = topLeft + ( topRight - topLeft ) * columnFraction + ( bottomLeft - topLeft ) * rowFraction;
+  }
+  else
+  {
+    height = bottomRight + ( bottomLeft - bottomRight ) * ( 1.0 - columnFraction ) + ( topRight - bottomRight ) * ( 1.0 - rowFraction );
+  }
+
+  return height / mOffsetScale;
 }
 
 QVector3D Qf3DTerrainProvider::geoTo3D( double geoX, double geoY, float heightOffset ) const
