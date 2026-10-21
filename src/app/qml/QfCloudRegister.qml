@@ -12,7 +12,6 @@ Item {
   id: qfieldCloudRegister
 
   property bool isRegistering: false
-  property bool isReferralCodeVisible: false
   property string registrationError: ""
   property string captchaKey: ""
   property string captchaImageUrl: ""
@@ -307,56 +306,21 @@ Item {
           }
         }
 
-        Text {
-          Layout.alignment: Qt.AlignLeft
-          visible: !qfieldCloudRegister.isReferralCodeVisible
-          text: qsTr("Have a referral code?")
-          font: QfTheme.tipFont
-          color: QfTheme.cloudColor
-          wrapMode: Text.WordWrap
-
-          MouseArea {
-            anchors.fill: parent
-
-            onClicked: {
-              qfieldCloudRegister.isReferralCodeVisible = true;
-              referralCodeField.forceActiveFocus();
-            }
-          }
-        }
-
-        QfTextField {
-          id: referralCodeField
-          objectName: "referralCodeField"
-          Layout.fillWidth: true
-          visible: qfieldCloudRegister.isReferralCodeVisible
-          inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
-          placeholderText: qsTr("Referral code")
-        }
-
         RowLayout {
           Layout.fillWidth: true
           Layout.topMargin: 10
           spacing: 10
 
-          Rectangle {
-            Layout.preferredWidth: captchaImage.sourceSize.width
-            Layout.preferredHeight: captchaImage.sourceSize.height
-            radius: 4
-            color: QfTheme.light
-
-            Image {
-              id: captchaImage
-              objectName: "captchaImage"
-              anchors.fill: parent
-              fillMode: Image.PreserveAspectFit
-              sourceSize.width: 200
-              sourceSize.height: 50
-              source: qfieldCloudRegister.captchaImageUrl
-            }
+          Text {
+            text: qsTr("Captcha")
+            font: QfTheme.defaultFont
+            color: QfTheme.mainTextColor
           }
 
           QfToolButton {
+            width: 32
+            height: 32
+            padding: 0
             iconSource: QfTheme.getThemeVectorIcon('refresh_24dp')
             iconColor: QfTheme.mainTextColor
             bgcolor: "transparent"
@@ -368,12 +332,53 @@ Item {
           }
         }
 
+        Rectangle {
+          Layout.alignment: Qt.AlignHCenter
+          Layout.preferredWidth: captchaImage.sourceSize.width
+          Layout.preferredHeight: captchaImage.sourceSize.height
+          radius: 4
+          color: QfTheme.light
+
+          Image {
+            id: captchaImage
+            objectName: "captchaImage"
+            anchors.fill: parent
+            fillMode: Image.PreserveAspectFit
+            sourceSize.width: 200
+            sourceSize.height: 50
+            source: qfieldCloudRegister.captchaImageUrl
+          }
+        }
+
         QfTextField {
           id: captchaAnswerField
           objectName: "captchaAnswerField"
           Layout.fillWidth: true
           inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhPreferLowercase
           placeholderText: qsTr("Characters shown above")
+
+          Keys.onReturnPressed: {
+            if (continueButton.enabled) {
+              continueButton.clicked();
+            }
+          }
+        }
+
+        Text {
+          Layout.fillWidth: true
+          Layout.topMargin: 10
+          text: qsTr("Referral code")
+          font: QfTheme.defaultFont
+          color: QfTheme.mainTextColor
+          wrapMode: Text.WordWrap
+        }
+
+        QfTextField {
+          id: referralCodeField
+          objectName: "referralCodeField"
+          Layout.fillWidth: true
+          inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
+          placeholderText: qsTr("Enter your referral code if you have one")
 
           Keys.onReturnPressed: {
             if (continueButton.enabled) {
