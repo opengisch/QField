@@ -183,6 +183,13 @@ class Qf3DTerrainProvider : public QObject
     //! Applies scale offset to the stored terrain based on zoom action
     Q_INVOKABLE void zoom( double factor );
 
+    /**
+     * Applies X/Z offsets to the stored terrain so that the given point sits at the scene center.
+     * \param geoX X coordinate in map CRS
+     * \param geoY Y coordinate in map CRS
+     */
+    Q_INVOKABLE void panTo( double geoX, double geoY );
+
   signals:
     void projectChanged();
     void mapSettingsChanged();

@@ -694,3 +694,16 @@ void Qf3DTerrainProvider::zoom( double factor )
     updateExtentFromOffsets();
   }
 }
+
+void Qf3DTerrainProvider::panTo( double geoX, double geoY )
+{
+  if ( mExtent.isEmpty() )
+  {
+    return;
+  }
+
+  const QgsPointXY center = mExtent.center();
+  const double sceneUnitsPerMapUnitX = mSize.width() / mExtent.width();
+  const double sceneUnitsPerMapUnitZ = mSize.height() / mExtent.height();
+  pan( ( center.x() - geoX ) * sceneUnitsPerMapUnitX, ( geoY - center.y() ) * sceneUnitsPerMapUnitZ );
+}

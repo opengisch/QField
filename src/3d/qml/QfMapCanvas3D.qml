@@ -388,6 +388,18 @@ Item {
     cameraController.lookAtPoint(pos3d, distance);
   }
 
+  function jumpTo(point) {
+    const pos3d = geoTo3D(point.x, point.y);
+    if (!isNaN(pos3d.x)) {
+      cameraController.lookAtPoint(pos3d);
+      return;
+    }
+    // Outside of the loaded terrain, bring the terrain to the camera instead
+    mapTerrainProvider.panTo(point.x, point.y);
+    mapTerrainProvider.beginTransition();
+    cameraController.lookAtPoint(Qt.vector3d(0, cameraController.targetY, 0));
+  }
+
   function zoomIn() {
     cameraController.distance = cameraController.clampDistance(cameraController.distance * 0.8);
   }

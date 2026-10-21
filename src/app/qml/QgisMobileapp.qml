@@ -165,7 +165,7 @@ ApplicationWindow {
     }
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
-      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+      mainWindow.jumpTo(center, scale, handleMargins);
     }
   }
 
@@ -3035,7 +3035,7 @@ ApplicationWindow {
             settings.setValue("/QField/Navigation/FollowIncludeDestination", followIncludeDestination);
             gnssButton.followLocation(true);
           } else {
-            mapCanvasMap.jumpTo(navigation.destination, -1, -1, true);
+            mainWindow.jumpTo(navigation.destination, -1, true);
           }
         }
 
@@ -3492,7 +3492,7 @@ ApplicationWindow {
         }
 
         onRequestJumpToPoint: function (center, scale, handleMargins) {
-          mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+          mainWindow.jumpTo(center, scale, handleMargins);
         }
 
         onRequestPosition: function (item, fromCoordinateLocator) {
@@ -3525,7 +3525,7 @@ ApplicationWindow {
         anchors.right: parent.right
 
         onRequestJumpToPoint: function (center, scale, handleMargins) {
-          mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+          mainWindow.jumpTo(center, scale, handleMargins);
         }
       }
 
@@ -3763,6 +3763,14 @@ ApplicationWindow {
     dashBoard.close();
     if (stateMachine.state !== '3d') {
       changeMode('3d');
+    }
+  }
+
+  function jumpTo(point, scale, handleMargins) {
+    if (stateMachine.state === '3d' && mapCanvas3DLoader.item) {
+      mapCanvas3DLoader.item.jumpTo(point);
+    } else {
+      mapCanvasMap.jumpTo(point, scale, -1, handleMargins);
     }
   }
 
@@ -4741,7 +4749,7 @@ ApplicationWindow {
     onShowMessage: displayToast(message)
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
-      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+      mainWindow.jumpTo(center, scale, handleMargins);
     }
 
     onEditGeometry: {
@@ -4832,7 +4840,7 @@ ApplicationWindow {
     featureModel.currentLayer: dashBoard.activeLayer
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
-      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+      mainWindow.jumpTo(center, scale, handleMargins);
     }
 
     Component.onCompleted: focusstack.addFocusTaker(this)
@@ -5223,7 +5231,7 @@ ApplicationWindow {
     target: bookmarkModel
 
     function onRequestJumpToPoint(center, scale, handleMargins) {
-      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+      mainWindow.jumpTo(center, scale, handleMargins);
     }
   }
 
@@ -5365,7 +5373,7 @@ ApplicationWindow {
     id: trackerFeatureForm
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
-      mapCanvasMap.jumpTo(center, scale, -1, handleMargins);
+      mainWindow.jumpTo(center, scale, handleMargins);
     }
   }
 
