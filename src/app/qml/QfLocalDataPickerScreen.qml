@@ -189,7 +189,7 @@ Page {
             z: 2
             alignment: QfBadge.Alignment.BottomRight
             visible: ItemCloudStatus !== QfLocalFilesModel.LocalOnly
-            width: parent.width / 2.5
+            width: 20
             height: width
             border.width: 2
             bottomMargin: -2
@@ -198,11 +198,21 @@ Page {
 
             Image {
               anchors.centerIn: parent
-              width: parent.width - (ItemCloudStatus === QfLocalFilesModel.Divergent ? 9 : 6)
+              width: parent.width - 6
               height: width
-              source: QfTheme.getThemeVectorIcon(ItemCloudStatus === QfLocalFilesModel.Divergent ? 'ic_create_white_24dp' : 'ic_check_white_24dp')
+              visible: ItemCloudStatus === QfLocalFilesModel.Synchronized
+              source: QfTheme.getThemeVectorIcon('ic_check_white_24dp')
               sourceSize.width: width * screen.devicePixelRatio
               sourceSize.height: height * screen.devicePixelRatio
+            }
+
+            Rectangle {
+              anchors.centerIn: parent
+              width: 4
+              height: width
+              radius: width / 2
+              visible: ItemCloudStatus === QfLocalFilesModel.Divergent
+              color: QfTheme.light
             }
           }
 
