@@ -137,6 +137,9 @@
         "zstd"
       ]
     },
-    "valhalla"
+    {
+      "name": "valhalla",
+      "platform": "windows | linux | osx | ios | (android & !arm32 & !x86)"
+    }
   ]
 }
