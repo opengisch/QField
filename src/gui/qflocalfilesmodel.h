@@ -167,6 +167,9 @@ class QfLocalFilesModel : public QAbstractListModel
   private:
     void reloadModel();
     void fetchCloudStatus();
+    void fetchCloudFiles( const QString &endpoint, const QVariantMap &params = QVariantMap() );
+    void updateCloudStatus();
+    void clearCloudFiles();
     const QString getCurrentTitleFromPath( const QString &path ) const;
 
     QStringList mHistory;
@@ -179,6 +182,10 @@ class QfLocalFilesModel : public QAbstractListModel
     QString mImportedDatasetsPath;
 
     QPointer<QfCloudConnection> mCloudConnection;
+    QString mCloudFilesProjectId;
+    QHash<QString, QPair<qint64, QString>> mCloudFiles;
+    bool mCloudFilesFetched = false;
+    int mCloudFilesRequestId = 0;
 };
 
 
