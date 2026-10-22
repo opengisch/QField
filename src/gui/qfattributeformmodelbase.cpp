@@ -365,7 +365,9 @@ void QfAttributeFormModelBase::applyRelationshipDefaultValues()
     }
   }
 
+  updateDefaultValuesAndVirtualFields( -1, true );
   updateEditorWidgetCodes( QString(), true );
+  updateVisibilityAndConstraints( -1, true );
 }
 
 void QfAttributeFormModelBase::activateAllRememberValues()
@@ -784,12 +786,14 @@ void QfAttributeFormModelBase::synchronizeFieldValue( int fieldIndex, QVariant v
   }
 }
 
-void QfAttributeFormModelBase::updateDefaultValuesAndVirtualFields( int fieldIndex, QVector<int> updatedFields )
+void QfAttributeFormModelBase::updateDefaultValuesAndVirtualFields( int fieldIndex, bool updateRelationships, QVector<int> updatedFields )
 {
   const QgsFields fields = mFeatureModel->feature().fields();
-  if ( fieldIndex < 0 || fieldIndex >= fields.size() )
+  if ( fieldIndex < -1 || fieldIndex >= fields.size() )
+  {
     return;
-  const QString fieldName = fields.at( fieldIndex ).name();
+  }
+  const QString fieldName = fieldIndex > -1 ? fields.at( fieldIndex ).name() : QString();
 
   mExpressionContext.setFields( fields );
   mExpressionContext.setFeature( mFeatureModel->feature() );
@@ -821,7 +825,7 @@ void QfAttributeFormModelBase::updateDefaultValuesAndVirtualFields( int fieldInd
     exp.prepare( &mExpressionContext );
 
     // avoid cost of value update if expression doesn't contain the field which triggered the default values update
-    if ( !exp.referencedColumns().contains( fieldName ) && !exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+    if ( !exp.referencedColumns().contains( fieldName ) && !exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) && ( !updateRelationships || !exp.referencedFunctions().contains( QStringLiteral( "relation_aggregate" ) ) ) )
     {
       continue;
     }
@@ -839,14 +843,17 @@ void QfAttributeFormModelBase::updateDefaultValuesAndVirtualFields( int fieldInd
       if ( !updatedFields.contains( fidx ) )
       {
         updatedFields.append( fidx );
-        updateDefaultValuesAndVirtualFields( fidx, updatedFields );
+        updateDefaultValuesAndVirtualFields( fidx, false, updatedFields );
       }
       updateVisibilityAndConstraints( fidx );
     }
   }
 
-  updateDataDefinedProperties( fieldName );
-  updateEditorWidgetCodes( fieldName );
+  if ( !fieldName.isEmpty() )
+  {
+    updateDataDefinedProperties( fieldName );
+    updateEditorWidgetCodes( fieldName );
+  }
 }
 
 bool QfAttributeFormModelBase::codeRequiresUpdate( const QString &fieldName, bool updateRelationships, const QString &code, const QRegularExpression &regEx )
@@ -874,7 +881,7 @@ bool QfAttributeFormModelBase::codeRequiresUpdate( const QString &fieldName, boo
   return mEditorWidgetCodesRequirements[code].referencedColumns.contains( fieldName ) || mEditorWidgetCodesRequirements[code].referencedColumns.contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || mEditorWidgetCodesRequirements[code].formScope || ( updateRelationships && mEditorWidgetCodesRequirements[code].relationships );
 }
 
-void QfAttributeFormModelBase::updateDataDefinedProperties( const QString &fieldName )
+void QfAttributeFormModelBase::updateDataDefinedProperties( const QString &fieldName, bool updateRelationships )
 {
   QMap<QStandardItem *, QString>::ConstIterator aliasExpressionsIterator( mAliasExpressions.constBegin() );
   for ( ; aliasExpressionsIterator != mAliasExpressions.constEnd(); aliasExpressionsIterator++ )
@@ -886,7 +893,7 @@ void QfAttributeFormModelBase::updateDataDefinedProperties( const QString &field
     }
 
     QgsExpression exp( aliasExpressionsIterator.value() );
-    exp.referencedColumns().contains( fieldName );
+    if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || ( updateRelationships && exp.referencedFunctions().contains( "relation_aggregate" ) ) )
     {
       exp.prepare( &mExpressionContext );
       QVariant result = exp.evaluate( &mExpressionContext );
@@ -912,7 +919,7 @@ void QfAttributeFormModelBase::updateDataDefinedProperties( const QString &field
     }
 
     QgsExpression exp( readOnlyExpressionsIterator.value() );
-    exp.referencedColumns().contains( fieldName );
+    if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || ( updateRelationships && exp.referencedFunctions().contains( "relation_aggregate" ) ) )
     {
       exp.prepare( &mExpressionContext );
       QVariant result = exp.evaluate( &mExpressionContext );
@@ -1009,7 +1016,7 @@ void _checkChildrenValidity( const QStandardItem *parent, bool &hardValidity, bo
   }
 };
 
-void QfAttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
+void QfAttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex, bool updateRelationships )
 {
   const QString fieldName = fieldIndex > -1 && fieldIndex < mLayer->fields().size() ? mLayer->fields().at( fieldIndex ).name() : QString();
   QgsFields fields = mFeatureModel->feature().fields();
@@ -1021,7 +1028,7 @@ void QfAttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
   {
     // If triggered by an updated field index (fieldIndex), check if the visibility
     // expression refers to that field
-    if ( fieldIndex == -1 || it.first.referencedColumns().contains( fieldName ) || it.first.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+    if ( fieldIndex == -1 || it.first.referencedColumns().contains( fieldName ) || it.first.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || ( updateRelationships && it.first.referencedFunctions().contains( QStringLiteral( "relation_aggregate" ) ) ) )
     {
       QgsExpression exp = it.first;
       exp.prepare( &mExpressionContext );
@@ -1049,7 +1056,7 @@ void QfAttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
       // Check whether the current field iterator index (fidx) has an expression constraints referencing the
       // updated field index (fieldIndex) which triggered a constraints update
       const QgsExpression expression = mLayer->fields().at( fidx ).constraints().constraintExpression();
-      if ( !expression.referencedColumns().contains( fieldName ) && !expression.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+      if ( !expression.referencedColumns().contains( fieldName ) && !expression.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) && ( !updateRelationships || !expression.referencedFunctions().contains( QStringLiteral( "relation_aggregate" ) ) ) )
       {
         continue;
       }
