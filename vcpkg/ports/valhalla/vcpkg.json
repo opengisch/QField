@@ -1,0 +1,80 @@
+{
+  "name": "valhalla",
+  "version": "3.9.1",
+  "description": "A minimally invasive UI testing library that enables your Qt/QML app's UI to be controlled either via c++ code, or through an http RPC interface.",
+  "homepage": "https://github.com/valhalla/valhalla",
+  "dependencies": [
+    "boost-algorithm",
+    "boost-foreach",
+    "boost-format",
+    "boost-geometry",
+    "boost-heap",
+    "boost-optional",
+    "boost-property-tree",
+    "boost-range",
+    "boost-tokenizer",
+    "curl",
+    "cxxopts",
+    "date",
+    {
+      "name": "dirent",
+      "platform": "windows"
+    },
+    "flatbush",
+    {
+      "name": "gdal",
+      "default-features": false
+    },
+    "geos",
+    "libosmium",
+    {
+      "name": "libspatialite",
+      "features": [
+        "rttopo"
+      ]
+    },
+    "luajit",
+    "nanobind",
+    "openssl",
+    "pkgconf",
+    "protobuf",
+    "rapidjson",
+    "spatialite-tools",
+    "sqlite3",
+    "unordered-dense",
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    },
+    "zlib"
+  ],
+  "features": {
+    "elevation-lz4": {
+      "description": "LZ4 decompression support for elevation tiles",
+      "dependencies": [
+        "lz4"
+      ]
+    },
+    "services": {
+      "description": "ZMQ + prime_server multiprocess HTTP service. Activate from CMake by setting VCPKG_MANIFEST_FEATURES=services. Only needed for the standalone valhalla_service binary; Python wheels and the embedded library don't need it.",
+      "dependencies": [
+        {
+          "name": "czmq",
+          "platform": "windows"
+        },
+        {
+          "name": "prime-server",
+          "platform": "windows"
+        },
+        {
+          "name": "zeromq",
+          "platform": "windows"
+        }
+      ]
+    }
+  }
+}
