@@ -96,6 +96,10 @@ jobs:
         with:
           cmakeVersion: 3.31.6
 
+      - name: 🔨 Install GNU awk
+        run: |
+          choco install gawk
+
       - name: 🌱 Install dependencies and generate project files
         shell: bash
         env:
