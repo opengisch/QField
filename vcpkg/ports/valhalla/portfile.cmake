@@ -59,3 +59,5 @@ vcpkg_cmake_configure(
 )
 
 vcpkg_cmake_install()
+
+file(COPY "${CMAKE_CURRENT_LIST_DIR}/valhalla-config.cmake" DESTINATION "${CURRENT_PACKAGES_DIR}/share/valhalla")
