@@ -396,8 +396,7 @@ def test_3d_rendering(app, screenshot_path, screenshot_check, extra, process_ali
     app.invokeMethod("mainWindow/toursController", "blockGuides", [])
     time.sleep(4)
 
-    # Activate 3D mode by directly setting the state machine state
-    app.setStringProperty("mainWindow/stateMachine", "state", "3d")
+    app.setStringProperty("mainWindow/mapCanvas3DLoader", "active", "true")
     time.sleep(8)
 
     app.takeScreenshot(
