@@ -989,10 +989,17 @@ Page {
     id: cloneProjectDialog
 
     property string sourceProjectId: ""
+    property var availableOwners: []
 
     parent: mainWindow.contentItem
     title: qsTr("Project Creation")
     width: mainWindow.width - 40
+
+    onAboutToShow: {
+      availableOwners = [cloudConnection.username];
+      cloneProjectOwner.currentIndex = 0;
+      cloudConnection.getUserOrganizations(cloudConnection.username);
+    }
 
     ColumnLayout {
       width: cloneProjectDialog.availableWidth
@@ -1034,6 +1041,21 @@ Page {
           wrapMode: TextEdit.Wrap
         }
       }
+
+      Label {
+        Layout.fillWidth: true
+        visible: cloneProjectOwner.visible
+        wrapMode: Text.WordWrap
+        text: qsTr("Select the project owner")
+      }
+
+      QfComboBox {
+        id: cloneProjectOwner
+        Layout.fillWidth: true
+        visible: cloneProjectDialog.availableOwners.length > 1
+        model: cloneProjectDialog.availableOwners
+        font: QfTheme.defaultFont
+      }
     }
 
     onAccepted: {
@@ -1042,7 +1064,8 @@ Page {
         busyOverlay.text = qsTr("Creating project…");
         busyOverlay.state = "visible";
         qfieldCloudScreen.requestedProjectCreation = true;
-        cloudProjectsModel.createProject(trimmedName, cloneProjectDescription.text.trim(), sourceProjectId);
+        const owner = cloneProjectOwner.visible ? cloneProjectOwner.currentText : cloudConnection.username;
+        cloudProjectsModel.createProject(trimmedName, cloneProjectDescription.text.trim(), sourceProjectId, owner);
       }
     }
   }
@@ -1078,6 +1101,12 @@ Page {
           projectsSwipeView.visible = false;
           connectionSettings.visible = true;
         }
+      }
+    }
+
+    function onUserOrganizationsReceived(organizations) {
+      if (cloneProjectDialog.visible) {
+        cloneProjectDialog.availableOwners = [cloudConnection.username].concat(organizations);
       }
     }
   }
