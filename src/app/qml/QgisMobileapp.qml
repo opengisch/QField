@@ -279,6 +279,7 @@ ApplicationWindow {
     objectName: "stateMachine"
 
     property string lastState
+    property bool is3DView: false
 
     states: [
       State {
@@ -301,12 +302,15 @@ ApplicationWindow {
           target: featureListForm
           state: "Hidden"
         }
-      },
-      State {
-        name: '3d'
       }
     ]
     state: "browse"
+
+    onStateChanged: {
+      if (state !== "browse" && is3DView) {
+        mapCanvas3DLoader.close();
+      }
+    }
   }
 
   onToggleDigitizeMode: {
@@ -325,7 +329,7 @@ ApplicationWindow {
     if (stateMachine.state === mode) {
       return;
     }
-    if (stateMachine.state !== 'measure' && stateMachine.state !== '3d') {
+    if (stateMachine.state !== 'measure') {
       stateMachine.lastState = stateMachine.state;
     }
     stateMachine.state = mode;
@@ -350,8 +354,6 @@ ApplicationWindow {
       informationDrawer.elevationProfile.populateLayersFromProject();
       displayToast(qsTr('You are now in measure mode'));
       break;
-    case '3d':
-      break;
     }
   }
 
@@ -360,14 +362,8 @@ ApplicationWindow {
   }
 
   onClose3DView: {
-    // Sync 2D map to the 3D extent so we land on the same area
-    if (mapCanvas3DLoader.item) {
-      const ext = mapCanvas3DLoader.item.terrainExtent;
-      if (ext && ext.width > 0 && ext.height > 0) {
-        mapCanvas.mapSettings.extent = ext;
-      }
-    }
-    changeMode(stateMachine.lastState);
+    mapCanvas3DLoader.close();
+    changeMode(mapCanvas3DLoader.previousMode);
   }
 
   /**
@@ -415,7 +411,7 @@ ApplicationWindow {
         }
         bearingTrueNorth = QfPositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
-          if (stateMachine.state === '3d') {
+          if (stateMachine.is3DView) {
             if (mapCanvas3DLoader.item) {
               const pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
               if (pos3d !== null) {
@@ -772,8 +768,11 @@ ApplicationWindow {
 
     Loader {
       id: mapCanvas3DLoader
+
+      property string previousMode: "browse"
+
       anchors.fill: parent
-      active: stateMachine.state === '3d'
+      active: stateMachine.is3DView
       visible: active ? true : false
       z: 100
       opacity: active ? 1.0 : 0.0
@@ -793,6 +792,17 @@ ApplicationWindow {
         } else {
           mapCanvasMap.unfreeze('3d');
         }
+      }
+
+      function close() {
+        // Sync 2D map to the 3D extent so we land on the same area
+        if (item) {
+          const extent = item.terrainExtent;
+          if (extent && extent.width > 0 && extent.height > 0) {
+            mapCanvas.mapSettings.extent = extent;
+          }
+        }
+        stateMachine.is3DView = false;
       }
 
       onLoaded: {
@@ -840,7 +850,7 @@ ApplicationWindow {
       id: loadingOverlay
       anchors.fill: parent
       color: "#80000000"
-      visible: stateMachine.state === '3d' && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && mapCanvas3DLoader.item.isFirstLoad
+      visible: stateMachine.is3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && mapCanvas3DLoader.item.isFirstLoad
       z: 1000
 
       Column {
@@ -849,7 +859,7 @@ ApplicationWindow {
 
         BusyIndicator {
           anchors.horizontalCenter: parent.horizontalCenter
-          running: stateMachine.state === '3d' && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && mapCanvas3DLoader.item.isFirstLoad
+          running: stateMachine.is3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && mapCanvas3DLoader.item.isFirstLoad
           width: 64
           height: 64
         }
@@ -878,7 +888,7 @@ ApplicationWindow {
       id: mapCanvasMap
       objectName: "mapCanvas"
 
-      property bool isEnabled: !mapCanvas3DLoader.active && !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
+      property bool isEnabled: !stateMachine.is3DView && !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
 
       interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
@@ -2261,7 +2271,7 @@ ApplicationWindow {
     QfToolButton {
       id: compassArrow
 
-      visible: mapCanvas.mapSettings.rotation !== 0 && stateMachine.state !== '3d'
+      visible: mapCanvas.mapSettings.rotation !== 0 && !stateMachine.is3DView
       anchors.left: parent.left
       anchors.bottom: parent.bottom
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
@@ -2289,7 +2299,7 @@ ApplicationWindow {
     }
 
     QfScaleBar {
-      visible: qfieldSettings.showScaleBar && stateMachine.state !== '3d'
+      visible: qfieldSettings.showScaleBar && !stateMachine.is3DView
       mapSettings: mapCanvas.mapSettings
       anchors.left: parent.left
       anchors.bottom: parent.bottom
@@ -2330,7 +2340,7 @@ ApplicationWindow {
         height: 36
 
         onClicked: {
-          if (stateMachine.state === '3d') {
+          if (stateMachine.is3DView) {
             if (mapCanvas3DLoader.item) {
               mapCanvas3DLoader.item.zoomIn();
             }
@@ -2359,7 +2369,7 @@ ApplicationWindow {
         height: 36
 
         onClicked: {
-          if (stateMachine.state === '3d') {
+          if (stateMachine.is3DView) {
             if (mapCanvas3DLoader.item) {
               mapCanvas3DLoader.item.zoomOut();
             }
@@ -2460,7 +2470,7 @@ ApplicationWindow {
 
       QfActionButton {
         id: close3DView
-        visible: stateMachine.state === '3d'
+        visible: stateMachine.is3DView
         toolImage: QfTheme.getThemeVectorIcon("ic_3d_white_24dp")
         toolText: qsTr('Close 3D view')
 
@@ -2949,7 +2959,7 @@ ApplicationWindow {
         iconSource: QfTheme.getThemeVectorIcon('ic_3d_settings_white_24dp')
         iconColor: QfTheme.toolButtonColor
         spacing: 4
-        visible: stateMachine.state === '3d' && mapCanvas3DLoader.item
+        visible: stateMachine.is3DView && mapCanvas3DLoader.item
 
         QfToolButton {
           id: extentModeButton
@@ -2999,7 +3009,7 @@ ApplicationWindow {
       anchors.top: mainToolbar.bottom
       width: menuButton.width + 10
       height: width
-      running: mapCanvasMap.isRendering || (stateMachine.state === '3d' && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && !mapCanvas3DLoader.item.isFirstLoad)
+      running: mapCanvasMap.isRendering || (stateMachine.is3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && !mapCanvas3DLoader.item.isFirstLoad)
     }
 
     Column {
@@ -3121,7 +3131,7 @@ ApplicationWindow {
         property bool jumpedOnce: false
 
         function jumpToLocation() {
-          const is3D = stateMachine.state === '3d';
+          const is3D = stateMachine.is3DView;
           if (is3D) {
             const pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
             if (pos3d === null) {
@@ -3659,7 +3669,7 @@ ApplicationWindow {
         shouldReturnHome = true;
       } else if (!shouldReturnHome) {
         openWelcomeScreen();
-        if (stateMachine.state === '3d') {
+        if (stateMachine.is3DView) {
           mainWindow.close3DView();
         }
       }
@@ -3761,8 +3771,10 @@ ApplicationWindow {
   function activate3DMode() {
     mainMenu.close();
     dashBoard.close();
-    if (stateMachine.state !== '3d') {
-      changeMode('3d');
+    if (!stateMachine.is3DView) {
+      mapCanvas3DLoader.previousMode = stateMachine.state;
+      changeMode('browse');
+      stateMachine.is3DView = true;
     }
   }
 
