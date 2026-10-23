@@ -38,6 +38,7 @@ Page {
     backAsCancel: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
+    busyIndicatorState: localFilesModel.fetchingCloudStatus ? 'on' : 'off'
 
     onCancel: {
       localFilesModel.clearSelection();
@@ -194,7 +195,7 @@ Page {
             border.width: 2
             bottomMargin: -2
             rightMargin: -2
-            color: QfTheme.cloudColor
+            color: ItemCloudStatus === QfLocalFilesModel.Divergent ? QfTheme.warningColor : QfTheme.mainColor
 
             Image {
               anchors.centerIn: parent
@@ -208,7 +209,7 @@ Page {
 
             Rectangle {
               anchors.centerIn: parent
-              width: 4
+              width: 2
               height: width
               radius: width / 2
               visible: ItemCloudStatus === QfLocalFilesModel.Divergent

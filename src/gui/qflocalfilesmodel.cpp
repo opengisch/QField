@@ -523,6 +523,16 @@ void QfLocalFilesModel::clearCloudFiles()
   mCloudFiles.clear();
   mCloudFilesFetched = false;
   mCloudFilesRequestId++;
+  setFetchingCloudStatus( false );
+}
+
+void QfLocalFilesModel::setFetchingCloudStatus( bool fetching )
+{
+  if ( mFetchingCloudStatus == fetching )
+    return;
+
+  mFetchingCloudStatus = fetching;
+  emit fetchingCloudStatusChanged();
 }
 
 void QfLocalFilesModel::fetchCloudStatus()
@@ -545,6 +555,7 @@ void QfLocalFilesModel::fetchCloudStatus()
 
   clearCloudFiles();
   mCloudFilesProjectId = projectId;
+  setFetchingCloudStatus( true );
 
   QVariantMap params;
   params.insert( QStringLiteral( "skip_metadata" ), 1 );
@@ -583,6 +594,7 @@ void QfLocalFilesModel::fetchCloudFiles( const QString &endpoint, const QVariant
     }
 
     mCloudFilesFetched = true;
+    setFetchingCloudStatus( false );
     updateCloudStatus();
   } );
 }
