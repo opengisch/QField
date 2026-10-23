@@ -279,6 +279,7 @@ ApplicationWindow {
     objectName: "stateMachine"
 
     property string lastState
+    property bool is3DView: false
 
     states: [
       State {
@@ -306,7 +307,7 @@ ApplicationWindow {
     state: "browse"
 
     onStateChanged: {
-      if (state !== "browse" && mapCanvas3DLoader.active) {
+      if (state !== "browse" && is3DView) {
         mapCanvas3DLoader.close();
       }
     }
@@ -410,7 +411,7 @@ ApplicationWindow {
         }
         bearingTrueNorth = QfPositioningUtils.bearingTrueNorth(positionSource.projectedPosition, mapCanvas.mapSettings.destinationCrs);
         if (gnssButton.followActive) {
-          if (mapCanvas3DLoader.active) {
+          if (stateMachine.is3DView) {
             if (mapCanvas3DLoader.item) {
               const pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
               if (pos3d !== null) {
@@ -767,12 +768,11 @@ ApplicationWindow {
 
     Loader {
       id: mapCanvas3DLoader
-      objectName: "mapCanvas3DLoader"
 
       property string previousMode: "browse"
 
       anchors.fill: parent
-      active: false
+      active: stateMachine.is3DView
       visible: active ? true : false
       z: 100
       opacity: active ? 1.0 : 0.0
@@ -802,7 +802,7 @@ ApplicationWindow {
             mapCanvas.mapSettings.extent = extent;
           }
         }
-        active = false;
+        stateMachine.is3DView = false;
       }
 
       onLoaded: {
@@ -850,7 +850,7 @@ ApplicationWindow {
       id: loadingOverlay
       anchors.fill: parent
       color: "#80000000"
-      visible: mapCanvas3DLoader.active && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && mapCanvas3DLoader.item.isFirstLoad
+      visible: stateMachine.is3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && mapCanvas3DLoader.item.isFirstLoad
       z: 1000
 
       Column {
@@ -859,7 +859,7 @@ ApplicationWindow {
 
         BusyIndicator {
           anchors.horizontalCenter: parent.horizontalCenter
-          running: mapCanvas3DLoader.active && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && mapCanvas3DLoader.item.isFirstLoad
+          running: stateMachine.is3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && mapCanvas3DLoader.item.isFirstLoad
           width: 64
           height: 64
         }
@@ -888,7 +888,7 @@ ApplicationWindow {
       id: mapCanvasMap
       objectName: "mapCanvas"
 
-      property bool isEnabled: !mapCanvas3DLoader.active && !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
+      property bool isEnabled: !stateMachine.is3DView && !dashBoard.opened && !aboutDialog.visible && !welcomeScreen.visible && !qfieldSettings.visible && !qfieldLocalDataPickerScreen.visible && !qfieldCloudScreen.visible && !qfieldCloudPopup.visible && !codeReader.visible && !sketcher.visible && !overlayFeatureFormDrawer.opened && !rotateFeaturesToolbar.rotateFeaturesRequested
 
       interactive: isEnabled && !screenLocker.enabled && !snapToCommonAngleMenu.visible
       isMapRotationEnabled: qfieldSettings.enableMapRotation
@@ -2271,7 +2271,7 @@ ApplicationWindow {
     QfToolButton {
       id: compassArrow
 
-      visible: mapCanvas.mapSettings.rotation !== 0 && !mapCanvas3DLoader.active
+      visible: mapCanvas.mapSettings.rotation !== 0 && !stateMachine.is3DView
       anchors.left: parent.left
       anchors.bottom: parent.bottom
       anchors.leftMargin: mainWindow.sceneLeftMargin + 4
@@ -2299,7 +2299,7 @@ ApplicationWindow {
     }
 
     QfScaleBar {
-      visible: qfieldSettings.showScaleBar && !mapCanvas3DLoader.active
+      visible: qfieldSettings.showScaleBar && !stateMachine.is3DView
       mapSettings: mapCanvas.mapSettings
       anchors.left: parent.left
       anchors.bottom: parent.bottom
@@ -2340,7 +2340,7 @@ ApplicationWindow {
         height: 36
 
         onClicked: {
-          if (mapCanvas3DLoader.active) {
+          if (stateMachine.is3DView) {
             if (mapCanvas3DLoader.item) {
               mapCanvas3DLoader.item.zoomIn();
             }
@@ -2369,7 +2369,7 @@ ApplicationWindow {
         height: 36
 
         onClicked: {
-          if (mapCanvas3DLoader.active) {
+          if (stateMachine.is3DView) {
             if (mapCanvas3DLoader.item) {
               mapCanvas3DLoader.item.zoomOut();
             }
@@ -2470,7 +2470,7 @@ ApplicationWindow {
 
       QfActionButton {
         id: close3DView
-        visible: mapCanvas3DLoader.active
+        visible: stateMachine.is3DView
         toolImage: QfTheme.getThemeVectorIcon("ic_3d_white_24dp")
         toolText: qsTr('Close 3D view')
 
@@ -2959,7 +2959,7 @@ ApplicationWindow {
         iconSource: QfTheme.getThemeVectorIcon('ic_3d_settings_white_24dp')
         iconColor: QfTheme.toolButtonColor
         spacing: 4
-        visible: mapCanvas3DLoader.active && mapCanvas3DLoader.item
+        visible: stateMachine.is3DView && mapCanvas3DLoader.item
 
         QfToolButton {
           id: extentModeButton
@@ -3009,7 +3009,7 @@ ApplicationWindow {
       anchors.top: mainToolbar.bottom
       width: menuButton.width + 10
       height: width
-      running: mapCanvasMap.isRendering || (mapCanvas3DLoader.active && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && !mapCanvas3DLoader.item.isFirstLoad)
+      running: mapCanvasMap.isRendering || (stateMachine.is3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && !mapCanvas3DLoader.item.isFirstLoad)
     }
 
     Column {
@@ -3131,7 +3131,7 @@ ApplicationWindow {
         property bool jumpedOnce: false
 
         function jumpToLocation() {
-          const is3D = mapCanvas3DLoader.active;
+          const is3D = stateMachine.is3DView;
           if (is3D) {
             const pos3d = mapCanvas3DLoader.item.geoTo3D(positionSource.projectedPosition.x, positionSource.projectedPosition.y);
             if (pos3d === null) {
@@ -3669,7 +3669,7 @@ ApplicationWindow {
         shouldReturnHome = true;
       } else if (!shouldReturnHome) {
         openWelcomeScreen();
-        if (mapCanvas3DLoader.active) {
+        if (stateMachine.is3DView) {
           mainWindow.close3DView();
         }
       }
@@ -3771,10 +3771,10 @@ ApplicationWindow {
   function activate3DMode() {
     mainMenu.close();
     dashBoard.close();
-    if (!mapCanvas3DLoader.active) {
+    if (!stateMachine.is3DView) {
       mapCanvas3DLoader.previousMode = stateMachine.state;
       changeMode('browse');
-      mapCanvas3DLoader.active = true;
+      stateMachine.is3DView = true;
     }
   }
 

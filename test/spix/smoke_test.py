@@ -396,7 +396,7 @@ def test_3d_rendering(app, screenshot_path, screenshot_check, extra, process_ali
     app.invokeMethod("mainWindow/toursController", "blockGuides", [])
     time.sleep(4)
 
-    app.setStringProperty("mainWindow/mapCanvas3DLoader", "active", "true")
+    app.setStringProperty("mainWindow/stateMachine", "is3DView", "true")
     time.sleep(8)
 
     app.takeScreenshot(
