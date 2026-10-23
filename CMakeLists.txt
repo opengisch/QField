@@ -30,6 +30,7 @@ set(WITH_APP ON CACHE BOOL "Build the QField application")
 set(WITH_CORE ON CACHE BOOL "Build the qfield_core library")
 set(WITH_GUI ${WITH_APP} CACHE BOOL "Build the qfield_gui library and the org.qfield.gui QML module")
 set(WITH_3D ${WITH_APP} CACHE BOOL "Build the qfield_3d library and the org.qfield.3d QML module")
+set(WITH_VALHALLA OFF CACHE BOOL "Build with the valhalla routing engine")
 
 if(NOT WITH_CORE AND (WITH_APP OR WITH_GUI OR WITH_3D))
   message(FATAL_ERROR "WITH_APP, WITH_GUI and WITH_3D all require WITH_CORE.")
@@ -211,6 +212,10 @@ endif()
 
 if(WITH_3D)
   find_package(Qt6 COMPONENTS Quick3D REQUIRED)
+endif()
+
+if(WITH_VALHALLA)
+  find_package(Valhalla REQUIRED)
 endif()
 
 if(ANDROID)
