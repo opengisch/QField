@@ -875,7 +875,7 @@ void QfCloudConnection::logout()
   setStatus( ConnectionStatus::Disconnected );
 }
 
-void QfCloudConnection::getUserOrganizations( const QString &user )
+void QfCloudConnection::getUserOrganizations( const QString &user, bool showCreationOnly )
 {
   if ( mStatus != ConnectionStatus::LoggedIn )
   {
@@ -884,13 +884,14 @@ void QfCloudConnection::getUserOrganizations( const QString &user )
 
   QfNetworkReply *reply = get( QStringLiteral( "/api/v1/users/%1/organizations/" ).arg( user ) );
 
-  connect( reply, &QfNetworkReply::finished, this, [this, reply]() {
+  connect( reply, &QfNetworkReply::finished, this, [this, reply, showCreationOnly]() {
     QNetworkReply *rawReply = reply->currentRawReply();
     reply->deleteLater();
 
     if ( rawReply->error() != QNetworkReply::NoError )
     {
       QgsMessageLog::logMessage( QStringLiteral( "Failed to fetch user organizations: %1" ).arg( rawReply->errorString() ), QStringLiteral( "QFieldCloud" ) );
+      emit userOrganizationsReceived( QStringList() );
       return;
     }
 
@@ -900,7 +901,17 @@ void QfCloudConnection::getUserOrganizations( const QString &user )
     QStringList organizations;
     for ( const auto &value : array )
     {
-      const QString username = value.toObject().value( QStringLiteral( "username" ) ).toString();
+      const QJsonObject organization = value.toObject();
+      if ( showCreationOnly )
+      {
+        const QString role = organization.value( QStringLiteral( "membership_role" ) ).toString();
+        if ( role != QLatin1String( "admin" ) && role != QLatin1String( "creator" ) )
+        {
+          continue;
+        }
+      }
+
+      const QString username = organization.value( QStringLiteral( "username" ) ).toString();
       if ( !username.isEmpty() )
       {
         organizations.append( username );

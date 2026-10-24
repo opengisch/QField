@@ -172,7 +172,7 @@ class QfCloudConnection : public QObject
     Q_INVOKABLE void login( const QString &password = QString() );
     Q_INVOKABLE void logout();
 
-    Q_INVOKABLE void getUserOrganizations( const QString &user );
+    Q_INVOKABLE void getUserOrganizations( const QString &user, bool showCreationOnly = false );
     Q_INVOKABLE void getSubscriptionInformation( const QString &user );
 
     Q_INVOKABLE void getServerInformation();

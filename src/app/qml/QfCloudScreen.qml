@@ -989,7 +989,8 @@ Page {
     id: cloneProjectDialog
 
     property string sourceProjectId: ""
-    property var availableOwners: []
+    property list<string> availableOwners: []
+    property bool isFetchingOwners: false
 
     parent: mainWindow.contentItem
     title: qsTr("Project Creation")
@@ -998,7 +999,8 @@ Page {
     onAboutToShow: {
       availableOwners = [cloudConnection.username];
       cloneProjectOwner.currentIndex = 0;
-      cloudConnection.getUserOrganizations(cloudConnection.username);
+      isFetchingOwners = true;
+      cloudConnection.getUserOrganizations(cloudConnection.username, true);
     }
 
     ColumnLayout {
@@ -1042,17 +1044,37 @@ Page {
         }
       }
 
+      RowLayout {
+        Layout.fillWidth: true
+        visible: cloneProjectDialog.isFetchingOwners
+        spacing: 10
+
+        BusyIndicator {
+          Layout.preferredWidth: 24
+          Layout.preferredHeight: 24
+          running: cloneProjectDialog.isFetchingOwners
+        }
+
+        Label {
+          Layout.fillWidth: true
+          wrapMode: Text.WordWrap
+          text: qsTr("Fetching available project owners")
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
+        }
+      }
+
       Label {
         Layout.fillWidth: true
         visible: cloneProjectOwner.visible
         wrapMode: Text.WordWrap
-        text: qsTr("Select the project owner")
+        text: qsTr("Select your project owner")
       }
 
       QfComboBox {
         id: cloneProjectOwner
         Layout.fillWidth: true
-        visible: cloneProjectDialog.availableOwners.length > 1
+        visible: !cloneProjectDialog.isFetchingOwners && cloneProjectDialog.availableOwners.length > 1
         model: cloneProjectDialog.availableOwners
         font: QfTheme.defaultFont
       }
@@ -1107,6 +1129,7 @@ Page {
     function onUserOrganizationsReceived(organizations) {
       if (cloneProjectDialog.visible) {
         cloneProjectDialog.availableOwners = [cloudConnection.username].concat(organizations);
+        cloneProjectDialog.isFetchingOwners = false;
       }
     }
   }

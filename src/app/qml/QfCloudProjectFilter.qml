@@ -41,14 +41,17 @@ Pane {
 
   property bool blockQueryUpdate: false
 
+  onCurrentUsernameChanged: {
+    filterPanel.organizations = [];
+    filterPanel.organizationsFetched = false;
+  }
+
   Connections {
     target: cloudConnection
+    enabled: filterPanel.visible
+
     function onUserOrganizationsReceived(organizations) {
       filterPanel.organizations = organizations;
-    }
-    function onUsernameChanged() {
-      filterPanel.organizations = [];
-      filterPanel.organizationsFetched = false;
     }
   }
 
