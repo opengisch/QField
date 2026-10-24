@@ -4982,7 +4982,7 @@ ApplicationWindow {
         digitizingToolbar.rubberbandModel.reset();
         digitizingToolbar.cancel();
       }
-      if (geometryEditingVertexModel.vertexCount > 0) {
+      if (geometryEditorsToolbar.stateVisible) {
         geometryEditorsToolbar.cancelEditors();
       }
       dashBoard.layerTree.freeze();
