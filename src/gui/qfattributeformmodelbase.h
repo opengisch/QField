@@ -107,6 +107,7 @@ class QfAttributeFormModelBase : public QStandardItemModel
     {
         QSet<QString> referencedColumns;
         bool formScope = false;
+        bool relationships = false;
     };
 
     /**
@@ -129,19 +130,19 @@ class QfAttributeFormModelBase : public QStandardItemModel
     void synchronizeFieldValue( int fieldIndex, QVariant value );
 
     //! Update default values refering to the \a fieldIndex.
-    void updateDefaultValues( int fieldIndex = -1, QVector<int> updatedFields = QVector<int>() );
+    void updateDefaultValuesAndVirtualFields( int fieldIndex = -1, bool updateRelationships = false, QVector<int> updatedFields = QVector<int>() );
 
     //! Update QML, HTML, and text widget code.
-    void updateEditorWidgetCodes( const QString &fieldName );
+    void updateEditorWidgetCodes( const QString &fieldName, bool updateRelationships = false );
 
     //! Update expression-driven alias and read-only values.
-    void updateDataDefinedProperties( const QString &fieldName );
-
-    //! Check if the given \a code requires update.
-    bool codeRequiresUpdate( const QString &fieldName, const QString &code, const QRegularExpression &regEx );
+    void updateDataDefinedProperties( const QString &fieldName, bool updateRelationships = false );
 
     //! Udate the visibility state of groups as well as constraints of field items
-    void updateVisibilityAndConstraints( int fieldIndex = -1 );
+    void updateVisibilityAndConstraints( int fieldIndex = -1, bool updateRelationships = false );
+
+    //! Check if the given \a code requires update.
+    bool codeRequiresUpdate( const QString &fieldName, bool updateRelationships, const QString &code, const QRegularExpression &regEx );
 
     void setConstraintsHardValid( bool constraintsHardValid );
 

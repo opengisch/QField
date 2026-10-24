@@ -40,7 +40,6 @@ TEST_CASE( "AttributeFormModel" )
 
   QgsFeature f1;
   f1.setAttributes( QgsAttributes() << 1 << QStringLiteral( "string_a1" ) << QStringLiteral( "string_b1" ) );
-  qDebug() << f1.attributes();
   QgsFeature f2;
   f2.setAttributes( QgsAttributes() << 2 << QStringLiteral( "string_a2" ) << QStringLiteral( "string_b2" ) );
   QgsFeature f3;
@@ -99,6 +98,39 @@ TEST_CASE( "AttributeFormModel" )
 
     QgsFeature feature = layer->getFeature( fid );
     REQUIRE( feature.attributes().at( 2 ) == QStringLiteral( "edit_feature__" ) );
+  }
+
+  SECTION( "VirtualFieldUpdate" )
+  {
+    std::unique_ptr<QgsVectorLayer> layer2 = std::make_unique<QgsVectorLayer>( QStringLiteral( "Point?crs=EPSG:3857&field=fid:integer&field=str:string&field=str2:string" ), QStringLiteral( "Input Layer" ), QStringLiteral( "memory" ) );
+    REQUIRE( layer2->isValid() );
+
+    QgsFeature l2f1;
+    l2f1.setAttributes( QgsAttributes() << 1 << QStringLiteral( "string_a1" ) << QStringLiteral( "string_b1" ) );
+
+    layer2->startEditing();
+    layer2->addFeature( l2f1 );
+    layer2->commitChanges();
+    REQUIRE( layer2->featureCount() == 1 );
+
+    layer2->addExpressionField( QStringLiteral( "\"str\"" ), QgsField( QStringLiteral( "str_virtual" ), QMetaType::Type::QString ) );
+
+    // Trigger attribute form re-build
+    featureModel->setCurrentLayer( layer2.get() );
+
+    featureModel->setFeature( layer2->getFeature( 1 ) );
+    REQUIRE( attributeFormModel->attribute( QStringLiteral( "str" ) ) == QStringLiteral( "string_a1" ) );
+    REQUIRE( attributeFormModel->attribute( QStringLiteral( "str_virtual" ) ) == QStringLiteral( "string_a1" ) );
+    REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "string_a1" ) );
+    REQUIRE( attributeFormModel->data( attributeFormModel->index( 3, 0 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "string_a1" ) );
+
+    attributeFormModel->changeAttribute( QStringLiteral( "str" ), QStringLiteral( "string_a1_modified" ) );
+    REQUIRE( attributeFormModel->attribute( QStringLiteral( "str" ) ) == QStringLiteral( "string_a1_modified" ) );
+    REQUIRE( attributeFormModel->attribute( QStringLiteral( "str_virtual" ) ) == QStringLiteral( "string_a1_modified" ) );
+    REQUIRE( attributeFormModel->data( attributeFormModel->index( 1, 0 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "string_a1_modified" ) );
+    REQUIRE( attributeFormModel->data( attributeFormModel->index( 3, 0 ), QfAttributeFormModel::AttributeValue ) == QStringLiteral( "string_a1_modified" ) );
+
+    featureModel->setCurrentLayer( layer.get() );
   }
 
   SECTION( "ReadOnlyDataDefinedProperty" )

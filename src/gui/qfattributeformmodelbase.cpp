@@ -149,7 +149,7 @@ bool QfAttributeFormModelBase::setData( const QModelIndex &index, const QVariant
           mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
           synchronizeFieldValue( fieldIndex, value );
         }
-        updateDefaultValues( fieldIndex );
+        updateDefaultValuesAndVirtualFields( fieldIndex );
         updateVisibilityAndConstraints( fieldIndex );
         return changed;
       }
@@ -364,6 +364,10 @@ void QfAttributeFormModelBase::applyRelationshipDefaultValues()
       }
     }
   }
+
+  updateDefaultValuesAndVirtualFields( -1, true );
+  updateEditorWidgetCodes( QString(), true );
+  updateVisibilityAndConstraints( -1, true );
 }
 
 void QfAttributeFormModelBase::activateAllRememberValues()
@@ -782,12 +786,14 @@ void QfAttributeFormModelBase::synchronizeFieldValue( int fieldIndex, QVariant v
   }
 }
 
-void QfAttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> updatedFields )
+void QfAttributeFormModelBase::updateDefaultValuesAndVirtualFields( int fieldIndex, bool updateRelationships, QVector<int> updatedFields )
 {
   const QgsFields fields = mFeatureModel->feature().fields();
-  if ( fieldIndex < 0 || fieldIndex >= fields.size() )
+  if ( fieldIndex < -1 || fieldIndex >= fields.size() )
+  {
     return;
-  const QString fieldName = fields.at( fieldIndex ).name();
+  }
+  const QString fieldName = fieldIndex > -1 ? fields.at( fieldIndex ).name() : QString();
 
   mExpressionContext.setFields( fields );
   mExpressionContext.setFeature( mFeatureModel->feature() );
@@ -796,21 +802,37 @@ void QfAttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int>
   for ( ; fieldIterator != mFields.constEnd(); ++fieldIterator )
   {
     const int fidx = fieldIterator.value();
-    if ( fidx == fieldIndex || !fields.at( fidx ).defaultValueDefinition().isValid() || !fields.at( fidx ).defaultValueDefinition().applyOnUpdate() )
-      continue;
-
-    QgsExpression exp( fields.at( fidx ).defaultValueDefinition().expression() );
-    exp.prepare( &mExpressionContext );
-
-    // avoid cost of value update if expression doesn't contain the field which triggered the default values update
-    if ( !exp.referencedColumns().contains( fieldName ) && !exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+    if ( fidx == fieldIndex )
     {
       continue;
     }
 
-    const QVariant defaultValue = exp.evaluate( &mExpressionContext );
+    const QgsField field = fields.at( fidx );
+    QgsExpression exp;
+    if ( fields.fieldOrigin( fidx ) == Qgis::FieldOrigin::Expression )
+    {
+      exp.setExpression( mLayer->expressionField( fidx ) );
+    }
+    else
+    {
+      if ( !field.defaultValueDefinition().isValid() || !field.defaultValueDefinition().applyOnUpdate() )
+      {
+        continue;
+      }
+
+      exp.setExpression( field.defaultValueDefinition().expression() );
+    }
+    exp.prepare( &mExpressionContext );
+
+    // avoid cost of value update if expression doesn't contain the field which triggered the default values update
+    if ( !exp.referencedColumns().contains( fieldName ) && !exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) && ( !updateRelationships || !exp.referencedFunctions().contains( QStringLiteral( "relation_aggregate" ) ) ) )
+    {
+      continue;
+    }
+
+    const QVariant value = exp.evaluate( &mExpressionContext );
     const QVariant previousValue = mFeatureModel->data( mFeatureModel->index( fidx ), QfFeatureModel::AttributeValue );
-    const bool success = mFeatureModel->setData( mFeatureModel->index( fidx ), defaultValue, QfFeatureModel::AttributeValue );
+    const bool success = mFeatureModel->setData( mFeatureModel->index( fidx ), value, QfFeatureModel::AttributeValue );
     const QVariant updatedValue = mFeatureModel->data( mFeatureModel->index( fidx ), QfFeatureModel::AttributeValue );
     if ( success && updatedValue != previousValue )
     {
@@ -821,17 +843,20 @@ void QfAttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int>
       if ( !updatedFields.contains( fidx ) )
       {
         updatedFields.append( fidx );
-        updateDefaultValues( fidx, updatedFields );
+        updateDefaultValuesAndVirtualFields( fidx, false, updatedFields );
       }
       updateVisibilityAndConstraints( fidx );
     }
   }
 
-  updateDataDefinedProperties( fieldName );
-  updateEditorWidgetCodes( fieldName );
+  if ( !fieldName.isEmpty() )
+  {
+    updateDataDefinedProperties( fieldName );
+    updateEditorWidgetCodes( fieldName );
+  }
 }
 
-bool QfAttributeFormModelBase::codeRequiresUpdate( const QString &fieldName, const QString &code, const QRegularExpression &regEx )
+bool QfAttributeFormModelBase::codeRequiresUpdate( const QString &fieldName, bool updateRelationships, const QString &code, const QRegularExpression &regEx )
 {
   if ( !mEditorWidgetCodesRequirements.contains( code ) )
   {
@@ -847,14 +872,15 @@ bool QfAttributeFormModelBase::codeRequiresUpdate( const QString &fieldName, con
       exp.prepare( &mExpressionContext );
       codeRequirements.referencedColumns.unite( exp.referencedColumns() );
       codeRequirements.formScope = codeRequirements.formScope || QgsValueRelationFieldFormatter::expressionRequiresFormScope( expression );
+      codeRequirements.relationships = codeRequirements.relationships || exp.referencedFunctions().contains( QStringLiteral( "relation_aggregate" ) );
     }
     mEditorWidgetCodesRequirements.insert( code, codeRequirements );
   }
 
-  return mEditorWidgetCodesRequirements[code].referencedColumns.contains( fieldName ) || mEditorWidgetCodesRequirements[code].referencedColumns.contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || mEditorWidgetCodesRequirements[code].formScope;
+  return mEditorWidgetCodesRequirements[code].referencedColumns.contains( fieldName ) || mEditorWidgetCodesRequirements[code].referencedColumns.contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || mEditorWidgetCodesRequirements[code].formScope || ( updateRelationships && mEditorWidgetCodesRequirements[code].relationships );
 }
 
-void QfAttributeFormModelBase::updateDataDefinedProperties( const QString &fieldName )
+void QfAttributeFormModelBase::updateDataDefinedProperties( const QString &fieldName, bool updateRelationships )
 {
   QMap<QStandardItem *, QString>::ConstIterator aliasExpressionsIterator( mAliasExpressions.constBegin() );
   for ( ; aliasExpressionsIterator != mAliasExpressions.constEnd(); aliasExpressionsIterator++ )
@@ -866,7 +892,7 @@ void QfAttributeFormModelBase::updateDataDefinedProperties( const QString &field
     }
 
     QgsExpression exp( aliasExpressionsIterator.value() );
-    exp.referencedColumns().contains( fieldName );
+    if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || ( updateRelationships && exp.referencedFunctions().contains( "relation_aggregate" ) ) )
     {
       exp.prepare( &mExpressionContext );
       QVariant result = exp.evaluate( &mExpressionContext );
@@ -892,7 +918,7 @@ void QfAttributeFormModelBase::updateDataDefinedProperties( const QString &field
     }
 
     QgsExpression exp( readOnlyExpressionsIterator.value() );
-    exp.referencedColumns().contains( fieldName );
+    if ( exp.referencedColumns().contains( fieldName ) || exp.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || ( updateRelationships && exp.referencedFunctions().contains( "relation_aggregate" ) ) )
     {
       exp.prepare( &mExpressionContext );
       QVariant result = exp.evaluate( &mExpressionContext );
@@ -901,7 +927,7 @@ void QfAttributeFormModelBase::updateDataDefinedProperties( const QString &field
   }
 }
 
-void QfAttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName )
+void QfAttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName, bool updateRelationships )
 {
   QMap<QStandardItem *, QString>::ConstIterator editorWidgetCodesIterator( mEditorWidgetCodes.constBegin() );
   for ( ; editorWidgetCodesIterator != mEditorWidgetCodes.constEnd(); editorWidgetCodesIterator++ )
@@ -915,7 +941,7 @@ void QfAttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName
     if ( item->data( QfAttributeFormModel::ElementType ) == QStringLiteral( "qml" ) || item->data( QfAttributeFormModel::ElementType ) == QStringLiteral( "html" ) )
     {
       const thread_local QRegularExpression sRegEx( "expression\\.evaluate\\(\\s*\\\"(.*?[^\\\\])\\\"\\s*\\)", QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
-      if ( codeRequiresUpdate( fieldName, code, sRegEx ) )
+      if ( codeRequiresUpdate( fieldName, updateRelationships, code, sRegEx ) )
       {
         QRegularExpressionMatch match = sRegEx.match( code );
         while ( match.hasMatch() )
@@ -953,7 +979,7 @@ void QfAttributeFormModelBase::updateEditorWidgetCodes( const QString &fieldName
     else if ( item->data( QfAttributeFormModel::ElementType ) == QStringLiteral( "text" ) )
     {
       const thread_local QRegularExpression sRegEx( QStringLiteral( "\\[%(.*?)%\\]" ), QRegularExpression::MultilineOption | QRegularExpression::DotMatchesEverythingOption );
-      if ( codeRequiresUpdate( fieldName, code, sRegEx ) )
+      if ( codeRequiresUpdate( fieldName, updateRelationships, code, sRegEx ) )
       {
         code = QgsExpression::replaceExpressionText( code, &mExpressionContext );
         item->setData( code, QfAttributeFormModel::EditorWidgetCode );
@@ -989,7 +1015,7 @@ void _checkChildrenValidity( const QStandardItem *parent, bool &hardValidity, bo
   }
 };
 
-void QfAttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
+void QfAttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex, bool updateRelationships )
 {
   const QString fieldName = fieldIndex > -1 && fieldIndex < mLayer->fields().size() ? mLayer->fields().at( fieldIndex ).name() : QString();
   QgsFields fields = mFeatureModel->feature().fields();
@@ -1001,7 +1027,7 @@ void QfAttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
   {
     // If triggered by an updated field index (fieldIndex), check if the visibility
     // expression refers to that field
-    if ( fieldIndex == -1 || it.first.referencedColumns().contains( fieldName ) || it.first.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+    if ( fieldIndex == -1 || it.first.referencedColumns().contains( fieldName ) || it.first.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) || ( updateRelationships && it.first.referencedFunctions().contains( QStringLiteral( "relation_aggregate" ) ) ) )
     {
       QgsExpression exp = it.first;
       exp.prepare( &mExpressionContext );
@@ -1029,7 +1055,7 @@ void QfAttributeFormModelBase::updateVisibilityAndConstraints( int fieldIndex )
       // Check whether the current field iterator index (fidx) has an expression constraints referencing the
       // updated field index (fieldIndex) which triggered a constraints update
       const QgsExpression expression = mLayer->fields().at( fidx ).constraints().constraintExpression();
-      if ( !expression.referencedColumns().contains( fieldName ) && !expression.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) )
+      if ( !expression.referencedColumns().contains( fieldName ) && !expression.referencedColumns().contains( QgsFeatureRequest::ALL_ATTRIBUTES ) && ( !updateRelationships || !expression.referencedFunctions().contains( QStringLiteral( "relation_aggregate" ) ) ) )
       {
         continue;
       }
@@ -1175,7 +1201,7 @@ bool QfAttributeFormModelBase::changeAttribute( const QString &name, const QVari
     mExpressionContext.popScope();
     mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
     synchronizeFieldValue( fieldIndex, value );
-    updateDefaultValues( fieldIndex );
+    updateDefaultValuesAndVirtualFields( fieldIndex );
     updateVisibilityAndConstraints( fieldIndex );
   }
 
@@ -1192,7 +1218,7 @@ bool QfAttributeFormModelBase::changeGeometry( const QgsGeometry &geometry )
   {
     mExpressionContext.popScope();
     mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
-    updateDefaultValues();
+    updateDefaultValuesAndVirtualFields();
     updateVisibilityAndConstraints();
   }
 
