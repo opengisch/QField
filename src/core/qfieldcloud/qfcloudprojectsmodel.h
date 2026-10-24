@@ -201,8 +201,10 @@ class QfCloudProjectsModel : public QAbstractListModel
      *
      * The converted project will then be removed from the local storage in favor of a newly packaged
      * cloud project downloaded from the server.
+     *
+     * The project is owned by \a owner, which defaults to the logged in user when left empty.
      */
-    Q_INVOKABLE void createProject( const QString &name, const QString &description = QString(), const QString &fromProjectId = QString() );
+    Q_INVOKABLE void createProject( const QString &name, const QString &description = QString(), const QString &fromProjectId = QString(), const QString &owner = QString() );
 
     /**
      * Returns TRUE if the source model contains at least one template project,

@@ -1168,7 +1168,7 @@ void QfCloudProjectsModel::setGpkgFlusher( QgsGpkgFlusher *flusher )
   emit gpkgFlusherChanged();
 }
 
-void QfCloudProjectsModel::createProject( const QString &name, const QString &description, const QString &fromProjectId )
+void QfCloudProjectsModel::createProject( const QString &name, const QString &description, const QString &fromProjectId, const QString &owner )
 {
   if ( name.isEmpty() )
   {
@@ -1182,14 +1182,15 @@ void QfCloudProjectsModel::createProject( const QString &name, const QString &de
   QString sanitizedName = QgsStringUtils::unaccent( name );
   sanitizedName.replace( QRegularExpression( "[^A-Za-z0-9_]" ), QStringLiteral( "_" ) );
 
-  QString url = QStringLiteral( "/api/v1/projects/?owner=%1" ).arg( mUsername );
+  const QString projectOwner = owner.isEmpty() ? mUsername : owner;
+  QString url = QStringLiteral( "/api/v1/projects/?owner=%1" ).arg( projectOwner );
   QNetworkRequest request( url );
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
   mCloudConnection->setAuthenticationDetails( request );
 
   const QfNetworkReply *listingreply = mCloudConnection->get( request, url );
-  connect( listingreply, &QfNetworkReply::finished, this, [this, sanitizedName, description, fromProjectId]() {
+  connect( listingreply, &QfNetworkReply::finished, this, [this, sanitizedName, description, fromProjectId, projectOwner]() {
     QfNetworkReply *reply = qobject_cast<QfNetworkReply *>( sender() );
     QNetworkReply *rawReply = reply->currentRawReply();
     Q_ASSERT( rawReply );
@@ -1221,7 +1222,7 @@ void QfCloudProjectsModel::createProject( const QString &name, const QString &de
 
     QVariantMap params;
     params.insert( QStringLiteral( "name" ), finalizedName );
-    params.insert( QStringLiteral( "owner" ), mUsername );
+    params.insert( QStringLiteral( "owner" ), projectOwner );
     params.insert( QStringLiteral( "description" ), description );
     params.insert( QStringLiteral( "private" ), true );
 
