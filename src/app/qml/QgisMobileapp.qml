@@ -5006,6 +5006,23 @@ ApplicationWindow {
       welcomeScreen.focus = false;
       projectCreationScreen.visible = false;
       projectCreationScreen.focus = false;
+      // abort any ongoing feature addition or digitizing, they are tied to the project being closed
+      if (digitizingToolbar.geometryRequested) {
+        // prevent the digitizing cancellation below from re-opening the feature addition drawer
+        digitizingToolbar.geometryRequested = false;
+      }
+      if (overlayFeatureFormDrawer.isAdding) {
+        overlayFeatureFormDrawer.featureForm.cancel();
+        overlayFeatureFormDrawer.isAdding = false;
+      }
+      if (digitizingToolbar.isDigitizing) {
+        digitizingToolbar.digitizingLogger.clearCoordinates();
+        digitizingToolbar.rubberbandModel.reset();
+        digitizingToolbar.cancel();
+      }
+      if (geometryEditorsToolbar.stateVisible) {
+        geometryEditorsToolbar.cancelEditors();
+      }
       dashBoard.layerTree.freeze();
       mapCanvasMap.stopRendering();
       mapCanvasMap.freeze('projectload');
