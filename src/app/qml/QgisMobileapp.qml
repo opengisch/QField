@@ -5517,6 +5517,15 @@ ApplicationWindow {
     Component.onCompleted: focusstack.addFocusTaker(this)
   }
 
+  QfCloudAttachmentsHistory {
+    id: qfieldCloudAttachmentsHistory
+    objectName: "qfieldCloudAttachmentsHistory"
+
+    model.cloudConnection: cloudConnection
+
+    Component.onCompleted: focusstack.addFocusTaker(this)
+  }
+
   QfCloudStatus {
     id: qfieldCloudStatus
     objectName: "qfieldCloudStatus"

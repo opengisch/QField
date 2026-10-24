@@ -4,6 +4,7 @@ set(QFIELD_APP_QML_FILES
     QfBadLayerItem.qml
     QfChangelog.qml
     QfCoordinateLocator.qml
+    QfCloudAttachmentsHistory.qml
     QfCloudDangerZone.qml
     QfCloudDeltaHistory.qml
     QfCloudLogin.qml
