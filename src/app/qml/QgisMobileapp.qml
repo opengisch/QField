@@ -5650,6 +5650,7 @@ ApplicationWindow {
   QfLocalDataPickerScreen {
     id: qfieldLocalDataPickerScreen
     objectName: "qfieldLocalDataPickerScreen"
+    model.cloudConnection: cloudConnection
 
     anchors.fill: parent
     visible: false

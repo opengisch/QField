@@ -15,14 +15,20 @@
  ***************************************************************************/
 
 #include "qfcloudutils.h"
+#include "qffileutils.h"
 #include "qfield.h"
 #include "qflocalfilesmodel.h"
+#include "qfnetworkreply.h"
 #include "qfplatformutilities.h"
 #include "qfwebdavconnection.h"
 
 #include <QDir>
 #include <QFile>
 #include <QImageReader>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QtConcurrent>
 
 #include <algorithm>
 
@@ -85,11 +91,13 @@ QHash<int, QByteArray> QfLocalFilesModel::roleNames() const
   roles[ItemIsFavoriteRole] = "ItemIsFavorite";
   roles[ItemHasWebdavConfigurationRole] = "ItemHasWebdavConfiguration";
   roles[ItemCheckedRole] = "ItemChecked";
+  roles[ItemCloudStatusRole] = "ItemCloudStatus";
   return roles;
 }
 
 void QfLocalFilesModel::resetToRoot()
 {
+  clearCloudFiles();
   mHistory.clear();
   mHistory << QLatin1String( "root" );
 
@@ -100,6 +108,7 @@ void QfLocalFilesModel::resetToRoot()
 
 void QfLocalFilesModel::resetToPath( const QString &path )
 {
+  clearCloudFiles();
   mHistory.clear();
   setCurrentPath( path );
 
@@ -356,6 +365,8 @@ void QfLocalFilesModel::reloadModel()
   }
 
   endResetModel();
+
+  fetchCloudStatus();
 }
 
 int QfLocalFilesModel::rowCount( const QModelIndex &parent ) const
@@ -404,6 +415,9 @@ QVariant QfLocalFilesModel::data( const QModelIndex &index, int role ) const
 
     case ItemCheckedRole:
       return item.checked();
+
+    case ItemCloudStatusRole:
+      return item.cloudStatus();
   }
 
   return QVariant();
@@ -470,4 +484,165 @@ void QfLocalFilesModel::clearSelection()
   emit inSelectionModeChanged();
   emit selectionDetailsChanged();
   emit dataChanged( index( 0, 0, QModelIndex() ), index( static_cast<int>( mItems.size() ) - 1, 0, QModelIndex() ), { ItemCheckedRole } );
+}
+
+QfCloudConnection *QfLocalFilesModel::cloudConnection() const
+{
+  return mCloudConnection;
+}
+
+void QfLocalFilesModel::setCloudConnection( QfCloudConnection *cloudConnection )
+{
+  if ( mCloudConnection == cloudConnection )
+    return;
+
+  if ( mCloudConnection )
+  {
+    disconnect( mCloudConnection, nullptr, this, nullptr );
+  }
+
+  mCloudConnection = cloudConnection;
+
+  if ( mCloudConnection )
+  {
+    connect( mCloudConnection, &QfCloudConnection::pendingAttachmentsUploadFinished, this, [this]() {
+      clearCloudFiles();
+      fetchCloudStatus();
+    } );
+  }
+
+  emit cloudConnectionChanged();
+
+  clearCloudFiles();
+  fetchCloudStatus();
+}
+
+void QfLocalFilesModel::clearCloudFiles()
+{
+  mCloudFilesProjectId.clear();
+  mCloudFiles.clear();
+  mCloudFilesFetched = false;
+  mCloudFilesRequestId++;
+  setFetchingCloudStatus( false );
+}
+
+void QfLocalFilesModel::setFetchingCloudStatus( bool fetching )
+{
+  if ( mFetchingCloudStatus == fetching )
+    return;
+
+  mFetchingCloudStatus = fetching;
+  emit fetchingCloudStatusChanged();
+}
+
+void QfLocalFilesModel::fetchCloudStatus()
+{
+  if ( !mCloudConnection || mCloudConnection->status() != QfCloudConnection::ConnectionStatus::LoggedIn )
+    return;
+
+  const QString projectId = QfCloudUtils::getProjectId( currentPath() );
+  if ( projectId.isEmpty() )
+    return;
+
+  if ( projectId == mCloudFilesProjectId )
+  {
+    if ( mCloudFilesFetched )
+    {
+      updateCloudStatus();
+    }
+    return;
+  }
+
+  clearCloudFiles();
+  mCloudFilesProjectId = projectId;
+  setFetchingCloudStatus( true );
+
+  QVariantMap params;
+  params.insert( QStringLiteral( "skip_metadata" ), 1 );
+  fetchCloudFiles( QStringLiteral( "/api/v1/files/%1/" ).arg( projectId ), params );
+}
+
+void QfLocalFilesModel::fetchCloudFiles( const QString &endpoint, const QVariantMap &params )
+{
+  const int requestId = mCloudFilesRequestId;
+  QfNetworkReply *reply = mCloudConnection->get( endpoint, params );
+  connect( reply, &QfNetworkReply::finished, this, [this, reply, requestId]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+    reply->deleteLater();
+
+    if ( requestId != mCloudFilesRequestId )
+      return;
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      clearCloudFiles();
+      return;
+    }
+
+    const QJsonArray files = QJsonDocument::fromJson( rawReply->readAll() ).array();
+    for ( const QJsonValueConstRef &fileValue : files )
+    {
+      const QJsonObject fileObject = fileValue.toObject();
+      mCloudFiles.insert( fileObject.value( QStringLiteral( "name" ) ).toString(), qMakePair( fileObject.value( QStringLiteral( "size" ) ).toInteger(), fileObject.value( QStringLiteral( "md5sum" ) ).toString() ) );
+    }
+
+    const QString nextPage = QString::fromUtf8( rawReply->rawHeader( QByteArrayLiteral( "X-Next-Page" ) ) );
+    if ( !nextPage.isEmpty() && mCloudConnection )
+    {
+      fetchCloudFiles( nextPage );
+      return;
+    }
+
+    mCloudFilesFetched = true;
+    setFetchingCloudStatus( false );
+    updateCloudStatus();
+  } );
+}
+
+void QfLocalFilesModel::updateCloudStatus()
+{
+  const QString canonicalPath = QFileInfo( currentPath() ).canonicalFilePath();
+  const qsizetype projectIdIndex = canonicalPath.indexOf( QStringLiteral( "/%1" ).arg( mCloudFilesProjectId ) );
+  if ( mCloudFilesProjectId.isEmpty() || projectIdIndex < 0 )
+    return;
+
+  const QDir projectDir( canonicalPath.left( projectIdIndex + 1 + mCloudFilesProjectId.size() ) );
+
+  QList<QPair<QString, QPair<qint64, QString>>> candidates;
+  for ( const QfLocalFileItem &item : std::as_const( mItems ) )
+  {
+    if ( item.metaType() == ItemMetaType::Folder || item.metaType() == ItemMetaType::Favorite )
+      continue;
+
+    const auto it = mCloudFiles.constFind( projectDir.relativeFilePath( QFileInfo( item.path() ).canonicalFilePath() ) );
+    if ( it != mCloudFiles.constEnd() )
+    {
+      candidates << qMakePair( item.path(), it.value() );
+    }
+  }
+
+  if ( candidates.isEmpty() )
+    return;
+
+  QtConcurrent::run( [candidates]() {
+    QHash<QString, CloudStatus> statuses;
+    for ( const auto &candidate : candidates )
+    {
+      const bool sameSize = QFileInfo( candidate.first ).size() == candidate.second.first;
+      statuses.insert( candidate.first, sameSize && QfFileUtils::fileEtag( candidate.first ) == candidate.second.second ? CloudStatus::Synchronized : CloudStatus::Divergent );
+    }
+    return statuses;
+  } )
+    .then( this, [this]( const QHash<QString, CloudStatus> &statuses ) {
+      for ( int i = 0; i < mItems.size(); i++ )
+      {
+        const auto it = statuses.constFind( mItems[i].path() );
+        if ( it != statuses.constEnd() && mItems[i].cloudStatus() != it.value() )
+        {
+          mItems[i].setCloudStatus( it.value() );
+          const QModelIndex changedIndex = index( i, 0, QModelIndex() );
+          emit dataChanged( changedIndex, changedIndex, { ItemCloudStatusRole } );
+        }
+      }
+    } );
 }
