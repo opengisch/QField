@@ -30,6 +30,7 @@
 #include <qgsmessagelog.h>
 
 static QString sLocalCloudDirectory;
+static const qsizetype sMaximumAttachmentsHistoryEntries = 1000;
 
 
 void QfCloudUtils::setLocalCloudDirectory( const QString &path )
@@ -432,6 +433,90 @@ void QfCloudUtils::removePendingAttachment( const QString &username, const QStri
       attachmentsFile.close();
     }
   }
+}
+
+void QfCloudUtils::addAttachmentHistory( const QString &username, const QString &projectId, int httpCode, const QString &fileName )
+{
+  if ( username.isEmpty() || projectId.isEmpty() )
+  {
+    return;
+  }
+
+  const QString localCloudUserDirectory = QStringLiteral( "%1/%2" ).arg( QfCloudUtils::localCloudDirectory(), username );
+  QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUserDirectory ) );
+  if ( !attachmentsLock.tryLock( 10000 ) )
+  {
+    return;
+  }
+
+  QStringList lines;
+  QFile historyFile( QStringLiteral( "%1/attachments_history.csv" ).arg( localCloudUserDirectory ) );
+  if ( historyFile.open( QFile::ReadOnly | QFile::Text ) )
+  {
+    QTextStream historyStream( &historyFile );
+    while ( !historyStream.atEnd() )
+    {
+      const QString line = historyStream.readLine();
+      if ( !line.isEmpty() )
+      {
+        lines << line;
+      }
+    }
+    historyFile.close();
+  }
+
+  // The expected CSV format must have three columns:
+  // project_id,http_code,file_path
+  lines << QfStringUtils::stringListToCsv( QStringList() << projectId << QString::number( httpCode ) << fileName );
+  if ( lines.size() > sMaximumAttachmentsHistoryEntries )
+  {
+    lines = lines.mid( lines.size() - sMaximumAttachmentsHistoryEntries );
+  }
+
+  if ( historyFile.open( QFile::WriteOnly | QFile::Truncate | QFile::Text ) )
+  {
+    QTextStream historyStream( &historyFile );
+    for ( const QString &line : std::as_const( lines ) )
+    {
+      historyStream << line << Qt::endl;
+    }
+    historyFile.close();
+  }
+}
+
+const QList<QfCloudAttachmentHistoryEntry> QfCloudUtils::getAttachmentsHistory( const QString &username, const QString &projectId )
+{
+  QList<QfCloudAttachmentHistoryEntry> entries;
+  if ( username.isEmpty() || projectId.isEmpty() )
+  {
+    return entries;
+  }
+
+  const QString localCloudUserDirectory = QStringLiteral( "%1/%2" ).arg( QfCloudUtils::localCloudDirectory(), username );
+  QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUserDirectory ) );
+  if ( !attachmentsLock.tryLock( 10000 ) )
+  {
+    return entries;
+  }
+
+  QFile historyFile( QStringLiteral( "%1/attachments_history.csv" ).arg( localCloudUserDirectory ) );
+  if ( historyFile.open( QFile::ReadOnly | QFile::Text ) )
+  {
+    QTextStream historyStream( &historyFile );
+    while ( !historyStream.atEnd() )
+    {
+      const QStringList values = QfStringUtils::csvToStringList( historyStream.readLine().trimmed() );
+      if ( values.size() >= 3 && values.at( 0 ) == projectId )
+      {
+        QfCloudAttachmentHistoryEntry entry;
+        entry.httpCode = values.at( 1 ).toInt();
+        entry.fileName = values.at( 2 );
+        entries << entry;
+      }
+    }
+  }
+
+  return entries;
 }
 
 QString QfCloudUtils::subscriptionManagementUrl( const QString &serverUrl, const QString &plan, const QString &projectOwner, const QString &username )

@@ -20,6 +20,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QJsonObject>
 #include <QTemporaryDir>
 
@@ -162,4 +163,70 @@ TEST_CASE( "QfCloudConnection::signupFormErrors" )
   {
     REQUIRE( QfCloudConnection::signupFormErrors( QStringLiteral( "<form><div class=\"form-group\"><input name=\"email\"></div></form>" ) ).isEmpty() );
   }
+}
+
+
+TEST_CASE( "QFieldCloudUtils::attachmentsHistory" )
+{
+  QTemporaryDir cloudDir;
+  REQUIRE( cloudDir.isValid() );
+  QfCloudUtils::setLocalCloudDirectory( cloudDir.path() );
+
+  const QString username = QStringLiteral( "alice" );
+  const QString projectId = QStringLiteral( "11111111-1111-1111-1111-111111111111" );
+  const QString otherProjectId = QStringLiteral( "22222222-2222-2222-2222-222222222222" );
+  REQUIRE( QDir().mkpath( QStringLiteral( "%1/%2" ).arg( cloudDir.path(), username ) ) );
+
+  const QString photoPath = QStringLiteral( "%1/%2/%3/DCIM/photo, one.jpg" ).arg( cloudDir.path(), username, projectId );
+  const QString videoPath = QStringLiteral( "%1/%2/%3/DCIM/video.mp4" ).arg( cloudDir.path(), username, projectId );
+
+  SECTION( "Empty history" )
+  {
+    REQUIRE( QfCloudUtils::getAttachmentsHistory( username, projectId ).isEmpty() );
+    REQUIRE( QfCloudUtils::getAttachmentsHistory( QString(), projectId ).isEmpty() );
+  }
+
+  SECTION( "Entries are filtered by project and ordered from oldest to newest" )
+  {
+    QfCloudUtils::addAttachmentHistory( username, projectId, 201, photoPath );
+    QfCloudUtils::addAttachmentHistory( username, otherProjectId, 201, videoPath );
+    QfCloudUtils::addAttachmentHistory( username, projectId, 402, videoPath );
+
+    const QList<QfCloudAttachmentHistoryEntry> entries = QfCloudUtils::getAttachmentsHistory( username, projectId );
+    REQUIRE( entries.size() == 2 );
+    REQUIRE( entries.at( 0 ).httpCode == 201 );
+    REQUIRE( entries.at( 0 ).fileName == photoPath );
+    REQUIRE( entries.at( 1 ).httpCode == 402 );
+    REQUIRE( entries.at( 1 ).fileName == videoPath );
+
+    REQUIRE( QfCloudUtils::getAttachmentsHistory( username, otherProjectId ).size() == 1 );
+  }
+
+  SECTION( "Pending attachments are left untouched" )
+  {
+    REQUIRE( QDir().mkpath( QFileInfo( photoPath ).absolutePath() ) );
+    writeFile( photoPath, QByteArray( "photo" ) );
+    QfCloudUtils::addPendingAttachments( username, projectId, QStringList() << photoPath );
+    REQUIRE( QfCloudUtils::getPendingAttachments( username ).values( projectId ) == QStringList() << photoPath );
+
+    QfCloudUtils::addAttachmentHistory( username, projectId, 201, videoPath );
+
+    REQUIRE( QfCloudUtils::getPendingAttachments( username ).values( projectId ) == QStringList() << photoPath );
+    REQUIRE( QfCloudUtils::getAttachmentsHistory( username, projectId ).size() == 1 );
+  }
+
+  SECTION( "Only the most recent entries are kept" )
+  {
+    for ( int i = 0; i < 1005; i++ )
+    {
+      QfCloudUtils::addAttachmentHistory( username, projectId, 201, QStringLiteral( "%1/%2.jpg" ).arg( cloudDir.path() ).arg( i ) );
+    }
+
+    const QList<QfCloudAttachmentHistoryEntry> entries = QfCloudUtils::getAttachmentsHistory( username, projectId );
+    REQUIRE( entries.size() == 1000 );
+    REQUIRE( entries.first().fileName == QStringLiteral( "%1/5.jpg" ).arg( cloudDir.path() ) );
+    REQUIRE( entries.last().fileName == QStringLiteral( "%1/1004.jpg" ).arg( cloudDir.path() ) );
+  }
+
+  QfCloudUtils::setLocalCloudDirectory( QString() );
 }

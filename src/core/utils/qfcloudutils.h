@@ -126,6 +126,19 @@ Q_DECLARE_METATYPE( QfCloudDelta )
 
 /**
  * \ingroup core
+ *
+ * Holds the final outcome of an attachment upload to QFieldCloud.
+ */
+struct QfCloudAttachmentHistoryEntry
+{
+    //! The HTTP status code returned by the server for the upload
+    int httpCode = 0;
+    //! The absolute path of the uploaded file
+    QString fileName;
+};
+
+/**
+ * \ingroup core
  */
 struct QfCloudSubscriptionInformation
 {
@@ -360,6 +373,15 @@ class QfCloudUtils : public QObject
 
     //! Removes a \a fileName for a given \a projectId to the pending attachments list
     Q_INVOKABLE static void removePendingAttachment( const QString &username, const QString &projectId, const QString &fileName );
+
+    /**
+     * Records the final outcome of the upload of a \a fileName for a given \a projectId into the attachments history.
+     * The \a httpCode is the HTTP status code returned by the server, only the most recent entries are kept.
+     */
+    static void addAttachmentHistory( const QString &username, const QString &projectId, int httpCode, const QString &fileName );
+
+    //! Returns the attachments upload history for a given \a projectId, ordered from oldest to newest.
+    static const QList<QfCloudAttachmentHistoryEntry> getAttachmentsHistory( const QString &username, const QString &projectId );
 
     /**
      * Returns the URL for managing the subscription for a given \a plan, \a serverUrl, and \a username.
