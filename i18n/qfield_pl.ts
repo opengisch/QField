@@ -4330,6 +4330,28 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Nie można było wysłać załącznika zapisanego w &quot;%1&quot;, powód:
 %2</translation>
     </message>
+    <message>
+        <source>Too many attempts, please wait a minute before trying again.</source>
+        <translation>Za dużo prób – poczekaj chwilę, zanim spróbujesz ponownie.</translation>
+    </message>
+    <message>
+        <source>Captcha temporary unavailable, please retry later</source>
+        <translation>Captcha jest chwilowo niedostępny, spróbuj ponownie później.</translation>
+    </message>
+    <message>
+        <source>%1
+If this email already has an account, check your inbox for a message from QFieldCloud.</source>
+        <translation>%1
+Jeśli ten adres e-mail jest już powiązany z kontem, sprawdź swoją skrzynkę odbiorczą – może jest tam wiadomość od QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>The server did not accept the registration</source>
+        <translation>Serwer nie zaakceptował rejestracji</translation>
+    </message>
+    <message>
+        <source>The server did not accept the request</source>
+        <translation>Serwer nie przyjął żądania</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudDangerZone</name>
@@ -4467,11 +4489,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>New user?</source>
-        <translation>Nowy użytkownik?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>Zarejestruj konto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -4480,6 +4502,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>Dowiedz się więcej o QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Forgot your password?</source>
+        <translation>Zapomniałeś(aś) hasła?</translation>
+    </message>
+    <message>
+        <source>Create an account</source>
+        <translation>Załóż konto</translation>
     </message>
 </context>
 <context>
@@ -4491,6 +4521,72 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
         <translation>Zapoznaj się z poniższą szczegółową informacją zwrotną oraz najnowszymi dziennikami zadań pakowania na stronie QFieldCloud.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPasswordField</name>
+    <message>
+        <source>Password</source>
+        <translation>Hasło</translation>
+    </message>
+    <message numerus="yes">
+        <source>Requires at least %n characters</source>
+        <translation><numerusform>Wymagany jest co najmniej %n znak</numerusform><numerusform>Wymagane są co najmniej %n znaki</numerusform><numerusform>Wymagane jest co najmniej %n znaków</numerusform><numerusform>Wymagane jest co najmniej %n znaków</numerusform></translation>
+    </message>
+    <message>
+        <source>Must not be similar to your username</source>
+        <translation>Nie może być podobna do twojej nazwy użytkownika</translation>
+    </message>
+    <message>
+        <source>Must not be entirely numeric</source>
+        <translation>Nie może składać się wyłącznie z cyfr</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPasswordReset</name>
+    <message>
+        <source>Forgot your password?</source>
+        <translation>Zapomniałeś hasła?</translation>
+    </message>
+    <message>
+        <source>Enter your account email and we will send you a link to pick a new password.</source>
+        <translation>Wpisz adres e-mail powiązany z kontem, a wyślemy ci link, dzięki któremu będziesz mógł wybrać nowe hasło.</translation>
+    </message>
+    <message>
+        <source>Email</source>
+        <translation>E-mail</translation>
+    </message>
+    <message>
+        <source>Send reset link</source>
+        <translation>Wyślij link do resetowania</translation>
+    </message>
+    <message>
+        <source>Back to sign in</source>
+        <translation>Powrót do logowania</translation>
+    </message>
+    <message>
+        <source>Check your inbox</source>
+        <translation>Sprawdź swoją skrzynkę odbiorczą</translation>
+    </message>
+    <message>
+        <source>We sent a reset link to %1. Open it to pick a new password.</source>
+        <translation>Wysłaliśmy link do zresetowania hasła na adres %1. Otwórz go, żeby wybrać nowe hasło.</translation>
+    </message>
+    <message>
+        <source>Nothing yet? Check your spam folder, or %1use another email%2.</source>
+        <translation>Jeszcze nic nie przyszło? Sprawdź folder ze spamem albo %1spróbuj z innego adresu e-mail%2.</translation>
+    </message>
+    <message>
+        <source>Resend link in %1s</source>
+        <translation>Wyślij ponownie link w %1s</translation>
+    </message>
+    <message>
+        <source>Resend link</source>
+        <translation>Wyślij link ponownie</translation>
+    </message>
+    <message>
+        <source>Server: %1</source>
+        <translation>Serwer: %1</translation>
     </message>
 </context>
 <context>
@@ -5002,6 +5098,129 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
 </context>
 <context>
+    <name>QfCloudRegister</name>
+    <message>
+        <source>Provide your email and desired username</source>
+        <translation>Podaj swój adres e-mail i wybraną nazwę użytkownika</translation>
+    </message>
+    <message>
+        <source>Email</source>
+        <translation>E-mail</translation>
+    </message>
+    <message>
+        <source>Your email is used for verification and password recovery</source>
+        <translation>Twój adres e-mail służy do weryfikacji i odzyskiwania hasła</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nazwa użytkownika</translation>
+    </message>
+    <message>
+        <source>Your username must meet the following criteria:</source>
+        <translation>Twoja nazwa użytkownika musi spełniać następujące kryteria:</translation>
+    </message>
+    <message numerus="yes">
+        <source>Must have at least %n characters</source>
+        <translation><numerusform>Musi mieć co najmniej %n znak</numerusform><numerusform>Musi mieć co najmniej %n znaki</numerusform><numerusform>Musi mieć co najmniej %n znaków</numerusform><numerusform>Musi mieć co najmniej %n znaków</numerusform></translation>
+    </message>
+    <message>
+        <source>Must start with a letter</source>
+        <translation>Musi zaczynać się od litery</translation>
+    </message>
+    <message>
+        <source>Must contain only a-z letters, digits, underscores or hyphens</source>
+        <translation>Musi zawierać wyłącznie litery a–z, cyfry, znaki podkreślenia lub łączniki</translation>
+    </message>
+    <message>
+        <source>Pick a password</source>
+        <translation>Wybierz hasło</translation>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation>Wpisz hasło jeszcze raz</translation>
+    </message>
+    <message>
+        <source>The two passwords do not match</source>
+        <translation>Te dwa hasła się nie zgadzają</translation>
+    </message>
+    <message>
+        <source>One last thing</source>
+        <translation>I jeszcze jedna rzecz</translation>
+    </message>
+    <message>
+        <source>Subscribe to the QFieldCloud newsletter</source>
+        <translation>Zapisz się do newslettera QFieldCloud</translation>
+    </message>
+    <message>
+        <source>When checking this, you agree to receive our newsletter covering latest changes and important updates.</source>
+        <translation>Zaznaczając tę opcję, wyrażasz zgodę na otrzymywanie naszego newslettera z informacjami o najnowszych zmianach i ważnych aktualizacjach.</translation>
+    </message>
+    <message>
+        <source>Accept ToS and DPA</source>
+        <translation>Zaakceptuj Warunki korzystania z usługi i Umowę o przetwarzaniu danych</translation>
+    </message>
+    <message>
+        <source>By checking this, you agree with the QFieldCloud %1Terms of Services (ToS)%2 and the %3Data Processing Agreement (DPA)%4.</source>
+        <translation>Zaznaczając to pole, wyrażasz zgodę na %1Warunki korzystania z usługi (ToS)%2 oraz %3Umowę o przetwarzaniu danych (DPA)%4 QFieldCloud.</translation>
+    </message>
+    <message>
+        <source>Captcha</source>
+        <translation>Captcha</translation>
+    </message>
+    <message>
+        <source>Characters shown above</source>
+        <translation>Znaki pokazane powyżej</translation>
+    </message>
+    <message>
+        <source>Referral code</source>
+        <translation>Kod polecający</translation>
+    </message>
+    <message>
+        <source>Enter your referral code if you have one</source>
+        <translation>Wpisz swój kod polecający, jeśli go masz</translation>
+    </message>
+    <message>
+        <source>You will be signed in right away.</source>
+        <translation>Zostaniesz zalogowany od razu.</translation>
+    </message>
+    <message>
+        <source>Welcome, %1</source>
+        <translation>Witaj, %1</translation>
+    </message>
+    <message>
+        <source>Verify your email</source>
+        <translation>Zweryfikuj swój adres e-mail</translation>
+    </message>
+    <message>
+        <source>Please open the confirmation link once you receive an email from us at %1.</source>
+        <translation>Jak tylko dostaniesz od nas e-mail z adresu %1, kliknij w link potwierdzający.</translation>
+    </message>
+    <message>
+        <source>Go to cloud projects</source>
+        <translation>Przejdź do projektów w chmurze</translation>
+    </message>
+    <message>
+        <source>Not now</source>
+        <translation>Nie teraz</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Powrót</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation>Kontynuuj</translation>
+    </message>
+    <message>
+        <source>Creating your account, please wait</source>
+        <translation>Tworzenie konta – proszę poczekać</translation>
+    </message>
+    <message>
+        <source>Create account</source>
+        <translation>Załóż konto</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
@@ -5466,6 +5685,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Markups</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pick a digitizing layer</source>
+        <translation>Wybierz warstwę digitalizacji</translation>
     </message>
 </context>
 <context>

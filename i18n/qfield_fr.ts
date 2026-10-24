@@ -4323,6 +4323,27 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Impossible d&apos;envoyer la pièce jointe stockée à `%1`, raison:
 %2</translation>
     </message>
+    <message>
+        <source>Too many attempts, please wait a minute before trying again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Captcha temporary unavailable, please retry later</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1
+If this email already has an account, check your inbox for a message from QFieldCloud.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server did not accept the registration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server did not accept the request</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudDangerZone</name>
@@ -4460,11 +4481,11 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>New user?</source>
-        <translation>Nouvel utilisateur?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Register an account</source>
-        <translation>Enregistrer un compte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
@@ -4473,6 +4494,14 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Learn more about QFieldCloud</source>
         <translation>En apprendre davantage sur QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Forgot your password?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create an account</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4484,6 +4513,72 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Please check the detailed feedback below and the latest packaging job logs on the QFieldCloud website.</source>
         <translation>Consulter les commentaires détaillés ci-dessous et les derniers journaux de travail sur l&apos;emballage sur le site Web QFieldCloud.</translation>
+    </message>
+</context>
+<context>
+    <name>QfCloudPasswordField</name>
+    <message>
+        <source>Password</source>
+        <translation>Mot de passe</translation>
+    </message>
+    <message numerus="yes">
+        <source>Requires at least %n characters</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Must not be similar to your username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Must not be entirely numeric</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfCloudPasswordReset</name>
+    <message>
+        <source>Forgot your password?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your account email and we will send you a link to pick a new password.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Email</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send reset link</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Back to sign in</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Check your inbox</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>We sent a reset link to %1. Open it to pick a new password.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Nothing yet? Check your spam folder, or %1use another email%2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Resend link in %1s</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Resend link</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4995,6 +5090,129 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
 </context>
 <context>
+    <name>QfCloudRegister</name>
+    <message>
+        <source>Provide your email and desired username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Email</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Your email is used for verification and password recovery</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Utilisateur</translation>
+    </message>
+    <message>
+        <source>Your username must meet the following criteria:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Must have at least %n characters</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Must start with a letter</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Must contain only a-z letters, digits, underscores or hyphens</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pick a password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The two passwords do not match</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>One last thing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Subscribe to the QFieldCloud newsletter</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When checking this, you agree to receive our newsletter covering latest changes and important updates.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Accept ToS and DPA</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>By checking this, you agree with the QFieldCloud %1Terms of Services (ToS)%2 and the %3Data Processing Agreement (DPA)%4.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Captcha</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Characters shown above</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Referral code</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter your referral code if you have one</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You will be signed in right away.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome, %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Verify your email</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please open the confirmation link once you receive an email from us at %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Go to cloud projects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Creating your account, please wait</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create account</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
@@ -5458,6 +5676,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Markups</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pick a digitizing layer</source>
         <translation type="unfinished"/>
     </message>
 </context>
