@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfSerialPortModel" kind="class" language="C++" prot="public">
+    <compoundname>QfSerialPortModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="qfserialportmodel_8h" local="no">qfserialportmodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfSerialPortModel_1af284c08300d40b3ba94e12fe2617f0e4" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>QfSerialPortModel::Roles</qualifiedname>
+        <enumvalue id="classQfSerialPortModel_1af284c08300d40b3ba94e12fe2617f0e4a95ee4265cf0edcc2e156a2f53e5691c2" prot="public">
+          <name>PortNameRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfSerialPortModel_1af284c08300d40b3ba94e12fe2617f0e4a2b663032d2c3103d02032f74999eb8f9" prot="public">
+          <name>DescriptionRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The roles provided by this model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportmodel.h" line="33" column="5" bodyfile="src/core/positioning/qfserialportmodel.h" bodystart="34" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfSerialPortModel_1a08e7634a9add5f02e47e630eef606092" prot="private" static="no" mutable="no">
+        <type>QList&lt; QSerialPortInfo &gt;</type>
+        <definition>QList&lt;QSerialPortInfo&gt; QfSerialPortModel::mAvailablePorts</definition>
+        <argsstring></argsstring>
+        <name>mAvailablePorts</name>
+        <qualifiedname>QfSerialPortModel::mAvailablePorts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportmodel.h" line="59" column="11" bodyfile="src/core/positioning/qfserialportmodel.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfSerialPortModel_1a5ada3154368c4e7d7b8ee11d8db96e73" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfSerialPortModel::QfSerialPortModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfSerialPortModel</name>
+        <qualifiedname>QfSerialPortModel::QfSerialPortModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportmodel.h" line="40" column="14" bodyfile="src/core/positioning/qfserialportmodel.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSerialPortModel_1a2f4ff27ba857dee9d3f4a8f3756cfcd7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfSerialPortModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfSerialPortModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportmodel.h" line="42" column="9" bodyfile="src/core/positioning/qfserialportmodel.cpp" bodystart="44" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSerialPortModel_1a6f0df069f3b47b4dfcb793f082d7cdcc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfSerialPortModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfSerialPortModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportmodel.h" line="44" column="14" bodyfile="src/core/positioning/qfserialportmodel.cpp" bodystart="50" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSerialPortModel_1a45931badafd1dcf8924d337d854097a8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfSerialPortModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfSerialPortModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportmodel.h" line="46" column="11" bodyfile="src/core/positioning/qfserialportmodel.cpp" bodystart="79" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSerialPortModel_1a007bb0ce18432d20e7ab87eb7ace6189" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfSerialPortModel::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <qualifiedname>QfSerialPortModel::refresh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Refresh the list of available serial ports. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportmodel.h" line="51" column="22" bodyfile="src/core/positioning/qfserialportmodel.cpp" bodystart="24" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSerialPortModel_1a8a31e6ad569d887bf103876f170286cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfSerialPortModel::findIndexFromName</definition>
+        <argsstring>(const QString &amp;name) const</argsstring>
+        <name>findIndexFromName</name>
+        <qualifiedname>QfSerialPortModel::findIndexFromName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the row index for a given serial port <emphasis>name</emphasis>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfserialportmodel.h" line="56" column="21" bodyfile="src/core/positioning/qfserialportmodel.cpp" bodystart="31" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A model that provides serial ports available on the device. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfSerialPortModel</label>
+        <link refid="classQfSerialPortModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfSerialPortModel</label>
+        <link refid="classQfSerialPortModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/qfserialportmodel.h" line="27" column="1" bodyfile="src/core/positioning/qfserialportmodel.h" bodystart="28" bodyend="60"/>
+    <listofallmembers>
+      <member refid="classQfSerialPortModel_1a6f0df069f3b47b4dfcb793f082d7cdcc" prot="public" virt="non-virtual"><scope>QfSerialPortModel</scope><name>data</name></member>
+      <member refid="classQfSerialPortModel_1af284c08300d40b3ba94e12fe2617f0e4a2b663032d2c3103d02032f74999eb8f9" prot="public" virt="non-virtual"><scope>QfSerialPortModel</scope><name>DescriptionRole</name></member>
+      <member refid="classQfSerialPortModel_1a8a31e6ad569d887bf103876f170286cc" prot="public" virt="non-virtual"><scope>QfSerialPortModel</scope><name>findIndexFromName</name></member>
+      <member refid="classQfSerialPortModel_1a08e7634a9add5f02e47e630eef606092" prot="private" virt="non-virtual"><scope>QfSerialPortModel</scope><name>mAvailablePorts</name></member>
+      <member refid="classQfSerialPortModel_1af284c08300d40b3ba94e12fe2617f0e4a95ee4265cf0edcc2e156a2f53e5691c2" prot="public" virt="non-virtual"><scope>QfSerialPortModel</scope><name>PortNameRole</name></member>
+      <member refid="classQfSerialPortModel_1a5ada3154368c4e7d7b8ee11d8db96e73" prot="public" virt="non-virtual"><scope>QfSerialPortModel</scope><name>QfSerialPortModel</name></member>
+      <member refid="classQfSerialPortModel_1a007bb0ce18432d20e7ab87eb7ace6189" prot="public" virt="non-virtual"><scope>QfSerialPortModel</scope><name>refresh</name></member>
+      <member refid="classQfSerialPortModel_1a45931badafd1dcf8924d337d854097a8" prot="public" virt="non-virtual"><scope>QfSerialPortModel</scope><name>roleNames</name></member>
+      <member refid="classQfSerialPortModel_1af284c08300d40b3ba94e12fe2617f0e4" prot="public" virt="non-virtual"><scope>QfSerialPortModel</scope><name>Roles</name></member>
+      <member refid="classQfSerialPortModel_1a2f4ff27ba857dee9d3f4a8f3756cfcd7" prot="public" virt="non-virtual"><scope>QfSerialPortModel</scope><name>rowCount</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

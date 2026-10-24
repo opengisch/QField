@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfDrawingTemplateModel" kind="class" language="C++" prot="public">
+    <compoundname>QfDrawingTemplateModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <innerclass refid="structQfDrawingTemplateModel_1_1Template" prot="private">QfDrawingTemplateModel::Template</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfDrawingTemplateModel_1aee65da15e6b305fca64e6cc99797f1e0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>TemplateType</name>
+        <qualifiedname>QfDrawingTemplateModel::TemplateType</qualifiedname>
+        <enumvalue id="classQfDrawingTemplateModel_1aee65da15e6b305fca64e6cc99797f1e0abf4cd6b6e6035ab6bd09343d6c0ecee4" prot="public">
+          <name>AppTemplate</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfDrawingTemplateModel_1aee65da15e6b305fca64e6cc99797f1e0ae3fe6b968590e4640fc0fa1c03eeb9b4" prot="public">
+          <name>ProjectTemplate</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="39" column="5" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfDrawingTemplateModel_1af0c2ff09fb25ae5f4cec38892c0dbf48" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Role</name>
+        <qualifiedname>QfDrawingTemplateModel::Role</qualifiedname>
+        <enumvalue id="classQfDrawingTemplateModel_1af0c2ff09fb25ae5f4cec38892c0dbf48a890547370fa1c7e62ac801c915f82082" prot="public">
+          <name>TemplateTypeRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfDrawingTemplateModel_1af0c2ff09fb25ae5f4cec38892c0dbf48a84a8957d70eb14411246a09df4f7bb1f" prot="public">
+          <name>TemplateTitleRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfDrawingTemplateModel_1af0c2ff09fb25ae5f4cec38892c0dbf48adc8ba2070c5f29966614f8abca0a3fd9" prot="public">
+          <name>TemplatePathRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="45" column="5" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="46" bodyend="50"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfDrawingTemplateModel_1a63d783929960380995eab6fa24fa1296" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfDrawingTemplateModel::projectFilePath</definition>
+        <argsstring></argsstring>
+        <name>projectFilePath</name>
+        <qualifiedname>QfDrawingTemplateModel::projectFilePath</qualifiedname>
+        <read>projectFilePath</read>
+        <write>setProjectFilePath</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the project file path where project templates will be looked for. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="31" column="5" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDrawingTemplateModel_1ad64074fba64e2a34e84225f1ac6defbc" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDrawingTemplateModel::hasProjectTemplate</definition>
+        <argsstring></argsstring>
+        <name>hasProjectTemplate</name>
+        <qualifiedname>QfDrawingTemplateModel::hasProjectTemplate</qualifiedname>
+        <read>hasProjectTemplate</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds whether the model contains project templates. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="36" column="5" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfDrawingTemplateModel_1aa49d1a74f39d9e938f83328fcdf64c7f" prot="private" static="no" mutable="no">
+        <type>QList&lt; Template &gt;</type>
+        <definition>QList&lt;Template&gt; QfDrawingTemplateModel::mTemplates</definition>
+        <argsstring></argsstring>
+        <name>mTemplates</name>
+        <qualifiedname>QfDrawingTemplateModel::mTemplates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="92" column="11" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDrawingTemplateModel_1a378d8216b164b7852725fa8ff9d60c29" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfDrawingTemplateModel::mProjectFilePath</definition>
+        <argsstring></argsstring>
+        <name>mProjectFilePath</name>
+        <qualifiedname>QfDrawingTemplateModel::mProjectFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="94" column="13" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDrawingTemplateModel_1a4ac9d9f67bffb7d23c36ec32e9a98caa" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfDrawingTemplateModel::mHasProjectTemplate</definition>
+        <argsstring></argsstring>
+        <name>mHasProjectTemplate</name>
+        <qualifiedname>QfDrawingTemplateModel::mHasProjectTemplate</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="95" column="10" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfDrawingTemplateModel_1a83f2a4e7549aae14a3ddaf9a99cf98a5" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfDrawingTemplateModel::QfDrawingTemplateModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfDrawingTemplateModel</name>
+        <qualifiedname>QfDrawingTemplateModel::QfDrawingTemplateModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="53" column="14" bodyfile="src/gui/qfdrawingtemplatemodel.cpp" bodystart="24" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingTemplateModel_1a00c44aa07bd7f72adc15b9c0dbb2e0c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfDrawingTemplateModel::projectFilePath</definition>
+        <argsstring>() const</argsstring>
+        <name>projectFilePath</name>
+        <qualifiedname>QfDrawingTemplateModel::projectFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the project file path where project templates will be looked for.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="56" column="13" bodyfile="src/gui/qfdrawingtemplatemodel.cpp" bodystart="128" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingTemplateModel_1adeaab08ce9cf5e30f61f03f1efaa67c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingTemplateModel::setProjectFilePath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>setProjectFilePath</name>
+        <qualifiedname>QfDrawingTemplateModel::setProjectFilePath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds the project file path where project templates will be looked for.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="59" column="10" bodyfile="src/gui/qfdrawingtemplatemodel.cpp" bodystart="133" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingTemplateModel_1a754c87842ddaf537bc10bc529524fc9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfDrawingTemplateModel::hasProjectTemplate</definition>
+        <argsstring>() const</argsstring>
+        <name>hasProjectTemplate</name>
+        <qualifiedname>QfDrawingTemplateModel::hasProjectTemplate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This property holds whether the model contains project templates.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="62" column="10" bodyfile="src/gui/qfdrawingtemplatemodel.cpp" bodystart="146" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingTemplateModel_1a507c700aff798616f414db2fe8f95e03" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfDrawingTemplateModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfDrawingTemplateModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="64" column="11" bodyfile="src/gui/qfdrawingtemplatemodel.cpp" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingTemplateModel_1a1153a43393be4e36e7594c0cc7a5dac1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfDrawingTemplateModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfDrawingTemplateModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="66" column="9" bodyfile="src/gui/qfdrawingtemplatemodel.cpp" bodystart="103" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingTemplateModel_1aea8050fdc6f660e64f008782851b09a2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfDrawingTemplateModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfDrawingTemplateModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="67" column="14" bodyfile="src/gui/qfdrawingtemplatemodel.cpp" bodystart="108" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDrawingTemplateModel_1a5e51425aff737508760531a28e9dedb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDrawingTemplateModel::reloadModel</definition>
+        <argsstring>()</argsstring>
+        <name>reloadModel</name>
+        <qualifiedname>QfDrawingTemplateModel::reloadModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reloads the drawing template model. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="72" column="22" bodyfile="src/gui/qfdrawingtemplatemodel.cpp" bodystart="40" bodyend="101"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfDrawingTemplateModel_1a0cc0e3d907c2000741e836c118404125" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingTemplateModel::projectFilePathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectFilePathChanged</name>
+        <qualifiedname>QfDrawingTemplateModel::projectFilePathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="75" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDrawingTemplateModel_1ac37916118bf47d58f3568b75fcf2fa29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDrawingTemplateModel::hasProjectTemplateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasProjectTemplateChanged</name>
+        <qualifiedname>QfDrawingTemplateModel::hasProjectTemplateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="76" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfDrawingTemplateModel</label>
+        <link refid="classQfDrawingTemplateModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfDrawingTemplateModel</label>
+        <link refid="classQfDrawingTemplateModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfdrawingtemplatemodel.h" line="24" column="1" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="25" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classQfDrawingTemplateModel_1aee65da15e6b305fca64e6cc99797f1e0abf4cd6b6e6035ab6bd09343d6c0ecee4" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>AppTemplate</name></member>
+      <member refid="classQfDrawingTemplateModel_1aea8050fdc6f660e64f008782851b09a2" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>data</name></member>
+      <member refid="classQfDrawingTemplateModel_1ad64074fba64e2a34e84225f1ac6defbc" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>hasProjectTemplate</name></member>
+      <member refid="classQfDrawingTemplateModel_1a754c87842ddaf537bc10bc529524fc9e" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>hasProjectTemplate</name></member>
+      <member refid="classQfDrawingTemplateModel_1ac37916118bf47d58f3568b75fcf2fa29" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>hasProjectTemplateChanged</name></member>
+      <member refid="classQfDrawingTemplateModel_1a4ac9d9f67bffb7d23c36ec32e9a98caa" prot="private" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>mHasProjectTemplate</name></member>
+      <member refid="classQfDrawingTemplateModel_1a378d8216b164b7852725fa8ff9d60c29" prot="private" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>mProjectFilePath</name></member>
+      <member refid="classQfDrawingTemplateModel_1aa49d1a74f39d9e938f83328fcdf64c7f" prot="private" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>mTemplates</name></member>
+      <member refid="classQfDrawingTemplateModel_1a63d783929960380995eab6fa24fa1296" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>projectFilePath</name></member>
+      <member refid="classQfDrawingTemplateModel_1a00c44aa07bd7f72adc15b9c0dbb2e0c8" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>projectFilePath</name></member>
+      <member refid="classQfDrawingTemplateModel_1a0cc0e3d907c2000741e836c118404125" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>projectFilePathChanged</name></member>
+      <member refid="classQfDrawingTemplateModel_1aee65da15e6b305fca64e6cc99797f1e0ae3fe6b968590e4640fc0fa1c03eeb9b4" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>ProjectTemplate</name></member>
+      <member refid="classQfDrawingTemplateModel_1a83f2a4e7549aae14a3ddaf9a99cf98a5" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>QfDrawingTemplateModel</name></member>
+      <member refid="classQfDrawingTemplateModel_1a5e51425aff737508760531a28e9dedb2" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>reloadModel</name></member>
+      <member refid="classQfDrawingTemplateModel_1af0c2ff09fb25ae5f4cec38892c0dbf48" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>Role</name></member>
+      <member refid="classQfDrawingTemplateModel_1a507c700aff798616f414db2fe8f95e03" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>roleNames</name></member>
+      <member refid="classQfDrawingTemplateModel_1a1153a43393be4e36e7594c0cc7a5dac1" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>rowCount</name></member>
+      <member refid="classQfDrawingTemplateModel_1adeaab08ce9cf5e30f61f03f1efaa67c6" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>setProjectFilePath</name></member>
+      <member refid="classQfDrawingTemplateModel_1af0c2ff09fb25ae5f4cec38892c0dbf48adc8ba2070c5f29966614f8abca0a3fd9" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>TemplatePathRole</name></member>
+      <member refid="classQfDrawingTemplateModel_1af0c2ff09fb25ae5f4cec38892c0dbf48a84a8957d70eb14411246a09df4f7bb1f" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>TemplateTitleRole</name></member>
+      <member refid="classQfDrawingTemplateModel_1aee65da15e6b305fca64e6cc99797f1e0" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>TemplateType</name></member>
+      <member refid="classQfDrawingTemplateModel_1af0c2ff09fb25ae5f4cec38892c0dbf48a890547370fa1c7e62ac801c915f82082" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel</scope><name>TemplateTypeRole</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

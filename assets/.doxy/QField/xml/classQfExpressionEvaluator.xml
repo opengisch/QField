@@ -1,0 +1,887 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfExpressionEvaluator" kind="class" language="C++" prot="public">
+    <compoundname>QfExpressionEvaluator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfexpressionevaluator_8h" local="no">qfexpressionevaluator.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfExpressionEvaluator_1a0184bba7126d9f9c1c1f71ea01d41140" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Mode</name>
+        <qualifiedname>QfExpressionEvaluator::Mode</qualifiedname>
+        <enumvalue id="classQfExpressionEvaluator_1a0184bba7126d9f9c1c1f71ea01d41140a4d8dc9fa83849026d6fb5f463a963ee6" prot="public">
+          <name>ExpressionMode</name>
+          <briefdescription>
+<para>Handle expression text as expression strings. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfExpressionEvaluator_1a0184bba7126d9f9c1c1f71ea01d41140a06fadd9259d5543d914519550848a238" prot="public">
+          <name>ExpressionTemplateMode</name>
+          <briefdescription>
+<para>Handle expression text as expression templates. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Expression evaluator modes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="55" column="5" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="56" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfExpressionEvaluator_1af21d9727a8e048cf71ec64d37499e87e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfExpressionEvaluator_1a0184bba7126d9f9c1c1f71ea01d41140" kindref="member">Mode</ref></type>
+        <definition>Mode QfExpressionEvaluator::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <qualifiedname>QfExpressionEvaluator::mode</qualifiedname>
+        <read>mode</read>
+        <write>setMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="41" column="5" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfExpressionEvaluator_1af5fb32325d42f0389eff899b755cb4f9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfExpressionEvaluator::expressionText</definition>
+        <argsstring></argsstring>
+        <name>expressionText</name>
+        <qualifiedname>QfExpressionEvaluator::expressionText</qualifiedname>
+        <read>expressionText</read>
+        <write>setExpressionText</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="43" column="5" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfExpressionEvaluator_1a6bcb2be8647ce95f6eb70046905bbcb3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfExpressionEvaluator::feature</definition>
+        <argsstring></argsstring>
+        <name>feature</name>
+        <qualifiedname>QfExpressionEvaluator::feature</qualifiedname>
+        <read>feature</read>
+        <write>setFeature</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="45" column="5" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfExpressionEvaluator_1ad44b5ffd08db8ae672b8340380593a02" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer * QfExpressionEvaluator::layer</definition>
+        <argsstring></argsstring>
+        <name>layer</name>
+        <qualifiedname>QfExpressionEvaluator::layer</qualifiedname>
+        <read>layer</read>
+        <write>setLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="46" column="5" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfExpressionEvaluator_1a104e8de0c4401d548492be1835c0a8ea" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfExpressionEvaluator::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QfExpressionEvaluator::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="47" column="5" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfExpressionEvaluator_1a421eb6e4bf0d37d2f3a54380a66dfb92" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfExpressionEvaluator::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfExpressionEvaluator::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="48" column="5" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfExpressionEvaluator_1aec113b6d823d825c3285204f481b19bc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> *</type>
+        <definition>QfAppExpressionContextScopesGenerator * QfExpressionEvaluator::appExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>QfExpressionEvaluator::appExpressionContextScopesGenerator</qualifiedname>
+        <read>appExpressionContextScopesGenerator</read>
+        <write>setAppExpressionContextScopesGenerator</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="49" column="5" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfExpressionEvaluator_1a55260b28a7c0ed13372b8f6e05f7c522" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfAttributeFormModel" kindref="compound">QfAttributeFormModel</ref> *</type>
+        <definition>QfAttributeFormModel * QfExpressionEvaluator::attributeFormModel</definition>
+        <argsstring></argsstring>
+        <name>attributeFormModel</name>
+        <qualifiedname>QfExpressionEvaluator::attributeFormModel</qualifiedname>
+        <read>attributeFormModel</read>
+        <write>setAttributeFormModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="50" column="5" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfExpressionEvaluator_1a113225dae7f0b4dc24f0f8360bb614b0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QfExpressionEvaluator::variables</definition>
+        <argsstring></argsstring>
+        <name>variables</name>
+        <qualifiedname>QfExpressionEvaluator::variables</qualifiedname>
+        <read>variables</read>
+        <write>setVariables</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="51" column="5" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfExpressionEvaluator_1a318ea69d83a6ae4280182961a04705bb" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfExpressionEvaluator_1a0184bba7126d9f9c1c1f71ea01d41140" kindref="member">Mode</ref></type>
+        <definition>Mode QfExpressionEvaluator::mMode</definition>
+        <argsstring></argsstring>
+        <name>mMode</name>
+        <qualifiedname>QfExpressionEvaluator::mMode</qualifiedname>
+        <initializer>= <ref refid="classQfExpressionEvaluator_1a0184bba7126d9f9c1c1f71ea01d41140a4d8dc9fa83849026d6fb5f463a963ee6" kindref="member">ExpressionMode</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="136" column="10" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfExpressionEvaluator_1ac280c8f8bec35bb67da442b5b0966973" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfExpressionEvaluator::mExpressionText</definition>
+        <argsstring></argsstring>
+        <name>mExpressionText</name>
+        <qualifiedname>QfExpressionEvaluator::mExpressionText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="138" column="13" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfExpressionEvaluator_1a89c68dbe2b1a520d4a8be9dbddccbd1d" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfExpressionEvaluator::mFeature</definition>
+        <argsstring></argsstring>
+        <name>mFeature</name>
+        <qualifiedname>QfExpressionEvaluator::mFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="140" column="16" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfExpressionEvaluator_1a72f01d2491984057b2528ced30b45499" prot="private" static="no" mutable="no">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer* QfExpressionEvaluator::mLayer</definition>
+        <argsstring></argsstring>
+        <name>mLayer</name>
+        <qualifiedname>QfExpressionEvaluator::mLayer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="141" column="17" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfExpressionEvaluator_1a8b39aaaa2153854e1de74ee778d1e5f8" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QfExpressionEvaluator::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QfExpressionEvaluator::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="142" column="16" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfExpressionEvaluator_1ae9e61feaba0501a64e153bb8fe4495bc" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfExpressionEvaluator::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfExpressionEvaluator::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="143" column="25" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfExpressionEvaluator_1a740143f09a5c8306b7d4590c6c2175da" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> &gt;</type>
+        <definition>QPointer&lt;QfAppExpressionContextScopesGenerator&gt; QfExpressionEvaluator::mAppExpressionContextScopesGenerator</definition>
+        <argsstring></argsstring>
+        <name>mAppExpressionContextScopesGenerator</name>
+        <qualifiedname>QfExpressionEvaluator::mAppExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="144" column="14" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfExpressionEvaluator_1a9ed6a64808ef2b27d2a7560d2ed9063f" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQfAttributeFormModel" kindref="compound">QfAttributeFormModel</ref> &gt;</type>
+        <definition>QPointer&lt;QfAttributeFormModel&gt; QfExpressionEvaluator::mAttributeFormModel</definition>
+        <argsstring></argsstring>
+        <name>mAttributeFormModel</name>
+        <qualifiedname>QfExpressionEvaluator::mAttributeFormModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="145" column="14" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfExpressionEvaluator_1a2a1aff835b828e8d62fba475af053868" prot="private" static="no" mutable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QfExpressionEvaluator::mVariables</definition>
+        <argsstring></argsstring>
+        <name>mVariables</name>
+        <qualifiedname>QfExpressionEvaluator::mVariables</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="146" column="17" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a7d0a38cfa0e990d8969a3fd8c2e75ecb" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfExpressionEvaluator::QfExpressionEvaluator</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfExpressionEvaluator</name>
+        <qualifiedname>QfExpressionEvaluator::QfExpressionEvaluator</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="62" column="14" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a78e9ec6d5f2d06fd3b5218a66b3f4e32" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfExpressionEvaluator_1a0184bba7126d9f9c1c1f71ea01d41140" kindref="member">Mode</ref></type>
+        <definition>Mode QfExpressionEvaluator::mode</definition>
+        <argsstring>() const</argsstring>
+        <name>mode</name>
+        <qualifiedname>QfExpressionEvaluator::mode</qualifiedname>
+        <briefdescription>
+<para>Returns the expression evaluator mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="65" column="10" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a8f300f0b7a43a47600112b8f4968caae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::setMode</definition>
+        <argsstring>(Mode mode)</argsstring>
+        <name>setMode</name>
+        <qualifiedname>QfExpressionEvaluator::setMode</qualifiedname>
+        <param>
+          <type><ref refid="classQfExpressionEvaluator_1a0184bba7126d9f9c1c1f71ea01d41140" kindref="member">Mode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Sets the expression evaluator <emphasis>mode</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="68" column="10" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="27" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a691189a331cfbe9cfe35c7f181d18f01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfExpressionEvaluator::expressionText</definition>
+        <argsstring>()</argsstring>
+        <name>expressionText</name>
+        <qualifiedname>QfExpressionEvaluator::expressionText</qualifiedname>
+        <briefdescription>
+<para>Returns the expression text used when evaluating. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="71" column="13" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1afbbc3e4a3fc5ce4ba53ef27f3b1ea414" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::setExpressionText</definition>
+        <argsstring>(const QString &amp;expressionText)</argsstring>
+        <name>setExpressionText</name>
+        <qualifiedname>QfExpressionEvaluator::setExpressionText</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>expressionText</declname>
+        </param>
+        <briefdescription>
+<para>Sets the expression text used when evaluating. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="74" column="10" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="36" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a59fd3accc922c197f5484d4a818db264" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfExpressionEvaluator::feature</definition>
+        <argsstring>() const</argsstring>
+        <name>feature</name>
+        <qualifiedname>QfExpressionEvaluator::feature</qualifiedname>
+        <briefdescription>
+<para>Returns the feature attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="77" column="16" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a35790235d9adf35fd8684eeb72aa8729" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::setFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>setFeature</name>
+        <qualifiedname>QfExpressionEvaluator::setFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+<para>Sets the feature attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="80" column="10" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="45" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a388a4586c24438f92a7fdaf72566c2ca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsMapLayer *</type>
+        <definition>QgsMapLayer * QfExpressionEvaluator::layer</definition>
+        <argsstring>() const</argsstring>
+        <name>layer</name>
+        <qualifiedname>QfExpressionEvaluator::layer</qualifiedname>
+        <briefdescription>
+<para>Returns the map layer attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="83" column="17" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1aca74b1516cd5cc4a2b07f05cebc9200f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::setLayer</definition>
+        <argsstring>(QgsMapLayer *layer)</argsstring>
+        <name>setLayer</name>
+        <qualifiedname>QfExpressionEvaluator::setLayer</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Sets the map layer attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="86" column="10" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="54" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a4758757e57ee4a6974d739d8970453ba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfExpressionEvaluator::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QfExpressionEvaluator::project</qualifiedname>
+        <briefdescription>
+<para>Returns the project attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="89" column="16" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1ac7b19f72d89d8b890596f4e50ab83323" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QfExpressionEvaluator::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Sets the project attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="92" column="10" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="63" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a10854fd01e823f16792507d52336ff18" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfExpressionEvaluator::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfExpressionEvaluator::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Returns the map settings attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="95" column="25" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a472ee0e6b342fc75c176092a1befeac7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfExpressionEvaluator::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+<para>Sets the map settings attached to the expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="98" column="10" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="72" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1afe9f4a62601d99424f5fb7f2019f2a1e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> *</type>
+        <definition>QfAppExpressionContextScopesGenerator * QfExpressionEvaluator::appExpressionContextScopesGenerator</definition>
+        <argsstring>() const</argsstring>
+        <name>appExpressionContextScopesGenerator</name>
+        <qualifiedname>QfExpressionEvaluator::appExpressionContextScopesGenerator</qualifiedname>
+        <briefdescription>
+<para>Returns the application expression context scopes generator object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="101" column="43" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1acd30db40dc88ffa7337f35e630cb948d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::setAppExpressionContextScopesGenerator</definition>
+        <argsstring>(QfAppExpressionContextScopesGenerator *generator)</argsstring>
+        <name>setAppExpressionContextScopesGenerator</name>
+        <qualifiedname>QfExpressionEvaluator::setAppExpressionContextScopesGenerator</qualifiedname>
+        <param>
+          <type><ref refid="classQfAppExpressionContextScopesGenerator" kindref="compound">QfAppExpressionContextScopesGenerator</ref> *</type>
+          <declname>generator</declname>
+        </param>
+        <briefdescription>
+<para>Sets the application expression context scopes <emphasis>generator</emphasis> object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="104" column="10" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="86" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1af3ffc7398404bd0b540fe0e03653ec11" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfAttributeFormModel" kindref="compound">QfAttributeFormModel</ref> *</type>
+        <definition>QfAttributeFormModel * QfExpressionEvaluator::attributeFormModel</definition>
+        <argsstring>() const</argsstring>
+        <name>attributeFormModel</name>
+        <qualifiedname>QfExpressionEvaluator::attributeFormModel</qualifiedname>
+        <briefdescription>
+<para>Returns the attribute form model providing an expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="107" column="26" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a8275600850a26f4930cb308aaf232a94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::setAttributeFormModel</definition>
+        <argsstring>(QfAttributeFormModel *attributeFormModel)</argsstring>
+        <name>setAttributeFormModel</name>
+        <qualifiedname>QfExpressionEvaluator::setAttributeFormModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfAttributeFormModel" kindref="compound">QfAttributeFormModel</ref> *</type>
+          <declname>attributeFormModel</declname>
+        </param>
+        <briefdescription>
+<para>Sets the attribute form model providing an expression context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="110" column="10" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="100" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1afef4a497e6526b950b9b01a8952be28e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QfExpressionEvaluator::variables</definition>
+        <argsstring>() const</argsstring>
+        <name>variables</name>
+        <qualifiedname>QfExpressionEvaluator::variables</qualifiedname>
+        <briefdescription>
+<para>Returns the map of variables injected into the expression context when evaluating. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="113" column="17" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a58a50662c55f7eafc992313d0e67d602" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::setVariables</definition>
+        <argsstring>(const QVariantMap &amp;variables)</argsstring>
+        <name>setVariables</name>
+        <qualifiedname>QfExpressionEvaluator::setVariables</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>variables</declname>
+        </param>
+        <briefdescription>
+<para>Sets the map of variables injected into the expression context when evaluating. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="116" column="10" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="109" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1ad3a45a260bbc00d59edc1830ec2a873c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>QVariant QfExpressionEvaluator::evaluate</definition>
+        <argsstring>()</argsstring>
+        <name>evaluate</name>
+        <qualifiedname>QfExpressionEvaluator::evaluate</qualifiedname>
+        <briefdescription>
+<para>Evalutes and returns the current expression text property value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="119" column="26" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="118" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionEvaluator_1a4b1b3840c6933c1dce43e2885d045f2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>QVariant QfExpressionEvaluator::evaluate</definition>
+        <argsstring>(const QString &amp;expressionText)</argsstring>
+        <name>evaluate</name>
+        <qualifiedname>QfExpressionEvaluator::evaluate</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>expressionText</declname>
+        </param>
+        <briefdescription>
+<para>Evalutes and returns the expression text passed as a parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="122" column="26" bodyfile="src/gui/qfexpressionevaluator.cpp" bodystart="123" bodyend="185"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfExpressionEvaluator_1a119c846e8b7da56a1a2fd582fb13b642" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::modeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>modeChanged</name>
+        <qualifiedname>QfExpressionEvaluator::modeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="125" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfExpressionEvaluator_1a9cd4ed1bbac605ca272a0ae6b308ae95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::expressionTextChanged</definition>
+        <argsstring>()</argsstring>
+        <name>expressionTextChanged</name>
+        <qualifiedname>QfExpressionEvaluator::expressionTextChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="126" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfExpressionEvaluator_1a672683293fbc9269f43b11f2f3c9f004" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::featureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureChanged</name>
+        <qualifiedname>QfExpressionEvaluator::featureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="127" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfExpressionEvaluator_1ae85e58b69c6f7de9f6d116e7ba271b36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::layerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>layerChanged</name>
+        <qualifiedname>QfExpressionEvaluator::layerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="128" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfExpressionEvaluator_1ad130710e81d8d534832bf428ee921282" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QfExpressionEvaluator::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="129" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfExpressionEvaluator_1a55f79fefe9c678b0a71ea44a7ad9a1e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfExpressionEvaluator::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="130" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfExpressionEvaluator_1ac1cbc73d6846f6822a60acc232eecb23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::appExpressionContextScopesGeneratorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>appExpressionContextScopesGeneratorChanged</name>
+        <qualifiedname>QfExpressionEvaluator::appExpressionContextScopesGeneratorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="131" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfExpressionEvaluator_1abb5381dcecbd3fa4c8d9f9861bd4b3a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::attributeFormModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>attributeFormModelChanged</name>
+        <qualifiedname>QfExpressionEvaluator::attributeFormModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="132" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfExpressionEvaluator_1a99d4091381c96438383b4f219b0a3ab8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfExpressionEvaluator::variablesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>variablesChanged</name>
+        <qualifiedname>QfExpressionEvaluator::variablesChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfexpressionevaluator.h" line="133" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classQfExpressionEvaluator" kindref="compound">QfExpressionEvaluator</ref> class enables evaluation of expression strings and expression templates. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfExpressionEvaluator</label>
+        <link refid="classQfExpressionEvaluator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfExpressionEvaluator</label>
+        <link refid="classQfExpressionEvaluator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfexpressionevaluator.h" line="37" column="1" bodyfile="src/gui/qfexpressionevaluator.h" bodystart="38" bodyend="147"/>
+    <listofallmembers>
+      <member refid="classQfExpressionEvaluator_1aec113b6d823d825c3285204f481b19bc" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classQfExpressionEvaluator_1afe9f4a62601d99424f5fb7f2019f2a1e" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>appExpressionContextScopesGenerator</name></member>
+      <member refid="classQfExpressionEvaluator_1ac1cbc73d6846f6822a60acc232eecb23" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>appExpressionContextScopesGeneratorChanged</name></member>
+      <member refid="classQfExpressionEvaluator_1a55260b28a7c0ed13372b8f6e05f7c522" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>attributeFormModel</name></member>
+      <member refid="classQfExpressionEvaluator_1af3ffc7398404bd0b540fe0e03653ec11" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>attributeFormModel</name></member>
+      <member refid="classQfExpressionEvaluator_1abb5381dcecbd3fa4c8d9f9861bd4b3a0" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>attributeFormModelChanged</name></member>
+      <member refid="classQfExpressionEvaluator_1ad3a45a260bbc00d59edc1830ec2a873c" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>evaluate</name></member>
+      <member refid="classQfExpressionEvaluator_1a4b1b3840c6933c1dce43e2885d045f2d" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>evaluate</name></member>
+      <member refid="classQfExpressionEvaluator_1a0184bba7126d9f9c1c1f71ea01d41140a4d8dc9fa83849026d6fb5f463a963ee6" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>ExpressionMode</name></member>
+      <member refid="classQfExpressionEvaluator_1a0184bba7126d9f9c1c1f71ea01d41140a06fadd9259d5543d914519550848a238" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>ExpressionTemplateMode</name></member>
+      <member refid="classQfExpressionEvaluator_1af5fb32325d42f0389eff899b755cb4f9" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>expressionText</name></member>
+      <member refid="classQfExpressionEvaluator_1a691189a331cfbe9cfe35c7f181d18f01" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>expressionText</name></member>
+      <member refid="classQfExpressionEvaluator_1a9cd4ed1bbac605ca272a0ae6b308ae95" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>expressionTextChanged</name></member>
+      <member refid="classQfExpressionEvaluator_1a6bcb2be8647ce95f6eb70046905bbcb3" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>feature</name></member>
+      <member refid="classQfExpressionEvaluator_1a59fd3accc922c197f5484d4a818db264" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>feature</name></member>
+      <member refid="classQfExpressionEvaluator_1a672683293fbc9269f43b11f2f3c9f004" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>featureChanged</name></member>
+      <member refid="classQfExpressionEvaluator_1ad44b5ffd08db8ae672b8340380593a02" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>layer</name></member>
+      <member refid="classQfExpressionEvaluator_1a388a4586c24438f92a7fdaf72566c2ca" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>layer</name></member>
+      <member refid="classQfExpressionEvaluator_1ae85e58b69c6f7de9f6d116e7ba271b36" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>layerChanged</name></member>
+      <member refid="classQfExpressionEvaluator_1a740143f09a5c8306b7d4590c6c2175da" prot="private" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mAppExpressionContextScopesGenerator</name></member>
+      <member refid="classQfExpressionEvaluator_1a421eb6e4bf0d37d2f3a54380a66dfb92" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mapSettings</name></member>
+      <member refid="classQfExpressionEvaluator_1a10854fd01e823f16792507d52336ff18" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mapSettings</name></member>
+      <member refid="classQfExpressionEvaluator_1a55f79fefe9c678b0a71ea44a7ad9a1e2" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfExpressionEvaluator_1a9ed6a64808ef2b27d2a7560d2ed9063f" prot="private" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mAttributeFormModel</name></member>
+      <member refid="classQfExpressionEvaluator_1ac280c8f8bec35bb67da442b5b0966973" prot="private" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mExpressionText</name></member>
+      <member refid="classQfExpressionEvaluator_1a89c68dbe2b1a520d4a8be9dbddccbd1d" prot="private" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mFeature</name></member>
+      <member refid="classQfExpressionEvaluator_1a72f01d2491984057b2528ced30b45499" prot="private" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mLayer</name></member>
+      <member refid="classQfExpressionEvaluator_1ae9e61feaba0501a64e153bb8fe4495bc" prot="private" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mMapSettings</name></member>
+      <member refid="classQfExpressionEvaluator_1a318ea69d83a6ae4280182961a04705bb" prot="private" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mMode</name></member>
+      <member refid="classQfExpressionEvaluator_1af21d9727a8e048cf71ec64d37499e87e" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mode</name></member>
+      <member refid="classQfExpressionEvaluator_1a78e9ec6d5f2d06fd3b5218a66b3f4e32" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mode</name></member>
+      <member refid="classQfExpressionEvaluator_1a0184bba7126d9f9c1c1f71ea01d41140" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>Mode</name></member>
+      <member refid="classQfExpressionEvaluator_1a119c846e8b7da56a1a2fd582fb13b642" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>modeChanged</name></member>
+      <member refid="classQfExpressionEvaluator_1a8b39aaaa2153854e1de74ee778d1e5f8" prot="private" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mProject</name></member>
+      <member refid="classQfExpressionEvaluator_1a2a1aff835b828e8d62fba475af053868" prot="private" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>mVariables</name></member>
+      <member refid="classQfExpressionEvaluator_1a104e8de0c4401d548492be1835c0a8ea" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>project</name></member>
+      <member refid="classQfExpressionEvaluator_1a4758757e57ee4a6974d739d8970453ba" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>project</name></member>
+      <member refid="classQfExpressionEvaluator_1ad130710e81d8d534832bf428ee921282" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>projectChanged</name></member>
+      <member refid="classQfExpressionEvaluator_1a7d0a38cfa0e990d8969a3fd8c2e75ecb" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>QfExpressionEvaluator</name></member>
+      <member refid="classQfExpressionEvaluator_1acd30db40dc88ffa7337f35e630cb948d" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>setAppExpressionContextScopesGenerator</name></member>
+      <member refid="classQfExpressionEvaluator_1a8275600850a26f4930cb308aaf232a94" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>setAttributeFormModel</name></member>
+      <member refid="classQfExpressionEvaluator_1afbbc3e4a3fc5ce4ba53ef27f3b1ea414" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>setExpressionText</name></member>
+      <member refid="classQfExpressionEvaluator_1a35790235d9adf35fd8684eeb72aa8729" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>setFeature</name></member>
+      <member refid="classQfExpressionEvaluator_1aca74b1516cd5cc4a2b07f05cebc9200f" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>setLayer</name></member>
+      <member refid="classQfExpressionEvaluator_1a472ee0e6b342fc75c176092a1befeac7" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>setMapSettings</name></member>
+      <member refid="classQfExpressionEvaluator_1a8f300f0b7a43a47600112b8f4968caae" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>setMode</name></member>
+      <member refid="classQfExpressionEvaluator_1ac7b19f72d89d8b890596f4e50ab83323" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>setProject</name></member>
+      <member refid="classQfExpressionEvaluator_1a58a50662c55f7eafc992313d0e67d602" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>setVariables</name></member>
+      <member refid="classQfExpressionEvaluator_1a113225dae7f0b4dc24f0f8360bb614b0" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>variables</name></member>
+      <member refid="classQfExpressionEvaluator_1afef4a497e6526b950b9b01a8952be28e" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>variables</name></member>
+      <member refid="classQfExpressionEvaluator_1a99d4091381c96438383b4f219b0a3ab8" prot="public" virt="non-virtual"><scope>QfExpressionEvaluator</scope><name>variablesChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

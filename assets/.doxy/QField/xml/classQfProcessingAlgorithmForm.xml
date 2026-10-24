@@ -1,0 +1,338 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProcessingAlgorithmForm" kind="class" language="C++" prot="public">
+    <compoundname>QfProcessingAlgorithmForm</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classProcessingAlgorithmForm" prot="public" virt="non-virtual">ProcessingAlgorithmForm</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfProcessingAlgorithmForm_1a7f54b29759a052bda08a8a51eb08fb08" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfProcessingAlgorithmParametersModel" kindref="compound">QfProcessingAlgorithmParametersModel</ref></type>
+        <definition>QfProcessingAlgorithmParametersModel QfProcessingAlgorithmForm::algorithmParametersModel</definition>
+        <argsstring></argsstring>
+        <name>algorithmParametersModel</name>
+        <qualifiedname>QfProcessingAlgorithmForm::algorithmParametersModel</qualifiedname>
+        <read>dummyGetter_algorithmParametersModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="14" column="1" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingAlgorithmForm_1aac5696cec3e82be49f660b9e7c78d720" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProcessingAlgorithmForm::inPlaceLayer</definition>
+        <argsstring></argsstring>
+        <name>inPlaceLayer</name>
+        <qualifiedname>QfProcessingAlgorithmForm::inPlaceLayer</qualifiedname>
+        <read>dummyGetter_inPlaceLayer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="16" column="1" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingAlgorithmForm_1a623c00959244ffffec9e3601d2538b7e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProcessingAlgorithmForm::algorithmId</definition>
+        <argsstring></argsstring>
+        <name>algorithmId</name>
+        <qualifiedname>QfProcessingAlgorithmForm::algorithmId</qualifiedname>
+        <read>dummyGetter_algorithmId_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="18" column="1" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingAlgorithmForm_1a3ef6593a860ed0d34eccdffe25e787df" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProcessingAlgorithmForm::algorithmDisplayName</definition>
+        <argsstring></argsstring>
+        <name>algorithmDisplayName</name>
+        <qualifiedname>QfProcessingAlgorithmForm::algorithmDisplayName</qualifiedname>
+        <read>dummyGetter_algorithmDisplayName_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="20" column="1" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingAlgorithmForm_1aa8244fc8d62977892b49a8f931a672ec" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfProcessingAlgorithmForm::algorithmShortHelp</definition>
+        <argsstring></argsstring>
+        <name>algorithmShortHelp</name>
+        <qualifiedname>QfProcessingAlgorithmForm::algorithmShortHelp</qualifiedname>
+        <read>dummyGetter_algorithmShortHelp_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="22" column="1" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingAlgorithmForm_1ad6655528c0fae9261ae0b4456bcf2ef8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfProcessingAlgorithmForm::bottomMargin</definition>
+        <argsstring></argsstring>
+        <name>bottomMargin</name>
+        <qualifiedname>QfProcessingAlgorithmForm::bottomMargin</qualifiedname>
+        <read>dummyGetter_bottomMargin_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="24" column="1" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1aef4951f42ef13c6ba8c4632bd739b853" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfProcessingAlgorithmParametersModel" kindref="compound">QfProcessingAlgorithmParametersModel</ref></type>
+        <definition>QfProcessingAlgorithmParametersModel QfProcessingAlgorithmForm::processingAlgorithmParametersModel</definition>
+        <argsstring></argsstring>
+        <name>processingAlgorithmParametersModel</name>
+        <qualifiedname>QfProcessingAlgorithmForm::processingAlgorithmParametersModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="26" column="38" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1a7812b3cbd6d73191504679b66547fb06" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfProcessingAlgorithmForm::container</definition>
+        <argsstring></argsstring>
+        <name>container</name>
+        <qualifiedname>QfProcessingAlgorithmForm::container</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="27" column="14" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1a6dc8aef3fd3169018d346f6751d084e1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTabBar" kindref="compound">QfTabBar</ref></type>
+        <definition>QfTabBar QfProcessingAlgorithmForm::tabRow</definition>
+        <argsstring></argsstring>
+        <name>tabRow</name>
+        <qualifiedname>QfProcessingAlgorithmForm::tabRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="28" column="10" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1a809f98fdc7ec1de1c57335e83deab7f5" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable QfProcessingAlgorithmForm::contentView</definition>
+        <argsstring></argsstring>
+        <name>contentView</name>
+        <qualifiedname>QfProcessingAlgorithmForm::contentView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="29" column="11" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1a6d15cbf1330ce5227cee67572c1621f2" prot="private" static="no" mutable="no">
+        <type>Flow</type>
+        <definition>Flow QfProcessingAlgorithmForm::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <qualifiedname>QfProcessingAlgorithmForm::content</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="30" column="6" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1af733d55b782ddd716a379c0e61215812" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater QfProcessingAlgorithmForm::contentRepeater</definition>
+        <argsstring></argsstring>
+        <name>contentRepeater</name>
+        <qualifiedname>QfProcessingAlgorithmForm::contentRepeater</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="31" column="10" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1a00d9495848c3a0c48cf76cd3180de60c" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable QfProcessingAlgorithmForm::descriptionView</definition>
+        <argsstring></argsstring>
+        <name>descriptionView</name>
+        <qualifiedname>QfProcessingAlgorithmForm::descriptionView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="32" column="11" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1aed68c36757040eecb5a643adbaaea14e" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column QfProcessingAlgorithmForm::descriptionContent</definition>
+        <argsstring></argsstring>
+        <name>descriptionContent</name>
+        <qualifiedname>QfProcessingAlgorithmForm::descriptionContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="33" column="8" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1ac1655edf0d905b65603956abbdb3941c" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfProcessingAlgorithmForm::parameterItem</definition>
+        <argsstring></argsstring>
+        <name>parameterItem</name>
+        <qualifiedname>QfProcessingAlgorithmForm::parameterItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="34" column="11" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1a9930954dc50de150cc55741175cdcf99" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfProcessingAlgorithmForm::parameterDescription</definition>
+        <argsstring></argsstring>
+        <name>parameterDescription</name>
+        <qualifiedname>QfProcessingAlgorithmForm::parameterDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="35" column="7" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1a98fbc07965a35dc5656d2bd989b8321e" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item QfProcessingAlgorithmForm::parameterContent</definition>
+        <argsstring></argsstring>
+        <name>parameterContent</name>
+        <qualifiedname>QfProcessingAlgorithmForm::parameterContent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="36" column="6" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1acc0a86969b8c6385b27baefa29cc0169" prot="private" static="no" mutable="no">
+        <type>Item</type>
+        <definition>Item QfProcessingAlgorithmForm::parameterWidgetPlaceholder</definition>
+        <argsstring></argsstring>
+        <name>parameterWidgetPlaceholder</name>
+        <qualifiedname>QfProcessingAlgorithmForm::parameterWidgetPlaceholder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="37" column="6" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmForm_1a2af606f7379e90fd15f9f4af26e41b6e" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfProcessingAlgorithmForm::parameterWidgetLoader</definition>
+        <argsstring></argsstring>
+        <name>parameterWidgetLoader</name>
+        <qualifiedname>QfProcessingAlgorithmForm::parameterWidgetLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="38" column="8" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>ProcessingAlgorithmForm</label>
+        <link refid="classProcessingAlgorithmForm"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfProcessingAlgorithmForm</label>
+        <link refid="classQfProcessingAlgorithmForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfProcessingAlgorithmForm</label>
+        <link refid="classQfProcessingAlgorithmForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfProcessingAlgorithmForm.qml" line="11" column="1" bodyfile="src/gui/qml/QfProcessingAlgorithmForm.qml" bodystart="11" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classQfProcessingAlgorithmForm_1a3ef6593a860ed0d34eccdffe25e787df" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>algorithmDisplayName</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a623c00959244ffffec9e3601d2538b7e" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>algorithmId</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a7f54b29759a052bda08a8a51eb08fb08" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>algorithmParametersModel</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1aa8244fc8d62977892b49a8f931a672ec" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>algorithmShortHelp</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1ad6655528c0fae9261ae0b4456bcf2ef8" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>bottomMargin</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a7812b3cbd6d73191504679b66547fb06" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>container</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a6d15cbf1330ce5227cee67572c1621f2" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>content</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1af733d55b782ddd716a379c0e61215812" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>contentRepeater</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a809f98fdc7ec1de1c57335e83deab7f5" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>contentView</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1aed68c36757040eecb5a643adbaaea14e" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>descriptionContent</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a00d9495848c3a0c48cf76cd3180de60c" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>descriptionView</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1aac5696cec3e82be49f660b9e7c78d720" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>inPlaceLayer</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a98fbc07965a35dc5656d2bd989b8321e" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>parameterContent</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a9930954dc50de150cc55741175cdcf99" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>parameterDescription</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1ac1655edf0d905b65603956abbdb3941c" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>parameterItem</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a2af606f7379e90fd15f9f4af26e41b6e" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>parameterWidgetLoader</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1acc0a86969b8c6385b27baefa29cc0169" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>parameterWidgetPlaceholder</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1aef4951f42ef13c6ba8c4632bd739b853" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>processingAlgorithmParametersModel</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a6dc8aef3fd3169018d346f6751d084e1" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmForm</scope><name>tabRow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

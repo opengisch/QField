@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCogoParameterElevation" kind="class" language="C++" prot="public">
+    <compoundname>QfCogoParameterElevation</compoundname>
+    <basecompoundref refid="classQfCogoParameterWidgetBase" prot="public" virt="non-virtual">QfCogoParameterWidgetBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCogoParameterElevation_1ab3fa802a3f65e3d318d70cebbeb2a446" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoParameterElevation::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCogoParameterElevation::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterElevation.qml" line="8" column="5" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterElevation.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoParameterElevation_1afe6388edaa94ff7845f507c545e7fb37" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoParameterElevation::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCogoParameterElevation::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterElevation.qml" line="9" column="5" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterElevation.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoParameterElevation_1af3a4f2edcaa312114eb7d9158454476e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfCogoParameterElevation::elevationField</definition>
+        <argsstring></argsstring>
+        <name>elevationField</name>
+        <qualifiedname>QfCogoParameterElevation::elevationField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterElevation.qml" line="10" column="13" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterElevation.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCogoParameterElevation_1a5e978ebda143c20ae649ea4191d4997e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoParameterElevation::processValue</definition>
+        <argsstring>()</argsstring>
+        <name>processValue</name>
+        <qualifiedname>QfCogoParameterElevation::processValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterElevation.qml" line="13" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCogoParameterElevation</label>
+        <link refid="classQfCogoParameterElevation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoParameterWidgetBase</label>
+        <link refid="classQfCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCogoParameterElevation</label>
+        <link refid="classQfCogoParameterElevation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoParameterWidgetBase</label>
+        <link refid="classQfCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterElevation.qml" line="7" column="1" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterElevation.qml" bodystart="7" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classQfCogoParameterElevation_1af3a4f2edcaa312114eb7d9158454476e" prot="private" virt="non-virtual"><scope>QfCogoParameterElevation</scope><name>elevationField</name></member>
+      <member refid="classQfCogoParameterElevation_1afe6388edaa94ff7845f507c545e7fb37" prot="private" virt="non-virtual"><scope>QfCogoParameterElevation</scope><name>height</name></member>
+      <member refid="classQfCogoParameterElevation_1a5e978ebda143c20ae649ea4191d4997e" prot="public" virt="non-virtual"><scope>QfCogoParameterElevation</scope><name>processValue</name></member>
+      <member refid="classQfCogoParameterWidgetBase_1a31b2a7aa825831608188d5c97cf5d8a6" prot="public" virt="non-virtual"><scope>QfCogoParameterElevation</scope><name>requestPosition</name></member>
+      <member refid="classQfCogoParameterWidgetBase_1a021ef367435f055140add8a42b7ea339" prot="public" virt="non-virtual"><scope>QfCogoParameterElevation</scope><name>valueChangeRequested</name></member>
+      <member refid="classQfCogoParameterElevation_1ab3fa802a3f65e3d318d70cebbeb2a446" prot="private" virt="non-virtual"><scope>QfCogoParameterElevation</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

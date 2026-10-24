@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfIosResourceSource" kind="class" language="C++" prot="public">
+    <compoundname>QfIosResourceSource</compoundname>
+    <basecompoundref refid="classQfResourceSource" prot="public" virt="non-virtual">QfResourceSource</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfIosResourceSource_1a2666dc157655bc18e6a70ceb3250c25e" prot="private" static="no" mutable="no">
+        <type>QQuickItem *</type>
+        <definition>QQuickItem* QfIosResourceSource::mParent</definition>
+        <argsstring></argsstring>
+        <name>mParent</name>
+        <qualifiedname>QfIosResourceSource::mParent</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="41" column="16" bodyfile="src/core/platforms/ios/qfiosresourcesource.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfIosResourceSource_1aebd9c5a4bd1961cca25c4fd8da6349f7" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfIosResourceSource::mPrefixPath</definition>
+        <argsstring></argsstring>
+        <name>mPrefixPath</name>
+        <qualifiedname>QfIosResourceSource::mPrefixPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="42" column="13" bodyfile="src/core/platforms/ios/qfiosresourcesource.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfIosResourceSource_1aca7f8ff928f23c3f6e28d9d654ef1c1e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfIosResourceSource::mResourceFilePath</definition>
+        <argsstring></argsstring>
+        <name>mResourceFilePath</name>
+        <qualifiedname>QfIosResourceSource::mResourceFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="43" column="13" bodyfile="src/core/platforms/ios/qfiosresourcesource.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfIosResourceSource_1aede17790ec9eec26e719ce931443bc82" prot="private" static="no" mutable="no">
+        <type>CameraDelegateContainer *</type>
+        <definition>CameraDelegateContainer* QfIosResourceSource::mDelegate</definition>
+        <argsstring></argsstring>
+        <name>mDelegate</name>
+        <qualifiedname>QfIosResourceSource::mDelegate</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="45" column="29" bodyfile="src/core/platforms/ios/qfiosresourcesource.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfIosResourceSource_1a62bf0a19eb67affdda4ba152c7df37c5" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfIosResourceSource::QfIosResourceSource</definition>
+        <argsstring>(const QString &amp;prefix=QString(), const QString &amp;resourceFilePath=QString(), QObject *parent=nullptr)</argsstring>
+        <name>QfIosResourceSource</name>
+        <qualifiedname>QfIosResourceSource::QfIosResourceSource</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>prefix</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>resourceFilePath</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="26" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosResourceSource_1af84e9e20ba6043940b88e651b2af962b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfIosResourceSource::resourceFilePath</definition>
+        <argsstring>() const</argsstring>
+        <name>resourceFilePath</name>
+        <qualifiedname>QfIosResourceSource::resourceFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="28" column="13" bodyfile="src/core/platforms/ios/qfiosresourcesource.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfIosResourceSource_1a5471d668f069a4a05337121d7cdab0c7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfIosResourceSource::prefixPath</definition>
+        <argsstring>() const</argsstring>
+        <name>prefixPath</name>
+        <qualifiedname>QfIosResourceSource::prefixPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="29" column="13" bodyfile="src/core/platforms/ios/qfiosresourcesource.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfIosResourceSource_1a828d39b290dd4482caf346dff6a58c0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIosResourceSource::resourceReceived</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>resourceReceived</name>
+        <qualifiedname>QfIosResourceSource::resourceReceived</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="32" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classQfIosResourceSource_1ad5fc35d4878a0feba2b154a16a58312f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIosResourceSource::takePicture</definition>
+        <argsstring>()</argsstring>
+        <name>takePicture</name>
+        <qualifiedname>QfIosResourceSource::takePicture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="35" column="10"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfIosResourceSource_1af63b34dd07c47dafd2c06b2846aecbfc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIosResourceSource::takeVideo</definition>
+        <argsstring>()</argsstring>
+        <name>takeVideo</name>
+        <qualifiedname>QfIosResourceSource::takeVideo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="36" column="10"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfIosResourceSource_1a775abfaf77feecd217e03d7bc2b2f415" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIosResourceSource::pickGalleryPicture</definition>
+        <argsstring>()</argsstring>
+        <name>pickGalleryPicture</name>
+        <qualifiedname>QfIosResourceSource::pickGalleryPicture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="37" column="10"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfIosResourceSource_1a2af4181ccdbad39bdb3f2d92b7e6035e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfIosResourceSource::pickGalleryVideo</definition>
+        <argsstring>()</argsstring>
+        <name>pickGalleryVideo</name>
+        <qualifiedname>QfIosResourceSource::pickGalleryVideo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/platforms/ios/qfiosresourcesource.h" line="38" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfIosResourceSource</label>
+        <link refid="classQfIosResourceSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfResourceSource</label>
+        <link refid="classQfResourceSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfIosResourceSource</label>
+        <link refid="classQfIosResourceSource"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfResourceSource</label>
+        <link refid="classQfResourceSource"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/platforms/ios/qfiosresourcesource.h" line="21" column="1" bodyfile="src/core/platforms/ios/qfiosresourcesource.h" bodystart="22" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classQfIosResourceSource_1aede17790ec9eec26e719ce931443bc82" prot="private" virt="non-virtual"><scope>QfIosResourceSource</scope><name>mDelegate</name></member>
+      <member refid="classQfIosResourceSource_1a2666dc157655bc18e6a70ceb3250c25e" prot="private" virt="non-virtual"><scope>QfIosResourceSource</scope><name>mParent</name></member>
+      <member refid="classQfIosResourceSource_1aebd9c5a4bd1961cca25c4fd8da6349f7" prot="private" virt="non-virtual"><scope>QfIosResourceSource</scope><name>mPrefixPath</name></member>
+      <member refid="classQfIosResourceSource_1aca7f8ff928f23c3f6e28d9d654ef1c1e" prot="private" virt="non-virtual"><scope>QfIosResourceSource</scope><name>mResourceFilePath</name></member>
+      <member refid="classQfIosResourceSource_1a775abfaf77feecd217e03d7bc2b2f415" prot="public" virt="non-virtual"><scope>QfIosResourceSource</scope><name>pickGalleryPicture</name></member>
+      <member refid="classQfIosResourceSource_1a2af4181ccdbad39bdb3f2d92b7e6035e" prot="public" virt="non-virtual"><scope>QfIosResourceSource</scope><name>pickGalleryVideo</name></member>
+      <member refid="classQfIosResourceSource_1a5471d668f069a4a05337121d7cdab0c7" prot="public" virt="non-virtual"><scope>QfIosResourceSource</scope><name>prefixPath</name></member>
+      <member refid="classQfIosResourceSource_1a62bf0a19eb67affdda4ba152c7df37c5" prot="public" virt="non-virtual"><scope>QfIosResourceSource</scope><name>QfIosResourceSource</name></member>
+      <member refid="classQfResourceSource_1adf96a63e479f9728bceb0c4ac83d7999" prot="public" virt="non-virtual"><scope>QfIosResourceSource</scope><name>QfResourceSource</name></member>
+      <member refid="classQfIosResourceSource_1af84e9e20ba6043940b88e651b2af962b" prot="public" virt="non-virtual"><scope>QfIosResourceSource</scope><name>resourceFilePath</name></member>
+      <member refid="classQfIosResourceSource_1a828d39b290dd4482caf346dff6a58c0f" prot="public" virt="non-virtual"><scope>QfIosResourceSource</scope><name>resourceReceived</name></member>
+      <member refid="classQfIosResourceSource_1ad5fc35d4878a0feba2b154a16a58312f" prot="public" virt="non-virtual"><scope>QfIosResourceSource</scope><name>takePicture</name></member>
+      <member refid="classQfIosResourceSource_1af63b34dd07c47dafd2c06b2846aecbfc" prot="public" virt="non-virtual"><scope>QfIosResourceSource</scope><name>takeVideo</name></member>
+      <member refid="classQfResourceSource_1a65795068c4155e4b75510724310044a3" prot="public" virt="virtual"><scope>QfIosResourceSource</scope><name>~QfResourceSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

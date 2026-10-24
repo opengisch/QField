@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProcessingParameterWidgetBase" kind="class" language="C++" prot="public">
+    <compoundname>QfProcessingParameterWidgetBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classQfProcessingParameterArea" prot="public" virt="non-virtual">QfProcessingParameterArea</derivedcompoundref>
+    <derivedcompoundref refid="classQfProcessingParameterBoolean" prot="public" virt="non-virtual">QfProcessingParameterBoolean</derivedcompoundref>
+    <derivedcompoundref refid="classQfProcessingParameterDistance" prot="public" virt="non-virtual">QfProcessingParameterDistance</derivedcompoundref>
+    <derivedcompoundref refid="classQfProcessingParameterEnum" prot="public" virt="non-virtual">QfProcessingParameterEnum</derivedcompoundref>
+    <derivedcompoundref refid="classQfProcessingParameterNumber" prot="public" virt="non-virtual">QfProcessingParameterNumber</derivedcompoundref>
+    <derivedcompoundref refid="classQfProcessingParameterSource" prot="public" virt="non-virtual">QfProcessingParameterSource</derivedcompoundref>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfProcessingParameterWidgetBase_1af72f29e097a532553a57fa4752397fe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProcessingParameterWidgetBase::valueChangeRequested</definition>
+        <argsstring>(var value)</argsstring>
+        <name>valueChangeRequested</name>
+        <qualifiedname>QfProcessingParameterWidgetBase::valueChangeRequested</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This signal is emmited when a processing parameter widget has changed the value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterWidgetBase.qml" line="8" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QfProcessingParameterArea</label>
+        <link refid="classQfProcessingParameterArea"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QfProcessingParameterBoolean</label>
+        <link refid="classQfProcessingParameterBoolean"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>QfProcessingParameterDistance</label>
+        <link refid="classQfProcessingParameterDistance"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>QfProcessingParameterEnum</label>
+        <link refid="classQfProcessingParameterEnum"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>QfProcessingParameterNumber</label>
+        <link refid="classQfProcessingParameterNumber"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>QfProcessingParameterSource</label>
+        <link refid="classQfProcessingParameterSource"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfProcessingParameterWidgetBase</label>
+        <link refid="classQfProcessingParameterWidgetBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfProcessingParameterWidgetBase</label>
+        <link refid="classQfProcessingParameterWidgetBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/processingparameterwidgets/QfProcessingParameterWidgetBase.qml" line="3" column="1" bodyfile="src/gui/qml/processingparameterwidgets/QfProcessingParameterWidgetBase.qml" bodystart="3" bodyend="9"/>
+    <listofallmembers>
+      <member refid="classQfProcessingParameterWidgetBase_1af72f29e097a532553a57fa4752397fe3" prot="public" virt="non-virtual"><scope>QfProcessingParameterWidgetBase</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

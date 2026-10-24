@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="MessageLog_8qml" kind="file" language="C++">
+    <compoundname>MessageLog.qml</compoundname>
+    <innerclass refid="classMessageLog" prot="public">MessageLog</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.qfield.gui</highlight></codeline>
+<codeline lineno="2" refid="classMessageLog" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">QfMessageLog<sp/>{}</highlight></codeline>
+    </programlisting>
+    <location file="src/app/qml_compat/MessageLog.qml"/>
+  </compounddef>
+</doxygen>

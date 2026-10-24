@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfScrollBar" kind="class" language="C++" prot="public">
+    <compoundname>QfScrollBar</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Templates::ScrollBar</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfScrollBar_1aadc4410c673a47d1f164a87d37ce18df" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfScrollBar::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfScrollBar::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScrollBar.qml" line="12" column="1" bodyfile="src/gui/qml/QfScrollBar.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfScrollBar_1a751ad088bdecd87ac60ae0daa46c0145" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfScrollBar::backgroundColor</definition>
+        <argsstring></argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>QfScrollBar::backgroundColor</qualifiedname>
+        <read>dummyGetter_backgroundColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScrollBar.qml" line="14" column="1" bodyfile="src/gui/qml/QfScrollBar.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfScrollBar_1ab015bdf5001e12ca145685ef802c18b9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfScrollBar::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfScrollBar::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScrollBar.qml" line="16" column="5" bodyfile="src/gui/qml/QfScrollBar.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScrollBar_1a01f54d5c6ddcdd5971e7450c00acb7b7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfScrollBar::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfScrollBar::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScrollBar.qml" line="17" column="5" bodyfile="src/gui/qml/QfScrollBar.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScrollBar_1aa2d4a94a1c47787bf85c225698c82b92" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfScrollBar::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>QfScrollBar::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScrollBar.qml" line="18" column="5" bodyfile="src/gui/qml/QfScrollBar.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScrollBar_1a69715c7d2abae1039b5e7133196d3457" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfScrollBar::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <qualifiedname>QfScrollBar::right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScrollBar.qml" line="19" column="12" bodyfile="src/gui/qml/QfScrollBar.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScrollBar_1a6067aa5158c0fe7cc042495d94cb171d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfScrollBar::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfScrollBar::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScrollBar.qml" line="20" column="5" bodyfile="src/gui/qml/QfScrollBar.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScrollBar_1ac7a78bdb70ffb65e0364bef211c876ea" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfScrollBar::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>QfScrollBar::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScrollBar.qml" line="21" column="5" bodyfile="src/gui/qml/QfScrollBar.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfScrollBar</label>
+        <link refid="classQfScrollBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Templates::ScrollBar</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfScrollBar</label>
+        <link refid="classQfScrollBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Templates::ScrollBar</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfScrollBar.qml" line="9" column="1" bodyfile="src/gui/qml/QfScrollBar.qml" bodystart="9" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classQfScrollBar_1a6067aa5158c0fe7cc042495d94cb171d" prot="private" virt="non-virtual"><scope>QfScrollBar</scope><name>background</name></member>
+      <member refid="classQfScrollBar_1a751ad088bdecd87ac60ae0daa46c0145" prot="public" virt="non-virtual"><scope>QfScrollBar</scope><name>backgroundColor</name></member>
+      <member refid="classQfScrollBar_1aadc4410c673a47d1f164a87d37ce18df" prot="public" virt="non-virtual"><scope>QfScrollBar</scope><name>color</name></member>
+      <member refid="classQfScrollBar_1ac7a78bdb70ffb65e0364bef211c876ea" prot="private" virt="non-virtual"><scope>QfScrollBar</scope><name>contentItem</name></member>
+      <member refid="classQfScrollBar_1a01f54d5c6ddcdd5971e7450c00acb7b7" prot="private" virt="non-virtual"><scope>QfScrollBar</scope><name>height</name></member>
+      <member refid="classQfScrollBar_1a69715c7d2abae1039b5e7133196d3457" prot="private" virt="non-virtual"><scope>QfScrollBar</scope><name>right</name></member>
+      <member refid="classQfScrollBar_1aa2d4a94a1c47787bf85c225698c82b92" prot="private" virt="non-virtual"><scope>QfScrollBar</scope><name>visible</name></member>
+      <member refid="classQfScrollBar_1ab015bdf5001e12ca145685ef802c18b9" prot="private" virt="non-virtual"><scope>QfScrollBar</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

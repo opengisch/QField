@@ -1,0 +1,721 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQf3DTerrainGeometry" kind="class" language="C++" prot="public">
+    <compoundname>Qf3DTerrainGeometry</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuick3DGeometry</basecompoundref>
+    <includes refid="qf3dterraingeometry_8h" local="no">qf3dterraingeometry.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQf3DTerrainGeometry_1a0ad2eef868e0d4cb1024dfd28b112a23" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QSize</type>
+        <definition>QSize Qf3DTerrainGeometry::gridSize</definition>
+        <argsstring></argsstring>
+        <name>gridSize</name>
+        <qualifiedname>Qf3DTerrainGeometry::gridSize</qualifiedname>
+        <read>gridSize</read>
+        <write>setGridSize</write>
+        <briefdescription>
+<para>Grid dimensions (width x height) for terrain vertices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="43" column="5" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DTerrainGeometry_1a0ffd2e546f5017176b6d12f9b94d29a4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QSizeF</type>
+        <definition>QSizeF Qf3DTerrainGeometry::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>Qf3DTerrainGeometry::size</qualifiedname>
+        <read>size</read>
+        <write>setSize</write>
+        <briefdescription>
+<para>Width of the terrain mesh in 3D scene units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="46" column="5" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DTerrainGeometry_1a486d6d388a9249b20861884a68158c54" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantList</type>
+        <definition>QVariantList Qf3DTerrainGeometry::heightData</definition>
+        <argsstring></argsstring>
+        <name>heightData</name>
+        <qualifiedname>Qf3DTerrainGeometry::heightData</qualifiedname>
+        <read>heightData</read>
+        <write>setHeightData</write>
+        <briefdescription>
+<para>Height data array for terrain elevation values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="49" column="5" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DTerrainGeometry_1a3d33d8f54856a866ad5df477b5196225" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVector3D</type>
+        <definition>QVector3D Qf3DTerrainGeometry::boundsMin</definition>
+        <argsstring></argsstring>
+        <name>boundsMin</name>
+        <qualifiedname>Qf3DTerrainGeometry::boundsMin</qualifiedname>
+        <read>boundsMin</read>
+        <briefdescription>
+<para>Minimum bounds of the geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="52" column="5" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DTerrainGeometry_1a1516abddb1efc201ff9b7483c928dc21" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVector3D</type>
+        <definition>QVector3D Qf3DTerrainGeometry::boundsMax</definition>
+        <argsstring></argsstring>
+        <name>boundsMax</name>
+        <qualifiedname>Qf3DTerrainGeometry::boundsMax</qualifiedname>
+        <read>boundsMax</read>
+        <briefdescription>
+<para>Maximum bounds of the geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="55" column="5" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DTerrainGeometry_1a3060ac1af974222e1ec0854d33a55de6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVector3D</type>
+        <definition>QVector3D Qf3DTerrainGeometry::offsetVector</definition>
+        <argsstring></argsstring>
+        <name>offsetVector</name>
+        <qualifiedname>Qf3DTerrainGeometry::offsetVector</qualifiedname>
+        <read>offsetVector</read>
+        <write>setOffsetVector</write>
+        <briefdescription>
+<para>Offset vector from the generated terrain heights. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="58" column="5" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQf3DTerrainGeometry_1adecc98230045fba4a82561d9bb29c1c9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Qf3DTerrainGeometry::offsetScale</definition>
+        <argsstring></argsstring>
+        <name>offsetScale</name>
+        <qualifiedname>Qf3DTerrainGeometry::offsetScale</qualifiedname>
+        <read>offsetScale</read>
+        <write>setOffsetScale</write>
+        <briefdescription>
+<para>Pffset scale from the last generated terrain data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="61" column="5" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQf3DTerrainGeometry_1a9ed810f2eb39fc042185ebfe7a72baec" prot="private" static="no" mutable="no">
+        <type>QSize</type>
+        <definition>QSize Qf3DTerrainGeometry::mGridSize</definition>
+        <argsstring></argsstring>
+        <name>mGridSize</name>
+        <qualifiedname>Qf3DTerrainGeometry::mGridSize</qualifiedname>
+        <initializer>= QSize( 64, 64 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="125" column="11" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DTerrainGeometry_1a74ff281c3cfb7a236c60568a88edc89e" prot="private" static="no" mutable="no">
+        <type>QSizeF</type>
+        <definition>QSizeF Qf3DTerrainGeometry::mSize</definition>
+        <argsstring></argsstring>
+        <name>mSize</name>
+        <qualifiedname>Qf3DTerrainGeometry::mSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="126" column="12" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DTerrainGeometry_1a8cf7b738d7c17e97e2083b78804f8878" prot="private" static="no" mutable="no">
+        <type>QVector&lt; float &gt;</type>
+        <definition>QVector&lt;float&gt; Qf3DTerrainGeometry::mHeights</definition>
+        <argsstring></argsstring>
+        <name>mHeights</name>
+        <qualifiedname>Qf3DTerrainGeometry::mHeights</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="128" column="13" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DTerrainGeometry_1a97baa32027a5481d98fa10bf1e37bf06" prot="private" static="no" mutable="no">
+        <type>QVector&lt; float &gt;</type>
+        <definition>QVector&lt;float&gt; Qf3DTerrainGeometry::mMetagridHeights</definition>
+        <argsstring></argsstring>
+        <name>mMetagridHeights</name>
+        <qualifiedname>Qf3DTerrainGeometry::mMetagridHeights</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="130" column="13" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DTerrainGeometry_1a9e11e0a1e619879b8f360fc5f8d95a36" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Qf3DTerrainGeometry::mMetagridWidth</definition>
+        <argsstring></argsstring>
+        <name>mMetagridWidth</name>
+        <qualifiedname>Qf3DTerrainGeometry::mMetagridWidth</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="131" column="9" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DTerrainGeometry_1a92dadb696402251d0ca4b6758b772cfc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Qf3DTerrainGeometry::mMetagridHeight</definition>
+        <argsstring></argsstring>
+        <name>mMetagridHeight</name>
+        <qualifiedname>Qf3DTerrainGeometry::mMetagridHeight</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="132" column="9" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DTerrainGeometry_1a5a4a34e2f2ef833ec8c416d1fd8628b9" prot="private" static="no" mutable="no">
+        <type>QVector3D</type>
+        <definition>QVector3D Qf3DTerrainGeometry::mOffsetVector</definition>
+        <argsstring></argsstring>
+        <name>mOffsetVector</name>
+        <qualifiedname>Qf3DTerrainGeometry::mOffsetVector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="134" column="15" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DTerrainGeometry_1a71198b92ff055a36b1b5fd3578586da0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Qf3DTerrainGeometry::mOffsetScale</definition>
+        <argsstring></argsstring>
+        <name>mOffsetScale</name>
+        <qualifiedname>Qf3DTerrainGeometry::mOffsetScale</qualifiedname>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="135" column="12" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQf3DTerrainGeometry_1a6cfa528d7af439d8f939d7ac78fe92ce" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Qf3DTerrainGeometry::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>Qf3DTerrainGeometry::mDirty</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="137" column="10" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1ac083ae9abeb962de0afd7a26b1545376" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Qf3DTerrainGeometry::Qf3DTerrainGeometry</definition>
+        <argsstring>(QQuick3DObject *parent=nullptr)</argsstring>
+        <name>Qf3DTerrainGeometry</name>
+        <qualifiedname>Qf3DTerrainGeometry::Qf3DTerrainGeometry</qualifiedname>
+        <param>
+          <type>QQuick3DObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Creates a new terrain geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="65" column="14" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="22" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1a933bc9655172829ab3b35921382650a1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QSize</type>
+        <definition>QSize Qf3DTerrainGeometry::gridSize</definition>
+        <argsstring>() const</argsstring>
+        <name>gridSize</name>
+        <qualifiedname>Qf3DTerrainGeometry::gridSize</qualifiedname>
+        <briefdescription>
+<para>Returns the grid dimensions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="68" column="11" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1a7b348cf672cd56a0dfed6064f8f184ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::setGridSize</definition>
+        <argsstring>(const QSize &amp;size)</argsstring>
+        <name>setGridSize</name>
+        <qualifiedname>Qf3DTerrainGeometry::setGridSize</qualifiedname>
+        <param>
+          <type>const QSize &amp;</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Sets the grid dimensions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="71" column="10" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="31" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1aa18dba2eacfdcfa8274182cfe4c9b10c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QSizeF</type>
+        <definition>QSizeF Qf3DTerrainGeometry::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <qualifiedname>Qf3DTerrainGeometry::size</qualifiedname>
+        <briefdescription>
+<para>Returns the width of the terrain mesh in 3D scene units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="74" column="12" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1a24729bedf80b7cdc63c2f5174a8f9d04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::setSize</definition>
+        <argsstring>(const QSizeF &amp;size)</argsstring>
+        <name>setSize</name>
+        <qualifiedname>Qf3DTerrainGeometry::setSize</qualifiedname>
+        <param>
+          <type>const QSizeF &amp;</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Sets the terrain width. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="77" column="10" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="45" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1a8a43fdd281669a3f6c3017eb7c5f8928" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariantList</type>
+        <definition>QVariantList Qf3DTerrainGeometry::heightData</definition>
+        <argsstring>() const</argsstring>
+        <name>heightData</name>
+        <qualifiedname>Qf3DTerrainGeometry::heightData</qualifiedname>
+        <briefdescription>
+<para>Returns the height data in a QML-friendly QVariantList. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="80" column="18" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="59" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1af57f69ee625547f0ca5faca412188d27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::setHeightData</definition>
+        <argsstring>(const QVariantList &amp;data)</argsstring>
+        <name>setHeightData</name>
+        <qualifiedname>Qf3DTerrainGeometry::setHeightData</qualifiedname>
+        <param>
+          <type>const QVariantList &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Sets the height data array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="83" column="10" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="69" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1a6046930f179dd8879e5dc3f845ab08b0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVector3D</type>
+        <definition>QVector3D Qf3DTerrainGeometry::offsetVector</definition>
+        <argsstring>() const</argsstring>
+        <name>offsetVector</name>
+        <qualifiedname>Qf3DTerrainGeometry::offsetVector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="85" column="15" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="85" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1a20c3e4395fec1fa55d93b3890ec517f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::setOffsetVector</definition>
+        <argsstring>(const QVector3D &amp;offsetVector)</argsstring>
+        <name>setOffsetVector</name>
+        <qualifiedname>Qf3DTerrainGeometry::setOffsetVector</qualifiedname>
+        <param>
+          <type>const QVector3D &amp;</type>
+          <declname>offsetVector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="87" column="10" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="124" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1a75e5a9bdede836807390fa03723bb261" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Qf3DTerrainGeometry::offsetScale</definition>
+        <argsstring>() const</argsstring>
+        <name>offsetScale</name>
+        <qualifiedname>Qf3DTerrainGeometry::offsetScale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="89" column="12" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1add9e887f984fb7ae7d6f62d655e61c5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::setOffsetScale</definition>
+        <argsstring>(double offsetScale)</argsstring>
+        <name>setOffsetScale</name>
+        <qualifiedname>Qf3DTerrainGeometry::setOffsetScale</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>offsetScale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="91" column="10" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="138" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1a18864262ffe5e22b84dde355c48dd7ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Qf3DTerrainGeometry::buildMetagridFromProvider</definition>
+        <argsstring>(const Qf3DTerrainProvider *provider)</argsstring>
+        <name>buildMetagridFromProvider</name>
+        <qualifiedname>Qf3DTerrainGeometry::buildMetagridFromProvider</qualifiedname>
+        <param>
+          <type>const <ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+<para>Builds and stores a 3x3 metagrid from the provider&apos;s normalized data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="94" column="22" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="86" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1a99ded900e0e06622a67b0d3ee04a54d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Qf3DTerrainGeometry::restoreHeightsFromProvider</definition>
+        <argsstring>(const Qf3DTerrainProvider *provider)</argsstring>
+        <name>restoreHeightsFromProvider</name>
+        <qualifiedname>Qf3DTerrainGeometry::restoreHeightsFromProvider</qualifiedname>
+        <param>
+          <type>const <ref refid="classQf3DTerrainProvider" kindref="compound">Qf3DTerrainProvider</ref> *</type>
+          <declname>provider</declname>
+        </param>
+        <briefdescription>
+<para>Restores the original height data from the provider. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="97" column="22" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="213" bodyend="232"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQf3DTerrainGeometry_1aa1270984eaeb2db3d1121d10c99c43e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::gridSizeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>gridSizeChanged</name>
+        <qualifiedname>Qf3DTerrainGeometry::gridSizeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="100" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DTerrainGeometry_1a8a4cd2e42571179a7161290c383d67c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::sizeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>sizeChanged</name>
+        <qualifiedname>Qf3DTerrainGeometry::sizeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="101" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DTerrainGeometry_1ae105838b557e28dd09c84cf84422a77d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::heightDataChanged</definition>
+        <argsstring>()</argsstring>
+        <name>heightDataChanged</name>
+        <qualifiedname>Qf3DTerrainGeometry::heightDataChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="102" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DTerrainGeometry_1ae2df1cab09b12b6cc709c719f2771bad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::boundsMinMaxChanged</definition>
+        <argsstring>()</argsstring>
+        <name>boundsMinMaxChanged</name>
+        <qualifiedname>Qf3DTerrainGeometry::boundsMinMaxChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="103" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DTerrainGeometry_1a7ce1911140494693b74aee795f629e4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::offsetVectorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>offsetVectorChanged</name>
+        <qualifiedname>Qf3DTerrainGeometry::offsetVectorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="104" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQf3DTerrainGeometry_1a358c7c1aa404d42ea5c4c3c376ff5d1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::offsetScaleChanged</definition>
+        <argsstring>()</argsstring>
+        <name>offsetScaleChanged</name>
+        <qualifiedname>Qf3DTerrainGeometry::offsetScaleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="105" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1a292128bdffc0eed3bd9cbd9236520d6c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::updateGeometry</definition>
+        <argsstring>()</argsstring>
+        <name>updateGeometry</name>
+        <qualifiedname>Qf3DTerrainGeometry::updateGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Regenerates the terrain mesh geometry from current height data.</para>
+<para>This method constructs a triangulated grid by generating vertex positions, per-vertex normals, and UV texture coordinates. The mesh is built using a resolution×resolution grid where each quad is split into two triangles. Vertex normals are calculated using the cross product of adjacent edges for proper lighting. The geometry buffers are uploaded to the GPU through Qt Quick 3D&apos;s geometry API. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="118" column="10" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="268" bodyend="374"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1aaad6815674390a8b764d0cd4dbbb3b0c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Qf3DTerrainGeometry::applyShiftedHeights</definition>
+        <argsstring>()</argsstring>
+        <name>applyShiftedHeights</name>
+        <qualifiedname>Qf3DTerrainGeometry::applyShiftedHeights</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="120" column="10" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="152" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1adea50fedf1022c0c67dfbcaf948e55a0" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector3D</type>
+        <definition>QVector3D Qf3DTerrainGeometry::calculateNormal</definition>
+        <argsstring>(int x, int z) const</argsstring>
+        <name>calculateNormal</name>
+        <qualifiedname>Qf3DTerrainGeometry::calculateNormal</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="122" column="15" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="250" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classQf3DTerrainGeometry_1aa21a9b08876507d2956e7db4ab800d68" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Qf3DTerrainGeometry::getHeight</definition>
+        <argsstring>(int x, int z) const</argsstring>
+        <name>getHeight</name>
+        <qualifiedname>Qf3DTerrainGeometry::getHeight</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/3d/qf3dterraingeometry.h" line="123" column="11" bodyfile="src/3d/qf3dterraingeometry.cpp" bodystart="234" bodyend="248"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Custom Qt Quick 3D geometry for rendering terrain meshes with height data.</para>
+<para>This class generates a triangulated mesh grid with vertex positions, normals, and texture coordinates based on provided elevation data. The geometry is suitable for use with Qt Quick 3D Model items and supports dynamic updates when height data changes.</para>
+<para><simplesect kind="note"><para>QML Type: <ref refid="classQf3DTerrainGeometry" kindref="compound">Qf3DTerrainGeometry</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="1">
+        <label>Qf3DTerrainGeometry</label>
+        <link refid="classQf3DTerrainGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuick3DGeometry</label>
+      </node>
+      <node id="1">
+        <label>Qf3DTerrainGeometry</label>
+        <link refid="classQf3DTerrainGeometry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/3d/qf3dterraingeometry.h" line="38" column="1" bodyfile="src/3d/qf3dterraingeometry.h" bodystart="39" bodyend="138"/>
+    <listofallmembers>
+      <member refid="classQf3DTerrainGeometry_1aaad6815674390a8b764d0cd4dbbb3b0c" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>applyShiftedHeights</name></member>
+      <member refid="classQf3DTerrainGeometry_1a1516abddb1efc201ff9b7483c928dc21" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>boundsMax</name></member>
+      <member refid="classQf3DTerrainGeometry_1a3d33d8f54856a866ad5df477b5196225" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>boundsMin</name></member>
+      <member refid="classQf3DTerrainGeometry_1ae2df1cab09b12b6cc709c719f2771bad" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>boundsMinMaxChanged</name></member>
+      <member refid="classQf3DTerrainGeometry_1a18864262ffe5e22b84dde355c48dd7ac" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>buildMetagridFromProvider</name></member>
+      <member refid="classQf3DTerrainGeometry_1adea50fedf1022c0c67dfbcaf948e55a0" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>calculateNormal</name></member>
+      <member refid="classQf3DTerrainGeometry_1aa21a9b08876507d2956e7db4ab800d68" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>getHeight</name></member>
+      <member refid="classQf3DTerrainGeometry_1a0ad2eef868e0d4cb1024dfd28b112a23" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>gridSize</name></member>
+      <member refid="classQf3DTerrainGeometry_1a933bc9655172829ab3b35921382650a1" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>gridSize</name></member>
+      <member refid="classQf3DTerrainGeometry_1aa1270984eaeb2db3d1121d10c99c43e3" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>gridSizeChanged</name></member>
+      <member refid="classQf3DTerrainGeometry_1a486d6d388a9249b20861884a68158c54" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>heightData</name></member>
+      <member refid="classQf3DTerrainGeometry_1a8a43fdd281669a3f6c3017eb7c5f8928" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>heightData</name></member>
+      <member refid="classQf3DTerrainGeometry_1ae105838b557e28dd09c84cf84422a77d" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>heightDataChanged</name></member>
+      <member refid="classQf3DTerrainGeometry_1a6cfa528d7af439d8f939d7ac78fe92ce" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>mDirty</name></member>
+      <member refid="classQf3DTerrainGeometry_1a9ed810f2eb39fc042185ebfe7a72baec" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>mGridSize</name></member>
+      <member refid="classQf3DTerrainGeometry_1a8cf7b738d7c17e97e2083b78804f8878" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>mHeights</name></member>
+      <member refid="classQf3DTerrainGeometry_1a92dadb696402251d0ca4b6758b772cfc" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>mMetagridHeight</name></member>
+      <member refid="classQf3DTerrainGeometry_1a97baa32027a5481d98fa10bf1e37bf06" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>mMetagridHeights</name></member>
+      <member refid="classQf3DTerrainGeometry_1a9e11e0a1e619879b8f360fc5f8d95a36" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>mMetagridWidth</name></member>
+      <member refid="classQf3DTerrainGeometry_1a71198b92ff055a36b1b5fd3578586da0" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>mOffsetScale</name></member>
+      <member refid="classQf3DTerrainGeometry_1a5a4a34e2f2ef833ec8c416d1fd8628b9" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>mOffsetVector</name></member>
+      <member refid="classQf3DTerrainGeometry_1a74ff281c3cfb7a236c60568a88edc89e" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>mSize</name></member>
+      <member refid="classQf3DTerrainGeometry_1adecc98230045fba4a82561d9bb29c1c9" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>offsetScale</name></member>
+      <member refid="classQf3DTerrainGeometry_1a75e5a9bdede836807390fa03723bb261" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>offsetScale</name></member>
+      <member refid="classQf3DTerrainGeometry_1a358c7c1aa404d42ea5c4c3c376ff5d1e" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>offsetScaleChanged</name></member>
+      <member refid="classQf3DTerrainGeometry_1a3060ac1af974222e1ec0854d33a55de6" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>offsetVector</name></member>
+      <member refid="classQf3DTerrainGeometry_1a6046930f179dd8879e5dc3f845ab08b0" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>offsetVector</name></member>
+      <member refid="classQf3DTerrainGeometry_1a7ce1911140494693b74aee795f629e4b" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>offsetVectorChanged</name></member>
+      <member refid="classQf3DTerrainGeometry_1ac083ae9abeb962de0afd7a26b1545376" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>Qf3DTerrainGeometry</name></member>
+      <member refid="classQf3DTerrainGeometry_1a99ded900e0e06622a67b0d3ee04a54d2" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>restoreHeightsFromProvider</name></member>
+      <member refid="classQf3DTerrainGeometry_1a7b348cf672cd56a0dfed6064f8f184ff" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>setGridSize</name></member>
+      <member refid="classQf3DTerrainGeometry_1af57f69ee625547f0ca5faca412188d27" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>setHeightData</name></member>
+      <member refid="classQf3DTerrainGeometry_1add9e887f984fb7ae7d6f62d655e61c5a" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>setOffsetScale</name></member>
+      <member refid="classQf3DTerrainGeometry_1a20c3e4395fec1fa55d93b3890ec517f0" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>setOffsetVector</name></member>
+      <member refid="classQf3DTerrainGeometry_1a24729bedf80b7cdc63c2f5174a8f9d04" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>setSize</name></member>
+      <member refid="classQf3DTerrainGeometry_1a0ffd2e546f5017176b6d12f9b94d29a4" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>size</name></member>
+      <member refid="classQf3DTerrainGeometry_1aa18dba2eacfdcfa8274182cfe4c9b10c" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>size</name></member>
+      <member refid="classQf3DTerrainGeometry_1a8a4cd2e42571179a7161290c383d67c5" prot="public" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>sizeChanged</name></member>
+      <member refid="classQf3DTerrainGeometry_1a292128bdffc0eed3bd9cbd9236520d6c" prot="private" virt="non-virtual"><scope>Qf3DTerrainGeometry</scope><name>updateGeometry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

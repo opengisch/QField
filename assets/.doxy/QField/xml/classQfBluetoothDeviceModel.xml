@@ -1,0 +1,710 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfBluetoothDeviceModel" kind="class" language="C++" prot="public">
+    <compoundname>QfBluetoothDeviceModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="qfbluetoothdevicemodel_8h" local="no">qfbluetoothdevicemodel.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efa" prot="public" static="no" strong="no">
+        <type></type>
+        <name>BluetoothDeviceRoles</name>
+        <qualifiedname>QfBluetoothDeviceModel::BluetoothDeviceRoles</qualifiedname>
+        <enumvalue id="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efaa7f7ddf9f033b22dfdca2654c2bd7b9bc" prot="public">
+          <name>DeviceAddressRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efaaf206dfd2939f19c0849f055991249085" prot="public">
+          <name>DeviceNameRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efaa2d1fdd8104d47e60d16b4b04a0c7cd3d" prot="public">
+          <name>DeviceClassicSupportRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efaa2b8ae4916f0bb33d31319808e9c55934" prot="public">
+          <name>DeviceLowEnergySupportRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efaa90d7ab8e097fac27d538a0a0f82e5682" prot="public">
+          <name>DeviceLowEnergyByDefaultRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The roles provided by this model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="41" column="5" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="42" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ScanningStatus</name>
+        <qualifiedname>QfBluetoothDeviceModel::ScanningStatus</qualifiedname>
+        <enumvalue id="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651addf32e14f06889a02ed435a8fad41bab" prot="public">
+          <name>Discovering</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651a8f994399fb5c32e5d5835bc0d10198d7" prot="public">
+          <name>Succeeded</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651ad5009788378df9c73c28f235333f9aca" prot="public">
+          <name>Failed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651a01bbc16076a77fe6ad8a3c93bcccb181" prot="public">
+          <name>Canceled</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651aeb1147e7e9cc40a43d70265f412a5f63" prot="public">
+          <name>NoStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>The status telling the result of the scanning. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="52" column="5" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="53" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfBluetoothDeviceModel_1a53e0f821a4b88716edda331c929e0d0b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651" kindref="member">ScanningStatus</ref></type>
+        <definition>ScanningStatus QfBluetoothDeviceModel::scanningStatus</definition>
+        <argsstring></argsstring>
+        <name>scanningStatus</name>
+        <qualifiedname>QfBluetoothDeviceModel::scanningStatus</qualifiedname>
+        <read>scanningStatus</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="35" column="5" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBluetoothDeviceModel_1a76b7e19f735188259cce64cc6d7b1b62" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QfBluetoothDeviceModel::lastDiscoveredCount</definition>
+        <argsstring></argsstring>
+        <name>lastDiscoveredCount</name>
+        <qualifiedname>QfBluetoothDeviceModel::lastDiscoveredCount</qualifiedname>
+        <read>lastDiscoveredCount</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="36" column="5" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBluetoothDeviceModel_1aef02a65520c6ce036bc0a960428b3e08" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfBluetoothDeviceModel::lastError</definition>
+        <argsstring></argsstring>
+        <name>lastError</name>
+        <qualifiedname>QfBluetoothDeviceModel::lastError</qualifiedname>
+        <read>lastError</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="37" column="5" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfBluetoothDeviceModel_1a82d085d5eae1fa8afd4f636fba910a8c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfBluetoothDeviceModel::mBluetoothPermissionChecked</definition>
+        <argsstring></argsstring>
+        <name>mBluetoothPermissionChecked</name>
+        <qualifiedname>QfBluetoothDeviceModel::mBluetoothPermissionChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="118" column="10" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBluetoothDeviceModel_1a35cabe9af2bbc3f39baf1a6316b04fbc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfBluetoothDeviceModel::mLocationPermissionChecked</definition>
+        <argsstring></argsstring>
+        <name>mLocationPermissionChecked</name>
+        <qualifiedname>QfBluetoothDeviceModel::mLocationPermissionChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="119" column="10" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBluetoothDeviceModel_1af861fb5213180b86a0767947ccef9517" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QBluetoothLocalDevice &gt;</type>
+        <definition>std::unique_ptr&lt;QBluetoothLocalDevice&gt; QfBluetoothDeviceModel::mLocalDevice</definition>
+        <argsstring></argsstring>
+        <name>mLocalDevice</name>
+        <qualifiedname>QfBluetoothDeviceModel::mLocalDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="121" column="21" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBluetoothDeviceModel_1af791b89cc5d81c78ffad971a5c18b45a" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QBluetoothDeviceDiscoveryAgent &gt;</type>
+        <definition>std::unique_ptr&lt;QBluetoothDeviceDiscoveryAgent&gt; QfBluetoothDeviceModel::mDeviceDiscoveryAgent</definition>
+        <argsstring></argsstring>
+        <name>mDeviceDiscoveryAgent</name>
+        <qualifiedname>QfBluetoothDeviceModel::mDeviceDiscoveryAgent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="122" column="21" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBluetoothDeviceModel_1a24c24e46727a94b2def8d93368ab5c9d" prot="private" static="no" mutable="no">
+        <type>QList&lt; QBluetoothDeviceInfo &gt;</type>
+        <definition>QList&lt;QBluetoothDeviceInfo&gt; QfBluetoothDeviceModel::mDiscoveredDevices</definition>
+        <argsstring></argsstring>
+        <name>mDiscoveredDevices</name>
+        <qualifiedname>QfBluetoothDeviceModel::mDiscoveredDevices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="123" column="11" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBluetoothDeviceModel_1a3f9bc80ceee21449ac34cf772f1742c6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651" kindref="member">ScanningStatus</ref></type>
+        <definition>ScanningStatus QfBluetoothDeviceModel::mScanningStatus</definition>
+        <argsstring></argsstring>
+        <name>mScanningStatus</name>
+        <qualifiedname>QfBluetoothDeviceModel::mScanningStatus</qualifiedname>
+        <initializer>= NoStatus</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="124" column="20" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBluetoothDeviceModel_1a6be0f1393fd409976a903da4c701f639" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QfBluetoothDeviceModel::mLastDiscoveredCount</definition>
+        <argsstring></argsstring>
+        <name>mLastDiscoveredCount</name>
+        <qualifiedname>QfBluetoothDeviceModel::mLastDiscoveredCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="126" column="15" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBluetoothDeviceModel_1a2d5275440bb883e4148a87684ea17c37" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfBluetoothDeviceModel::mLastError</definition>
+        <argsstring></argsstring>
+        <name>mLastError</name>
+        <qualifiedname>QfBluetoothDeviceModel::mLastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="127" column="13" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1a01f9ac692de37a7dfab4878861687a2f" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfBluetoothDeviceModel::QfBluetoothDeviceModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfBluetoothDeviceModel</name>
+        <qualifiedname>QfBluetoothDeviceModel::QfBluetoothDeviceModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="63" column="14" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1a18336f63f741bbfcb2c14154e8d10433" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfBluetoothDeviceModel::~QfBluetoothDeviceModel</definition>
+        <argsstring>()</argsstring>
+        <name>~QfBluetoothDeviceModel</name>
+        <qualifiedname>QfBluetoothDeviceModel::~QfBluetoothDeviceModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="64" column="5" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1a4bedc2ede894f555d7c9ba0c3484b278" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfBluetoothDeviceModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfBluetoothDeviceModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="66" column="9" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="216" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1ae3e582da7411932c06278ec7bf3cecf0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfBluetoothDeviceModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfBluetoothDeviceModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="68" column="14" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="221" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1a84c6eacc6d0d444483cd1805ac7c4f0b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfBluetoothDeviceModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfBluetoothDeviceModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="70" column="11" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="260" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1a6104757d0ce4c2fc26ca24b672a83626" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfBluetoothDeviceModel::addDevice</definition>
+        <argsstring>(const QString &amp;name, const QString &amp;address)</argsstring>
+        <name>addDevice</name>
+        <qualifiedname>QfBluetoothDeviceModel::addDevice</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a Bluetooth device if not already in the model <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>friendly device name used as identifier in the user interface </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bluetooth address of the device </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>returns index of the Bluetooth device </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="78" column="21" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="297" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1a1c662221a9159f11a7373b6331ed6d6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfBluetoothDeviceModel::startDeviceDiscovery</definition>
+        <argsstring>()</argsstring>
+        <name>startDeviceDiscovery</name>
+        <qualifiedname>QfBluetoothDeviceModel::startDeviceDiscovery</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts a scan to discover nearby Bluetooth devices, sequentially going through a fast scan then a full, deeper scan for devices. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="84" column="22" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="70" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1a986f11b97a094e262af90d80e7d069cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfBluetoothDeviceModel::stopDeviceDiscovery</definition>
+        <argsstring>()</argsstring>
+        <name>stopDeviceDiscovery</name>
+        <qualifiedname>QfBluetoothDeviceModel::stopDeviceDiscovery</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stops any ongoing scan to discover nearby Bluetooth devices. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="89" column="22" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="156" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1ac551990b377b8067587ef5bd4c61414b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfBluetoothDeviceModel::findIndexFromAddress</definition>
+        <argsstring>(const QString &amp;address) const</argsstring>
+        <name>findIndexFromAddress</name>
+        <qualifiedname>QfBluetoothDeviceModel::findIndexFromAddress</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the row index for a given Bluetooth device address </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="94" column="21" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="203" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1ad9bd862d45fa62dddaa5b2bd49c25bbd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651" kindref="member">ScanningStatus</ref></type>
+        <definition>ScanningStatus QfBluetoothDeviceModel::scanningStatus</definition>
+        <argsstring>() const</argsstring>
+        <name>scanningStatus</name>
+        <qualifiedname>QfBluetoothDeviceModel::scanningStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="96" column="20" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1a6382e306905e0cf7c92f8415fbb63113" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>qsizetype</type>
+        <definition>qsizetype QfBluetoothDeviceModel::lastDiscoveredCount</definition>
+        <argsstring>() const</argsstring>
+        <name>lastDiscoveredCount</name>
+        <qualifiedname>QfBluetoothDeviceModel::lastDiscoveredCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="98" column="15" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1ace83b24d2c8800c19eb99754a4e8c679" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfBluetoothDeviceModel::lastError</definition>
+        <argsstring>() const</argsstring>
+        <name>lastError</name>
+        <qualifiedname>QfBluetoothDeviceModel::lastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="100" column="13" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1a2311e81ca8196c1024d09856cdc18573" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfBluetoothDeviceModel::deviceAddress</definition>
+        <argsstring>(const QBluetoothDeviceInfo &amp;info) const</argsstring>
+        <name>deviceAddress</name>
+        <qualifiedname>QfBluetoothDeviceModel::deviceAddress</qualifiedname>
+        <param>
+          <type>const QBluetoothDeviceInfo &amp;</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="102" column="13" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="322" bodyend="329"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfBluetoothDeviceModel_1a78f12707062e7b716e7bc9796d627aa9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBluetoothDeviceModel::scanningStatusChanged</definition>
+        <argsstring>(QfBluetoothDeviceModel::ScanningStatus scanningStatus)</argsstring>
+        <name>scanningStatusChanged</name>
+        <qualifiedname>QfBluetoothDeviceModel::scanningStatusChanged</qualifiedname>
+        <param>
+          <type><ref refid="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651" kindref="member">QfBluetoothDeviceModel::ScanningStatus</ref></type>
+          <declname>scanningStatus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="106" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfBluetoothDeviceModel_1a4dac13d29c673c0eee770981a9fcf258" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBluetoothDeviceModel::lastDiscoveredCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lastDiscoveredCountChanged</name>
+        <qualifiedname>QfBluetoothDeviceModel::lastDiscoveredCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="107" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfBluetoothDeviceModel_1a778095ebd6bf6ad57b63bfd724189595" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBluetoothDeviceModel::lastErrorChanged</definition>
+        <argsstring>(QString lastError)</argsstring>
+        <name>lastErrorChanged</name>
+        <qualifiedname>QfBluetoothDeviceModel::lastErrorChanged</qualifiedname>
+        <param>
+          <type>QString</type>
+          <declname>lastError</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="108" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfBluetoothDeviceModel_1a03fbf89d9a08217163c39654fcf44a38" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBluetoothDeviceModel::setScanningStatus</definition>
+        <argsstring>(const QfBluetoothDeviceModel::ScanningStatus scanningStatus)</argsstring>
+        <name>setScanningStatus</name>
+        <qualifiedname>QfBluetoothDeviceModel::setScanningStatus</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651" kindref="member">QfBluetoothDeviceModel::ScanningStatus</ref></type>
+          <declname>scanningStatus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="111" column="10" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="273" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfBluetoothDeviceModel_1a595d2f2926a9b9f335aae3cb98b8a2d7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBluetoothDeviceModel::setLastError</definition>
+        <argsstring>(const QString &amp;lastError)</argsstring>
+        <name>setLastError</name>
+        <qualifiedname>QfBluetoothDeviceModel::setLastError</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>lastError</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="112" column="10" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="285" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfBluetoothDeviceModel_1a09a001c9248dc797461f1f737312ded3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBluetoothDeviceModel::deviceDiscovered</definition>
+        <argsstring>(const QBluetoothDeviceInfo &amp;info)</argsstring>
+        <name>deviceDiscovered</name>
+        <qualifiedname>QfBluetoothDeviceModel::deviceDiscovered</qualifiedname>
+        <param>
+          <type>const QBluetoothDeviceInfo &amp;</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="113" column="10" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="168" bodyend="201"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfBluetoothDeviceModel_1a5fa2d98070ae77949d5ae4b8d9d17c90" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBluetoothDeviceModel::initiateDiscoveryAgent</definition>
+        <argsstring>()</argsstring>
+        <name>initiateDiscoveryAgent</name>
+        <qualifiedname>QfBluetoothDeviceModel::initiateDiscoveryAgent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="116" column="10" bodyfile="src/core/positioning/qfbluetoothdevicemodel.cpp" bodystart="37" bodyend="68"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A model that provides all paired bluetooth devices name/address that are accessible over the serial port. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfBluetoothDeviceModel</label>
+        <link refid="classQfBluetoothDeviceModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfBluetoothDeviceModel</label>
+        <link refid="classQfBluetoothDeviceModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/qfbluetoothdevicemodel.h" line="31" column="1" bodyfile="src/core/positioning/qfbluetoothdevicemodel.h" bodystart="32" bodyend="128"/>
+    <listofallmembers>
+      <member refid="classQfBluetoothDeviceModel_1a6104757d0ce4c2fc26ca24b672a83626" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>addDevice</name></member>
+      <member refid="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efa" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>BluetoothDeviceRoles</name></member>
+      <member refid="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651a01bbc16076a77fe6ad8a3c93bcccb181" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>Canceled</name></member>
+      <member refid="classQfBluetoothDeviceModel_1ae3e582da7411932c06278ec7bf3cecf0" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>data</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a2311e81ca8196c1024d09856cdc18573" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>deviceAddress</name></member>
+      <member refid="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efaa7f7ddf9f033b22dfdca2654c2bd7b9bc" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>DeviceAddressRole</name></member>
+      <member refid="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efaa2d1fdd8104d47e60d16b4b04a0c7cd3d" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>DeviceClassicSupportRole</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a09a001c9248dc797461f1f737312ded3" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>deviceDiscovered</name></member>
+      <member refid="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efaa90d7ab8e097fac27d538a0a0f82e5682" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>DeviceLowEnergyByDefaultRole</name></member>
+      <member refid="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efaa2b8ae4916f0bb33d31319808e9c55934" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>DeviceLowEnergySupportRole</name></member>
+      <member refid="classQfBluetoothDeviceModel_1ac0e25b54eec3fceb17f55cd38f7f9efaaf206dfd2939f19c0849f055991249085" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>DeviceNameRole</name></member>
+      <member refid="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651addf32e14f06889a02ed435a8fad41bab" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>Discovering</name></member>
+      <member refid="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651ad5009788378df9c73c28f235333f9aca" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>Failed</name></member>
+      <member refid="classQfBluetoothDeviceModel_1ac551990b377b8067587ef5bd4c61414b" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>findIndexFromAddress</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a5fa2d98070ae77949d5ae4b8d9d17c90" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>initiateDiscoveryAgent</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a76b7e19f735188259cce64cc6d7b1b62" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>lastDiscoveredCount</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a6382e306905e0cf7c92f8415fbb63113" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>lastDiscoveredCount</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a4dac13d29c673c0eee770981a9fcf258" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>lastDiscoveredCountChanged</name></member>
+      <member refid="classQfBluetoothDeviceModel_1aef02a65520c6ce036bc0a960428b3e08" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>lastError</name></member>
+      <member refid="classQfBluetoothDeviceModel_1ace83b24d2c8800c19eb99754a4e8c679" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>lastError</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a778095ebd6bf6ad57b63bfd724189595" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>lastErrorChanged</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a82d085d5eae1fa8afd4f636fba910a8c" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>mBluetoothPermissionChecked</name></member>
+      <member refid="classQfBluetoothDeviceModel_1af791b89cc5d81c78ffad971a5c18b45a" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>mDeviceDiscoveryAgent</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a24c24e46727a94b2def8d93368ab5c9d" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>mDiscoveredDevices</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a6be0f1393fd409976a903da4c701f639" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>mLastDiscoveredCount</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a2d5275440bb883e4148a87684ea17c37" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>mLastError</name></member>
+      <member refid="classQfBluetoothDeviceModel_1af861fb5213180b86a0767947ccef9517" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>mLocalDevice</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a35cabe9af2bbc3f39baf1a6316b04fbc" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>mLocationPermissionChecked</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a3f9bc80ceee21449ac34cf772f1742c6" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>mScanningStatus</name></member>
+      <member refid="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651aeb1147e7e9cc40a43d70265f412a5f63" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>NoStatus</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a01f9ac692de37a7dfab4878861687a2f" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>QfBluetoothDeviceModel</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a84c6eacc6d0d444483cd1805ac7c4f0b" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>roleNames</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a4bedc2ede894f555d7c9ba0c3484b278" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>rowCount</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a53e0f821a4b88716edda331c929e0d0b" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>scanningStatus</name></member>
+      <member refid="classQfBluetoothDeviceModel_1ad9bd862d45fa62dddaa5b2bd49c25bbd" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>scanningStatus</name></member>
+      <member refid="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>ScanningStatus</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a78f12707062e7b716e7bc9796d627aa9" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>scanningStatusChanged</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a595d2f2926a9b9f335aae3cb98b8a2d7" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>setLastError</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a03fbf89d9a08217163c39654fcf44a38" prot="private" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>setScanningStatus</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a1c662221a9159f11a7373b6331ed6d6b" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>startDeviceDiscovery</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a986f11b97a094e262af90d80e7d069cf" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>stopDeviceDiscovery</name></member>
+      <member refid="classQfBluetoothDeviceModel_1af267fbf288007980277bb92aa5f7b651a8f994399fb5c32e5d5835bc0d10198d7" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>Succeeded</name></member>
+      <member refid="classQfBluetoothDeviceModel_1a18336f63f741bbfcb2c14154e8d10433" prot="public" virt="non-virtual"><scope>QfBluetoothDeviceModel</scope><name>~QfBluetoothDeviceModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

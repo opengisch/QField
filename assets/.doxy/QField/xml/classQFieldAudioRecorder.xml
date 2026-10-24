@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQFieldAudioRecorder" kind="class" language="C++" prot="public">
+    <compoundname>QFieldAudioRecorder</compoundname>
+    <basecompoundref refid="classQfAudioClipRecorder" prot="public" virt="non-virtual">QfAudioClipRecorder</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QFieldAudioRecorder</label>
+        <link refid="classQFieldAudioRecorder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfAudioClipRecorder</label>
+        <link refid="classQfAudioClipRecorder"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QFieldAudioRecorder</label>
+        <link refid="classQFieldAudioRecorder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfAudioClipRecorder</label>
+        <link refid="classQfAudioClipRecorder"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/QFieldAudioRecorder.qml" line="2" column="1" bodyfile="src/app/qml_compat/QFieldAudioRecorder.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfAudioClipRecorder_1ad569e5bf8e84f1ac9e8c2fb5ec291a97" prot="public" virt="non-virtual"><scope>QFieldAudioRecorder</scope><name>canceled</name></member>
+      <member refid="classQfAudioClipRecorder_1a6cf6c4eb6001fa3b98a9bdd8c28e8878" prot="public" virt="non-virtual"><scope>QFieldAudioRecorder</scope><name>finished</name></member>
+      <member refid="classQfAudioClipRecorder_1acd4c860425706d7a8cdb0a40ace01bab" prot="public" virt="non-virtual"><scope>QFieldAudioRecorder</scope><name>hasRecordedClip</name></member>
+      <member refid="classQfAudioClipRecorder_1a9e9693e9c6fa29a4b5f28349254c6d9a" prot="public" virt="non-virtual"><scope>QFieldAudioRecorder</scope><name>popupWidth</name></member>
+      <member refid="classQfAudioClipRecorder_1a71992702cdf2bd82730651923fbb8245" prot="public" virt="non-virtual"><scope>QFieldAudioRecorder</scope><name>preRecording</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

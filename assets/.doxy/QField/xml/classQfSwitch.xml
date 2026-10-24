@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfSwitch" kind="class" language="C++" prot="public">
+    <compoundname>QfSwitch</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">SwitchDelegate</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfSwitch_1a33ca0d181bd137e7376e155bacb7655e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfSwitch::indicator</definition>
+        <argsstring></argsstring>
+        <name>indicator</name>
+        <qualifiedname>QfSwitch::indicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfSwitch.qml" line="11" column="5" bodyfile="src/gui/qml/QfSwitch.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfSwitch</label>
+        <link refid="classQfSwitch"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SwitchDelegate</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfSwitch</label>
+        <link refid="classQfSwitch"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SwitchDelegate</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfSwitch.qml" line="10" column="1" bodyfile="src/gui/qml/QfSwitch.qml" bodystart="10" bodyend="12"/>
+    <listofallmembers>
+      <member refid="classQfSwitch_1a33ca0d181bd137e7376e155bacb7655e" prot="private" virt="non-virtual"><scope>QfSwitch</scope><name>indicator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

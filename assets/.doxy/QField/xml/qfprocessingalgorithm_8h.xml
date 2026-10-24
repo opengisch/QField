@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfprocessingalgorithm_8h" kind="file" language="C++">
+    <compoundname>qfprocessingalgorithm.h</compoundname>
+    <includes refid="qfprocessingalgorithmparametersmodel_8h" local="yes">qfprocessingalgorithmparametersmodel.h</includes>
+    <includes local="no">QAbstractListModel</includes>
+    <includes local="no">QPointer</includes>
+    <includes local="no">QSortFilterProxyModel</includes>
+    <includes local="no">qgsfeature.h</includes>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/app/qgismobileapp.cpp</includedby>
+    <includedby refid="qfprocessingalgorithm_8cpp" local="yes">src/core/processing/qfprocessingalgorithm.cpp</includedby>
+    <includedby refid="qfcore_8cpp" local="yes">src/core/qfcore.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/processing/qfprocessingalgorithm.h</label>
+        <link refid="qfprocessingalgorithm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qfprocessingalgorithmparametersmodel.h</label>
+        <link refid="qfprocessingalgorithmparametersmodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="6">
+        <label>QPointer</label>
+      </node>
+      <node id="5">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="7">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="3">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classQfProcessingAlgorithm" prot="public">QfProcessingAlgorithm</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>qfprocessingalgorithm.h<sp/>-<sp/>QfProcessingAlgorithm</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>22.06.2024</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2024<sp/>by<sp/>Mathieu<sp/>Pellerin</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>mathieu<sp/>at<sp/>opengis<sp/>dot<sp/>ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QFPROCESSINGALGORITHM_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QFPROCESSINGALGORITHM_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfprocessingalgorithmparametersmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QAbstractListModel&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPointer&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSortFilterProxyModel&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsfeature.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QgsProcessingProvider;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QgsProcessingAlgorithm;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QgsVectorLayer;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="classQfProcessingAlgorithm" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQfProcessingAlgorithm" kindref="compound">QfProcessingAlgorithm</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>READ<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>WRITE<sp/><ref refid="classQfProcessingAlgorithm_1a670a919bada822aa4c6e3ffcddcb6b31" kindref="member">setId</ref><sp/>NOTIFY<sp/><ref refid="classQfProcessingAlgorithm_1a77e1ce56a276a7f1193c51fa02b0a560" kindref="member">idChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isValid<sp/>READ<sp/>isValid<sp/>NOTIFY<sp/><ref refid="classQfProcessingAlgorithm_1a77e1ce56a276a7f1193c51fa02b0a560" kindref="member">idChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>displayName<sp/>READ<sp/>displayName<sp/>NOTIFY<sp/><ref refid="classQfProcessingAlgorithm_1a77e1ce56a276a7f1193c51fa02b0a560" kindref="member">idChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>shortHelp<sp/>READ<sp/>shortHelp<sp/>NOTIFY<sp/><ref refid="classQfProcessingAlgorithm_1a77e1ce56a276a7f1193c51fa02b0a560" kindref="member">idChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QVariantMap<sp/>parameters<sp/>READ<sp/>parameters<sp/>WRITE<sp/><ref refid="classQfProcessingAlgorithm_1aad12a786b53d509f1f9ae7a14e93e147" kindref="member">setParameters</ref><sp/>NOTIFY<sp/><ref refid="classQfProcessingAlgorithm_1aa32d7e947732e10449e42629adbeaa02" kindref="member">parametersChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsVectorLayer<sp/>*inPlaceLayer<sp/>READ<sp/>inPlaceLayer<sp/>WRITE<sp/><ref refid="classQfProcessingAlgorithm_1aeb125c0c2a89fba0db7ee8fea45b0837" kindref="member">setInPlaceLayer</ref><sp/>NOTIFY<sp/><ref refid="classQfProcessingAlgorithm_1a4c63bc75e9873174d4dd7f64d1f2ab41" kindref="member">inPlaceLayerChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QList&lt;QgsFeature&gt;<sp/>inPlaceFeatures<sp/>READ<sp/>inPlaceFeatures<sp/>WRITE<sp/><ref refid="classQfProcessingAlgorithm_1a7dffbe1c45861645f5e09ae9d764e3a9" kindref="member">setInPlaceFeatures</ref><sp/>NOTIFY<sp/><ref refid="classQfProcessingAlgorithm_1a2b02ef5ed5c0431c8bab9e0a843cee2d" kindref="member">inPlaceFeaturesChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>preview<sp/>READ<sp/>preview<sp/>WRITE<sp/><ref refid="classQfProcessingAlgorithm_1a046c10fadf7b070f0b4025a42bc37626" kindref="member">setPreview</ref><sp/>NOTIFY<sp/><ref refid="classQfProcessingAlgorithm_1a34fa8c64c3f7c7ac3b207da1dd32a9ca" kindref="member">previewChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QList&lt;QgsGeometry&gt;<sp/>previewGeometries<sp/>READ<sp/>previewGeometries<sp/>NOTIFY<sp/><ref refid="classQfProcessingAlgorithm_1ae75aadf722b12fb726c0ef3a61da65fc" kindref="member">previewGeometriesChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm" kindref="compound">QfProcessingAlgorithm</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="classQfProcessingAlgorithm_1a00374158bb52558ee7d63a820cd580eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/><ref refid="classQfProcessingAlgorithm_1a00374158bb52558ee7d63a820cd580eb" kindref="member">id</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mAlgorithmId;<sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1a670a919bada822aa4c6e3ffcddcb6b31" kindref="member">setId</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="classQfProcessingAlgorithm_1a56f0beddd58d3ddf4894c941e65d54e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1a56f0beddd58d3ddf4894c941e65d54e7" kindref="member">isValid</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mAlgorithm;<sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>displayName()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>shortHelp()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="classQfProcessingAlgorithm_1a4cb67c6d8fe839821774464255a38fb2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsVectorLayer<sp/>*<ref refid="classQfProcessingAlgorithm_1a4cb67c6d8fe839821774464255a38fb2" kindref="member">inPlaceLayer</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mInPlaceLayer.data();<sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1aeb125c0c2a89fba0db7ee8fea45b0837" kindref="member">setInPlaceLayer</ref>(<sp/>QgsVectorLayer<sp/>*layer<sp/>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="classQfProcessingAlgorithm_1ad43530520c4fba94b132ff6fb9bafdb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QgsFeature&gt;<sp/><ref refid="classQfProcessingAlgorithm_1ad43530520c4fba94b132ff6fb9bafdb1" kindref="member">inPlaceFeatures</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mInPlaceFeatures;<sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1a7dffbe1c45861645f5e09ae9d764e3a9" kindref="member">setInPlaceFeatures</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QgsFeature&gt;<sp/>&amp;features<sp/>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="classQfProcessingAlgorithm_1a0bfc5834437c94c174305a612a346c21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantMap<sp/><ref refid="classQfProcessingAlgorithm_1a0bfc5834437c94c174305a612a346c21" kindref="member">parameters</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mAlgorithmParameters;<sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1aad12a786b53d509f1f9ae7a14e93e147" kindref="member">setParameters</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantMap<sp/>&amp;parameters<sp/>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="classQfProcessingAlgorithm_1a4330bca19d0f348f6e0f576c5e46c345" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1a4330bca19d0f348f6e0f576c5e46c345" kindref="member">preview</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mPreview;<sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1a046c10fadf7b070f0b4025a42bc37626" kindref="member">setPreview</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>preview<sp/>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="classQfProcessingAlgorithm_1a494537d18e6ae6a8f5e787ecd5d1bbd5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QgsGeometry&gt;<sp/><ref refid="classQfProcessingAlgorithm_1a494537d18e6ae6a8f5e787ecd5d1bbd5" kindref="member">previewGeometries</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mPreviewGeometries;<sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1a085e6d35be5481fd985f26e99c0450f8" kindref="member">run</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>previewMode<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="137" refid="classQfProcessingAlgorithm_1a77e1ce56a276a7f1193c51fa02b0a560" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1a77e1ce56a276a7f1193c51fa02b0a560" kindref="member">idChanged</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142" refid="classQfProcessingAlgorithm_1aa32d7e947732e10449e42629adbeaa02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1aa32d7e947732e10449e42629adbeaa02" kindref="member">parametersChanged</ref>();</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="classQfProcessingAlgorithm_1a4c63bc75e9873174d4dd7f64d1f2ab41" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1a4c63bc75e9873174d4dd7f64d1f2ab41" kindref="member">inPlaceLayerChanged</ref>();</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152" refid="classQfProcessingAlgorithm_1a2b02ef5ed5c0431c8bab9e0a843cee2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1a2b02ef5ed5c0431c8bab9e0a843cee2d" kindref="member">inPlaceFeaturesChanged</ref>();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157" refid="classQfProcessingAlgorithm_1a34fa8c64c3f7c7ac3b207da1dd32a9ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1a34fa8c64c3f7c7ac3b207da1dd32a9ca" kindref="member">previewChanged</ref>();</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162" refid="classQfProcessingAlgorithm_1ae75aadf722b12fb726c0ef3a61da65fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfProcessingAlgorithm_1ae75aadf722b12fb726c0ef3a61da65fc" kindref="member">previewGeometriesChanged</ref>();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>mAlgorithmId;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsProcessingAlgorithm<sp/>*mAlgorithm<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>QVariantMap<sp/>mAlgorithmParameters;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>QPointer&lt;QgsVectorLayer&gt;<sp/>mInPlaceLayer;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QgsFeature&gt;<sp/>mInPlaceFeatures;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>mPreview<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>QList&lt;QgsGeometry&gt;<sp/>mPreviewGeometries;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QFPROCESSINGALGORITHM_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/processing/qfprocessingalgorithm.h"/>
+  </compounddef>
+</doxygen>

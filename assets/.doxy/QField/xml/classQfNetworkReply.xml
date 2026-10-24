@@ -1,0 +1,733 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfNetworkReply" kind="class" language="C++" prot="public">
+    <compoundname>QfNetworkReply</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfnetworkreply_8h" local="no">qfnetworkreply.h</includes>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classQfNetworkReply_1af0b6b2768c06b72b3c1ececccba6346e" prot="private" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int QfNetworkReply::sMaxTimeoutBetweenRetriesMs</definition>
+        <argsstring></argsstring>
+        <name>sMaxTimeoutBetweenRetriesMs</name>
+        <qualifiedname>QfNetworkReply::sMaxTimeoutBetweenRetriesMs</qualifiedname>
+        <initializer>= 2000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Upper bound of the delay between retries in milliseconds. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="157" column="22" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfNetworkReply_1afd19d6caef96e6692c0e7e54a1136d96" prot="private" static="no" mutable="no">
+        <type>QNetworkAccessManager::Operation</type>
+        <definition>QNetworkAccessManager::Operation QfNetworkReply::mOperation</definition>
+        <argsstring></argsstring>
+        <name>mOperation</name>
+        <qualifiedname>QfNetworkReply::mOperation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current HTTP method. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="163" column="38" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNetworkReply_1ac8ae5eebb1d3958865bdaaf457d9b696" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfNetworkReply::mIsFinished</definition>
+        <argsstring></argsstring>
+        <name>mIsFinished</name>
+        <qualifiedname>QfNetworkReply::mIsFinished</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether the reply has reached a final state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="169" column="10" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNetworkReply_1a6b2f774be572a44ba1e901a2235d2d14" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfNetworkReply::mIsRedirected</definition>
+        <argsstring></argsstring>
+        <name>mIsRedirected</name>
+        <qualifiedname>QfNetworkReply::mIsRedirected</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether the reply is redirected. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="174" column="10" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNetworkReply_1a5ffc8976fb318c6b1c88c91388892aa9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfNetworkReply::mIsMultiPartPayload</definition>
+        <argsstring></argsstring>
+        <name>mIsMultiPartPayload</name>
+        <qualifiedname>QfNetworkReply::mIsMultiPartPayload</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether it is a multi-part request </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="179" column="10" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNetworkReply_1a9dbaef71507f19b2c1995f84fbf219ef" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfNetworkReply::mRetriesLeft</definition>
+        <argsstring></argsstring>
+        <name>mRetriesLeft</name>
+        <qualifiedname>QfNetworkReply::mRetriesLeft</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of retries left. Once the value reaches zero, the status of the last reply is the final status. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="185" column="9" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNetworkReply_1a377e5f71427644bf82a5d45104e30831" prot="private" static="no" mutable="no">
+        <type>QList&lt; QSslError &gt;</type>
+        <definition>QList&lt;QSslError&gt; QfNetworkReply::mExpectedSslErrors</definition>
+        <argsstring></argsstring>
+        <name>mExpectedSslErrors</name>
+        <qualifiedname>QfNetworkReply::mExpectedSslErrors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Expected SSL errors to be ignored. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="191" column="11" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNetworkReply_1abb7d590e2985c23a6215479719f95121" prot="private" static="no" mutable="no">
+        <type>QgsNetworkAccessManager *</type>
+        <definition>QgsNetworkAccessManager* QfNetworkReply::mNetworkAccessManager</definition>
+        <argsstring></argsstring>
+        <name>mNetworkAccessManager</name>
+        <qualifiedname>QfNetworkReply::mNetworkAccessManager</qualifiedname>
+        <initializer>= QgsNetworkAccessManager::instance()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Random number generator instance. Used to create random delay bettween retries. Network access manager. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="203" column="29" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNetworkReply_1af7e19baf6532a137a1a288ccdd2abb5d" prot="private" static="no" mutable="no">
+        <type>QNetworkRequest</type>
+        <definition>QNetworkRequest QfNetworkReply::mRequest</definition>
+        <argsstring></argsstring>
+        <name>mRequest</name>
+        <qualifiedname>QfNetworkReply::mRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current request. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="209" column="21" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNetworkReply_1ad56c0c73f0a939b9cfc9c2437d98df0b" prot="private" static="no" mutable="no">
+        <type>const QByteArray</type>
+        <definition>const QByteArray QfNetworkReply::mPayloadByteArray</definition>
+        <argsstring></argsstring>
+        <name>mPayloadByteArray</name>
+        <qualifiedname>QfNetworkReply::mPayloadByteArray</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request payload </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="215" column="22" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNetworkReply_1abae3dda22260998405de82b39e70e1b7" prot="private" static="no" mutable="no">
+        <type>QHttpMultiPart *</type>
+        <definition>QHttpMultiPart* QfNetworkReply::mPayloadMultiPart</definition>
+        <argsstring></argsstring>
+        <name>mPayloadMultiPart</name>
+        <qualifiedname>QfNetworkReply::mPayloadMultiPart</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request payload as multipart </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="221" column="20" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNetworkReply_1a0e8e6420c1c27d19ff7716bc1ecd65e1" prot="private" static="no" mutable="no">
+        <type>QNetworkReply *</type>
+        <definition>QNetworkReply* QfNetworkReply::mReply</definition>
+        <argsstring></argsstring>
+        <name>mReply</name>
+        <qualifiedname>QfNetworkReply::mReply</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current outgoing request. If the request fails and can be retried, the object is disposed and replaced with a new one. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="227" column="19" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfNetworkReply_1aecbb996fc2b4b42f999f194c35d707d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfNetworkReply::QfNetworkReply</definition>
+        <argsstring>(const QNetworkAccessManager::Operation operation, const QNetworkRequest &amp;request, const QByteArray &amp;payloadByteArray)</argsstring>
+        <name>QfNetworkReply</name>
+        <qualifiedname>QfNetworkReply::QfNetworkReply</qualifiedname>
+        <param>
+          <type>const QNetworkAccessManager::Operation</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>const QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>payloadByteArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A wrapper around QNetworkReply that allows retriable requests. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>HTTP method </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request to be performed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>payloadByteArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request payload </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="42" column="5" bodyfile="src/core/qfieldcloud/qfnetworkreply.cpp" bodystart="21" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkReply_1aeac1b0fe0cbb8e45e79225a20ff97a94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfNetworkReply::QfNetworkReply</definition>
+        <argsstring>(const QNetworkAccessManager::Operation operation, const QNetworkRequest &amp;request, QHttpMultiPart *payloadMultiPart)</argsstring>
+        <name>QfNetworkReply</name>
+        <qualifiedname>QfNetworkReply::QfNetworkReply</qualifiedname>
+        <param>
+          <type>const QNetworkAccessManager::Operation</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>const QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>QHttpMultiPart *</type>
+          <declname>payloadMultiPart</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A wrapper around QNetworkReply that allows retriable requests. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>HTTP method </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request to be performed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>payloadMultiPart</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the request payload </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="51" column="5" bodyfile="src/core/qfieldcloud/qfnetworkreply.cpp" bodystart="28" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkReply_1a8435ea2228788eb62527dc55ccabda1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::abort</definition>
+        <argsstring>()</argsstring>
+        <name>abort</name>
+        <qualifiedname>QfNetworkReply::abort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Aborts the current request and any other retries. Makes the current object into a final state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="57" column="10" bodyfile="src/core/qfieldcloud/qfnetworkreply.cpp" bodystart="35" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkReply_1a7e50a4fa20e3f8823dcf94efea9b05f5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QNetworkReply *</type>
+        <definition>QNetworkReply * QfNetworkReply::currentRawReply</definition>
+        <argsstring>() const</argsstring>
+        <name>currentRawReply</name>
+        <qualifiedname>QfNetworkReply::currentRawReply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current <computeroutput>QNetworkReply</computeroutput> object. Note that it might get deleted even if the parent <computeroutput><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref></computeroutput> is not in case of redirect or internal retry. Do not delete it manually. <simplesect kind="return"><para>network currentRawReply </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="64" column="19" bodyfile="src/core/qfieldcloud/qfnetworkreply.cpp" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkReply_1aa24e5bdc45295e8a63aec3ff587eed11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::ignoreSslErrors</definition>
+        <argsstring>(const QList&lt; QSslError &gt; &amp;errors)</argsstring>
+        <name>ignoreSslErrors</name>
+        <qualifiedname>QfNetworkReply::ignoreSslErrors</qualifiedname>
+        <param>
+          <type>const QList&lt; QSslError &gt; &amp;</type>
+          <declname>errors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reimplements QNetworkReply::ignoreSslErrors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>errors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a list of error to be ignored. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="71" column="10" bodyfile="src/core/qfieldcloud/qfnetworkreply.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkReply_1a93a30bec7c8b5e7fc11cc1209a1843de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNetworkReply::isFinished</definition>
+        <argsstring>() const</argsstring>
+        <name>isFinished</name>
+        <qualifiedname>QfNetworkReply::isFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether the request reached a final status. <simplesect kind="return"><para>true if the request reached a final status. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="78" column="10" bodyfile="src/core/qfieldcloud/qfnetworkreply.cpp" bodystart="54" bodyend="57"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfNetworkReply_1a77968869f8f0cf1467a7dad413dca3f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::downloadProgress</definition>
+        <argsstring>(qint64 bytesReceived, qint64 bytesTotal)</argsstring>
+        <name>downloadProgress</name>
+        <qualifiedname>QfNetworkReply::downloadProgress</qualifiedname>
+        <param>
+          <type>qint64</type>
+          <declname>bytesReceived</declname>
+        </param>
+        <param>
+          <type>qint64</type>
+          <declname>bytesTotal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Replicates <computeroutput>QNetworkReply::downloadProgress</computeroutput> signal. <simplesect kind="note"><para>Because download may fail mid request and then retried, the bytesReceived may be reset back to 0. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytesReceived</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytesTotal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="89" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNetworkReply_1a48b32d3cdaf25d15931814f04e87596f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::uploadProgress</definition>
+        <argsstring>(qint64 bytesSent, qint64 bytesTotal)</argsstring>
+        <name>uploadProgress</name>
+        <qualifiedname>QfNetworkReply::uploadProgress</qualifiedname>
+        <param>
+          <type>qint64</type>
+          <declname>bytesSent</declname>
+        </param>
+        <param>
+          <type>qint64</type>
+          <declname>bytesTotal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Replicates <computeroutput>QNetworkReply::uploadProgress</computeroutput> signal. <simplesect kind="note"><para>Because upload may fail mid request and then retried, the bytesSent may be reset back to 0. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytesSent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytesTotal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="98" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNetworkReply_1a5848e866b77202a1ed68c56e9de9573a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::encrypted</definition>
+        <argsstring>()</argsstring>
+        <name>encrypted</name>
+        <qualifiedname>QfNetworkReply::encrypted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Replicates <computeroutput>QNetworkReply::encrypted</computeroutput> signal. <simplesect kind="note"><para>May be called multiple times for each retry. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="105" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNetworkReply_1ae164e43aedb90697866575b709bb13f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::finished</definition>
+        <argsstring>()</argsstring>
+        <name>finished</name>
+        <qualifiedname>QfNetworkReply::finished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Replicates <computeroutput>QNetworkReply::finished</computeroutput> signal. It is called only once, when the request was successfull, got a final error or ran out of retries. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="111" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNetworkReply_1a71546e3e1014c16d54bafb7c982ca981" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::redirected</definition>
+        <argsstring>(const QUrl &amp;url)</argsstring>
+        <name>redirected</name>
+        <qualifiedname>QfNetworkReply::redirected</qualifiedname>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Replicates <computeroutput>QNetworkReply::redirected</computeroutput> signal. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="117" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNetworkReply_1ad1a7fa653ac1fab0837f1a1f9c03aaab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::redirectAllowed</definition>
+        <argsstring>()</argsstring>
+        <name>redirectAllowed</name>
+        <qualifiedname>QfNetworkReply::redirectAllowed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Replicates <computeroutput>QNetworkReply::redirectAllowed</computeroutput> signal. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="123" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNetworkReply_1a653cf67b525ef9e51950198c16b64ee3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::retry</definition>
+        <argsstring>()</argsstring>
+        <name>retry</name>
+        <qualifiedname>QfNetworkReply::retry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a new retry is initiated. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="132" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNetworkReply_1aa1c9b427aa69cd395c6d1e3b4b7551b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::errorOccurred</definition>
+        <argsstring>(QNetworkReply::NetworkError code)</argsstring>
+        <name>errorOccurred</name>
+        <qualifiedname>QfNetworkReply::errorOccurred</qualifiedname>
+        <param>
+          <type>QNetworkReply::NetworkError</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a new error has occured. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="139" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNetworkReply_1aebbcedde1b372d7a62dcb4ea7e6dd492" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::temporaryErrorOccurred</definition>
+        <argsstring>(QNetworkReply::NetworkError code)</argsstring>
+        <name>temporaryErrorOccurred</name>
+        <qualifiedname>QfNetworkReply::temporaryErrorOccurred</qualifiedname>
+        <param>
+          <type>QNetworkReply::NetworkError</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a new temporary error has occured. This is basically emitting the error that has occured during a retry. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="146" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNetworkReply_1abc0c69d0540b892c18bb39e07ff64f77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::currentRawReplyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentRawReplyChanged</name>
+        <qualifiedname>QfNetworkReply::currentRawReplyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when reply has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="151" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfNetworkReply_1a5f21a9a44d1ed76572757194d2a9a9fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::initiateRequest</definition>
+        <argsstring>()</argsstring>
+        <name>initiateRequest</name>
+        <qualifiedname>QfNetworkReply::initiateRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Binds signal listeners to <computeroutput>QNetworkReply</computeroutput> object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="233" column="10" bodyfile="src/core/qfieldcloud/qfnetworkreply.cpp" bodystart="60" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkReply_1abf4a0af231c06f6265a53b38a210a0a0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::onFinished</definition>
+        <argsstring>()</argsstring>
+        <name>onFinished</name>
+        <qualifiedname>QfNetworkReply::onFinished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when a request attempt is finished. If needed, make a retry. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="239" column="10" bodyfile="src/core/qfieldcloud/qfnetworkreply.cpp" bodystart="119" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkReply_1a80c8ec33dbe177f02c68bb08415be402" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNetworkReply::onRedirected</definition>
+        <argsstring>(const QUrl &amp;url)</argsstring>
+        <name>onRedirected</name>
+        <qualifiedname>QfNetworkReply::onRedirected</qualifiedname>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when a request attempt is redirected. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkreply.h" line="245" column="10" bodyfile="src/core/qfieldcloud/qfnetworkreply.cpp" bodystart="113" bodyend="117"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A wrapper around QNetworkReply that allows retriable requests. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfNetworkReply</label>
+        <link refid="classQfNetworkReply"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfNetworkReply</label>
+        <link refid="classQfNetworkReply"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/qfnetworkreply.h" line="31" column="1" bodyfile="src/core/qfieldcloud/qfnetworkreply.h" bodystart="32" bodyend="246"/>
+    <listofallmembers>
+      <member refid="classQfNetworkReply_1a8435ea2228788eb62527dc55ccabda1f" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>abort</name></member>
+      <member refid="classQfNetworkReply_1a7e50a4fa20e3f8823dcf94efea9b05f5" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>currentRawReply</name></member>
+      <member refid="classQfNetworkReply_1abc0c69d0540b892c18bb39e07ff64f77" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>currentRawReplyChanged</name></member>
+      <member refid="classQfNetworkReply_1a77968869f8f0cf1467a7dad413dca3f6" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>downloadProgress</name></member>
+      <member refid="classQfNetworkReply_1a5848e866b77202a1ed68c56e9de9573a" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>encrypted</name></member>
+      <member refid="classQfNetworkReply_1aa1c9b427aa69cd395c6d1e3b4b7551b4" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>errorOccurred</name></member>
+      <member refid="classQfNetworkReply_1ae164e43aedb90697866575b709bb13f4" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>finished</name></member>
+      <member refid="classQfNetworkReply_1aa24e5bdc45295e8a63aec3ff587eed11" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>ignoreSslErrors</name></member>
+      <member refid="classQfNetworkReply_1a5f21a9a44d1ed76572757194d2a9a9fa" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>initiateRequest</name></member>
+      <member refid="classQfNetworkReply_1a93a30bec7c8b5e7fc11cc1209a1843de" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>isFinished</name></member>
+      <member refid="classQfNetworkReply_1a377e5f71427644bf82a5d45104e30831" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>mExpectedSslErrors</name></member>
+      <member refid="classQfNetworkReply_1ac8ae5eebb1d3958865bdaaf457d9b696" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>mIsFinished</name></member>
+      <member refid="classQfNetworkReply_1a5ffc8976fb318c6b1c88c91388892aa9" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>mIsMultiPartPayload</name></member>
+      <member refid="classQfNetworkReply_1a6b2f774be572a44ba1e901a2235d2d14" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>mIsRedirected</name></member>
+      <member refid="classQfNetworkReply_1abb7d590e2985c23a6215479719f95121" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>mNetworkAccessManager</name></member>
+      <member refid="classQfNetworkReply_1afd19d6caef96e6692c0e7e54a1136d96" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>mOperation</name></member>
+      <member refid="classQfNetworkReply_1ad56c0c73f0a939b9cfc9c2437d98df0b" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>mPayloadByteArray</name></member>
+      <member refid="classQfNetworkReply_1abae3dda22260998405de82b39e70e1b7" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>mPayloadMultiPart</name></member>
+      <member refid="classQfNetworkReply_1a0e8e6420c1c27d19ff7716bc1ecd65e1" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>mReply</name></member>
+      <member refid="classQfNetworkReply_1af7e19baf6532a137a1a288ccdd2abb5d" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>mRequest</name></member>
+      <member refid="classQfNetworkReply_1a9dbaef71507f19b2c1995f84fbf219ef" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>mRetriesLeft</name></member>
+      <member refid="classQfNetworkReply_1abf4a0af231c06f6265a53b38a210a0a0" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>onFinished</name></member>
+      <member refid="classQfNetworkReply_1a80c8ec33dbe177f02c68bb08415be402" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>onRedirected</name></member>
+      <member refid="classQfNetworkReply_1aecbb996fc2b4b42f999f194c35d707d2" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>QfNetworkReply</name></member>
+      <member refid="classQfNetworkReply_1aeac1b0fe0cbb8e45e79225a20ff97a94" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>QfNetworkReply</name></member>
+      <member refid="classQfNetworkReply_1ad1a7fa653ac1fab0837f1a1f9c03aaab" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>redirectAllowed</name></member>
+      <member refid="classQfNetworkReply_1a71546e3e1014c16d54bafb7c982ca981" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>redirected</name></member>
+      <member refid="classQfNetworkReply_1a653cf67b525ef9e51950198c16b64ee3" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>retry</name></member>
+      <member refid="classQfNetworkReply_1af0b6b2768c06b72b3c1ececccba6346e" prot="private" virt="non-virtual"><scope>QfNetworkReply</scope><name>sMaxTimeoutBetweenRetriesMs</name></member>
+      <member refid="classQfNetworkReply_1aebbcedde1b372d7a62dcb4ea7e6dd492" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>temporaryErrorOccurred</name></member>
+      <member refid="classQfNetworkReply_1a48b32d3cdaf25d15931814f04e87596f" prot="public" virt="non-virtual"><scope>QfNetworkReply</scope><name>uploadProgress</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

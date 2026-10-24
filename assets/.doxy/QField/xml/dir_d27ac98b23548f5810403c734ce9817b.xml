@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_d27ac98b23548f5810403c734ce9817b" kind="dir">
+    <compoundname>src/core/qfieldcloud</compoundname>
+    <innerfile refid="qfcloudconnection_8cpp">qfcloudconnection.cpp</innerfile>
+    <innerfile refid="qfcloudconnection_8h">qfcloudconnection.h</innerfile>
+    <innerfile refid="qfcloudproject_8cpp">qfcloudproject.cpp</innerfile>
+    <innerfile refid="qfcloudproject_8h">qfcloudproject.h</innerfile>
+    <innerfile refid="qfcloudprojectsmodel_8cpp">qfcloudprojectsmodel.cpp</innerfile>
+    <innerfile refid="qfcloudprojectsmodel_8h">qfcloudprojectsmodel.h</innerfile>
+    <innerfile refid="qfcloudstatus_8cpp">qfcloudstatus.cpp</innerfile>
+    <innerfile refid="qfcloudstatus_8h">qfcloudstatus.h</innerfile>
+    <innerfile refid="qfdeltachangesmodel_8cpp">qfdeltachangesmodel.cpp</innerfile>
+    <innerfile refid="qfdeltachangesmodel_8h">qfdeltachangesmodel.h</innerfile>
+    <innerfile refid="qfdeltafilewrapper_8cpp">qfdeltafilewrapper.cpp</innerfile>
+    <innerfile refid="qfdeltafilewrapper_8h">qfdeltafilewrapper.h</innerfile>
+    <innerfile refid="qfdeltalistmodel_8cpp">qfdeltalistmodel.cpp</innerfile>
+    <innerfile refid="qfdeltalistmodel_8h">qfdeltalistmodel.h</innerfile>
+    <innerfile refid="qflayerobserver_8cpp">qflayerobserver.cpp</innerfile>
+    <innerfile refid="qflayerobserver_8h">qflayerobserver.h</innerfile>
+    <innerfile refid="qfnetworkmanager_8cpp">qfnetworkmanager.cpp</innerfile>
+    <innerfile refid="qfnetworkmanager_8h">qfnetworkmanager.h</innerfile>
+    <innerfile refid="qfnetworkreply_8cpp">qfnetworkreply.cpp</innerfile>
+    <innerfile refid="qfnetworkreply_8h">qfnetworkreply.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/"/>
+  </compounddef>
+</doxygen>

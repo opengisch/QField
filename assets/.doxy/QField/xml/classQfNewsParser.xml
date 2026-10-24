@@ -1,0 +1,527 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfNewsParser" kind="class" language="C++" prot="public">
+    <compoundname>QfNewsParser</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfnewsparser_8h" local="no">qfnewsparser.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfNewsParser_1a8212be607de4f3b6b840a3ecc9714b1d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QUrl</type>
+        <definition>QUrl QfNewsParser::feedUrl</definition>
+        <argsstring></argsstring>
+        <name>feedUrl</name>
+        <qualifiedname>QfNewsParser::feedUrl</qualifiedname>
+        <read>feedUrl</read>
+        <write>setFeedUrl</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="74" column="5" bodyfile="src/core/qfnewsparser.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNewsParser_1ad5fb859ba7812fafc50e93fbfb09a691" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNewsParser::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfNewsParser::enabled</qualifiedname>
+        <read>enabled</read>
+        <write>setEnabled</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="75" column="5" bodyfile="src/core/qfnewsparser.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNewsParser_1a78ffbb5d3a84b4253ec5e4a48ed90e12" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNewsParser::isFetching</definition>
+        <argsstring></argsstring>
+        <name>isFetching</name>
+        <qualifiedname>QfNewsParser::isFetching</qualifiedname>
+        <read>isFetching</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="76" column="5" bodyfile="src/core/qfnewsparser.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNewsParser_1ab485dee7dccf3e9495c5db43e74131cf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QList&lt; <ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref> &gt;</type>
+        <definition>QList&lt;QfNewsItem&gt; QfNewsParser::items</definition>
+        <argsstring></argsstring>
+        <name>items</name>
+        <qualifiedname>QfNewsParser::items</qualifiedname>
+        <read>items</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="77" column="5" bodyfile="src/core/qfnewsparser.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classQfNewsParser_1af8b2a0f191d00016f6caa9ac121830f2" prot="public" static="yes" mutable="no">
+        <type>const QString</type>
+        <definition>const QString QfNewsParser::DISMISSED_UUIDS_SETTINGS_KEY</definition>
+        <argsstring></argsstring>
+        <name>DISMISSED_UUIDS_SETTINGS_KEY</name>
+        <qualifiedname>QfNewsParser::DISMISSED_UUIDS_SETTINGS_KEY</qualifiedname>
+        <initializer>= QStringLiteral( &quot;/QField/News/DismissedUuids&quot; )</initializer>
+        <briefdescription>
+<para>Dismissed news items settings key (exposed for testing purpose) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="125" column="33" bodyfile="src/core/qfnewsparser.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classQfNewsParser_1a2ccdea4604b75f1c993e725c685da445" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int QfNewsParser::MAXIMUM_AGE_DAYS</definition>
+        <argsstring></argsstring>
+        <name>MAXIMUM_AGE_DAYS</name>
+        <qualifiedname>QfNewsParser::MAXIMUM_AGE_DAYS</qualifiedname>
+        <initializer>= 45</initializer>
+        <briefdescription>
+<para>News items older than this number of days are no longer shown. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="142" column="26" bodyfile="src/core/qfnewsparser.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfNewsParser_1ab79820ba75c2eb4978c1760bf7aa05f4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfNewsParser::mEnabled</definition>
+        <argsstring></argsstring>
+        <name>mEnabled</name>
+        <qualifiedname>QfNewsParser::mEnabled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="150" column="10" bodyfile="src/core/qfnewsparser.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNewsParser_1ab55b7d05cb61181e32ef8ffe63071bbb" prot="private" static="no" mutable="no">
+        <type>QUrl</type>
+        <definition>QUrl QfNewsParser::mFeedUrl</definition>
+        <argsstring></argsstring>
+        <name>mFeedUrl</name>
+        <qualifiedname>QfNewsParser::mFeedUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="151" column="10" bodyfile="src/core/qfnewsparser.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNewsParser_1a04e73ab29d294756997ba8a65caaae8f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfNewsParser::mIsFetching</definition>
+        <argsstring></argsstring>
+        <name>mIsFetching</name>
+        <qualifiedname>QfNewsParser::mIsFetching</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="152" column="10" bodyfile="src/core/qfnewsparser.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNewsParser_1ae92453dd63941aac971f6c1a5c917385" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref> &gt;</type>
+        <definition>QList&lt;QfNewsItem&gt; QfNewsParser::mItems</definition>
+        <argsstring></argsstring>
+        <name>mItems</name>
+        <qualifiedname>QfNewsParser::mItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="153" column="11" bodyfile="src/core/qfnewsparser.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfNewsParser_1af390ce12e8303e6bfe839e723451e419" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfNewsParser::QfNewsParser</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfNewsParser</name>
+        <qualifiedname>QfNewsParser::QfNewsParser</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>The news parser constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="81" column="14" bodyfile="src/core/qfnewsparser.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsParser_1a3dd73c10e79300714a848695e42a934c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QUrl</type>
+        <definition>QUrl QfNewsParser::feedUrl</definition>
+        <argsstring>() const</argsstring>
+        <name>feedUrl</name>
+        <qualifiedname>QfNewsParser::feedUrl</qualifiedname>
+        <briefdescription>
+<para>Returns the RSS feed URL. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="84" column="10" bodyfile="src/core/qfnewsparser.h" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsParser_1aded05e9673ec369c7bb0e121cd61de49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNewsParser::setFeedUrl</definition>
+        <argsstring>(const QUrl &amp;url)</argsstring>
+        <name>setFeedUrl</name>
+        <qualifiedname>QfNewsParser::setFeedUrl</qualifiedname>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the RSS feed URL. News items are cleared and, if available, restored from the last successful fetch of that feed until the next <ref refid="classQfNewsParser_1a4beaaa82bb8b0f0156e67d32e594df0c" kindref="member">fetch()</ref> call. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="90" column="10" bodyfile="src/core/qfnewsparser.cpp" bodystart="40" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsParser_1acb17458f46762c6dd60eed34a86a4b75" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNewsParser::enabled</definition>
+        <argsstring>() const</argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfNewsParser::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the user has opted into receiving news. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="95" column="10" bodyfile="src/core/qfnewsparser.cpp" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsParser_1aa1743e691e29d75f71fec0edc724c5e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNewsParser::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <qualifiedname>QfNewsParser::setEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the user has opted into receiving news. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="100" column="10" bodyfile="src/core/qfnewsparser.cpp" bodystart="63" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsParser_1aa236edcd07cf7e2ab9d8c6659c461bc3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNewsParser::isFetching</definition>
+        <argsstring>() const</argsstring>
+        <name>isFetching</name>
+        <qualifiedname>QfNewsParser::isFetching</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE while the RSS feed is being fetched. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="103" column="10" bodyfile="src/core/qfnewsparser.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsParser_1a2f11294a98805d3ea08b83659c840e8e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; <ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref> &gt;</type>
+        <definition>QList&lt; QfNewsItem &gt; QfNewsParser::items</definition>
+        <argsstring>() const</argsstring>
+        <name>items</name>
+        <qualifiedname>QfNewsParser::items</qualifiedname>
+        <briefdescription>
+<para>Returns the undismissed news items published within the last MAXIMUM_AGE_DAYS days, most recent first. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="106" column="11" bodyfile="src/core/qfnewsparser.h" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsParser_1a4beaaa82bb8b0f0156e67d32e594df0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfNewsParser::fetch</definition>
+        <argsstring>()</argsstring>
+        <name>fetch</name>
+        <qualifiedname>QfNewsParser::fetch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fetches the RSS feed and refreshes the news items. <simplesect kind="note"><para>Nothing will be fetched when news are disabled. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="112" column="22" bodyfile="src/core/qfnewsparser.cpp" bodystart="94" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsParser_1aa188ef1f9de639c4174ea6bfbb4869b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfNewsParser::dismiss</definition>
+        <argsstring>(const QString &amp;uuid)</argsstring>
+        <name>dismiss</name>
+        <qualifiedname>QfNewsParser::dismiss</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>uuid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dismisses the news item matching a given <emphasis>uuid</emphasis>, it will no longer be part of the news items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="117" column="22" bodyfile="src/core/qfnewsparser.cpp" bodystart="131" bodyend="146"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfNewsParser_1a492a8f891518904ddc88f5d64395936f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref> &gt;</type>
+        <definition>QList&lt; QfNewsItem &gt; QfNewsParser::parseFeed</definition>
+        <argsstring>(const QByteArray &amp;data)</argsstring>
+        <name>parseFeed</name>
+        <qualifiedname>QfNewsParser::parseFeed</qualifiedname>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses an RSS feed <emphasis>data</emphasis> content and returns its news items. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="122" column="18" bodyfile="src/core/qfnewsparser.cpp" bodystart="148" bodyend="196"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfNewsParser_1adee3bd733ca6859f98edd10148f8c138" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNewsParser::feedUrlChanged</definition>
+        <argsstring>()</argsstring>
+        <name>feedUrlChanged</name>
+        <qualifiedname>QfNewsParser::feedUrlChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the RSS feed URL has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="129" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNewsParser_1a1114a68ccc28d0350d222045da945d2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNewsParser::enabledChanged</definition>
+        <argsstring>()</argsstring>
+        <name>enabledChanged</name>
+        <qualifiedname>QfNewsParser::enabledChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when news have been enabled or disabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="132" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNewsParser_1acbb048a7af10a809b19d585ed528c957" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNewsParser::isFetchingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isFetchingChanged</name>
+        <qualifiedname>QfNewsParser::isFetchingChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when a fetching operation has begun or ended. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="135" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfNewsParser_1ac25416bf00b52025fa5b85541a6e4c09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNewsParser::itemsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>itemsChanged</name>
+        <qualifiedname>QfNewsParser::itemsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the list of news items has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="138" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfNewsParser_1a2738e24e94c4d568b72061e8f757fd3b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfNewsParser::cacheFilePath</definition>
+        <argsstring>() const</argsstring>
+        <name>cacheFilePath</name>
+        <qualifiedname>QfNewsParser::cacheFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="144" column="13" bodyfile="src/core/qfnewsparser.cpp" bodystart="198" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsParser_1aecb331422c44d356d02d64e9cef98d75" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNewsParser::restoreItemsFromCache</definition>
+        <argsstring>()</argsstring>
+        <name>restoreItemsFromCache</name>
+        <qualifiedname>QfNewsParser::restoreItemsFromCache</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="145" column="10" bodyfile="src/core/qfnewsparser.cpp" bodystart="81" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsParser_1a1b82e47fcaa26ebd77d83c5d05932939" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNewsParser::clearItems</definition>
+        <argsstring>()</argsstring>
+        <name>clearItems</name>
+        <qualifiedname>QfNewsParser::clearItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="147" column="10" bodyfile="src/core/qfnewsparser.cpp" bodystart="204" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsParser_1ab10ac44219d06418e12ccb13f9a48e40" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNewsParser::updateItems</definition>
+        <argsstring>(const QList&lt; QfNewsItem &gt; &amp;feedItems)</argsstring>
+        <name>updateItems</name>
+        <qualifiedname>QfNewsParser::updateItems</qualifiedname>
+        <param>
+          <type>const QList&lt; <ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref> &gt; &amp;</type>
+          <declname>feedItems</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="148" column="10" bodyfile="src/core/qfnewsparser.cpp" bodystart="213" bodyend="245"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A class fetching RSS feeds and generating news items published within the last MAXIMUM_AGE_DAYS days, minus those already dismissed. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfNewsParser</label>
+        <link refid="classQfNewsParser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfNewsParser</label>
+        <link refid="classQfNewsParser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfnewsparser.h" line="70" column="1" bodyfile="src/core/qfnewsparser.h" bodystart="71" bodyend="154"/>
+    <listofallmembers>
+      <member refid="classQfNewsParser_1a2738e24e94c4d568b72061e8f757fd3b" prot="private" virt="non-virtual"><scope>QfNewsParser</scope><name>cacheFilePath</name></member>
+      <member refid="classQfNewsParser_1a1b82e47fcaa26ebd77d83c5d05932939" prot="private" virt="non-virtual"><scope>QfNewsParser</scope><name>clearItems</name></member>
+      <member refid="classQfNewsParser_1aa188ef1f9de639c4174ea6bfbb4869b1" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>dismiss</name></member>
+      <member refid="classQfNewsParser_1af8b2a0f191d00016f6caa9ac121830f2" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>DISMISSED_UUIDS_SETTINGS_KEY</name></member>
+      <member refid="classQfNewsParser_1ad5fb859ba7812fafc50e93fbfb09a691" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>enabled</name></member>
+      <member refid="classQfNewsParser_1acb17458f46762c6dd60eed34a86a4b75" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>enabled</name></member>
+      <member refid="classQfNewsParser_1a1114a68ccc28d0350d222045da945d2d" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>enabledChanged</name></member>
+      <member refid="classQfNewsParser_1a8212be607de4f3b6b840a3ecc9714b1d" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>feedUrl</name></member>
+      <member refid="classQfNewsParser_1a3dd73c10e79300714a848695e42a934c" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>feedUrl</name></member>
+      <member refid="classQfNewsParser_1adee3bd733ca6859f98edd10148f8c138" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>feedUrlChanged</name></member>
+      <member refid="classQfNewsParser_1a4beaaa82bb8b0f0156e67d32e594df0c" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>fetch</name></member>
+      <member refid="classQfNewsParser_1a78ffbb5d3a84b4253ec5e4a48ed90e12" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>isFetching</name></member>
+      <member refid="classQfNewsParser_1aa236edcd07cf7e2ab9d8c6659c461bc3" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>isFetching</name></member>
+      <member refid="classQfNewsParser_1acbb048a7af10a809b19d585ed528c957" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>isFetchingChanged</name></member>
+      <member refid="classQfNewsParser_1ab485dee7dccf3e9495c5db43e74131cf" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>items</name></member>
+      <member refid="classQfNewsParser_1a2f11294a98805d3ea08b83659c840e8e" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>items</name></member>
+      <member refid="classQfNewsParser_1ac25416bf00b52025fa5b85541a6e4c09" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>itemsChanged</name></member>
+      <member refid="classQfNewsParser_1a2ccdea4604b75f1c993e725c685da445" prot="private" virt="non-virtual"><scope>QfNewsParser</scope><name>MAXIMUM_AGE_DAYS</name></member>
+      <member refid="classQfNewsParser_1ab79820ba75c2eb4978c1760bf7aa05f4" prot="private" virt="non-virtual"><scope>QfNewsParser</scope><name>mEnabled</name></member>
+      <member refid="classQfNewsParser_1ab55b7d05cb61181e32ef8ffe63071bbb" prot="private" virt="non-virtual"><scope>QfNewsParser</scope><name>mFeedUrl</name></member>
+      <member refid="classQfNewsParser_1a04e73ab29d294756997ba8a65caaae8f" prot="private" virt="non-virtual"><scope>QfNewsParser</scope><name>mIsFetching</name></member>
+      <member refid="classQfNewsParser_1ae92453dd63941aac971f6c1a5c917385" prot="private" virt="non-virtual"><scope>QfNewsParser</scope><name>mItems</name></member>
+      <member refid="classQfNewsParser_1a492a8f891518904ddc88f5d64395936f" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>parseFeed</name></member>
+      <member refid="classQfNewsParser_1af390ce12e8303e6bfe839e723451e419" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>QfNewsParser</name></member>
+      <member refid="classQfNewsParser_1aecb331422c44d356d02d64e9cef98d75" prot="private" virt="non-virtual"><scope>QfNewsParser</scope><name>restoreItemsFromCache</name></member>
+      <member refid="classQfNewsParser_1aa1743e691e29d75f71fec0edc724c5e5" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>setEnabled</name></member>
+      <member refid="classQfNewsParser_1aded05e9673ec369c7bb0e121cd61de49" prot="public" virt="non-virtual"><scope>QfNewsParser</scope><name>setFeedUrl</name></member>
+      <member refid="classQfNewsParser_1ab10ac44219d06418e12ccb13f9a48e40" prot="private" virt="non-virtual"><scope>QfNewsParser</scope><name>updateItems</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
