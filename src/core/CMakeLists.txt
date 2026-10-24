@@ -407,6 +407,10 @@ if(WITH_NFC)
   target_link_libraries(qfield_core PUBLIC Qt6::Nfc)
 endif()
 
+if(WITH_VALHALLA)
+  target_link_libraries(qfield_core PUBLIC Valhalla::valhalla)
+endif()
+
 if(WITH_SENTRY)
   target_link_libraries(qfield_core PRIVATE qfield_sentry)
 endif()
