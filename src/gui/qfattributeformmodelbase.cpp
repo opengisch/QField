@@ -872,8 +872,7 @@ bool QfAttributeFormModelBase::codeRequiresUpdate( const QString &fieldName, boo
       exp.prepare( &mExpressionContext );
       codeRequirements.referencedColumns.unite( exp.referencedColumns() );
       codeRequirements.formScope = codeRequirements.formScope || QgsValueRelationFieldFormatter::expressionRequiresFormScope( expression );
-      qDebug() << "---" << exp.expression() << ( exp.referencedFunctions().contains( QStringLiteral( "relation_aggregate" ) ) ? "contains rel agg." : "nope" );
-      codeRequirements.relationships = exp.referencedFunctions().contains( QStringLiteral( "relation_aggregate" ) );
+      codeRequirements.relationships = codeRequirements.relationships || exp.referencedFunctions().contains( QStringLiteral( "relation_aggregate" ) );
     }
     mEditorWidgetCodesRequirements.insert( code, codeRequirements );
   }
