@@ -4326,24 +4326,25 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Too many attempts, please wait a minute before trying again.</source>
-        <translation type="unfinished"/>
+        <translation>尝试次数过多，请稍候再试。</translation>
     </message>
     <message>
         <source>Captcha temporary unavailable, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>验证码暂时不可用，请稍后重试</translation>
     </message>
     <message>
         <source>%1
 If this email already has an account, check your inbox for a message from QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>%1
+如果此Email已关联账户，请检查您的收件箱，以获取来自QFieldCloud的消息。</translation>
     </message>
     <message>
         <source>The server did not accept the registration</source>
-        <translation type="unfinished"/>
+        <translation>注册请求被服务器拒绝</translation>
     </message>
     <message>
         <source>The server did not accept the request</source>
-        <translation type="unfinished"/>
+        <translation>服务器未接受请求</translation>
     </message>
 </context>
 <context>
@@ -4498,11 +4499,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Forgot your password?</source>
-        <translation type="unfinished"/>
+        <translation>是否忘记密码？</translation>
     </message>
     <message>
         <source>Create an account</source>
-        <translation type="unfinished"/>
+        <translation>创建账户</translation>
     </message>
 </context>
 <context>
@@ -4524,62 +4525,62 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>Requires at least %n characters</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>至少需要%n个字符</numerusform></translation>
     </message>
     <message>
         <source>Must not be similar to your username</source>
-        <translation type="unfinished"/>
+        <translation>不能与您的用户名类似</translation>
     </message>
     <message>
         <source>Must not be entirely numeric</source>
-        <translation type="unfinished"/>
+        <translation>不能全为数字</translation>
     </message>
 </context>
 <context>
     <name>QfCloudPasswordReset</name>
     <message>
         <source>Forgot your password?</source>
-        <translation type="unfinished"/>
+        <translation>是否忘记密码？</translation>
     </message>
     <message>
         <source>Enter your account email and we will send you a link to pick a new password.</source>
-        <translation type="unfinished"/>
+        <translation>请输入您的账户Email，我们将向您发送链接，用于设置新密码。</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"/>
+        <translation>Email</translation>
     </message>
     <message>
         <source>Send reset link</source>
-        <translation type="unfinished"/>
+        <translation>发送重置链接</translation>
     </message>
     <message>
         <source>Back to sign in</source>
-        <translation type="unfinished"/>
+        <translation>返回登录</translation>
     </message>
     <message>
         <source>Check your inbox</source>
-        <translation type="unfinished"/>
+        <translation>查看您的收件箱</translation>
     </message>
     <message>
         <source>We sent a reset link to %1. Open it to pick a new password.</source>
-        <translation type="unfinished"/>
+        <translation>我们已向%1发送了重置链接。请打开该链接并设置新密码。</translation>
     </message>
     <message>
         <source>Nothing yet? Check your spam folder, or %1use another email%2.</source>
-        <translation type="unfinished"/>
+        <translation>还没收到吗？请检查您的垃圾邮件文件夹，或者%1使用另一个Email%2。</translation>
     </message>
     <message>
         <source>Resend link in %1s</source>
-        <translation type="unfinished"/>
+        <translation>%1秒内重新发送链接</translation>
     </message>
     <message>
         <source>Resend link</source>
-        <translation type="unfinished"/>
+        <translation>重新发送链接</translation>
     </message>
     <message>
         <source>Server: %1</source>
-        <translation type="unfinished"/>
+        <translation>服务器: %1</translation>
     </message>
 </context>
 <context>
@@ -5094,15 +5095,15 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfCloudRegister</name>
     <message>
         <source>Provide your email and desired username</source>
-        <translation type="unfinished"/>
+        <translation>请提供您的Email和期望用户名</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"/>
+        <translation>Email</translation>
     </message>
     <message>
         <source>Your email is used for verification and password recovery</source>
-        <translation type="unfinished"/>
+        <translation>您的Email用于验证和找回密码</translation>
     </message>
     <message>
         <source>Username</source>
@@ -5110,107 +5111,107 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Your username must meet the following criteria:</source>
-        <translation type="unfinished"/>
+        <translation>您的用户名必须符合以下标准：</translation>
     </message>
     <message numerus="yes">
         <source>Must have at least %n characters</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>至少需要%n个字符</numerusform></translation>
     </message>
     <message>
         <source>Must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>必须以字母开头</translation>
     </message>
     <message>
         <source>Must contain only a-z letters, digits, underscores or hyphens</source>
-        <translation type="unfinished"/>
+        <translation>必须仅包含a-z字母、数字、下划线或连字符</translation>
     </message>
     <message>
         <source>Pick a password</source>
-        <translation type="unfinished"/>
+        <translation>设置密码</translation>
     </message>
     <message>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>再次输入密码</translation>
     </message>
     <message>
         <source>The two passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>两次输入的密码不一致</translation>
     </message>
     <message>
         <source>One last thing</source>
-        <translation type="unfinished"/>
+        <translation>最后一步</translation>
     </message>
     <message>
         <source>Subscribe to the QFieldCloud newsletter</source>
-        <translation type="unfinished"/>
+        <translation>订阅QFieldCloud简讯</translation>
     </message>
     <message>
         <source>When checking this, you agree to receive our newsletter covering latest changes and important updates.</source>
-        <translation type="unfinished"/>
+        <translation>勾选此项，即表示您同意接收简讯，其中包含最新动态和重要更新。</translation>
     </message>
     <message>
         <source>Accept ToS and DPA</source>
-        <translation type="unfinished"/>
+        <translation>接受ToS和DPA</translation>
     </message>
     <message>
         <source>By checking this, you agree with the QFieldCloud %1Terms of Services (ToS)%2 and the %3Data Processing Agreement (DPA)%4.</source>
-        <translation type="unfinished"/>
+        <translation>勾选此项，即表示您同意QFieldCloud的%1服务条款 (ToS)%2 以及%3数据处理协议 (DPA)%4。</translation>
     </message>
     <message>
         <source>Captcha</source>
-        <translation type="unfinished"/>
+        <translation>验证码</translation>
     </message>
     <message>
         <source>Characters shown above</source>
-        <translation type="unfinished"/>
+        <translation>上方显示的字符</translation>
     </message>
     <message>
         <source>Referral code</source>
-        <translation type="unfinished"/>
+        <translation>邀请码</translation>
     </message>
     <message>
         <source>Enter your referral code if you have one</source>
-        <translation type="unfinished"/>
+        <translation>如果有邀请码，请输入</translation>
     </message>
     <message>
         <source>You will be signed in right away.</source>
-        <translation type="unfinished"/>
+        <translation>您将立即登录。</translation>
     </message>
     <message>
         <source>Welcome, %1</source>
-        <translation type="unfinished"/>
+        <translation>欢迎, %1</translation>
     </message>
     <message>
         <source>Verify your email</source>
-        <translation type="unfinished"/>
+        <translation>验证您的Email</translation>
     </message>
     <message>
         <source>Please open the confirmation link once you receive an email from us at %1.</source>
-        <translation type="unfinished"/>
+        <translation>请在收到我们发送至%1的Email后，打开确认链接。</translation>
     </message>
     <message>
         <source>Go to cloud projects</source>
-        <translation type="unfinished"/>
+        <translation>前往云工程</translation>
     </message>
     <message>
         <source>Not now</source>
-        <translation type="unfinished"/>
+        <translation>不是现在</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation>返回</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation>继续</translation>
     </message>
     <message>
         <source>Creating your account, please wait</source>
-        <translation type="unfinished"/>
+        <translation>正在创建您的账户，请稍候</translation>
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"/>
+        <translation>创建账户</translation>
     </message>
 </context>
 <context>
@@ -5681,7 +5682,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Pick a digitizing layer</source>
-        <translation type="unfinished"/>
+        <translation>选择数字化图层</translation>
     </message>
 </context>
 <context>
