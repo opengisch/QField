@@ -15,6 +15,7 @@
 
 #include "qfcloudattachmentsmodel.h"
 #include "qfcloudutils.h"
+#include "qfdeltafilewrapper.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -98,6 +99,32 @@ void QfCloudAttachmentsModel::refresh()
       mAttachments << attachment;
     }
 
+    // Attachments of changes not yet uploaded only get queued once the changes are pushed
+    if ( mDeltaFileWrapper && mDeltaFileWrapper->projectId() == mCloudProjectId )
+    {
+      const QStringList localFileNames = mDeltaFileWrapper->attachmentFileNames().keys();
+      for ( const QString &localFileName : localFileNames )
+      {
+        if ( localFileName.isEmpty() )
+        {
+          continue;
+        }
+
+        const QString filePath = QFileInfo( localFileName ).isRelative() && !projectFilePath.isEmpty() ? projectDir.absoluteFilePath( localFileName ) : localFileName;
+        if ( listedFilePaths.contains( filePath ) || !QFileInfo( filePath ).isFile() )
+        {
+          continue;
+        }
+        listedFilePaths.insert( filePath );
+
+        Attachment attachment;
+        attachment.filePath = filePath;
+        attachment.fileName = displayName( filePath );
+        attachment.status = LocalStatus;
+        mAttachments << attachment;
+      }
+    }
+
     // Only the most recent upload outcome of a file is listed, newest first
     const QList<QfCloudAttachmentHistoryEntry> history = QfCloudUtils::getAttachmentsHistory( username, mCloudProjectId );
     for ( auto it = history.crbegin(); it != history.crend(); ++it )
@@ -148,6 +175,34 @@ void QfCloudAttachmentsModel::setCloudConnection( QfCloudConnection *cloudConnec
   }
 
   emit cloudConnectionChanged();
+  refresh();
+}
+
+QfDeltaFileWrapper *QfCloudAttachmentsModel::deltaFileWrapper() const
+{
+  return mDeltaFileWrapper;
+}
+
+void QfCloudAttachmentsModel::setDeltaFileWrapper( QfDeltaFileWrapper *deltaFileWrapper )
+{
+  if ( mDeltaFileWrapper == deltaFileWrapper )
+  {
+    return;
+  }
+
+  if ( mDeltaFileWrapper )
+  {
+    disconnect( mDeltaFileWrapper, &QfDeltaFileWrapper::countChanged, this, &QfCloudAttachmentsModel::refresh );
+  }
+
+  mDeltaFileWrapper = deltaFileWrapper;
+
+  if ( mDeltaFileWrapper )
+  {
+    connect( mDeltaFileWrapper, &QfDeltaFileWrapper::countChanged, this, &QfCloudAttachmentsModel::refresh );
+  }
+
+  emit deltaFileWrapperChanged();
   refresh();
 }
 

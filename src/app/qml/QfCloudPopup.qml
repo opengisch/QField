@@ -799,7 +799,7 @@ Popup {
                   color: QfTheme.mainTextColor
                   horizontalAlignment: Text.AlignHCenter
                   wrapMode: Text.WordWrap
-                  text: qsTr('Upload history')
+                  text: qsTr('Changes history')
 
                   MouseArea {
                     anchors.fill: parent
@@ -830,7 +830,7 @@ Popup {
                   color: QfTheme.mainTextColor
                   horizontalAlignment: Text.AlignHCenter
                   wrapMode: Text.WordWrap
-                  text: qsTr('Attachments')
+                  text: qsTr('Attachments history')
 
                   MouseArea {
                     anchors.fill: parent

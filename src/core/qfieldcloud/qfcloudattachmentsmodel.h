@@ -19,6 +19,9 @@
 #include "qfcloudconnection.h"
 
 #include <QAbstractListModel>
+#include <QPointer>
+
+class QfDeltaFileWrapper;
 
 /**
  * \ingroup core
@@ -30,8 +33,12 @@ class QfCloudAttachmentsModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    // moc needs the full definition to build the metaobject.
+    Q_MOC_INCLUDE( "qfdeltafilewrapper.h" )
+
     Q_PROPERTY( QfCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
     Q_PROPERTY( QString cloudProjectId READ cloudProjectId WRITE setCloudProjectId NOTIFY cloudProjectIdChanged )
+    Q_PROPERTY( QfDeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper WRITE setDeltaFileWrapper NOTIFY deltaFileWrapperChanged )
 
   public:
     enum Status
@@ -39,6 +46,7 @@ class QfCloudAttachmentsModel : public QAbstractListModel
       PendingStatus,
       UploadedStatus,
       FailedStatus,
+      LocalStatus,
     };
     Q_ENUM( Status )
 
@@ -70,12 +78,21 @@ class QfCloudAttachmentsModel : public QAbstractListModel
 
     void setCloudProjectId( const QString &cloudProjectId );
 
+    QfDeltaFileWrapper *deltaFileWrapper() const;
+
+    /**
+     * Sets the \a deltaFileWrapper of the opened cloud project, its attachments not yet
+     * uploaded are listed with a local status when it matches the cloud project ID.
+     */
+    void setDeltaFileWrapper( QfDeltaFileWrapper *deltaFileWrapper );
+
     //! Reloads the pending attachments and the attachments upload history.
     Q_INVOKABLE void refresh();
 
   signals:
     void cloudConnectionChanged();
     void cloudProjectIdChanged();
+    void deltaFileWrapperChanged();
 
   private:
     struct Attachment
@@ -90,6 +107,7 @@ class QfCloudAttachmentsModel : public QAbstractListModel
 
     QfCloudConnection *mCloudConnection = nullptr;
     QString mCloudProjectId;
+    QPointer<QfDeltaFileWrapper> mDeltaFileWrapper;
 };
 
 #endif // QFCLOUDATTACHMENTSMODEL_H

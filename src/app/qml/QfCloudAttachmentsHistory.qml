@@ -115,6 +115,7 @@ QfPopup {
 
         model: QfCloudAttachmentsModel {
           id: attachmentsModel
+          deltaFileWrapper: cloudProjectsModel.layerObserver.deltaFileWrapper
         }
 
         delegate: QfCollapsibleMessage {
@@ -135,6 +136,7 @@ QfPopup {
     case QfCloudAttachmentsModel.UploadedStatus:
       return QfTheme.mainColor;
     case QfCloudAttachmentsModel.PendingStatus:
+    case QfCloudAttachmentsModel.LocalStatus:
       return QfTheme.cloudColor;
     case QfCloudAttachmentsModel.FailedStatus:
       return QfTheme.errorColor;
@@ -149,6 +151,8 @@ QfPopup {
       return qsTr('Uploaded');
     case QfCloudAttachmentsModel.PendingStatus:
       return qsTr('Waiting to be uploaded');
+    case QfCloudAttachmentsModel.LocalStatus:
+      return qsTr('Not uploaded yet, upload your changes to send it');
     case QfCloudAttachmentsModel.FailedStatus:
       return qsTr('Upload failed');
     default:
@@ -161,6 +165,7 @@ QfPopup {
     case QfCloudAttachmentsModel.UploadedStatus:
       return QfTheme.getThemeVectorIcon('ic_check_white_24dp');
     case QfCloudAttachmentsModel.PendingStatus:
+    case QfCloudAttachmentsModel.LocalStatus:
       return QfTheme.getThemeVectorIcon('ic_hourglass_black_24dp');
     default:
       return QfTheme.getThemeVectorIcon('ic_error_outline_24dp');
