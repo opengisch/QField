@@ -38,7 +38,7 @@ Page {
     backAsCancel: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
-    busyIndicatorState: localFilesModel.fetchingCloudStatus ? 'on' : 'off'
+    busyIndicatorState: localFilesModel.isFetchingCloudStatus ? 'on' : 'off'
 
     onCancel: {
       localFilesModel.clearSelection();

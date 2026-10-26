@@ -38,7 +38,7 @@ class QfLocalFilesModel : public QAbstractListModel
     Q_PROPERTY( int selectedCount READ selectedCount NOTIFY selectionDetailsChanged )
     Q_PROPERTY( qint64 selectedSize READ selectedSize NOTIFY selectionDetailsChanged )
     Q_PROPERTY( QfCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
-    Q_PROPERTY( bool fetchingCloudStatus READ fetchingCloudStatus NOTIFY fetchingCloudStatusChanged )
+    Q_PROPERTY( bool isFetchingCloudStatus READ isFetchingCloudStatus NOTIFY isFetchingCloudStatusChanged )
 
   public:
     enum ItemMetaType
@@ -156,7 +156,7 @@ class QfLocalFilesModel : public QAbstractListModel
     void setCloudConnection( QfCloudConnection *cloudConnection );
 
     //! Returns TRUE while the cloud project file list is being fetched
-    bool fetchingCloudStatus() const { return mFetchingCloudStatus; }
+    bool isFetchingCloudStatus() const { return mIsFetchingCloudStatus; }
 
   signals:
 
@@ -168,15 +168,15 @@ class QfLocalFilesModel : public QAbstractListModel
 
     void cloudConnectionChanged();
 
-    void fetchingCloudStatusChanged();
+    void isFetchingCloudStatusChanged();
 
   private:
     void reloadModel();
     void fetchCloudStatus();
-    void fetchCloudFiles( const QString &endpoint, const QVariantMap &params = QVariantMap() );
+    void fetchCloudFiles( const QString &endpoint );
     void updateCloudStatus();
     void clearCloudFiles();
-    void setFetchingCloudStatus( bool fetching );
+    void setIsFetchingCloudStatus( bool isFetching );
     const QString getCurrentTitleFromPath( const QString &path ) const;
 
     QStringList mHistory;
@@ -192,7 +192,7 @@ class QfLocalFilesModel : public QAbstractListModel
     QString mCloudFilesProjectId;
     QHash<QString, QPair<qint64, QString>> mCloudFiles;
     bool mCloudFilesFetched = false;
-    bool mFetchingCloudStatus = false;
+    bool mIsFetchingCloudStatus = false;
     int mCloudFilesRequestId = 0;
 };
 
