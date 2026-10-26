@@ -1040,6 +1040,7 @@ Page {
 
         TextArea {
           id: cloneProjectDescription
+          topInset: 0
           wrapMode: TextEdit.Wrap
         }
       }
