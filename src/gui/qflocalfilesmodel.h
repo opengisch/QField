@@ -63,11 +63,12 @@ class QfLocalFilesModel : public QAbstractListModel
     };
     Q_ENUM( ItemType )
 
+    //! Synchronization status of a local file within a cloud project, compared against the files stored on QFieldCloud
     enum CloudStatus
     {
-      LocalOnly,
-      Synchronized,
-      Divergent,
+      LocalOnly,    //!< The file only exists locally and is missing on QFieldCloud
+      Synchronized, //!< The file exists on QFieldCloud and its checksum matches the local file
+      Divergent,    //!< The file exists on QFieldCloud but its checksum differs from the local file
     };
     Q_ENUM( CloudStatus )
 
