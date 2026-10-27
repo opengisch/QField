@@ -89,6 +89,7 @@ class QfAbstractGnssReceiver : public QObject
     friend class QfTcpReceiver;
     friend class QfUdpReceiver;
     friend class QfSerialPortReceiver;
+    friend class QfExternalAccessoryReceiver;
 
     virtual void handleConnectDevice() {}
     virtual void handleDisconnectDevice() {}

@@ -64,6 +64,11 @@
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>Needed to provide tracking functionality.</string>
 
+    <key>UISupportedExternalAccessoryProtocols</key>
+    <array>
+        <string>com.bad-elf.gnss</string>
+    </array>
+
     <key>UIBackgroundModes</key>
     <array>
         <string>location</string>
