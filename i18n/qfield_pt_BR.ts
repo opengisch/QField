@@ -5445,6 +5445,14 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
         <source>Upgrade storage</source>
         <translation> Upgrade do armazenamento </translation>
     </message>
+    <message>
+        <source>Fetching available project owners</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your project owner</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>

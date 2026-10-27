@@ -5434,6 +5434,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Upgrade storage</source>
         <translation>Povečaj pomnilnik</translation>
     </message>
+    <message>
+        <source>Fetching available project owners</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your project owner</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>

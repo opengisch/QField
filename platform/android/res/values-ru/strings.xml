@@ -36,4 +36,5 @@
     <string name="processing_message">Обработка...</string>
     <string name="positioning_title">Местоположение</string>
     <string name="positioning_running">Сервис позиционирования работает</string>
-    </resources>
+    <string name="copy_to_clipboard">Скопировать в буфер обмена</string>
+</resources>

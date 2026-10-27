@@ -5451,6 +5451,14 @@ epäonnistui, syy: %2</translation>
         <source>Upgrade storage</source>
         <translation>Päivitä tallennustilaa</translation>
     </message>
+    <message>
+        <source>Fetching available project owners</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your project owner</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>

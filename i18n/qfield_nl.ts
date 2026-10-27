@@ -5448,6 +5448,14 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <source>Upgrade storage</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fetching available project owners</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your project owner</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>

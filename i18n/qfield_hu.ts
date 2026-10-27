@@ -5442,6 +5442,14 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>Upgrade storage</source>
         <translation>Tárhelybővítés</translation>
     </message>
+    <message>
+        <source>Fetching available project owners</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your project owner</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>

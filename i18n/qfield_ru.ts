@@ -2472,7 +2472,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Остался %n файл</numerusform><numerusform>Осталось %n файла</numerusform><numerusform>Осталось %n файлов</numerusform><numerusform>Осталось %n файлов</numerusform></translation>
     </message>
 </context>
 <context>
@@ -2997,7 +2997,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
-        <translation type="unfinished"/>
+        <translation>Пропущен файл %1, находящийся вне каталога %2</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
@@ -3021,19 +3021,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Circle #1: radius</source>
-        <translation type="unfinished"/>
+        <translation>Окружность № 1: радиус</translation>
     </message>
     <message>
         <source>Circle #2: radius</source>
-        <translation type="unfinished"/>
+        <translation>Окружность № 2: радиус</translation>
     </message>
     <message>
         <source>Candidate</source>
-        <translation type="unfinished"/>
+        <translation>Кандидат</translation>
     </message>
     <message>
         <source>XYZ Parameters</source>
-        <translation type="unfinished"/>
+        <translation>Параметры XYZ</translation>
     </message>
     <message>
         <source>Distance/Angle from Point</source>
@@ -3061,51 +3061,51 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Circle #1: point</source>
-        <translation type="unfinished"/>
+        <translation>Круг № 1: точка</translation>
     </message>
     <message>
         <source>Circle #2: point</source>
-        <translation type="unfinished"/>
+        <translation>Круг № 2: точка</translation>
     </message>
     <message>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>КБ</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"/>
+        <translation>МБ</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished"/>
+        <translation>ГБ</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished"/>
+        <translation>ТБ</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"/>
+        <translation>Б</translation>
     </message>
     <message>
         <source>Cannot delete file (not allowed): %1</source>
-        <translation type="unfinished"/>
+        <translation>Не удаётся удалить файл (доступ запрещён): %1</translation>
     </message>
     <message>
         <source>File does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Файл не существует: %1</translation>
     </message>
     <message>
         <source>Failed to delete directory: %1</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось удалить каталог: %1</translation>
     </message>
     <message>
         <source>Failed to delete file: %1 - %2</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось удалить файл: %1 - %2</translation>
     </message>
     <message>
         <source>Failed to delete sidecar file: %1 - %2</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось удалить вспомогательный файл: %1 - %2</translation>
     </message>
 </context>
 <context>
@@ -3120,11 +3120,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>%1 каталогов приложений</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>%1 каталог приложения</translation>
     </message>
     <message>
         <source>Support QField</source>
@@ -3505,11 +3505,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Clear authentication cache</source>
-        <translation type="unfinished"/>
+        <translation>Очистить кэш аутентификации</translation>
     </message>
     <message>
         <source>Authentication cache cleared</source>
-        <translation type="unfinished"/>
+        <translation>Кэш аутентификации очищен</translation>
     </message>
     <message>
         <source>Enable proxy</source>
@@ -3525,7 +3525,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Сервер</translation>
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
@@ -3537,7 +3537,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation>например, 8888</translation>
     </message>
     <message>
         <source>Username</source>
@@ -3545,7 +3545,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Необязательно</translation>
     </message>
     <message>
         <source>Password</source>
@@ -3557,7 +3557,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
+        <translation>например, localhost, 192.168.*</translation>
     </message>
     <message>
         <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
@@ -3601,23 +3601,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
-        <translation type="unfinished"/>
+        <translation>Включить поправки NTRIP</translation>
     </message>
     <message>
         <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Клиент NTRIP отключился</translation>
     </message>
     <message>
         <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
+        <translation>Подключение клиента NTRIP</translation>
     </message>
     <message>
         <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
+        <translation>Клиент NTRIP подключился</translation>
     </message>
     <message>
         <source>Please provide valid NTRIP settings</source>
-        <translation type="unfinished"/>
+        <translation>Укажите правильные настройки NTRIP</translation>
     </message>
     <message>
         <source>Show position information</source>
@@ -3629,15 +3629,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Follow position only</source>
-        <translation type="unfinished"/>
+        <translation>Только следование за местоположением</translation>
     </message>
     <message>
         <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Отслеживать местоположение и ориентацию по компасу</translation>
     </message>
     <message>
         <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Отслеживать положение и направление движения</translation>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
@@ -3733,7 +3733,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Antenna height</source>
-        <translation type="unfinished"/>
+        <translation>Высота антенны</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
@@ -3773,11 +3773,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Show news on the welcome screen</source>
-        <translation type="unfinished"/>
+        <translation>Показывать новости на стартовом экране</translation>
     </message>
     <message>
         <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
-        <translation type="unfinished"/>
+        <translation>Если эта функция включена, на экране приветствия будут отображаться последние новости и полезные советы.</translation>
     </message>
 </context>
 <context>
@@ -3857,7 +3857,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Use Bluetooth Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Используйте Bluetooth Low Energy (BLE)</translation>
     </message>
     <message>
         <source>Bluetooth device name:</source>
@@ -3873,11 +3873,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Low Energy (BLE)</source>
-        <translation type="unfinished"/>
+        <translation>Low Energy (BLE)</translation>
     </message>
     <message>
         <source>Classic (BT)</source>
-        <translation type="unfinished"/>
+        <translation>Classic (BT)</translation>
     </message>
 </context>
 <context>
@@ -4276,7 +4276,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloudConnection</name>
     <message>
         <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
+        <translation>Отсутствует поставщик аутентификации</translation>
     </message>
     <message>
         <source>Password missing</source>
@@ -4330,24 +4330,25 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Too many attempts, please wait a minute before trying again.</source>
-        <translation type="unfinished"/>
+        <translation>Слишком много попыток. Подождите минутку, прежде чем повторить попытку.</translation>
     </message>
     <message>
         <source>Captcha temporary unavailable, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Капча временно недоступна, пожалуйста, повторите попытку позже</translation>
     </message>
     <message>
         <source>%1
 If this email already has an account, check your inbox for a message from QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>%1
+Если на этот адрес электронной почты уже зарегистрирована учетная запись, проверьте папку «Входящие» — там должно быть письмо от QFieldCloud.</translation>
     </message>
     <message>
         <source>The server did not accept the registration</source>
-        <translation type="unfinished"/>
+        <translation>Сервер не принял регистрацию</translation>
     </message>
     <message>
         <source>The server did not accept the request</source>
-        <translation type="unfinished"/>
+        <translation>Сервер не принял запрос</translation>
     </message>
 </context>
 <context>
@@ -4449,7 +4450,8 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1 URL сервера
+(Оставьте поле пустым, чтобы использовать сервер по умолчанию)</translation>
     </message>
     <message>
         <source>Username or email</source>
@@ -4501,11 +4503,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Forgot your password?</source>
-        <translation type="unfinished"/>
+        <translation>Забыли пароль?</translation>
     </message>
     <message>
         <source>Create an account</source>
-        <translation type="unfinished"/>
+        <translation>Зарегистрироваться</translation>
     </message>
 </context>
 <context>
@@ -4527,62 +4529,62 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>Requires at least %n characters</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Требуется не менее %n символа</numerusform><numerusform>Требуется не менее %n символов</numerusform><numerusform>Требуется не менее %n символов</numerusform><numerusform>Требуется не менее %n символов</numerusform></translation>
     </message>
     <message>
         <source>Must not be similar to your username</source>
-        <translation type="unfinished"/>
+        <translation>Не должно совпадать с именем пользователя</translation>
     </message>
     <message>
         <source>Must not be entirely numeric</source>
-        <translation type="unfinished"/>
+        <translation>Не должно состоять исключительно из цифр</translation>
     </message>
 </context>
 <context>
     <name>QfCloudPasswordReset</name>
     <message>
         <source>Forgot your password?</source>
-        <translation type="unfinished"/>
+        <translation>Забыли пароль?</translation>
     </message>
     <message>
         <source>Enter your account email and we will send you a link to pick a new password.</source>
-        <translation type="unfinished"/>
+        <translation>Введите адрес электронной почты учётной записи и мы отправим ссылку для ввода нового пароля.</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"/>
+        <translation>Электронная почта</translation>
     </message>
     <message>
         <source>Send reset link</source>
-        <translation type="unfinished"/>
+        <translation>Отправить ссылку для сброса</translation>
     </message>
     <message>
         <source>Back to sign in</source>
-        <translation type="unfinished"/>
+        <translation>Вернуться к входу</translation>
     </message>
     <message>
         <source>Check your inbox</source>
-        <translation type="unfinished"/>
+        <translation>Проверьте входящие сообщения</translation>
     </message>
     <message>
         <source>We sent a reset link to %1. Open it to pick a new password.</source>
-        <translation type="unfinished"/>
+        <translation>Мы отправили ссылку для сброса пароля на адрес %1. Откройте её, чтобы задать новый пароль.</translation>
     </message>
     <message>
         <source>Nothing yet? Check your spam folder, or %1use another email%2.</source>
-        <translation type="unfinished"/>
+        <translation>Пока ничего нет? Проверьте папку «Спам» или %1 используйте другой адрес электронной почты %2.</translation>
     </message>
     <message>
         <source>Resend link in %1s</source>
-        <translation type="unfinished"/>
+        <translation>Отправить ссылку ещё раз через %1с</translation>
     </message>
     <message>
         <source>Resend link</source>
-        <translation type="unfinished"/>
+        <translation>Отправить ссылку ещё раз</translation>
     </message>
     <message>
         <source>Server: %1</source>
-        <translation type="unfinished"/>
+        <translation>Сервер: %1</translation>
     </message>
 </context>
 <context>
@@ -4609,15 +4611,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>%1: %2 to %3</source>
-        <translation type="unfinished"/>
+        <translation>%1: от %2 до %3</translation>
     </message>
     <message>
         <source>%1: %2</source>
-        <translation type="unfinished"/>
+        <translation>%1: %2</translation>
     </message>
     <message numerus="yes">
         <source>%n change(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n изменение</numerusform><numerusform>%n изменения</numerusform><numerusform>%n изменений</numerusform><numerusform>%n изменений</numerusform></translation>
     </message>
     <message>
         <source>Geometry modified</source>
@@ -4656,7 +4658,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Pushing changes, %1%…</source>
-        <translation type="unfinished"/>
+        <translation>Отправка изменений, %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
@@ -4680,11 +4682,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cloudifying %1%</source>
-        <translation type="unfinished"/>
+        <translation>Перенос %1% в облако</translation>
     </message>
     <message>
         <source>Cloudifying</source>
-        <translation type="unfinished"/>
+        <translation>Перенос в облако</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
@@ -4748,7 +4750,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Last synchronized today at %1</source>
-        <translation type="unfinished"/>
+        <translation>Последняя синхронизация сегодня в %1</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
@@ -4772,7 +4774,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Остался %n файл</numerusform><numerusform>Осталось %n файла</numerusform><numerusform>Осталось %n файлов</numerusform><numerusform>Осталось %n файлов</numerusform></translation>
     </message>
     <message>
         <source>Discard local changes</source>
@@ -4832,19 +4834,19 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>Локальные изменения</translation>
     </message>
     <message numerus="yes">
         <source>%n addition(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n дополнение</numerusform><numerusform>%n дополнения</numerusform><numerusform>%n дополнений</numerusform><numerusform>%n дополнений</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n edit(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n правка</numerusform><numerusform>%n правки</numerusform><numerusform>%n правок</numerusform><numerusform>%n правок</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n deletion(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n удаление</numerusform><numerusform>%n удаления</numerusform><numerusform>%n удалений</numerusform><numerusform>%n удалений</numerusform></translation>
     </message>
     <message>
         <source>Uploading %1%</source>
@@ -4869,11 +4871,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка файловой системы . Не удалось записать вложение во временную папку `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка файловой системы. Не удалось открыть файл для записи во временную папку `%1`.</translation>
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
@@ -4905,11 +4907,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка файловой системы. Не удалось записать данные в неполный файл `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка файловой системы. Не удалось открыть частичный файл `%1`.</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
@@ -4968,7 +4970,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfCloudProjectDetails</name>
     <message>
         <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Используется %1 из %2</translation>
     </message>
     <message>
         <source>Storage size</source>
@@ -4992,7 +4994,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Synchronizing</source>
-        <translation type="unfinished"/>
+        <translation>Синхронизация</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -5039,19 +5041,19 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfCloudProjectFilter</name>
     <message>
         <source>Predefined Filters</source>
-        <translation type="unfinished"/>
+        <translation>Предустановленные фильтры</translation>
     </message>
     <message>
         <source>Criteria</source>
-        <translation type="unfinished"/>
+        <translation>Критерии</translation>
     </message>
     <message>
         <source>Title or description contains</source>
-        <translation type="unfinished"/>
+        <translation>Заголовок или описание содержит</translation>
     </message>
     <message>
         <source>Owner is</source>
-        <translation type="unfinished"/>
+        <translation>Владелец</translation>
     </message>
     <message>
         <source>Include public projects</source>
@@ -5063,15 +5065,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>My own</source>
-        <translation type="unfinished"/>
+        <translation>Моё собственное</translation>
     </message>
     <message>
         <source>Owned by %1</source>
-        <translation type="unfinished"/>
+        <translation>Принадлежит %1</translation>
     </message>
     <message>
         <source>Include public templates</source>
-        <translation type="unfinished"/>
+        <translation>Включить общедоступные шаблоны</translation>
     </message>
 </context>
 <context>
@@ -5097,15 +5099,15 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfCloudRegister</name>
     <message>
         <source>Provide your email and desired username</source>
-        <translation type="unfinished"/>
+        <translation>Укажите свой адрес электронной почты и желаемое имя пользователя</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"/>
+        <translation>Электронная почта</translation>
     </message>
     <message>
         <source>Your email is used for verification and password recovery</source>
-        <translation type="unfinished"/>
+        <translation>Ваш адрес электронной почты используется для подтверждения и восстановления пароля</translation>
     </message>
     <message>
         <source>Username</source>
@@ -5113,107 +5115,107 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Your username must meet the following criteria:</source>
-        <translation type="unfinished"/>
+        <translation>Ваше имя пользователя должно соответствовать следующим критериям:</translation>
     </message>
     <message numerus="yes">
         <source>Must have at least %n characters</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Должно содержать не менее %n символа</numerusform><numerusform>Должно содержать не менее %n символов</numerusform><numerusform>Должно содержать не менее %n символов</numerusform><numerusform>Должно содержать не менее %n символов</numerusform></translation>
     </message>
     <message>
         <source>Must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Должно начинаться с буквы</translation>
     </message>
     <message>
         <source>Must contain only a-z letters, digits, underscores or hyphens</source>
-        <translation type="unfinished"/>
+        <translation>Должно содержать только буквы a–z, цифры, символы подчёркивания или дефисы</translation>
     </message>
     <message>
         <source>Pick a password</source>
-        <translation type="unfinished"/>
+        <translation>Выберите пароль</translation>
     </message>
     <message>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>Повторите пароль</translation>
     </message>
     <message>
         <source>The two passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Пароли не совпадают</translation>
     </message>
     <message>
         <source>One last thing</source>
-        <translation type="unfinished"/>
+        <translation>И ещё кое-что</translation>
     </message>
     <message>
         <source>Subscribe to the QFieldCloud newsletter</source>
-        <translation type="unfinished"/>
+        <translation>Подпишитесь на рассылку QFieldCloud</translation>
     </message>
     <message>
         <source>When checking this, you agree to receive our newsletter covering latest changes and important updates.</source>
-        <translation type="unfinished"/>
+        <translation>Отметив этот пункт, вы соглашаетесь получать нашу рассылку с информацией о последних изменениях и важных обновлениях.</translation>
     </message>
     <message>
         <source>Accept ToS and DPA</source>
-        <translation type="unfinished"/>
+        <translation>Принять Условия использования и Соглашение об обработке данных</translation>
     </message>
     <message>
         <source>By checking this, you agree with the QFieldCloud %1Terms of Services (ToS)%2 and the %3Data Processing Agreement (DPA)%4.</source>
-        <translation type="unfinished"/>
+        <translation>Отмечая этот пункт, вы соглашаетесь с %1 Условиями предоставления услуг (ToS) %2 и %3 Соглашением об обработке данных (DPA) %4 сервиса QFieldCloud.</translation>
     </message>
     <message>
         <source>Captcha</source>
-        <translation type="unfinished"/>
+        <translation>Капча</translation>
     </message>
     <message>
         <source>Characters shown above</source>
-        <translation type="unfinished"/>
+        <translation>Символы, показанные выше</translation>
     </message>
     <message>
         <source>Referral code</source>
-        <translation type="unfinished"/>
+        <translation>Реферальный код</translation>
     </message>
     <message>
         <source>Enter your referral code if you have one</source>
-        <translation type="unfinished"/>
+        <translation>Введите ваш реферальный код, если он есть</translation>
     </message>
     <message>
         <source>You will be signed in right away.</source>
-        <translation type="unfinished"/>
+        <translation>Вы войдете в систему немедленно.</translation>
     </message>
     <message>
         <source>Welcome, %1</source>
-        <translation type="unfinished"/>
+        <translation>Добро пожаловать, %1</translation>
     </message>
     <message>
         <source>Verify your email</source>
-        <translation type="unfinished"/>
+        <translation>Подтвердите ваш адрес электронной почты</translation>
     </message>
     <message>
         <source>Please open the confirmation link once you receive an email from us at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Пожалуйста, откройте ссылку для подтверждения, как только получите от нас электронное письмо по адресу %1.</translation>
     </message>
     <message>
         <source>Go to cloud projects</source>
-        <translation type="unfinished"/>
+        <translation>Перейти к облачным проектам</translation>
     </message>
     <message>
         <source>Not now</source>
-        <translation type="unfinished"/>
+        <translation>Не сейчас</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation>Назад</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation>Продолжить</translation>
     </message>
     <message>
         <source>Creating your account, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Создание вашей учетной записи, пожалуйста, подождите.</translation>
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"/>
+        <translation>Создать учётную запись</translation>
     </message>
 </context>
 <context>
@@ -5292,7 +5294,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>Для начала, %1 ознакомьтесь с документацией %2.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
@@ -5348,7 +5350,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Вы уверены, что хотите удалить `%1`?</translation>
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
@@ -5368,7 +5370,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Templates</source>
-        <translation type="unfinished"/>
+        <translation>Шаблоны</translation>
     </message>
     <message>
         <source>Project Creation</source>
@@ -5380,7 +5382,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Allowed characters: 0-9A-Za-z_-</source>
-        <translation type="unfinished"/>
+        <translation>Допустимые символы: 0-9A-Za-z_-</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -5388,31 +5390,31 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Search for templates</source>
-        <translation type="unfinished"/>
+        <translation>Поиск шаблонов</translation>
     </message>
     <message>
         <source>Refreshing templates list...</source>
-        <translation type="unfinished"/>
+        <translation>Обновление списка шаблонов...</translation>
     </message>
     <message>
         <source>Searching for templates...</source>
-        <translation type="unfinished"/>
+        <translation>Поиск шаблонов...</translation>
     </message>
     <message>
         <source>No templates found.</source>
-        <translation type="unfinished"/>
+        <translation>Шаблоны не найдены.</translation>
     </message>
     <message>
         <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
+        <translation>Попробуйте %1 включить общедоступные шаблоны %2 и посмотрите, что может предложить сообщество.</translation>
     </message>
     <message>
         <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
+        <translation>Попробуйте %1 включить общедоступные шаблоны %2.</translation>
     </message>
     <message>
         <source>Refresh templates list</source>
-        <translation type="unfinished"/>
+        <translation>Обновить список шаблонов</translation>
     </message>
     <message>
         <source>Creating project…</source>
@@ -5440,15 +5442,23 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Проект невозможно клонировать, так как доступное вам место на диске заполнено.</translation>
     </message>
     <message>
         <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Проект не может быть создан, так как доступное вам место на диске заполнено.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Обновить хранилище</translation>
+    </message>
+    <message>
+        <source>Fetching available project owners</source>
+        <translation>Получение информации о доступных владельцах проекта</translation>
+    </message>
+    <message>
+        <source>Select your project owner</source>
+        <translation>Выберите владельца проекта</translation>
     </message>
 </context>
 <context>
@@ -5459,7 +5469,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation type="unfinished"/>
+        <translation>Сервер по адресу %1 недоступен. Пожалуйста, проверьте подключение к интернету.</translation>
     </message>
     <message>
         <source>QFieldCloud is under maintenance</source>
@@ -5471,7 +5481,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>There is an ongoing incident</source>
-        <translation type="unfinished"/>
+        <translation>Сейчас происходит инцидент</translation>
     </message>
 </context>
 <context>
@@ -5514,15 +5524,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n feature(s) edited</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n объект отредактирован</numerusform><numerusform>%n объекта отредактировано</numerusform><numerusform>%n объектов отредактировано</numerusform><numerusform>%n объектов отредактировано</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s) deleted</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n объект удалён</numerusform><numerusform>%n объекта удалено</numerusform><numerusform>%n объектов удалено</numerusform><numerusform>%n объектов удалено</numerusform></translation>
     </message>
     <message>
         <source>%1 in layer %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 в слое %2</translation>
     </message>
     <message>
         <source>The project folder could not be found.</source>
@@ -5545,7 +5555,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfCodeReader</name>
     <message>
         <source>No readable code found in the selected image</source>
-        <translation type="unfinished"/>
+        <translation>В выбранном изображении не найден читаемый код.</translation>
     </message>
     <message>
         <source>NFC text tag detected</source>
@@ -5564,38 +5574,38 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfCogoParameterAngle</name>
     <message>
         <source>deg</source>
-        <translation type="unfinished"/>
+        <translation>градус</translation>
     </message>
 </context>
 <context>
     <name>QfCogoParameterPoint</name>
     <message>
         <source>latitude</source>
-        <translation type="unfinished"/>
+        <translation>широта</translation>
     </message>
     <message>
         <source>longitude</source>
-        <translation type="unfinished"/>
+        <translation>долгота</translation>
     </message>
     <message>
         <source>elevation</source>
-        <translation type="unfinished"/>
+        <translation>высота</translation>
     </message>
     <message>
         <source>easting [X]</source>
-        <translation type="unfinished"/>
+        <translation>восточное смещение [X]</translation>
     </message>
     <message>
         <source>northing [Y]</source>
-        <translation type="unfinished"/>
+        <translation>северное смещение [Y]</translation>
     </message>
     <message>
         <source>elevation [Z]</source>
-        <translation type="unfinished"/>
+        <translation>высота [Z]</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
+        <translation>Выбор точечных объектов</translation>
     </message>
 </context>
 <context>
@@ -5634,7 +5644,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Markups</source>
-        <translation type="unfinished"/>
+        <translation>Разметка</translation>
     </message>
     <message>
         <source>Create Collection</source>
@@ -5642,11 +5652,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Markup Collection Creation</source>
-        <translation type="unfinished"/>
+        <translation>Создание коллекции разметки</translation>
     </message>
     <message>
         <source>Enter your new collection name</source>
-        <translation type="unfinished"/>
+        <translation>Введите название новой коллекции</translation>
     </message>
 </context>
 <context>
@@ -5661,7 +5671,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Да</translation>
     </message>
     <message>
         <source>No</source>
@@ -5669,22 +5679,22 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Закрыть</translation>
     </message>
 </context>
 <context>
     <name>QfDigitizingLayerInformationView</name>
     <message>
         <source>Map Layers</source>
-        <translation type="unfinished"/>
+        <translation>Слои карты</translation>
     </message>
     <message>
         <source>Markups</source>
-        <translation type="unfinished"/>
+        <translation>Разметка</translation>
     </message>
     <message>
         <source>Pick a digitizing layer</source>
-        <translation type="unfinished"/>
+        <translation>Выберите слой оцифровки</translation>
     </message>
 </context>
 <context>
@@ -5747,7 +5757,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfEditorWidgetBinary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(двоичные данные Blob)</translation>
     </message>
 </context>
 <context>
@@ -5762,7 +5772,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Пусто</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5792,7 +5802,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Пусто</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5839,7 +5849,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfEditorWidgetRange</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Пусто</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5850,7 +5860,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfEditorWidgetTextEdit</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Пусто</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5901,35 +5911,35 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка приемника TCP (%1)</translation>
     </message>
     <message>
         <source>Is the app running? HTTP request failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>Приложение запущено? HTTP-запрос не выполнен: %1</translation>
     </message>
     <message>
         <source>Egeniouss service is not ready.</source>
-        <translation type="unfinished"/>
+        <translation>Сервис Egeniouss не готов.</translation>
     </message>
     <message>
         <source>Last fix</source>
-        <translation type="unfinished"/>
+        <translation>Последнее определение местоположения</translation>
     </message>
     <message>
         <source>Heading</source>
-        <translation type="unfinished"/>
+        <translation>Направление</translation>
     </message>
     <message>
         <source>Roll</source>
-        <translation type="unfinished"/>
+        <translation>Крен</translation>
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"/>
+        <translation>Тангаж</translation>
     </message>
     <message>
         <source>Heading sigma</source>
-        <translation type="unfinished"/>
+        <translation>Погрешность курса</translation>
     </message>
 </context>
 <context>
@@ -5969,19 +5979,19 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QfFeatureForm</name>
     <message>
         <source>Previous page</source>
-        <translation type="unfinished"/>
+        <translation>Предыдущая страница</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>Next page</source>
-        <translation type="unfinished"/>
+        <translation>Следующая страница</translation>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>Жесткие ограничения не выполнены</translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
@@ -6005,7 +6015,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Soft constraints were not satisified</source>
-        <translation type="unfinished"/>
+        <translation>Мягкие ограничения не были выполнены</translation>
     </message>
     <message>
         <source>Feature addition disabled</source>
@@ -6033,11 +6043,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remember All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Запоминать все повторно используемые значения</translation>
     </message>
     <message>
         <source>Forget All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Забыть все повторно используемые значения</translation>
     </message>
     <message>
         <source>Cancel editing</source>
@@ -6057,7 +6067,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>You are about to cancel the feature setup, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Настройка объекта будет отменена. Продолжить?</translation>
     </message>
 </context>
 <context>
@@ -6475,7 +6485,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>NTRIP</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP</translation>
     </message>
     <message>
         <source>Sensors</source>
@@ -6509,7 +6519,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Подтвердить</translation>
     </message>
 </context>
 <context>
@@ -6775,7 +6785,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message numerus="yes">
         <source>%n item(s) selected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n элемент выбран</numerusform><numerusform>%n элемента выбрано</numerusform><numerusform>%n элементов выбрано</numerusform><numerusform>%n элементов выбрано</numerusform></translation>
     </message>
     <message>
         <source>Folders</source>
@@ -6811,7 +6821,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Домой</translation>
     </message>
     <message>
         <source>Item Actions</source>
@@ -6819,7 +6829,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>View file</source>
-        <translation type="unfinished"/>
+        <translation>Посмотреть файл</translation>
     </message>
     <message>
         <source>Send to...</source>
@@ -6859,11 +6869,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Удалить папку</translation>
     </message>
     <message>
         <source>Delete file</source>
-        <translation type="unfinished"/>
+        <translation>Удалить файл</translation>
     </message>
     <message>
         <source>Remove dataset</source>
@@ -6931,11 +6941,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Send compressed file(s) to...</source>
-        <translation type="unfinished"/>
+        <translation>Отправить сжатые файлы в...</translation>
     </message>
     <message>
         <source>Delete file(s)</source>
-        <translation type="unfinished"/>
+        <translation>Удалить файл(ы)</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
@@ -6947,19 +6957,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Remove File(s)</source>
-        <translation type="unfinished"/>
+        <translation>Удалить файл(ы)</translation>
     </message>
     <message numerus="yes">
         <source>Are you sure you want to remove %n files?</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Вы уверены, что хотите удалить %n файл?</numerusform><numerusform>Вы уверены, что хотите удалить %n файла?</numerusform><numerusform>Вы уверены, что хотите удалить %n файлов?</numerusform><numerusform>Вы уверены, что хотите удалить %n файлов?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) deleted successfully</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n файл успешно удалён</numerusform><numerusform>%n файла успешно удалены</numerusform><numerusform>%n файлов успешно удалены</numerusform><numerusform>%n файлов успешно удалены</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n file(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Не удалось удалить %n файл.</numerusform><numerusform>Не удалось удалить %n файла.</numerusform><numerusform>Не удалось удалить %n файлов.</numerusform><numerusform>Не удалось удалить %n файлов.</numerusform></translation>
     </message>
     <message>
         <source>Type a URL below to download and import the project or dataset:</source>
@@ -7028,15 +7038,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Fetching remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка удалённых папок</translation>
     </message>
     <message>
         <source>Fetch remote folders</source>
-        <translation type="unfinished"/>
+        <translation>Получение удалённых папок</translation>
     </message>
     <message>
         <source>Select the remote folder to import:</source>
-        <translation type="unfinished"/>
+        <translation>Выберите удалённую папку для импорта:</translation>
     </message>
     <message>
         <source>root folder</source>
@@ -7048,7 +7058,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Imported folder name</source>
-        <translation type="unfinished"/>
+        <translation>Название импортированной папки</translation>
     </message>
     <message>
         <source>Confirm</source>
@@ -7063,7 +7073,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfLocalFilesModel</name>
     <message>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Домой</translation>
     </message>
     <message>
         <source>QField files directory</source>
@@ -7123,11 +7133,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfMarkupCollection</name>
     <message>
         <source>Markups</source>
-        <translation type="unfinished"/>
+        <translation>Разметка</translation>
     </message>
     <message>
         <source>Markup item</source>
-        <translation type="unfinished"/>
+        <translation>Элемент разметки</translation>
     </message>
     <message>
         <source>Color</source>
@@ -7135,7 +7145,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Label</source>
-        <translation type="unfinished"/>
+        <translation>Подпись</translation>
     </message>
     <message>
         <source>Description</source>
@@ -7154,7 +7164,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The collection has no features</source>
-        <translation type="unfinished"/>
+        <translation>В коллекции нет объектов</translation>
     </message>
     <message>
         <source>Show features list</source>
@@ -7169,15 +7179,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfMarkupManager</name>
     <message>
         <source>Unnamed collection</source>
-        <translation type="unfinished"/>
+        <translation>Безымянная коллекция</translation>
     </message>
     <message>
         <source>Default collection</source>
-        <translation type="unfinished"/>
+        <translation>Коллекция по умолчанию</translation>
     </message>
     <message>
         <source>Untitled collection</source>
-        <translation type="unfinished"/>
+        <translation>Коллекция без названия</translation>
     </message>
 </context>
 <context>
@@ -7325,7 +7335,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Process Feature</source>
-        <translation type="unfinished"/>
+        <translation>Обработать объект</translation>
     </message>
     <message>
         <source>Move Feature</source>
@@ -7337,7 +7347,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation type="unfinished"/>
+        <translation>Повернуть объект</translation>
     </message>
     <message>
         <source>Update Attributes from Feature</source>
@@ -7399,19 +7409,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfNtripSourceTableFetcher</name>
     <message>
         <source>Unexpected response from NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Неожиданный ответ от NTRIP вещателя</translation>
     </message>
     <message>
         <source>Disconnected before receiving source table</source>
-        <translation type="unfinished"/>
+        <translation>Разъединение произошло до получения исходной таблицы</translation>
     </message>
     <message>
         <source>No mountpoints found in NTRIP source table</source>
-        <translation type="unfinished"/>
+        <translation>В исходной таблице NTRIP не найдено точек монтирования.</translation>
     </message>
     <message>
         <source>NTRIP source table fetch error: </source>
-        <translation type="unfinished"/>
+        <translation>Ошибка при получении данных из исходной таблицы NTRIP:</translation>
     </message>
 </context>
 <context>
@@ -7455,15 +7465,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfPlatformUtilities</name>
     <message>
         <source>Select ZIP Archive</source>
-        <translation type="unfinished"/>
+        <translation>Выберите ZIP-архив</translation>
     </message>
     <message>
         <source>ZIP Archives (*.zip)</source>
-        <translation type="unfinished"/>
+        <translation>Архивы ZIP (*.zip)</translation>
     </message>
     <message>
         <source>Select Destination Folder</source>
-        <translation type="unfinished"/>
+        <translation>Выберите папку назначения</translation>
     </message>
     <message>
         <source>Removal Confirmation</source>
@@ -7523,7 +7533,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось переместить вспомогательный файл &apos;%1&apos; вместе с &apos;%2&apos;</translation>
     </message>
 </context>
 <context>
@@ -7604,7 +7614,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Deny permission</source>
-        <translation type="unfinished"/>
+        <translation>Отказать в разрешении</translation>
     </message>
     <message>
         <source>Plugins management menu</source>
@@ -7642,11 +7652,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfPositioningDeviceSettings</name>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss</translation>
     </message>
     <message>
         <source>Bluetooth BT + BLE (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth BT + BLE (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
@@ -7654,7 +7664,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Файл журналов (NMEA)</translation>
     </message>
     <message>
         <source>Positioning Device Settings</source>
@@ -7729,15 +7739,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>ортофото</translation>
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>антенна</translation>
     </message>
     <message>
         <source>%1/s</source>
-        <translation type="unfinished"/>
+        <translation>%1/с</translation>
     </message>
 </context>
 <context>
@@ -7751,11 +7761,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfPositioningNtripSettings</name>
     <message>
         <source>NTRIP Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки NTRIP</translation>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Сервер</translation>
     </message>
     <message>
         <source>Port</source>
@@ -7763,19 +7773,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>Протокол</translation>
     </message>
     <message>
         <source>NTRIP Revision 1</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP Редакция 1</translation>
     </message>
     <message>
         <source>NTRIP Revision 2</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP Редакция 2</translation>
     </message>
     <message>
         <source>NTRIP SSL/TLS</source>
-        <translation type="unfinished"/>
+        <translation>NTRIP SSL/TLS</translation>
     </message>
     <message>
         <source>Username</source>
@@ -7787,11 +7797,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation>Точка монтирования</translation>
     </message>
     <message>
         <source>Identifier:</source>
-        <translation type="unfinished"/>
+        <translation>Идентификатор:</translation>
     </message>
     <message>
         <source>Data format:</source>
@@ -7803,7 +7813,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Forward position to NTRIP caster</source>
-        <translation type="unfinished"/>
+        <translation>Передавать позицию на NTRIP-вещатель</translation>
     </message>
 </context>
 <context>
@@ -7818,27 +7828,27 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Audio proximity feedback</source>
-        <translation type="unfinished"/>
+        <translation>Звуковое оповещение о приближении</translation>
     </message>
     <message>
         <source>Rotate view</source>
-        <translation type="unfinished"/>
+        <translation>Повернуть вид</translation>
     </message>
     <message>
         <source>Rotation source</source>
-        <translation type="unfinished"/>
+        <translation>Источник поворота</translation>
     </message>
     <message>
         <source>Compass</source>
-        <translation type="unfinished"/>
+        <translation>Компас</translation>
     </message>
     <message>
         <source>Movement</source>
-        <translation type="unfinished"/>
+        <translation>Перемещение</translation>
     </message>
     <message>
         <source>Precision</source>
-        <translation type="unfinished"/>
+        <translation>Точность</translation>
     </message>
 </context>
 <context>
@@ -7886,7 +7896,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfProcessingParameterArea</name>
     <message>
         <source>square degrees</source>
-        <translation type="unfinished"/>
+        <translation>квадратные градусы</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -7922,7 +7932,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>квадратные морские мили</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
@@ -8019,15 +8029,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Colorful</source>
-        <translation type="unfinished"/>
+        <translation>Цветной</translation>
     </message>
     <message>
         <source>Darkgray</source>
-        <translation type="unfinished"/>
+        <translation>Тёмно-серый</translation>
     </message>
     <message>
         <source>Lightgray</source>
-        <translation type="unfinished"/>
+        <translation>Светло-серый</translation>
     </message>
     <message>
         <source>Blank</source>
@@ -8035,7 +8045,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Настраиваемый</translation>
     </message>
     <message>
         <source>Custom basemap URL</source>
@@ -8043,7 +8053,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Take notes?</source>
-        <translation type="unfinished"/>
+        <translation>Добавить заметку?</translation>
     </message>
     <message>
         <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
@@ -8051,11 +8061,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Take image and video attachments</source>
-        <translation type="unfinished"/>
+        <translation>Прикрепить изображения и видео</translation>
     </message>
     <message>
         <source>Allow notes on lines and polygons</source>
-        <translation type="unfinished"/>
+        <translation>Разрешить заметки для линий и полигонов</translation>
     </message>
     <message>
         <source>Track your position?</source>
@@ -8071,7 +8081,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Backup &amp; collaborate?</source>
-        <translation type="unfinished"/>
+        <translation>Резервное копирование и совместная работа?</translation>
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
@@ -8102,7 +8112,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>Заметки</translation>
     </message>
     <message>
         <source>Point</source>
@@ -8110,19 +8120,19 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"/>
+        <translation>Линия</translation>
     </message>
     <message>
         <source>Polygon</source>
-        <translation type="unfinished"/>
+        <translation>Полигон</translation>
     </message>
     <message>
         <source>Note attachments</source>
-        <translation type="unfinished"/>
+        <translation>Вложения к заметкам</translation>
     </message>
     <message>
         <source>Media</source>
-        <translation type="unfinished"/>
+        <translation>Медиафайлы</translation>
     </message>
     <message>
         <source>Description</source>
@@ -8134,15 +8144,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Marker color</source>
-        <translation type="unfinished"/>
+        <translation>Цвет маркера</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>Название</translation>
     </message>
     <message>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>Заметка</translation>
     </message>
     <message>
         <source>Tracks</source>
@@ -8158,7 +8168,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Attachments</source>
-        <translation type="unfinished"/>
+        <translation>Вложения</translation>
     </message>
 </context>
 <context>
@@ -8176,7 +8186,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfRelationCombobox</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Пусто</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -8199,7 +8209,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Unlink Feature</source>
-        <translation type="unfinished"/>
+        <translation>Открепить объект</translation>
     </message>
     <message>
         <source>Delete Feature</source>
@@ -8219,7 +8229,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Child Menu</source>
-        <translation type="unfinished"/>
+        <translation>Подменю</translation>
     </message>
     <message>
         <source>Open Form</source>
@@ -8546,7 +8556,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка приемника TCP (%1)</translation>
     </message>
 </context>
 <context>
@@ -8590,7 +8600,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Layer</source>
-        <translation type="unfinished"/>
+        <translation>Слой</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
@@ -8778,7 +8788,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>No local paths provided.</source>
-        <translation type="unfinished"/>
+        <translation>Локальные пути не указаны.</translation>
     </message>
     <message>
         <source>WebDAV is busy.</source>
@@ -8806,7 +8816,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>No local changes detected.</source>
-        <translation type="unfinished"/>
+        <translation>Локальных изменений не обнаружено.</translation>
     </message>
     <message>
         <source>Upload cancelled.</source>
@@ -8927,7 +8937,7 @@ project</source>
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>Локальные изменения</translation>
     </message>
     <message>
         <source>Pending changes are present, do you want to upload them now or keep them pending and close the cloud project and app?</source>
@@ -8935,7 +8945,7 @@ project</source>
     </message>
     <message>
         <source>Don&apos;t show this again</source>
-        <translation type="unfinished"/>
+        <translation>Не показывать это снова</translation>
     </message>
     <message>
         <source>Upload now</source>
@@ -8943,31 +8953,31 @@ project</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>How&apos;s %1 working for you?</source>
-        <translation type="unfinished"/>
+        <translation>Как вам %1?</translation>
     </message>
     <message>
         <source>One tap is all it takes.</source>
-        <translation type="unfinished"/>
+        <translation>Достаточно одного нажатия</translation>
     </message>
     <message>
         <source>Could be better</source>
-        <translation type="unfinished"/>
+        <translation>Могло бы быть лучше</translation>
     </message>
     <message>
         <source>Loving it</source>
-        <translation type="unfinished"/>
+        <translation>Мне это нравится</translation>
     </message>
     <message>
         <source>%1 can display its latest news and useful tips on launch.</source>
-        <translation type="unfinished"/>
+        <translation>%1 может показывать последние новости и полезные советы при запуске.</translation>
     </message>
     <message>
         <source>Read more</source>
-        <translation type="unfinished"/>
+        <translation>Узнать больше</translation>
     </message>
 </context>
 <context>
@@ -9010,7 +9020,7 @@ project</source>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось загрузить шрифт: %1</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
@@ -9042,7 +9052,7 @@ project</source>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
+        <translation>Воспроизведение записанных позиций, пожалуйста, подождите</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
@@ -9050,20 +9060,20 @@ project</source>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка загрузки 3D-вида</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка рельефа...</translation>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Нажмите и удерживайте маркер вашего местоположения, чтобы показать действия</translation>
     </message>
     <message>
         <source>Tap on your location marker
 to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Нажмите на маркер вашего местоположения, чтобы отобразить действия.</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
@@ -9071,7 +9081,7 @@ to show actions</source>
     </message>
     <message>
         <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Курсор координат привязан к местоположению</translation>
     </message>
     <message>
         <source>Map canvas unlocked</source>
@@ -9115,7 +9125,7 @@ to show actions</source>
     </message>
     <message>
         <source>Stop all</source>
-        <translation type="unfinished"/>
+        <translation>Остановить всё</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
@@ -9131,7 +9141,7 @@ to show actions</source>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Нажмите и удерживайте маркер пункта назначения, чтобы показать действия</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
@@ -9183,7 +9193,7 @@ to show actions</source>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Закрыть 3D-вид</translation>
     </message>
     <message>
         <source>Stop editing</source>
@@ -9195,11 +9205,11 @@ to show actions</source>
     </message>
     <message>
         <source>COGO digitizing turned on</source>
-        <translation type="unfinished"/>
+        <translation>Включена цифровая обработка COGO</translation>
     </message>
     <message>
         <source>COGO digitizing turned off</source>
-        <translation type="unfinished"/>
+        <translation>Цифровая обработка COGO выключена</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
@@ -9251,7 +9261,7 @@ to show actions</source>
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"/>
+        <translation>Узкий</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -9463,7 +9473,7 @@ to show actions</source>
     </message>
     <message>
         <source>Enable NTRIP Corrections</source>
-        <translation type="unfinished"/>
+        <translation>Включить поправки NTRIP</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
@@ -9547,7 +9557,7 @@ to show actions</source>
     </message>
     <message>
         <source>Upgrade plan</source>
-        <translation type="unfinished"/>
+        <translation>Обновить тариф</translation>
     </message>
     <message>
         <source>Project %1 cannot be downloaded as the project owner&apos;s subscription plan is insufficient.</source>
@@ -9583,7 +9593,7 @@ to show actions</source>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
+        <translation>Хотите импортировать &lt;b&gt;%1&lt;/b&gt; с &lt;b&gt;%2&lt;/b&gt; в %3?</translation>
     </message>
     <message>
         <source> Project Plugin</source>
@@ -9695,7 +9705,7 @@ to show actions</source>
     </message>
     <message>
         <source>Local changes</source>
-        <translation type="unfinished"/>
+        <translation>Локальные изменения</translation>
     </message>
     <message>
         <source>This project has pending changes which have not been uploaded yet. Tap the blue cloud button to open the cloud project panel and send them to QFieldCloud.</source>
@@ -9707,11 +9717,11 @@ to show actions</source>
     </message>
     <message>
         <source>Printing %1</source>
-        <translation type="unfinished"/>
+        <translation>Печать %1</translation>
     </message>
     <message>
         <source>Print failed</source>
-        <translation type="unfinished"/>
+        <translation>Печать не удалась</translation>
     </message>
     <message>
         <source>Printed and placed in your project layouts folder</source>
@@ -9719,7 +9729,7 @@ to show actions</source>
     </message>
     <message>
         <source>Open folder</source>
-        <translation type="unfinished"/>
+        <translation>Открыть папку</translation>
     </message>
 </context>
 <context>

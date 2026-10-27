@@ -5257,219 +5257,51 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished">Projects</translation>
-    </message>
-    <message>
-        <source>Search for projects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Projects</translation>
     </message>
     <message>
         <source>Uploading…</source>
-        <translation type="unfinished">Uploading…</translation>
+        <translation type="obsolete">Uploading…</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation type="unfinished">Downloading error. </translation>
+        <translation type="obsolete">Downloading error. </translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation type="unfinished">Uploading error. </translation>
-    </message>
-    <message>
-        <source>Refreshing projects list...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Searching for projects...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No cloud projects found.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2 and see what the community has to offer.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Try to %1include public projects%2.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Uploading error. </translation>
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation type="unfinished">Refresh projects list</translation>
+        <translation type="obsolete">Refresh projects list</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished">Sign out</translation>
+        <translation type="obsolete">Sign out</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished">Sign in</translation>
-    </message>
-    <message>
-        <source>Settings page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show invalid projects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Project Actions</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Sign in</translation>
     </message>
     <message>
         <source>Open Project</source>
-        <translation type="unfinished">Open Project</translation>
+        <translation type="obsolete">Open Project</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation type="unfinished">Synchronize</translation>
-    </message>
-    <message>
-        <source>Upload local changes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Clone Project</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Synchronize</translation>
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation type="unfinished">Remove Stored Project</translation>
-    </message>
-    <message>
-        <source>View Project Details</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View Project Folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Remove Stored Project</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation type="unfinished">Refreshing projects list</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Project Creation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enter your project name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allowed characters: 0-9A-Za-z_-</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Refreshing projects list</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation type="unfinished">QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Search for templates</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Refreshing templates list...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Searching for templates...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Creating project…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Preparing project…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Project created but downloading failed: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The newly-created project could not be prepared.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Downloading project…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">QFieldCloud</translation>
     </message>
 </context>
 <context>

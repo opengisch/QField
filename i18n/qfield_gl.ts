@@ -5448,6 +5448,14 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <source>Upgrade storage</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fetching available project owners</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your project owner</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudStatus</name>
