@@ -17,36 +17,33 @@
 #define QFCLOUDATTACHMENTSMODEL_H
 
 #include "qfcloudconnection.h"
+#include "qfcloudproject.h"
+#include "qfdeltafilewrapper.h"
 
 #include <QAbstractListModel>
+#include <QDateTime>
 #include <QPointer>
-
-class QfDeltaFileWrapper;
 
 /**
  * \ingroup core
  *
- * A model listing the attachments of a QFieldCloud project that are pending upload,
- * alongside the outcome of past attachment uploads.
+ * A model listing the attachments of a QFieldCloud project that are not yet uploaded
+ * or pending upload, alongside the outcome of past attachment uploads.
  */
 class QfCloudAttachmentsModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    // moc needs the full definition to build the metaobject.
-    Q_MOC_INCLUDE( "qfdeltafilewrapper.h" )
-
     Q_PROPERTY( QfCloudConnection *cloudConnection READ cloudConnection WRITE setCloudConnection NOTIFY cloudConnectionChanged )
-    Q_PROPERTY( QString cloudProjectId READ cloudProjectId WRITE setCloudProjectId NOTIFY cloudProjectIdChanged )
-    Q_PROPERTY( QfDeltaFileWrapper *deltaFileWrapper READ deltaFileWrapper WRITE setDeltaFileWrapper NOTIFY deltaFileWrapperChanged )
+    Q_PROPERTY( QfCloudProject *cloudProject READ cloudProject WRITE setCloudProject NOTIFY cloudProjectChanged )
 
   public:
     enum Status
     {
+      LocalStatus,
       PendingStatus,
       UploadedStatus,
       FailedStatus,
-      LocalStatus,
     };
     Q_ENUM( Status )
 
@@ -56,6 +53,7 @@ class QfCloudAttachmentsModel : public QAbstractListModel
       FileNameRole,
       StatusRole,
       HttpCodeRole,
+      TimestampRole,
     };
     Q_ENUM( ColumnRole )
 
@@ -70,43 +68,44 @@ class QfCloudAttachmentsModel : public QAbstractListModel
     //! Returns the model role names.
     QHash<int, QByteArray> roleNames() const override;
 
-    QfCloudConnection *cloudConnection() const { return mCloudConnection; }
+    //! Returns the cloud connection used to read the pending attachments and the attachments upload history.
+    QfCloudConnection *cloudConnection() const;
 
+    //! Sets the \a cloudConnection used to read the pending attachments and the attachments upload history.
     void setCloudConnection( QfCloudConnection *cloudConnection );
 
-    QString cloudProjectId() const { return mCloudProjectId; }
+    //! Returns the cloud project whose attachments are listed.
+    QfCloudProject *cloudProject() const;
 
-    void setCloudProjectId( const QString &cloudProjectId );
+    //! Sets the \a cloudProject whose attachments are listed.
+    void setCloudProject( QfCloudProject *cloudProject );
 
-    QfDeltaFileWrapper *deltaFileWrapper() const;
-
-    /**
-     * Sets the \a deltaFileWrapper of the opened cloud project, its attachments not yet
-     * uploaded are listed with a local status when it matches the cloud project ID.
-     */
-    void setDeltaFileWrapper( QfDeltaFileWrapper *deltaFileWrapper );
-
-    //! Reloads the pending attachments and the attachments upload history.
+    //! Reloads the attachments not yet uploaded, the pending attachments and the attachments upload history.
     Q_INVOKABLE void refresh();
 
   signals:
     void cloudConnectionChanged();
-    void cloudProjectIdChanged();
-    void deltaFileWrapperChanged();
+    void cloudProjectChanged();
+
+  private slots:
+    void onDeltaFileWrapperChanged();
 
   private:
+    void setDeltaFileWrapper( QfDeltaFileWrapper *deltaFileWrapper );
+
     struct Attachment
     {
         QString filePath;
         QString fileName;
         Status status = PendingStatus;
         int httpCode = 0;
+        QDateTime timestamp;
     };
 
     QList<Attachment> mAttachments;
 
     QfCloudConnection *mCloudConnection = nullptr;
-    QString mCloudProjectId;
+    QPointer<QfCloudProject> mCloudProject;
     QPointer<QfDeltaFileWrapper> mDeltaFileWrapper;
 };
 

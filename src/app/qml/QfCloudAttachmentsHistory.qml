@@ -25,6 +25,10 @@ QfPopup {
     model.refresh();
   }
 
+  onClosed: {
+    model.cloudProject = null;
+  }
+
   Page {
     id: page
 
@@ -115,7 +119,6 @@ QfPopup {
 
         model: QfCloudAttachmentsModel {
           id: attachmentsModel
-          deltaFileWrapper: cloudProjectsModel.layerObserver.deltaFileWrapper
         }
 
         delegate: QfCollapsibleMessage {
@@ -124,7 +127,7 @@ QfPopup {
           detailsColor: QfTheme.secondaryTextColor
           font: QfTheme.tipFont
           iconSource: popup.attachmentStatusIcon(Status)
-          titleText: FileName + "\n" + popup.attachmentStatusLabel(Status)
+          titleText: FileName + "\n" + popup.attachmentStatusLabel(Status, Timestamp)
           detailsText: Status === QfCloudAttachmentsModel.FailedStatus ? popup.attachmentFailureReason(HttpCode) : ""
         }
       }
@@ -145,16 +148,17 @@ QfPopup {
     }
   }
 
-  function attachmentStatusLabel(status) {
+  function attachmentStatusLabel(status, timestamp) {
+    const hasTimestamp = timestamp instanceof Date && !isNaN(timestamp);
     switch (status) {
     case QfCloudAttachmentsModel.UploadedStatus:
-      return qsTr('Uploaded');
+      return hasTimestamp ? qsTr('Uploaded on %1').arg(timestamp.toLocaleString(Qt.locale(), Locale.ShortFormat)) : qsTr('Uploaded');
     case QfCloudAttachmentsModel.PendingStatus:
       return qsTr('Waiting to be uploaded');
     case QfCloudAttachmentsModel.LocalStatus:
       return qsTr('Not uploaded yet, upload your changes to send it');
     case QfCloudAttachmentsModel.FailedStatus:
-      return qsTr('Upload failed');
+      return hasTimestamp ? qsTr('Upload failed on %1').arg(timestamp.toLocaleString(Qt.locale(), Locale.ShortFormat)) : qsTr('Upload failed');
     default:
       return qsTr('Unknown');
     }

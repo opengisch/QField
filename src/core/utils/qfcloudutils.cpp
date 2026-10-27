@@ -30,7 +30,6 @@
 #include <qgsmessagelog.h>
 
 static QString sLocalCloudDirectory;
-static const qsizetype sMaximumAttachmentsHistoryEntries = 1000;
 
 
 void QfCloudUtils::setLocalCloudDirectory( const QString &path )
@@ -435,7 +434,7 @@ void QfCloudUtils::removePendingAttachment( const QString &username, const QStri
   }
 }
 
-void QfCloudUtils::addAttachmentHistory( const QString &username, const QString &projectId, int httpCode, const QString &fileName )
+void QfCloudUtils::addAttachmentHistory( const QString &username, const QString &projectId, const QfCloudAttachmentHistoryEntry &entry )
 {
   if ( username.isEmpty() || projectId.isEmpty() )
   {
@@ -449,37 +448,13 @@ void QfCloudUtils::addAttachmentHistory( const QString &username, const QString 
     return;
   }
 
-  QStringList lines;
   QFile historyFile( QStringLiteral( "%1/attachments_history.csv" ).arg( localCloudUserDirectory ) );
-  if ( historyFile.open( QFile::ReadOnly | QFile::Text ) )
+  if ( historyFile.open( QFile::Append | QFile::Text ) )
   {
+    // The expected CSV format must have four columns:
+    // timestamp,project_id,http_code,file_path
     QTextStream historyStream( &historyFile );
-    while ( !historyStream.atEnd() )
-    {
-      const QString line = historyStream.readLine();
-      if ( !line.isEmpty() )
-      {
-        lines << line;
-      }
-    }
-    historyFile.close();
-  }
-
-  // The expected CSV format must have three columns:
-  // project_id,http_code,file_path
-  lines << QfStringUtils::stringListToCsv( QStringList() << projectId << QString::number( httpCode ) << fileName );
-  if ( lines.size() > sMaximumAttachmentsHistoryEntries )
-  {
-    lines = lines.mid( lines.size() - sMaximumAttachmentsHistoryEntries );
-  }
-
-  if ( historyFile.open( QFile::WriteOnly | QFile::Truncate | QFile::Text ) )
-  {
-    QTextStream historyStream( &historyFile );
-    for ( const QString &line : std::as_const( lines ) )
-    {
-      historyStream << line << Qt::endl;
-    }
+    historyStream << QfStringUtils::stringListToCsv( QStringList() << entry.timestamp.toUTC().toString( Qt::ISODateWithMs ) << projectId << QString::number( entry.httpCode ) << entry.fileName ) << Qt::endl;
     historyFile.close();
   }
 }
@@ -506,11 +481,12 @@ const QList<QfCloudAttachmentHistoryEntry> QfCloudUtils::getAttachmentsHistory( 
     while ( !historyStream.atEnd() )
     {
       const QStringList values = QfStringUtils::csvToStringList( historyStream.readLine().trimmed() );
-      if ( values.size() >= 3 && values.at( 0 ) == projectId )
+      if ( values.size() >= 4 && values.at( 1 ) == projectId )
       {
         QfCloudAttachmentHistoryEntry entry;
-        entry.httpCode = values.at( 1 ).toInt();
-        entry.fileName = values.at( 2 );
+        entry.timestamp = QDateTime::fromString( values.at( 0 ), Qt::ISODateWithMs );
+        entry.httpCode = values.at( 2 ).toInt();
+        entry.fileName = values.at( 3 );
         entries << entry;
       }
     }

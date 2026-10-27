@@ -1280,7 +1280,7 @@ Popup {
 
   function showAttachments() {
     if (cloudProjectsModel.currentProject) {
-      qfieldCloudAttachmentsHistory.model.cloudProjectId = cloudProjectsModel.currentProject.id;
+      qfieldCloudAttachmentsHistory.model.cloudProject = cloudProjectsModel.currentProject;
       qfieldCloudAttachmentsHistory.open();
     }
   }

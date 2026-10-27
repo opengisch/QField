@@ -15,7 +15,6 @@
 
 #include "qfcloudattachmentsmodel.h"
 #include "qfcloudutils.h"
-#include "qfdeltafilewrapper.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -40,7 +39,9 @@ int QfCloudAttachmentsModel::rowCount( const QModelIndex &parent ) const
 QVariant QfCloudAttachmentsModel::data( const QModelIndex &index, int role ) const
 {
   if ( index.row() >= mAttachments.size() || index.row() < 0 )
+  {
     return QVariant();
+  }
 
   switch ( static_cast<ColumnRole>( role ) )
   {
@@ -52,6 +53,8 @@ QVariant QfCloudAttachmentsModel::data( const QModelIndex &index, int role ) con
       return mAttachments.at( index.row() ).status;
     case HttpCodeRole:
       return mAttachments.at( index.row() ).httpCode;
+    case TimestampRole:
+      return mAttachments.at( index.row() ).timestamp;
   }
 
   return QVariant();
@@ -64,6 +67,7 @@ QHash<int, QByteArray> QfCloudAttachmentsModel::roleNames() const
   roles[FileNameRole] = "FileName";
   roles[StatusRole] = "Status";
   roles[HttpCodeRole] = "HttpCode";
+  roles[TimestampRole] = "Timestamp";
   return roles;
 }
 
@@ -72,35 +76,20 @@ void QfCloudAttachmentsModel::refresh()
   beginResetModel();
   mAttachments.clear();
 
-  if ( mCloudConnection && !mCloudProjectId.isEmpty() )
+  if ( mCloudConnection && mCloudProject && !mCloudProject->id().isEmpty() )
   {
     const QString username = mCloudConnection->username();
-    const QString projectFilePath = QfCloudUtils::localProjectFilePath( username, mCloudProjectId );
+    const QString projectId = mCloudProject->id();
+    const QString projectFilePath = mCloudProject->localPath();
     const QDir projectDir( !projectFilePath.isEmpty() ? QFileInfo( projectFilePath ).absolutePath() : QString() );
     auto displayName = [&projectFilePath, &projectDir]( const QString &filePath ) {
       return !projectFilePath.isEmpty() ? projectDir.relativeFilePath( filePath ) : QFileInfo( filePath ).fileName();
     };
 
-    // A file queued for upload is pending, whatever the outcome of its previous uploads
     QSet<QString> listedFilePaths;
-    const QStringList pendingFilePaths = QfCloudUtils::getPendingAttachments( username ).values( mCloudProjectId );
-    for ( const QString &filePath : pendingFilePaths )
-    {
-      if ( listedFilePaths.contains( filePath ) )
-      {
-        continue;
-      }
-      listedFilePaths.insert( filePath );
-
-      Attachment attachment;
-      attachment.filePath = filePath;
-      attachment.fileName = displayName( filePath );
-      attachment.status = PendingStatus;
-      mAttachments << attachment;
-    }
 
     // Attachments of changes not yet uploaded only get queued once the changes are pushed
-    if ( mDeltaFileWrapper && mDeltaFileWrapper->projectId() == mCloudProjectId )
+    if ( mDeltaFileWrapper )
     {
       const QStringList localFileNames = mDeltaFileWrapper->attachmentFileNames().keys();
       for ( const QString &localFileName : localFileNames )
@@ -125,8 +114,25 @@ void QfCloudAttachmentsModel::refresh()
       }
     }
 
+    // A file queued for upload is pending, whatever the outcome of its previous uploads
+    const QStringList pendingFilePaths = QfCloudUtils::getPendingAttachments( username ).values( projectId );
+    for ( const QString &filePath : pendingFilePaths )
+    {
+      if ( listedFilePaths.contains( filePath ) )
+      {
+        continue;
+      }
+      listedFilePaths.insert( filePath );
+
+      Attachment attachment;
+      attachment.filePath = filePath;
+      attachment.fileName = displayName( filePath );
+      attachment.status = PendingStatus;
+      mAttachments << attachment;
+    }
+
     // Only the most recent upload outcome of a file is listed, newest first
-    const QList<QfCloudAttachmentHistoryEntry> history = QfCloudUtils::getAttachmentsHistory( username, mCloudProjectId );
+    const QList<QfCloudAttachmentHistoryEntry> history = QfCloudUtils::getAttachmentsHistory( username, projectId );
     for ( auto it = history.crbegin(); it != history.crend(); ++it )
     {
       if ( listedFilePaths.contains( it->fileName ) )
@@ -140,11 +146,17 @@ void QfCloudAttachmentsModel::refresh()
       attachment.fileName = displayName( it->fileName );
       attachment.status = it->httpCode >= 200 && it->httpCode < 300 ? UploadedStatus : FailedStatus;
       attachment.httpCode = it->httpCode;
+      attachment.timestamp = it->timestamp;
       mAttachments << attachment;
     }
   }
 
   endResetModel();
+}
+
+QfCloudConnection *QfCloudAttachmentsModel::cloudConnection() const
+{
+  return mCloudConnection;
 }
 
 void QfCloudAttachmentsModel::setCloudConnection( QfCloudConnection *cloudConnection )
@@ -156,7 +168,10 @@ void QfCloudAttachmentsModel::setCloudConnection( QfCloudConnection *cloudConnec
 
   if ( mCloudConnection )
   {
-    disconnect( mCloudConnection, nullptr, this, nullptr );
+    disconnect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::refresh );
+    disconnect( mCloudConnection, &QfCloudConnection::pendingAttachmentsAdded, this, &QfCloudAttachmentsModel::refresh );
+    disconnect( mCloudConnection, &QfCloudConnection::pendingAttachmentsUploadFinished, this, &QfCloudAttachmentsModel::refresh );
+    disconnect( mCloudConnection, &QfCloudConnection::attachmentsHistoryChanged, this, &QfCloudAttachmentsModel::refresh );
   }
 
   mCloudConnection = cloudConnection;
@@ -166,21 +181,51 @@ void QfCloudAttachmentsModel::setCloudConnection( QfCloudConnection *cloudConnec
     connect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::refresh );
     connect( mCloudConnection, &QfCloudConnection::pendingAttachmentsAdded, this, &QfCloudAttachmentsModel::refresh );
     connect( mCloudConnection, &QfCloudConnection::pendingAttachmentsUploadFinished, this, &QfCloudAttachmentsModel::refresh );
-    connect( mCloudConnection, &QfCloudConnection::attachmentsHistoryChanged, this, [this]( const QString &projectId ) {
-      if ( projectId == mCloudProjectId )
-      {
-        refresh();
-      }
-    } );
+    connect( mCloudConnection, &QfCloudConnection::attachmentsHistoryChanged, this, &QfCloudAttachmentsModel::refresh );
   }
 
   emit cloudConnectionChanged();
   refresh();
 }
 
-QfDeltaFileWrapper *QfCloudAttachmentsModel::deltaFileWrapper() const
+QfCloudProject *QfCloudAttachmentsModel::cloudProject() const
 {
-  return mDeltaFileWrapper;
+  return mCloudProject;
+}
+
+void QfCloudAttachmentsModel::setCloudProject( QfCloudProject *cloudProject )
+{
+  if ( mCloudProject == cloudProject )
+  {
+    return;
+  }
+
+  if ( mCloudProject )
+  {
+    disconnect( mCloudProject, &QfCloudProject::idChanged, this, &QfCloudAttachmentsModel::refresh );
+    disconnect( mCloudProject, &QfCloudProject::localPathChanged, this, &QfCloudAttachmentsModel::refresh );
+    disconnect( mCloudProject, &QfCloudProject::deltaFileWrapperChanged, this, &QfCloudAttachmentsModel::onDeltaFileWrapperChanged );
+  }
+
+  mCloudProject = cloudProject;
+
+  if ( mCloudProject )
+  {
+    connect( mCloudProject, &QfCloudProject::idChanged, this, &QfCloudAttachmentsModel::refresh );
+    connect( mCloudProject, &QfCloudProject::localPathChanged, this, &QfCloudAttachmentsModel::refresh );
+    connect( mCloudProject, &QfCloudProject::deltaFileWrapperChanged, this, &QfCloudAttachmentsModel::onDeltaFileWrapperChanged );
+  }
+
+  setDeltaFileWrapper( mCloudProject ? mCloudProject->deltaFileWrapper() : nullptr );
+
+  emit cloudProjectChanged();
+  refresh();
+}
+
+void QfCloudAttachmentsModel::onDeltaFileWrapperChanged()
+{
+  setDeltaFileWrapper( mCloudProject ? mCloudProject->deltaFileWrapper() : nullptr );
+  refresh();
 }
 
 void QfCloudAttachmentsModel::setDeltaFileWrapper( QfDeltaFileWrapper *deltaFileWrapper )
@@ -201,19 +246,4 @@ void QfCloudAttachmentsModel::setDeltaFileWrapper( QfDeltaFileWrapper *deltaFile
   {
     connect( mDeltaFileWrapper, &QfDeltaFileWrapper::countChanged, this, &QfCloudAttachmentsModel::refresh );
   }
-
-  emit deltaFileWrapperChanged();
-  refresh();
-}
-
-void QfCloudAttachmentsModel::setCloudProjectId( const QString &cloudProjectId )
-{
-  if ( mCloudProjectId == cloudProjectId )
-  {
-    return;
-  }
-
-  mCloudProjectId = cloudProjectId;
-  emit cloudProjectIdChanged();
-  refresh();
 }
