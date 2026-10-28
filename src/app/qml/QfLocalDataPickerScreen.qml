@@ -14,7 +14,7 @@ Page {
 
   property bool openedOnce: false
   property bool projectFolderView: false
-  property alias model: table.model
+  property alias model: localFilesModel
 
   signal finished(var loading)
 
@@ -38,6 +38,7 @@ Page {
     backAsCancel: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
+    busyIndicatorState: localFilesModel.isFetchingCloudStatus ? 'on' : 'off'
 
     onCancel: {
       localFilesModel.clearSelection();
@@ -183,6 +184,38 @@ Page {
           border.color: QfTheme.controlBorderColor
           border.width: 1
           radius: 2
+
+          QfBadge {
+            parent: ItemHasThumbnail ? thumbnail : type
+            z: 2
+            alignment: QfBadge.Alignment.BottomRight
+            visible: ItemCloudStatus !== QfLocalFilesModel.LocalOnly
+            width: 20
+            height: width
+            border.width: 2
+            bottomMargin: -2
+            rightMargin: -2
+            color: ItemCloudStatus === QfLocalFilesModel.Divergent ? QfTheme.warningColor : QfTheme.mainColor
+
+            Image {
+              anchors.centerIn: parent
+              width: parent.width - 6
+              height: width
+              visible: ItemCloudStatus === QfLocalFilesModel.Synchronized
+              source: QfTheme.getThemeVectorIcon('ic_check_white_24dp')
+              sourceSize.width: width * screen.devicePixelRatio
+              sourceSize.height: height * screen.devicePixelRatio
+            }
+
+            Rectangle {
+              anchors.centerIn: parent
+              width: 2
+              height: width
+              radius: width / 2
+              visible: ItemCloudStatus === QfLocalFilesModel.Divergent
+              color: QfTheme.light
+            }
+          }
 
           RowLayout {
             id: line
