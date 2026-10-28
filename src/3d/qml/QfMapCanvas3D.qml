@@ -149,7 +149,7 @@ Item {
 
         materials: PrincipledMaterial {
           baseColor: mapArea.gnssMarkerSemiOpaqueColor
-          opacity: 0.4
+          opacity: 0.8
           alphaMode: PrincipledMaterial.Blend
         }
 
@@ -159,7 +159,7 @@ Item {
 
           Vector3dAnimation {
             from: Qt.vector3d(0.3, 0.05, 0.3)
-            to: Qt.vector3d(0.5, 0.05, 0.5)
+            to: Qt.vector3d(0.7, 0.05, 0.7)
             duration: 1500
             easing.type: Easing.InOutQuad
           }
@@ -177,43 +177,39 @@ Item {
 
         Model {
           source: "#Cone"
-          scale: Qt.vector3d(0.2, 0.15, 0.2)
+          scale: Qt.vector3d(0.33, 0.3, 0.33)
           position: Qt.vector3d(0, 0.15, 0)
           eulerRotation: Qt.vector3d(-90, 0, 0)
           pickable: true
 
           materials: PrincipledMaterial {
             baseColor: mapArea.gnssMarkerColor
-            metalness: 0.7
-            roughness: 0.1
           }
         }
 
         Model {
           source: "#Cylinder"
-          scale: Qt.vector3d(0.08, 0.12, 0.08)
-          position: Qt.vector3d(0, 0.06, 0)
+          scale: Qt.vector3d(0.2, 0.24, 0.2)
+          position: Qt.vector3d(0, 0.12, 0)
           eulerRotation: Qt.vector3d(-90, 0, 0)
           pickable: true
 
           materials: PrincipledMaterial {
             baseColor: mapArea.gnssMarkerColor
-            metalness: 0.6
-            roughness: 0.2
           }
         }
 
         Model {
           source: "#Cone"
-          scale: Qt.vector3d(0.12, 0.05, 0.12)
+          scale: Qt.vector3d(0.33, 0.15, 0.33)
           position: Qt.vector3d(0, 0.0, 0)
           eulerRotation: Qt.vector3d(90, 0, 0)
           pickable: true
 
           materials: PrincipledMaterial {
             baseColor: mapArea.gnssMarkerSemiOpaqueColor
-            metalness: 0.5
-            roughness: 0.3
+            opacity: 0.8
+            alphaMode: PrincipledMaterial.Blend
           }
         }
       }
@@ -221,14 +217,12 @@ Item {
       Model {
         visible: !(mapArea.gnssSpeed > 0 && mapArea.gnssDirection >= 0)
         source: "#Sphere"
-        scale: Qt.vector3d(0.15, 0.15, 0.15)
+        scale: Qt.vector3d(0.33, 0.33, 0.33)
         position: Qt.vector3d(0, 0.08, 0)
         pickable: true
 
         materials: PrincipledMaterial {
           baseColor: mapArea.gnssMarkerColor
-          metalness: 0.6
-          roughness: 0.2
         }
       }
     }
