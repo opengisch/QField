@@ -5237,6 +5237,58 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Proyectos</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Subiendo…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Error de descarga.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Error de subida.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Refrescar lista de proyectos</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Cerrar sesión</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Iniciar sesión</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Abrir proyecto</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizar</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Eliminar proyecto guardado</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Refrescando lista de proyectos</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>Buscar proyectos</translation>
     </message>
@@ -5257,32 +5309,40 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Conectándose con QFieldCloud para descargar el proyecto</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Subiendo…</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Error de descarga.</translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Error de subida.</translation>
+        <source>Refreshing templates list...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>Actualizando la lista de proyectos...</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>Buscando proyectos...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>No se han encontrado proyectos en la nube.</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
         <translation>Intenta %1incluir proyectos públicos%2 y descubre lo que la comunidad tiene que ofrecer.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
@@ -5293,16 +5353,8 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Para empezar, %1lee la documentación%2.</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Refrescar lista de proyectos</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Cerrar sesión</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Iniciar sesión</translation>
+        <source>Refresh templates list</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Settings page</source>
@@ -5317,24 +5369,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Acciones del proyecto</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Abrir proyecto</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Sincronizar</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>Clonar proyecto</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Eliminar proyecto guardado</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5349,26 +5389,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>¿Está seguro de que quiere eliminar `%1`?</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Falló la obtención de detalles del proyecto de QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Error al clonar el proyecto: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Error al crear el proyecto: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Refrescando lista de proyectos</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation type="unfinished"/>
     </message>
@@ -5381,40 +5401,44 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Search for templates</source>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
+        <source>Fetching available project owners</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Searching for templates...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
+        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Falló la obtención de detalles del proyecto de QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Aumentar almacenamiento</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Error al clonar el proyecto: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Error al crear el proyecto: %1</translation>
     </message>
     <message>
         <source>Preparing project…</source>
@@ -5430,30 +5454,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Aumentar almacenamiento</translation>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
 </context>

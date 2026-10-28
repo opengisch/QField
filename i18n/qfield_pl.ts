@@ -5243,6 +5243,58 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Projekty</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Wysyłanie...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Błąd pobierania.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Błąd wysyłania.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Odśwież listę projektów</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Wyloguj się</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Zaloguj się</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Przywróć projekt</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synchronizuj</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Usuń zapisany projekt</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Odświeżanie listy projektów</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Szablony</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>Wyszukaj szablony</translation>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>Wyszukaj projekty</translation>
     </message>
@@ -5263,32 +5315,40 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Łączenie się z QFieldCloud w celu pobrania projektu</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Wysyłanie...</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Błąd pobierania.</translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Błąd wysyłania.</translation>
+        <source>Refreshing templates list...</source>
+        <translation>Aktualizowanie listy szablonów...</translation>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>Odświeżanie listy projektów...</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation>Szukam szablonów...</translation>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>Szukam projektów...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>Nie znaleziono żadnych szablonów.</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>Nie znaleziono żadnych projektów w chmurze.</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>Spróbuj %1włączyć publiczne szablony%2 i zobacz, co ma do zaoferowania społeczność.</translation>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
         <translation>Spróbuj %1włączyć projekty publiczne%2 i zobacz, co ma do zaoferowania społeczność.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>Spróbuj %1włączyć szablony publiczne%2.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
@@ -5299,16 +5359,8 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Na początek %1zapoznaj się z dokumentacją%2.</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Odśwież listę projektów</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Wyloguj się</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Zaloguj się</translation>
+        <source>Refresh templates list</source>
+        <translation>Odśwież listę szablonów</translation>
     </message>
     <message>
         <source>Settings page</source>
@@ -5323,24 +5375,12 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Działania projektu</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Przywróć projekt</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Synchronizuj</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation>Prześlij zmiany lokalne</translation>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>Klonuj projekt</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Usuń zapisany projekt</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5355,26 +5395,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Czy na pewno chcesz usunąć `%1`?</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Pobieranie szczegółów projektu QFieldCloud nie powiodło się</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Klonowanie projektu nie powiodło się: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Nie udało się utworzyć projektu: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Odświeżanie listy projektów</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation>Szablony</translation>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation>Tworzenie projektu</translation>
     </message>
@@ -5387,40 +5407,44 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Dopuszczalne znaki: 0-9A-Za-z_-</translation>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <source>Enter your project description</source>
+        <translation>Wpisz opis swojego projektu </translation>
     </message>
     <message>
-        <source>Search for templates</source>
-        <translation>Wyszukaj szablony</translation>
+        <source>Fetching available project owners</source>
+        <translation>Pobieranie listy dostępnych właścicieli projektów</translation>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
-        <translation>Aktualizowanie listy szablonów...</translation>
-    </message>
-    <message>
-        <source>Searching for templates...</source>
-        <translation>Szukam szablonów...</translation>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation>Nie znaleziono żadnych szablonów.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation>Spróbuj %1włączyć publiczne szablony%2 i zobacz, co ma do zaoferowania społeczność.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation>Spróbuj %1włączyć szablony publiczne%2.</translation>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
-        <translation>Odśwież listę szablonów</translation>
+        <source>Select your project owner</source>
+        <translation>Wybierz właściciela projektu</translation>
     </message>
     <message>
         <source>Creating project…</source>
         <translation>Tworzenie projektu…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Pobieranie szczegółów projektu QFieldCloud nie powiodło się</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation>Nie da się sklonować projektu, bo masz zapełnioną przestrzeń dyskową.</translation>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation>Nie da się utworzyć projektu, bo masz zapełnioną dostępną przestrzeń dyskową.</translation>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Zwiększ pamięć w chmurze</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Klonowanie projektu nie powiodło się: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Nie udało się utworzyć projektu: %1</translation>
     </message>
     <message>
         <source>Preparing project…</source>
@@ -5437,30 +5461,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Downloading project…</source>
         <translation>Pobieranie projektu…</translation>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation>Wpisz opis swojego projektu </translation>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation>Nie da się sklonować projektu, bo masz zapełnioną przestrzeń dyskową.</translation>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation>Nie da się utworzyć projektu, bo masz zapełnioną dostępną przestrzeń dyskową.</translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Zwiększ pamięć w chmurze</translation>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

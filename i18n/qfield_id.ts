@@ -5235,6 +5235,58 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Projects</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Uploading…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Downloading error. </translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Uploading error. </translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Refresh projects list</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Sign out</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Sign in</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Open Project</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synchronize</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Remove Stored Project</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Refreshing projects list</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation type="unfinished"/>
     </message>
@@ -5255,19 +5307,15 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Uploading…</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Downloading error. </translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Uploading error. </translation>
+        <source>Refreshing templates list...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for templates...</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5275,11 +5323,23 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>No templates found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>No cloud projects found.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5291,16 +5351,8 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Refresh projects list</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Sign out</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Sign in</translation>
+        <source>Refresh templates list</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Settings page</source>
@@ -5315,24 +5367,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Open Project</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Synchronize</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Clone Project</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Remove Stored Project</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5344,26 +5384,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Refreshing projects list</translation>
-    </message>
-    <message>
-        <source>Templates</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5379,39 +5399,43 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Search for templates</source>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
+        <source>Fetching available project owners</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Searching for templates...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
+        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5428,30 +5452,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
 </context>

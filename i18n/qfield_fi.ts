@@ -5240,6 +5240,58 @@ epäonnistui, syy: %2</translation>
         <translation>Projektit</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Ladataan...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Virhe latauksessa.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Virhe latauksessa.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Päivitä projektilista</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Kirjaudu ulos</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Kirjaudu sisään</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Avaa projekti</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synkronoi</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Poista tallennettu projekti</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Päivitetään projektilistaa</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Mallit</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>Hae malleja</translation>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>Hae projekteja</translation>
     </message>
@@ -5260,32 +5312,40 @@ epäonnistui, syy: %2</translation>
         <translation>Sisäänkirjaudu QFieldCloudiin projektin lataamiseksi</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Ladataan...</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Virhe latauksessa.</translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Virhe latauksessa.</translation>
+        <source>Refreshing templates list...</source>
+        <translation>Refreshing templates list...</translation>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>Päivitetään projektiluetteloa...</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation>Etsitään malleja...</translation>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>Etsitään projekteja...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>Malleja ei löytynyt.</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>Pilviprojekteja ei löytynyt.</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>Try to %1include public templates%2 and see what the community has to offer.</translation>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
         <translation>Kokeile %1sisällyttää julkiset projektit%2 ja katso, mitä yhteisöllä on tarjota.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>Kokeile %1sisällyttää julkiset mallit%2.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
@@ -5296,16 +5356,8 @@ epäonnistui, syy: %2</translation>
         <translation>Aloita %1lukemalla dokumentaatio%2.</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Päivitä projektilista</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Kirjaudu ulos</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Kirjaudu sisään</translation>
+        <source>Refresh templates list</source>
+        <translation>Päivitä malliluettelo</translation>
     </message>
     <message>
         <source>Settings page</source>
@@ -5320,24 +5372,12 @@ epäonnistui, syy: %2</translation>
         <translation>Projektin toimet</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Avaa projekti</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Synkronoi</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation>Upload local changes</translation>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>Kloonaa Projekti</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Poista tallennettu projekti</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5352,26 +5392,6 @@ epäonnistui, syy: %2</translation>
         <translation>Haluatko varmasti poistaa kohteen ´%1´?</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>QFieldCloud-projektin tietojen hakeminen epäonnistui</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Projektin kloonaus epäonnistui: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Projektin luonti epäonnistui: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Päivitetään projektilistaa</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation>Mallit</translation>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation>Projektin luonti</translation>
     </message>
@@ -5384,40 +5404,44 @@ epäonnistui, syy: %2</translation>
         <translation>Sallitut merkit: 0-9A-Za-z_-</translation>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <source>Enter your project description</source>
+        <translation>Syötä projektin kuvaus</translation>
     </message>
     <message>
-        <source>Search for templates</source>
-        <translation>Hae malleja</translation>
+        <source>Fetching available project owners</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
-        <translation>Refreshing templates list...</translation>
-    </message>
-    <message>
-        <source>Searching for templates...</source>
-        <translation>Etsitään malleja...</translation>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation>Malleja ei löytynyt.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation>Try to %1include public templates%2 and see what the community has to offer.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation>Kokeile %1sisällyttää julkiset mallit%2.</translation>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
-        <translation>Päivitä malliluettelo</translation>
+        <source>Select your project owner</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
         <translation>Luodaan projektia…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>QFieldCloud-projektin tietojen hakeminen epäonnistui</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation>Projektia ei voi kloonata, koska tallennustilasi on täynnä.</translation>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation>Projektia ei voi luoda, koska tallennustilasi on täynnä.</translation>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Päivitä tallennustilaa</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Projektin kloonaus epäonnistui: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Projektin luonti epäonnistui: %1</translation>
     </message>
     <message>
         <source>Preparing project…</source>
@@ -5434,30 +5458,6 @@ epäonnistui, syy: %2</translation>
     <message>
         <source>Downloading project…</source>
         <translation>Ladataan projektia…</translation>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation>Syötä projektin kuvaus</translation>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation>Projektia ei voi kloonata, koska tallennustilasi on täynnä.</translation>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation>Projektia ei voi luoda, koska tallennustilasi on täynnä.</translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Päivitä tallennustilaa</translation>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

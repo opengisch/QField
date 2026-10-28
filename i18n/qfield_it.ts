@@ -5243,6 +5243,58 @@ Messaggio dell&apos;errore: %4</translation>
         <translation>Progetti</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Caricamento...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Errore di scaricamento.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Errore di caricamento.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Aggiorna la lista dei progetti</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Esci</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Accedi</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Apri progetto</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizza</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Rimuovi Progetto Archiviato</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Aggiornamento elenco dei progetti</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation type="unfinished"/>
     </message>
@@ -5263,19 +5315,15 @@ Messaggio dell&apos;errore: %4</translation>
         <translation>Raggiungi QFieldCloud per scaricare il progetto</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Caricamento...</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Errore di scaricamento.</translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Errore di caricamento.</translation>
+        <source>Refreshing templates list...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for templates...</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5283,11 +5331,23 @@ Messaggio dell&apos;errore: %4</translation>
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>No templates found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>No cloud projects found.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5299,16 +5359,8 @@ Messaggio dell&apos;errore: %4</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Aggiorna la lista dei progetti</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Esci</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Accedi</translation>
+        <source>Refresh templates list</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Settings page</source>
@@ -5323,24 +5375,12 @@ Messaggio dell&apos;errore: %4</translation>
         <translation>Azioni del progetto</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Apri progetto</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Sincronizza</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Clone Project</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Rimuovi Progetto Archiviato</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5352,26 +5392,6 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Aggiornamento elenco dei progetti</translation>
-    </message>
-    <message>
-        <source>Templates</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5387,39 +5407,43 @@ Messaggio dell&apos;errore: %4</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Search for templates</source>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
+        <source>Fetching available project owners</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Searching for templates...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
+        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5436,30 +5460,6 @@ Messaggio dell&apos;errore: %4</translation>
     </message>
     <message>
         <source>Downloading project…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
 </context>

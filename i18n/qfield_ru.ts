@@ -5241,6 +5241,58 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Проекты</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Выгрузка...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Ошибка загрузки.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Ошибка выгрузки.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Обновить список проектов</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Выйти</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Войти</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Открыть проект</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Синхронизировать</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Удалить сохраненный проект</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Обновление списка проектов</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Шаблоны</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>Поиск шаблонов</translation>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>Поиск проектов</translation>
     </message>
@@ -5261,32 +5313,40 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Обращение к QFieldCloud для загрузки проекта</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Выгрузка...</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Ошибка загрузки.</translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Ошибка выгрузки.</translation>
+        <source>Refreshing templates list...</source>
+        <translation>Обновление списка шаблонов...</translation>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>Обновление списка проектов...</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation>Поиск шаблонов...</translation>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>Поиск проектов...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>Шаблоны не найдены.</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>Облачные проекты не найдены.</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>Попробуйте %1 включить общедоступные шаблоны %2 и посмотрите, что может предложить сообщество.</translation>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
         <translation>Попробуйте %1 включить публичные проекты %2 и посмотреть, что предлагает сообщество.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>Попробуйте %1 включить общедоступные шаблоны %2.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
@@ -5297,16 +5357,8 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Для начала, %1 ознакомьтесь с документацией %2.</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Обновить список проектов</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Выйти</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Войти</translation>
+        <source>Refresh templates list</source>
+        <translation>Обновить список шаблонов</translation>
     </message>
     <message>
         <source>Settings page</source>
@@ -5321,24 +5373,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Действия по проекту</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Открыть проект</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Синхронизировать</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation>Загрузить локальные изменения</translation>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>Клонировать Проект</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Удалить сохраненный проект</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5353,26 +5393,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Вы уверены, что хотите удалить `%1`?</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Не удалось получить подробную информацию о проекте QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Ошибка клонирования проекта: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Не удалось создать проект: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Обновление списка проектов</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation>Шаблоны</translation>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation>Создание проекта</translation>
     </message>
@@ -5385,40 +5405,44 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Допустимые символы: 0-9A-Za-z_-</translation>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <source>Enter your project description</source>
+        <translation>Введите описание проекта</translation>
     </message>
     <message>
-        <source>Search for templates</source>
-        <translation>Поиск шаблонов</translation>
+        <source>Fetching available project owners</source>
+        <translation>Получение информации о доступных владельцах проекта</translation>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
-        <translation>Обновление списка шаблонов...</translation>
-    </message>
-    <message>
-        <source>Searching for templates...</source>
-        <translation>Поиск шаблонов...</translation>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation>Шаблоны не найдены.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation>Попробуйте %1 включить общедоступные шаблоны %2 и посмотрите, что может предложить сообщество.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation>Попробуйте %1 включить общедоступные шаблоны %2.</translation>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
-        <translation>Обновить список шаблонов</translation>
+        <source>Select your project owner</source>
+        <translation>Выберите владельца проекта</translation>
     </message>
     <message>
         <source>Creating project…</source>
         <translation>Создание проекта…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Не удалось получить подробную информацию о проекте QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation>Проект невозможно клонировать, так как доступное вам место на диске заполнено.</translation>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation>Проект не может быть создан, так как доступное вам место на диске заполнено.</translation>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Обновить хранилище</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Ошибка клонирования проекта: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Не удалось создать проект: %1</translation>
     </message>
     <message>
         <source>Preparing project…</source>
@@ -5435,30 +5459,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Downloading project…</source>
         <translation>Загрузка проекта...</translation>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation>Введите описание проекта</translation>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation>Проект невозможно клонировать, так как доступное вам место на диске заполнено.</translation>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation>Проект не может быть создан, так как доступное вам место на диске заполнено.</translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Обновить хранилище</translation>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation>Получение информации о доступных владельцах проекта</translation>
-    </message>
-    <message>
-        <source>Select your project owner</source>
-        <translation>Выберите владельца проекта</translation>
     </message>
 </context>
 <context>

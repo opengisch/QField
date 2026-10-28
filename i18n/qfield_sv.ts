@@ -5238,6 +5238,58 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
         <translation>Projekt</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Laddar upp…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Hämtningsfel. </translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Uppladdningsfel. </translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Uppdatera projektlistan</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Logga ut</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Logga in</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Öppna Projekt</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Synkronisera</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Ta bort sparat projekt</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Uppdaterar projektlistan</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Mallar</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>Sök efter mallar</translation>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>Sök efter projekt</translation>
     </message>
@@ -5258,32 +5310,40 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
         <translation>Kontaktar QFieldCloud för att hämta projektet</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Laddar upp…</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Hämtningsfel. </translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Uppladdningsfel. </translation>
+        <source>Refreshing templates list...</source>
+        <translation>Uppdaterar mallistan…</translation>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>Uppdaterar projektlistan…</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation>Söker efter mallar...</translation>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>Söker efter projekt...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>Inga mallar hittades.</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>Inga molnprojekt hittades.</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>Försök att %1include public templates%2 och se vad communityn har att erbjuda.</translation>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
         <translation>Prova att %1inkludera offentliga projekt%2 och se vad communityn erbjuder.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>Prova att %1inkludera offentliga mallar%2.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
@@ -5294,16 +5354,8 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
         <translation>För att komma igång, %1läs dokumentationen%2.</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Uppdatera projektlistan</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Logga ut</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Logga in</translation>
+        <source>Refresh templates list</source>
+        <translation>Uppdatera mallistan</translation>
     </message>
     <message>
         <source>Settings page</source>
@@ -5318,24 +5370,12 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
         <translation>Projektåtgärder</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Öppna Projekt</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Synkronisera</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation>Ladda upp lokala ändringar</translation>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>Klona projekt</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Ta bort sparat projekt</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5350,26 +5390,6 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
         <translation>Är du säker på att du vill ta bort `%1`?</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Det gick inte att hämta projektinformation för QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Det gick inte att klona projektet: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Det gick inte att skapa projektet: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Uppdaterar projektlistan</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation>Mallar</translation>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation>Skapa projekt</translation>
     </message>
@@ -5382,40 +5402,44 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
         <translation>Tillåtna tecken: 0-9A-Za-z_-</translation>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <source>Enter your project description</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Search for templates</source>
-        <translation>Sök efter mallar</translation>
+        <source>Fetching available project owners</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
-        <translation>Uppdaterar mallistan…</translation>
-    </message>
-    <message>
-        <source>Searching for templates...</source>
-        <translation>Söker efter mallar...</translation>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation>Inga mallar hittades.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation>Försök att %1include public templates%2 och se vad communityn har att erbjuda.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation>Prova att %1inkludera offentliga mallar%2.</translation>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
-        <translation>Uppdatera mallistan</translation>
+        <source>Select your project owner</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
         <translation>Skapar projekt…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Det gick inte att hämta projektinformation för QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Uppgradera lagring</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Det gick inte att klona projektet: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Det gick inte att skapa projektet: %1</translation>
     </message>
     <message>
         <source>Preparing project…</source>
@@ -5432,30 +5456,6 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
     <message>
         <source>Downloading project…</source>
         <translation>Hämtar projekt…</translation>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Uppgradera lagring</translation>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

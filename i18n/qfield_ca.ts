@@ -5240,6 +5240,58 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <translation>Projectes</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Pujant…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Error de descàrrega. </translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Error de pujada. </translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Actualitzar la llista de projectes</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Tanca la sessió</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Inicia la sessió</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Obrir projecte</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronitza</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Elimina el projecte desat</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Actualitzant la llista de projectes</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Plantilles</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>Cerca plantilles</translation>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>Cerca de projectes</translation>
     </message>
@@ -5260,32 +5312,40 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <translation>Contactant amb QFieldCloud per descarregar el projecte</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Pujant…</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Error de descàrrega. </translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Error de pujada. </translation>
+        <source>Refreshing templates list...</source>
+        <translation>S&apos;està actualitzant la llista de plantilles...</translation>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>Actualitzant la llista de projectes...</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation>Cercant plantilles...</translation>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>Buscant projectes...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>No s&apos;han trobat plantilles.</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>No s&apos;han trobat projectes al núvol.</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>Intenta %1incloure plantilles públiques%2 i mira què ofereix la comunitat.</translation>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
         <translation>Intenteu %1incloure projectes públics%2 i veureu què ofereix la comunitat.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>Intenta %1incloure plantilles públiques%2.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
@@ -5296,16 +5356,8 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <translation>Per començar, %1llegiu la documentació%2.</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Actualitzar la llista de projectes</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Tanca la sessió</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Inicia la sessió</translation>
+        <source>Refresh templates list</source>
+        <translation>Actualitza la llista de plantilles</translation>
     </message>
     <message>
         <source>Settings page</source>
@@ -5320,24 +5372,12 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <translation>Accions del projecte</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Obrir projecte</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Sincronitza</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation>Puja els canvis locals</translation>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>Clonar projecte</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Elimina el projecte desat</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5352,26 +5392,6 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <translation>Esteu segur que voleu eliminar `%1`?</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Ha fallat l&apos;obtenció dels detalls del projecte QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>La clonació del projecte ha fallat: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Ha fallat la creació del projecte: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Actualitzant la llista de projectes</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation>Plantilles</translation>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation>Creació de projecte</translation>
     </message>
@@ -5384,40 +5404,44 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <translation>Caràcters permesos: 0-9A-Za-z_-</translation>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <source>Enter your project description</source>
+        <translation>Introdueix la descripció del teu projecte</translation>
     </message>
     <message>
-        <source>Search for templates</source>
-        <translation>Cerca plantilles</translation>
+        <source>Fetching available project owners</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
-        <translation>S&apos;està actualitzant la llista de plantilles...</translation>
-    </message>
-    <message>
-        <source>Searching for templates...</source>
-        <translation>Cercant plantilles...</translation>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation>No s&apos;han trobat plantilles.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation>Intenta %1incloure plantilles públiques%2 i mira què ofereix la comunitat.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation>Intenta %1incloure plantilles públiques%2.</translation>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
-        <translation>Actualitza la llista de plantilles</translation>
+        <source>Select your project owner</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
         <translation>Creant projecte…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Ha fallat l&apos;obtenció dels detalls del projecte QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation>El projecte no es pot clonar perquè l&apos;emmagatzematge disponible està ple.</translation>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation>No es pot crear el projecte perquè l&apos;emmagatzematge disponible està ple.</translation>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Amplia l&apos;emmagatzematge</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>La clonació del projecte ha fallat: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Ha fallat la creació del projecte: %1</translation>
     </message>
     <message>
         <source>Preparing project…</source>
@@ -5434,30 +5458,6 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <message>
         <source>Downloading project…</source>
         <translation>S&apos;està descarregant el projecte…</translation>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation>Introdueix la descripció del teu projecte</translation>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation>El projecte no es pot clonar perquè l&apos;emmagatzematge disponible està ple.</translation>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation>No es pot crear el projecte perquè l&apos;emmagatzematge disponible està ple.</translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Amplia l&apos;emmagatzematge</translation>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

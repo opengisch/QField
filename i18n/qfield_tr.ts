@@ -5232,6 +5232,58 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation>Projeler</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Yükleniyor…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>İndirme hatası. </translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Yükleme hatası. </translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Projeler listesini yenile</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Çıkış yap</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Oturum aç</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Projeyi Aç</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Senkranize Et</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Kaydedilmiş Projeyi Kaldır</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Projeler listesi yenileniyor</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation type="unfinished"/>
     </message>
@@ -5252,19 +5304,15 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation>Proje indirmek için QFieldCloud ile iletişime geçiliyor</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Yükleniyor…</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>İndirme hatası. </translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Yükleme hatası. </translation>
+        <source>Refreshing templates list...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for templates...</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5272,11 +5320,23 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>No templates found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>No cloud projects found.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5288,16 +5348,8 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Projeler listesini yenile</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Çıkış yap</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Oturum aç</translation>
+        <source>Refresh templates list</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Settings page</source>
@@ -5312,24 +5364,12 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation>Proje Eylemleri</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Projeyi Aç</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Senkranize Et</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Clone Project</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Kaydedilmiş Projeyi Kaldır</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5341,26 +5381,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>QFieldCloud proje detayları alınamadı</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Projeler listesi yenileniyor</translation>
-    </message>
-    <message>
-        <source>Templates</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5376,39 +5396,43 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Search for templates</source>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
+        <source>Fetching available project owners</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Searching for templates...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
+        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>QFieldCloud proje detayları alınamadı</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5425,30 +5449,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Downloading project…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
 </context>

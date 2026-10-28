@@ -5242,6 +5242,58 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <translation>Projektai</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Įkeliama…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Atsisiuntimo klaida. </translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Įkėlimo klaida. </translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Atnaujinti projektų sąrašą</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Atsijungti</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Prisijungti</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Atverti projektą</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sinchronizuoti</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Pašalinti saugomą projektą</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Atnaujinamas projektų sąrašas</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Šablonai</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>Ieškoti šablonų</translation>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>Ieškoti projektų</translation>
     </message>
@@ -5262,32 +5314,40 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <translation>Kreipiamasi į QFieldCloud dėl projekto atsisiuntimo</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Įkeliama…</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Atsisiuntimo klaida. </translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Įkėlimo klaida. </translation>
+        <source>Refreshing templates list...</source>
+        <translation>Atnaujinamas šablonų sąrašas...</translation>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>Atnaujinamas projektų sąrašas...</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation>Ieškoma šablonų...</translation>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>Ieškoma projektų...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>Šablonų nerasta.</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>Debesijos projektų nerasta.</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>Pabandykite %1įtraukti viešus šablonus%2 ir pažiūrėkite, ką siūlo bendruomenė.</translation>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
         <translation>Pabandykite %1įtraukti viešus projektus%2 ir pažiūrėkite, ką siūlo bendruomenė.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>Pabandykite %1įtraukti viešus šablonus%2.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
@@ -5298,16 +5358,8 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <translation>Norėdami pradėti, %1perskaitykite dokumentaciją%2.</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Atnaujinti projektų sąrašą</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Atsijungti</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Prisijungti</translation>
+        <source>Refresh templates list</source>
+        <translation>Atnaujinti šablonų sąrašą</translation>
     </message>
     <message>
         <source>Settings page</source>
@@ -5322,24 +5374,12 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <translation>Projekto veiksmai</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Atverti projektą</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Sinchronizuoti</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation>Įkelti vietinius pakeitimus</translation>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>Klonuoti projektą</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Pašalinti saugomą projektą</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5354,26 +5394,6 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <translation>Ar tikrai norite pašalinti „%1“?</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Nepavyko gauti QFieldCloud projekto informacijos</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Nepavyko klonuoti projekto: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Nepavyko sukurti projekto: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Atnaujinamas projektų sąrašas</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation>Šablonai</translation>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation>Projekto kūrimas</translation>
     </message>
@@ -5386,40 +5406,44 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <translation>Leidžiami simboliai: 0-9A-Za-z_-</translation>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <source>Enter your project description</source>
+        <translation>Įveskite projekto aprašymą</translation>
     </message>
     <message>
-        <source>Search for templates</source>
-        <translation>Ieškoti šablonų</translation>
+        <source>Fetching available project owners</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
-        <translation>Atnaujinamas šablonų sąrašas...</translation>
-    </message>
-    <message>
-        <source>Searching for templates...</source>
-        <translation>Ieškoma šablonų...</translation>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation>Šablonų nerasta.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation>Pabandykite %1įtraukti viešus šablonus%2 ir pažiūrėkite, ką siūlo bendruomenė.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation>Pabandykite %1įtraukti viešus šablonus%2.</translation>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
-        <translation>Atnaujinti šablonų sąrašą</translation>
+        <source>Select your project owner</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
         <translation>Kuriamas projektas…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Nepavyko gauti QFieldCloud projekto informacijos</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Padidinti saugyklą</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Nepavyko klonuoti projekto: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Nepavyko sukurti projekto: %1</translation>
     </message>
     <message>
         <source>Preparing project…</source>
@@ -5436,30 +5460,6 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
     <message>
         <source>Downloading project…</source>
         <translation>Atsisiunčiamas projektas…</translation>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation>Įveskite projekto aprašymą</translation>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Padidinti saugyklą</translation>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

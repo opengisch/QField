@@ -5231,6 +5231,58 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>Projektek</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Feltöltés...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Letöltési hiba.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Feltöltési hiba.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Projekt lista frissítés</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Kijelentkezés</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Bejelentkezés</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Projekt megnyitása</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Szinkronizálás</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Tárolt projekt eltávolítása</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Projekt lista frissítése</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>Projektek keresése</translation>
     </message>
@@ -5251,32 +5303,40 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>A projekt letöltését kezdeményezze a QFieldCloud-ról</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Feltöltés...</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Letöltési hiba.</translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Feltöltési hiba.</translation>
+        <source>Refreshing templates list...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>Projektlista frissítése...</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>Projektek keresése...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>Nem található felhőprojekt.</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
         <translation>Próbálj %1 felhasználni nyilvános projekteket %2, nézd, mit kínál a közösség.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
@@ -5287,16 +5347,8 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>Kezdetnek %1 olvasd el a %2 leírását.</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Projekt lista frissítés</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Kijelentkezés</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Bejelentkezés</translation>
+        <source>Refresh templates list</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Settings page</source>
@@ -5311,24 +5363,12 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>Projekt műveletek</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Projekt megnyitása</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Szinkronizálás</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation>Helyi változások feltöltése</translation>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>Projekt Másolás</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Tárolt projekt eltávolítása</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5343,26 +5383,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>Valóban törölni kívánod `%1`-t?</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Felhőprojekt részleteinek lekérése sikertelen</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Projekt másolás sikertelen: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Projekt készítés sikertelen: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Projekt lista frissítése</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation type="unfinished"/>
     </message>
@@ -5375,40 +5395,44 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Search for templates</source>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
+        <source>Fetching available project owners</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Searching for templates...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
+        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Felhőprojekt részleteinek lekérése sikertelen</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Tárhelybővítés</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Projekt másolás sikertelen: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Projekt készítés sikertelen: %1</translation>
     </message>
     <message>
         <source>Preparing project…</source>
@@ -5424,30 +5448,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Downloading project…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Tárhelybővítés</translation>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
 </context>

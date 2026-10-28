@@ -5242,6 +5242,58 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Проекти</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Завантаження...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Помилка завантаження.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Помилка викачування.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Оновити список проектів</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Вийти з аккаунта</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Увійти</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Відкрити проект</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Синхронізувати</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Видалити збережений проєкт</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Оновлення списку проектів</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>Шаблони</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>Пошук шаблонів</translation>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>Пошук проектів</translation>
     </message>
@@ -5262,32 +5314,40 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Звернутись до QFieldCloud, щоб завантажити проект</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Завантаження...</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Помилка завантаження.</translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Помилка викачування.</translation>
+        <source>Refreshing templates list...</source>
+        <translation>Оновлення списку шаблонів...</translation>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>Оновлення списку проектів...</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation>Пошук шаблонів...</translation>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>Пошук проектів...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>Шаблони не знайдено.</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>Хмарних проектів не знайдено.</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>Спробуйте %1додати публічні шаблони%2 і подивіться, що пропонує спільнота.</translation>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
         <translation>Спробуйте %1додати публічні проекти%2 і подивіться, що пропонує спільнота.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>Спробуйте %1додати публічні шаблони%2.</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
@@ -5298,16 +5358,8 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Щоб почати, %1ознайомтеся з документацією%2.</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Оновити список проектів</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Вийти з аккаунта</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Увійти</translation>
+        <source>Refresh templates list</source>
+        <translation>Оновити список шаблонів</translation>
     </message>
     <message>
         <source>Settings page</source>
@@ -5322,24 +5374,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Дії в рамках проекту</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Відкрити проект</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Синхронізувати</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation>Завантажити останні зміни</translation>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>Клонувати проект</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Видалити збережений проєкт</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5354,26 +5394,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Ви впевнені, що хочете видалити `%1`?</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>Не вдалося отримати деталі проекту QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Клонування проекту не вдалося: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Не вдалося створити проект: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Оновлення списку проектів</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation>Шаблони</translation>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation>Створення проекту</translation>
     </message>
@@ -5386,40 +5406,44 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Допустимі символи: 0-9A-Za-z_-</translation>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <source>Enter your project description</source>
+        <translation>Введіть опис вашого проекту</translation>
     </message>
     <message>
-        <source>Search for templates</source>
-        <translation>Пошук шаблонів</translation>
+        <source>Fetching available project owners</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
-        <translation>Оновлення списку шаблонів...</translation>
-    </message>
-    <message>
-        <source>Searching for templates...</source>
-        <translation>Пошук шаблонів...</translation>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation>Шаблони не знайдено.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation>Спробуйте %1додати публічні шаблони%2 і подивіться, що пропонує спільнота.</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation>Спробуйте %1додати публічні шаблони%2.</translation>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
-        <translation>Оновити список шаблонів</translation>
+        <source>Select your project owner</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
         <translation>Створення проекту...</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>Не вдалося отримати деталі проекту QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>Збільшити обсяг пам’яті</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>Клонування проекту не вдалося: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Не вдалося створити проект: %1</translation>
     </message>
     <message>
         <source>Preparing project…</source>
@@ -5436,30 +5460,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Downloading project…</source>
         <translation>Завантаження проекту...</translation>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation>Введіть опис вашого проекту</translation>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>Збільшити обсяг пам’яті</translation>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -5239,6 +5239,58 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation>Projetos</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Carregando...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Erro ao transferir.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Erro ao carregar.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Atualizar lista de projetos</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Sair</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Ligar-se</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Abrir Projeto</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Sincronizar</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Remover Projeto Armazenado</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Atualizando a lista de projetos</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation type="unfinished"/>
     </message>
@@ -5259,19 +5311,15 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation>Ligando-se ao QFieldCloud para baixar o projeto</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Carregando...</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Erro ao transferir.</translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Erro ao carregar.</translation>
+        <source>Refreshing templates list...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refreshing projects list...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Searching for templates...</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5279,11 +5327,23 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>No templates found.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>No cloud projects found.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5295,16 +5355,8 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Atualizar lista de projetos</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Sair</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Ligar-se</translation>
+        <source>Refresh templates list</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Settings page</source>
@@ -5319,24 +5371,12 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation>Ações de Projeto</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Abrir Projeto</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Sincronizar</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Clone Project</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Remover Projeto Armazenado</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5348,26 +5388,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Atualizando a lista de projetos</translation>
-    </message>
-    <message>
-        <source>Templates</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5383,39 +5403,43 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Search for templates</source>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
+        <source>Fetching available project owners</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Searching for templates...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
+        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5432,30 +5456,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     </message>
     <message>
         <source>Downloading project…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
 </context>

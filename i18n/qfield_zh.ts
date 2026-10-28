@@ -5237,6 +5237,58 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>工程</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>正在上传…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>下载错误。</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>上传错误。</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>刷新工程列表</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>注销</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>登录</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>打开工程</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>同步</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>删除存储的工程</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>正在刷新工程列表</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation>模板</translation>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation>搜索模板</translation>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>搜索工程</translation>
     </message>
@@ -5257,32 +5309,40 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>联系QFieldCloud下载工程</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>正在上传…</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>下载错误。</translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>上传错误。</translation>
+        <source>Refreshing templates list...</source>
+        <translation>刷新模板列表...</translation>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>刷新工程列表...</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation>搜索模板...</translation>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>搜索工程...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation>未找到模板。</translation>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>未找到云工程。</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation>尝试%1包含公共模板%2，查看社区能为您提供什么。</translation>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
         <translation>尝试%1包含公开工程%2，查看社区能为您提供什么。</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation>尝试%1包含公共模板%2。</translation>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
@@ -5293,16 +5353,8 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>首先, %1请阅读文档%2。</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>刷新工程列表</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>注销</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>登录</translation>
+        <source>Refresh templates list</source>
+        <translation>刷新模板列表</translation>
     </message>
     <message>
         <source>Settings page</source>
@@ -5317,24 +5369,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>工程动作</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>打开工程</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>同步</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation>上传本地更改</translation>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>克隆工程</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>删除存储的工程</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5349,26 +5389,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>确定要移除 `%1` 吗？</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>QFieldCloud工程详细信息获取失败</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>工程克隆失败: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>工程创建失败: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>正在刷新工程列表</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation>模板</translation>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation>工程创建</translation>
     </message>
@@ -5381,40 +5401,44 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>允许使用的字符: 0-9A-Za-z_-</translation>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <source>Enter your project description</source>
+        <translation>输入您的工程描述</translation>
     </message>
     <message>
-        <source>Search for templates</source>
-        <translation>搜索模板</translation>
+        <source>Fetching available project owners</source>
+        <translation>正在获取可用的工程所有者</translation>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
-        <translation>刷新模板列表...</translation>
-    </message>
-    <message>
-        <source>Searching for templates...</source>
-        <translation>搜索模板...</translation>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation>未找到模板。</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation>尝试%1包含公共模板%2，查看社区能为您提供什么。</translation>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation>尝试%1包含公共模板%2。</translation>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
-        <translation>刷新模板列表</translation>
+        <source>Select your project owner</source>
+        <translation>选择您的工程所有者</translation>
     </message>
     <message>
         <source>Creating project…</source>
         <translation>正在创建工程…</translation>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>QFieldCloud工程详细信息获取失败</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation>由于您的可用存储空间已满，无法克隆工程。</translation>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation>由于您的可用存储空间已满，无法创建工程。</translation>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>升级存储</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>工程克隆失败: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>工程创建失败: %1</translation>
     </message>
     <message>
         <source>Preparing project…</source>
@@ -5431,30 +5455,6 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Downloading project…</source>
         <translation>正在下载工程…</translation>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation>输入您的工程描述</translation>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation>由于您的可用存储空间已满，无法克隆工程。</translation>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation>由于您的可用存储空间已满，无法创建工程。</translation>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>升级存储</translation>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>

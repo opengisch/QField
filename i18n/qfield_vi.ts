@@ -5229,6 +5229,58 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Dự án</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>Đang tải lên ...</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>Lỗi tải xuống.</translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>Lỗi tải lên.</translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>Làm mới danh sách dự án</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Đăng xuất</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Đăng nhập</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>Mở dự án</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>Đồng bộ</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>Gỡ bỏ dự án đã lưu</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>Đang làm mới danh sách dự án</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>Tìm kiếm dự án</translation>
     </message>
@@ -5249,31 +5301,39 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Đang liên hệ với QFieldCloud để tải xuống dự án</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>Đang tải lên ...</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>Lỗi tải xuống.</translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>Lỗi tải lên.</translation>
+        <source>Refreshing templates list...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>Đang làm mới danh sách dự án...</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>Đang tìm kiếm dự án...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>Không tìm thấy dự án cloud nào.</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5285,16 +5345,8 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Để bắt đầu, %1hãy đọc tài liệu%2.</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>Làm mới danh sách dự án</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>Đăng xuất</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Đăng nhập</translation>
+        <source>Refresh templates list</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Settings page</source>
@@ -5309,24 +5361,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>Mở dự án</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>Đồng bộ</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>Nhân bản dự án</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>Gỡ bỏ dự án đã lưu</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5341,26 +5381,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Bạn có chắc muốn gỡ bỏ `%1` không?</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>Nhân bản dự án thất bại: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>Tạo dự án thất bại: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>Đang làm mới danh sách dự án</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation type="unfinished"/>
     </message>
@@ -5373,35 +5393,15 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Search for templates</source>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
+        <source>Fetching available project owners</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Searching for templates...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
+        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5409,23 +5409,7 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Preparing project…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project created but downloading failed: %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The newly-created project could not be prepared.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Downloading project…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter your project description</source>
+        <source>QFieldCloud project details fetching failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5441,11 +5425,27 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Nâng cấp dung lượng lưu trữ</translation>
     </message>
     <message>
-        <source>Fetching available project owners</source>
+        <source>Project cloning failed: %1</source>
+        <translation>Nhân bản dự án thất bại: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>Tạo dự án thất bại: %1</translation>
+    </message>
+    <message>
+        <source>Preparing project…</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Select your project owner</source>
+        <source>Project created but downloading failed: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The newly-created project could not be prepared.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Downloading project…</source>
         <translation type="unfinished"/>
     </message>
 </context>

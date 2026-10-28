@@ -5236,6 +5236,58 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>프로젝트</translation>
     </message>
     <message>
+        <source>Uploading…</source>
+        <translation>업로드 중…</translation>
+    </message>
+    <message>
+        <source>Downloading error. </source>
+        <translation>내려받기 오류. </translation>
+    </message>
+    <message>
+        <source>Uploading error. </source>
+        <translation>업로드 오류. </translation>
+    </message>
+    <message>
+        <source>Refresh projects list</source>
+        <translation>프로젝트 목록 새로 고침</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>로그아웃</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>로그인</translation>
+    </message>
+    <message>
+        <source>Open Project</source>
+        <translation>프로젝트 열기</translation>
+    </message>
+    <message>
+        <source>Synchronize</source>
+        <translation>동기화</translation>
+    </message>
+    <message>
+        <source>Remove Stored Project</source>
+        <translation>저장된 프로젝트 삭제</translation>
+    </message>
+    <message>
+        <source>Refreshing projects list</source>
+        <translation>프로젝트 목록 새로 고치는 중</translation>
+    </message>
+    <message>
+        <source>QFieldCloud</source>
+        <translation>QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Search for templates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Search for projects</source>
         <translation>프로젝트 검색</translation>
     </message>
@@ -5256,32 +5308,40 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>프로젝트를 내려받기 위해 QFieldCloud에 연결하는 중</translation>
     </message>
     <message>
-        <source>Uploading…</source>
-        <translation>업로드 중…</translation>
-    </message>
-    <message>
-        <source>Downloading error. </source>
-        <translation>내려받기 오류. </translation>
-    </message>
-    <message>
-        <source>Uploading error. </source>
-        <translation>업로드 오류. </translation>
+        <source>Refreshing templates list...</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refreshing projects list...</source>
         <translation>프로젝트 목록 새로 고치는 중...</translation>
     </message>
     <message>
+        <source>Searching for templates...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Searching for projects...</source>
         <translation>프로젝트 검색 중...</translation>
+    </message>
+    <message>
+        <source>No templates found.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No cloud projects found.</source>
         <translation>클라우드 프로젝트를 찾을 수 없습니다.</translation>
     </message>
     <message>
+        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Try to %1include public projects%2 and see what the community has to offer.</source>
         <translation>%1공개 프로젝트 포함%2을 켜고 커뮤니티가 공유한 프로젝트를 살펴보십시오.</translation>
+    </message>
+    <message>
+        <source>Try to %1include public templates%2.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Try to %1include public projects%2.</source>
@@ -5292,16 +5352,8 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>시작하려면 %1문서를 참고하십시오%2.</translation>
     </message>
     <message>
-        <source>Refresh projects list</source>
-        <translation>프로젝트 목록 새로 고침</translation>
-    </message>
-    <message>
-        <source>Sign out</source>
-        <translation>로그아웃</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>로그인</translation>
+        <source>Refresh templates list</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Settings page</source>
@@ -5316,24 +5368,12 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>프로젝트 작업</translation>
     </message>
     <message>
-        <source>Open Project</source>
-        <translation>프로젝트 열기</translation>
-    </message>
-    <message>
-        <source>Synchronize</source>
-        <translation>동기화</translation>
-    </message>
-    <message>
         <source>Upload local changes</source>
         <translation>로컬 변경 사항 업로드</translation>
     </message>
     <message>
         <source>Clone Project</source>
         <translation>프로젝트 복제</translation>
-    </message>
-    <message>
-        <source>Remove Stored Project</source>
-        <translation>저장된 프로젝트 삭제</translation>
     </message>
     <message>
         <source>View Project Details</source>
@@ -5348,26 +5388,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>`%1`을(를) 삭제하시겠습니까?</translation>
     </message>
     <message>
-        <source>QFieldCloud project details fetching failed</source>
-        <translation>QFieldCloud 프로젝트 상세 정보를 가져오지 못했습니다</translation>
-    </message>
-    <message>
-        <source>Project cloning failed: %1</source>
-        <translation>프로젝트 복제 실패: %1</translation>
-    </message>
-    <message>
-        <source>Project creation failed: %1</source>
-        <translation>프로젝트 생성 실패: %1</translation>
-    </message>
-    <message>
-        <source>Refreshing projects list</source>
-        <translation>프로젝트 목록 새로 고치는 중</translation>
-    </message>
-    <message>
-        <source>Templates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Project Creation</source>
         <translation type="unfinished"/>
     </message>
@@ -5380,40 +5400,44 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Search for templates</source>
+        <source>Enter your project description</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Refreshing templates list...</source>
+        <source>Fetching available project owners</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Searching for templates...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>No templates found.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2 and see what the community has to offer.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Try to %1include public templates%2.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh templates list</source>
+        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Creating project…</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud project details fetching failed</source>
+        <translation>QFieldCloud 프로젝트 상세 정보를 가져오지 못했습니다</translation>
+    </message>
+    <message>
+        <source>Project cannot be cloned as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project cannot be created as your available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation>저장 용량 업그레이드</translation>
+    </message>
+    <message>
+        <source>Project cloning failed: %1</source>
+        <translation>프로젝트 복제 실패: %1</translation>
+    </message>
+    <message>
+        <source>Project creation failed: %1</source>
+        <translation>프로젝트 생성 실패: %1</translation>
     </message>
     <message>
         <source>Preparing project…</source>
@@ -5429,30 +5453,6 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Downloading project…</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter your project description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be cloned as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Project cannot be created as your available storage is full.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Upgrade storage</source>
-        <translation>저장 용량 업그레이드</translation>
-    </message>
-    <message>
-        <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your project owner</source>
         <translation type="unfinished"/>
     </message>
 </context>
