@@ -2,7 +2,7 @@
 # CMake settings
 cmake_minimum_required(VERSION 3.19)
 
-set(VCPKG_TAG 81553216dc658c03a2ee9e07aae29a33bb3261be)
+set(VCPKG_TAG 15b12b99a227d51e21c86dffd40385439eac87a0)
 
 set(QML_IMPORT_PATH ${CMAKE_BINARY_DIR}/qml CACHE PATH "QML import path for Qt Creator to detect custom modules properly")
 
