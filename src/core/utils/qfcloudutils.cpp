@@ -434,6 +434,67 @@ void QfCloudUtils::removePendingAttachment( const QString &username, const QStri
   }
 }
 
+void QfCloudUtils::addAttachmentHistory( const QString &username, const QString &projectId, const QfCloudAttachmentHistoryEntry &entry )
+{
+  if ( username.isEmpty() || projectId.isEmpty() )
+  {
+    return;
+  }
+
+  const QString localCloudUserDirectory = QStringLiteral( "%1/%2" ).arg( QfCloudUtils::localCloudDirectory(), username );
+  QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUserDirectory ) );
+  if ( !attachmentsLock.tryLock( 10000 ) )
+  {
+    return;
+  }
+
+  QFile historyFile( QStringLiteral( "%1/attachments_history.csv" ).arg( localCloudUserDirectory ) );
+  if ( historyFile.open( QFile::Append | QFile::Text ) )
+  {
+    // The expected CSV format must have four columns:
+    // timestamp,project_id,http_code,file_path
+    QTextStream historyStream( &historyFile );
+    historyStream << QfStringUtils::stringListToCsv( QStringList() << entry.timestamp.toUTC().toString( Qt::ISODateWithMs ) << projectId << QString::number( entry.httpCode ) << entry.fileName ) << Qt::endl;
+    historyFile.close();
+  }
+}
+
+const QList<QfCloudAttachmentHistoryEntry> QfCloudUtils::getAttachmentsHistory( const QString &username, const QString &projectId )
+{
+  QList<QfCloudAttachmentHistoryEntry> entries;
+  if ( username.isEmpty() || projectId.isEmpty() )
+  {
+    return entries;
+  }
+
+  const QString localCloudUserDirectory = QStringLiteral( "%1/%2" ).arg( QfCloudUtils::localCloudDirectory(), username );
+  QLockFile attachmentsLock( QStringLiteral( "%1/attachments.lock" ).arg( localCloudUserDirectory ) );
+  if ( !attachmentsLock.tryLock( 10000 ) )
+  {
+    return entries;
+  }
+
+  QFile historyFile( QStringLiteral( "%1/attachments_history.csv" ).arg( localCloudUserDirectory ) );
+  if ( historyFile.open( QFile::ReadOnly | QFile::Text ) )
+  {
+    QTextStream historyStream( &historyFile );
+    while ( !historyStream.atEnd() )
+    {
+      const QStringList values = QfStringUtils::csvToStringList( historyStream.readLine().trimmed() );
+      if ( values.size() >= 4 && values.at( 1 ) == projectId )
+      {
+        QfCloudAttachmentHistoryEntry entry;
+        entry.timestamp = QDateTime::fromString( values.at( 0 ), Qt::ISODateWithMs );
+        entry.httpCode = values.at( 2 ).toInt();
+        entry.fileName = values.at( 3 );
+        entries << entry;
+      }
+    }
+  }
+
+  return entries;
+}
+
 QString QfCloudUtils::subscriptionManagementUrl( const QString &serverUrl, const QString &plan, const QString &projectOwner, const QString &username )
 {
   if ( serverUrl != QfCloudConnection::defaultUrl() )

@@ -52,6 +52,7 @@
 #include "qfgridmodel.h"
 #include "qfidentifytool.h"
 #include "qfield.h"
+#include "qfieldcloud/qfcloudattachmentsmodel.h"
 #include "qfieldcloud/qfcloudconnection.h"
 #include "qfieldcloud/qfcloudproject.h"
 #include "qfieldcloud/qfcloudprojectsmodel.h"
@@ -203,6 +204,7 @@ namespace QfCore
     qmlRegisterType<QfProcessingAlgorithmsModel>( "org.qfield.core", 1, 0, "QfProcessingAlgorithmsModel" );
     qmlRegisterType<QfProjectInfo>( "org.qfield.core", 1, 0, "QfProjectInfo" );
     qmlRegisterType<QfProjectSource>( "org.qfield.core", 1, 0, "QfProjectSource" );
+    qmlRegisterType<QfCloudAttachmentsModel>( "org.qfield.core", 1, 0, "QfCloudAttachmentsModel" );
     qmlRegisterType<QfCloudConnection>( "org.qfield.core", 1, 0, "QfCloudConnection" );
     qmlRegisterType<QfCloudProject>( "org.qfield.core", 1, 0, "QfCloudProject" );
     qmlRegisterType<QfCloudProjectsModel>( "org.qfield.core", 1, 0, "QfCloudProjectsModel" );

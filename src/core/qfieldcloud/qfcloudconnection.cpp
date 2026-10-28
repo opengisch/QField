@@ -1473,7 +1473,13 @@ void QfCloudConnection::processPendingAttachments()
         }
       }
 
+      QfCloudAttachmentHistoryEntry historyEntry;
+      historyEntry.timestamp = QDateTime::currentDateTimeUtc();
+      historyEntry.httpCode = httpCode;
+      historyEntry.fileName = fileName;
+      QfCloudUtils::addAttachmentHistory( mUsername, projectId, historyEntry );
       QfCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
+      emit attachmentsHistoryChanged( projectId );
       mUploadPendingCount--;
       mUploadDoneCount++;
       mUploadFailingCount = 0;

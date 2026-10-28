@@ -778,7 +778,7 @@ Popup {
               spacing: 20
 
               ColumnLayout {
-                Layout.preferredWidth: uploadCard.width / 2 - 60
+                Layout.preferredWidth: (uploadCard.width - 120) / 3
                 Layout.alignment: Qt.AlignTop
                 spacing: 5
 
@@ -799,7 +799,7 @@ Popup {
                   color: QfTheme.mainTextColor
                   horizontalAlignment: Text.AlignHCenter
                   wrapMode: Text.WordWrap
-                  text: qsTr('Upload history')
+                  text: qsTr('Changes history')
 
                   MouseArea {
                     anchors.fill: parent
@@ -809,7 +809,38 @@ Popup {
               }
 
               ColumnLayout {
-                Layout.preferredWidth: uploadCard.width / 2 - 60
+                Layout.preferredWidth: (uploadCard.width - 120) / 3
+                Layout.alignment: Qt.AlignTop
+                spacing: 5
+
+                QfToolButton {
+                  id: attachmentsEntryButton
+                  Layout.alignment: Qt.AlignHCenter
+                  round: true
+                  bgcolor: Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.1)
+                  iconSource: QfTheme.getThemeVectorIcon('ic_file_black_24dp')
+                  iconColor: QfTheme.mainColor
+
+                  onClicked: showAttachments()
+                }
+
+                Text {
+                  Layout.fillWidth: true
+                  font: QfTheme.tipFont
+                  color: QfTheme.mainTextColor
+                  horizontalAlignment: Text.AlignHCenter
+                  wrapMode: Text.WordWrap
+                  text: qsTr('Attachments history')
+
+                  MouseArea {
+                    anchors.fill: parent
+                    onClicked: showAttachments()
+                  }
+                }
+              }
+
+              ColumnLayout {
+                Layout.preferredWidth: (uploadCard.width - 120) / 3
                 Layout.alignment: Qt.AlignTop
                 spacing: 5
 
@@ -1244,6 +1275,13 @@ Popup {
     if (cloudConnection.status === QfCloudConnection.LoggedIn && cloudProjectsModel.currentProject) {
       qfieldCloudDeltaHistory.model.cloudProjectId = cloudProjectsModel.currentProject.id;
       qfieldCloudDeltaHistory.open();
+    }
+  }
+
+  function showAttachments() {
+    if (cloudProjectsModel.currentProject) {
+      qfieldCloudAttachmentsHistory.model.cloudProject = cloudProjectsModel.currentProject;
+      qfieldCloudAttachmentsHistory.open();
     }
   }
 }
