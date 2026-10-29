@@ -482,12 +482,12 @@ void QfPositioning::setServiceMode( bool enabled )
 
   mServiceMode = enabled;
 
-  // Only platforms with a positioning service (Android) move the source to another process when 
+  // Only platforms with a positioning service (Android) move the source to another process when
   // service mode changes. Elsewhere (iOS, desktop) the source is hosted locally in both modes and
   // service mode only switches the background buffering path in onApplicationStateChanged(), so
   // rebuilding the source would just switch positioning off for the 2 s activation delay. On iOS
   // that rebuild coincides with starting a tracker, and if the app is backgrounded inside that
-  // window the new CLLocationManager is started from the background, receives no updates, and 
+  // window the new CLLocationManager is started from the background, receives no updates, and
   // every position while the device is locked is lost.
   if ( active() && ( QfPlatformUtilities::instance()->capabilities() & QfPlatformUtilities::PositioningService ) )
   {
