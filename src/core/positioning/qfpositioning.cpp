@@ -140,7 +140,7 @@ void QfPositioning::onApplicationStateChanged( Qt::ApplicationState state )
 #if defined( Q_OS_ANDROID ) || defined( Q_OS_IOS )
   // Google Play policy only allows for background access if it's explicitly stated and justified
   // Not stopping on Activity::onPause is detected as violation
-    if ( mServiceMode )
+  if ( mServiceMode )
   {
     // Service path (a tracker is recording)
 #if defined( Q_OS_ANDROID )
