@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/images">
+        <file alias="qfield_logo.svg">icons/qfield_logo.svg</file>
         <file alias="qfieldcloud_logo.svg">icons/qfieldcloud_logo.svg</file>
         <file alias="nyuki.svg">icons/nyuki.svg</file>
         <file alias="opengis-logo.svg">icons/openGIS-logo-round-green.svg</file>
