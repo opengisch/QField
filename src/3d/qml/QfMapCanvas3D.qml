@@ -162,7 +162,7 @@ Item {
             easing.type: Easing.InOutQuad
           }
           Vector3dAnimation {
-            from: Qt.vector3d(0.5, 0.05, 0.5)
+            from: Qt.vector3d(0.7, 0.05, 0.7)
             to: Qt.vector3d(0.3, 0.05, 0.3)
             duration: 1500
             easing.type: Easing.InOutQuad
