@@ -49,22 +49,85 @@ QImage QfLocalFilesImageProvider::requestImage( const QString &id, QSize *size, 
   }
 
   const QSize outputSize( requestedSize.width(), rows * requestedSize.width() / cols );
-  QImage image( outputSize, bands == 4 ? QImage::Format_RGBA8888 : bands == 3 ? QImage::Format_RGB888
-                                                                              : QImage::Format_Grayscale8 );
-  if ( image.isNull() )
-    return defaultIcon.pixmap( QSize( requestedSize ) ).toImage();
-
-  GByte *firstPixel = reinterpret_cast<GByte *>( image.bits() );
-  for ( int i = 0; i < bands; i++ )
+  QImage image;
+  bool hasColorTable = false;
+  if ( bands == 4 )
   {
-    CPLErr err = GDALRasterIOEx( GDALGetRasterBand( dataset.get(), i + 1 ),
-                                 GF_Read, 0, 0, cols, rows,
-                                 firstPixel + ( i ),
-                                 outputSize.width(), outputSize.height(),
-                                 GDT_Byte, bands, image.bytesPerLine(), nullptr );
+    image = QImage( outputSize, QImage::Format_RGBA8888 );
+  }
+  else if ( bands == 3 )
+  {
+    image = QImage( outputSize, QImage::Format_RGB888 );
+  }
+  else
+  {
+    if ( bands == 1 )
+    {
+      hasColorTable = GDALGetRasterColorTable( GDALGetRasterBand( dataset.get(), 1 ) );
+    }
+
+    if ( hasColorTable )
+    {
+      image = QImage( outputSize, QImage::Format_RGBA8888 );
+    }
+    else
+    {
+      image = QImage( outputSize, QImage::Format_Grayscale8 );
+    }
+  }
+
+  if ( image.isNull() )
+  {
+    return defaultIcon.pixmap( QSize( requestedSize ) ).toImage();
+  }
+
+  if ( hasColorTable )
+  {
+    std::vector<GByte> rasterData( static_cast<unsigned long>( outputSize.width() ) * outputSize.height() );
+    CPLErr err = GDALRasterIO( GDALGetRasterBand( dataset.get(), 1 ),
+                               GF_Read, 0, 0, cols, rows,
+                               rasterData.data(),
+                               outputSize.width(), outputSize.height(),
+                               GDT_Byte, 0, 0 );
     if ( err != CE_None )
     {
       return defaultIcon.pixmap( QSize( requestedSize ) ).toImage();
+    }
+    GDALColorTableH colorTable = GDALGetRasterColorTable( GDALGetRasterBand( dataset.get(), 1 ) );
+    for ( int y = 0; y < outputSize.height(); ++y )
+    {
+      // cppcheck-suppress cstyleCast
+      QRgb *lineScan = ( QRgb * ) image.scanLine( y );
+      const int rowOffset = y * outputSize.width();
+      for ( int x = 0; x < outputSize.width(); ++x )
+      {
+        GByte index = rasterData[rowOffset + x];
+        const GDALColorEntry *entry = GDALGetColorEntry( colorTable, index );
+        if ( entry )
+        {
+          lineScan[x] = qRgba( entry->c3, entry->c2, entry->c1, entry->c4 );
+        }
+        else
+        {
+          lineScan[x] = qRgba( 0, 0, 0, 255 );
+        }
+      }
+    }
+  }
+  else
+  {
+    GByte *firstPixel = reinterpret_cast<GByte *>( image.bits() );
+    for ( int i = 0; i < bands; i++ )
+    {
+      CPLErr err = GDALRasterIOEx( GDALGetRasterBand( dataset.get(), i + 1 ),
+                                   GF_Read, 0, 0, cols, rows,
+                                   firstPixel + ( i ),
+                                   outputSize.width(), outputSize.height(),
+                                   GDT_Byte, bands, image.bytesPerLine(), nullptr );
+      if ( err != CE_None )
+      {
+        return defaultIcon.pixmap( QSize( requestedSize ) ).toImage();
+      }
     }
   }
   return image;
