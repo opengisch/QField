@@ -459,6 +459,21 @@ ApplicationWindow {
     }
   }
 
+  Connections {
+    target: Qt.application
+
+    // On iOS, trackers stay live in the background (see QfPositioning::onApplicationStateChanged()).
+    // Freeze the canvas so position follow mode does not trigger render jobs and tile downloads
+    // while nothing is visible; layer repaints still render silently (QgsQuickMapCanvasMap)
+    function onStateChanged() {
+      if (Qt.application.state === Qt.ApplicationActive) {
+        mapCanvasMap.unfreeze('background');
+      } else if (trackings.count > 0 && Qt.platform.os === "ios") {
+        mapCanvasMap.freeze('background');
+      }
+    }
+  }
+
   Timer {
     id: replayTimer
 
