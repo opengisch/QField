@@ -61,12 +61,14 @@ QfPopup {
   onDecodedStringChanged: {
     if (decodedString != "") {
       decodedTimer.restart();
+    } else {
+      decodedTimer.stop();
     }
   }
 
   Timer {
     id: decodedTimer
-    interval: 800
+    interval: 1000
     onTriggered: codeReader.decoded(codeReader.decodedString)
   }
 
@@ -186,8 +188,8 @@ QfPopup {
     id: barcodeDecoder
 
     onDecodedStringChanged: {
+      codeReader.decodedString = decodedString;
       if (decodedString !== '') {
-        codeReader.decodedString = decodedString;
         decodedFlashAnimation.start();
       }
     }

@@ -126,6 +126,7 @@ QfBarcodeDecoder::QfBarcodeDecoder( QObject *parent )
 
 void QfBarcodeDecoder::setDecodedString( const QString &decodedString )
 {
+  mDecodedStringPickedAutomatically = false;
   if ( mDecodedString == decodedString )
   {
     return;
@@ -221,9 +222,15 @@ void QfBarcodeDecoder::decodeVideoFrame( const QVideoFrame &frame )
   mDecodingThread = new QfBarcodeDecoderThread( image, displayTransform );
   connect( mDecodingThread, &QThread::finished, this, [this] {
     mBarcodeModel->updateBarcodes( mDecodingThread->barcodes() );
-    if ( mBarcodeModel->rowCount() == 1 )
+    const int barcodeCount = mBarcodeModel->rowCount();
+    if ( barcodeCount == 1 )
     {
       setDecodedString( mBarcodeModel->data( mBarcodeModel->index( 0 ), QfBarcodeModel::BarcodeText ).toString() );
+      mDecodedStringPickedAutomatically = true;
+    }
+    else if ( barcodeCount > 1 && mDecodedStringPickedAutomatically )
+    {
+      clearDecodedString();
     }
 
     mDecodingThread->deleteLater();

@@ -48,9 +48,10 @@ QVariant QfBarcodeModel::data( const QModelIndex &index, int role ) const
 
     case BarcodeBounds:
       return mTrackedBarcodes.at( row ).barcode.bounds;
-  }
 
-  return QVariant();
+    default:
+      return QVariant();
+  }
 }
 
 QHash<int, QByteArray> QfBarcodeModel::roleNames() const

@@ -86,6 +86,7 @@ class QfBarcodeDecoder : public QObject
 
   private:
     QString mDecodedString;
+    bool mDecodedStringPickedAutomatically = false;
     QfBarcodeModel *mBarcodeModel = new QfBarcodeModel( this );
     QfBarcodeDecoderThread *mDecodingThread = nullptr;
     QPointer<QVideoSink> mVideoSink;
