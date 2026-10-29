@@ -17,6 +17,7 @@
 #include "qfcloudutils.h"
 #include "qffileutils.h"
 #include "qfplatformutilities.h"
+#include "qfprojectutils.h"
 #include "qfstringutils.h"
 
 #include <QDir>
@@ -28,6 +29,7 @@
 #include <QTimeZone>
 #include <qgsapplication.h>
 #include <qgsmessagelog.h>
+#include <qgsproject.h>
 
 static QString sLocalCloudDirectory;
 
@@ -378,6 +380,11 @@ void QfCloudUtils::writeFilesFromDirectory( const QString &dirPath, const QStrin
 
   for ( const QFileInfo &entry : entries )
   {
+    if ( QfProjectUtils::isLayerDataset( QgsProject::instance(), entry.absoluteFilePath() ) )
+    {
+      continue;
+    }
+
     if ( entry.isDir() )
     {
       writeFilesFromDirectory( entry.absoluteFilePath(), projectId, fileChecksumMap, checkSumCheck, attachmentsStream );
