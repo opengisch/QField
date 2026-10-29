@@ -140,10 +140,19 @@ void QfPositioning::onApplicationStateChanged( Qt::ApplicationState state )
 #if defined( Q_OS_ANDROID ) || defined( Q_OS_IOS )
   // Google Play policy only allows for background access if it's explicitly stated and justified
   // Not stopping on Activity::onPause is detected as violation
-  if ( mServiceMode )
+    if ( mServiceMode )
   {
-    // Service path
+    // Service path (a tracker is recording)
+#if defined( Q_OS_ANDROID )
+    // Android: the application may be paused while the positioning service keeps running in its
+    // own process, so positions are collected by the service while in the background and replayed
+    // into the trackers once the application is active again
     setBackgroundMode( state != Qt::ApplicationState::ApplicationActive );
+#elif defined( Q_OS_IOS )
+    // iOS: the positioning source lives in the application process, which keeps running in the
+    // background while location updates are delivered. Positions keep flowing to the trackers,
+    // which add vertices and flush them to the layer live, as dedicated tracking apps do.
+#endif
   }
   else
   {
