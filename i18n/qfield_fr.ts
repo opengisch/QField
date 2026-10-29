@@ -4268,6 +4268,65 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfCloudAttachmentsHistory</name>
+    <message>
+        <source>Attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No attachments have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Waiting to be uploaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not uploaded yet, upload your changes to send it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload failed on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Inconnu</translation>
+    </message>
+    <message>
+        <source>The file name contains invalid characters or the file is empty.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation>L&apos;espace de stockage disponible du propriétaire du projet est plein.</translation>
+    </message>
+    <message>
+        <source>You do not have the permission to upload attachments to this project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The cloud project could not be found or your access to it was revoked.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server answered with HTTP code %1.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfCloudConnection</name>
     <message>
         <source>Authentication provider missing</source>
@@ -4755,10 +4814,6 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Synchronisation</translation>
     </message>
     <message>
-        <source>Upload history</source>
-        <translation>Historique des téléchargements envoyés</translation>
-    </message>
-    <message>
         <source>Danger zone</source>
         <translation>Zone dangereuse</translation>
     </message>
@@ -4853,6 +4908,14 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Connecting...</source>
         <translation>Connexion...</translation>
+    </message>
+    <message>
+        <source>Changes history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attachments history</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

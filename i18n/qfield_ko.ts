@@ -4269,6 +4269,65 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfCloudAttachmentsHistory</name>
+    <message>
+        <source>Attachments</source>
+        <translation>첨부 파일</translation>
+    </message>
+    <message>
+        <source>No attachments have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Waiting to be uploaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not uploaded yet, upload your changes to send it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload failed on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>알 수 없음</translation>
+    </message>
+    <message>
+        <source>The file name contains invalid characters or the file is empty.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation>프로젝트 소유자의 저장 용량이 가득 찼습니다.</translation>
+    </message>
+    <message>
+        <source>You do not have the permission to upload attachments to this project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The cloud project could not be found or your access to it was revoked.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server answered with HTTP code %1.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfCloudConnection</name>
     <message>
         <source>Authentication provider missing</source>
@@ -4756,10 +4815,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>동기화</translation>
     </message>
     <message>
-        <source>Upload history</source>
-        <translation>업로드 기록</translation>
-    </message>
-    <message>
         <source>Danger zone</source>
         <translation>위험 구역</translation>
     </message>
@@ -4854,6 +4909,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Connecting...</source>
         <translation>연결 중...</translation>
+    </message>
+    <message>
+        <source>Changes history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attachments history</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

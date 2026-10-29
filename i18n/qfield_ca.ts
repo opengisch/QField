@@ -4272,6 +4272,65 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
 </context>
 <context>
+    <name>QfCloudAttachmentsHistory</name>
+    <message>
+        <source>Attachments</source>
+        <translation>Adjunts</translation>
+    </message>
+    <message>
+        <source>No attachments have been uploaded yet!</source>
+        <translation>Encara no s&apos;ha penjat cap fitxer adjunt!</translation>
+    </message>
+    <message>
+        <source>Uploaded on %1</source>
+        <translation>Carregat a %1</translation>
+    </message>
+    <message>
+        <source>Uploaded</source>
+        <translation>Pujat</translation>
+    </message>
+    <message>
+        <source>Waiting to be uploaded</source>
+        <translation>A l&apos;espera de ser pujat</translation>
+    </message>
+    <message>
+        <source>Not uploaded yet, upload your changes to send it</source>
+        <translation>Encara no s&apos;ha carregat, pengeu els vostres canvis per enviar-los</translation>
+    </message>
+    <message>
+        <source>Upload failed on %1</source>
+        <translation>La càrrega ha fallat a %1</translation>
+    </message>
+    <message>
+        <source>Upload failed</source>
+        <translation>La càrrega ha fallat</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Desconegut</translation>
+    </message>
+    <message>
+        <source>The file name contains invalid characters or the file is empty.</source>
+        <translation>El nom del fitxer conté caràcters no vàlids o el fitxer és buit.</translation>
+    </message>
+    <message>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation>L&apos;emmagatzematge disponible del propietari del projecte està ple.</translation>
+    </message>
+    <message>
+        <source>You do not have the permission to upload attachments to this project.</source>
+        <translation>No teniu permís per penjar fitxers adjunts a aquest projecte.</translation>
+    </message>
+    <message>
+        <source>The cloud project could not be found or your access to it was revoked.</source>
+        <translation>No s&apos;ha pogut trobar el projecte al núvol o s&apos;ha revocat l&apos;accés.</translation>
+    </message>
+    <message>
+        <source>The server answered with HTTP code %1.</source>
+        <translation>El servidor ha respost amb el codi HTTP %1.</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudConnection</name>
     <message>
         <source>Authentication provider missing</source>
@@ -4329,24 +4388,25 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Too many attempts, please wait a minute before trying again.</source>
-        <translation type="unfinished"/>
+        <translation>Hi ha massa intents, espereu un minut abans de tornar-ho a provar.</translation>
     </message>
     <message>
         <source>Captcha temporary unavailable, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>Captcha temporal no disponible, si us plau, torneu-ho a provar més tard</translation>
     </message>
     <message>
         <source>%1
 If this email already has an account, check your inbox for a message from QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>%1
+Si aquest correu electrònic ja té un compte, comproveu a la vostra safata d&apos;entrada si hi ha un missatge de QFieldCloud.</translation>
     </message>
     <message>
         <source>The server did not accept the registration</source>
-        <translation type="unfinished"/>
+        <translation>El servidor no ha acceptat el registre</translation>
     </message>
     <message>
         <source>The server did not accept the request</source>
-        <translation type="unfinished"/>
+        <translation>El servidor no ha acceptat la sol·licitud</translation>
     </message>
 </context>
 <context>
@@ -4501,11 +4561,11 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Forgot your password?</source>
-        <translation type="unfinished"/>
+        <translation>Heu oblidat la vostra contrasenya?</translation>
     </message>
     <message>
         <source>Create an account</source>
-        <translation type="unfinished"/>
+        <translation>Creeu un compte</translation>
     </message>
 </context>
 <context>
@@ -4527,62 +4587,62 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message numerus="yes">
         <source>Requires at least %n characters</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Requereix almenys %n caràcters</numerusform><numerusform>Requereix almenys %n caràcters</numerusform></translation>
     </message>
     <message>
         <source>Must not be similar to your username</source>
-        <translation type="unfinished"/>
+        <translation>No ha de ser semblant al vostre nom d&apos;usuari</translation>
     </message>
     <message>
         <source>Must not be entirely numeric</source>
-        <translation type="unfinished"/>
+        <translation>No ha de ser completament numèric</translation>
     </message>
 </context>
 <context>
     <name>QfCloudPasswordReset</name>
     <message>
         <source>Forgot your password?</source>
-        <translation type="unfinished"/>
+        <translation>Heu oblidat la vostra contrasenya?</translation>
     </message>
     <message>
         <source>Enter your account email and we will send you a link to pick a new password.</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu el correu electrònic del vostre compte i us enviarem un enllaç per triar una nova contrasenya.</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"/>
+        <translation>Correu electrònic</translation>
     </message>
     <message>
         <source>Send reset link</source>
-        <translation type="unfinished"/>
+        <translation>Envia l&apos;enllaç de restabliment</translation>
     </message>
     <message>
         <source>Back to sign in</source>
-        <translation type="unfinished"/>
+        <translation>Tornar a iniciar la sessió</translation>
     </message>
     <message>
         <source>Check your inbox</source>
-        <translation type="unfinished"/>
+        <translation>Comproveu la vostra safata d&apos;entrada</translation>
     </message>
     <message>
         <source>We sent a reset link to %1. Open it to pick a new password.</source>
-        <translation type="unfinished"/>
+        <translation>Hem enviat un enllaç de restabliment a %1. Obriu-lo per triar una nova contrasenya.</translation>
     </message>
     <message>
         <source>Nothing yet? Check your spam folder, or %1use another email%2.</source>
-        <translation type="unfinished"/>
+        <translation>Encara res? Comproveu la vostra carpeta de correu brossa o %1utilitzeu un altre correu electrònic%2.</translation>
     </message>
     <message>
         <source>Resend link in %1s</source>
-        <translation type="unfinished"/>
+        <translation>Torna a enviar l&apos;enllaç en %1s</translation>
     </message>
     <message>
         <source>Resend link</source>
-        <translation type="unfinished"/>
+        <translation>Torna a enviar l&apos;enllaç</translation>
     </message>
     <message>
         <source>Server: %1</source>
-        <translation type="unfinished"/>
+        <translation>Servidor: %1</translation>
     </message>
 </context>
 <context>
@@ -4760,10 +4820,6 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <translation>Sincronitza</translation>
     </message>
     <message>
-        <source>Upload history</source>
-        <translation>Historial de pujades</translation>
-    </message>
-    <message>
         <source>Danger zone</source>
         <translation>Zona de perill</translation>
     </message>
@@ -4858,6 +4914,14 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <message>
         <source>Connecting...</source>
         <translation>Connectant...</translation>
+    </message>
+    <message>
+        <source>Changes history</source>
+        <translation>Historial de canvis</translation>
+    </message>
+    <message>
+        <source>Attachments history</source>
+        <translation>Historial d&apos;arxius adjunts</translation>
     </message>
 </context>
 <context>
@@ -5098,15 +5162,15 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <name>QfCloudRegister</name>
     <message>
         <source>Provide your email and desired username</source>
-        <translation type="unfinished"/>
+        <translation>Proporcioneu el vostre correu electrònic i el nom d&apos;usuari desitjat</translation>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"/>
+        <translation>Correu electrònic</translation>
     </message>
     <message>
         <source>Your email is used for verification and password recovery</source>
-        <translation type="unfinished"/>
+        <translation>El vostre correu electrònic s&apos;utilitza per a la verificació i la recuperació de la contrasenya</translation>
     </message>
     <message>
         <source>Username</source>
@@ -5114,107 +5178,107 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Your username must meet the following criteria:</source>
-        <translation type="unfinished"/>
+        <translation>El vostre nom d&apos;usuari ha de complir els criteris següents:</translation>
     </message>
     <message numerus="yes">
         <source>Must have at least %n characters</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Ha de tenir almenys %n caràcters</numerusform><numerusform>Ha de tenir almenys %n caràcters</numerusform></translation>
     </message>
     <message>
         <source>Must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Ha de començar amb una lletra</translation>
     </message>
     <message>
         <source>Must contain only a-z letters, digits, underscores or hyphens</source>
-        <translation type="unfinished"/>
+        <translation>Només ha de contenir lletres a-z, dígits, guions baixos o guions</translation>
     </message>
     <message>
         <source>Pick a password</source>
-        <translation type="unfinished"/>
+        <translation>Trieu una contrasenya</translation>
     </message>
     <message>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>Repetiu la contrasenya</translation>
     </message>
     <message>
         <source>The two passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Les dues contrasenyes no coincideixen</translation>
     </message>
     <message>
         <source>One last thing</source>
-        <translation type="unfinished"/>
+        <translation>Una última cosa</translation>
     </message>
     <message>
         <source>Subscribe to the QFieldCloud newsletter</source>
-        <translation type="unfinished"/>
+        <translation>Subscripció al butlletí de QFieldCloud</translation>
     </message>
     <message>
         <source>When checking this, you agree to receive our newsletter covering latest changes and important updates.</source>
-        <translation type="unfinished"/>
+        <translation>En marcar-ho, accepteu rebre el nostre butlletí informatiu sobre els últims canvis i actualitzacions importants.</translation>
     </message>
     <message>
         <source>Accept ToS and DPA</source>
-        <translation type="unfinished"/>
+        <translation>Accepta ToS i DPA</translation>
     </message>
     <message>
         <source>By checking this, you agree with the QFieldCloud %1Terms of Services (ToS)%2 and the %3Data Processing Agreement (DPA)%4.</source>
-        <translation type="unfinished"/>
+        <translation>En marcar-ho, accepteu les %1Condicions de servei (ToS)%2 de QFieldCloud i %3l&apos;Acord de processament de dades (DPA)%4.</translation>
     </message>
     <message>
         <source>Captcha</source>
-        <translation type="unfinished"/>
+        <translation>Captcha</translation>
     </message>
     <message>
         <source>Characters shown above</source>
-        <translation type="unfinished"/>
+        <translation>Caracters mostrats a dalt</translation>
     </message>
     <message>
         <source>Referral code</source>
-        <translation type="unfinished"/>
+        <translation>Codi de referència</translation>
     </message>
     <message>
         <source>Enter your referral code if you have one</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu el vostre codi de referència si en teniu un</translation>
     </message>
     <message>
         <source>You will be signed in right away.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;iniciarà la sessió immediatament.</translation>
     </message>
     <message>
         <source>Welcome, %1</source>
-        <translation type="unfinished"/>
+        <translation>Benvingut, %1</translation>
     </message>
     <message>
         <source>Verify your email</source>
-        <translation type="unfinished"/>
+        <translation>Verifiqueu el vostre correu electrònic</translation>
     </message>
     <message>
         <source>Please open the confirmation link once you receive an email from us at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, obriu l&apos;enllaç de confirmació tant bon punt rebeu un correu electrònic nostre a %1.</translation>
     </message>
     <message>
         <source>Go to cloud projects</source>
-        <translation type="unfinished"/>
+        <translation>Aneu a projectes al núvol</translation>
     </message>
     <message>
         <source>Not now</source>
-        <translation type="unfinished"/>
+        <translation>Ara no</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation>Enrere</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation>Continuar</translation>
     </message>
     <message>
         <source>Creating your account, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Estem creant el vostre compte, espereu</translation>
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"/>
+        <translation>Crea un compte</translation>
     </message>
 </context>
 <context>
@@ -5409,11 +5473,11 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Fetching available project owners</source>
-        <translation type="unfinished"/>
+        <translation>Recuperant els propietaris de projecte disponibles</translation>
     </message>
     <message>
         <source>Select your project owner</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu el propietari del vostre projecte</translation>
     </message>
     <message>
         <source>Creating project…</source>
@@ -5693,7 +5757,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Pick a digitizing layer</source>
-        <translation type="unfinished"/>
+        <translation>Trieu una capa de digitalització</translation>
     </message>
 </context>
 <context>

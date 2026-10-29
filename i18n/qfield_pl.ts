@@ -4275,6 +4275,65 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
 </context>
 <context>
+    <name>QfCloudAttachmentsHistory</name>
+    <message>
+        <source>Attachments</source>
+        <translation>Załączniki</translation>
+    </message>
+    <message>
+        <source>No attachments have been uploaded yet!</source>
+        <translation>Jeszcze nie dodano żadnych załączników!</translation>
+    </message>
+    <message>
+        <source>Uploaded on %1</source>
+        <translation>Przesłano %1</translation>
+    </message>
+    <message>
+        <source>Uploaded</source>
+        <translation>Wysłano</translation>
+    </message>
+    <message>
+        <source>Waiting to be uploaded</source>
+        <translation>Czeka na przesłanie</translation>
+    </message>
+    <message>
+        <source>Not uploaded yet, upload your changes to send it</source>
+        <translation>Jeszcze nie przesłano – prześlij swoje zmiany, żeby to wysłać</translation>
+    </message>
+    <message>
+        <source>Upload failed on %1</source>
+        <translation>Przesyłanie nie powiodło się w %1</translation>
+    </message>
+    <message>
+        <source>Upload failed</source>
+        <translation>Przesyłanie nie powiodło się</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Nieznany</translation>
+    </message>
+    <message>
+        <source>The file name contains invalid characters or the file is empty.</source>
+        <translation>Nazwa pliku zawiera niedozwolone znaki albo plik jest pusty.</translation>
+    </message>
+    <message>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation>Dostępna przestrzeń w chmurze dla projektu jest zapełniona.</translation>
+    </message>
+    <message>
+        <source>You do not have the permission to upload attachments to this project.</source>
+        <translation>Nie masz uprawnień do przesyłania załączników do tego projektu.</translation>
+    </message>
+    <message>
+        <source>The cloud project could not be found or your access to it was revoked.</source>
+        <translation>Nie udało się znaleźć projektu w chmurze albo twój dostęp do niego został cofnięty.</translation>
+    </message>
+    <message>
+        <source>The server answered with HTTP code %1.</source>
+        <translation>Serwer odpowiedział kodem HTTP %1.</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudConnection</name>
     <message>
         <source>Authentication provider missing</source>
@@ -4763,10 +4822,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Synchronizuj</translation>
     </message>
     <message>
-        <source>Upload history</source>
-        <translation>Historia przesyłania</translation>
-    </message>
-    <message>
         <source>Danger zone</source>
         <translation>Strefa zagrożenia</translation>
     </message>
@@ -4861,6 +4916,14 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Connecting...</source>
         <translation>Łączenie...</translation>
+    </message>
+    <message>
+        <source>Changes history</source>
+        <translation>Historia zmian</translation>
+    </message>
+    <message>
+        <source>Attachments history</source>
+        <translation>Historia załączników</translation>
     </message>
 </context>
 <context>

@@ -4266,6 +4266,65 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
 </context>
 <context>
+    <name>QfCloudAttachmentsHistory</name>
+    <message>
+        <source>Attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No attachments have been uploaded yet!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Uploaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Waiting to be uploaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not uploaded yet, upload your changes to send it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload failed on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Bilinmeyen</translation>
+    </message>
+    <message>
+        <source>The file name contains invalid characters or the file is empty.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You do not have the permission to upload attachments to this project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The cloud project could not be found or your access to it was revoked.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server answered with HTTP code %1.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfCloudConnection</name>
     <message>
         <source>Authentication provider missing</source>
@@ -4752,10 +4811,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <translation>Senkranize Et</translation>
     </message>
     <message>
-        <source>Upload history</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Danger zone</source>
         <translation type="unfinished"/>
     </message>
@@ -4850,6 +4905,14 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <message>
         <source>Connecting...</source>
         <translation>Bağlanıyor...</translation>
+    </message>
+    <message>
+        <source>Changes history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Attachments history</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

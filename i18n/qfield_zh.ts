@@ -4269,6 +4269,65 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfCloudAttachmentsHistory</name>
+    <message>
+        <source>Attachments</source>
+        <translation>附件</translation>
+    </message>
+    <message>
+        <source>No attachments have been uploaded yet!</source>
+        <translation>尚未上传任何附件！</translation>
+    </message>
+    <message>
+        <source>Uploaded on %1</source>
+        <translation>上传于%1</translation>
+    </message>
+    <message>
+        <source>Uploaded</source>
+        <translation>已上传</translation>
+    </message>
+    <message>
+        <source>Waiting to be uploaded</source>
+        <translation>等待上传</translation>
+    </message>
+    <message>
+        <source>Not uploaded yet, upload your changes to send it</source>
+        <translation>尚未上传，请上传您的更改进行发送</translation>
+    </message>
+    <message>
+        <source>Upload failed on %1</source>
+        <translation>上传于%1失败</translation>
+    </message>
+    <message>
+        <source>Upload failed</source>
+        <translation>上传失败</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>未知</translation>
+    </message>
+    <message>
+        <source>The file name contains invalid characters or the file is empty.</source>
+        <translation>文件名包含无效字符或文件为空。</translation>
+    </message>
+    <message>
+        <source>The project owner&apos;s available storage is full.</source>
+        <translation>工程所有者的可用存储空间已满。</translation>
+    </message>
+    <message>
+        <source>You do not have the permission to upload attachments to this project.</source>
+        <translation>您没有权限向此工程上传附件。</translation>
+    </message>
+    <message>
+        <source>The cloud project could not be found or your access to it was revoked.</source>
+        <translation>无法找到云工程，或者您对其访问权限已被撤销。</translation>
+    </message>
+    <message>
+        <source>The server answered with HTTP code %1.</source>
+        <translation>服务器返回HTTP代码%1。</translation>
+    </message>
+</context>
+<context>
     <name>QfCloudConnection</name>
     <message>
         <source>Authentication provider missing</source>
@@ -4757,10 +4816,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>同步</translation>
     </message>
     <message>
-        <source>Upload history</source>
-        <translation>上传历史</translation>
-    </message>
-    <message>
         <source>Danger zone</source>
         <translation>危险区域</translation>
     </message>
@@ -4855,6 +4910,14 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Connecting...</source>
         <translation>正在连接…</translation>
+    </message>
+    <message>
+        <source>Changes history</source>
+        <translation>修改历史</translation>
+    </message>
+    <message>
+        <source>Attachments history</source>
+        <translation>附件历史</translation>
     </message>
 </context>
 <context>
