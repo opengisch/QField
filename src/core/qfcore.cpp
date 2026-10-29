@@ -35,6 +35,7 @@
 #include "qfaudioanalyzer.h"
 #include "qfaudiorecorder.h"
 #include "qfbarcodedecoder.h"
+#include "qfbarcodemodel.h"
 #include "qfbookmarkmodel.h"
 #include "qfcameraorientationnormalizer.h"
 #include "qfcore.h"
@@ -242,6 +243,7 @@ namespace QfCore
 
     qmlRegisterUncreatableType<QfAbstractGnssReceiver>( "org.qfield.core", 1, 0, "QfAbstractGnssReceiver", "" );
     qmlRegisterUncreatableType<QfAppInterface>( "org.qfield.core", 1, 0, "QfAppInterface", "AppInterface is only provided by the environment and cannot be created ad-hoc" );
+    qmlRegisterUncreatableType<QfBarcodeModel>( "org.qfield.core", 1, 0, "QfBarcodeModel", "The QfBarcodeModel is provided by QfBarcodeDecoder" );
     qmlRegisterUncreatableType<QfBookmarkModel>( "org.qfield.core", 1, 0, "QfBookmarkModel", "The QfBookmarkModel is available as context property `bookmarkModel`" );
     qmlRegisterUncreatableType<QfCogoParameter>( "org.qfield.core", 1, 0, "cogoParameter", "Used for property values" );
     qmlRegisterUncreatableType<QfCogoVisualGuide>( "org.qfield.core", 1, 0, "cogoVisualGuide", "Used for property values" );

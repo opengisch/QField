@@ -67,6 +67,7 @@ set(QFIELD_CORE_SRCS
     qfaudioanalyzer.cpp
     qfaudiorecorder.cpp
     qfbarcodedecoder.cpp
+    qfbarcodemodel.cpp
     qfbookmarkmodel.cpp
     qfcameraorientationnormalizer.cpp
     qfdigitizinglayermodel.cpp
@@ -191,6 +192,7 @@ set(QFIELD_CORE_HDRS
     qfaudioanalyzer.h
     qfaudiorecorder.h
     qfbarcodedecoder.h
+    qfbarcodemodel.h
     qfbookmarkmodel.h
     qfcameraorientationnormalizer.h
     qfdigitizinglayermodel.h
