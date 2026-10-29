@@ -17,54 +17,16 @@
 #include "qfbarcodedecoder.h"
 
 #include <QImageReader>
+#include <QTransform>
 #include <QVideoFrame>
 
 #include <ZXing/ReadBarcode.h>
 
-class QfBarcodeDecoderThread : public QThread
+namespace
 {
-  public:
-    explicit QfBarcodeDecoderThread( QfBarcodeDecoder *decoder, const QImage &image )
-      : QThread()
-      , mDecoder( decoder )
-      , mImage( image )
-    {
-    }
-
-  private:
-    void run() override
-    {
-      if ( mDecoder )
-      {
-        mDecoder->decodeImage( mImage );
-      }
-    }
-
-    QfBarcodeDecoder *mDecoder = nullptr;
-    QImage mImage;
-};
-
-QfBarcodeDecoder::QfBarcodeDecoder( QObject *parent )
-  : QObject( parent )
-{
-}
-
-void QfBarcodeDecoder::clearDecodedString()
-{
-  if ( mDecodedString.isEmpty() )
+  ZXing::ImageFormat zxingImageFormat( QImage::Format format )
   {
-    return;
-  }
-
-  mDecodedString.clear();
-
-  emit decodedStringChanged();
-}
-
-bool QfBarcodeDecoder::decodeImage( const QImage &image )
-{
-  auto imageFormatFromQImage = []( const QImage &img ) {
-    switch ( img.format() )
+    switch ( format )
     {
       case QImage::Format_ARGB32:
       case QImage::Format_RGB32:
@@ -83,11 +45,27 @@ bool QfBarcodeDecoder::decodeImage( const QImage &image )
       default:
         return ZXing::ImageFormat::None;
     }
-  };
+  }
 
-  ZXing::ImageFormat imageFormat = imageFormatFromQImage( image );
-  if ( imageFormat != ZXing::ImageFormat::None )
+  QList<QfBarcodeModel::Barcode> readBarcodes( const QImage &image )
   {
+    QList<QfBarcodeModel::Barcode> barcodes;
+
+    const ZXing::ImageFormat imageFormat = zxingImageFormat( image.format() );
+    if ( imageFormat == ZXing::ImageFormat::None )
+    {
+      return barcodes;
+    }
+
+    auto addBarcode = [&image, &barcodes]( const QString &text, const ZXing::Position &position ) {
+      const ZXing::Position box = ZXing::BoundingBox( position );
+      const QRectF bounds( QPointF( box.topLeft().x, box.topLeft().y ), QPointF( box.bottomRight().x, box.bottomRight().y ) );
+      if ( !text.isEmpty() && bounds.width() > 10 && bounds.height() > 10 )
+      {
+        barcodes << QfBarcodeModel::Barcode { text, QTransform::fromScale( 1.0 / image.width(), 1.0 / image.height() ).mapRect( bounds ) };
+      }
+    };
+
     ZXing::ImageView imageView( image.bits(), image.width(), image.height(), imageFormat, static_cast<int>( image.bytesPerLine() ) );
 
 #if ZXing_VERSION_MAJOR >= 2
@@ -95,37 +73,84 @@ bool QfBarcodeDecoder::decodeImage( const QImage &image )
     options.setFormats( ZXing::BarcodeFormat::Any );
     options.setTryRotate( true );
     options.setMinLineCount( 5 );
-    options.setMaxNumberOfSymbols( 1 );
+    options.setMaxNumberOfSymbols( 8 );
 
-    auto result = ZXing::ReadBarcode( imageView, options );
-    const std::string text = result.text();
-    QString resultText = QString::fromStdString( text.c_str() );
-
+    for ( const ZXing::Barcode &result : ZXing::ReadBarcodes( imageView, options ) )
+    {
+      addBarcode( QString::fromStdString( result.text() ), result.position() );
+    }
 #else
     ZXing::DecodeHints hints;
     hints.setFormats( ZXing::BarcodeFormat::Any );
     hints.setTryRotate( true );
 
-    ZXing::Result result = ZXing::ReadBarcode( imageView, hints );
-    const std::wstring text = result.text();
-    QString resultText = QString::fromWCharArray( text.c_str() );
+    const ZXing::Result result = ZXing::ReadBarcode( imageView, hints );
+    addBarcode( QString::fromStdWString( result.text() ), result.position() );
 #endif
 
-    if ( !resultText.isEmpty() && mDecodedString != resultText )
+    return barcodes;
+  }
+} // namespace
+
+class QfBarcodeDecoderThread : public QThread
+{
+  public:
+    explicit QfBarcodeDecoderThread( const QImage &image, const QTransform &displayTransform )
+      : QThread()
+      , mImage( image )
+      , mDisplayTransform( displayTransform )
     {
-      ZXing::Position position = result.position();
-      const int width = std::abs( position.bottomRight().x - position.bottomLeft().x );
-      const int height = std::abs( position.bottomLeft().y - position.topLeft().y );
-      if ( width > 10 && height > 10 )
+    }
+
+    QList<QfBarcodeModel::Barcode> barcodes() const { return mBarcodes; }
+
+  private:
+    void run() override
+    {
+      mBarcodes = readBarcodes( mImage );
+      for ( QfBarcodeModel::Barcode &barcode : mBarcodes )
       {
-        mDecodedString = resultText;
-        emit decodedStringChanged();
-        return true;
+        barcode.bounds = mDisplayTransform.mapRect( barcode.bounds );
       }
     }
+
+    QImage mImage;
+    QTransform mDisplayTransform;
+    QList<QfBarcodeModel::Barcode> mBarcodes;
+};
+
+QfBarcodeDecoder::QfBarcodeDecoder( QObject *parent )
+  : QObject( parent )
+{
+}
+
+void QfBarcodeDecoder::setDecodedString( const QString &decodedString )
+{
+  if ( mDecodedString == decodedString )
+  {
+    return;
   }
 
-  return false;
+  mDecodedString = decodedString;
+
+  emit decodedStringChanged();
+}
+
+void QfBarcodeDecoder::clearDecodedString()
+{
+  setDecodedString( QString() );
+}
+
+bool QfBarcodeDecoder::decodeImage( const QImage &image )
+{
+  const QList<QfBarcodeModel::Barcode> barcodes = readBarcodes( image );
+  if ( barcodes.isEmpty() )
+  {
+    return false;
+  }
+
+  setDecodedString( barcodes.first().text );
+  return true;
 }
 
 bool QfBarcodeDecoder::decodeImageFile( const QString &path )
@@ -184,8 +209,23 @@ void QfBarcodeDecoder::decodeVideoFrame( const QVideoFrame &frame )
     image = image.convertToFormat( QImage::Format_ARGB32 );
   }
 
-  mDecodingThread = new QfBarcodeDecoderThread( this, image );
+  QTransform displayTransform;
+  displayTransform.translate( 0.5, 0.5 );
+  if ( frame.mirrored() )
+  {
+    displayTransform.scale( -1, 1 );
+  }
+  displayTransform.rotate( static_cast<int>( frame.rotation() ) );
+  displayTransform.translate( -0.5, -0.5 );
+
+  mDecodingThread = new QfBarcodeDecoderThread( image, displayTransform );
   connect( mDecodingThread, &QThread::finished, this, [this] {
+    mBarcodeModel->updateBarcodes( mDecodingThread->barcodes() );
+    if ( mBarcodeModel->rowCount() == 1 )
+    {
+      setDecodedString( mBarcodeModel->data( mBarcodeModel->index( 0 ), QfBarcodeModel::BarcodeText ).toString() );
+    }
+
     mDecodingThread->deleteLater();
     mDecodingThread = nullptr;
   } );
