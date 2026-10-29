@@ -23,8 +23,11 @@
 #include <qgsattributeeditorfield.h>
 #include <qgsattributeeditorrelation.h>
 #include <qgscolorutils.h>
+#include <qgsfileutils.h>
 #include <qgsmaplayer.h>
 #include <qgsprojectdisplaysettings.h>
+#include <qgsprovidermetadata.h>
+#include <qgsproviderregistry.h>
 #include <qgsrasterlayer.h>
 #include <qgsrelationcontext.h>
 #include <qgsvectorfilewriter.h>
@@ -107,6 +110,49 @@ QList<QColor> QfProjectUtils::colorPresets( QgsProject *project )
     colors << QgsColorUtils::colorFromString( colorString );
   }
   return colors;
+}
+
+bool QfProjectUtils::isLayerDataset( QgsProject *project, const QString &path )
+{
+  if ( !project || path.isEmpty() )
+  {
+    return false;
+  }
+
+  const QString canonicalPath = QFileInfo( path ).canonicalFilePath();
+  if ( canonicalPath.isEmpty() )
+  {
+    return false;
+  }
+
+  const QMap<QString, QgsMapLayer *> layers = project->mapLayers();
+  for ( QgsMapLayer *layer : layers )
+  {
+    QgsProviderMetadata *metadata = QgsProviderRegistry::instance()->providerMetadata( layer->providerType() );
+    if ( !metadata )
+    {
+      continue;
+    }
+
+    const QString layerPath = metadata->decodeUri( layer->source() ).value( QStringLiteral( "path" ) ).toString();
+    if ( layerPath.isEmpty() )
+    {
+      continue;
+    }
+
+    // SQLite-based datasets (e.g. GeoPackage) keep write-ahead log files next to them, which are not reported as sidecar files
+    QSet<QString> datasetFiles = QgsFileUtils::sidecarFilesForPath( layerPath );
+    datasetFiles << layerPath << QStringLiteral( "%1-wal" ).arg( layerPath ) << QStringLiteral( "%1-shm" ).arg( layerPath );
+    for ( const QString &datasetFile : std::as_const( datasetFiles ) )
+    {
+      if ( QFileInfo( datasetFile ).canonicalFilePath() == canonicalPath )
+      {
+        return true;
+      }
+    }
+  }
+
+  return false;
 }
 
 QString QfProjectUtils::title( QgsProject *project )
