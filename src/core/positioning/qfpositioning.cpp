@@ -508,7 +508,7 @@ void QfPositioning::setBackgroundMode( bool enabled )
     return;
 
   mBackgroundMode = enabled;
-  // Cache it so that a source creadet while the application is in the background (see setupSource())
+  // Cache it so that a source created while the application is in the background (see setupSource())
   // starts collecting positions instead of emitting them to a suspended tracker
   mProperties["backgroundMode"] = mBackgroundMode;
 
