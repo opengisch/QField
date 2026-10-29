@@ -196,7 +196,15 @@ target_link_libraries(QGIS::Core INTERFACE
     Qt::Core5Compat
     Qt::Multimedia
   )
-if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+  find_library(SPATIALITE_LIBRARY NAMES spatialite PATHS "${VCPKG_INSTALLED_DIR}/arm64-ios/lib" NO_DEFAULT_PATH)
+  if(SPATIALITE_LIBRARY)
+    message(STATUS "Found spatialite at: ${SPATIALITE_LIBRARY}")
+    target_link_libraries(QGIS::Core INTERFACE ${SPATIALITE_LIBRARY})
+  else()
+    message(FATAL_ERROR "Could not find spatialite in ${VCPKG_INSTALLED_DIR}/arm64-ios/lib")
+  endif()
+else()
   find_package(Qt6 COMPONENTS SerialPort)
   target_link_libraries(QGIS::Core INTERFACE
     Qt::SerialPort
