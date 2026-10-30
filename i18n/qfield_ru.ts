@@ -4276,35 +4276,35 @@ Cancel to make a minimal device scan instead.</source>
     <name>QfCloudAttachmentsHistory</name>
     <message>
         <source>Attachments</source>
-        <translation type="unfinished"/>
+        <translation>Вложения</translation>
     </message>
     <message>
         <source>No attachments have been uploaded yet!</source>
-        <translation type="unfinished"/>
+        <translation>Вложений пока не загружено!</translation>
     </message>
     <message>
         <source>Uploaded on %1</source>
-        <translation type="unfinished"/>
+        <translation>Загружено %1</translation>
     </message>
     <message>
         <source>Uploaded</source>
-        <translation type="unfinished"/>
+        <translation>Загружено</translation>
     </message>
     <message>
         <source>Waiting to be uploaded</source>
-        <translation type="unfinished"/>
+        <translation>Ожидается загрузка</translation>
     </message>
     <message>
         <source>Not uploaded yet, upload your changes to send it</source>
-        <translation type="unfinished"/>
+        <translation>Пока не загружено, загрузите свои изменения, чтобы отправить.</translation>
     </message>
     <message>
         <source>Upload failed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка не удалась на %1</translation>
     </message>
     <message>
         <source>Upload failed</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка не удалась</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -4312,23 +4312,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The file name contains invalid characters or the file is empty.</source>
-        <translation type="unfinished"/>
+        <translation>Имя файла содержит недопустимые символы или файл пуст.</translation>
     </message>
     <message>
         <source>The project owner&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Доступное хранилище владельца проекта заполнено.</translation>
     </message>
     <message>
         <source>You do not have the permission to upload attachments to this project.</source>
-        <translation type="unfinished"/>
+        <translation>У вас нет разрешения на загрузку вложений в этот проект.</translation>
     </message>
     <message>
         <source>The cloud project could not be found or your access to it was revoked.</source>
-        <translation type="unfinished"/>
+        <translation>Облачный проект не найден, либо ваш доступ к нему был отозван.</translation>
     </message>
     <message>
         <source>The server answered with HTTP code %1.</source>
-        <translation type="unfinished"/>
+        <translation>Сервер ответил HTTP-кодом %1.</translation>
     </message>
 </context>
 <context>
@@ -4917,11 +4917,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Changes history</source>
-        <translation type="unfinished"/>
+        <translation>История изменений</translation>
     </message>
     <message>
         <source>Attachments history</source>
-        <translation type="unfinished"/>
+        <translation>История вложений</translation>
     </message>
 </context>
 <context>
