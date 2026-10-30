@@ -1,3 +1,4 @@
+# dummy comment
 vcpkg_download_distfile(ARCHIVE
     URLS "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-${VERSION}.tar.gz"
     FILENAME "libspatialite-${VERSION}.tar.gz"
