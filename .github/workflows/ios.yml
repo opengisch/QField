@@ -136,43 +136,34 @@ jobs:
                 -D WITH_CCACHE=OFF \
                 -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
-      - name: 🔬 Inspect spatialite static library
+      - name: 🔬 Inspect spatialite symbols (detailed)
         shell: bash
         run: |
-          LIBDIR="${{ github.workspace }}/../builddir/vcpkg_installed/arm64-ios/lib"
-          # Adjust LIBDIR if the build dir differs; the log shows /Users/runner/builddir
-          LIBDIR="/Users/runner/builddir/vcpkg_installed/arm64-ios/lib"
+          LIB=/Users/runner/builddir/vcpkg_installed/arm64-ios/lib/libspatialite.a
 
-          for lib in libspatialite.a libfreexl.a; do
-            echo "::group::$lib"
-            if [ ! -f "$LIBDIR/$lib" ]; then
-              echo "::warning::$lib not found in $LIBDIR"
-              echo "::endgroup::"
-              continue
-            fi
-            ls -l "$LIBDIR/$lib"
-            echo "--- architectures"
-            lipo -archs "$LIBDIR/$lib"
-            echo "--- platform / min OS (first object)"
-            vtool -show-build "$LIBDIR/$lib" 2>/dev/null | head -n 12 || true
-            echo "--- archive members"
-            ar -t "$LIBDIR/$lib" | head -n 20
-            echo "::endgroup::"
-          done
-
-          echo "::group::spatialite symbols"
-          nm -gU "$LIBDIR/libspatialite.a" 2>/dev/null \
-            | grep -E "_spatialite_(init|init_ex|cleanup_ex)$" \
-            || echo "::error::spatialite_init/init_ex/cleanup_ex not exported by libspatialite.a"
+          echo "::group::all members"
+          ar -t "$LIB" | grep -v SYMDEF
           echo "::endgroup::"
 
-          echo "::group::spatialite pkg-config"
-          cat "$LIBDIR/pkgconfig/spatialite.pc" || true
+          echo "::group::member containing spatialite.c"
+          ar -t "$LIB" | grep -iE "spatialite(\.o|_la)|mod_spatialite|spatialite_la" || echo "no spatialite.c object"
           echo "::endgroup::"
 
-          echo "::group::installed spatialite port version"
-          grep -A3 -E '^Package: libspatialite' \
-            "/Users/runner/builddir/vcpkg_installed/vcpkg/status" || true
+          echo "::group::defined init/cleanup symbols (any prefix)"
+          nm -g --defined-only "$LIB" 2>/dev/null | grep -iE "spatialite_(init|cleanup)" || echo "none defined"
+          echo "::endgroup::"
+
+          echo "::group::all defined spatialite_* symbols (first 60)"
+          nm -g --defined-only "$LIB" 2>/dev/null | grep -E " _spatialite_" | head -n 60
+          echo "::endgroup::"
+
+          echo "::group::object platform"
+          mkdir -p /tmp/sl && cd /tmp/sl && ar -x "$LIB" version.o
+          otool -l version.o | grep -A4 -E "LC_BUILD_VERSION|LC_VERSION_MIN"
+          echo "::endgroup::"
+
+          echo "::group::vcpkg binary cache / build info"
+          grep -rn "spatialite" /Users/runner/builddir/vcpkg_installed/vcpkg/info/libspatialite_*arm64-ios.list 2>/dev/null | grep -E "\.(a|h)$" || true
           echo "::endgroup::"
 
       - name: 🔍 Validate vcpkg dependency deployment targets
