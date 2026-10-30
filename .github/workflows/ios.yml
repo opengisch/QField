@@ -136,6 +136,45 @@ jobs:
                 -D WITH_CCACHE=OFF \
                 -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
+      - name: 🔬 Inspect spatialite static library
+        shell: bash
+        run: |
+          LIBDIR="${{ github.workspace }}/../builddir/vcpkg_installed/arm64-ios/lib"
+          # Adjust LIBDIR if the build dir differs; the log shows /Users/runner/builddir
+          LIBDIR="/Users/runner/builddir/vcpkg_installed/arm64-ios/lib"
+
+          for lib in libspatialite.a libfreexl.a; do
+            echo "::group::$lib"
+            if [ ! -f "$LIBDIR/$lib" ]; then
+              echo "::warning::$lib not found in $LIBDIR"
+              echo "::endgroup::"
+              continue
+            fi
+            ls -l "$LIBDIR/$lib"
+            echo "--- architectures"
+            lipo -archs "$LIBDIR/$lib"
+            echo "--- platform / min OS (first object)"
+            vtool -show-build "$LIBDIR/$lib" 2>/dev/null | head -n 12 || true
+            echo "--- archive members"
+            ar -t "$LIBDIR/$lib" | head -n 20
+            echo "::endgroup::"
+          done
+
+          echo "::group::spatialite symbols"
+          nm -gU "$LIBDIR/libspatialite.a" 2>/dev/null \
+            | grep -E "_spatialite_(init|init_ex|cleanup_ex)$" \
+            || echo "::error::spatialite_init/init_ex/cleanup_ex not exported by libspatialite.a"
+          echo "::endgroup::"
+
+          echo "::group::spatialite pkg-config"
+          cat "$LIBDIR/pkgconfig/spatialite.pc" || true
+          echo "::endgroup::"
+
+          echo "::group::installed spatialite port version"
+          grep -A3 -E '^Package: libspatialite' \
+            "/Users/runner/builddir/vcpkg_installed/vcpkg/status" || true
+          echo "::endgroup::"
+
       - name: 🔍 Validate vcpkg dependency deployment targets
         run: |
           EXPECTED="${{ env.DEPLOYMENT_TARGET }}"
