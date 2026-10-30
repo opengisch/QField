@@ -136,35 +136,40 @@ jobs:
                 -D WITH_CCACHE=OFF \
                 -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
-      - name: 🔬 Inspect spatialite symbols (detailed)
+      - name: 🔬 Capture libspatialite build evidence
+        if: always()
         shell: bash
         run: |
-          LIB=/Users/runner/builddir/vcpkg_installed/arm64-ios/lib/libspatialite.a
+          mkdir -p /tmp/spatialite-evidence
+          # buildtrees location depends on the vcpkg root, so search for it
+          BT=$(find /Users/runner -type d -path "*buildtrees/libspatialite" -not -path "*/node_modules/*" 2>/dev/null | head -n 1)
+          echo "buildtree: ${BT:-NOT FOUND}"
+          [ -n "$BT" ] || exit 0
 
-          echo "::group::all members"
-          ar -t "$LIB" | grep -v SYMDEF
+          cp "$BT"/*.log /tmp/spatialite-evidence/ 2>/dev/null || true
+          for f in $(find "$BT" -name config.h -o -name config.log | head -n 6); do
+            cp "$f" "/tmp/spatialite-evidence/$(echo "$f" | tr '/' '_')"
+          done
+
+          echo "::group::LOADABLE_EXTENSION / OMIT defines in config.h"
+          find "$BT" -name config.h -exec grep -HnE "LOADABLE_EXTENSION|OMIT_|ENABLE_|MOD_SPATIALITE" {} + || true
           echo "::endgroup::"
 
-          echo "::group::member containing spatialite.c"
-          ar -t "$LIB" | grep -iE "spatialite(\.o|_la)|mod_spatialite|spatialite_la" || echo "no spatialite.c object"
+          echo "::group::configure invocation"
+          grep -hE "^\s+\\$ .*configure|configure .*--" "$BT"/config-*-out.log 2>/dev/null | head -n 5 || true
           echo "::endgroup::"
 
-          echo "::group::defined init/cleanup symbols (any prefix)"
-          nm -g --defined-only "$LIB" 2>/dev/null | grep -iE "spatialite_(init|cleanup)" || echo "none defined"
+          echo "::group::spatialite.c compile line"
+          grep -rhE "spatialite\.c|spatialite_la-spatialite|splite_la-spatialite" "$BT"/*.log 2>/dev/null | head -n 5 || true
           echo "::endgroup::"
 
-          echo "::group::all defined spatialite_* symbols (first 60)"
-          nm -g --defined-only "$LIB" 2>/dev/null | grep -E " _spatialite_" | head -n 60
-          echo "::endgroup::"
-
-          echo "::group::object platform"
-          mkdir -p /tmp/sl && cd /tmp/sl && ar -x "$LIB" version.o
-          otool -l version.o | grep -A4 -E "LC_BUILD_VERSION|LC_VERSION_MIN"
-          echo "::endgroup::"
-
-          echo "::group::vcpkg binary cache / build info"
-          grep -rn "spatialite" /Users/runner/builddir/vcpkg_installed/vcpkg/info/libspatialite_*arm64-ios.list 2>/dev/null | grep -E "\.(a|h)$" || true
-          echo "::endgroup::"
+      - name: 📑 Upload spatialite evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spatialite-build-evidence-ios
+          path: /tmp/spatialite-evidence
+          if-no-files-found: warn
 
       - name: 🔍 Validate vcpkg dependency deployment targets
         run: |
