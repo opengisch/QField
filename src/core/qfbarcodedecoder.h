@@ -17,11 +17,15 @@
 #ifndef QFBARCODEDECODER_H
 #define QFBARCODEDECODER_H
 
+#include "qfvideobarcodemodel.h"
+
 #include <QImage>
 #include <QObject>
 #include <QPointer>
 #include <QThread>
 #include <QVideoSink>
+
+class QfBarcodeDecoderThread;
 
 /**
  * \ingroup core
@@ -31,7 +35,8 @@ class QfBarcodeDecoder : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QVideoSink *videoSink READ videoSink WRITE setVideoSink NOTIFY videoSinkChanged )
-    Q_PROPERTY( QString decodedString READ decodedString NOTIFY decodedStringChanged )
+    Q_PROPERTY( QString decodedString READ decodedString WRITE setDecodedString NOTIFY decodedStringChanged )
+    Q_PROPERTY( QfVideoBarcodeModel *videoBarcodes READ videoBarcodes CONSTANT )
 
   public:
     explicit QfBarcodeDecoder( QObject *parent = nullptr );
@@ -40,6 +45,17 @@ class QfBarcodeDecoder : public QObject
      * Returns the last barcode decoded string.
      */
     QString decodedString() const { return mDecodedString; }
+
+    /**
+     * Sets the decoded string, used to pick one of several barcodes seen in the video feed.
+     * When a single barcode is in view, it is picked automatically.
+     */
+    void setDecodedString( const QString &decodedString );
+
+    /**
+     * Returns the barcodes seen in the latest video frames.
+     */
+    QfVideoBarcodeModel *videoBarcodes() const { return mVideoBarcodes; }
 
     /**
      * Clears the decoded string value and sets it to an empty string.
@@ -69,9 +85,9 @@ class QfBarcodeDecoder : public QObject
     void videoSinkChanged();
 
   private:
-    QImage mImage;
     QString mDecodedString;
-    QThread *mDecodingThread = nullptr;
+    QfVideoBarcodeModel *mVideoBarcodes = new QfVideoBarcodeModel( this );
+    QfBarcodeDecoderThread *mDecodingThread = nullptr;
     QPointer<QVideoSink> mVideoSink;
 };
 

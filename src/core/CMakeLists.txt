@@ -118,6 +118,7 @@ set(QFIELD_CORE_SRCS
     qftracker.cpp
     qftrackingmodel.cpp
     qfvertexmodel.cpp
+    qfvideobarcodemodel.cpp
     qfvideosinkcapture.cpp
     qfviewstatus.cpp
     qfwebdavconnection.cpp)
@@ -243,6 +244,7 @@ set(QFIELD_CORE_HDRS
     qftracker.h
     qftrackingmodel.h
     qfvertexmodel.h
+    qfvideobarcodemodel.h
     qfvideosinkcapture.h
     qfviewstatus.h
     qfwebdavconnection.h
