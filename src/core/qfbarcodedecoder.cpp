@@ -21,6 +21,7 @@
 #include <QVideoFrame>
 
 #include <ZXing/ReadBarcode.h>
+#include <algorithm>
 
 namespace
 {
@@ -47,9 +48,9 @@ namespace
     }
   }
 
-  QList<QfBarcodeModel::Barcode> readBarcodes( const QImage &image )
+  QList<QfVideoBarcodeModel::Barcode> readBarcodes( const QImage &image )
   {
-    QList<QfBarcodeModel::Barcode> barcodes;
+    QList<QfVideoBarcodeModel::Barcode> barcodes;
 
     const ZXing::ImageFormat imageFormat = zxingImageFormat( image.format() );
     if ( imageFormat == ZXing::ImageFormat::None )
@@ -62,7 +63,7 @@ namespace
       const QRectF bounds( QPointF( box.topLeft().x, box.topLeft().y ), QPointF( box.bottomRight().x, box.bottomRight().y ) );
       if ( !text.isEmpty() && bounds.width() > 10 && bounds.height() > 10 )
       {
-        barcodes << QfBarcodeModel::Barcode { text, QTransform::fromScale( 1.0 / image.width(), 1.0 / image.height() ).mapRect( bounds ) };
+        barcodes << QfVideoBarcodeModel::Barcode( text, QTransform::fromScale( 1.0 / image.width(), 1.0 / image.height() ).mapRect( bounds ) );
       }
     };
 
@@ -102,13 +103,13 @@ class QfBarcodeDecoderThread : public QThread
     {
     }
 
-    QList<QfBarcodeModel::Barcode> barcodes() const { return mBarcodes; }
+    QList<QfVideoBarcodeModel::Barcode> barcodes() const { return mBarcodes; }
 
   private:
     void run() override
     {
       mBarcodes = readBarcodes( mImage );
-      for ( QfBarcodeModel::Barcode &barcode : mBarcodes )
+      for ( QfVideoBarcodeModel::Barcode &barcode : mBarcodes )
       {
         barcode.bounds = mDisplayTransform.mapRect( barcode.bounds );
       }
@@ -116,7 +117,7 @@ class QfBarcodeDecoderThread : public QThread
 
     QImage mImage;
     QTransform mDisplayTransform;
-    QList<QfBarcodeModel::Barcode> mBarcodes;
+    QList<QfVideoBarcodeModel::Barcode> mBarcodes;
 };
 
 QfBarcodeDecoder::QfBarcodeDecoder( QObject *parent )
@@ -126,7 +127,6 @@ QfBarcodeDecoder::QfBarcodeDecoder( QObject *parent )
 
 void QfBarcodeDecoder::setDecodedString( const QString &decodedString )
 {
-  mDecodedStringPickedAutomatically = false;
   if ( mDecodedString == decodedString )
   {
     return;
@@ -144,13 +144,16 @@ void QfBarcodeDecoder::clearDecodedString()
 
 bool QfBarcodeDecoder::decodeImage( const QImage &image )
 {
-  const QList<QfBarcodeModel::Barcode> barcodes = readBarcodes( image );
+  const QList<QfVideoBarcodeModel::Barcode> barcodes = readBarcodes( image );
   if ( barcodes.isEmpty() )
   {
     return false;
   }
 
-  setDecodedString( barcodes.first().text );
+  const auto largestBarcode = std::max_element( barcodes.begin(), barcodes.end(), []( const QfVideoBarcodeModel::Barcode &a, const QfVideoBarcodeModel::Barcode &b ) -> bool {
+    return a.bounds.width() * a.bounds.height() < b.bounds.width() * b.bounds.height();
+  } );
+  setDecodedString( largestBarcode->text );
   return true;
 }
 
@@ -221,15 +224,16 @@ void QfBarcodeDecoder::decodeVideoFrame( const QVideoFrame &frame )
 
   mDecodingThread = new QfBarcodeDecoderThread( image, displayTransform );
   connect( mDecodingThread, &QThread::finished, this, [this] {
-    mBarcodeModel->updateBarcodes( mDecodingThread->barcodes() );
-    const int barcodeCount = mBarcodeModel->rowCount();
+    const int previousBarcodeCount = mVideoBarcodes->rowCount();
+    mVideoBarcodes->updateBarcodes( mDecodingThread->barcodes() );
+    const int barcodeCount = mVideoBarcodes->rowCount();
     if ( barcodeCount == 1 )
     {
-      setDecodedString( mBarcodeModel->data( mBarcodeModel->index( 0 ), QfBarcodeModel::BarcodeText ).toString() );
-      mDecodedStringPickedAutomatically = true;
+      setDecodedString( mVideoBarcodes->data( mVideoBarcodes->index( 0 ), QfVideoBarcodeModel::BarcodeText ).toString() );
     }
-    else if ( barcodeCount > 1 && mDecodedStringPickedAutomatically )
+    else if ( barcodeCount > 1 && previousBarcodeCount <= 1 )
     {
+      // more codes came into view, drop the automatic pick
       clearDecodedString();
     }
 

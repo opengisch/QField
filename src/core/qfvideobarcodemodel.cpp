@@ -1,5 +1,5 @@
 /***************************************************************************
- qfbarcodemodel.cpp - QfBarcodeModel
+ qfvideobarcodemodel.cpp - QfVideoBarcodeModel
 
  ---------------------
  begin                : October 2026
@@ -14,29 +14,29 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qfbarcodemodel.h"
+#include "qfvideobarcodemodel.h"
 
 #include <QSet>
 
-QfBarcodeModel::QfBarcodeModel( QObject *parent )
+QfVideoBarcodeModel::QfVideoBarcodeModel( QObject *parent )
   : QAbstractListModel( parent )
 {
 }
 
-int QfBarcodeModel::rowCount( const QModelIndex &parent ) const
+int QfVideoBarcodeModel::rowCount( const QModelIndex &parent ) const
 {
   if ( parent.isValid() )
   {
     return 0;
   }
 
-  return static_cast<int>( mTrackedBarcodes.size() );
+  return static_cast<int>( mVisibleBarcodes.size() );
 }
 
-QVariant QfBarcodeModel::data( const QModelIndex &index, int role ) const
+QVariant QfVideoBarcodeModel::data( const QModelIndex &index, int role ) const
 {
   const int row = index.row();
-  if ( row < 0 || row >= mTrackedBarcodes.size() )
+  if ( row < 0 || row >= mVisibleBarcodes.size() )
   {
     return QVariant();
   }
@@ -44,17 +44,17 @@ QVariant QfBarcodeModel::data( const QModelIndex &index, int role ) const
   switch ( role )
   {
     case BarcodeText:
-      return mTrackedBarcodes.at( row ).barcode.text;
+      return mVisibleBarcodes.at( row ).barcode.text;
 
     case BarcodeBounds:
-      return mTrackedBarcodes.at( row ).barcode.bounds;
+      return mVisibleBarcodes.at( row ).barcode.bounds;
 
     default:
       return QVariant();
   }
 }
 
-QHash<int, QByteArray> QfBarcodeModel::roleNames() const
+QHash<int, QByteArray> QfVideoBarcodeModel::roleNames() const
 {
   QHash<int, QByteArray> roleNames = QAbstractListModel::roleNames();
   roleNames[BarcodeText] = "BarcodeText";
@@ -62,55 +62,55 @@ QHash<int, QByteArray> QfBarcodeModel::roleNames() const
   return roleNames;
 }
 
-void QfBarcodeModel::updateBarcodes( const QList<Barcode> &barcodes )
+void QfVideoBarcodeModel::updateBarcodes( const QList<Barcode> &barcodes )
 {
-  QSet<QString> seenTexts;
+  QSet<QString> texts;
 
   for ( const Barcode &barcode : barcodes )
   {
-    if ( seenTexts.contains( barcode.text ) )
+    if ( texts.contains( barcode.text ) )
     {
       continue;
     }
-    seenTexts << barcode.text;
+    texts << barcode.text;
 
     const int row = rowForText( barcode.text );
     if ( row >= 0 )
     {
-      mTrackedBarcodes[row] = TrackedBarcode { barcode };
+      mVisibleBarcodes[row] = TrackedBarcode( barcode );
       emit dataChanged( index( row ), index( row ), { BarcodeBounds } );
     }
     else
     {
-      const int newRow = static_cast<int>( mTrackedBarcodes.size() );
+      const int newRow = static_cast<int>( mVisibleBarcodes.size() );
       beginInsertRows( QModelIndex(), newRow, newRow );
-      mTrackedBarcodes << TrackedBarcode { barcode };
+      mVisibleBarcodes << TrackedBarcode( barcode );
       endInsertRows();
     }
   }
 
-  for ( int row = static_cast<int>( mTrackedBarcodes.size() ) - 1; row >= 0; row-- )
+  for ( int row = static_cast<int>( mVisibleBarcodes.size() ) - 1; row >= 0; row-- )
   {
-    if ( seenTexts.contains( mTrackedBarcodes.at( row ).barcode.text ) )
+    if ( texts.contains( mVisibleBarcodes.at( row ).barcode.text ) )
     {
       continue;
     }
 
-    mTrackedBarcodes[row].missedFrameCount++;
-    if ( mTrackedBarcodes.at( row ).missedFrameCount > sMaximumMissedFrameCount )
+    mVisibleBarcodes[row].missedFrameCount++;
+    if ( mVisibleBarcodes.at( row ).missedFrameCount > sMaximumMissedFrameCount )
     {
       beginRemoveRows( QModelIndex(), row, row );
-      mTrackedBarcodes.removeAt( row );
+      mVisibleBarcodes.removeAt( row );
       endRemoveRows();
     }
   }
 }
 
-int QfBarcodeModel::rowForText( const QString &text ) const
+int QfVideoBarcodeModel::rowForText( const QString &text ) const
 {
-  for ( int row = 0; row < mTrackedBarcodes.size(); row++ )
+  for ( int row = 0; row < mVisibleBarcodes.size(); row++ )
   {
-    if ( mTrackedBarcodes.at( row ).barcode.text == text )
+    if ( mVisibleBarcodes.at( row ).barcode.text == text )
     {
       return row;
     }
@@ -119,14 +119,14 @@ int QfBarcodeModel::rowForText( const QString &text ) const
   return -1;
 }
 
-void QfBarcodeModel::clear()
+void QfVideoBarcodeModel::clear()
 {
-  if ( mTrackedBarcodes.isEmpty() )
+  if ( mVisibleBarcodes.isEmpty() )
   {
     return;
   }
 
   beginResetModel();
-  mTrackedBarcodes.clear();
+  mVisibleBarcodes.clear();
   endResetModel();
 }

@@ -41,7 +41,7 @@ QfPopup {
     }
     decodedString = '';
     barcodeDecoder.clearDecodedString();
-    barcodeDecoder.barcodeModel.clear();
+    barcodeDecoder.videoBarcodes.clear();
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
       cameraPermission.request();
     }
@@ -453,7 +453,7 @@ QfPopup {
 
           Repeater {
             id: barcodeOutlineRepeater
-            model: barcodeDecoder.barcodeModel
+            model: barcodeDecoder.videoBarcodes
 
             delegate: CornerOutline {
               id: barcodeOutline
@@ -464,7 +464,7 @@ QfPopup {
               y: barcodeBounds.y * barcodeOutlines.height - 5
               width: barcodeBounds.width * barcodeOutlines.width + 10
               height: barcodeBounds.height * barcodeOutlines.height + 10
-              outlineColor: model.BarcodeText === codeReader.decodedString ? QfTheme.mainColor : QfTheme.qfieldcloudBlue
+              outlineColor: model.BarcodeText === codeReader.decodedString ? QfTheme.mainColor : QfTheme.mainTextColor
 
               Behavior on barcodeBounds {
                 PropertyAnimation {

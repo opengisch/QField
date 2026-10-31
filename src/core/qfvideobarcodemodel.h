@@ -1,5 +1,5 @@
 /***************************************************************************
- qfbarcodemodel.h - QfBarcodeModel
+ qfvideobarcodemodel.h - QfVideoBarcodeModel
 
  ---------------------
  begin                : October 2026
@@ -14,8 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QFBARCODEMODEL_H
-#define QFBARCODEMODEL_H
+#ifndef QFVIDEOBARCODEMODEL_H
+#define QFVIDEOBARCODEMODEL_H
 
 #include <QAbstractListModel>
 #include <QRectF>
@@ -25,7 +25,7 @@
  *
  * A list model of the barcodes seen in a video feed.
  */
-class QfBarcodeModel : public QAbstractListModel
+class QfVideoBarcodeModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -38,11 +38,18 @@ class QfBarcodeModel : public QAbstractListModel
 
     struct Barcode
     {
+        Barcode() = default;
+
+        Barcode( const QString &text, const QRectF &bounds )
+          : text( text )
+          , bounds( bounds )
+        {}
+
         QString text;
         QRectF bounds;
     };
 
-    explicit QfBarcodeModel( QObject *parent = nullptr );
+    explicit QfVideoBarcodeModel( QObject *parent = nullptr );
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;
@@ -63,13 +70,19 @@ class QfBarcodeModel : public QAbstractListModel
 
     struct TrackedBarcode
     {
+        TrackedBarcode() = default;
+
+        explicit TrackedBarcode( const Barcode &barcode )
+          : barcode( barcode )
+        {}
+
         Barcode barcode;
         int missedFrameCount = 0;
     };
 
     static constexpr int sMaximumMissedFrameCount = 4;
 
-    QList<TrackedBarcode> mTrackedBarcodes;
+    QList<TrackedBarcode> mVisibleBarcodes;
 };
 
-#endif // QFBARCODEMODEL_H
+#endif // QFVIDEOBARCODEMODEL_H
