@@ -136,6 +136,41 @@ jobs:
                 -D WITH_CCACHE=OFF \
                 -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
+      - name: 🔬 Capture libspatialite build evidence
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p /tmp/spatialite-evidence
+          # buildtrees location depends on the vcpkg root, so search for it
+          BT=$(find /Users/runner -type d -path "*buildtrees/libspatialite" -not -path "*/node_modules/*" 2>/dev/null | head -n 1)
+          echo "buildtree: ${BT:-NOT FOUND}"
+          [ -n "$BT" ] || exit 0
+
+          cp "$BT"/*.log /tmp/spatialite-evidence/ 2>/dev/null || true
+          for f in $(find "$BT" -name config.h -o -name config.log | head -n 6); do
+            cp "$f" "/tmp/spatialite-evidence/$(echo "$f" | tr '/' '_')"
+          done
+
+          echo "::group::LOADABLE_EXTENSION / OMIT defines in config.h"
+          find "$BT" -name config.h -exec grep -HnE "LOADABLE_EXTENSION|OMIT_|ENABLE_|MOD_SPATIALITE" {} + || true
+          echo "::endgroup::"
+
+          echo "::group::configure invocation"
+          grep -hE "^\s+\\$ .*configure|configure .*--" "$BT"/config-*-out.log 2>/dev/null | head -n 5 || true
+          echo "::endgroup::"
+
+          echo "::group::spatialite.c compile line"
+          grep -rhE "spatialite\.c|spatialite_la-spatialite|splite_la-spatialite" "$BT"/*.log 2>/dev/null | head -n 5 || true
+          echo "::endgroup::"
+
+      - name: 📑 Upload spatialite evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spatialite-build-evidence-ios
+          path: /tmp/spatialite-evidence
+          if-no-files-found: warn
+
       - name: 🔍 Validate vcpkg dependency deployment targets
         run: |
           EXPECTED="${{ env.DEPLOYMENT_TARGET }}"
