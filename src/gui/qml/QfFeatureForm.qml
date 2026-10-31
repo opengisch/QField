@@ -426,6 +426,24 @@ Page {
           expressionChanged();
         }
       }
+      property QtObject attributeFormBridge: QtObject {
+        property bool editable: form.state !== 'ReadOnly'
+        property var context: undefined
+        property var layer: form.model.featureModel.currentLayer
+        property var currentFormFeature: form.model.featureModel.feature
+
+        function changeGeometry(geometry) {
+          form.model.changeGeometry(geometry);
+        }
+
+        function changeAttribute(fieldName, value) {
+          form.model.changeAttribute(fieldName, value);
+        }
+
+        function attribute(fieldName) {
+          return form.model.attribute(fieldName);
+        }
+      }
 
       height: childrenRect.height
       anchors {
