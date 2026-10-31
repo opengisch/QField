@@ -16,13 +16,20 @@
 
 #include "qfbarcodeimageprovider.h"
 
-#include <QFileInfo>
+#include <QImageReader>
+#include <QPainter>
 #include <QUrlQuery>
 #include <qgssymbollayerutils.h>
 
 #include <ZXing/BarcodeFormat.h>
 #include <ZXing/BitMatrix.h>
 #include <ZXing/MultiFormatWriter.h>
+#include <cmath>
+
+namespace
+{
+  constexpr double LOGO_RATIO = 0.24;
+} // namespace
 
 QfBarcodeImageProvider::QfBarcodeImageProvider()
   : QQuickImageProvider( Image )
@@ -43,35 +50,55 @@ QImage QfBarcodeImageProvider::requestImage( const QString &id, QSize *size, con
 
   const int width = requestedSize.width() > 0 ? requestedSize.width() : DEFAULT_BARCODE_SIZE;
   const int height = requestedSize.height() > 0 ? requestedSize.height() : DEFAULT_BARCODE_SIZE;
+  const QColor color = foregroundColor.isValid() ? foregroundColor : QColor( Qt::black );
 
   ZXing::MultiFormatWriter writer( ZXing::BarcodeFormat::QRCode );
-  ZXing::BitMatrix matrix = writer.encode( text.toStdString(), width, height );
-  ZXing::Matrix<uint8_t> bitmap = ZXing::ToMatrix<uint8_t>( matrix );
+  writer.setEccLevel( 8 );
+  writer.setMargin( 0 );
+  const ZXing::BitMatrix matrix = writer.encode( text.toStdString(), 0, 0 );
+  const int matrixWidth = matrix.width();
 
-  QImage barcodeImage( bitmap.data(), bitmap.width(), bitmap.height(), bitmap.width(), QImage::Format::Format_Grayscale8 );
-  barcodeImage.convertTo( QImage::Format::Format_ARGB32 );
-
-  const QRgb white = qRgba( 255, 255, 255, 255 );
-  const QRgb black = qRgba( 0, 0, 0, 255 );
-
-  const QRgb transparent = qRgba( 255, 255, 255, 0 );
-  const QRgb color = foregroundColor.isValid() ? foregroundColor.rgba() : qRgba( 0, 0, 0, 255 );
-
-  for ( int y = 0; y < barcodeImage.height(); ++y )
+  int logoModuleCount = static_cast<int>( std::round( matrixWidth * LOGO_RATIO ) );
+  if ( logoModuleCount % 2 == 0 )
   {
-    QRgb *pixel = reinterpret_cast<QRgb *>( barcodeImage.scanLine( y ) );
-    for ( int x = 0; x < barcodeImage.width(); ++x, ++pixel )
+    logoModuleCount++;
+  }
+  const QRect logoModules( ( matrixWidth - logoModuleCount ) / 2, ( matrixWidth - logoModuleCount ) / 2, logoModuleCount, logoModuleCount );
+
+  const QRgb pixelColor = color.rgba();
+  QImage modules( matrixWidth, matrixWidth, QImage::Format_ARGB32 );
+  modules.fill( Qt::transparent );
+  for ( int y = 0; y < matrixWidth; ++y )
+  {
+    QRgb *pixel = reinterpret_cast<QRgb *>( modules.scanLine( y ) );
+    for ( int x = 0; x < matrixWidth; ++x, ++pixel )
     {
-      if ( *pixel == white )
+      if ( matrix.get( x, y ) && !logoModules.contains( x, y ) )
       {
-        *pixel = transparent;
-      }
-      else if ( *pixel == black )
-      {
-        *pixel = color;
+        *pixel = pixelColor;
       }
     }
   }
 
-  return barcodeImage.copy();
+  QImage barcodeImage = modules.scaled( width, height, Qt::KeepAspectRatio, Qt::FastTransformation );
+
+  const qreal matrixCellWidth = barcodeImage.width() / static_cast<qreal>( matrixWidth );
+  const qreal logoPadding = 0.75 * matrixCellWidth;
+  const QRectF logoRect = QRectF( QPointF( logoModules.topLeft() ) * matrixCellWidth, QSizeF( logoModules.size() ) * matrixCellWidth ).adjusted( logoPadding, logoPadding, -logoPadding, -logoPadding );
+  QImageReader logoReader( QStringLiteral( ":/images/qfield_logo.svg" ) );
+  logoReader.setScaledSize( logoRect.size().toSize() );
+  QImage logo = logoReader.read();
+  if ( !logo.isNull() )
+  {
+    logo = logo.convertToFormat( QImage::Format_ARGB32_Premultiplied );
+    QPainter logoPainter( &logo );
+    logoPainter.setCompositionMode( QPainter::CompositionMode_SourceIn );
+    logoPainter.fillRect( logo.rect(), color );
+    logoPainter.end();
+
+    QPainter painter( &barcodeImage );
+    painter.drawImage( logoRect.topLeft(), logo );
+  }
+
+  return barcodeImage;
 }
