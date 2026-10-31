@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfToolButtonDrawer" kind="class" language="C++" prot="public">
+    <compoundname>QfToolButtonDrawer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Container</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfToolButtonDrawer_1a0bc5a7e30acada65c95ef252779d5053" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Direction</name>
+        <qualifiedname>QfToolButtonDrawer::Direction</qualifiedname>
+        <enumvalue id="classQfToolButtonDrawer_1a0bc5a7e30acada65c95ef252779d5053a258f49887ef8d14ac268c92b02503aaa" prot="public">
+          <name>Up</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfToolButtonDrawer_1a0bc5a7e30acada65c95ef252779d5053a08a38277b0309070706f6652eeae9a53" prot="public">
+          <name>Down</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfToolButtonDrawer_1a0bc5a7e30acada65c95ef252779d5053a945d5e233cf7d6240f6b783b36a374ff" prot="public">
+          <name>Left</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfToolButtonDrawer_1a0bc5a7e30acada65c95ef252779d5053a92b09c7c48c520c3c55e497875da437c" prot="public">
+          <name>Right</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="10" column="1" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="10" bodyend="15"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfToolButtonDrawer_1a21e7035730e699515e36f8d5b041b5a8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfToolButtonDrawer::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>QfToolButtonDrawer::name</qualifiedname>
+        <read>dummyGetter_name_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="17" column="1" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButtonDrawer_1af0bb6123b1a6dc85c3e2d05a0543755c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfToolButtonDrawer::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>QfToolButtonDrawer::size</qualifiedname>
+        <read>dummyGetter_size_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="19" column="1" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButtonDrawer_1a99ccbc77cd3b2cb16514bfbb38bee904" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfToolButtonDrawer::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <qualifiedname>QfToolButtonDrawer::direction</qualifiedname>
+        <read>dummyGetter_direction_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="21" column="1" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButtonDrawer_1a7669df2c19088147a7c0cb848afac475" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfToolButtonDrawer::collapsed</definition>
+        <argsstring></argsstring>
+        <name>collapsed</name>
+        <qualifiedname>QfToolButtonDrawer::collapsed</qualifiedname>
+        <read>dummyGetter_collapsed_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="23" column="1" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButtonDrawer_1a471f7e7234a9662216c0310456a80337" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfToolButtonDrawer::round</definition>
+        <argsstring></argsstring>
+        <name>round</name>
+        <qualifiedname>QfToolButtonDrawer::round</qualifiedname>
+        <read>dummyGetter_round_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="25" column="1" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButtonDrawer_1a596cac47d0bbdc6d5391e1f707b49538" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfToolButtonDrawer::bgcolor</definition>
+        <argsstring></argsstring>
+        <name>bgcolor</name>
+        <qualifiedname>QfToolButtonDrawer::bgcolor</qualifiedname>
+        <read>dummyGetter_bgcolor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="27" column="1" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButtonDrawer_1ae83109531c925009e2dcbbe697c6f24e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfToolButtonDrawer::iconSource</definition>
+        <argsstring></argsstring>
+        <name>iconSource</name>
+        <qualifiedname>QfToolButtonDrawer::iconSource</qualifiedname>
+        <read>dummyGetter_iconSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="29" column="1" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfToolButtonDrawer_1a44ae59f4b43d0fce9bcfaf78403f0e5e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfToolButtonDrawer::iconColor</definition>
+        <argsstring></argsstring>
+        <name>iconColor</name>
+        <qualifiedname>QfToolButtonDrawer::iconColor</qualifiedname>
+        <read>dummyGetter_iconColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="31" column="1" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfToolButtonDrawer_1ad22554fd3105970f555176e073f2c950" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButtonDrawer::onNameChanged</definition>
+        <argsstring></argsstring>
+        <name>onNameChanged</name>
+        <qualifiedname>QfToolButtonDrawer::onNameChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="33" column="5" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButtonDrawer_1ace24608dc1d7b127498d8a9cba0c2db2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButtonDrawer::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfToolButtonDrawer::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="34" column="5" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButtonDrawer_1a422c4f3c8d67696024741e6ed619b242" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButtonDrawer::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfToolButtonDrawer::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="35" column="5" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButtonDrawer_1a353f3bb906d7601f8a14940d28c5755b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButtonDrawer::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfToolButtonDrawer::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="36" column="5" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButtonDrawer_1acb30514f53a09f9c4e63f2b75c0e1b2b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButtonDrawer::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfToolButtonDrawer::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="37" column="5" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButtonDrawer_1abaa48fefe3faaef0ccdf1eaac1d71e13" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButtonDrawer::focusPolicy</definition>
+        <argsstring></argsstring>
+        <name>focusPolicy</name>
+        <qualifiedname>QfToolButtonDrawer::focusPolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="38" column="5" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfToolButtonDrawer_1a001720ed9fb36e84ecbafc94b0a2d77f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfToolButtonDrawer::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>QfToolButtonDrawer::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfToolButtonDrawer.qml" line="39" column="5" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Container</label>
+      </node>
+      <node id="1">
+        <label>QfToolButtonDrawer</label>
+        <link refid="classQfToolButtonDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Container</label>
+      </node>
+      <node id="1">
+        <label>QfToolButtonDrawer</label>
+        <link refid="classQfToolButtonDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfToolButtonDrawer.qml" line="8" column="1" bodyfile="src/gui/qml/QfToolButtonDrawer.qml" bodystart="8" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classQfToolButtonDrawer_1a596cac47d0bbdc6d5391e1f707b49538" prot="public" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>bgcolor</name></member>
+      <member refid="classQfToolButtonDrawer_1acb30514f53a09f9c4e63f2b75c0e1b2b" prot="private" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>clip</name></member>
+      <member refid="classQfToolButtonDrawer_1a7669df2c19088147a7c0cb848afac475" prot="public" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>collapsed</name></member>
+      <member refid="classQfToolButtonDrawer_1a001720ed9fb36e84ecbafc94b0a2d77f" prot="private" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>contentItem</name></member>
+      <member refid="classQfToolButtonDrawer_1a0bc5a7e30acada65c95ef252779d5053" prot="public" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>Direction</name></member>
+      <member refid="classQfToolButtonDrawer_1a99ccbc77cd3b2cb16514bfbb38bee904" prot="public" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>direction</name></member>
+      <member refid="classQfToolButtonDrawer_1abaa48fefe3faaef0ccdf1eaac1d71e13" prot="private" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>focusPolicy</name></member>
+      <member refid="classQfToolButtonDrawer_1a422c4f3c8d67696024741e6ed619b242" prot="private" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>height</name></member>
+      <member refid="classQfToolButtonDrawer_1a44ae59f4b43d0fce9bcfaf78403f0e5e" prot="public" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>iconColor</name></member>
+      <member refid="classQfToolButtonDrawer_1ae83109531c925009e2dcbbe697c6f24e" prot="public" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>iconSource</name></member>
+      <member refid="classQfToolButtonDrawer_1a21e7035730e699515e36f8d5b041b5a8" prot="public" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>name</name></member>
+      <member refid="classQfToolButtonDrawer_1ad22554fd3105970f555176e073f2c950" prot="private" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>onNameChanged</name></member>
+      <member refid="classQfToolButtonDrawer_1a471f7e7234a9662216c0310456a80337" prot="public" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>round</name></member>
+      <member refid="classQfToolButtonDrawer_1af0bb6123b1a6dc85c3e2d05a0543755c" prot="public" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>size</name></member>
+      <member refid="classQfToolButtonDrawer_1a353f3bb906d7601f8a14940d28c5755b" prot="private" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>spacing</name></member>
+      <member refid="classQfToolButtonDrawer_1ace24608dc1d7b127498d8a9cba0c2db2" prot="private" virt="non-virtual"><scope>QfToolButtonDrawer</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,129 @@
+
+
+# File QfEditorWidgetCheckBox.qml
+
+[**File List**](files.md) **>** [**editorwidgets**](dir_aa4aab3cdee284f0e217d9df55b13787.md) **>** [**QfEditorWidgetCheckBox.qml**](QfEditorWidgetCheckBox_8qml.md)
+
+[Go to the documentation of this file](QfEditorWidgetCheckBox_8qml.md)
+
+
+```C++
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material.impl
+import org.qfield.core
+import org.qfield.gui
+
+QfEditorWidgetBase {
+  id: checkBoxEditorWidgetBase
+  height: childrenRect.height
+
+  // if the field type is boolean, ignore the configured 'CheckedState' and 'UncheckedState' values and work with true/false always
+  readonly property bool isBool: field.type == 1  // needs type coercion
+
+  property var checkedState: {
+    if (config['CheckedState'] === undefined) {
+      if (field.type == 10) { // needs type coercion
+        return 'true';
+      } else {
+        return 1;
+      }
+    }
+    return config['CheckedState'];
+  }
+  property var uncheckedState: {
+    if (config['UncheckedState'] === undefined) {
+      if (field.type === 10) {
+        return 'false';
+      } else {
+        return 0;
+      }
+    }
+    return config['UncheckedState'];
+  }
+
+  property string checkedLabel: config['TextDisplayMethod'] === 1 && config['CheckedState'] !== null && config['CheckedState'] !== '' ? config['CheckedState'] : qsTr('True')
+  property string uncheckedLabel: config['TextDisplayMethod'] === 1 && config['UncheckedState'] !== null && config['UncheckedState'] !== '' ? config['UncheckedState'] : qsTr('False')
+
+  anchors {
+    right: parent.right
+    left: parent.left
+  }
+
+  Label {
+    id: checkValue
+    height: Math.max(QfTheme.toolButtonSize, fontMetrics.height + 20)
+    anchors {
+      left: parent.left
+      right: checkBox.left
+    }
+
+    font.pointSize: QfTheme.defaultFont.pointSize
+    font.bold: QfTheme.defaultFont.bold
+    verticalAlignment: Text.AlignVCenter
+    color: (!isEditable && isEditing) || isNull || isEmpty ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
+
+    text: isEmpty ? qsTr("Empty") : isNull ? qsTr('NULL') : checkBox.checked ? checkedLabel : uncheckedLabel
+  }
+
+  QfSwitch {
+    id: checkBox
+    enabled: isEnabled
+    width: implicitContentWidth
+
+    anchors {
+      right: parent.right
+      verticalCenter: checkValue.verticalCenter
+    }
+
+    checked: {
+      if (isBool) {
+        let actualValue = value;
+        // Some datasets - such as Geopackage - can send the value as a 'True' or 'False' string, we have to work around that
+        if (!isNull) {
+          if (typeof value == 'string') {
+            actualValue = value.toLowerCase() === 'true';
+          }
+        }
+        return !isNull ? actualValue : false;
+      } else {
+        return !isNull ? String(value) === String(checkedState) : false;
+      }
+    }
+  }
+
+  MouseArea {
+    id: checkArea
+    enabled: isEnabled
+    anchors.fill: parent
+
+    onClicked: {
+      let editedValue = true;
+      if (isBool) {
+        let actualValue = value;
+        // Some datasets - such as Geopackage - can send the value as a 'True' or 'False' string, we have to work around that
+        if (!isNull && typeof value == 'string') {
+          actualValue = value.toLowerCase() === 'true';
+        }
+        editedValue = !isNull ? !actualValue : true;
+      } else {
+        // Work around absence of proper configuration
+        if (!isNull) {
+          // String comparison is used here as custom unchecked/checked states are stored as strings yet value could be integers
+          editedValue = String(value) === String(checkedState) ? uncheckedState : checkedState;
+        } else {
+          editedValue = checkedState;
+        }
+      }
+      valueChangeRequested(editedValue, false);
+    }
+  }
+
+  FontMetrics {
+    id: fontMetrics
+    font: checkValue.font
+  }
+}
+```
+
+

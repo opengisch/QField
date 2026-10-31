@@ -1,0 +1,480 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudAttachmentsModel" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudAttachmentsModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="qfcloudattachmentsmodel_8h" local="no">qfcloudattachmentsmodel.h</includes>
+    <innerclass refid="structQfCloudAttachmentsModel_1_1Attachment" prot="private">QfCloudAttachmentsModel::Attachment</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfCloudAttachmentsModel_1ad9c698195bc2cf1f7914aae1183f5deb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Status</name>
+        <qualifiedname>QfCloudAttachmentsModel::Status</qualifiedname>
+        <enumvalue id="classQfCloudAttachmentsModel_1ad9c698195bc2cf1f7914aae1183f5deba0dce7742ba6610686d070b63d6a01b76" prot="public">
+          <name>LocalStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudAttachmentsModel_1ad9c698195bc2cf1f7914aae1183f5deba15c9d5c3eac52d3fc5187e0284278681" prot="public">
+          <name>PendingStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudAttachmentsModel_1ad9c698195bc2cf1f7914aae1183f5deba96f6a9f3ad97feb7f172787d3c9a52a7" prot="public">
+          <name>UploadedStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudAttachmentsModel_1ad9c698195bc2cf1f7914aae1183f5deba8b57479355851c0006d90921856a3575" prot="public">
+          <name>FailedStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="41" column="5" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="42" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ColumnRole</name>
+        <qualifiedname>QfCloudAttachmentsModel::ColumnRole</qualifiedname>
+        <enumvalue id="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199a8d38b8c9e3822f0c54590637644a7fb4" prot="public">
+          <name>FilePathRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199aa627f7ce45fc5c4df5bd9dea91f9c5af" prot="public">
+          <name>FileNameRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199aab296b37ec0265fef056e498f8c47615" prot="public">
+          <name>StatusRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199a7144b4f8a76d7e85d5c7c6c4be24c3ad" prot="public">
+          <name>HttpCodeRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199a13332d19d77f13457c9fdfcf9aa4733d" prot="public">
+          <name>TimestampRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="50" column="5" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="51" bodyend="57"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudAttachmentsModel_1a3393e9b6493ccbbd501a5db8b6576a45" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> *</type>
+        <definition>QfCloudConnection * QfCloudAttachmentsModel::cloudConnection</definition>
+        <argsstring></argsstring>
+        <name>cloudConnection</name>
+        <qualifiedname>QfCloudAttachmentsModel::cloudConnection</qualifiedname>
+        <read>cloudConnection</read>
+        <write>setCloudConnection</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="37" column="5" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudAttachmentsModel_1a4b8cb217f8c819a886a757b909dcf3f4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfCloudProject" kindref="compound">QfCloudProject</ref> *</type>
+        <definition>QfCloudProject * QfCloudAttachmentsModel::cloudProject</definition>
+        <argsstring></argsstring>
+        <name>cloudProject</name>
+        <qualifiedname>QfCloudAttachmentsModel::cloudProject</qualifiedname>
+        <read>cloudProject</read>
+        <write>setCloudProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="38" column="5" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudAttachmentsModel_1aef2312ed360665b9138f40121c3cd487" prot="private" static="no" mutable="no">
+        <type>QList&lt; Attachment &gt;</type>
+        <definition>QList&lt;Attachment&gt; QfCloudAttachmentsModel::mAttachments</definition>
+        <argsstring></argsstring>
+        <name>mAttachments</name>
+        <qualifiedname>QfCloudAttachmentsModel::mAttachments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="105" column="11" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsModel_1ace4d2b0124a7d7dfcca26b8c16784a4a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> *</type>
+        <definition>QfCloudConnection* QfCloudAttachmentsModel::mCloudConnection</definition>
+        <argsstring></argsstring>
+        <name>mCloudConnection</name>
+        <qualifiedname>QfCloudAttachmentsModel::mCloudConnection</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="107" column="23" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsModel_1af55bcae1484caaf91afd7ddd040ede1b" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQfCloudProject" kindref="compound">QfCloudProject</ref> &gt;</type>
+        <definition>QPointer&lt;QfCloudProject&gt; QfCloudAttachmentsModel::mCloudProject</definition>
+        <argsstring></argsstring>
+        <name>mCloudProject</name>
+        <qualifiedname>QfCloudAttachmentsModel::mCloudProject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="108" column="14" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsModel_1ad8b91e5c1b8524fe0f651cef4c9a399d" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQfDeltaFileWrapper" kindref="compound">QfDeltaFileWrapper</ref> &gt;</type>
+        <definition>QPointer&lt;QfDeltaFileWrapper&gt; QfCloudAttachmentsModel::mDeltaFileWrapper</definition>
+        <argsstring></argsstring>
+        <name>mDeltaFileWrapper</name>
+        <qualifiedname>QfCloudAttachmentsModel::mDeltaFileWrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="109" column="14" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCloudAttachmentsModel_1a4bf8573a37b7636c19d46e07148bd763" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudAttachmentsModel::QfCloudAttachmentsModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfCloudAttachmentsModel</name>
+        <qualifiedname>QfCloudAttachmentsModel::QfCloudAttachmentsModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="60" column="14" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsModel_1a667a8270f0479dcdf91d27638caddb6f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfCloudAttachmentsModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfCloudAttachmentsModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+<para>Returns number of rows. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="63" column="9" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.cpp" bodystart="29" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsModel_1a39095cee76bbf206a9ddd5f5ddce63b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfCloudAttachmentsModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfCloudAttachmentsModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+<para>Returns the data at given <emphasis>index</emphasis> with given <emphasis>role</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="66" column="14" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.cpp" bodystart="39" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsModel_1a306cca67e636839ef9b3dec0e839b5b3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfCloudAttachmentsModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfCloudAttachmentsModel::roleNames</qualifiedname>
+        <briefdescription>
+<para>Returns the model role names. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="69" column="11" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.cpp" bodystart="63" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsModel_1ac6409baebb6b54e8377a6cc2c92053a5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> *</type>
+        <definition>QfCloudConnection * QfCloudAttachmentsModel::cloudConnection</definition>
+        <argsstring>() const</argsstring>
+        <name>cloudConnection</name>
+        <qualifiedname>QfCloudAttachmentsModel::cloudConnection</qualifiedname>
+        <briefdescription>
+<para>Returns the cloud connection used to read the pending attachments and the attachments upload history. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="72" column="23" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.cpp" bodystart="157" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsModel_1aaaa5e0c35e5f96bc0d34546535ffd6a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsModel::setCloudConnection</definition>
+        <argsstring>(QfCloudConnection *cloudConnection)</argsstring>
+        <name>setCloudConnection</name>
+        <qualifiedname>QfCloudAttachmentsModel::setCloudConnection</qualifiedname>
+        <param>
+          <type><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> *</type>
+          <declname>cloudConnection</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>cloudConnection</emphasis> used to read the pending attachments and the attachments upload history. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="75" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.cpp" bodystart="162" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsModel_1a296a1303901758d50aba56ab53fd9621" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfCloudProject" kindref="compound">QfCloudProject</ref> *</type>
+        <definition>QfCloudProject * QfCloudAttachmentsModel::cloudProject</definition>
+        <argsstring>() const</argsstring>
+        <name>cloudProject</name>
+        <qualifiedname>QfCloudAttachmentsModel::cloudProject</qualifiedname>
+        <briefdescription>
+<para>Returns the cloud project whose attachments are listed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="78" column="20" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.cpp" bodystart="191" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsModel_1abdab13f8f120b93967af8657b972ba7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsModel::setCloudProject</definition>
+        <argsstring>(QfCloudProject *cloudProject)</argsstring>
+        <name>setCloudProject</name>
+        <qualifiedname>QfCloudAttachmentsModel::setCloudProject</qualifiedname>
+        <param>
+          <type><ref refid="classQfCloudProject" kindref="compound">QfCloudProject</ref> *</type>
+          <declname>cloudProject</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>cloudProject</emphasis> whose attachments are listed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="81" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.cpp" bodystart="196" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsModel_1a1123cef09742d401b5c4ddad7907bedc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfCloudAttachmentsModel::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <qualifiedname>QfCloudAttachmentsModel::refresh</qualifiedname>
+        <briefdescription>
+<para>Reloads the attachments not yet uploaded, the pending attachments and the attachments upload history. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="84" column="22" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.cpp" bodystart="74" bodyend="155"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCloudAttachmentsModel_1ae45665dad66f9faac373b7bdcd7228e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsModel::cloudConnectionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>cloudConnectionChanged</name>
+        <qualifiedname>QfCloudAttachmentsModel::cloudConnectionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="87" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudAttachmentsModel_1aed33a8bddd1cae5711b893ab38a2a342" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsModel::cloudProjectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>cloudProjectChanged</name>
+        <qualifiedname>QfCloudAttachmentsModel::cloudProjectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="88" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfCloudAttachmentsModel_1a540c12789668cba014f17abba11ea0b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsModel::onDeltaFileWrapperChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onDeltaFileWrapperChanged</name>
+        <qualifiedname>QfCloudAttachmentsModel::onDeltaFileWrapperChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="91" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.cpp" bodystart="225" bodyend="229"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfCloudAttachmentsModel_1aaad130652e2e322afef5dce0099a3c96" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsModel::setDeltaFileWrapper</definition>
+        <argsstring>(QfDeltaFileWrapper *deltaFileWrapper)</argsstring>
+        <name>setDeltaFileWrapper</name>
+        <qualifiedname>QfCloudAttachmentsModel::setDeltaFileWrapper</qualifiedname>
+        <param>
+          <type><ref refid="classQfDeltaFileWrapper" kindref="compound">QfDeltaFileWrapper</ref> *</type>
+          <declname>deltaFileWrapper</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="94" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.cpp" bodystart="231" bodyend="249"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A model listing the attachments of a QFieldCloud project that are not yet uploaded or pending upload, alongside the outcome of past attachment uploads. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfCloudAttachmentsModel</label>
+        <link refid="classQfCloudAttachmentsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfCloudAttachmentsModel</label>
+        <link refid="classQfCloudAttachmentsModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="33" column="1" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="34" bodyend="110"/>
+    <listofallmembers>
+      <member refid="classQfCloudAttachmentsModel_1a3393e9b6493ccbbd501a5db8b6576a45" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>cloudConnection</name></member>
+      <member refid="classQfCloudAttachmentsModel_1ac6409baebb6b54e8377a6cc2c92053a5" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>cloudConnection</name></member>
+      <member refid="classQfCloudAttachmentsModel_1ae45665dad66f9faac373b7bdcd7228e3" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>cloudConnectionChanged</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a4b8cb217f8c819a886a757b909dcf3f4" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>cloudProject</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a296a1303901758d50aba56ab53fd9621" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>cloudProject</name></member>
+      <member refid="classQfCloudAttachmentsModel_1aed33a8bddd1cae5711b893ab38a2a342" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>cloudProjectChanged</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>ColumnRole</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a39095cee76bbf206a9ddd5f5ddce63b2" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>data</name></member>
+      <member refid="classQfCloudAttachmentsModel_1ad9c698195bc2cf1f7914aae1183f5deba8b57479355851c0006d90921856a3575" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>FailedStatus</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199aa627f7ce45fc5c4df5bd9dea91f9c5af" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>FileNameRole</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199a8d38b8c9e3822f0c54590637644a7fb4" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>FilePathRole</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199a7144b4f8a76d7e85d5c7c6c4be24c3ad" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>HttpCodeRole</name></member>
+      <member refid="classQfCloudAttachmentsModel_1ad9c698195bc2cf1f7914aae1183f5deba0dce7742ba6610686d070b63d6a01b76" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>LocalStatus</name></member>
+      <member refid="classQfCloudAttachmentsModel_1aef2312ed360665b9138f40121c3cd487" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>mAttachments</name></member>
+      <member refid="classQfCloudAttachmentsModel_1ace4d2b0124a7d7dfcca26b8c16784a4a" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>mCloudConnection</name></member>
+      <member refid="classQfCloudAttachmentsModel_1af55bcae1484caaf91afd7ddd040ede1b" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>mCloudProject</name></member>
+      <member refid="classQfCloudAttachmentsModel_1ad8b91e5c1b8524fe0f651cef4c9a399d" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>mDeltaFileWrapper</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a540c12789668cba014f17abba11ea0b7" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>onDeltaFileWrapperChanged</name></member>
+      <member refid="classQfCloudAttachmentsModel_1ad9c698195bc2cf1f7914aae1183f5deba15c9d5c3eac52d3fc5187e0284278681" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>PendingStatus</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a4bf8573a37b7636c19d46e07148bd763" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>QfCloudAttachmentsModel</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a1123cef09742d401b5c4ddad7907bedc" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>refresh</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a306cca67e636839ef9b3dec0e839b5b3" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>roleNames</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a667a8270f0479dcdf91d27638caddb6f" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>rowCount</name></member>
+      <member refid="classQfCloudAttachmentsModel_1aaaa5e0c35e5f96bc0d34546535ffd6a0" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>setCloudConnection</name></member>
+      <member refid="classQfCloudAttachmentsModel_1abdab13f8f120b93967af8657b972ba7f" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>setCloudProject</name></member>
+      <member refid="classQfCloudAttachmentsModel_1aaad130652e2e322afef5dce0099a3c96" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>setDeltaFileWrapper</name></member>
+      <member refid="classQfCloudAttachmentsModel_1ad9c698195bc2cf1f7914aae1183f5deb" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>Status</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199aab296b37ec0265fef056e498f8c47615" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>StatusRole</name></member>
+      <member refid="classQfCloudAttachmentsModel_1a4aa3a75d6c237ad093dd08c7117c0199a13332d19d77f13457c9fdfcf9aa4733d" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>TimestampRole</name></member>
+      <member refid="classQfCloudAttachmentsModel_1ad9c698195bc2cf1f7914aae1183f5deba96f6a9f3ad97feb7f172787d3c9a52a7" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel</scope><name>UploadedStatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

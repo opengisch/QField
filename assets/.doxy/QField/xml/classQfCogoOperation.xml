@@ -1,0 +1,311 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCogoOperation" kind="class" language="C++" prot="public">
+    <compoundname>QfCogoOperation</compoundname>
+    <derivedcompoundref refid="classQfCogoOperationPointAtDistanceAngle" prot="public" virt="non-virtual">QfCogoOperationPointAtDistanceAngle</derivedcompoundref>
+    <derivedcompoundref refid="classQfCogoOperationPointAtIntersectionCircles" prot="public" virt="non-virtual">QfCogoOperationPointAtIntersectionCircles</derivedcompoundref>
+    <derivedcompoundref refid="classQfCogoOperationPointAtXYZ" prot="public" virt="non-virtual">QfCogoOperationPointAtXYZ</derivedcompoundref>
+    <includes refid="qfcogooperation_8h" local="no">qfcogooperation.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCogoOperation_1a6d7aa4d37cd012f5ada4c6e0752fb85a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfCogoOperation::QfCogoOperation</definition>
+        <argsstring>()</argsstring>
+        <name>QfCogoOperation</name>
+        <qualifiedname>QfCogoOperation::QfCogoOperation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The COGO operation constructor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="159" column="5" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="159" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperation_1aa8c400c12676a93954f9391d078eb10d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual QfCogoOperation::~QfCogoOperation</definition>
+        <argsstring>()=default</argsstring>
+        <name>~QfCogoOperation</name>
+        <qualifiedname>QfCogoOperation::~QfCogoOperation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="160" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperation_1a502ff23e4eb9c486e7c6044fafc00b42" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString QfCogoOperation::name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <qualifiedname>QfCogoOperation::name</qualifiedname>
+        <reimplementedby refid="classQfCogoOperationPointAtXYZ_1a117c0ffa478ceba1916436e991939d15">name</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtDistanceAngle_1a536c2f9a0c65e3a3debfc0583913a8c6">name</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtIntersectionCircles_1ae861f188fb27076144cf5611cc80e7d2">name</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the name string identifier. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="165" column="21" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="165" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperation_1ac954cc699c204b2674bc954f9cffadc3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString QfCogoOperation::displayName</definition>
+        <argsstring>() const</argsstring>
+        <name>displayName</name>
+        <qualifiedname>QfCogoOperation::displayName</qualifiedname>
+        <reimplementedby refid="classQfCogoOperationPointAtXYZ_1afee7bddcdecca702598d06d0b64b04e0">displayName</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtDistanceAngle_1ae1cee22055e19b129061db351589b94f">displayName</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtIntersectionCircles_1a939c4978a3c75f8381f9d6edbcfb8ef4">displayName</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a translatable display name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="170" column="21" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="170" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperation_1a382ab8049ec86ee9cf13e61e23a1725b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QString</type>
+        <definition>virtual QString QfCogoOperation::icon</definition>
+        <argsstring>() const</argsstring>
+        <name>icon</name>
+        <qualifiedname>QfCogoOperation::icon</qualifiedname>
+        <reimplementedby refid="classQfCogoOperationPointAtXYZ_1a1b59e4e837546e843135e5cf964102b8">icon</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtDistanceAngle_1aaca4ef4760cc41c394ced16bb7c1c302">icon</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtIntersectionCircles_1a903d26382c53f69cb699db5535802ad7">icon</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the icon name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="175" column="21" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="175" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperation_1af728230d7a91efcea4063540f819f365" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QList&lt; <ref refid="classQfCogoParameter" kindref="compound">QfCogoParameter</ref> &gt;</type>
+        <definition>virtual QList&lt; QfCogoParameter &gt; QfCogoOperation::parameters</definition>
+        <argsstring>(Qgis::WkbType wkbType=Qgis::WkbType::Unknown) const</argsstring>
+        <name>parameters</name>
+        <qualifiedname>QfCogoOperation::parameters</qualifiedname>
+        <reimplementedby refid="classQfCogoOperationPointAtXYZ_1aa205b1e639d056245beb3e0a9651314e">parameters</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtDistanceAngle_1a4cb74f63f0598c7d26f6df94b52535eb">parameters</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtIntersectionCircles_1a9d8818a3fdf3812d6b737793a941b6a4">parameters</reimplementedby>
+        <param>
+          <type>Qgis::WkbType</type>
+          <declname>wkbType</declname>
+          <defval>Qgis::WkbType::Unknown</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the list of available parameters to configure the operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>wkbType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional WKB type to reflect ability of the geometry being digitized </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="181" column="19" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="181" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperation_1a88b0ed6ce553ba9d06e656029cf3ed61" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QList&lt; <ref refid="classQfCogoVisualGuide" kindref="compound">QfCogoVisualGuide</ref> &gt;</type>
+        <definition>virtual QList&lt; QfCogoVisualGuide &gt; QfCogoOperation::visualGuides</definition>
+        <argsstring>(const QVariantMap &amp;parameters, QgsQuickMapSettings *mapSettings) const</argsstring>
+        <name>visualGuides</name>
+        <qualifiedname>QfCogoOperation::visualGuides</qualifiedname>
+        <reimplementedby refid="classQfCogoOperationPointAtXYZ_1af8944c892dd7ff4a00567bd51abb44fa">visualGuides</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtDistanceAngle_1add3ac180be38f032e647a1b71ea7ab00">visualGuides</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtIntersectionCircles_1a5101c51c6c9c5778b48381cd6dd5624c">visualGuides</reimplementedby>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of visual guides based on provided parameters. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parameters used to generate the visual guides </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mapSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the map settings object used to georeference the visual guides </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="188" column="19" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="188" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperation_1a9797ce82ee5e2e3d9999e292a0021d0e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool QfCogoOperation::checkReadiness</definition>
+        <argsstring>(const QVariantMap &amp;parameters, Qgis::WkbType wkbType=Qgis::WkbType::Unknown) const</argsstring>
+        <name>checkReadiness</name>
+        <qualifiedname>QfCogoOperation::checkReadiness</qualifiedname>
+        <reimplementedby refid="classQfCogoOperationPointAtXYZ_1a63b81c3afaf2a15bb6f56c924ea238ad">checkReadiness</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtDistanceAngle_1a9cdc710373b616b0fd4f48ed696f57fd">checkReadiness</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtIntersectionCircles_1ae727fc4d3ebdd54032a0c5081e5695aa">checkReadiness</reimplementedby>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>Qgis::WkbType</type>
+          <declname>wkbType</declname>
+          <defval>Qgis::WkbType::Unknown</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE is the provided parameters allow for the operation to be executed. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parameters to be validated for readiness </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wkbType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional WKB type to reflect ability of the geometry being digitized </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="195" column="18" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="195" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoOperation_1af735a58b86ffe9dd7ffea8ae8b009b2d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool QfCogoOperation::execute</definition>
+        <argsstring>(QfRubberbandModel *rubberbandModel, const QVariantMap &amp;parameters, Qgis::WkbType wkbType=Qgis::WkbType::Unknown) const</argsstring>
+        <name>execute</name>
+        <qualifiedname>QfCogoOperation::execute</qualifiedname>
+        <reimplementedby refid="classQfCogoOperationPointAtXYZ_1adc0830d5cce2609a7d00ab9e98937306">execute</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtDistanceAngle_1a585df940c61ada3c5f6fbca9cc16ceb5">execute</reimplementedby>
+        <reimplementedby refid="classQfCogoOperationPointAtIntersectionCircles_1a2112437c7386e9c3e220f053359bbf08">execute</reimplementedby>
+        <param>
+          <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+          <declname>rubberbandModel</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>Qgis::WkbType</type>
+          <declname>wkbType</declname>
+          <defval>Qgis::WkbType::Unknown</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes the operation and add generated vertex or vertices into the rubberband model. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rubberbandModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the rubberband model within which one or more vertices will be added </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the parameters used to execute the operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wkbType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional WKB type to reflect ability of the geometry being digitized </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/cogo/qfcogooperation.h" line="203" column="18" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="203" bodyend="203"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A COGO operation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCogoOperation</label>
+        <link refid="classQfCogoOperation"/>
+      </node>
+      <node id="2">
+        <label>QfCogoOperationPointAtDistanceAngle</label>
+        <link refid="classQfCogoOperationPointAtDistanceAngle"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfCogoOperationPointAtIntersectionCircles</label>
+        <link refid="classQfCogoOperationPointAtIntersectionCircles"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QfCogoOperationPointAtXYZ</label>
+        <link refid="classQfCogoOperationPointAtXYZ"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="src/core/cogo/qfcogooperation.h" line="153" column="1" bodyfile="src/core/cogo/qfcogooperation.h" bodystart="154" bodyend="204"/>
+    <listofallmembers>
+      <member refid="classQfCogoOperation_1a9797ce82ee5e2e3d9999e292a0021d0e" prot="public" virt="virtual"><scope>QfCogoOperation</scope><name>checkReadiness</name></member>
+      <member refid="classQfCogoOperation_1ac954cc699c204b2674bc954f9cffadc3" prot="public" virt="virtual"><scope>QfCogoOperation</scope><name>displayName</name></member>
+      <member refid="classQfCogoOperation_1af735a58b86ffe9dd7ffea8ae8b009b2d" prot="public" virt="virtual"><scope>QfCogoOperation</scope><name>execute</name></member>
+      <member refid="classQfCogoOperation_1a382ab8049ec86ee9cf13e61e23a1725b" prot="public" virt="virtual"><scope>QfCogoOperation</scope><name>icon</name></member>
+      <member refid="classQfCogoOperation_1a502ff23e4eb9c486e7c6044fafc00b42" prot="public" virt="virtual"><scope>QfCogoOperation</scope><name>name</name></member>
+      <member refid="classQfCogoOperation_1af728230d7a91efcea4063540f819f365" prot="public" virt="virtual"><scope>QfCogoOperation</scope><name>parameters</name></member>
+      <member refid="classQfCogoOperation_1a6d7aa4d37cd012f5ada4c6e0752fb85a" prot="public" virt="non-virtual"><scope>QfCogoOperation</scope><name>QfCogoOperation</name></member>
+      <member refid="classQfCogoOperation_1a88b0ed6ce553ba9d06e656029cf3ed61" prot="public" virt="virtual"><scope>QfCogoOperation</scope><name>visualGuides</name></member>
+      <member refid="classQfCogoOperation_1aa8c400c12676a93954f9391d078eb10d" prot="public" virt="virtual"><scope>QfCogoOperation</scope><name>~QfCogoOperation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classEmbeddedFeatureForm" kind="class" language="C++" prot="public">
+    <compoundname>EmbeddedFeatureForm</compoundname>
+    <basecompoundref refid="classQfEmbeddedFeatureForm" prot="public" virt="non-virtual">QfEmbeddedFeatureForm</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>EmbeddedFeatureForm</label>
+        <link refid="classEmbeddedFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfEmbeddedFeatureForm</label>
+        <link refid="classQfEmbeddedFeatureForm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>EmbeddedFeatureForm</label>
+        <link refid="classEmbeddedFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfEmbeddedFeatureForm</label>
+        <link refid="classQfEmbeddedFeatureForm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/EmbeddedFeatureForm.qml" line="2" column="1" bodyfile="src/app/qml_compat/EmbeddedFeatureForm.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfEmbeddedFeatureForm_1a33174b243154d77b24399396ff8da785" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>applyGeometry</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1a95b20a12a0538ea7fa2f7fec85261cff" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>attributeFormModel</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1a75d693c9ecb37b87e26bd1716e18048c" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>cancelForm</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1ac52cb3eff15e9b3c96dac6afe72946dd" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>codeReader</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1a0eb1927dac4049c37a8acbed1384f345" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>confirmForm</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1ad9211299029bbbecae249942223d07a9" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>currentLayer</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1af70e4aa08033a1f6937518914fbf4d58" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>digitizingToolbar</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1a711677710980ddb203b2101a2eb43822" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>embeddedLevel</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1af1e519190c0a8f8242b44116db77ec6c" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>feature</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1ae3b9bb65558a7727987637a659501cd7" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>featureCancelled</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1a622897f5cba25492d900f852cf4c39c8" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>featureModel</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1a96dba00aa4caa575315b76b3d0a4a01c" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>featureSaved</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1afcf84f0b175f758f5d4b51dc86674689" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>linkedParentFeature</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1a05415b797bbe59a5016604c6b67abfd4" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>linkedRelation</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1a871a21db56631bf2e2b0bac6c5f477f3" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>linkedRelationOrderingField</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1afd6c0ca5b0a6c262eec30e08238b2067" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfEmbeddedFeatureForm_1a1a42182c1aacff95fe2b5132906baadf" prot="public" virt="non-virtual"><scope>EmbeddedFeatureForm</scope><name>state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

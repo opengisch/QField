@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfUdpReceiver" kind="class" language="C++" prot="public">
+    <compoundname>QfUdpReceiver</compoundname>
+    <basecompoundref refid="classQfNmeaGnssReceiver" prot="public" virt="non-virtual">QfNmeaGnssReceiver</basecompoundref>
+    <includes refid="qfudpreceiver_8h" local="no">qfudpreceiver.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classQfUdpReceiver_1aa47f46c0723e9abf2686c60a5a746138" prot="public" static="yes" mutable="no">
+        <type>QLatin1String</type>
+        <definition>QLatin1String QfUdpReceiver::identifier</definition>
+        <argsstring></argsstring>
+        <name>identifier</name>
+        <qualifiedname>QfUdpReceiver::identifier</qualifiedname>
+        <initializer>= QLatin1String( &quot;udp&quot; )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="39" column="26" bodyfile="src/core/positioning/qfudpreceiver.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfUdpReceiver_1a64ac760699eb2bfddc51c0839e5896bf" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfUdpReceiver::mAddress</definition>
+        <argsstring></argsstring>
+        <name>mAddress</name>
+        <qualifiedname>QfUdpReceiver::mAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="50" column="13" bodyfile="src/core/positioning/qfudpreceiver.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfUdpReceiver_1a1ea5a278af2111ead7e69388d7939c39" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfUdpReceiver::mPort</definition>
+        <argsstring></argsstring>
+        <name>mPort</name>
+        <qualifiedname>QfUdpReceiver::mPort</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="51" column="9" bodyfile="src/core/positioning/qfudpreceiver.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfUdpReceiver_1a5bf69812594a33ec4775acf6795ebbe1" prot="private" static="no" mutable="no">
+        <type>QUdpSocket *</type>
+        <definition>QUdpSocket* QfUdpReceiver::mSocket</definition>
+        <argsstring></argsstring>
+        <name>mSocket</name>
+        <qualifiedname>QfUdpReceiver::mSocket</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="52" column="16" bodyfile="src/core/positioning/qfudpreceiver.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfUdpReceiver_1aebf6b6b0bf7dda0e5fe999882cadf43f" prot="private" static="no" mutable="no">
+        <type>QBuffer *</type>
+        <definition>QBuffer* QfUdpReceiver::mBuffer</definition>
+        <argsstring></argsstring>
+        <name>mBuffer</name>
+        <qualifiedname>QfUdpReceiver::mBuffer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="53" column="13" bodyfile="src/core/positioning/qfudpreceiver.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfUdpReceiver_1afe479fe10e83b69833c8805d5768fb5a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfUdpReceiver::mReconnectOnDisconnect</definition>
+        <argsstring></argsstring>
+        <name>mReconnectOnDisconnect</name>
+        <qualifiedname>QfUdpReceiver::mReconnectOnDisconnect</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="55" column="10" bodyfile="src/core/positioning/qfudpreceiver.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfUdpReceiver_1ae76573e4f3ba0abc801441fd91350d12" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfUdpReceiver::mConnectionFailureCount</definition>
+        <argsstring></argsstring>
+        <name>mConnectionFailureCount</name>
+        <qualifiedname>QfUdpReceiver::mConnectionFailureCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="56" column="9" bodyfile="src/core/positioning/qfudpreceiver.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfUdpReceiver_1a976f864b80a4d9be494835dcdfe3bc1e" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QfUdpReceiver::mReconnectTimer</definition>
+        <argsstring></argsstring>
+        <name>mReconnectTimer</name>
+        <qualifiedname>QfUdpReceiver::mReconnectTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="57" column="12" bodyfile="src/core/positioning/qfudpreceiver.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfUdpReceiver_1ae415ade4304162116e7fde85253a70eb" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfUdpReceiver::QfUdpReceiver</definition>
+        <argsstring>(const QString &amp;address=QString(), const int port=0, QObject *parent=nullptr)</argsstring>
+        <name>QfUdpReceiver</name>
+        <qualifiedname>QfUdpReceiver::QfUdpReceiver</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>port</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="36" column="14" bodyfile="src/core/positioning/qfudpreceiver.cpp" bodystart="25" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfUdpReceiver_1a6385ac5a4e437e37f8f6dc60fc12036e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfUdpReceiver::~QfUdpReceiver</definition>
+        <argsstring>()</argsstring>
+        <name>~QfUdpReceiver</name>
+        <qualifiedname>QfUdpReceiver::~QfUdpReceiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="37" column="5" bodyfile="src/core/positioning/qfudpreceiver.cpp" bodystart="66" bodyend="73"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="classQfUdpReceiver_1af783ae0c76a700d83382e5745c1dad8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfUdpReceiver::socketStateString</definition>
+        <argsstring>() override</argsstring>
+        <name>socketStateString</name>
+        <qualifiedname>QfUdpReceiver::socketStateString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="42" column="13" bodyfile="src/core/positioning/qfudpreceiver.cpp" bodystart="95" bodyend="104"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfUdpReceiver_1aa849a4debeeeb2caeca8601855c97060" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfUdpReceiver::handleConnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleConnectDevice</name>
+        <qualifiedname>QfUdpReceiver::handleConnectDevice</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1ab9f5973a983d7cd8cb88cacd5bc0be19">handleConnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="45" column="10" bodyfile="src/core/positioning/qfudpreceiver.cpp" bodystart="75" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfUdpReceiver_1a53a3accc28fad032a9d85175232e2d5a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfUdpReceiver::handleDisconnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleDisconnectDevice</name>
+        <qualifiedname>QfUdpReceiver::handleDisconnectDevice</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1a5ab9458d00d4521488b13c7d7788ef8c">handleDisconnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="46" column="10" bodyfile="src/core/positioning/qfudpreceiver.cpp" bodystart="88" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfUdpReceiver_1a770a7d1a0d564bd1dcb52d86b8614aef" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfUdpReceiver::handleError</definition>
+        <argsstring>(QAbstractSocket::SocketError error)</argsstring>
+        <name>handleError</name>
+        <qualifiedname>QfUdpReceiver::handleError</qualifiedname>
+        <param>
+          <type>QAbstractSocket::SocketError</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="47" column="10" bodyfile="src/core/positioning/qfudpreceiver.cpp" bodystart="135" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfUdpReceiver_1ae5f90cf5262866e3ab2f63b377c54a6c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfUdpReceiver::handleStateChanged</definition>
+        <argsstring>(QAbstractSocket::SocketState state)</argsstring>
+        <name>handleStateChanged</name>
+        <qualifiedname>QfUdpReceiver::handleStateChanged</qualifiedname>
+        <param>
+          <type>QAbstractSocket::SocketState</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfudpreceiver.h" line="48" column="10" bodyfile="src/core/positioning/qfudpreceiver.cpp" bodystart="106" bodyend="133"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classQfUdpReceiver" kindref="compound">QfUdpReceiver</ref> connects to a device and feeds the QgsNmeaConnection over a UDP socket. It receives QgsGpsInformation and converts it to <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="3">
+        <label>QfAbstractGnssReceiver</label>
+        <link refid="classQfAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNmeaGnssReceiver</label>
+        <link refid="classQfNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfUdpReceiver</label>
+        <link refid="classQfUdpReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="3">
+        <label>QfAbstractGnssReceiver</label>
+        <link refid="classQfAbstractGnssReceiver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfNmeaGnssReceiver</label>
+        <link refid="classQfNmeaGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfUdpReceiver</label>
+        <link refid="classQfUdpReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/qfudpreceiver.h" line="31" column="1" bodyfile="src/core/positioning/qfudpreceiver.h" bodystart="32" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classQfAbstractGnssReceiver_1aac097e8d39901f49bfba6633783ce784" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>batteryLevel</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aa540bc95579e25facd7da0621a162cec" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>batteryLevelChanged</name></member>
+      <member refid="classQfNmeaGnssReceiver_1aa7ce2c6965aa606add03e9141f55d80d" prot="public" virt="virtual"><scope>QfUdpReceiver</scope><name>capabilities</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>Capability</name></member>
+      <member refid="classQfAbstractGnssReceiver_1acd13344a5df00287f22cc4f1108b2505" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>connectDevice</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aa3a6cd080093891093d85fd6500320f0" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>disconnectDevice</name></member>
+      <member refid="classQfUdpReceiver_1aa849a4debeeeb2caeca8601855c97060" prot="private" virt="virtual"><scope>QfUdpReceiver</scope><name>handleConnectDevice</name></member>
+      <member refid="classQfUdpReceiver_1a53a3accc28fad032a9d85175232e2d5a" prot="private" virt="virtual"><scope>QfUdpReceiver</scope><name>handleDisconnectDevice</name></member>
+      <member refid="classQfUdpReceiver_1a770a7d1a0d564bd1dcb52d86b8614aef" prot="private" virt="non-virtual"><scope>QfUdpReceiver</scope><name>handleError</name></member>
+      <member refid="classQfUdpReceiver_1ae5f90cf5262866e3ab2f63b377c54a6c" prot="private" virt="non-virtual"><scope>QfUdpReceiver</scope><name>handleStateChanged</name></member>
+      <member refid="classQfUdpReceiver_1aa47f46c0723e9abf2686c60a5a746138" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>identifier</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a9790d1624471555daa6f9458fd452162" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>initNmeaConnection</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a76c09326f896a708603bcd38ca07d927" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>lastError</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a2a24a6fe2fb4dd37c5d0a17e606fe77c" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>lastErrorChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a757b5533e1968510d599257e7e359d9a" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>lastGnssPositionInformation</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aaf98efbbd5b1f4c3bfc153ec081a6cf7" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>lastGnssPositionInformationChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a32149f1fa2d70af22b8ea711b5f0f75e" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>Logging</name></member>
+      <member refid="classQfUdpReceiver_1a64ac760699eb2bfddc51c0839e5896bf" prot="private" virt="non-virtual"><scope>QfUdpReceiver</scope><name>mAddress</name></member>
+      <member refid="classQfUdpReceiver_1aebf6b6b0bf7dda0e5fe999882cadf43f" prot="private" virt="non-virtual"><scope>QfUdpReceiver</scope><name>mBuffer</name></member>
+      <member refid="classQfUdpReceiver_1ae76573e4f3ba0abc801441fd91350d12" prot="private" virt="non-virtual"><scope>QfUdpReceiver</scope><name>mConnectionFailureCount</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a6a79860a50f7fa69eb0e36129704a77e" prot="protected" virt="non-virtual"><scope>QfUdpReceiver</scope><name>mLastGnssPositionValid</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a2553cea5efd8d8b6f0efc30529dccd05" prot="protected" virt="non-virtual"><scope>QfUdpReceiver</scope><name>mNmeaConnection</name></member>
+      <member refid="classQfUdpReceiver_1a1ea5a278af2111ead7e69388d7939c39" prot="private" virt="non-virtual"><scope>QfUdpReceiver</scope><name>mPort</name></member>
+      <member refid="classQfUdpReceiver_1afe479fe10e83b69833c8805d5768fb5a" prot="private" virt="non-virtual"><scope>QfUdpReceiver</scope><name>mReconnectOnDisconnect</name></member>
+      <member refid="classQfUdpReceiver_1a976f864b80a4d9be494835dcdfe3bc1e" prot="private" virt="non-virtual"><scope>QfUdpReceiver</scope><name>mReconnectTimer</name></member>
+      <member refid="classQfUdpReceiver_1a5bf69812594a33ec4775acf6795ebbe1" prot="private" virt="non-virtual"><scope>QfUdpReceiver</scope><name>mSocket</name></member>
+      <member refid="classQfNmeaGnssReceiver_1abeedff36d0f38a92107611c8d55ba912" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>nmeaSentenceReceived</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a8eb58b06d873c2e100d0b74ec9215238" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>NoCapabilities</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325af35004204d33f6a62fc45d6962ee2a58" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>NtripCorrection</name></member>
+      <member refid="classQfNmeaGnssReceiver_1a80c5495e9869643dc3d2ca95f604f3a9" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>onCorrectionDataReceived</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a73d1b405c90412d84b32ec9e03e32f55" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>OrthometricAltitude</name></member>
+      <member refid="classQfAbstractGnssReceiver_1ab2303acc969f562c75ecabf988c64c62" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>QfAbstractGnssReceiver</name></member>
+      <member refid="classQfNmeaGnssReceiver_1afdffe6b403fc52ee5e29fd309ada3632" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>QfNmeaGnssReceiver</name></member>
+      <member refid="classQfUdpReceiver_1ae415ade4304162116e7fde85253a70eb" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>QfUdpReceiver</name></member>
+      <member refid="classQfAbstractGnssReceiver_1af56b337ca8d29574f31d63892af25a07" prot="protected" virt="non-virtual"><scope>QfUdpReceiver</scope><name>setSocketState</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a2a6994043dce54d0ca8819344a88e234" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>setValid</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8725d739983222c78dc93417c5afec45" prot="public" virt="virtual"><scope>QfUdpReceiver</scope><name>socketState</name></member>
+      <member refid="classQfAbstractGnssReceiver_1af2ed915f4e3a0db45e29fde997f84c1c" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>socketStateChanged</name></member>
+      <member refid="classQfUdpReceiver_1af783ae0c76a700d83382e5745c1dad8e" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>socketStateString</name></member>
+      <member refid="classQfAbstractGnssReceiver_1ab1b149cfbdd0c1d20cc4c2c055eecb05" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>socketStateStringChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1add322c32a7897bba08ddd8f6aeec0e34" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>startLogging</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a0b03f384c24e5b473352d8c2de0dec23" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>stopLogging</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a28ca8d6d79d1394da7b0e79521a0a845" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>valid</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a26ee820f395b20f02ed32629d1dbb5c1" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>validChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a49b0d1da3fa61943bc6687f07b7b6f0f" prot="public" virt="virtual"><scope>QfUdpReceiver</scope><name>~QfAbstractGnssReceiver</name></member>
+      <member refid="classQfNmeaGnssReceiver_1ab937d625faa2ec21a2bdbcc85d419349" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>~QfNmeaGnssReceiver</name></member>
+      <member refid="classQfUdpReceiver_1a6385ac5a4e437e37f8f6dc60fc12036e" prot="public" virt="non-virtual"><scope>QfUdpReceiver</scope><name>~QfUdpReceiver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

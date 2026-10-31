@@ -1,0 +1,2151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfVertexModel" kind="class" language="C++" prot="public">
+    <compoundname>QfVertexModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="qfvertexmodel_8h" local="no">qfvertexmodel.h</includes>
+    <innerclass refid="structQfVertexModel_1_1Vertex" prot="public">QfVertexModel::Vertex</innerclass>
+    <innerclass refid="structQfVertexModel_1_1VertexChange" prot="public">QfVertexModel::VertexChange</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfVertexModel_1a509d940011a9982af1db00f4ae72c697" prot="public" static="no" strong="no">
+        <type></type>
+        <name>PointType</name>
+        <qualifiedname>QfVertexModel::PointType</qualifiedname>
+        <enumvalue id="classQfVertexModel_1a509d940011a9982af1db00f4ae72c697a043634359f1cfaaf39440a50791159a5" prot="public">
+          <name>ExistingVertex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfVertexModel_1a509d940011a9982af1db00f4ae72c697a363efc80f270a7d88d0cd370ef4652c5" prot="public">
+          <name>NewVertexSegment</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfVertexModel_1a509d940011a9982af1db00f4ae72c697a4d5dcf3532336f3bd8b226dcda0c3e75" prot="public">
+          <name>NewVertexExtending</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="84" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="85" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ColumnRole</name>
+        <qualifiedname>QfVertexModel::ColumnRole</qualifiedname>
+        <enumvalue id="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bca374a0980afdb9dfc6eda17bb63cd493b" prot="public">
+          <name>PointRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bcafaea6dee407ffdc42cdcd0eb9e7fda6e" prot="public">
+          <name>CurrentVertexRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bca2155a035c2cea12880b2f8f054856225" prot="public">
+          <name>OriginalPointRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bca50c7a36ffcb2b0a7e65c5480c2bd27d1" prot="public">
+          <name>ExistingVertexRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bca4694a84d5e55304ba0507e2332b019c8" prot="public">
+          <name>RingIdRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="92" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="93" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfVertexModel_1a136c8cb9d3cf02302eb3bbbef60b7059" prot="public" static="no" strong="no">
+        <type></type>
+        <name>EditingMode</name>
+        <qualifiedname>QfVertexModel::EditingMode</qualifiedname>
+        <enumvalue id="classQfVertexModel_1a136c8cb9d3cf02302eb3bbbef60b7059a235e70d73798ca48e2fa2e176e5296f8" prot="public">
+          <name>NoEditing</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfVertexModel_1a136c8cb9d3cf02302eb3bbbef60b7059a0505f8d3dd25305c11be2b0630048aec" prot="public">
+          <name>EditVertex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfVertexModel_1a136c8cb9d3cf02302eb3bbbef60b7059ae13ff6e7d7f0a15f9dd1383fe0be8053" prot="public">
+          <name>AddVertex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="102" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="103" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfVertexModel_1a07d09bcac93c34cb7a17eabf45926d84" prot="public" static="no" strong="no">
+        <type></type>
+        <name>VertexChangeType</name>
+        <qualifiedname>QfVertexModel::VertexChangeType</qualifiedname>
+        <enumvalue id="classQfVertexModel_1a07d09bcac93c34cb7a17eabf45926d84acb2fe3123da164a023b4df4e954ceb7b" prot="public">
+          <name>NoChange</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfVertexModel_1a07d09bcac93c34cb7a17eabf45926d84a432d391f47147bee339bca9732706c4b" prot="public">
+          <name>VertexMove</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfVertexModel_1a07d09bcac93c34cb7a17eabf45926d84a60d1489b92d076333414b96159a7eee4" prot="public">
+          <name>VertexAddition</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfVertexModel_1a07d09bcac93c34cb7a17eabf45926d84a7da97c8b5e3884be39002cdefdcb6837" prot="public">
+          <name>VertexDeletion</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="119" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="120" bodyend="125"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfVertexModel_1a5efabc940f269d15dca0fb5022f73084" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>EditingMode</type>
+        <definition>EditingMode QfVertexModel::editingMode</definition>
+        <argsstring></argsstring>
+        <name>editingMode</name>
+        <qualifiedname>QfVertexModel::editingMode</qualifiedname>
+        <read>editingMode</read>
+        <write>setEditingMode</write>
+        <briefdescription>
+<para>The current mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="41" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1a9f4bbdb377b3e5852036a479abea7991" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfVertexModel::currentPoint</definition>
+        <argsstring></argsstring>
+        <name>currentPoint</name>
+        <qualifiedname>QfVertexModel::currentPoint</qualifiedname>
+        <read>currentPoint</read>
+        <write>setCurrentPoint</write>
+        <briefdescription>
+<para>The current point being edited. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classQfVertexModel_1a5efabc940f269d15dca0fb5022f73084" kindref="member">editingMode</ref>. The expected CRS to read/write is the map canvas CRS </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="43" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1a6f0bdbf734de6b94f27cc889873c10da" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfVertexModel::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfVertexModel::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="45" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1a5b356fba22d3717f43060840537aae38" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfVertexModel::vertexCount</definition>
+        <argsstring></argsstring>
+        <name>vertexCount</name>
+        <qualifiedname>QfVertexModel::vertexCount</qualifiedname>
+        <read>vertexCount</read>
+        <briefdescription>
+<para>number of vertices in the model </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="47" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1a3fbec0c96f180272ea10d4299b568418" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfVertexModel::ringCount</definition>
+        <argsstring></argsstring>
+        <name>ringCount</name>
+        <qualifiedname>QfVertexModel::ringCount</qualifiedname>
+        <read>ringCount</read>
+        <briefdescription>
+<para>number of rings in the model </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="49" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1a759af1b00a992aa4f4655108723e035e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::dirty</definition>
+        <argsstring></argsstring>
+        <name>dirty</name>
+        <qualifiedname>QfVertexModel::dirty</qualifiedname>
+        <read>dirty</read>
+        <briefdescription>
+<para>determines if the model has changes </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="51" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1a89d0fc3297629807268b587706158a23" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::editingAllowed</definition>
+        <argsstring></argsstring>
+        <name>editingAllowed</name>
+        <qualifiedname>QfVertexModel::editingAllowed</qualifiedname>
+        <read>editingAllowed</read>
+        <briefdescription>
+<para>determines if the model allows editing the geometry </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="53" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1a451e72e6eb8b5359b0ec8b1fadaed596" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::canRemoveVertex</definition>
+        <argsstring></argsstring>
+        <name>canRemoveVertex</name>
+        <qualifiedname>QfVertexModel::canRemoveVertex</qualifiedname>
+        <read>canRemoveVertex</read>
+        <briefdescription>
+<para>determines if one can remove current vertex </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="55" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1a97d78d1ded36f990832f2945f6440d02" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::canAddVertex</definition>
+        <argsstring></argsstring>
+        <name>canAddVertex</name>
+        <qualifiedname>QfVertexModel::canAddVertex</qualifiedname>
+        <read>canAddVertex</read>
+        <briefdescription>
+<para>determines if one can add vertex </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="57" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1ad3846fe79d222562b2ad90d6b0564010" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::canPreviousVertex</definition>
+        <argsstring></argsstring>
+        <name>canPreviousVertex</name>
+        <qualifiedname>QfVertexModel::canPreviousVertex</qualifiedname>
+        <read>canPreviousVertex</read>
+        <briefdescription>
+<para>determines if one can go to previous vertex </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="59" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1aea9067f911ac5eb2828376d9795b3377" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::canNextVertex</definition>
+        <argsstring></argsstring>
+        <name>canNextVertex</name>
+        <qualifiedname>QfVertexModel::canNextVertex</qualifiedname>
+        <read>canNextVertex</read>
+        <briefdescription>
+<para>determines if one can go to next vertex </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="61" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1ad39b408c139fb1c226e57f8f7fa6cc6b" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::isHovering</definition>
+        <argsstring></argsstring>
+        <name>isHovering</name>
+        <qualifiedname>QfVertexModel::isHovering</qualifiedname>
+        <briefdescription>
+<para>determines if the map is currently being hovered (then when moving the map, it will not move directly a vertex if the mode is AddVertex) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="63" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1ae8a52a7f6a123deffcf9eeb237ec88aa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::canUndo</definition>
+        <argsstring></argsstring>
+        <name>canUndo</name>
+        <qualifiedname>QfVertexModel::canUndo</qualifiedname>
+        <read>canUndo</read>
+        <briefdescription>
+<para>returns TRUE if an undo operation is available </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="66" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1ab3badb0182d17b01c360dc70ed035806" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfVertexModel::currentVertexIndex</definition>
+        <argsstring></argsstring>
+        <name>currentVertexIndex</name>
+        <qualifiedname>QfVertexModel::currentVertexIndex</qualifiedname>
+        <read>currentVertexIndex</read>
+        <write>setCurrentVertexIndex</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The index of the currently active vertex. If no vertex is selected, this is -1. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="71" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1a9c595f7351682f3c218ed21152edbaf9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfVertexModel::geometry</definition>
+        <argsstring></argsstring>
+        <name>geometry</name>
+        <qualifiedname>QfVertexModel::geometry</qualifiedname>
+        <read>geometry</read>
+        <write>setGeometry</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The geometry in layer coordinates </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="76" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexModel_1a11189a27d77c150c961dee40cdc5ea4c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfVertexModel::crs</definition>
+        <argsstring></argsstring>
+        <name>crs</name>
+        <qualifiedname>QfVertexModel::crs</qualifiedname>
+        <read>crs</read>
+        <write>setCrs</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The coordinate reference system in which the geometry is </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="81" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfVertexModel_1a5da194ef24b5c3772137d62eed1c2073" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="structQfVertexModel_1_1Vertex" kindref="compound">Vertex</ref> &gt;</type>
+        <definition>QList&lt;Vertex&gt; QfVertexModel::mVertices</definition>
+        <argsstring></argsstring>
+        <name>mVertices</name>
+        <qualifiedname>QfVertexModel::mVertices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="320" column="11" bodyfile="src/core/qfvertexmodel.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1aa942f5c8dc3904a67465060fdc3c8875" prot="private" static="no" mutable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfVertexModel::mOriginalGeometry</definition>
+        <argsstring></argsstring>
+        <name>mOriginalGeometry</name>
+        <qualifiedname>QfVertexModel::mOriginalGeometry</qualifiedname>
+        <briefdescription>
+<para>copy of the initial geometry, in destination (layer) CRS </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="323" column="17" bodyfile="src/core/qfvertexmodel.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a324208e8e26b5ce9b75b9f8d58171fc9" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfVertexModel::mCrs</definition>
+        <argsstring></argsstring>
+        <name>mCrs</name>
+        <qualifiedname>QfVertexModel::mCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="324" column="34" bodyfile="src/core/qfvertexmodel.h" bodystart="324" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a4b234382beb32612d52585d3c6ad6acc" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateTransform</type>
+        <definition>QgsCoordinateTransform QfVertexModel::mTransform</definition>
+        <argsstring></argsstring>
+        <name>mTransform</name>
+        <qualifiedname>QfVertexModel::mTransform</qualifiedname>
+        <initializer>= QgsCoordinateTransform()</initializer>
+        <briefdescription>
+<para>CRS of the geometry, will be used to transform to map canvas coordinates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="327" column="28" bodyfile="src/core/qfvertexmodel.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a44c95e5d009b422bf473ac2dcc158421" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::mIsMulti</definition>
+        <argsstring></argsstring>
+        <name>mIsMulti</name>
+        <qualifiedname>QfVertexModel::mIsMulti</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="328" column="10" bodyfile="src/core/qfvertexmodel.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1ac57f84f8f644d18c65c3ac63b2b01b86" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::mDirty</definition>
+        <argsstring></argsstring>
+        <name>mDirty</name>
+        <qualifiedname>QfVertexModel::mDirty</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="329" column="10" bodyfile="src/core/qfvertexmodel.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a5ea0deaa37cc9f620535a3a95e0b815f" prot="private" static="no" mutable="no">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt;QgsPoint&gt; QfVertexModel::mVerticesDeleted</definition>
+        <argsstring></argsstring>
+        <name>mVerticesDeleted</name>
+        <qualifiedname>QfVertexModel::mVerticesDeleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="331" column="13" bodyfile="src/core/qfvertexmodel.h" bodystart="331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a24a70ec6d35a7c66fa9b7a58cc410d80" prot="private" static="no" mutable="no">
+        <type>EditingMode</type>
+        <definition>EditingMode QfVertexModel::mMode</definition>
+        <argsstring></argsstring>
+        <name>mMode</name>
+        <qualifiedname>QfVertexModel::mMode</qualifiedname>
+        <initializer>= NoEditing</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="340" column="17" bodyfile="src/core/qfvertexmodel.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1ac9c28efabff6340acac43c1f6404a0d3" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QfVertexModel::mCurrentIndex</definition>
+        <argsstring></argsstring>
+        <name>mCurrentIndex</name>
+        <qualifiedname>QfVertexModel::mCurrentIndex</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="342" column="15" bodyfile="src/core/qfvertexmodel.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a04ba8d200ddfeba6bdeb7814bfbb3482" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfVertexModel::mRingCount</definition>
+        <argsstring></argsstring>
+        <name>mRingCount</name>
+        <qualifiedname>QfVertexModel::mRingCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="343" column="9" bodyfile="src/core/qfvertexmodel.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a16c738b591f5af57439e511a156d6b94" prot="private" static="no" mutable="no">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfVertexModel::mGeometryType</definition>
+        <argsstring></argsstring>
+        <name>mGeometryType</name>
+        <qualifiedname>QfVertexModel::mGeometryType</qualifiedname>
+        <initializer>= Qgis::GeometryType::Line</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="344" column="24" bodyfile="src/core/qfvertexmodel.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1abe774f754b86ee0f0c8c5671cf30a1d1" prot="private" static="no" mutable="no">
+        <type>Qgis::WkbType</type>
+        <definition>Qgis::WkbType QfVertexModel::mGeometryWkbType</definition>
+        <argsstring></argsstring>
+        <name>mGeometryWkbType</name>
+        <qualifiedname>QfVertexModel::mGeometryWkbType</qualifiedname>
+        <initializer>= Qgis::WkbType::Unknown</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="345" column="19" bodyfile="src/core/qfvertexmodel.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1ab742074c2c95007dfef115f122662088" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfVertexModel::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfVertexModel::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="346" column="25" bodyfile="src/core/qfvertexmodel.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a7e760e045d7303074a85b9b11c3b4039" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::mCanRemoveVertex</definition>
+        <argsstring></argsstring>
+        <name>mCanRemoveVertex</name>
+        <qualifiedname>QfVertexModel::mCanRemoveVertex</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="347" column="10" bodyfile="src/core/qfvertexmodel.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a2da3b03d5aa43940355da8b66d2588a1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::mCanAddVertex</definition>
+        <argsstring></argsstring>
+        <name>mCanAddVertex</name>
+        <qualifiedname>QfVertexModel::mCanAddVertex</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="348" column="10" bodyfile="src/core/qfvertexmodel.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a91664d37e76752194017e8ab6cddf1e7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::mCanPreviousVertex</definition>
+        <argsstring></argsstring>
+        <name>mCanPreviousVertex</name>
+        <qualifiedname>QfVertexModel::mCanPreviousVertex</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="349" column="10" bodyfile="src/core/qfvertexmodel.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a1094ae8e4a02ea03cb8d7e4b760fb02b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::mCanNextVertex</definition>
+        <argsstring></argsstring>
+        <name>mCanNextVertex</name>
+        <qualifiedname>QfVertexModel::mCanNextVertex</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="350" column="10" bodyfile="src/core/qfvertexmodel.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a48e47855864a3f3815b903e7dc00e6c1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::mIsHovering</definition>
+        <argsstring></argsstring>
+        <name>mIsHovering</name>
+        <qualifiedname>QfVertexModel::mIsHovering</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="351" column="10" bodyfile="src/core/qfvertexmodel.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1ae23440871bdb8e763ec6b7f6897d8cb8" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="structQfVertexModel_1_1VertexChange" kindref="compound">VertexChange</ref> &gt;</type>
+        <definition>QList&lt;VertexChange&gt; QfVertexModel::mHistory</definition>
+        <argsstring></argsstring>
+        <name>mHistory</name>
+        <qualifiedname>QfVertexModel::mHistory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="353" column="11" bodyfile="src/core/qfvertexmodel.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1ae3c92d149ed152edbb9855ddd10325a2" prot="private" static="no" mutable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QfVertexModel::mHistoryIndex</definition>
+        <argsstring></argsstring>
+        <name>mHistoryIndex</name>
+        <qualifiedname>QfVertexModel::mHistoryIndex</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="354" column="15" bodyfile="src/core/qfvertexmodel.h" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVertexModel_1a0725b58c8367ae9e749bab6e9c9e7fa5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::mHistoryTraversing</definition>
+        <argsstring></argsstring>
+        <name>mHistoryTraversing</name>
+        <qualifiedname>QfVertexModel::mHistoryTraversing</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="355" column="10" bodyfile="src/core/qfvertexmodel.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classQfVertexModel_1a4c0201b2090d5e9b68261618b84a889a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class VertexModelTest</definition>
+        <argsstring></argsstring>
+        <name>VertexModelTest</name>
+        <qualifiedname>QfVertexModel::VertexModelTest</qualifiedname>
+        <param>
+          <type>VertexModelTest</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="357" column="18" bodyfile="src/core/qfvertexmodel.h" bodystart="357" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfVertexModel_1a0f7757c73fcc4a52266a93148984d26a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfVertexModel::QfVertexModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfVertexModel</name>
+        <qualifiedname>QfVertexModel::QfVertexModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="141" column="14" bodyfile="src/core/qfvertexmodel.cpp" bodystart="27" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1af523e71a8e01496ef325eee535d63799" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfVertexModel::~QfVertexModel</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~QfVertexModel</name>
+        <qualifiedname>QfVertexModel::~QfVertexModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="142" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1afe4132e348a1d6d4081fea3485cf8050" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfVertexModel::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="145" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="37" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a8f54ebf8c0f6c7e1893a456ff6a3fd6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfVertexModel::mapSettings</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfVertexModel::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="147" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a9cef4f2b91ab0de8a986e893e76aaa5c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfVertexModel::editingAllowed</definition>
+        <argsstring>() const</argsstring>
+        <name>editingAllowed</name>
+        <qualifiedname>QfVertexModel::editingAllowed</qualifiedname>
+        <briefdescription>
+<para>determines if the model allows editing the geometry   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="150" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="52" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a2a019969e9e763569e1597113db98f0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::setCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>setCrs</name>
+        <qualifiedname>QfVertexModel::setCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The coorinate reference system in which the geometry is </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="155" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="59" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1aaa7f3428c44fb17cd4dd4fe5ae6eda26" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfVertexModel::crs</definition>
+        <argsstring>() const</argsstring>
+        <name>crs</name>
+        <qualifiedname>QfVertexModel::crs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The coordinate reference system in which the geometry is </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="160" column="34" bodyfile="src/core/qfvertexmodel.cpp" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a7b8faddd6684ea71e13bced4e321d7fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::setGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>setGeometry</name>
+        <qualifiedname>QfVertexModel::setGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The geometry in layer coordinates </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="165" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="76" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1ad770cec98f72a8b1e5d7fd9f13714c56" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfVertexModel::geometry</definition>
+        <argsstring>() const</argsstring>
+        <name>geometry</name>
+        <qualifiedname>QfVertexModel::geometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The geometry in layer coordinates </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="170" column="17" bodyfile="src/core/qfvertexmodel.cpp" bodystart="468" bodyend="520"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a7d0a192a74f5d5b3b780c057fa32385c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfVertexModel::index</definition>
+        <argsstring>(int row, int column, const QModelIndex &amp;parent) const override</argsstring>
+        <name>index</name>
+        <qualifiedname>QfVertexModel::index</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="172" column="17" bodyfile="src/core/qfvertexmodel.cpp" bodystart="401" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a0c5267a889858ee4f41a96bc0f448f09" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QModelIndex</type>
+        <definition>QModelIndex QfVertexModel::parent</definition>
+        <argsstring>(const QModelIndex &amp;child) const override</argsstring>
+        <name>parent</name>
+        <qualifiedname>QfVertexModel::parent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="173" column="17" bodyfile="src/core/qfvertexmodel.cpp" bodystart="414" bodyend="418"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a1a6860a58f0b8c1d1bcd369417bae47a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfVertexModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfVertexModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="174" column="9" bodyfile="src/core/qfvertexmodel.cpp" bodystart="420" bodyend="424"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a7f050c6aa6ecfd3d6005a5ba22d89b52" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfVertexModel::columnCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>columnCount</name>
+        <qualifiedname>QfVertexModel::columnCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="175" column="9" bodyfile="src/core/qfvertexmodel.cpp" bodystart="426" bodyend="430"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a4a818a4b5f8cdbee4e0a2b8fb2e7d8c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfVertexModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfVertexModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="176" column="14" bodyfile="src/core/qfvertexmodel.cpp" bodystart="437" bodyend="465"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1acc9c558992f70f000090cb0348826074" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfVertexModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QfVertexModel::clear</qualifiedname>
+        <briefdescription>
+<para>This will clear the data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="179" column="22" bodyfile="src/core/qfvertexmodel.cpp" bodystart="522" bodyend="535"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a2d98282ac68b0ebdf27576596cc2bc9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfVertexModel::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>QfVertexModel::reset</qualifiedname>
+        <briefdescription>
+<para>Reset the model to its original geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="182" column="22" bodyfile="src/core/qfvertexmodel.cpp" bodystart="537" bodyend="540"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a01537e28d4f42f3ca11511f2606277de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfVertexModel::previous</definition>
+        <argsstring>()</argsstring>
+        <name>previous</name>
+        <qualifiedname>QfVertexModel::previous</qualifiedname>
+        <briefdescription>
+<para>previous vertex or segment </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="185" column="22" bodyfile="src/core/qfvertexmodel.cpp" bodystart="542" bodyend="580"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a64e46118a49cd8202444c5dbe8bc3cae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfVertexModel::next</definition>
+        <argsstring>()</argsstring>
+        <name>next</name>
+        <qualifiedname>QfVertexModel::next</qualifiedname>
+        <briefdescription>
+<para>next vertex or segment </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="188" column="22" bodyfile="src/core/qfvertexmodel.cpp" bodystart="582" bodyend="602"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1ac750bd676a7bd94d06796f6584021df4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfVertexModel::selectVertexAtPosition</definition>
+        <argsstring>(const QPointF &amp;point, double threshold, bool autoInsert=true)</argsstring>
+        <name>selectVertexAtPosition</name>
+        <qualifiedname>QfVertexModel::selectVertexAtPosition</qualifiedname>
+        <param>
+          <type>const QPointF &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>threshold</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>autoInsert</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Selects the vertex at the given screen <emphasis>point</emphasis> within a given <emphasis>threshold</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="191" column="22" bodyfile="src/core/qfvertexmodel.cpp" bodystart="632" bodyend="636"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1aa1cd71d36e54919970b922916fa9d31b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::selectVertexAtPosition</definition>
+        <argsstring>(const QgsPoint &amp;mapPoint, double threshold, bool autoInsert=true)</argsstring>
+        <name>selectVertexAtPosition</name>
+        <qualifiedname>QfVertexModel::selectVertexAtPosition</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>mapPoint</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>threshold</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>autoInsert</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Selects the vertex at the given <emphasis>mapPoint</emphasis> within a given <emphasis>threshold</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="194" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="638" bodyend="683"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a6b582203cc5df270d2c851b0968ff2ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfVertexModel::addVertexNearestToPosition</definition>
+        <argsstring>(const QgsPoint &amp;mapPoint)</argsstring>
+        <name>addVertexNearestToPosition</name>
+        <qualifiedname>QfVertexModel::addVertexNearestToPosition</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>mapPoint</declname>
+        </param>
+        <briefdescription>
+<para>Adds a new vertex on the segment having its mid-point nearest to the <emphasis>mapPoint</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="197" column="22" bodyfile="src/core/qfvertexmodel.cpp" bodystart="604" bodyend="630"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a28a4334a5ec6ef2233b7a0625ea48135" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfVertexModel::removeCurrentVertex</definition>
+        <argsstring>()</argsstring>
+        <name>removeCurrentVertex</name>
+        <qualifiedname>QfVertexModel::removeCurrentVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="199" column="22" bodyfile="src/core/qfvertexmodel.cpp" bodystart="685" bodyend="711"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1aecd4a6064cd1446cf2b3e23aff0ddd9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfVertexModel::updateGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;geometry)</argsstring>
+        <name>updateGeometry</name>
+        <qualifiedname>QfVertexModel::updateGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sets the geometry to the given <emphasis>geometry</emphasis> but preserves the index of the current vertex this is used to update the original geometry while still editing the model <simplesect kind="see"><para><computeroutput><ref refid="classQfVertexModel_1a9c595f7351682f3c218ed21152edbaf9" kindref="member">geometry</ref></computeroutput> property </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="207" column="22" bodyfile="src/core/qfvertexmodel.cpp" bodystart="713" bodyend="719"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a8e6aaddffd647bf0e9c28a9393e8dd2e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>EditingMode</type>
+        <definition>QfVertexModel::EditingMode QfVertexModel::editingMode</definition>
+        <argsstring>() const</argsstring>
+        <name>editingMode</name>
+        <qualifiedname>QfVertexModel::editingMode</qualifiedname>
+        <briefdescription>
+<para>The current mode.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="210" column="17" bodyfile="src/core/qfvertexmodel.cpp" bodystart="721" bodyend="724"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a2757cd410521656677f64bc2267109b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::setEditingMode</definition>
+        <argsstring>(EditingMode mode)</argsstring>
+        <name>setEditingMode</name>
+        <qualifiedname>QfVertexModel::setEditingMode</qualifiedname>
+        <param>
+          <type>EditingMode</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>The current mode.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="212" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="1080" bodyend="1125"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a19bff7d21d67bb511ec88780a8ab658d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfVertexModel::currentPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>currentPoint</name>
+        <qualifiedname>QfVertexModel::currentPoint</qualifiedname>
+        <briefdescription>
+<para>The current point being edited.   </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classQfVertexModel_1a5efabc940f269d15dca0fb5022f73084" kindref="member">editingMode</ref>. The expected CRS to read/write is the map canvas CRS   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="215" column="14" bodyfile="src/core/qfvertexmodel.cpp" bodystart="726" bodyend="729"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a05fbb212d169399618833b48d2d41c5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::setCurrentPoint</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>setCurrentPoint</name>
+        <qualifiedname>QfVertexModel::setCurrentPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+<para>The current point being edited.   </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classQfVertexModel_1a5efabc940f269d15dca0fb5022f73084" kindref="member">editingMode</ref>. The expected CRS to read/write is the map canvas CRS   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="217" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="731" bodyend="789"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a8df50c00fb5824044b143bb59fef8ef9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfVertexModel::vertexCount</definition>
+        <argsstring>() const</argsstring>
+        <name>vertexCount</name>
+        <qualifiedname>QfVertexModel::vertexCount</qualifiedname>
+        <briefdescription>
+<para>number of vertices in the model   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="220" column="9" bodyfile="src/core/qfvertexmodel.cpp" bodystart="845" bodyend="848"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a7ea17d7b44fbe2c786c3d9da7c57f9cf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfVertexModel::ringCount</definition>
+        <argsstring>() const</argsstring>
+        <name>ringCount</name>
+        <qualifiedname>QfVertexModel::ringCount</qualifiedname>
+        <briefdescription>
+<para>number of rings in the model   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="222" column="9" bodyfile="src/core/qfvertexmodel.cpp" bodystart="850" bodyend="853"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a77e38d5dde1010c0441c41f5c0eacb1d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfVertexModel::dirty</definition>
+        <argsstring>() const</argsstring>
+        <name>dirty</name>
+        <qualifiedname>QfVertexModel::dirty</qualifiedname>
+        <briefdescription>
+<para>determines if the model has changes   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="225" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="855" bodyend="858"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a53f1ca5f9938370962de5338d0907eda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfVertexModel::canRemoveVertex</definition>
+        <argsstring>()</argsstring>
+        <name>canRemoveVertex</name>
+        <qualifiedname>QfVertexModel::canRemoveVertex</qualifiedname>
+        <briefdescription>
+<para>determines if one can remove current vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="228" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a8b994df07ab8d5ea05306a9327a80783" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfVertexModel::canAddVertex</definition>
+        <argsstring>()</argsstring>
+        <name>canAddVertex</name>
+        <qualifiedname>QfVertexModel::canAddVertex</qualifiedname>
+        <briefdescription>
+<para>determines if one can add vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="230" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a8f55ff72d05f098da0949f45589624d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfVertexModel::canPreviousVertex</definition>
+        <argsstring>()</argsstring>
+        <name>canPreviousVertex</name>
+        <qualifiedname>QfVertexModel::canPreviousVertex</qualifiedname>
+        <briefdescription>
+<para>determines if one can go to previous vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="232" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a269a03d62c8608c92c37882372fd4444" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfVertexModel::canNextVertex</definition>
+        <argsstring>()</argsstring>
+        <name>canNextVertex</name>
+        <qualifiedname>QfVertexModel::canNextVertex</qualifiedname>
+        <briefdescription>
+<para>determines if one can go to next vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="234" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a4927095d7628c75074eec82ae214466e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qgis::GeometryType</type>
+        <definition>Qgis::GeometryType QfVertexModel::geometryType</definition>
+        <argsstring>() const</argsstring>
+        <name>geometryType</name>
+        <qualifiedname>QfVertexModel::geometryType</qualifiedname>
+        <briefdescription>
+<para>Returns the geometry type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="237" column="24" bodyfile="src/core/qfvertexmodel.cpp" bodystart="1075" bodyend="1078"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a596dc82923b767e291e21c82655cc72a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt; QgsPoint &gt; QfVertexModel::flatVertices</definition>
+        <argsstring>(int ringId=-1) const</argsstring>
+        <name>flatVertices</name>
+        <qualifiedname>QfVertexModel::flatVertices</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ringId</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of point (segment vertex, if any, will be skipped) For a polygon, if ringId is not given the current ring will be returned </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="241" column="13" bodyfile="src/core/qfvertexmodel.cpp" bodystart="880" bodyend="900"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a288ef3c5c859f341d9fd9c23f8772521" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt; QgsPoint &gt; QfVertexModel::verticesAdded</definition>
+        <argsstring>() const</argsstring>
+        <name>verticesAdded</name>
+        <qualifiedname>QfVertexModel::verticesAdded</qualifiedname>
+        <briefdescription>
+<para>Returns a list of added vertices not found in linked geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="244" column="13" bodyfile="src/core/qfvertexmodel.cpp" bodystart="902" bodyend="915"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1aa25929c5d2a0fc199bd7e8cc3e570a73" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QPair&lt; QgsPoint, QgsPoint &gt; &gt;</type>
+        <definition>QVector&lt; QPair&lt; QgsPoint, QgsPoint &gt; &gt; QfVertexModel::verticesMoved</definition>
+        <argsstring>() const</argsstring>
+        <name>verticesMoved</name>
+        <qualifiedname>QfVertexModel::verticesMoved</qualifiedname>
+        <briefdescription>
+<para>Returns a list of moved vertices found in linked geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="247" column="13" bodyfile="src/core/qfvertexmodel.cpp" bodystart="929" bodyend="948"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1ab6f6c807c30d088b531e28b4b00a20a3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; QgsPoint &gt;</type>
+        <definition>QVector&lt; QgsPoint &gt; QfVertexModel::verticesDeleted</definition>
+        <argsstring>() const</argsstring>
+        <name>verticesDeleted</name>
+        <qualifiedname>QfVertexModel::verticesDeleted</qualifiedname>
+        <briefdescription>
+<para>Returns a list of added vertices not found in linked geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="250" column="13" bodyfile="src/core/qfvertexmodel.cpp" bodystart="917" bodyend="927"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1aa41d7358869610aa81f98e77a74b5b38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="structQfVertexModel_1_1Vertex" kindref="compound">Vertex</ref> &gt;</type>
+        <definition>QList&lt; QfVertexModel::Vertex &gt; QfVertexModel::vertices</definition>
+        <argsstring>() const</argsstring>
+        <name>vertices</name>
+        <qualifiedname>QfVertexModel::vertices</qualifiedname>
+        <briefdescription>
+<para>Returns a list of vertices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="253" column="11" bodyfile="src/core/qfvertexmodel.cpp" bodystart="950" bodyend="953"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a6ad0b5b356fc6d60708339b0093d70ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfVertexModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfVertexModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="255" column="11" bodyfile="src/core/qfvertexmodel.cpp" bodystart="955" bodyend="964"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1af779c15d82cc6e864051657d6dfc3b47" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfVertexModel::currentVertexIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>currentVertexIndex</name>
+        <qualifiedname>QfVertexModel::currentVertexIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="257" column="9" bodyfile="src/core/qfvertexmodel.cpp" bodystart="840" bodyend="843"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a8c4ffed7e825391abfc61312d188fe2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::setCurrentVertexIndex</definition>
+        <argsstring>(qsizetype currentIndex)</argsstring>
+        <name>setCurrentVertexIndex</name>
+        <qualifiedname>QfVertexModel::setCurrentVertexIndex</qualifiedname>
+        <param>
+          <type>qsizetype</type>
+          <declname>currentIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="259" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="829" bodyend="838"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a6e2cf563ef8af9a6b4ac44f362a5dd28" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structQfVertexModel_1_1Vertex" kindref="compound">Vertex</ref></type>
+        <definition>QfVertexModel::Vertex QfVertexModel::vertex</definition>
+        <argsstring>(int row) const</argsstring>
+        <name>vertex</name>
+        <qualifiedname>QfVertexModel::vertex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="261" column="12" bodyfile="src/core/qfvertexmodel.cpp" bodystart="432" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1abd96e4750e067aa94d598519129a4e90" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; <ref refid="structQfVertexModel_1_1VertexChange" kindref="compound">VertexChange</ref> &gt;</type>
+        <definition>QList&lt; QfVertexModel::VertexChange &gt; QfVertexModel::history</definition>
+        <argsstring>(bool transformPoints=false, bool includeAvailableRedos=false) const</argsstring>
+        <name>history</name>
+        <qualifiedname>QfVertexModel::history</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>transformPoints</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>includeAvailableRedos</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="263" column="11" bodyfile="src/core/qfvertexmodel.cpp" bodystart="90" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1aaa1a070e45e9169bebc482b97bf8b979" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::clearHistory</definition>
+        <argsstring>()</argsstring>
+        <name>clearHistory</name>
+        <qualifiedname>QfVertexModel::clearHistory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="265" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="120" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a8b7da74f09ce42a9e6a032bba2e4e7e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::addToHistory</definition>
+        <argsstring>(VertexChangeType type)</argsstring>
+        <name>addToHistory</name>
+        <qualifiedname>QfVertexModel::addToHistory</qualifiedname>
+        <param>
+          <type>VertexChangeType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="267" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="127" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1ae00eac913c550338b911156d8b70c75d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfVertexModel::undoHistory</definition>
+        <argsstring>()</argsstring>
+        <name>undoHistory</name>
+        <qualifiedname>QfVertexModel::undoHistory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="269" column="22" bodyfile="src/core/qfvertexmodel.cpp" bodystart="155" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a9fb2ba5ccd2c67e2ba673dc899aee349" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfVertexModel::canUndo</definition>
+        <argsstring>()</argsstring>
+        <name>canUndo</name>
+        <qualifiedname>QfVertexModel::canUndo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="271" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfVertexModel_1a2671f9b8893ffd67143312b6fe5839f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::editingModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>editingModeChanged</name>
+        <qualifiedname>QfVertexModel::editingModeChanged</qualifiedname>
+        <briefdescription>
+<para>The current mode.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="275" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1a615e5251e6366fc8e6e4996742c35eb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::currentPointChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentPointChanged</name>
+        <qualifiedname>QfVertexModel::currentPointChanged</qualifiedname>
+        <briefdescription>
+<para>The current point being edited.   </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classQfVertexModel_1a5efabc940f269d15dca0fb5022f73084" kindref="member">editingMode</ref>. The expected CRS to read/write is the map canvas CRS   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="277" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1ae62d0ab1b632b3d8de5ad40fd629186a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfVertexModel::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+<para>Map settings is used to define the map canvas CRS and detect any extent change.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="279" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1a104a5e0e03c45733eae7cb8265e70a8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::vertexCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vertexCountChanged</name>
+        <qualifiedname>QfVertexModel::vertexCountChanged</qualifiedname>
+        <briefdescription>
+<para>number of vertices in the model   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="281" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1af2a557611f3bb27778aff7cb4f07dff7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::ringCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>ringCountChanged</name>
+        <qualifiedname>QfVertexModel::ringCountChanged</qualifiedname>
+        <briefdescription>
+<para>number of rings in the model   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="283" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1a736bba1bc703208cfba78328711866c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::dirtyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>dirtyChanged</name>
+        <qualifiedname>QfVertexModel::dirtyChanged</qualifiedname>
+        <briefdescription>
+<para>determines if the model has changes   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="285" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1a17aa66b4924a98d5b9fbcc5fd9ae4e48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::canRemoveVertexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>canRemoveVertexChanged</name>
+        <qualifiedname>QfVertexModel::canRemoveVertexChanged</qualifiedname>
+        <briefdescription>
+<para>determines if one can remove current vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="287" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1a57a83ac03108e330a26a40d9cf636309" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::canAddVertexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>canAddVertexChanged</name>
+        <qualifiedname>QfVertexModel::canAddVertexChanged</qualifiedname>
+        <briefdescription>
+<para>determines if one can add vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="289" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1a56d6188958f7b00a564bf09d40b7704d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::canPreviousVertexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>canPreviousVertexChanged</name>
+        <qualifiedname>QfVertexModel::canPreviousVertexChanged</qualifiedname>
+        <briefdescription>
+<para>determines if one can go to previous vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="291" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1a96eb1b25099d3e695d6cebd7bd9da347" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::canNextVertexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>canNextVertexChanged</name>
+        <qualifiedname>QfVertexModel::canNextVertexChanged</qualifiedname>
+        <briefdescription>
+<para>determines if one can go to next vertex   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="293" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1aa1b60dabb5decef8b8cc4c129237b350" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::currentVertexIndexChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentVertexIndexChanged</name>
+        <qualifiedname>QfVertexModel::currentVertexIndexChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="295" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1a77035f56880aebda4185f175828657aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::crsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>crsChanged</name>
+        <qualifiedname>QfVertexModel::crsChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the coordinate reference system has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="298" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1ae3797d5941ad76f420123cafae999833" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::geometryChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryChanged</name>
+        <qualifiedname>QfVertexModel::geometryChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the geometry has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="301" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1a9accb2ad0152341c0076f34569fda9a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::geometryTypeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>geometryTypeChanged</name>
+        <qualifiedname>QfVertexModel::geometryTypeChanged</qualifiedname>
+        <briefdescription>
+<para>Returns the geometry type.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="304" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfVertexModel_1af882e4b91f03caa1397e7db7fc0b425d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::historyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>historyChanged</name>
+        <qualifiedname>QfVertexModel::historyChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the history has been modified. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="307" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfVertexModel_1a1dcf59698d52e108062167bad142862a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::refreshGeometry</definition>
+        <argsstring>()</argsstring>
+        <name>refreshGeometry</name>
+        <qualifiedname>QfVertexModel::refreshGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="310" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="206" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1ad1bbc3ebb268eac3ed9f4301183a6d2c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::createCandidates</definition>
+        <argsstring>()</argsstring>
+        <name>createCandidates</name>
+        <qualifiedname>QfVertexModel::createCandidates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add the candidates of new vertices (extending or segment) This will not emit the reset signals, it&apos;s up to the caller to do so </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="313" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="279" bodyend="399"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a75b141f3f6f2c05608ba0dc9acd37fa2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::setDirty</definition>
+        <argsstring>(bool dirty)</argsstring>
+        <name>setDirty</name>
+        <qualifiedname>QfVertexModel::setDirty</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>dirty</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="314" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="966" bodyend="973"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1aa73827f95dd8ef85c7da1e9efa011c88" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::updateCanRemoveVertex</definition>
+        <argsstring>()</argsstring>
+        <name>updateCanRemoveVertex</name>
+        <qualifiedname>QfVertexModel::updateCanRemoveVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="315" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="975" bodyend="1005"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a2e64169a4adff02995f606dfde03d3cc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::updateCanAddVertex</definition>
+        <argsstring>()</argsstring>
+        <name>updateCanAddVertex</name>
+        <qualifiedname>QfVertexModel::updateCanAddVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="316" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="1007" bodyend="1016"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1ab734e431d66e4de6510faa96794c7a7b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::updateCanPreviousNextVertex</definition>
+        <argsstring>()</argsstring>
+        <name>updateCanPreviousNextVertex</name>
+        <qualifiedname>QfVertexModel::updateCanPreviousNextVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="317" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="1018" bodyend="1064"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a6cd283d6177335859cd4cc917f61d386" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::setGeometryType</definition>
+        <argsstring>(const Qgis::GeometryType &amp;geometryType)</argsstring>
+        <name>setGeometryType</name>
+        <qualifiedname>QfVertexModel::setGeometryType</qualifiedname>
+        <param>
+          <type>const Qgis::GeometryType &amp;</type>
+          <declname>geometryType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="318" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="1066" bodyend="1073"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVertexModel_1a6b6f73eb11ebc694773b9cf11c047b44" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVertexModel::setCurrentVertex</definition>
+        <argsstring>(qsizetype newVertex, bool forceUpdate=false)</argsstring>
+        <name>setCurrentVertex</name>
+        <qualifiedname>QfVertexModel::setCurrentVertex</qualifiedname>
+        <param>
+          <type>qsizetype</type>
+          <declname>newVertex</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>forceUpdate</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>setCurrentVertex set the current vertex viewed/edited in the model </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newVertex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new vertex index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>forceUpdate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true, it will force to update all vertices and emit signal </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="338" column="10" bodyfile="src/core/qfvertexmodel.cpp" bodystart="791" bodyend="827"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classQfVertexModel" kindref="compound">QfVertexModel</ref> class is a model to highlight and edit vertices. The model is used in map coordinates. There are different modes: no editing, edit (move/remove) nodes, add nodes (to be implemented)</para>
+<para>The model holds all vertices and the candidates for new vertices. If you need the existing nodes, use <ref refid="classQfVertexModel_1a596dc82923b767e291e21c82655cc72a" kindref="member">flatVertices()</ref>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfVertexModel</label>
+        <link refid="classQfVertexModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfVertexModel</label>
+        <link refid="classQfVertexModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfvertexmodel.h" line="37" column="1" bodyfile="src/core/qfvertexmodel.h" bodystart="38" bodyend="358"/>
+    <listofallmembers>
+      <member refid="classQfVertexModel_1a8b7da74f09ce42a9e6a032bba2e4e7e1" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>addToHistory</name></member>
+      <member refid="classQfVertexModel_1a136c8cb9d3cf02302eb3bbbef60b7059ae13ff6e7d7f0a15f9dd1383fe0be8053" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>AddVertex</name></member>
+      <member refid="classQfVertexModel_1a6b582203cc5df270d2c851b0968ff2ea" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>addVertexNearestToPosition</name></member>
+      <member refid="classQfVertexModel_1a97d78d1ded36f990832f2945f6440d02" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canAddVertex</name></member>
+      <member refid="classQfVertexModel_1a8b994df07ab8d5ea05306a9327a80783" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canAddVertex</name></member>
+      <member refid="classQfVertexModel_1a57a83ac03108e330a26a40d9cf636309" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canAddVertexChanged</name></member>
+      <member refid="classQfVertexModel_1aea9067f911ac5eb2828376d9795b3377" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canNextVertex</name></member>
+      <member refid="classQfVertexModel_1a269a03d62c8608c92c37882372fd4444" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canNextVertex</name></member>
+      <member refid="classQfVertexModel_1a96eb1b25099d3e695d6cebd7bd9da347" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canNextVertexChanged</name></member>
+      <member refid="classQfVertexModel_1ad3846fe79d222562b2ad90d6b0564010" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canPreviousVertex</name></member>
+      <member refid="classQfVertexModel_1a8f55ff72d05f098da0949f45589624d4" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canPreviousVertex</name></member>
+      <member refid="classQfVertexModel_1a56d6188958f7b00a564bf09d40b7704d" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canPreviousVertexChanged</name></member>
+      <member refid="classQfVertexModel_1a451e72e6eb8b5359b0ec8b1fadaed596" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canRemoveVertex</name></member>
+      <member refid="classQfVertexModel_1a53f1ca5f9938370962de5338d0907eda" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canRemoveVertex</name></member>
+      <member refid="classQfVertexModel_1a17aa66b4924a98d5b9fbcc5fd9ae4e48" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canRemoveVertexChanged</name></member>
+      <member refid="classQfVertexModel_1ae8a52a7f6a123deffcf9eeb237ec88aa" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canUndo</name></member>
+      <member refid="classQfVertexModel_1a9fb2ba5ccd2c67e2ba673dc899aee349" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>canUndo</name></member>
+      <member refid="classQfVertexModel_1acc9c558992f70f000090cb0348826074" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>clear</name></member>
+      <member refid="classQfVertexModel_1aaa1a070e45e9169bebc482b97bf8b979" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>clearHistory</name></member>
+      <member refid="classQfVertexModel_1a7f050c6aa6ecfd3d6005a5ba22d89b52" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>columnCount</name></member>
+      <member refid="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bc" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>ColumnRole</name></member>
+      <member refid="classQfVertexModel_1ad1bbc3ebb268eac3ed9f4301183a6d2c" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>createCandidates</name></member>
+      <member refid="classQfVertexModel_1a11189a27d77c150c961dee40cdc5ea4c" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>crs</name></member>
+      <member refid="classQfVertexModel_1aaa7f3428c44fb17cd4dd4fe5ae6eda26" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>crs</name></member>
+      <member refid="classQfVertexModel_1a77035f56880aebda4185f175828657aa" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>crsChanged</name></member>
+      <member refid="classQfVertexModel_1a9f4bbdb377b3e5852036a479abea7991" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>currentPoint</name></member>
+      <member refid="classQfVertexModel_1a19bff7d21d67bb511ec88780a8ab658d" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>currentPoint</name></member>
+      <member refid="classQfVertexModel_1a615e5251e6366fc8e6e4996742c35eb5" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>currentPointChanged</name></member>
+      <member refid="classQfVertexModel_1ab3badb0182d17b01c360dc70ed035806" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>currentVertexIndex</name></member>
+      <member refid="classQfVertexModel_1af779c15d82cc6e864051657d6dfc3b47" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>currentVertexIndex</name></member>
+      <member refid="classQfVertexModel_1aa1b60dabb5decef8b8cc4c129237b350" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>currentVertexIndexChanged</name></member>
+      <member refid="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bcafaea6dee407ffdc42cdcd0eb9e7fda6e" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>CurrentVertexRole</name></member>
+      <member refid="classQfVertexModel_1a4a818a4b5f8cdbee4e0a2b8fb2e7d8c5" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>data</name></member>
+      <member refid="classQfVertexModel_1a759af1b00a992aa4f4655108723e035e" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>dirty</name></member>
+      <member refid="classQfVertexModel_1a77e38d5dde1010c0441c41f5c0eacb1d" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>dirty</name></member>
+      <member refid="classQfVertexModel_1a736bba1bc703208cfba78328711866c4" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>dirtyChanged</name></member>
+      <member refid="classQfVertexModel_1a89d0fc3297629807268b587706158a23" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>editingAllowed</name></member>
+      <member refid="classQfVertexModel_1a9cef4f2b91ab0de8a986e893e76aaa5c" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>editingAllowed</name></member>
+      <member refid="classQfVertexModel_1a5efabc940f269d15dca0fb5022f73084" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>editingMode</name></member>
+      <member refid="classQfVertexModel_1a8e6aaddffd647bf0e9c28a9393e8dd2e" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>editingMode</name></member>
+      <member refid="classQfVertexModel_1a136c8cb9d3cf02302eb3bbbef60b7059" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>EditingMode</name></member>
+      <member refid="classQfVertexModel_1a2671f9b8893ffd67143312b6fe5839f0" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>editingModeChanged</name></member>
+      <member refid="classQfVertexModel_1a136c8cb9d3cf02302eb3bbbef60b7059a0505f8d3dd25305c11be2b0630048aec" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>EditVertex</name></member>
+      <member refid="classQfVertexModel_1a509d940011a9982af1db00f4ae72c697a043634359f1cfaaf39440a50791159a5" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>ExistingVertex</name></member>
+      <member refid="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bca50c7a36ffcb2b0a7e65c5480c2bd27d1" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>ExistingVertexRole</name></member>
+      <member refid="classQfVertexModel_1a596dc82923b767e291e21c82655cc72a" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>flatVertices</name></member>
+      <member refid="classQfVertexModel_1a9c595f7351682f3c218ed21152edbaf9" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>geometry</name></member>
+      <member refid="classQfVertexModel_1ad770cec98f72a8b1e5d7fd9f13714c56" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>geometry</name></member>
+      <member refid="classQfVertexModel_1ae3797d5941ad76f420123cafae999833" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>geometryChanged</name></member>
+      <member refid="classQfVertexModel_1a4927095d7628c75074eec82ae214466e" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>geometryType</name></member>
+      <member refid="classQfVertexModel_1a9accb2ad0152341c0076f34569fda9a0" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>geometryTypeChanged</name></member>
+      <member refid="classQfVertexModel_1abd96e4750e067aa94d598519129a4e90" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>history</name></member>
+      <member refid="classQfVertexModel_1af882e4b91f03caa1397e7db7fc0b425d" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>historyChanged</name></member>
+      <member refid="classQfVertexModel_1a7d0a192a74f5d5b3b780c057fa32385c" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>index</name></member>
+      <member refid="classQfVertexModel_1ad39b408c139fb1c226e57f8f7fa6cc6b" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>isHovering</name></member>
+      <member refid="classQfVertexModel_1a6f0bdbf734de6b94f27cc889873c10da" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>mapSettings</name></member>
+      <member refid="classQfVertexModel_1a8f54ebf8c0f6c7e1893a456ff6a3fd6a" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>mapSettings</name></member>
+      <member refid="classQfVertexModel_1ae62d0ab1b632b3d8de5ad40fd629186a" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfVertexModel_1a2da3b03d5aa43940355da8b66d2588a1" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mCanAddVertex</name></member>
+      <member refid="classQfVertexModel_1a1094ae8e4a02ea03cb8d7e4b760fb02b" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mCanNextVertex</name></member>
+      <member refid="classQfVertexModel_1a91664d37e76752194017e8ab6cddf1e7" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mCanPreviousVertex</name></member>
+      <member refid="classQfVertexModel_1a7e760e045d7303074a85b9b11c3b4039" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mCanRemoveVertex</name></member>
+      <member refid="classQfVertexModel_1a324208e8e26b5ce9b75b9f8d58171fc9" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mCrs</name></member>
+      <member refid="classQfVertexModel_1ac9c28efabff6340acac43c1f6404a0d3" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mCurrentIndex</name></member>
+      <member refid="classQfVertexModel_1ac57f84f8f644d18c65c3ac63b2b01b86" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mDirty</name></member>
+      <member refid="classQfVertexModel_1a16c738b591f5af57439e511a156d6b94" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mGeometryType</name></member>
+      <member refid="classQfVertexModel_1abe774f754b86ee0f0c8c5671cf30a1d1" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mGeometryWkbType</name></member>
+      <member refid="classQfVertexModel_1ae23440871bdb8e763ec6b7f6897d8cb8" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mHistory</name></member>
+      <member refid="classQfVertexModel_1ae3c92d149ed152edbb9855ddd10325a2" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mHistoryIndex</name></member>
+      <member refid="classQfVertexModel_1a0725b58c8367ae9e749bab6e9c9e7fa5" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mHistoryTraversing</name></member>
+      <member refid="classQfVertexModel_1a48e47855864a3f3815b903e7dc00e6c1" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mIsHovering</name></member>
+      <member refid="classQfVertexModel_1a44c95e5d009b422bf473ac2dcc158421" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mIsMulti</name></member>
+      <member refid="classQfVertexModel_1ab742074c2c95007dfef115f122662088" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mMapSettings</name></member>
+      <member refid="classQfVertexModel_1a24a70ec6d35a7c66fa9b7a58cc410d80" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mMode</name></member>
+      <member refid="classQfVertexModel_1aa942f5c8dc3904a67465060fdc3c8875" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mOriginalGeometry</name></member>
+      <member refid="classQfVertexModel_1a04ba8d200ddfeba6bdeb7814bfbb3482" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mRingCount</name></member>
+      <member refid="classQfVertexModel_1a4b234382beb32612d52585d3c6ad6acc" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mTransform</name></member>
+      <member refid="classQfVertexModel_1a5da194ef24b5c3772137d62eed1c2073" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mVertices</name></member>
+      <member refid="classQfVertexModel_1a5ea0deaa37cc9f620535a3a95e0b815f" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>mVerticesDeleted</name></member>
+      <member refid="classQfVertexModel_1a509d940011a9982af1db00f4ae72c697a4d5dcf3532336f3bd8b226dcda0c3e75" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>NewVertexExtending</name></member>
+      <member refid="classQfVertexModel_1a509d940011a9982af1db00f4ae72c697a363efc80f270a7d88d0cd370ef4652c5" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>NewVertexSegment</name></member>
+      <member refid="classQfVertexModel_1a64e46118a49cd8202444c5dbe8bc3cae" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>next</name></member>
+      <member refid="classQfVertexModel_1a07d09bcac93c34cb7a17eabf45926d84acb2fe3123da164a023b4df4e954ceb7b" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>NoChange</name></member>
+      <member refid="classQfVertexModel_1a136c8cb9d3cf02302eb3bbbef60b7059a235e70d73798ca48e2fa2e176e5296f8" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>NoEditing</name></member>
+      <member refid="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bca2155a035c2cea12880b2f8f054856225" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>OriginalPointRole</name></member>
+      <member refid="classQfVertexModel_1a0c5267a889858ee4f41a96bc0f448f09" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>parent</name></member>
+      <member refid="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bca374a0980afdb9dfc6eda17bb63cd493b" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>PointRole</name></member>
+      <member refid="classQfVertexModel_1a509d940011a9982af1db00f4ae72c697" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>PointType</name></member>
+      <member refid="classQfVertexModel_1a01537e28d4f42f3ca11511f2606277de" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>previous</name></member>
+      <member refid="classQfVertexModel_1a0f7757c73fcc4a52266a93148984d26a" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>QfVertexModel</name></member>
+      <member refid="classQfVertexModel_1a1dcf59698d52e108062167bad142862a" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>refreshGeometry</name></member>
+      <member refid="classQfVertexModel_1a28a4334a5ec6ef2233b7a0625ea48135" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>removeCurrentVertex</name></member>
+      <member refid="classQfVertexModel_1a2d98282ac68b0ebdf27576596cc2bc9d" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>reset</name></member>
+      <member refid="classQfVertexModel_1a3fbec0c96f180272ea10d4299b568418" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>ringCount</name></member>
+      <member refid="classQfVertexModel_1a7ea17d7b44fbe2c786c3d9da7c57f9cf" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>ringCount</name></member>
+      <member refid="classQfVertexModel_1af2a557611f3bb27778aff7cb4f07dff7" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>ringCountChanged</name></member>
+      <member refid="classQfVertexModel_1a6fe76d8a2cc5b53bb7b36b5ee55633bca4694a84d5e55304ba0507e2332b019c8" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>RingIdRole</name></member>
+      <member refid="classQfVertexModel_1a6ad0b5b356fc6d60708339b0093d70ac" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>roleNames</name></member>
+      <member refid="classQfVertexModel_1a1a6860a58f0b8c1d1bcd369417bae47a" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>rowCount</name></member>
+      <member refid="classQfVertexModel_1ac750bd676a7bd94d06796f6584021df4" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>selectVertexAtPosition</name></member>
+      <member refid="classQfVertexModel_1aa1cd71d36e54919970b922916fa9d31b" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>selectVertexAtPosition</name></member>
+      <member refid="classQfVertexModel_1a2a019969e9e763569e1597113db98f0f" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>setCrs</name></member>
+      <member refid="classQfVertexModel_1a05fbb212d169399618833b48d2d41c5b" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>setCurrentPoint</name></member>
+      <member refid="classQfVertexModel_1a6b6f73eb11ebc694773b9cf11c047b44" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>setCurrentVertex</name></member>
+      <member refid="classQfVertexModel_1a8c4ffed7e825391abfc61312d188fe2c" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>setCurrentVertexIndex</name></member>
+      <member refid="classQfVertexModel_1a75b141f3f6f2c05608ba0dc9acd37fa2" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>setDirty</name></member>
+      <member refid="classQfVertexModel_1a2757cd410521656677f64bc2267109b1" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>setEditingMode</name></member>
+      <member refid="classQfVertexModel_1a7b8faddd6684ea71e13bced4e321d7fc" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>setGeometry</name></member>
+      <member refid="classQfVertexModel_1a6cd283d6177335859cd4cc917f61d386" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>setGeometryType</name></member>
+      <member refid="classQfVertexModel_1afe4132e348a1d6d4081fea3485cf8050" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>setMapSettings</name></member>
+      <member refid="classQfVertexModel_1ae00eac913c550338b911156d8b70c75d" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>undoHistory</name></member>
+      <member refid="classQfVertexModel_1a2e64169a4adff02995f606dfde03d3cc" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>updateCanAddVertex</name></member>
+      <member refid="classQfVertexModel_1ab734e431d66e4de6510faa96794c7a7b" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>updateCanPreviousNextVertex</name></member>
+      <member refid="classQfVertexModel_1aa73827f95dd8ef85c7da1e9efa011c88" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>updateCanRemoveVertex</name></member>
+      <member refid="classQfVertexModel_1aecd4a6064cd1446cf2b3e23aff0ddd9f" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>updateGeometry</name></member>
+      <member refid="classQfVertexModel_1a6e2cf563ef8af9a6b4ac44f362a5dd28" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>vertex</name></member>
+      <member refid="classQfVertexModel_1a07d09bcac93c34cb7a17eabf45926d84a60d1489b92d076333414b96159a7eee4" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>VertexAddition</name></member>
+      <member refid="classQfVertexModel_1a07d09bcac93c34cb7a17eabf45926d84" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>VertexChangeType</name></member>
+      <member refid="classQfVertexModel_1a5b356fba22d3717f43060840537aae38" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>vertexCount</name></member>
+      <member refid="classQfVertexModel_1a8df50c00fb5824044b143bb59fef8ef9" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>vertexCount</name></member>
+      <member refid="classQfVertexModel_1a104a5e0e03c45733eae7cb8265e70a8b" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>vertexCountChanged</name></member>
+      <member refid="classQfVertexModel_1a07d09bcac93c34cb7a17eabf45926d84a7da97c8b5e3884be39002cdefdcb6837" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>VertexDeletion</name></member>
+      <member refid="classQfVertexModel_1a4c0201b2090d5e9b68261618b84a889a" prot="private" virt="non-virtual"><scope>QfVertexModel</scope><name>VertexModelTest</name></member>
+      <member refid="classQfVertexModel_1a07d09bcac93c34cb7a17eabf45926d84a432d391f47147bee339bca9732706c4b" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>VertexMove</name></member>
+      <member refid="classQfVertexModel_1aa41d7358869610aa81f98e77a74b5b38" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>vertices</name></member>
+      <member refid="classQfVertexModel_1a288ef3c5c859f341d9fd9c23f8772521" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>verticesAdded</name></member>
+      <member refid="classQfVertexModel_1ab6f6c807c30d088b531e28b4b00a20a3" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>verticesDeleted</name></member>
+      <member refid="classQfVertexModel_1aa25929c5d2a0fc199bd7e8cc3e570a73" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>verticesMoved</name></member>
+      <member refid="classQfVertexModel_1af523e71a8e01496ef325eee535d63799" prot="public" virt="non-virtual"><scope>QfVertexModel</scope><name>~QfVertexModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

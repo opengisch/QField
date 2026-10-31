@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudAttachmentsHistory" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudAttachmentsHistory</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudAttachmentsHistory_1ae3bf60bbad8564645e6e3a939e7eccc0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCloudAttachmentsHistory::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfCloudAttachmentsHistory::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="12" column="1" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1a1f1b03187ec2e89d18ab1b484c6bbde9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudAttachmentsHistory::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfCloudAttachmentsHistory::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="14" column="5" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1a882db99bf751d1685a6eb4ca583022a7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudAttachmentsHistory::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfCloudAttachmentsHistory::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="15" column="5" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1a2043811cfd9582a9dcf02c52c45e7f0c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudAttachmentsHistory::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfCloudAttachmentsHistory::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="16" column="5" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1a2e476a69724cacfb57f315ad27c9054d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudAttachmentsHistory::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfCloudAttachmentsHistory::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="17" column="5" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1ab6c1f36f5095fb8432ce47641885cedd" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudAttachmentsHistory::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfCloudAttachmentsHistory::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="18" column="5" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1a8504ba9d8e244598a477cdff7ef61c45" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudAttachmentsHistory::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCloudAttachmentsHistory::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="19" column="5" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1a401c329632890cf6dd0c9ce0f39e830a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudAttachmentsHistory::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCloudAttachmentsHistory::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="20" column="5" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1a39ee8b8144700c045ea7a9b1e8e96195" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudAttachmentsHistory::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>QfCloudAttachmentsHistory::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="21" column="5" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1a974d926057c763abe2e20136aba94597" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudAttachmentsHistory::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>QfCloudAttachmentsHistory::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="22" column="5" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1a84c3a3a3b2139c977b6e9e623a1cd7d7" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page QfCloudAttachmentsHistory::page</definition>
+        <argsstring></argsstring>
+        <name>page</name>
+        <qualifiedname>QfCloudAttachmentsHistory::page</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="23" column="6" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1a1a4d95ae44775bd094a3b5507fd808be" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfCloudAttachmentsHistory::emptyLabel</definition>
+        <argsstring></argsstring>
+        <name>emptyLabel</name>
+        <qualifiedname>QfCloudAttachmentsHistory::emptyLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="24" column="7" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsHistory_1ac17c334177754f563d2a503985b8101a" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfCloudAttachmentsHistory::attachmentsList</definition>
+        <argsstring></argsstring>
+        <name>attachmentsList</name>
+        <qualifiedname>QfCloudAttachmentsHistory::attachmentsList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="25" column="10" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCloudAttachmentsHistory_1a87651ca70dd20722bf66e9835580756a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsHistory::attachmentStatusColor</definition>
+        <argsstring>(status)</argsstring>
+        <name>attachmentStatusColor</name>
+        <qualifiedname>QfCloudAttachmentsHistory::attachmentStatusColor</qualifiedname>
+        <param>
+          <type>status</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="28" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsHistory_1a4a9c0e58e4cb3fd13d1a8cbd4a5b4463" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsHistory::attachmentStatusLabel</definition>
+        <argsstring>(status, timestamp)</argsstring>
+        <name>attachmentStatusLabel</name>
+        <qualifiedname>QfCloudAttachmentsHistory::attachmentStatusLabel</qualifiedname>
+        <param>
+          <type>status</type>
+        </param>
+        <param>
+          <type>timestamp</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsHistory_1a3b49bcf1e23aa60ca0c368755e00c4f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsHistory::attachmentStatusIcon</definition>
+        <argsstring>(status)</argsstring>
+        <name>attachmentStatusIcon</name>
+        <qualifiedname>QfCloudAttachmentsHistory::attachmentStatusIcon</qualifiedname>
+        <param>
+          <type>status</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsHistory_1a0df33d40ca3d0271637395524af89392" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsHistory::attachmentFailureReason</definition>
+        <argsstring>(httpCode)</argsstring>
+        <name>attachmentFailureReason</name>
+        <qualifiedname>QfCloudAttachmentsHistory::attachmentFailureReason</qualifiedname>
+        <param>
+          <type>httpCode</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="34" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfCloudAttachmentsHistory</label>
+        <link refid="classQfCloudAttachmentsHistory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfCloudAttachmentsHistory</label>
+        <link refid="classQfCloudAttachmentsHistory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfCloudAttachmentsHistory.qml" line="9" column="1" bodyfile="src/app/qml/QfCloudAttachmentsHistory.qml" bodystart="9" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classQfCloudAttachmentsHistory_1a0df33d40ca3d0271637395524af89392" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>attachmentFailureReason</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1ac17c334177754f563d2a503985b8101a" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>attachmentsList</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a87651ca70dd20722bf66e9835580756a" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>attachmentStatusColor</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a3b49bcf1e23aa60ca0c368755e00c4f0" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>attachmentStatusIcon</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a4a9c0e58e4cb3fd13d1a8cbd4a5b4463" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>attachmentStatusLabel</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a2e476a69724cacfb57f315ad27c9054d" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>closePolicy</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a1a4d95ae44775bd094a3b5507fd808be" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>emptyLabel</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1ab6c1f36f5095fb8432ce47641885cedd" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>focus</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a401c329632890cf6dd0c9ce0f39e830a" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>height</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1ae3bf60bbad8564645e6e3a939e7eccc0" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>model</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a39ee8b8144700c045ea7a9b1e8e96195" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>onAboutToShow</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a974d926057c763abe2e20136aba94597" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>onClosed</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a84c3a3a3b2139c977b6e9e623a1cd7d7" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>page</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a1f1b03187ec2e89d18ab1b484c6bbde9" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>parent</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a8504ba9d8e244598a477cdff7ef61c45" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>width</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a882db99bf751d1685a6eb4ca583022a7" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>x</name></member>
+      <member refid="classQfCloudAttachmentsHistory_1a2043811cfd9582a9dcf02c52c45e7f0c" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsHistory</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

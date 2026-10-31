@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMessageLogModel" kind="class" language="C++" prot="public">
+    <compoundname>QfMessageLogModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="qfmessagelogmodel_8h" local="no">qfmessagelogmodel.h</includes>
+    <innerclass refid="structQfMessageLogModel_1_1LogMessage" prot="private">QfMessageLogModel::LogMessage</innerclass>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classQfMessageLogModel_1ad710b0a0e2271e4cca6e3210aa712f09" prot="private" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>QfMessageLogModel::Roles</qualifiedname>
+        <enumvalue id="classQfMessageLogModel_1ad710b0a0e2271e4cca6e3210aa712f09a1aa3a7d7eba7e4c739359ee4b3cd7e25" prot="private">
+          <name>MessageRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfMessageLogModel_1ad710b0a0e2271e4cca6e3210aa712f09a74bec38758e39b883b2825733900e5bb" prot="private">
+          <name>MessageTagRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfMessageLogModel_1ad710b0a0e2271e4cca6e3210aa712f09a015e9d75f6494df7f452feac518de309" prot="private">
+          <name>MessageLevelRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfMessageLogModel_1ad710b0a0e2271e4cca6e3210aa712f09a71da4ebfe8cbdbd16d696da403dd1925" prot="private">
+          <name>MessageDateTimeRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="51" column="5" bodyfile="src/gui/qfmessagelogmodel.h" bodystart="52" bodyend="57"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMessageLogModel_1a167578d5160db311183b54c42dc6e887" prot="private" static="no" mutable="no">
+        <type>QgsMessageLog *</type>
+        <definition>QgsMessageLog* QfMessageLogModel::mMessageLog</definition>
+        <argsstring></argsstring>
+        <name>mMessageLog</name>
+        <qualifiedname>QfMessageLogModel::mMessageLog</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="79" column="19" bodyfile="src/gui/qfmessagelogmodel.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLogModel_1a295faa52ecf8f2da298302c380ed7dd0" prot="private" static="no" mutable="no">
+        <type>QVector&lt; LogMessage &gt;</type>
+        <definition>QVector&lt;LogMessage&gt; QfMessageLogModel::mMessages</definition>
+        <argsstring></argsstring>
+        <name>mMessages</name>
+        <qualifiedname>QfMessageLogModel::mMessages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="80" column="13" bodyfile="src/gui/qfmessagelogmodel.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMessageLogModel_1a63056d79e0a254d46481b4d4632175bb" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QStringList &gt;</type>
+        <definition>QMap&lt;QString, QStringList&gt; QfMessageLogModel::mSuppressedFilters</definition>
+        <argsstring></argsstring>
+        <name>mSuppressedFilters</name>
+        <qualifiedname>QfMessageLogModel::mSuppressedFilters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="81" column="10" bodyfile="src/gui/qfmessagelogmodel.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfMessageLogModel_1ac2558b8af945c2b914aad0ed9170a174" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfMessageLogModel::QfMessageLogModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfMessageLogModel</name>
+        <qualifiedname>QfMessageLogModel::QfMessageLogModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="60" column="14" bodyfile="src/gui/qfmessagelogmodel.cpp" bodystart="21" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMessageLogModel_1a6efc1d49f5c6482f490553fe6c500ad3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfMessageLogModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfMessageLogModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="62" column="11" bodyfile="src/gui/qfmessagelogmodel.cpp" bodystart="28" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMessageLogModel_1af40809a22e542d47b99a912d24e33cb3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfMessageLogModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfMessageLogModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="64" column="9" bodyfile="src/gui/qfmessagelogmodel.cpp" bodystart="39" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMessageLogModel_1a41bb45c0261a13b80d9c0b6a706d22c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfMessageLogModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfMessageLogModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="65" column="14" bodyfile="src/gui/qfmessagelogmodel.cpp" bodystart="45" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMessageLogModel_1a150571a1a4d1745451368cca9a2285bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfMessageLogModel::suppress</definition>
+        <argsstring>(const QVariantMap &amp;filters)</argsstring>
+        <name>suppress</name>
+        <qualifiedname>QfMessageLogModel::suppress</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>filters</declname>
+        </param>
+        <briefdescription>
+<para>activates suppression of messages with specific tag and an expression </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="68" column="22" bodyfile="src/gui/qfmessagelogmodel.cpp" bodystart="62" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMessageLogModel_1a968d8525463ff651bec0488de0301556" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfMessageLogModel::unsuppress</definition>
+        <argsstring>(const QVariantMap &amp;filters)</argsstring>
+        <name>unsuppress</name>
+        <qualifiedname>QfMessageLogModel::unsuppress</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>filters</declname>
+        </param>
+        <briefdescription>
+<para>deactivates suppression of messages with specific tag and an expression </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="70" column="22" bodyfile="src/gui/qfmessagelogmodel.cpp" bodystart="83" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfMessageLogModel_1aca5b943f70759e4f3faffb0edf585e08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfMessageLogModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QfMessageLogModel::clear</qualifiedname>
+        <briefdescription>
+<para>Clears any messages from the log. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="73" column="22" bodyfile="src/gui/qfmessagelogmodel.cpp" bodystart="102" bodyend="107"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfMessageLogModel_1af1b6a10f19bcd56d1ca9950bb6befb4e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfMessageLogModel::onMessageReceived</definition>
+        <argsstring>(const QString &amp;message, const QString &amp;tag, Qgis::MessageLevel level, Qgis::StringFormat format)</argsstring>
+        <name>onMessageReceived</name>
+        <qualifiedname>QfMessageLogModel::onMessageReceived</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>Qgis::MessageLevel</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>Qgis::StringFormat</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfmessagelogmodel.h" line="76" column="10" bodyfile="src/gui/qfmessagelogmodel.cpp" bodystart="109" bodyend="135"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This model will connect to the message log and publish any messages received from there. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfMessageLogModel</label>
+        <link refid="classQfMessageLogModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfMessageLogModel</label>
+        <link refid="classQfMessageLogModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qfmessagelogmodel.h" line="28" column="1" bodyfile="src/gui/qfmessagelogmodel.h" bodystart="29" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classQfMessageLogModel_1aca5b943f70759e4f3faffb0edf585e08" prot="public" virt="non-virtual"><scope>QfMessageLogModel</scope><name>clear</name></member>
+      <member refid="classQfMessageLogModel_1a41bb45c0261a13b80d9c0b6a706d22c8" prot="public" virt="non-virtual"><scope>QfMessageLogModel</scope><name>data</name></member>
+      <member refid="classQfMessageLogModel_1ad710b0a0e2271e4cca6e3210aa712f09a71da4ebfe8cbdbd16d696da403dd1925" prot="private" virt="non-virtual"><scope>QfMessageLogModel</scope><name>MessageDateTimeRole</name></member>
+      <member refid="classQfMessageLogModel_1ad710b0a0e2271e4cca6e3210aa712f09a015e9d75f6494df7f452feac518de309" prot="private" virt="non-virtual"><scope>QfMessageLogModel</scope><name>MessageLevelRole</name></member>
+      <member refid="classQfMessageLogModel_1ad710b0a0e2271e4cca6e3210aa712f09a1aa3a7d7eba7e4c739359ee4b3cd7e25" prot="private" virt="non-virtual"><scope>QfMessageLogModel</scope><name>MessageRole</name></member>
+      <member refid="classQfMessageLogModel_1ad710b0a0e2271e4cca6e3210aa712f09a74bec38758e39b883b2825733900e5bb" prot="private" virt="non-virtual"><scope>QfMessageLogModel</scope><name>MessageTagRole</name></member>
+      <member refid="classQfMessageLogModel_1a167578d5160db311183b54c42dc6e887" prot="private" virt="non-virtual"><scope>QfMessageLogModel</scope><name>mMessageLog</name></member>
+      <member refid="classQfMessageLogModel_1a295faa52ecf8f2da298302c380ed7dd0" prot="private" virt="non-virtual"><scope>QfMessageLogModel</scope><name>mMessages</name></member>
+      <member refid="classQfMessageLogModel_1a63056d79e0a254d46481b4d4632175bb" prot="private" virt="non-virtual"><scope>QfMessageLogModel</scope><name>mSuppressedFilters</name></member>
+      <member refid="classQfMessageLogModel_1af1b6a10f19bcd56d1ca9950bb6befb4e" prot="private" virt="non-virtual"><scope>QfMessageLogModel</scope><name>onMessageReceived</name></member>
+      <member refid="classQfMessageLogModel_1ac2558b8af945c2b914aad0ed9170a174" prot="public" virt="non-virtual"><scope>QfMessageLogModel</scope><name>QfMessageLogModel</name></member>
+      <member refid="classQfMessageLogModel_1a6efc1d49f5c6482f490553fe6c500ad3" prot="public" virt="non-virtual"><scope>QfMessageLogModel</scope><name>roleNames</name></member>
+      <member refid="classQfMessageLogModel_1ad710b0a0e2271e4cca6e3210aa712f09" prot="private" virt="non-virtual"><scope>QfMessageLogModel</scope><name>Roles</name></member>
+      <member refid="classQfMessageLogModel_1af40809a22e542d47b99a912d24e33cb3" prot="public" virt="non-virtual"><scope>QfMessageLogModel</scope><name>rowCount</name></member>
+      <member refid="classQfMessageLogModel_1a150571a1a4d1745451368cca9a2285bd" prot="public" virt="non-virtual"><scope>QfMessageLogModel</scope><name>suppress</name></member>
+      <member refid="classQfMessageLogModel_1a968d8525463ff651bec0488de0301556" prot="public" virt="non-virtual"><scope>QfMessageLogModel</scope><name>unsuppress</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

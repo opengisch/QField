@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfTemporalProperties" kind="class" language="C++" prot="public">
+    <compoundname>QfTemporalProperties</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <derivedcompoundref refid="classTemporalProperties" prot="public" virt="non-virtual">TemporalProperties</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfTemporalProperties_1ae93c4258037928869a8d459287707141" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfTemporalProperties::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfTemporalProperties::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTemporalProperties.qml" line="13" column="1" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfTemporalProperties_1aeb8fbeb08f39022ef17f39230b6a5f49" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTemporalProperties::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfTemporalProperties::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTemporalProperties.qml" line="15" column="5" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTemporalProperties_1ac72b5597c91a9958fbaea21ad30cd3fc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTemporalProperties::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfTemporalProperties::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTemporalProperties.qml" line="16" column="5" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTemporalProperties_1aa379b64a86acda97c1020eefd2c1fd4a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTemporalProperties::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfTemporalProperties::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTemporalProperties.qml" line="17" column="5" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTemporalProperties_1aad894ac5ae0bd6ffb483963155708845" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTemporalProperties::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfTemporalProperties::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTemporalProperties.qml" line="18" column="5" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTemporalProperties_1ab9c7f1ded319aea798b500c2ab5e308e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTemporalProperties::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfTemporalProperties::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTemporalProperties.qml" line="19" column="5" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTemporalProperties_1af46415433efbb55e92369e8044b695cc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTemporalProperties::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfTemporalProperties::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTemporalProperties.qml" line="20" column="5" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTemporalProperties_1af8045ccf50a9e63582b5eff49e1e58e6" prot="private" static="no" mutable="no">
+        <type>CheckBox</type>
+        <definition>CheckBox QfTemporalProperties::isTemporalCheckBox</definition>
+        <argsstring></argsstring>
+        <name>isTemporalCheckBox</name>
+        <qualifiedname>QfTemporalProperties::isTemporalCheckBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTemporalProperties.qml" line="21" column="10" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTemporalProperties_1ad637ad3752757935e4e61fd30555eb32" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfTemporalProperties::beginField</definition>
+        <argsstring></argsstring>
+        <name>beginField</name>
+        <qualifiedname>QfTemporalProperties::beginField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTemporalProperties.qml" line="22" column="13" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTemporalProperties_1a36563870e3ea3f7e42a7470d9ec46236" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfTemporalProperties::endField</definition>
+        <argsstring></argsstring>
+        <name>endField</name>
+        <qualifiedname>QfTemporalProperties::endField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTemporalProperties.qml" line="23" column="13" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTemporalProperties_1a481595b9e224e3f321789889a006fd5d" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfCalendarPanel" kindref="compound">QfCalendarPanel</ref></type>
+        <definition>QfCalendarPanel QfTemporalProperties::calendarPanel</definition>
+        <argsstring></argsstring>
+        <name>calendarPanel</name>
+        <qualifiedname>QfTemporalProperties::calendarPanel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTemporalProperties.qml" line="24" column="17" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfTemporalProperties</label>
+        <link refid="classQfTemporalProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>TemporalProperties</label>
+        <link refid="classTemporalProperties"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfTemporalProperties</label>
+        <link refid="classQfTemporalProperties"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfTemporalProperties.qml" line="10" column="1" bodyfile="src/gui/qml/QfTemporalProperties.qml" bodystart="10" bodyend="25"/>
+    <listofallmembers>
+      <member refid="classQfTemporalProperties_1ad637ad3752757935e4e61fd30555eb32" prot="private" virt="non-virtual"><scope>QfTemporalProperties</scope><name>beginField</name></member>
+      <member refid="classQfTemporalProperties_1a481595b9e224e3f321789889a006fd5d" prot="private" virt="non-virtual"><scope>QfTemporalProperties</scope><name>calendarPanel</name></member>
+      <member refid="classQfTemporalProperties_1ab9c7f1ded319aea798b500c2ab5e308e" prot="private" virt="non-virtual"><scope>QfTemporalProperties</scope><name>closePolicy</name></member>
+      <member refid="classQfTemporalProperties_1a36563870e3ea3f7e42a7470d9ec46236" prot="private" virt="non-virtual"><scope>QfTemporalProperties</scope><name>endField</name></member>
+      <member refid="classQfTemporalProperties_1af46415433efbb55e92369e8044b695cc" prot="private" virt="non-virtual"><scope>QfTemporalProperties</scope><name>focus</name></member>
+      <member refid="classQfTemporalProperties_1af8045ccf50a9e63582b5eff49e1e58e6" prot="private" virt="non-virtual"><scope>QfTemporalProperties</scope><name>isTemporalCheckBox</name></member>
+      <member refid="classQfTemporalProperties_1ae93c4258037928869a8d459287707141" prot="public" virt="non-virtual"><scope>QfTemporalProperties</scope><name>mapSettings</name></member>
+      <member refid="classQfTemporalProperties_1aeb8fbeb08f39022ef17f39230b6a5f49" prot="private" virt="non-virtual"><scope>QfTemporalProperties</scope><name>parent</name></member>
+      <member refid="classQfTemporalProperties_1ac72b5597c91a9958fbaea21ad30cd3fc" prot="private" virt="non-virtual"><scope>QfTemporalProperties</scope><name>width</name></member>
+      <member refid="classQfTemporalProperties_1aa379b64a86acda97c1020eefd2c1fd4a" prot="private" virt="non-virtual"><scope>QfTemporalProperties</scope><name>x</name></member>
+      <member refid="classQfTemporalProperties_1aad894ac5ae0bd6ffb483963155708845" prot="private" virt="non-virtual"><scope>QfTemporalProperties</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

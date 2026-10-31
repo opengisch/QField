@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfFeatureHistory_1_1FeatureModifications" kind="struct" language="C++" prot="public">
+    <compoundname>QfFeatureHistory::FeatureModifications</compoundname>
+    <includes refid="qffeaturehistory_8h" local="no">qffeaturehistory.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfFeatureHistory_1_1FeatureModifications_1ac1cd978181d256ae62db699d39a93ea3" prot="public" static="no" mutable="no">
+        <type>QList&lt; OldNewFeaturePair &gt;</type>
+        <definition>QList&lt;OldNewFeaturePair&gt; QfFeatureHistory::FeatureModifications::createdFeatures</definition>
+        <argsstring></argsstring>
+        <name>createdFeatures</name>
+        <qualifiedname>QfFeatureHistory::FeatureModifications::createdFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="48" column="15" bodyfile="src/core/qffeaturehistory.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeatureHistory_1_1FeatureModifications_1a3b26e534c3b14ac7200c843d2580e0a3" prot="public" static="no" mutable="no">
+        <type>QList&lt; OldNewFeaturePair &gt;</type>
+        <definition>QList&lt;OldNewFeaturePair&gt; QfFeatureHistory::FeatureModifications::updatedFeatures</definition>
+        <argsstring></argsstring>
+        <name>updatedFeatures</name>
+        <qualifiedname>QfFeatureHistory::FeatureModifications::updatedFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="49" column="15" bodyfile="src/core/qffeaturehistory.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfFeatureHistory_1_1FeatureModifications_1a6a9e59cb8f4ca210f57fc348e5d4e6c4" prot="public" static="no" mutable="no">
+        <type>QList&lt; OldNewFeaturePair &gt;</type>
+        <definition>QList&lt;OldNewFeaturePair&gt; QfFeatureHistory::FeatureModifications::deletedFeatures</definition>
+        <argsstring></argsstring>
+        <name>deletedFeatures</name>
+        <qualifiedname>QfFeatureHistory::FeatureModifications::deletedFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="50" column="15" bodyfile="src/core/qffeaturehistory.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfFeatureHistory_1_1FeatureModifications_1a6015f347830637ba92d204c18a1c4f33" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureHistory::FeatureModifications::FeatureModifications</definition>
+        <argsstring>()</argsstring>
+        <name>FeatureModifications</name>
+        <qualifiedname>QfFeatureHistory::FeatureModifications::FeatureModifications</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="45" column="9" bodyfile="src/core/qffeaturehistory.h" bodystart="45" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Stores the created, updated and deleted features on each undo/redo step. </para>
+    </detaileddescription>
+    <location file="src/core/qffeaturehistory.h" line="43" column="5" bodyfile="src/core/qffeaturehistory.h" bodystart="44" bodyend="51"/>
+    <listofallmembers>
+      <member refid="structQfFeatureHistory_1_1FeatureModifications_1ac1cd978181d256ae62db699d39a93ea3" prot="public" virt="non-virtual"><scope>QfFeatureHistory::FeatureModifications</scope><name>createdFeatures</name></member>
+      <member refid="structQfFeatureHistory_1_1FeatureModifications_1a6a9e59cb8f4ca210f57fc348e5d4e6c4" prot="public" virt="non-virtual"><scope>QfFeatureHistory::FeatureModifications</scope><name>deletedFeatures</name></member>
+      <member refid="structQfFeatureHistory_1_1FeatureModifications_1a6015f347830637ba92d204c18a1c4f33" prot="public" virt="non-virtual"><scope>QfFeatureHistory::FeatureModifications</scope><name>FeatureModifications</name></member>
+      <member refid="structQfFeatureHistory_1_1FeatureModifications_1a3b26e534c3b14ac7200c843d2580e0a3" prot="public" virt="non-virtual"><scope>QfFeatureHistory::FeatureModifications</scope><name>updatedFeatures</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

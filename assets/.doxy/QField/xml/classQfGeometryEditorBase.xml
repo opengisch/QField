@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGeometryEditorBase" kind="class" language="C++" prot="public">
+    <compoundname>QfGeometryEditorBase</compoundname>
+    <basecompoundref refid="classQfVisibilityFadingRow" prot="public" virt="non-virtual">QfVisibilityFadingRow</basecompoundref>
+    <derivedcompoundref refid="classQfGeometryEditorErase" prot="public" virt="non-virtual">QfGeometryEditorErase</derivedcompoundref>
+    <derivedcompoundref refid="classQfGeometryEditorFillRing" prot="public" virt="non-virtual">QfGeometryEditorFillRing</derivedcompoundref>
+    <derivedcompoundref refid="classQfGeometryEditorReshape" prot="public" virt="non-virtual">QfGeometryEditorReshape</derivedcompoundref>
+    <derivedcompoundref refid="classQfGeometryEditorSplitFeature" prot="public" virt="non-virtual">QfGeometryEditorSplitFeature</derivedcompoundref>
+    <derivedcompoundref refid="classQfGeometryEditorVertexEditor" prot="public" virt="non-virtual">QfGeometryEditorVertexEditor</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGeometryEditorBase_1a14439ec56a3b30ac66c32579af50a219" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref></type>
+        <definition>QfFeatureModel QfGeometryEditorBase::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>QfGeometryEditorBase::featureModel</qualifiedname>
+        <read>dummyGetter_featureModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorBase.qml" line="9" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorBase.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryEditorBase_1a1a7164a5fbdf15d31c6e23b6983bc32c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfGeometryRenderer" kindref="compound">QfGeometryRenderer</ref></type>
+        <definition>QfGeometryRenderer QfGeometryEditorBase::editorRenderer</definition>
+        <argsstring></argsstring>
+        <name>editorRenderer</name>
+        <qualifiedname>QfGeometryEditorBase::editorRenderer</qualifiedname>
+        <read>dummyGetter_editorRenderer_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorBase.qml" line="11" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorBase.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryEditorBase_1a30b2a489e975563b19b92e10064073b8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfGeometryEditorBase::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfGeometryEditorBase::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorBase.qml" line="13" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorBase.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfGeometryEditorBase_1ac6337b14ccc5df9f36430f9a91c85f21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorBase::finished</definition>
+        <argsstring>()</argsstring>
+        <name>finished</name>
+        <qualifiedname>QfGeometryEditorBase::finished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorBase.qml" line="15" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGeometryEditorBase_1ae68efe596c2c9c14fba8d1d546dcfde0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorBase::requestJumpToPoint</definition>
+        <argsstring>(var center, real scale, bool handleMargins)</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>QfGeometryEditorBase::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorBase.qml" line="17" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfGeometryEditorBase</label>
+        <link refid="classQfGeometryEditorBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QfGeometryEditorErase</label>
+        <link refid="classQfGeometryEditorErase"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>QfGeometryEditorFillRing</label>
+        <link refid="classQfGeometryEditorFillRing"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>QfGeometryEditorReshape</label>
+        <link refid="classQfGeometryEditorReshape"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>QfGeometryEditorSplitFeature</label>
+        <link refid="classQfGeometryEditorSplitFeature"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>QfGeometryEditorVertexEditor</label>
+        <link refid="classQfGeometryEditorVertexEditor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfGeometryEditorBase</label>
+        <link refid="classQfGeometryEditorBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Row</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/geometryeditors/QfGeometryEditorBase.qml" line="6" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorBase.qml" bodystart="6" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classQfGeometryEditorBase_1a1a7164a5fbdf15d31c6e23b6983bc32c" prot="public" virt="non-virtual"><scope>QfGeometryEditorBase</scope><name>editorRenderer</name></member>
+      <member refid="classQfGeometryEditorBase_1a14439ec56a3b30ac66c32579af50a219" prot="public" virt="non-virtual"><scope>QfGeometryEditorBase</scope><name>featureModel</name></member>
+      <member refid="classQfGeometryEditorBase_1ac6337b14ccc5df9f36430f9a91c85f21" prot="public" virt="non-virtual"><scope>QfGeometryEditorBase</scope><name>finished</name></member>
+      <member refid="classQfGeometryEditorBase_1a30b2a489e975563b19b92e10064073b8" prot="public" virt="non-virtual"><scope>QfGeometryEditorBase</scope><name>mapSettings</name></member>
+      <member refid="classQfGeometryEditorBase_1ae68efe596c2c9c14fba8d1d546dcfde0" prot="public" virt="non-virtual"><scope>QfGeometryEditorBase</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" virt="non-virtual"><scope>QfGeometryEditorBase</scope><name>stateVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMarkupItemRenderer" kind="class" language="C++" prot="public">
+    <compoundname>QfMarkupItemRenderer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMarkupItemRenderer_1a98dacfd71d1bde60091157bdf347c910" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfMarkupItemRenderer::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfMarkupItemRenderer::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupItemRenderer.qml" line="12" column="1" bodyfile="src/gui/qml/QfMarkupItemRenderer.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMarkupItemRenderer_1a0f125cbbb24a0b138676aadad45151f8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfMarkupItem" kindref="compound">QfMarkupItem</ref></type>
+        <definition>QfMarkupItem QfMarkupItemRenderer::markupItem</definition>
+        <argsstring></argsstring>
+        <name>markupItem</name>
+        <qualifiedname>QfMarkupItemRenderer::markupItem</qualifiedname>
+        <read>dummyGetter_markupItem_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMarkupItemRenderer.qml" line="14" column="1" bodyfile="src/gui/qml/QfMarkupItemRenderer.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfMarkupItemRenderer</label>
+        <link refid="classQfMarkupItemRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfMarkupItemRenderer</label>
+        <link refid="classQfMarkupItemRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfMarkupItemRenderer.qml" line="9" column="1" bodyfile="src/gui/qml/QfMarkupItemRenderer.qml" bodystart="9" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classQfMarkupItemRenderer_1a98dacfd71d1bde60091157bdf347c910" prot="public" virt="non-virtual"><scope>QfMarkupItemRenderer</scope><name>mapSettings</name></member>
+      <member refid="classQfMarkupItemRenderer_1a0f125cbbb24a0b138676aadad45151f8" prot="public" virt="non-virtual"><scope>QfMarkupItemRenderer</scope><name>markupItem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

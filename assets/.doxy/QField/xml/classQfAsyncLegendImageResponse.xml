@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAsyncLegendImageResponse" kind="class" language="C++" prot="public">
+    <compoundname>QfAsyncLegendImageResponse</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QQuickImageResponse</basecompoundref>
+    <includes refid="qflegendimageprovider_8h" local="no">qflegendimageprovider.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfAsyncLegendImageResponse_1a2447dc473e0bfdd8e8c03c7d0ecc6abb" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsRasterDataProvider &gt;</type>
+        <definition>std::unique_ptr&lt;QgsRasterDataProvider&gt; QfAsyncLegendImageResponse::mDataProvider</definition>
+        <argsstring></argsstring>
+        <name>mDataProvider</name>
+        <qualifiedname>QfAsyncLegendImageResponse::mDataProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qflegendimageprovider.h" line="65" column="21" bodyfile="src/gui/qflegendimageprovider.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAsyncLegendImageResponse_1a223267ba2773063ece618ed033c8f801" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsImageFetcher &gt;</type>
+        <definition>QPointer&lt;QgsImageFetcher&gt; QfAsyncLegendImageResponse::mFetcher</definition>
+        <argsstring></argsstring>
+        <name>mFetcher</name>
+        <qualifiedname>QfAsyncLegendImageResponse::mFetcher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qflegendimageprovider.h" line="66" column="14" bodyfile="src/gui/qflegendimageprovider.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAsyncLegendImageResponse_1a046e506841ee1f7e5f37d1e9edd4dad4" prot="private" static="no" mutable="no">
+        <type>QImage</type>
+        <definition>QImage QfAsyncLegendImageResponse::mImage</definition>
+        <argsstring></argsstring>
+        <name>mImage</name>
+        <qualifiedname>QfAsyncLegendImageResponse::mImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qflegendimageprovider.h" line="68" column="12" bodyfile="src/gui/qflegendimageprovider.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfAsyncLegendImageResponse_1aa19dccf4b220e734cf6cc8c3931896ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfAsyncLegendImageResponse::QfAsyncLegendImageResponse</definition>
+        <argsstring>(QgsRasterDataProvider *dataProvider=nullptr, const QgsMapSettings *mapSettings=nullptr)</argsstring>
+        <name>QfAsyncLegendImageResponse</name>
+        <qualifiedname>QfAsyncLegendImageResponse::QfAsyncLegendImageResponse</qualifiedname>
+        <param>
+          <type>QgsRasterDataProvider *</type>
+          <declname>dataProvider</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>const QgsMapSettings *</type>
+          <declname>mapSettings</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qflegendimageprovider.h" line="55" column="5" bodyfile="src/gui/qflegendimageprovider.cpp" bodystart="182" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAsyncLegendImageResponse_1ab26586785258bcac50affef00a5c3683" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfAsyncLegendImageResponse::~QfAsyncLegendImageResponse</definition>
+        <argsstring>()</argsstring>
+        <name>~QfAsyncLegendImageResponse</name>
+        <qualifiedname>QfAsyncLegendImageResponse::~QfAsyncLegendImageResponse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qflegendimageprovider.h" line="56" column="5" bodyfile="src/gui/qflegendimageprovider.cpp" bodystart="201" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAsyncLegendImageResponse_1a07208f9e27ff751c3bf3ada01d3f0d42" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QQuickTextureFactory *</type>
+        <definition>QQuickTextureFactory * QfAsyncLegendImageResponse::textureFactory</definition>
+        <argsstring>() const override</argsstring>
+        <name>textureFactory</name>
+        <qualifiedname>QfAsyncLegendImageResponse::textureFactory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qflegendimageprovider.h" line="58" column="26" bodyfile="src/gui/qflegendimageprovider.cpp" bodystart="233" bodyend="236"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfAsyncLegendImageResponse_1ab3231a5c58c9c82bb28ba6636d00c957" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAsyncLegendImageResponse::handleFinish</definition>
+        <argsstring>(const QImage &amp;image)</argsstring>
+        <name>handleFinish</name>
+        <qualifiedname>QfAsyncLegendImageResponse::handleFinish</qualifiedname>
+        <param>
+          <type>const QImage &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qflegendimageprovider.h" line="61" column="10" bodyfile="src/gui/qflegendimageprovider.cpp" bodystart="209" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfAsyncLegendImageResponse_1a12e08d6db2cd5f34258d064e6041d1e0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAsyncLegendImageResponse::handleError</definition>
+        <argsstring>(const QString &amp;error)</argsstring>
+        <name>handleError</name>
+        <qualifiedname>QfAsyncLegendImageResponse::handleError</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qflegendimageprovider.h" line="62" column="10" bodyfile="src/gui/qflegendimageprovider.cpp" bodystart="221" bodyend="231"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This class provides responses of asynchronously requested legend images for the layer tree model . Used for online WMS and AMS layers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QQuickImageResponse</label>
+      </node>
+      <node id="1">
+        <label>QfAsyncLegendImageResponse</label>
+        <link refid="classQfAsyncLegendImageResponse"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QQuickImageResponse</label>
+      </node>
+      <node id="1">
+        <label>QfAsyncLegendImageResponse</label>
+        <link refid="classQfAsyncLegendImageResponse"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qflegendimageprovider.h" line="52" column="1" bodyfile="src/gui/qflegendimageprovider.h" bodystart="53" bodyend="69"/>
+    <listofallmembers>
+      <member refid="classQfAsyncLegendImageResponse_1a12e08d6db2cd5f34258d064e6041d1e0" prot="private" virt="non-virtual"><scope>QfAsyncLegendImageResponse</scope><name>handleError</name></member>
+      <member refid="classQfAsyncLegendImageResponse_1ab3231a5c58c9c82bb28ba6636d00c957" prot="private" virt="non-virtual"><scope>QfAsyncLegendImageResponse</scope><name>handleFinish</name></member>
+      <member refid="classQfAsyncLegendImageResponse_1a2447dc473e0bfdd8e8c03c7d0ecc6abb" prot="private" virt="non-virtual"><scope>QfAsyncLegendImageResponse</scope><name>mDataProvider</name></member>
+      <member refid="classQfAsyncLegendImageResponse_1a223267ba2773063ece618ed033c8f801" prot="private" virt="non-virtual"><scope>QfAsyncLegendImageResponse</scope><name>mFetcher</name></member>
+      <member refid="classQfAsyncLegendImageResponse_1a046e506841ee1f7e5f37d1e9edd4dad4" prot="private" virt="non-virtual"><scope>QfAsyncLegendImageResponse</scope><name>mImage</name></member>
+      <member refid="classQfAsyncLegendImageResponse_1aa19dccf4b220e734cf6cc8c3931896ff" prot="public" virt="non-virtual"><scope>QfAsyncLegendImageResponse</scope><name>QfAsyncLegendImageResponse</name></member>
+      <member refid="classQfAsyncLegendImageResponse_1a07208f9e27ff751c3bf3ada01d3f0d42" prot="public" virt="non-virtual"><scope>QfAsyncLegendImageResponse</scope><name>textureFactory</name></member>
+      <member refid="classQfAsyncLegendImageResponse_1ab26586785258bcac50affef00a5c3683" prot="public" virt="non-virtual"><scope>QfAsyncLegendImageResponse</scope><name>~QfAsyncLegendImageResponse</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

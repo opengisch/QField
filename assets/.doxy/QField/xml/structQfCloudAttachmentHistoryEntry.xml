@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfCloudAttachmentHistoryEntry" kind="struct" language="C++" prot="public">
+    <compoundname>QfCloudAttachmentHistoryEntry</compoundname>
+    <includes refid="qfcloudutils_8h" local="no">qfcloudutils.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfCloudAttachmentHistoryEntry_1ab982e3e35893fecf4d6dfcf2ea21aa09" prot="public" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QfCloudAttachmentHistoryEntry::timestamp</definition>
+        <argsstring></argsstring>
+        <name>timestamp</name>
+        <qualifiedname>QfCloudAttachmentHistoryEntry::timestamp</qualifiedname>
+        <briefdescription>
+<para>The time at which the upload finished. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="135" column="15" bodyfile="src/core/utils/qfcloudutils.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudAttachmentHistoryEntry_1a07c16731fc1161e4b4f46ae320437857" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfCloudAttachmentHistoryEntry::httpCode</definition>
+        <argsstring></argsstring>
+        <name>httpCode</name>
+        <qualifiedname>QfCloudAttachmentHistoryEntry::httpCode</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>The HTTP status code returned by the server for the upload. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="137" column="9" bodyfile="src/core/utils/qfcloudutils.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudAttachmentHistoryEntry_1a4b4e5e7d01b06b7429ab47e8c7b666cf" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudAttachmentHistoryEntry::fileName</definition>
+        <argsstring></argsstring>
+        <name>fileName</name>
+        <qualifiedname>QfCloudAttachmentHistoryEntry::fileName</qualifiedname>
+        <briefdescription>
+<para>The absolute path of the uploaded file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="139" column="13" bodyfile="src/core/utils/qfcloudutils.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Holds the final outcome of an attachment upload to QFieldCloud. </para>
+    </detaileddescription>
+    <location file="src/core/utils/qfcloudutils.h" line="132" column="1" bodyfile="src/core/utils/qfcloudutils.h" bodystart="133" bodyend="140"/>
+    <listofallmembers>
+      <member refid="structQfCloudAttachmentHistoryEntry_1a4b4e5e7d01b06b7429ab47e8c7b666cf" prot="public" virt="non-virtual"><scope>QfCloudAttachmentHistoryEntry</scope><name>fileName</name></member>
+      <member refid="structQfCloudAttachmentHistoryEntry_1a07c16731fc1161e4b4f46ae320437857" prot="public" virt="non-virtual"><scope>QfCloudAttachmentHistoryEntry</scope><name>httpCode</name></member>
+      <member refid="structQfCloudAttachmentHistoryEntry_1ab982e3e35893fecf4d6dfcf2ea21aa09" prot="public" virt="non-virtual"><scope>QfCloudAttachmentHistoryEntry</scope><name>timestamp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

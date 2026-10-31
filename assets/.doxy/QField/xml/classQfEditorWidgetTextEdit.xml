@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfEditorWidgetTextEdit" kind="class" language="C++" prot="public">
+    <compoundname>QfEditorWidgetTextEdit</compoundname>
+    <basecompoundref refid="classQfEditorWidgetBase" prot="public" virt="non-virtual">QfEditorWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfEditorWidgetTextEdit_1ac4be01baa188c5a9f04424372e37958f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfEditorWidgetTextEdit::isEditable</definition>
+        <argsstring></argsstring>
+        <name>isEditable</name>
+        <qualifiedname>QfEditorWidgetTextEdit::isEditable</qualifiedname>
+        <read>dummyGetter_isEditable_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="10" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1a248731d09e535ff14c1ba0bb908a19f7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfEditorWidgetTextEdit::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfEditorWidgetTextEdit::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="12" column="5" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1aebd683e435e763035cbf8744fe2aa6ae" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfEditorWidgetTextEdit::textReadonlyValue</definition>
+        <argsstring></argsstring>
+        <name>textReadonlyValue</name>
+        <qualifiedname>QfEditorWidgetTextEdit::textReadonlyValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="14" column="7" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1a61c6beadbbfc2ec985f239eb4aa5902a" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfEditorWidgetTextEdit::textField</definition>
+        <argsstring></argsstring>
+        <name>textField</name>
+        <qualifiedname>QfEditorWidgetTextEdit::textField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="15" column="11" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1ae10904de27938d1802b8a40097c26f2e" prot="private" static="no" mutable="no">
+        <type>IntValidator</type>
+        <definition>IntValidator QfEditorWidgetTextEdit::intValidator</definition>
+        <argsstring></argsstring>
+        <name>intValidator</name>
+        <qualifiedname>QfEditorWidgetTextEdit::intValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="16" column="14" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1a81ab987a01343061852b5d218029c45f" prot="private" static="no" mutable="no">
+        <type>DoubleValidator</type>
+        <definition>DoubleValidator QfEditorWidgetTextEdit::doubleValidator</definition>
+        <argsstring></argsstring>
+        <name>doubleValidator</name>
+        <qualifiedname>QfEditorWidgetTextEdit::doubleValidator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="17" column="17" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1a9f4d8b120a0f11f3a308c8470d8295b4" prot="private" static="no" mutable="no">
+        <type>TextArea</type>
+        <definition>TextArea QfEditorWidgetTextEdit::textArea</definition>
+        <argsstring></argsstring>
+        <name>textArea</name>
+        <qualifiedname>QfEditorWidgetTextEdit::textArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="18" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1a96600d84b38199e4a0e15e9e6bcf93a1" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfEditorWidgetTextEdit::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>QfEditorWidgetTextEdit::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="19" column="13" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1a1e783e5b39ac5b76415533fc747e9859" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component QfEditorWidgetTextEdit::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>QfEditorWidgetTextEdit::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="20" column="14" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1a85bce7d24697a9e17d75dd11401565d5" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfEditorWidgetTextEdit::copyTextItem</definition>
+        <argsstring></argsstring>
+        <name>copyTextItem</name>
+        <qualifiedname>QfEditorWidgetTextEdit::copyTextItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="21" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1a4aa45c02588b0d89bcc0fa5b1aa825fb" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfEditorWidgetTextEdit::pasteTextItem</definition>
+        <argsstring></argsstring>
+        <name>pasteTextItem</name>
+        <qualifiedname>QfEditorWidgetTextEdit::pasteTextItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="22" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1a1a4fdeeefa920275bc1d0eed16c13730" prot="private" static="no" mutable="no">
+        <type>MenuSeparator</type>
+        <definition>MenuSeparator QfEditorWidgetTextEdit::separatorItem</definition>
+        <argsstring></argsstring>
+        <name>separatorItem</name>
+        <qualifiedname>QfEditorWidgetTextEdit::separatorItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="23" column="15" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEditorWidgetTextEdit_1a7dd74856212a0ef1b474d44d7a1d10ef" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfEditorWidgetTextEdit::scanCodeItem</definition>
+        <argsstring></argsstring>
+        <name>scanCodeItem</name>
+        <qualifiedname>QfEditorWidgetTextEdit::scanCodeItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="24" column="10" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfEditorWidgetTextEdit_1afef2d0194ab74891af958ce6af7f3185" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfEditorWidgetTextEdit::commitValue</definition>
+        <argsstring>(text)</argsstring>
+        <name>commitValue</name>
+        <qualifiedname>QfEditorWidgetTextEdit::commitValue</qualifiedname>
+        <param>
+          <type>text</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="27" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfEditorWidgetTextEdit_1a0e44758e73c4b216bbcd2cd403873779" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfEditorWidgetTextEdit::requestedBarcodeReceived</definition>
+        <argsstring>(string)</argsstring>
+        <name>requestedBarcodeReceived</name>
+        <qualifiedname>QfEditorWidgetTextEdit::requestedBarcodeReceived</qualifiedname>
+        <param>
+          <type>string</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="29" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetTextEdit</label>
+        <link refid="classQfEditorWidgetTextEdit"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfEditorWidgetBase</label>
+        <link refid="classQfEditorWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEditorWidgetTextEdit</label>
+        <link refid="classQfEditorWidgetTextEdit"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" line="6" column="1" bodyfile="src/gui/qml/editorwidgets/QfEditorWidgetTextEdit.qml" bodystart="6" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classQfEditorWidgetTextEdit_1afef2d0194ab74891af958ce6af7f3185" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>commitValue</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1a85bce7d24697a9e17d75dd11401565d5" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>copyTextItem</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1a81ab987a01343061852b5d218029c45f" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>doubleValidator</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1a96600d84b38199e4a0e15e9e6bcf93a1" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>fontMetrics</name></member>
+      <member refid="classQfEditorWidgetBase_1a751317742bd0b321c34227c675cc3498" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>hasMenu</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1a248731d09e535ff14c1ba0bb908a19f7" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>height</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1ae10904de27938d1802b8a40097c26f2e" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>intValidator</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1ac4be01baa188c5a9f04424372e37958f" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>isEditable</name></member>
+      <member refid="classQfEditorWidgetBase_1a944924151aa99c79141c21ea005fe496" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>isEmpty</name></member>
+      <member refid="classQfEditorWidgetBase_1a97cff9c96681d8a89e27876d58464e2b" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>isLoaded</name></member>
+      <member refid="classQfEditorWidgetBase_1a742c1296a01ae0f30812a2a4774ba10c" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>isNull</name></member>
+      <member refid="classQfEditorWidgetBase_1a4821556cd4522582f7640f7b98d688ec" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>menu</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1a1e783e5b39ac5b76415533fc747e9859" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>onCompleted</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1a4aa45c02588b0d89bcc0fa5b1aa825fb" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>pasteTextItem</name></member>
+      <member refid="classQfEditorWidgetBase_1a33d531d2137cf20fa4a08f45071dbfc5" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>requestBarcode</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1a0e44758e73c4b216bbcd2cd403873779" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>requestedBarcodeReceived</name></member>
+      <member refid="classQfEditorWidgetBase_1ad70ec29cddcabbc8fc23968db9f3134c" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>requestGeometry</name></member>
+      <member refid="classQfEditorWidgetBase_1a2b20a1c25fa38abd54b3048a2371396b" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1a7dd74856212a0ef1b474d44d7a1d10ef" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>scanCodeItem</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1a1a4fdeeefa920275bc1d0eed16c13730" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>separatorItem</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1a9f4d8b120a0f11f3a308c8470d8295b4" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>textArea</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1a61c6beadbbfc2ec985f239eb4aa5902a" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>textField</name></member>
+      <member refid="classQfEditorWidgetTextEdit_1aebd683e435e763035cbf8744fe2aa6ae" prot="private" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>textReadonlyValue</name></member>
+      <member refid="classQfEditorWidgetBase_1abd62623a424aa8d9773d73adadb2e870" prot="public" virt="non-virtual"><scope>QfEditorWidgetTextEdit</scope><name>valueChangeRequested</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

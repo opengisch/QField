@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTrackerFeatureForm" kind="class" language="C++" prot="public">
+    <compoundname>TrackerFeatureForm</compoundname>
+    <basecompoundref refid="classQfTrackerFeatureForm" prot="public" virt="non-virtual">QfTrackerFeatureForm</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfTrackerFeatureForm</label>
+        <link refid="classQfTrackerFeatureForm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>TrackerFeatureForm</label>
+        <link refid="classTrackerFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfTrackerFeatureForm</label>
+        <link refid="classQfTrackerFeatureForm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>TrackerFeatureForm</label>
+        <link refid="classTrackerFeatureForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/TrackerFeatureForm.qml" line="2" column="1" bodyfile="src/app/qml_compat/TrackerFeatureForm.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfTrackerFeatureForm_1ae4ba45d12f223d1f0fe9dea6791d6ee0" prot="public" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfTrackerFeatureForm_1abb25c104b8ee364f9a00c43f0791b224" prot="public" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>startTracking</name></member>
+      <member refid="classQfTrackerFeatureForm_1a0442e2d9d54a007cce1be0b1f32eacc6" prot="public" virt="non-virtual"><scope>TrackerFeatureForm</scope><name>tracker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

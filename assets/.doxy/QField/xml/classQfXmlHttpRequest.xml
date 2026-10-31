@@ -1,0 +1,1921 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfXmlHttpRequest" kind="class" language="C++" prot="public">
+    <compoundname>QfXmlHttpRequest</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfxmlhttprequest_8h" local="no">qfxmlhttprequest.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189" prot="public" static="no" strong="no">
+        <type>uchar</type>
+        <name>ReadyState</name>
+        <qualifiedname>QfXmlHttpRequest::ReadyState</qualifiedname>
+        <enumvalue id="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189a23aee4d488880b85d1655dd57d6608a7" prot="public">
+          <name>Unsent</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para><ref refid="classQfXmlHttpRequest_1ac51a4ec9efeefbd76f2e5267d51afaff" kindref="member">open()</ref> has not been called or <ref refid="classQfXmlHttpRequest_1ac51a4ec9efeefbd76f2e5267d51afaff" kindref="member">open()</ref> args were invalid </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189aee0efbc39c81a8195aacb18b217f0ebc" prot="public">
+          <name>Opened</name>
+          <briefdescription>
+<para><ref refid="classQfXmlHttpRequest_1ac51a4ec9efeefbd76f2e5267d51afaff" kindref="member">open()</ref> called successfully; request is prepared </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189a1c234089b477e1e5b9512a99fdac9a47" prot="public">
+          <name>HeadersReceived</name>
+          <briefdescription>
+<para>headers are available (metaDataChanged) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189a890978f40755a7b1a2979e87c2cec559" prot="public">
+          <name>Loading</name>
+          <briefdescription>
+<para>body is being received (readyRead) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189a9c1d383c3cd3c89821ee37fde41ac5e2" prot="public">
+          <name>Done</name>
+          <briefdescription>
+<para>request finished (success or failure) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>ReadyState values aligned with browser XMLHttpRequest. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="152" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="153" bodyend="159"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfXmlHttpRequest_1af0515e3922f44eb0c83aeef6adb47a1d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189" kindref="member">ReadyState</ref></type>
+        <definition>ReadyState QfXmlHttpRequest::readyState</definition>
+        <argsstring></argsstring>
+        <name>readyState</name>
+        <qualifiedname>QfXmlHttpRequest::readyState</qualifiedname>
+        <read>readyState</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current request state aligned with browser XMLHttpRequest readyState values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="62" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1afacb58249ad1f2161b97fb2359568661" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfXmlHttpRequest::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>QfXmlHttpRequest::status</qualifiedname>
+        <read>status</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The HTTP status code of the final response. For network-level failures, this is 0. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="67" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1aad242abdeb76e7b67a6cd6211622b89d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfXmlHttpRequest::statusText</definition>
+        <argsstring></argsstring>
+        <name>statusText</name>
+        <qualifiedname>QfXmlHttpRequest::statusText</qualifiedname>
+        <read>statusText</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The HTTP reason phrase of the final response when available. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="72" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1ae48f4d65016864c04ff9ad6e551102d8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfXmlHttpRequest::responseText</definition>
+        <argsstring></argsstring>
+        <name>responseText</name>
+        <qualifiedname>QfXmlHttpRequest::responseText</qualifiedname>
+        <read>responseText</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The response body decoded as UTF-8 text. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="77" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1a5656b331dfa7cf6f11e47ef34f768b3a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariant</type>
+        <definition>QVariant QfXmlHttpRequest::response</definition>
+        <argsstring></argsstring>
+        <name>response</name>
+        <qualifiedname>QfXmlHttpRequest::response</qualifiedname>
+        <read>response</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parsed response value when the response is JSON, otherwise this equals responseText. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="82" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1a3709a3ad17f438fffd16b64c42102f4a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfXmlHttpRequest::responseType</definition>
+        <argsstring></argsstring>
+        <name>responseType</name>
+        <qualifiedname>QfXmlHttpRequest::responseType</qualifiedname>
+        <read>responseType</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The response Content-Type value as provided by the server. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="87" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1afbd575b993abcfb5b5a1280857dc820c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QUrl</type>
+        <definition>QUrl QfXmlHttpRequest::responseUrl</definition>
+        <argsstring></argsstring>
+        <name>responseUrl</name>
+        <qualifiedname>QfXmlHttpRequest::responseUrl</qualifiedname>
+        <read>responseUrl</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The final response URL. This may differ from the requested URL when redirects were followed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="92" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1a2321f06f7d5552a9a0a63497969ca10c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfXmlHttpRequest::timeout</definition>
+        <argsstring></argsstring>
+        <name>timeout</name>
+        <qualifiedname>QfXmlHttpRequest::timeout</qualifiedname>
+        <read>timeout</read>
+        <write>setTimeout</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The request timeout in milliseconds. A value of 0 disables the timeout.</para>
+<para>When the timeout triggers, the request is aborted and ontimeout and onloadend are called. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="99" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1aed6741c1fccee2e04e648cbf6ff59c50" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onreadystatechange</definition>
+        <argsstring></argsstring>
+        <name>onreadystatechange</name>
+        <qualifiedname>QfXmlHttpRequest::onreadystatechange</qualifiedname>
+        <read>onreadystatechange</read>
+        <write>setOnreadystatechange</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called whenever readyState changes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="104" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1abcc45e8f4283d2202b5f1bd3d76bf51d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::ondownloadprogress</definition>
+        <argsstring></argsstring>
+        <name>ondownloadprogress</name>
+        <qualifiedname>QfXmlHttpRequest::ondownloadprogress</qualifiedname>
+        <read>ondownloadprogress</read>
+        <write>setOndownloadprogress</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called during download progress as (receivedBytes, totalBytes). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="109" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1ae9ff7181e44dc1b84ad4ce0ca37e136d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onuploadprogress</definition>
+        <argsstring></argsstring>
+        <name>onuploadprogress</name>
+        <qualifiedname>QfXmlHttpRequest::onuploadprogress</qualifiedname>
+        <read>onuploadprogress</read>
+        <write>setOnuploadprogress</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called during upload progress as (sentBytes, totalBytes). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="114" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1a7a9ec25eacbe61603578b07ec55c2dbf" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onredirected</definition>
+        <argsstring></argsstring>
+        <name>onredirected</name>
+        <qualifiedname>QfXmlHttpRequest::onredirected</qualifiedname>
+        <read>onredirected</read>
+        <write>setOnredirected</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when a redirect is reported by Qt as (urlString). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="119" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1a4e4dfcafe091b7193b3edd95c9746abe" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::ontimeout</definition>
+        <argsstring></argsstring>
+        <name>ontimeout</name>
+        <qualifiedname>QfXmlHttpRequest::ontimeout</qualifiedname>
+        <read>ontimeout</read>
+        <write>setOntimeout</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the timeout triggers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="124" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1aca52a7b0b96acc8a76eaf1ca8f9e4c31" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onaborted</definition>
+        <argsstring></argsstring>
+        <name>onaborted</name>
+        <qualifiedname>QfXmlHttpRequest::onaborted</qualifiedname>
+        <read>onaborted</read>
+        <write>setOnaborted</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the request is aborted. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="129" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1a5e766350764576a9ddb675d4dd2d6ec9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onerror</definition>
+        <argsstring></argsstring>
+        <name>onerror</name>
+        <qualifiedname>QfXmlHttpRequest::onerror</qualifiedname>
+        <read>onerror</read>
+        <write>setOnerror</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called for network-level failures as (errorCode, errorMessage). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="134" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1af47a500204436ee875d757602c47471e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onload</definition>
+        <argsstring></argsstring>
+        <name>onload</name>
+        <qualifiedname>QfXmlHttpRequest::onload</qualifiedname>
+        <read>onload</read>
+        <write>setOnload</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the request completes and a status code is available.</para>
+<para><simplesect kind="note"><para>HTTP errors such as 404 or 500 still trigger onload. Callers should inspect status. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="141" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfXmlHttpRequest_1a33fbdac39b680fa132cd3f4cc9e675d2" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onloadend</definition>
+        <argsstring></argsstring>
+        <name>onloadend</name>
+        <qualifiedname>QfXmlHttpRequest::onloadend</qualifiedname>
+        <read>onloadend</read>
+        <write>setOnloadend</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called at the end of the request lifecycle for success, error, abort, or timeout. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="146" column="5" bodyfile="src/core/qfxmlhttprequest.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a332574e629f2f683481b1e9789cf66ee" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QNetworkReply &gt;</type>
+        <definition>QPointer&lt;QNetworkReply&gt; QfXmlHttpRequest::mReply</definition>
+        <argsstring></argsstring>
+        <name>mReply</name>
+        <qualifiedname>QfXmlHttpRequest::mReply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="337" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="337" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a1762e3a94369110843e88101f8b5ca6a" prot="private" static="no" mutable="no">
+        <type>QList&lt; QMetaObject::Connection &gt;</type>
+        <definition>QList&lt;QMetaObject::Connection&gt; QfXmlHttpRequest::mConnections</definition>
+        <argsstring></argsstring>
+        <name>mConnections</name>
+        <qualifiedname>QfXmlHttpRequest::mConnections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="338" column="11" bodyfile="src/core/qfxmlhttprequest.h" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1afc57f902e0c7fbf9ea1ffc0e016f44ea" prot="private" static="no" mutable="no">
+        <type>QNetworkRequest</type>
+        <definition>QNetworkRequest QfXmlHttpRequest::mRequest</definition>
+        <argsstring></argsstring>
+        <name>mRequest</name>
+        <qualifiedname>QfXmlHttpRequest::mRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="340" column="21" bodyfile="src/core/qfxmlhttprequest.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a0b8d9e47f06969a576f7a6a1f1b761c5" prot="private" static="no" mutable="no">
+        <type>QByteArray</type>
+        <definition>QByteArray QfXmlHttpRequest::mMethod</definition>
+        <argsstring></argsstring>
+        <name>mMethod</name>
+        <qualifiedname>QfXmlHttpRequest::mMethod</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="341" column="16" bodyfile="src/core/qfxmlhttprequest.h" bodystart="341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a8bc56439f45c22f276bb42aed8adad77" prot="private" static="no" mutable="no">
+        <type>QUrl</type>
+        <definition>QUrl QfXmlHttpRequest::mUrl</definition>
+        <argsstring></argsstring>
+        <name>mUrl</name>
+        <qualifiedname>QfXmlHttpRequest::mUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="342" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a28547c3627a22772770990ec3d7c224e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189" kindref="member">ReadyState</ref></type>
+        <definition>ReadyState QfXmlHttpRequest::mReadyState</definition>
+        <argsstring></argsstring>
+        <name>mReadyState</name>
+        <qualifiedname>QfXmlHttpRequest::mReadyState</qualifiedname>
+        <initializer>= <ref refid="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189a23aee4d488880b85d1655dd57d6608a7" kindref="member">Unsent</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="344" column="16" bodyfile="src/core/qfxmlhttprequest.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a7945711ae4faeb40b07c7261c0f1709e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfXmlHttpRequest::mTimeoutMs</definition>
+        <argsstring></argsstring>
+        <name>mTimeoutMs</name>
+        <qualifiedname>QfXmlHttpRequest::mTimeoutMs</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="346" column="9" bodyfile="src/core/qfxmlhttprequest.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a49654c7278ff9c4ee03884f4ae9e0c75" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfXmlHttpRequest::mFinalized</definition>
+        <argsstring></argsstring>
+        <name>mFinalized</name>
+        <qualifiedname>QfXmlHttpRequest::mFinalized</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="348" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a0ac8c325829a0622a14c7b8e3481ebfd" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfXmlHttpRequest::mTimedOut</definition>
+        <argsstring></argsstring>
+        <name>mTimedOut</name>
+        <qualifiedname>QfXmlHttpRequest::mTimedOut</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="349" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1ad95e5f9a7da7e965d9269eb72389c4a2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfXmlHttpRequest::mAborted</definition>
+        <argsstring></argsstring>
+        <name>mAborted</name>
+        <qualifiedname>QfXmlHttpRequest::mAborted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="350" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a9729e15ceebb4c49dbe8db614583318d" prot="private" static="no" mutable="no">
+        <type>quint64</type>
+        <definition>quint64 QfXmlHttpRequest::mRequestSerial</definition>
+        <argsstring></argsstring>
+        <name>mRequestSerial</name>
+        <qualifiedname>QfXmlHttpRequest::mRequestSerial</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="352" column="13" bodyfile="src/core/qfxmlhttprequest.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1abc5746ca41949100002727f9030b5f86" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfXmlHttpRequest::mStatus</definition>
+        <argsstring></argsstring>
+        <name>mStatus</name>
+        <qualifiedname>QfXmlHttpRequest::mStatus</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="354" column="9" bodyfile="src/core/qfxmlhttprequest.h" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a75925995271338fe33cbe062084dcab1" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfXmlHttpRequest::mStatusText</definition>
+        <argsstring></argsstring>
+        <name>mStatusText</name>
+        <qualifiedname>QfXmlHttpRequest::mStatusText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="355" column="13" bodyfile="src/core/qfxmlhttprequest.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1ac149ca1f4d0ceea3b34e14b8504a6e4a" prot="private" static="no" mutable="no">
+        <type>QVariant</type>
+        <definition>QVariant QfXmlHttpRequest::mResponse</definition>
+        <argsstring></argsstring>
+        <name>mResponse</name>
+        <qualifiedname>QfXmlHttpRequest::mResponse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="356" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a74bd1933f3768e877516cf0c1b863572" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfXmlHttpRequest::mResponseText</definition>
+        <argsstring></argsstring>
+        <name>mResponseText</name>
+        <qualifiedname>QfXmlHttpRequest::mResponseText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="357" column="13" bodyfile="src/core/qfxmlhttprequest.h" bodystart="357" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a9e2d47360fa1b9366332e265a3f90dd4" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfXmlHttpRequest::mResponseType</definition>
+        <argsstring></argsstring>
+        <name>mResponseType</name>
+        <qualifiedname>QfXmlHttpRequest::mResponseType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="358" column="13" bodyfile="src/core/qfxmlhttprequest.h" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1ac884bf4fae6568195e3940278d2e352c" prot="private" static="no" mutable="no">
+        <type>QUrl</type>
+        <definition>QUrl QfXmlHttpRequest::mResponseUrl</definition>
+        <argsstring></argsstring>
+        <name>mResponseUrl</name>
+        <qualifiedname>QfXmlHttpRequest::mResponseUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="359" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="359" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1ab022705771238691a71f14d404f8d95a" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QString &gt;</type>
+        <definition>QMap&lt;QString, QString&gt; QfXmlHttpRequest::mResponseHeaders</definition>
+        <argsstring></argsstring>
+        <name>mResponseHeaders</name>
+        <qualifiedname>QfXmlHttpRequest::mResponseHeaders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="361" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a7f8fa602f3d2d5d4d8e271e90d4ad6b0" prot="private" static="no" mutable="no">
+        <type>QNetworkReply::NetworkError</type>
+        <definition>QNetworkReply::NetworkError QfXmlHttpRequest::mLastError</definition>
+        <argsstring></argsstring>
+        <name>mLastError</name>
+        <qualifiedname>QfXmlHttpRequest::mLastError</qualifiedname>
+        <initializer>= QNetworkReply::NoError</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="363" column="33" bodyfile="src/core/qfxmlhttprequest.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a50ea94f3c316d45c5e33346cb96b1a9d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfXmlHttpRequest::mLastErrorString</definition>
+        <argsstring></argsstring>
+        <name>mLastErrorString</name>
+        <qualifiedname>QfXmlHttpRequest::mLastErrorString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="364" column="13" bodyfile="src/core/qfxmlhttprequest.h" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a26df960f6480dae8bdda759a3ef054c0" prot="private" static="no" mutable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::mOnReadyStateChanged</definition>
+        <argsstring></argsstring>
+        <name>mOnReadyStateChanged</name>
+        <qualifiedname>QfXmlHttpRequest::mOnReadyStateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="366" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="366" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1aad342beab369b6210d2c34396f5ea35b" prot="private" static="no" mutable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::mOnDownloadProgress</definition>
+        <argsstring></argsstring>
+        <name>mOnDownloadProgress</name>
+        <qualifiedname>QfXmlHttpRequest::mOnDownloadProgress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="367" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a726fcf252a050ae4253a878bbe9ab4eb" prot="private" static="no" mutable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::mOnUploadProgress</definition>
+        <argsstring></argsstring>
+        <name>mOnUploadProgress</name>
+        <qualifiedname>QfXmlHttpRequest::mOnUploadProgress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="368" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="368" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1ac8dcd504634bdc78884de04570571a49" prot="private" static="no" mutable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::mOnRedirected</definition>
+        <argsstring></argsstring>
+        <name>mOnRedirected</name>
+        <qualifiedname>QfXmlHttpRequest::mOnRedirected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="369" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="369" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a6edfa71e4501a87b27190f4308e765de" prot="private" static="no" mutable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::mOnTimeout</definition>
+        <argsstring></argsstring>
+        <name>mOnTimeout</name>
+        <qualifiedname>QfXmlHttpRequest::mOnTimeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="370" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="370" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1ace7e22f8b0c6cfa547ad151bd0e5d410" prot="private" static="no" mutable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::mOnAborted</definition>
+        <argsstring></argsstring>
+        <name>mOnAborted</name>
+        <qualifiedname>QfXmlHttpRequest::mOnAborted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="371" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="371" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1a022576be51cc1e95c86ee810780c97f9" prot="private" static="no" mutable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::mOnError</definition>
+        <argsstring></argsstring>
+        <name>mOnError</name>
+        <qualifiedname>QfXmlHttpRequest::mOnError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="372" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="372" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1ae43ee28cfb5bef9d8d28af9e62874cdb" prot="private" static="no" mutable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::mOnLoad</definition>
+        <argsstring></argsstring>
+        <name>mOnLoad</name>
+        <qualifiedname>QfXmlHttpRequest::mOnLoad</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="373" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="373" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfXmlHttpRequest_1ad51372326b7a8efdd8c99ebcef433c95" prot="private" static="no" mutable="no">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::mOnLoadEnd</definition>
+        <argsstring></argsstring>
+        <name>mOnLoadEnd</name>
+        <qualifiedname>QfXmlHttpRequest::mOnLoadEnd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="374" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="374" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a03faa24c3eabe9c4d9d9e191c9263137" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfXmlHttpRequest::QfXmlHttpRequest</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfXmlHttpRequest</name>
+        <qualifiedname>QfXmlHttpRequest::QfXmlHttpRequest</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="162" column="14" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1af129bd60d9969d2c544e4c5081c3dede" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfXmlHttpRequest::~QfXmlHttpRequest</definition>
+        <argsstring>() override</argsstring>
+        <name>~QfXmlHttpRequest</name>
+        <qualifiedname>QfXmlHttpRequest::~QfXmlHttpRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="163" column="5" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="51" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1ac51a4ec9efeefbd76f2e5267d51afaff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfXmlHttpRequest::open</definition>
+        <argsstring>(const QString &amp;method, const QUrl &amp;url)</argsstring>
+        <name>open</name>
+        <qualifiedname>QfXmlHttpRequest::open</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>method</declname>
+        </param>
+        <param>
+          <type>const QUrl &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prepares the request. This must be called before <ref refid="classQfXmlHttpRequest_1aa352cc77f5b05a2864adac0cc27fa7f7" kindref="member">send()</ref>.</para>
+<para>Calling <ref refid="classQfXmlHttpRequest_1ac51a4ec9efeefbd76f2e5267d51afaff" kindref="member">open()</ref> while a request is active aborts the active request. Supported methods are GET, POST, PUT, and DELETE. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="176" column="22" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="188" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a6e34f70345db9e8ce944e3d3f224e23f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfXmlHttpRequest::setRequestHeader</definition>
+        <argsstring>(const QString &amp;headerName, const QString &amp;headerValue)</argsstring>
+        <name>setRequestHeader</name>
+        <qualifiedname>QfXmlHttpRequest::setRequestHeader</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>headerName</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>headerValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a raw HTTP request header.</para>
+<para>Headers are only applied after <ref refid="classQfXmlHttpRequest_1ac51a4ec9efeefbd76f2e5267d51afaff" kindref="member">open()</ref> and before <ref refid="classQfXmlHttpRequest_1aa352cc77f5b05a2864adac0cc27fa7f7" kindref="member">send()</ref>. Newline protection is applied to prevent CR/LF header injection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="184" column="22" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="217" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1aa352cc77f5b05a2864adac0cc27fa7f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfXmlHttpRequest::send</definition>
+        <argsstring>(const QVariant &amp;body=QVariant())</argsstring>
+        <name>send</name>
+        <qualifiedname>QfXmlHttpRequest::send</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>body</declname>
+          <defval>QVariant()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts the request.</para>
+<para>The body can be provided as QByteArray, QString, QVariantMap, or QVariantList. QByteArray is sent as-is, QString is encoded as UTF-8 text, and QVariantMap/QVariantList are JSON-encoded. If multipart upload is desired, the caller can pass a QVariantMap containing &quot;file://...&quot; string values, or can set a Content-Type header starting with &quot;multipart/form-data&quot;. Local file URLs are accepted only when they resolve inside the current project directory or the QFieldCloud local directory. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="195" column="22" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="250" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a0effd650834da19b3fd6cea3f96354ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfXmlHttpRequest::abort</definition>
+        <argsstring>()</argsstring>
+        <name>abort</name>
+        <qualifiedname>QfXmlHttpRequest::abort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Aborts the current request if one is active.</para>
+<para><simplesect kind="note"><para>This triggers onaborted and onloadend if set and transitions readyState to Done. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="202" column="22" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="418" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a8e79fcd8d6ca9be638c208e0f47ff648" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QfXmlHttpRequest::getResponseHeader</definition>
+        <argsstring>(const QString &amp;name) const</argsstring>
+        <name>getResponseHeader</name>
+        <qualifiedname>QfXmlHttpRequest::getResponseHeader</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a response header value by name. This is available only after the request finishes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="207" column="25" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="114" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1aa60b3a826281453cca381b3e1624264b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QfXmlHttpRequest::getAllResponseHeaders</definition>
+        <argsstring>() const</argsstring>
+        <name>getAllResponseHeaders</name>
+        <qualifiedname>QfXmlHttpRequest::getAllResponseHeaders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns all response headers in HTTP-style format. This is available only after the request finishes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="212" column="25" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="119" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a0eb450ff8ac1e91d044eafaf988cd62b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189" kindref="member">ReadyState</ref></type>
+        <definition>ReadyState QfXmlHttpRequest::readyState</definition>
+        <argsstring>() const</argsstring>
+        <name>readyState</name>
+        <qualifiedname>QfXmlHttpRequest::readyState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current request state aligned with browser XMLHttpRequest readyState values.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="215" column="16" bodyfile="src/core/qfxmlhttprequest.h" bodystart="215" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1aea1b79242ed45e347c7f2853e545a26f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfXmlHttpRequest::status</definition>
+        <argsstring>() const</argsstring>
+        <name>status</name>
+        <qualifiedname>QfXmlHttpRequest::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The HTTP status code of the final response. For network-level failures, this is 0.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="218" column="9" bodyfile="src/core/qfxmlhttprequest.h" bodystart="218" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a4b094c4f5e8e53024cff93809c3fa010" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfXmlHttpRequest::statusText</definition>
+        <argsstring>() const</argsstring>
+        <name>statusText</name>
+        <qualifiedname>QfXmlHttpRequest::statusText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The HTTP reason phrase of the final response when available.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="221" column="13" bodyfile="src/core/qfxmlhttprequest.h" bodystart="221" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1ab58f9da9d9ca92e4fcd2c7a53cc96f41" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfXmlHttpRequest::responseText</definition>
+        <argsstring>() const</argsstring>
+        <name>responseText</name>
+        <qualifiedname>QfXmlHttpRequest::responseText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The response body decoded as UTF-8 text.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="224" column="13" bodyfile="src/core/qfxmlhttprequest.h" bodystart="224" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a169860a1e44c591d6cc04693a50c644c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfXmlHttpRequest::response</definition>
+        <argsstring>() const</argsstring>
+        <name>response</name>
+        <qualifiedname>QfXmlHttpRequest::response</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parsed response value when the response is JSON, otherwise this equals responseText.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="227" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="227" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a1eb9045a3fadd41f97703145aeb6095a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfXmlHttpRequest::responseType</definition>
+        <argsstring>() const</argsstring>
+        <name>responseType</name>
+        <qualifiedname>QfXmlHttpRequest::responseType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The response Content-Type value as provided by the server.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="230" column="13" bodyfile="src/core/qfxmlhttprequest.h" bodystart="230" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a2311f28a750970058489f1408013fa5f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QUrl</type>
+        <definition>QUrl QfXmlHttpRequest::responseUrl</definition>
+        <argsstring>() const</argsstring>
+        <name>responseUrl</name>
+        <qualifiedname>QfXmlHttpRequest::responseUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The final response URL. This may differ from the requested URL when redirects were followed.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="233" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="233" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a73c9cd00885062eacfd6c5db43ffac56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::setTimeout</definition>
+        <argsstring>(int milliseconds)</argsstring>
+        <name>setTimeout</name>
+        <qualifiedname>QfXmlHttpRequest::setTimeout</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>milliseconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The request timeout in milliseconds. A value of 0 disables the timeout.</para>
+<para>When the timeout triggers, the request is aborted and ontimeout and onloadend are called.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="236" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="62" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a85a7652396cecdc11395eb13778a918b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfXmlHttpRequest::timeout</definition>
+        <argsstring>() const</argsstring>
+        <name>timeout</name>
+        <qualifiedname>QfXmlHttpRequest::timeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The request timeout in milliseconds. A value of 0 disables the timeout.</para>
+<para>When the timeout triggers, the request is aborted and ontimeout and onloadend are called.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="239" column="9" bodyfile="src/core/qfxmlhttprequest.h" bodystart="239" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a3e9b6c42ed67fc746b79731977ee1216" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onreadystatechange</definition>
+        <argsstring>() const</argsstring>
+        <name>onreadystatechange</name>
+        <qualifiedname>QfXmlHttpRequest::onreadystatechange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called whenever readyState changes.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="242" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="242" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a62fc58d81e1dfbcd5d772ed681e0c26b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::setOnreadystatechange</definition>
+        <argsstring>(const QJSValue &amp;callback)</argsstring>
+        <name>setOnreadystatechange</name>
+        <qualifiedname>QfXmlHttpRequest::setOnreadystatechange</qualifiedname>
+        <param>
+          <type>const QJSValue &amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called whenever readyState changes.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="245" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="245" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a244646add4dbf18d20aca4c49d9fdcbd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::ondownloadprogress</definition>
+        <argsstring>() const</argsstring>
+        <name>ondownloadprogress</name>
+        <qualifiedname>QfXmlHttpRequest::ondownloadprogress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called during download progress as (receivedBytes, totalBytes).   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="248" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="248" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1acf3b1c6e03a1ebc7747e66affc52fdbb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::setOndownloadprogress</definition>
+        <argsstring>(const QJSValue &amp;callback)</argsstring>
+        <name>setOndownloadprogress</name>
+        <qualifiedname>QfXmlHttpRequest::setOndownloadprogress</qualifiedname>
+        <param>
+          <type>const QJSValue &amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called during download progress as (receivedBytes, totalBytes).   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="251" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="251" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1aec9b2f859d73f080cffdcd73238583d6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onuploadprogress</definition>
+        <argsstring>() const</argsstring>
+        <name>onuploadprogress</name>
+        <qualifiedname>QfXmlHttpRequest::onuploadprogress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called during upload progress as (sentBytes, totalBytes).   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="254" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="254" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1affed04aa83d15c61fc6fac9c1aaa3dfd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::setOnuploadprogress</definition>
+        <argsstring>(const QJSValue &amp;callback)</argsstring>
+        <name>setOnuploadprogress</name>
+        <qualifiedname>QfXmlHttpRequest::setOnuploadprogress</qualifiedname>
+        <param>
+          <type>const QJSValue &amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called during upload progress as (sentBytes, totalBytes).   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="257" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="257" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a12bfefd380bbb7772e33a63a1cc40a4b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onredirected</definition>
+        <argsstring>() const</argsstring>
+        <name>onredirected</name>
+        <qualifiedname>QfXmlHttpRequest::onredirected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when a redirect is reported by Qt as (urlString).   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="260" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="260" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1abeda378c92ca1cf7a5a67c96cc4ccfa0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::setOnredirected</definition>
+        <argsstring>(const QJSValue &amp;callback)</argsstring>
+        <name>setOnredirected</name>
+        <qualifiedname>QfXmlHttpRequest::setOnredirected</qualifiedname>
+        <param>
+          <type>const QJSValue &amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when a redirect is reported by Qt as (urlString).   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="263" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="263" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a9a4867ed696632583d5803e62c2839ba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::ontimeout</definition>
+        <argsstring>() const</argsstring>
+        <name>ontimeout</name>
+        <qualifiedname>QfXmlHttpRequest::ontimeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the timeout triggers.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="266" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="266" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a8b5fd122e0f203fac2369a2f7bbb0640" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::setOntimeout</definition>
+        <argsstring>(const QJSValue &amp;callback)</argsstring>
+        <name>setOntimeout</name>
+        <qualifiedname>QfXmlHttpRequest::setOntimeout</qualifiedname>
+        <param>
+          <type>const QJSValue &amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the timeout triggers.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="269" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="269" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a786676cef6f1b3e7fcae7b472111883f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onaborted</definition>
+        <argsstring>() const</argsstring>
+        <name>onaborted</name>
+        <qualifiedname>QfXmlHttpRequest::onaborted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the request is aborted.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="272" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="272" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a9c36267a6efae370edf17f2dd674f08a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::setOnaborted</definition>
+        <argsstring>(const QJSValue &amp;callback)</argsstring>
+        <name>setOnaborted</name>
+        <qualifiedname>QfXmlHttpRequest::setOnaborted</qualifiedname>
+        <param>
+          <type>const QJSValue &amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the request is aborted.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="275" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="275" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a410948aa013e816a967603b933efd949" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onerror</definition>
+        <argsstring>() const</argsstring>
+        <name>onerror</name>
+        <qualifiedname>QfXmlHttpRequest::onerror</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called for network-level failures as (errorCode, errorMessage).   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="278" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="278" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1ad253e6ee91224dff9e50e02a1a98fe9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::setOnerror</definition>
+        <argsstring>(const QJSValue &amp;callback)</argsstring>
+        <name>setOnerror</name>
+        <qualifiedname>QfXmlHttpRequest::setOnerror</qualifiedname>
+        <param>
+          <type>const QJSValue &amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called for network-level failures as (errorCode, errorMessage).   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="281" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="281" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1ab9d84cb383cedffc8b23b1da92c3e08c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onload</definition>
+        <argsstring>() const</argsstring>
+        <name>onload</name>
+        <qualifiedname>QfXmlHttpRequest::onload</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the request completes and a status code is available.</para>
+<para><simplesect kind="note"><para>HTTP errors such as 404 or 500 still trigger onload. Callers should inspect status.   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="284" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="284" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a6e37a0e8e20d45731af40e1e13fa63d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::setOnload</definition>
+        <argsstring>(const QJSValue &amp;callback)</argsstring>
+        <name>setOnload</name>
+        <qualifiedname>QfXmlHttpRequest::setOnload</qualifiedname>
+        <param>
+          <type>const QJSValue &amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when the request completes and a status code is available.</para>
+<para><simplesect kind="note"><para>HTTP errors such as 404 or 500 still trigger onload. Callers should inspect status.   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="287" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="287" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a006d20f874a0f351b4de15b534b0e79a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QJSValue</type>
+        <definition>QJSValue QfXmlHttpRequest::onloadend</definition>
+        <argsstring>() const</argsstring>
+        <name>onloadend</name>
+        <qualifiedname>QfXmlHttpRequest::onloadend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called at the end of the request lifecycle for success, error, abort, or timeout.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="290" column="14" bodyfile="src/core/qfxmlhttprequest.h" bodystart="290" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a51835cf4570e62f33cbfb59bf044c529" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::setOnloadend</definition>
+        <argsstring>(const QJSValue &amp;callback)</argsstring>
+        <name>setOnloadend</name>
+        <qualifiedname>QfXmlHttpRequest::setOnloadend</qualifiedname>
+        <param>
+          <type>const QJSValue &amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called at the end of the request lifecycle for success, error, abort, or timeout.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="293" column="10" bodyfile="src/core/qfxmlhttprequest.h" bodystart="293" bodyend="293"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfXmlHttpRequest_1ac661d5279fa0aba619d7ffced2045b67" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classQfXmlHttpRequest" kindref="compound">QfXmlHttpRequest</ref> *</type>
+        <definition>QfXmlHttpRequest * QfXmlHttpRequest::newRequest</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>newRequest</name>
+        <qualifiedname>QfXmlHttpRequest::newRequest</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new request instance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="168" column="41" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfXmlHttpRequest_1abcdb74d6f44a28a8f9c624460541de70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::readyStateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>readyStateChanged</name>
+        <qualifiedname>QfXmlHttpRequest::readyStateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current request state aligned with browser XMLHttpRequest readyState values.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="297" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfXmlHttpRequest_1a9e94348582ffb74e7eb80c9f15621b95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::responseChanged</definition>
+        <argsstring>()</argsstring>
+        <name>responseChanged</name>
+        <qualifiedname>QfXmlHttpRequest::responseChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted whenever response-related properties change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="300" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfXmlHttpRequest_1a79cb1a100c37e47bb662b6631f7a2572" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::timeoutChanged</definition>
+        <argsstring>()</argsstring>
+        <name>timeoutChanged</name>
+        <qualifiedname>QfXmlHttpRequest::timeoutChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The request timeout in milliseconds. A value of 0 disables the timeout.</para>
+<para>When the timeout triggers, the request is aborted and ontimeout and onloadend are called.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="303" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfXmlHttpRequest_1abd4fe9509453cde4603c0a6faaffd0b1" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfXmlHttpRequest::isOpen</definition>
+        <argsstring>() const</argsstring>
+        <name>isOpen</name>
+        <qualifiedname>QfXmlHttpRequest::isOpen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="306" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a30085425e29c8675515e6f64ceeb73db" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::setReadyState</definition>
+        <argsstring>(ReadyState state)</argsstring>
+        <name>setReadyState</name>
+        <qualifiedname>QfXmlHttpRequest::setReadyState</qualifiedname>
+        <param>
+          <type><ref refid="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189" kindref="member">ReadyState</ref></type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="307" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="176" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a3d3b7e186525fd9551c8e8e477864604" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::clearResponse</definition>
+        <argsstring>()</argsstring>
+        <name>clearResponse</name>
+        <qualifiedname>QfXmlHttpRequest::clearResponse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="308" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="132" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1ac20974251bbfe381de6b90762707e463" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::resetForNewRequest</definition>
+        <argsstring>()</argsstring>
+        <name>resetForNewRequest</name>
+        <qualifiedname>QfXmlHttpRequest::resetForNewRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="309" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="146" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a18132af9a6e89e9120bbe2b191266a96" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::cleanupReply</definition>
+        <argsstring>(bool abortNetwork)</argsstring>
+        <name>cleanupReply</name>
+        <qualifiedname>QfXmlHttpRequest::cleanupReply</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>abortNetwork</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Disconnects signals and disposes the current reply.</para>
+<para>This method must never call QML callbacks. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="316" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="154" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1aea19dd72e954e4e8171f95cce0e25d2f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::startRequest</definition>
+        <argsstring>(const QVariant &amp;body)</argsstring>
+        <name>startRequest</name>
+        <qualifiedname>QfXmlHttpRequest::startRequest</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>body</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="318" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="275" bodyend="416"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1ab02f4cf1e84bf5932d2db22436904b95" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::hookReply</definition>
+        <argsstring>(QNetworkReply *networkReply)</argsstring>
+        <name>hookReply</name>
+        <qualifiedname>QfXmlHttpRequest::hookReply</qualifiedname>
+        <param>
+          <type>QNetworkReply *</type>
+          <declname>networkReply</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="319" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="443" bodyend="559"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1af524fb908a5c385e3e8fd96c4f5d7877" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::finalizeReply</definition>
+        <argsstring>(QNetworkReply *finishedReply)</argsstring>
+        <name>finalizeReply</name>
+        <qualifiedname>QfXmlHttpRequest::finalizeReply</qualifiedname>
+        <param>
+          <type>QNetworkReply *</type>
+          <declname>finishedReply</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="320" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="561" bodyend="635"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1aabe21b98ea473eb1366913fed993484d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::finalizeAsError</definition>
+        <argsstring>(const QString &amp;detail, bool shouldEmitResponseChanged=true)</argsstring>
+        <name>finalizeAsError</name>
+        <qualifiedname>QfXmlHttpRequest::finalizeAsError</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>detail</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shouldEmitResponseChanged</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="321" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="637" bodyend="666"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1ab9e0fedeeccd43f92b02715ed41fea7e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArray</type>
+        <definition>QByteArray QfXmlHttpRequest::bodyToBytes</definition>
+        <argsstring>(const QVariant &amp;body, QString *outContentType=nullptr) const</argsstring>
+        <name>bodyToBytes</name>
+        <qualifiedname>QfXmlHttpRequest::bodyToBytes</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>body</declname>
+        </param>
+        <param>
+          <type>QString *</type>
+          <declname>outContentType</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="323" column="16" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="668" bodyend="700"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1aa9dee654b4e4c0a1e5faff424208ab78" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfXmlHttpRequest::bodyContainsFileUrls</definition>
+        <argsstring>(const QVariant &amp;body) const</argsstring>
+        <name>bodyContainsFileUrls</name>
+        <qualifiedname>QfXmlHttpRequest::bodyContainsFileUrls</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>body</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="324" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="702" bodyend="738"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a10703d010a482846aa91df1a52da5e27" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHttpMultiPart *</type>
+        <definition>QHttpMultiPart * QfXmlHttpRequest::buildMultipart</definition>
+        <argsstring>(const QVariant &amp;body) const</argsstring>
+        <name>buildMultipart</name>
+        <qualifiedname>QfXmlHttpRequest::buildMultipart</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>body</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="325" column="20" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="775" bodyend="895"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1ac3b1f978a2fc1d62d1ed5775951577c0" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfXmlHttpRequest::isAllowedLocalUploadPath</definition>
+        <argsstring>(const QString &amp;localPath) const</argsstring>
+        <name>isAllowedLocalUploadPath</name>
+        <qualifiedname>QfXmlHttpRequest::isAllowedLocalUploadPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="326" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="740" bodyend="773"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a36f6d56d9479cdabec9c85dfae6474f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::call</definition>
+        <argsstring>(const QJSValue &amp;callback, const QJSValueList &amp;arguments={})</argsstring>
+        <name>call</name>
+        <qualifiedname>QfXmlHttpRequest::call</qualifiedname>
+        <param>
+          <type>const QJSValue &amp;</type>
+          <declname>callback</declname>
+        </param>
+        <param>
+          <type>const QJSValueList &amp;</type>
+          <declname>arguments</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="328" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="897" bodyend="912"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a285c07ce2a0de5021f9778d9c5fe82b9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::collectResponseHeaders</definition>
+        <argsstring>(QNetworkReply *networkReply)</argsstring>
+        <name>collectResponseHeaders</name>
+        <qualifiedname>QfXmlHttpRequest::collectResponseHeaders</qualifiedname>
+        <param>
+          <type>QNetworkReply *</type>
+          <declname>networkReply</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="331" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="95" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a44fdfb60b453f36aa00eec550632bb29" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfXmlHttpRequest::scheduleAutoDelete</definition>
+        <argsstring>()</argsstring>
+        <name>scheduleAutoDelete</name>
+        <qualifiedname>QfXmlHttpRequest::scheduleAutoDelete</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="334" column="10" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="74" bodyend="78"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classQfXmlHttpRequest_1ab6ce070893b7244372fa57f9449bb91f" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfXmlHttpRequest::containsNewlines</definition>
+        <argsstring>(const QString &amp;stringValue)</argsstring>
+        <name>containsNewlines</name>
+        <qualifiedname>QfXmlHttpRequest::containsNewlines</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>stringValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="329" column="17" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfXmlHttpRequest_1a689e9db63ccffa18a5be5424d8659516" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfXmlHttpRequest::normalizeHeaderName</definition>
+        <argsstring>(const QString &amp;stringValue)</argsstring>
+        <name>normalizeHeaderName</name>
+        <qualifiedname>QfXmlHttpRequest::normalizeHeaderName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>stringValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfxmlhttprequest.h" line="332" column="20" bodyfile="src/core/qfxmlhttprequest.cpp" bodystart="90" bodyend="93"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class exposes a lightweight, XMLHttpRequest-like API to QML for making HTTP requests in a predictable way. It follows the familiar <ref refid="classQfXmlHttpRequest_1ac51a4ec9efeefbd76f2e5267d51afaff" kindref="member">open()</ref>, <ref refid="classQfXmlHttpRequest_1a6e34f70345db9e8ce944e3d3f224e23f" kindref="member">setRequestHeader()</ref>, <ref refid="classQfXmlHttpRequest_1aa352cc77f5b05a2864adac0cc27fa7f7" kindref="member">send()</ref>, and <ref refid="classQfXmlHttpRequest_1a0effd650834da19b3fd6cea3f96354ef" kindref="member">abort()</ref> workflow while exposing request state, response data, and lifecycle callbacks as QML properties.</para>
+<para>Payload encoding is deterministic. QByteArray payloads are transmitted as-is. QString payloads are sent as UTF-8 text. QVariantMap and QVariantList payloads are encoded as JSON. When the caller does not explicitly set a Content-Type header, an appropriate Content-Type is inferred from the payload type.</para>
+<para>Multipart uploads are supported when the body contains &quot;file://...&quot; URL strings, or when the caller sets a Content-Type header starting with &quot;multipart/form-data&quot;. Local file uploads are restricted to paths inside the current project directory or inside the QFieldCloud local directory.</para>
+<para>Requests created for QML usage are expected to be short-lived. The object schedules deleteLater() automatically once the request lifecycle ends (success, error, abort, or timeout).</para>
+<para><simplesect kind="note"><para>This is not a full browser XMLHttpRequest implementation. It focuses on a clean QML API and predictable behavior within QField. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfXmlHttpRequest</label>
+        <link refid="classQfXmlHttpRequest"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfXmlHttpRequest</label>
+        <link refid="classQfXmlHttpRequest"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfxmlhttprequest.h" line="55" column="1" bodyfile="src/core/qfxmlhttprequest.h" bodystart="56" bodyend="375"/>
+    <listofallmembers>
+      <member refid="classQfXmlHttpRequest_1a0effd650834da19b3fd6cea3f96354ef" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>abort</name></member>
+      <member refid="classQfXmlHttpRequest_1aa9dee654b4e4c0a1e5faff424208ab78" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>bodyContainsFileUrls</name></member>
+      <member refid="classQfXmlHttpRequest_1ab9e0fedeeccd43f92b02715ed41fea7e" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>bodyToBytes</name></member>
+      <member refid="classQfXmlHttpRequest_1a10703d010a482846aa91df1a52da5e27" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>buildMultipart</name></member>
+      <member refid="classQfXmlHttpRequest_1a36f6d56d9479cdabec9c85dfae6474f2" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>call</name></member>
+      <member refid="classQfXmlHttpRequest_1a18132af9a6e89e9120bbe2b191266a96" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>cleanupReply</name></member>
+      <member refid="classQfXmlHttpRequest_1a3d3b7e186525fd9551c8e8e477864604" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>clearResponse</name></member>
+      <member refid="classQfXmlHttpRequest_1a285c07ce2a0de5021f9778d9c5fe82b9" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>collectResponseHeaders</name></member>
+      <member refid="classQfXmlHttpRequest_1ab6ce070893b7244372fa57f9449bb91f" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>containsNewlines</name></member>
+      <member refid="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189a9c1d383c3cd3c89821ee37fde41ac5e2" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>Done</name></member>
+      <member refid="classQfXmlHttpRequest_1aabe21b98ea473eb1366913fed993484d" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>finalizeAsError</name></member>
+      <member refid="classQfXmlHttpRequest_1af524fb908a5c385e3e8fd96c4f5d7877" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>finalizeReply</name></member>
+      <member refid="classQfXmlHttpRequest_1aa60b3a826281453cca381b3e1624264b" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>getAllResponseHeaders</name></member>
+      <member refid="classQfXmlHttpRequest_1a8e79fcd8d6ca9be638c208e0f47ff648" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>getResponseHeader</name></member>
+      <member refid="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189a1c234089b477e1e5b9512a99fdac9a47" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>HeadersReceived</name></member>
+      <member refid="classQfXmlHttpRequest_1ab02f4cf1e84bf5932d2db22436904b95" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>hookReply</name></member>
+      <member refid="classQfXmlHttpRequest_1ac3b1f978a2fc1d62d1ed5775951577c0" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>isAllowedLocalUploadPath</name></member>
+      <member refid="classQfXmlHttpRequest_1abd4fe9509453cde4603c0a6faaffd0b1" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>isOpen</name></member>
+      <member refid="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189a890978f40755a7b1a2979e87c2cec559" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>Loading</name></member>
+      <member refid="classQfXmlHttpRequest_1ad95e5f9a7da7e965d9269eb72389c4a2" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mAborted</name></member>
+      <member refid="classQfXmlHttpRequest_1a1762e3a94369110843e88101f8b5ca6a" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mConnections</name></member>
+      <member refid="classQfXmlHttpRequest_1a49654c7278ff9c4ee03884f4ae9e0c75" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mFinalized</name></member>
+      <member refid="classQfXmlHttpRequest_1a7f8fa602f3d2d5d4d8e271e90d4ad6b0" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mLastError</name></member>
+      <member refid="classQfXmlHttpRequest_1a50ea94f3c316d45c5e33346cb96b1a9d" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mLastErrorString</name></member>
+      <member refid="classQfXmlHttpRequest_1a0b8d9e47f06969a576f7a6a1f1b761c5" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mMethod</name></member>
+      <member refid="classQfXmlHttpRequest_1ace7e22f8b0c6cfa547ad151bd0e5d410" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mOnAborted</name></member>
+      <member refid="classQfXmlHttpRequest_1aad342beab369b6210d2c34396f5ea35b" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mOnDownloadProgress</name></member>
+      <member refid="classQfXmlHttpRequest_1a022576be51cc1e95c86ee810780c97f9" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mOnError</name></member>
+      <member refid="classQfXmlHttpRequest_1ae43ee28cfb5bef9d8d28af9e62874cdb" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mOnLoad</name></member>
+      <member refid="classQfXmlHttpRequest_1ad51372326b7a8efdd8c99ebcef433c95" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mOnLoadEnd</name></member>
+      <member refid="classQfXmlHttpRequest_1a26df960f6480dae8bdda759a3ef054c0" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mOnReadyStateChanged</name></member>
+      <member refid="classQfXmlHttpRequest_1ac8dcd504634bdc78884de04570571a49" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mOnRedirected</name></member>
+      <member refid="classQfXmlHttpRequest_1a6edfa71e4501a87b27190f4308e765de" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mOnTimeout</name></member>
+      <member refid="classQfXmlHttpRequest_1a726fcf252a050ae4253a878bbe9ab4eb" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mOnUploadProgress</name></member>
+      <member refid="classQfXmlHttpRequest_1a28547c3627a22772770990ec3d7c224e" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mReadyState</name></member>
+      <member refid="classQfXmlHttpRequest_1a332574e629f2f683481b1e9789cf66ee" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mReply</name></member>
+      <member refid="classQfXmlHttpRequest_1afc57f902e0c7fbf9ea1ffc0e016f44ea" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mRequest</name></member>
+      <member refid="classQfXmlHttpRequest_1a9729e15ceebb4c49dbe8db614583318d" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mRequestSerial</name></member>
+      <member refid="classQfXmlHttpRequest_1ac149ca1f4d0ceea3b34e14b8504a6e4a" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mResponse</name></member>
+      <member refid="classQfXmlHttpRequest_1ab022705771238691a71f14d404f8d95a" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mResponseHeaders</name></member>
+      <member refid="classQfXmlHttpRequest_1a74bd1933f3768e877516cf0c1b863572" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mResponseText</name></member>
+      <member refid="classQfXmlHttpRequest_1a9e2d47360fa1b9366332e265a3f90dd4" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mResponseType</name></member>
+      <member refid="classQfXmlHttpRequest_1ac884bf4fae6568195e3940278d2e352c" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mResponseUrl</name></member>
+      <member refid="classQfXmlHttpRequest_1abc5746ca41949100002727f9030b5f86" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mStatus</name></member>
+      <member refid="classQfXmlHttpRequest_1a75925995271338fe33cbe062084dcab1" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mStatusText</name></member>
+      <member refid="classQfXmlHttpRequest_1a0ac8c325829a0622a14c7b8e3481ebfd" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mTimedOut</name></member>
+      <member refid="classQfXmlHttpRequest_1a7945711ae4faeb40b07c7261c0f1709e" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mTimeoutMs</name></member>
+      <member refid="classQfXmlHttpRequest_1a8bc56439f45c22f276bb42aed8adad77" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>mUrl</name></member>
+      <member refid="classQfXmlHttpRequest_1ac661d5279fa0aba619d7ffced2045b67" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>newRequest</name></member>
+      <member refid="classQfXmlHttpRequest_1a689e9db63ccffa18a5be5424d8659516" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>normalizeHeaderName</name></member>
+      <member refid="classQfXmlHttpRequest_1aca52a7b0b96acc8a76eaf1ca8f9e4c31" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onaborted</name></member>
+      <member refid="classQfXmlHttpRequest_1a786676cef6f1b3e7fcae7b472111883f" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onaborted</name></member>
+      <member refid="classQfXmlHttpRequest_1abcc45e8f4283d2202b5f1bd3d76bf51d" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>ondownloadprogress</name></member>
+      <member refid="classQfXmlHttpRequest_1a244646add4dbf18d20aca4c49d9fdcbd" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>ondownloadprogress</name></member>
+      <member refid="classQfXmlHttpRequest_1a5e766350764576a9ddb675d4dd2d6ec9" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onerror</name></member>
+      <member refid="classQfXmlHttpRequest_1a410948aa013e816a967603b933efd949" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onerror</name></member>
+      <member refid="classQfXmlHttpRequest_1af47a500204436ee875d757602c47471e" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onload</name></member>
+      <member refid="classQfXmlHttpRequest_1ab9d84cb383cedffc8b23b1da92c3e08c" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onload</name></member>
+      <member refid="classQfXmlHttpRequest_1a33fbdac39b680fa132cd3f4cc9e675d2" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onloadend</name></member>
+      <member refid="classQfXmlHttpRequest_1a006d20f874a0f351b4de15b534b0e79a" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onloadend</name></member>
+      <member refid="classQfXmlHttpRequest_1aed6741c1fccee2e04e648cbf6ff59c50" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onreadystatechange</name></member>
+      <member refid="classQfXmlHttpRequest_1a3e9b6c42ed67fc746b79731977ee1216" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onreadystatechange</name></member>
+      <member refid="classQfXmlHttpRequest_1a7a9ec25eacbe61603578b07ec55c2dbf" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onredirected</name></member>
+      <member refid="classQfXmlHttpRequest_1a12bfefd380bbb7772e33a63a1cc40a4b" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onredirected</name></member>
+      <member refid="classQfXmlHttpRequest_1a4e4dfcafe091b7193b3edd95c9746abe" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>ontimeout</name></member>
+      <member refid="classQfXmlHttpRequest_1a9a4867ed696632583d5803e62c2839ba" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>ontimeout</name></member>
+      <member refid="classQfXmlHttpRequest_1ae9ff7181e44dc1b84ad4ce0ca37e136d" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onuploadprogress</name></member>
+      <member refid="classQfXmlHttpRequest_1aec9b2f859d73f080cffdcd73238583d6" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>onuploadprogress</name></member>
+      <member refid="classQfXmlHttpRequest_1ac51a4ec9efeefbd76f2e5267d51afaff" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>open</name></member>
+      <member refid="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189aee0efbc39c81a8195aacb18b217f0ebc" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>Opened</name></member>
+      <member refid="classQfXmlHttpRequest_1a03faa24c3eabe9c4d9d9e191c9263137" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>QfXmlHttpRequest</name></member>
+      <member refid="classQfXmlHttpRequest_1af0515e3922f44eb0c83aeef6adb47a1d" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>readyState</name></member>
+      <member refid="classQfXmlHttpRequest_1a0eb450ff8ac1e91d044eafaf988cd62b" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>readyState</name></member>
+      <member refid="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>ReadyState</name></member>
+      <member refid="classQfXmlHttpRequest_1abcdb74d6f44a28a8f9c624460541de70" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>readyStateChanged</name></member>
+      <member refid="classQfXmlHttpRequest_1ac20974251bbfe381de6b90762707e463" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>resetForNewRequest</name></member>
+      <member refid="classQfXmlHttpRequest_1a5656b331dfa7cf6f11e47ef34f768b3a" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>response</name></member>
+      <member refid="classQfXmlHttpRequest_1a169860a1e44c591d6cc04693a50c644c" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>response</name></member>
+      <member refid="classQfXmlHttpRequest_1a9e94348582ffb74e7eb80c9f15621b95" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>responseChanged</name></member>
+      <member refid="classQfXmlHttpRequest_1ae48f4d65016864c04ff9ad6e551102d8" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>responseText</name></member>
+      <member refid="classQfXmlHttpRequest_1ab58f9da9d9ca92e4fcd2c7a53cc96f41" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>responseText</name></member>
+      <member refid="classQfXmlHttpRequest_1a3709a3ad17f438fffd16b64c42102f4a" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>responseType</name></member>
+      <member refid="classQfXmlHttpRequest_1a1eb9045a3fadd41f97703145aeb6095a" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>responseType</name></member>
+      <member refid="classQfXmlHttpRequest_1afbd575b993abcfb5b5a1280857dc820c" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>responseUrl</name></member>
+      <member refid="classQfXmlHttpRequest_1a2311f28a750970058489f1408013fa5f" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>responseUrl</name></member>
+      <member refid="classQfXmlHttpRequest_1a44fdfb60b453f36aa00eec550632bb29" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>scheduleAutoDelete</name></member>
+      <member refid="classQfXmlHttpRequest_1aa352cc77f5b05a2864adac0cc27fa7f7" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>send</name></member>
+      <member refid="classQfXmlHttpRequest_1a9c36267a6efae370edf17f2dd674f08a" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setOnaborted</name></member>
+      <member refid="classQfXmlHttpRequest_1acf3b1c6e03a1ebc7747e66affc52fdbb" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setOndownloadprogress</name></member>
+      <member refid="classQfXmlHttpRequest_1ad253e6ee91224dff9e50e02a1a98fe9c" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setOnerror</name></member>
+      <member refid="classQfXmlHttpRequest_1a6e37a0e8e20d45731af40e1e13fa63d1" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setOnload</name></member>
+      <member refid="classQfXmlHttpRequest_1a51835cf4570e62f33cbfb59bf044c529" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setOnloadend</name></member>
+      <member refid="classQfXmlHttpRequest_1a62fc58d81e1dfbcd5d772ed681e0c26b" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setOnreadystatechange</name></member>
+      <member refid="classQfXmlHttpRequest_1abeda378c92ca1cf7a5a67c96cc4ccfa0" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setOnredirected</name></member>
+      <member refid="classQfXmlHttpRequest_1a8b5fd122e0f203fac2369a2f7bbb0640" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setOntimeout</name></member>
+      <member refid="classQfXmlHttpRequest_1affed04aa83d15c61fc6fac9c1aaa3dfd" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setOnuploadprogress</name></member>
+      <member refid="classQfXmlHttpRequest_1a30085425e29c8675515e6f64ceeb73db" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setReadyState</name></member>
+      <member refid="classQfXmlHttpRequest_1a6e34f70345db9e8ce944e3d3f224e23f" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setRequestHeader</name></member>
+      <member refid="classQfXmlHttpRequest_1a73c9cd00885062eacfd6c5db43ffac56" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>setTimeout</name></member>
+      <member refid="classQfXmlHttpRequest_1aea19dd72e954e4e8171f95cce0e25d2f" prot="private" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>startRequest</name></member>
+      <member refid="classQfXmlHttpRequest_1afacb58249ad1f2161b97fb2359568661" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>status</name></member>
+      <member refid="classQfXmlHttpRequest_1aea1b79242ed45e347c7f2853e545a26f" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>status</name></member>
+      <member refid="classQfXmlHttpRequest_1aad242abdeb76e7b67a6cd6211622b89d" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>statusText</name></member>
+      <member refid="classQfXmlHttpRequest_1a4b094c4f5e8e53024cff93809c3fa010" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>statusText</name></member>
+      <member refid="classQfXmlHttpRequest_1a2321f06f7d5552a9a0a63497969ca10c" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>timeout</name></member>
+      <member refid="classQfXmlHttpRequest_1a85a7652396cecdc11395eb13778a918b" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>timeout</name></member>
+      <member refid="classQfXmlHttpRequest_1a79cb1a100c37e47bb662b6631f7a2572" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>timeoutChanged</name></member>
+      <member refid="classQfXmlHttpRequest_1afaed2447edf13eaae6fc6c6a236a9189a23aee4d488880b85d1655dd57d6608a7" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>Unsent</name></member>
+      <member refid="classQfXmlHttpRequest_1af129bd60d9969d2c544e4c5081c3dede" prot="public" virt="non-virtual"><scope>QfXmlHttpRequest</scope><name>~QfXmlHttpRequest</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

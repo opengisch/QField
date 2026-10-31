@@ -1,0 +1,705 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfNtripSettings" kind="class" language="C++" prot="public">
+    <compoundname>QfNtripSettings</compoundname>
+    <includes refid="qfntripsettings_8h" local="no">qfntripsettings.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Protocol</name>
+        <qualifiedname>QfNtripSettings::Protocol</qualifiedname>
+        <enumvalue id="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4ae0e0ab8e53956c1dbab7fb0ff1d939f1" prot="public">
+          <name>NtripVersion1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4aafb64868539b3312b5e829c1681c6bc7" prot="public">
+          <name>NtripVersion2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4a5518db00ad9b7af8a5ca73cac2da265b" prot="public">
+          <name>NtripSsl</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>NTRIP server protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="43" column="5" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="44" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfNtripSettings_1a0d1e736f91338405f8b42ae4e1deeead" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNtripSettings::isValid</definition>
+        <argsstring></argsstring>
+        <name>isValid</name>
+        <qualifiedname>QfNtripSettings::isValid</qualifiedname>
+        <read>isValid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="31" column="5" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNtripSettings_1a90d5567b6ab77164ecb30e25b693ff65" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::host</definition>
+        <argsstring></argsstring>
+        <name>host</name>
+        <qualifiedname>QfNtripSettings::host</qualifiedname>
+        <read>host</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="33" column="5" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNtripSettings_1afac01c4b0b34539c0411ecc6d74b5a4e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfNtripSettings::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <qualifiedname>QfNtripSettings::port</qualifiedname>
+        <read>port</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="34" column="5" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNtripSettings_1af7cece339b49c4af091b1c45404879ed" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4" kindref="member">Protocol</ref></type>
+        <definition>Protocol QfNtripSettings::protocol</definition>
+        <argsstring></argsstring>
+        <name>protocol</name>
+        <qualifiedname>QfNtripSettings::protocol</qualifiedname>
+        <read>protocol</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="35" column="5" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNtripSettings_1a4c5441691bf7ac25f63a18ca30e3b1db" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::mountPoint</definition>
+        <argsstring></argsstring>
+        <name>mountPoint</name>
+        <qualifiedname>QfNtripSettings::mountPoint</qualifiedname>
+        <read>mountPoint</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="36" column="5" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNtripSettings_1a338c3beaa1754f4ee54712c3ab4e1b97" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>QfNtripSettings::username</qualifiedname>
+        <read>username</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="37" column="5" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNtripSettings_1a7c0e6cc9f4bb600fb436020129996b95" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::password</definition>
+        <argsstring></argsstring>
+        <name>password</name>
+        <qualifiedname>QfNtripSettings::password</qualifiedname>
+        <read>password</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="38" column="5" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNtripSettings_1a6973d2b70e2a373eeb5e5c1abd7330ad" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfNtripSettings::forwardNmeaSentences</definition>
+        <argsstring></argsstring>
+        <name>forwardNmeaSentences</name>
+        <qualifiedname>QfNtripSettings::forwardNmeaSentences</qualifiedname>
+        <read>forwardNmeaSentences</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="39" column="5" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfNtripSettings_1af4f422e89b2d0ec795cdaff88a92132c" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::mHost</definition>
+        <argsstring></argsstring>
+        <name>mHost</name>
+        <qualifiedname>QfNtripSettings::mHost</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="110" column="13" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNtripSettings_1a45f2d6b40e31a9c1e4c95c7ea0d56876" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfNtripSettings::mPort</definition>
+        <argsstring></argsstring>
+        <name>mPort</name>
+        <qualifiedname>QfNtripSettings::mPort</qualifiedname>
+        <initializer>= 2101</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="111" column="9" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNtripSettings_1aa76f1b7dbc0a0b2fa100cf2b9a9c21a9" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4" kindref="member">Protocol</ref></type>
+        <definition>Protocol QfNtripSettings::mProtocol</definition>
+        <argsstring></argsstring>
+        <name>mProtocol</name>
+        <qualifiedname>QfNtripSettings::mProtocol</qualifiedname>
+        <initializer>= NtripVersion2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="112" column="14" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNtripSettings_1a20d259f91ae8d04a9e2118f35eb6be7a" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::mMountPoint</definition>
+        <argsstring></argsstring>
+        <name>mMountPoint</name>
+        <qualifiedname>QfNtripSettings::mMountPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="114" column="13" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNtripSettings_1a7ff5be74fb21dc36dd7616bd3565f2c7" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::mUsername</definition>
+        <argsstring></argsstring>
+        <name>mUsername</name>
+        <qualifiedname>QfNtripSettings::mUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="115" column="13" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNtripSettings_1a92a3f8a80aab1a365919ee46b32520a1" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::mPassword</definition>
+        <argsstring></argsstring>
+        <name>mPassword</name>
+        <qualifiedname>QfNtripSettings::mPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="116" column="13" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfNtripSettings_1a2f6a08e6510e306bb6d0d03dcd502c78" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfNtripSettings::mForwardNmeaSentences</definition>
+        <argsstring></argsstring>
+        <name>mForwardNmeaSentences</name>
+        <qualifiedname>QfNtripSettings::mForwardNmeaSentences</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="118" column="10" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfNtripSettings_1a3eedda9000b2c1a7f994fdef400ebfd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfNtripSettings::QfNtripSettings</definition>
+        <argsstring>()</argsstring>
+        <name>QfNtripSettings</name>
+        <qualifiedname>QfNtripSettings::QfNtripSettings</qualifiedname>
+        <briefdescription>
+<para>The NTRIP settings constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="53" column="5" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a0d93f8232db0a61320115d7378fded05" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNtripSettings::operator==</definition>
+        <argsstring>(const QfNtripSettings &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>QfNtripSettings::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfNtripSettings" kindref="compound">QfNtripSettings</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="55" column="10" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="24" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a371c69e5e479c9364baeefeea1b36130" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNtripSettings::operator!=</definition>
+        <argsstring>(const QfNtripSettings &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>QfNtripSettings::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfNtripSettings" kindref="compound">QfNtripSettings</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="56" column="10" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a34112025339b55b1b65c22bc7678fc09" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNtripSettings::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>QfNtripSettings::isValid</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if the settings are complete enough to connect to an NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="59" column="10" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1abf02086a1a45a3e376c69296a177558b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::host</definition>
+        <argsstring>() const</argsstring>
+        <name>host</name>
+        <qualifiedname>QfNtripSettings::host</qualifiedname>
+        <briefdescription>
+<para>Returns the NTRIP server host. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="62" column="13" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a0ca9b37246b090fe7eeb974195ad8a0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNtripSettings::setHost</definition>
+        <argsstring>(const QString &amp;host)</argsstring>
+        <name>setHost</name>
+        <qualifiedname>QfNtripSettings::setHost</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>host</declname>
+        </param>
+        <briefdescription>
+<para>Sets the NTRIP server host. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="65" column="10" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a47268299ef6f5d8cf30d8d74e82b4685" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfNtripSettings::port</definition>
+        <argsstring>() const</argsstring>
+        <name>port</name>
+        <qualifiedname>QfNtripSettings::port</qualifiedname>
+        <briefdescription>
+<para>Returns the NTRIP server port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="68" column="9" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1abf1fb21800cb6f6f26c521bf64faae4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNtripSettings::setPort</definition>
+        <argsstring>(int port)</argsstring>
+        <name>setPort</name>
+        <qualifiedname>QfNtripSettings::setPort</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+<para>Sets the NTRIP server port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="71" column="10" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1ae693627c2f10e9fdec9d8bf50fc7779c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4" kindref="member">Protocol</ref></type>
+        <definition>Protocol QfNtripSettings::protocol</definition>
+        <argsstring>() const</argsstring>
+        <name>protocol</name>
+        <qualifiedname>QfNtripSettings::protocol</qualifiedname>
+        <briefdescription>
+<para>Returns the NTRIP server protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="74" column="14" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a53263fc4614f526e8dc0a87472d2a5db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNtripSettings::setProtocol</definition>
+        <argsstring>(Protocol protocol)</argsstring>
+        <name>setProtocol</name>
+        <qualifiedname>QfNtripSettings::setProtocol</qualifiedname>
+        <param>
+          <type><ref refid="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4" kindref="member">Protocol</ref></type>
+          <declname>protocol</declname>
+        </param>
+        <briefdescription>
+<para>Sets the NTRIP server protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="77" column="10" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a175680a9454ba58e6116eb223b84ac9b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::mountPoint</definition>
+        <argsstring>() const</argsstring>
+        <name>mountPoint</name>
+        <qualifiedname>QfNtripSettings::mountPoint</qualifiedname>
+        <briefdescription>
+<para>Returns the NTRIP server mount point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="80" column="13" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a53ce8ed29e55a2e79bcada8ceb3818b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNtripSettings::setMountPoint</definition>
+        <argsstring>(const QString &amp;mountPoint)</argsstring>
+        <name>setMountPoint</name>
+        <qualifiedname>QfNtripSettings::setMountPoint</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mountPoint</declname>
+        </param>
+        <briefdescription>
+<para>Sets the NTRIP server mount point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="83" column="10" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a1ea06683c72f00e8cae8283e786d8e75" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::username</definition>
+        <argsstring>() const</argsstring>
+        <name>username</name>
+        <qualifiedname>QfNtripSettings::username</qualifiedname>
+        <briefdescription>
+<para>Returns the username to connect ot he NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="86" column="13" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a7b6ac614d92929e9b7e1cc71a372dfbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNtripSettings::setUsername</definition>
+        <argsstring>(const QString &amp;username)</argsstring>
+        <name>setUsername</name>
+        <qualifiedname>QfNtripSettings::setUsername</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Sets the username to connect ot he NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="89" column="10" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a3cb8e07b5607157229ac911bc26875bf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfNtripSettings::password</definition>
+        <argsstring>() const</argsstring>
+        <name>password</name>
+        <qualifiedname>QfNtripSettings::password</qualifiedname>
+        <briefdescription>
+<para>Returns the password to connect ot he NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="92" column="13" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a6982d87f401be1ae6d3c78aa5d28356b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNtripSettings::setPassword</definition>
+        <argsstring>(const QString &amp;password)</argsstring>
+        <name>setPassword</name>
+        <qualifiedname>QfNtripSettings::setPassword</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+<para>Sets the password to connect ot he NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="95" column="10" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a18428e74d63ace326e8dcc3068429048" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNtripSettings::forwardNmeaSentences</definition>
+        <argsstring>() const</argsstring>
+        <name>forwardNmeaSentences</name>
+        <qualifiedname>QfNtripSettings::forwardNmeaSentences</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if NMEA sentences will be forwarded to the NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="98" column="10" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1a156462aa99343c10031e309a8a8aef8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfNtripSettings::setForwardNmeaSentences</definition>
+        <argsstring>(bool forwardNmeaSentences)</argsstring>
+        <name>setForwardNmeaSentences</name>
+        <qualifiedname>QfNtripSettings::setForwardNmeaSentences</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>forwardNmeaSentences</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether NMEA sentences will be forwarded to the NTRIP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="101" column="10" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNtripSettings_1aa971aa1f3589b55e69910f4612938000" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfNtripSettings::toMap</definition>
+        <argsstring>() const</argsstring>
+        <name>toMap</name>
+        <qualifiedname>QfNtripSettings::toMap</qualifiedname>
+        <briefdescription>
+<para>Return a map of settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="104" column="29" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="78" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfNtripSettings_1add4db306c0a9503d1830f6b5a60058aa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNtripSettings" kindref="compound">QfNtripSettings</ref></type>
+        <definition>QfNtripSettings QfNtripSettings::fromMap</definition>
+        <argsstring>(const QVariantMap &amp;settings)</argsstring>
+        <name>fromMap</name>
+        <qualifiedname>QfNtripSettings::fromMap</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+<para>Creates an <ref refid="classQfNtripSettings" kindref="compound">QfNtripSettings</ref> object from a map of settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="107" column="28" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="91" bodyend="102"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classQfNtripSettings_1a40d0d1d4bae9e95a7d5485b7d017bcaa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;stream, const QfNtripSettings &amp;settings)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>QfNtripSettings::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classQfNtripSettings" kindref="compound">QfNtripSettings</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="120" column="12" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="104" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="friend" id="classQfNtripSettings_1a7bd4214711b836bb6844b990556ce101" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;stream, QfNtripSettings &amp;settings)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>QfNtripSettings::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classQfNtripSettings" kindref="compound">QfNtripSettings</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfntripsettings.h" line="121" column="24" bodyfile="src/core/positioning/qfntripsettings.cpp" bodystart="111" bodyend="115"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A class containing NTRIP server settings. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/positioning/qfntripsettings.h" line="27" column="1" bodyfile="src/core/positioning/qfntripsettings.h" bodystart="28" bodyend="122"/>
+    <listofallmembers>
+      <member refid="classQfNtripSettings_1a6973d2b70e2a373eeb5e5c1abd7330ad" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>forwardNmeaSentences</name></member>
+      <member refid="classQfNtripSettings_1a18428e74d63ace326e8dcc3068429048" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>forwardNmeaSentences</name></member>
+      <member refid="classQfNtripSettings_1add4db306c0a9503d1830f6b5a60058aa" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>fromMap</name></member>
+      <member refid="classQfNtripSettings_1a90d5567b6ab77164ecb30e25b693ff65" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>host</name></member>
+      <member refid="classQfNtripSettings_1abf02086a1a45a3e376c69296a177558b" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>host</name></member>
+      <member refid="classQfNtripSettings_1a0d1e736f91338405f8b42ae4e1deeead" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>isValid</name></member>
+      <member refid="classQfNtripSettings_1a34112025339b55b1b65c22bc7678fc09" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>isValid</name></member>
+      <member refid="classQfNtripSettings_1a2f6a08e6510e306bb6d0d03dcd502c78" prot="private" virt="non-virtual"><scope>QfNtripSettings</scope><name>mForwardNmeaSentences</name></member>
+      <member refid="classQfNtripSettings_1af4f422e89b2d0ec795cdaff88a92132c" prot="private" virt="non-virtual"><scope>QfNtripSettings</scope><name>mHost</name></member>
+      <member refid="classQfNtripSettings_1a20d259f91ae8d04a9e2118f35eb6be7a" prot="private" virt="non-virtual"><scope>QfNtripSettings</scope><name>mMountPoint</name></member>
+      <member refid="classQfNtripSettings_1a4c5441691bf7ac25f63a18ca30e3b1db" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>mountPoint</name></member>
+      <member refid="classQfNtripSettings_1a175680a9454ba58e6116eb223b84ac9b" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>mountPoint</name></member>
+      <member refid="classQfNtripSettings_1a92a3f8a80aab1a365919ee46b32520a1" prot="private" virt="non-virtual"><scope>QfNtripSettings</scope><name>mPassword</name></member>
+      <member refid="classQfNtripSettings_1a45f2d6b40e31a9c1e4c95c7ea0d56876" prot="private" virt="non-virtual"><scope>QfNtripSettings</scope><name>mPort</name></member>
+      <member refid="classQfNtripSettings_1aa76f1b7dbc0a0b2fa100cf2b9a9c21a9" prot="private" virt="non-virtual"><scope>QfNtripSettings</scope><name>mProtocol</name></member>
+      <member refid="classQfNtripSettings_1a7ff5be74fb21dc36dd7616bd3565f2c7" prot="private" virt="non-virtual"><scope>QfNtripSettings</scope><name>mUsername</name></member>
+      <member refid="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4a5518db00ad9b7af8a5ca73cac2da265b" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>NtripSsl</name></member>
+      <member refid="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4ae0e0ab8e53956c1dbab7fb0ff1d939f1" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>NtripVersion1</name></member>
+      <member refid="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4aafb64868539b3312b5e829c1681c6bc7" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>NtripVersion2</name></member>
+      <member refid="classQfNtripSettings_1a371c69e5e479c9364baeefeea1b36130" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>operator!=</name></member>
+      <member refid="classQfNtripSettings_1a40d0d1d4bae9e95a7d5485b7d017bcaa" prot="private" virt="non-virtual"><scope>QfNtripSettings</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classQfNtripSettings_1a0d93f8232db0a61320115d7378fded05" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>operator==</name></member>
+      <member refid="classQfNtripSettings_1a7bd4214711b836bb6844b990556ce101" prot="private" virt="non-virtual"><scope>QfNtripSettings</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classQfNtripSettings_1a7c0e6cc9f4bb600fb436020129996b95" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>password</name></member>
+      <member refid="classQfNtripSettings_1a3cb8e07b5607157229ac911bc26875bf" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>password</name></member>
+      <member refid="classQfNtripSettings_1afac01c4b0b34539c0411ecc6d74b5a4e" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>port</name></member>
+      <member refid="classQfNtripSettings_1a47268299ef6f5d8cf30d8d74e82b4685" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>port</name></member>
+      <member refid="classQfNtripSettings_1ab7c1a3aaaef61bc3e4d5785dbb18b2e4" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>Protocol</name></member>
+      <member refid="classQfNtripSettings_1af7cece339b49c4af091b1c45404879ed" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>protocol</name></member>
+      <member refid="classQfNtripSettings_1ae693627c2f10e9fdec9d8bf50fc7779c" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>protocol</name></member>
+      <member refid="classQfNtripSettings_1a3eedda9000b2c1a7f994fdef400ebfd9" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>QfNtripSettings</name></member>
+      <member refid="classQfNtripSettings_1a156462aa99343c10031e309a8a8aef8b" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>setForwardNmeaSentences</name></member>
+      <member refid="classQfNtripSettings_1a0ca9b37246b090fe7eeb974195ad8a0c" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>setHost</name></member>
+      <member refid="classQfNtripSettings_1a53ce8ed29e55a2e79bcada8ceb3818b7" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>setMountPoint</name></member>
+      <member refid="classQfNtripSettings_1a6982d87f401be1ae6d3c78aa5d28356b" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>setPassword</name></member>
+      <member refid="classQfNtripSettings_1abf1fb21800cb6f6f26c521bf64faae4f" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>setPort</name></member>
+      <member refid="classQfNtripSettings_1a53263fc4614f526e8dc0a87472d2a5db" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>setProtocol</name></member>
+      <member refid="classQfNtripSettings_1a7b6ac614d92929e9b7e1cc71a372dfbe" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>setUsername</name></member>
+      <member refid="classQfNtripSettings_1aa971aa1f3589b55e69910f4612938000" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>toMap</name></member>
+      <member refid="classQfNtripSettings_1a338c3beaa1754f4ee54712c3ab4e1b97" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>username</name></member>
+      <member refid="classQfNtripSettings_1a1ea06683c72f00e8cae8283e786d8e75" prot="public" virt="non-virtual"><scope>QfNtripSettings</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

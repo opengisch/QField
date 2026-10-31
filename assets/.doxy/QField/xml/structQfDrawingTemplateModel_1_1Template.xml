@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfDrawingTemplateModel_1_1Template" kind="struct" language="C++" prot="private">
+    <compoundname>QfDrawingTemplateModel::Template</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfDrawingTemplateModel_1_1Template_1a7e785ad8078079c56a5b829f82b30650" prot="public" static="no" mutable="no">
+        <type>TemplateType</type>
+        <definition>TemplateType QfDrawingTemplateModel::Template::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>QfDrawingTemplateModel::Template::type</qualifiedname>
+        <initializer>= TemplateType::AppTemplate</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="87" column="22" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDrawingTemplateModel_1_1Template_1ae0f69716f147af7a1403c65c6849a385" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfDrawingTemplateModel::Template::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QfDrawingTemplateModel::Template::title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="88" column="17" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfDrawingTemplateModel_1_1Template_1ac7d1268daea09387af4262825239f59a" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfDrawingTemplateModel::Template::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <qualifiedname>QfDrawingTemplateModel::Template::path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="89" column="17" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfDrawingTemplateModel_1_1Template_1abb09e6ce62e71b41560b61e2131e0a46" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfDrawingTemplateModel::Template::Template</definition>
+        <argsstring>(TemplateType type, const QString &amp;title, const QString &amp;path)</argsstring>
+        <name>Template</name>
+        <qualifiedname>QfDrawingTemplateModel::Template::Template</qualifiedname>
+        <param>
+          <type>TemplateType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qfdrawingtemplatemodel.h" line="81" column="9" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="81" bodyend="85"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/gui/qfdrawingtemplatemodel.h" line="79" column="5" bodyfile="src/gui/qfdrawingtemplatemodel.h" bodystart="80" bodyend="90"/>
+    <listofallmembers>
+      <member refid="structQfDrawingTemplateModel_1_1Template_1ac7d1268daea09387af4262825239f59a" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel::Template</scope><name>path</name></member>
+      <member refid="structQfDrawingTemplateModel_1_1Template_1abb09e6ce62e71b41560b61e2131e0a46" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel::Template</scope><name>Template</name></member>
+      <member refid="structQfDrawingTemplateModel_1_1Template_1ae0f69716f147af7a1403c65c6849a385" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel::Template</scope><name>title</name></member>
+      <member refid="structQfDrawingTemplateModel_1_1Template_1a7e785ad8078079c56a5b829f82b30650" prot="public" virt="non-virtual"><scope>QfDrawingTemplateModel::Template</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

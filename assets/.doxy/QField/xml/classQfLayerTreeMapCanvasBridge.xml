@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLayerTreeMapCanvasBridge" kind="class" language="C++" prot="public">
+    <compoundname>QfLayerTreeMapCanvasBridge</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qflayertreemapcanvasbridge_8h" local="no">qflayertreemapcanvasbridge.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1ae2f4a09c1d1390bbe0e6aa4267e2caa0" prot="private" static="no" mutable="no">
+        <type>QgsLayerTree *</type>
+        <definition>QgsLayerTree* QfLayerTreeMapCanvasBridge::mRoot</definition>
+        <argsstring></argsstring>
+        <name>mRoot</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mRoot</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="90" column="18" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1a585e15afe26fb1716c9e62860b757422" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFlatLayerTreeModel" kindref="compound">QfFlatLayerTreeModel</ref> *</type>
+        <definition>QfFlatLayerTreeModel* QfLayerTreeMapCanvasBridge::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="91" column="26" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1a51d0a173afe735db05a185e622cf8182" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfLayerTreeMapCanvasBridge::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="92" column="25" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1ab098b60fa30f8bc927455996aea3a254" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref> *</type>
+        <definition>QfTrackingModel* QfLayerTreeMapCanvasBridge::mTrackingModel</definition>
+        <argsstring></argsstring>
+        <name>mTrackingModel</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mTrackingModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="93" column="21" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1a102219841c4d97ad46dc8a1b8b6ab0c5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeMapCanvasBridge::mPendingCanvasUpdate</definition>
+        <argsstring></argsstring>
+        <name>mPendingCanvasUpdate</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mPendingCanvasUpdate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="95" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1a4e1d7e2e6806f4d78a4467061ce9f124" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeMapCanvasBridge::mHasCustomLayerOrder</definition>
+        <argsstring></argsstring>
+        <name>mHasCustomLayerOrder</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mHasCustomLayerOrder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="97" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1ac3c9eca45a922e54cf5bfdb482c654c6" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList QfLayerTreeMapCanvasBridge::mCustomLayerOrder</definition>
+        <argsstring></argsstring>
+        <name>mCustomLayerOrder</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mCustomLayerOrder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="98" column="17" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1a5333c02790cf860577bdfd439c158cf1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeMapCanvasBridge::mAutoSetupOnFirstLayer</definition>
+        <argsstring></argsstring>
+        <name>mAutoSetupOnFirstLayer</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mAutoSetupOnFirstLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="100" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1a193612a897c450bac2ddc19df61c47b1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeMapCanvasBridge::mAutoEnableCrsTransform</definition>
+        <argsstring></argsstring>
+        <name>mAutoEnableCrsTransform</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mAutoEnableCrsTransform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="101" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1a9564d6690c1e5efc9814466d17587403" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeMapCanvasBridge::mHasFirstLayer</definition>
+        <argsstring></argsstring>
+        <name>mHasFirstLayer</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mHasFirstLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="103" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1a423f592b27395bff684b4fadb11fa854" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfLayerTreeMapCanvasBridge::mHasLayersLoaded</definition>
+        <argsstring></argsstring>
+        <name>mHasLayersLoaded</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mHasLayersLoaded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="104" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLayerTreeMapCanvasBridge_1a37043aae4a284aa2671b7df8ddd232ac" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfLayerTreeMapCanvasBridge::mFirstCRS</definition>
+        <argsstring></argsstring>
+        <name>mFirstCRS</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mFirstCRS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="106" column="34" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfLayerTreeMapCanvasBridge_1a85b8d4aba5f1baca41a78b9a23ed77e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfLayerTreeMapCanvasBridge::QfLayerTreeMapCanvasBridge</definition>
+        <argsstring>(QfFlatLayerTreeModel *model, QgsQuickMapSettings *mapSettings, QfTrackingModel *trackingModel, QObject *parent=nullptr)</argsstring>
+        <name>QfLayerTreeMapCanvasBridge</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::QfLayerTreeMapCanvasBridge</qualifiedname>
+        <param>
+          <type><ref refid="classQfFlatLayerTreeModel" kindref="compound">QfFlatLayerTreeModel</ref> *</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <param>
+          <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref> *</type>
+          <declname>trackingModel</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Constructor: does not take ownership of the layer tree nor canvas. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="54" column="5" bodyfile="src/core/qflayertreemapcanvasbridge.cpp" bodystart="28" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeMapCanvasBridge_1ad79f1196633a3a3722d2fcf8a506da9b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsLayerTree *</type>
+        <definition>QgsLayerTree * QfLayerTreeMapCanvasBridge::rootGroup</definition>
+        <argsstring>() const</argsstring>
+        <name>rootGroup</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::rootGroup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="56" column="18" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeMapCanvasBridge_1a5b82b3e01d6af868cdf6681ee775c4f3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfLayerTreeMapCanvasBridge::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="57" column="25" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeMapCanvasBridge_1a0ae16d001d150168925ef6a67eddac58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeMapCanvasBridge::setAutoSetupOnFirstLayer</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setAutoSetupOnFirstLayer</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::setAutoSetupOnFirstLayer</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>if enabled, will automatically set full canvas extent and destination CRS + map units when first layer(s) are added </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="61" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeMapCanvasBridge_1a8e8175d5bc03a15ef6a3c8192bde003d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfLayerTreeMapCanvasBridge::autoSetupOnFirstLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>autoSetupOnFirstLayer</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::autoSetupOnFirstLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="62" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeMapCanvasBridge_1aeebaceb2c4478c94882cef199f928a60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeMapCanvasBridge::setAutoEnableCrsTransform</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setAutoEnableCrsTransform</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::setAutoEnableCrsTransform</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>if enabled, will automatically turn on on-the-fly reprojection of layers if a layer with different source CRS is added </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="66" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeMapCanvasBridge_1a999963b7a46e13204f4bfa934150ca6b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfLayerTreeMapCanvasBridge::autoEnableCrsTransform</definition>
+        <argsstring>() const</argsstring>
+        <name>autoEnableCrsTransform</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::autoEnableCrsTransform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="70" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="70" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeMapCanvasBridge_1a0b050817c29948b23e80f1eafd43da97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfLayerTreeMapCanvasBridge::setCanvasLayers</definition>
+        <argsstring>()</argsstring>
+        <name>setCanvasLayers</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::setCanvasLayers</qualifiedname>
+        <briefdescription>
+<para>force update of canvas layers from the layer tree. Normally this should not be needed to be called. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="76" column="22" bodyfile="src/core/qflayertreemapcanvasbridge.cpp" bodystart="58" bodyend="115"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfLayerTreeMapCanvasBridge_1a46560056fecd66e3390d7a774ea87d77" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeMapCanvasBridge::extentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>extentChanged</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::extentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="79" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.cpp" bodystart="51" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfLayerTreeMapCanvasBridge_1aa026713d3f840a892b2ac9fff1df2fc0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeMapCanvasBridge::nodeVisibilityChanged</definition>
+        <argsstring>()</argsstring>
+        <name>nodeVisibilityChanged</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::nodeVisibilityChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="80" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.cpp" bodystart="151" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfLayerTreeMapCanvasBridge_1a76dbc4a24a7031a5f4d2e6533bbbec42" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeMapCanvasBridge::mapThemeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapThemeChanged</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::mapThemeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="81" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.cpp" bodystart="157" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfLayerTreeMapCanvasBridge_1a5b05505b6596bec542ec792d7ee8d752" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeMapCanvasBridge::layersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>layersChanged</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::layersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="82" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.cpp" bodystart="163" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfLayerTreeMapCanvasBridge_1a0eba09fcc03e4d4d3c7ddf51652d800e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeMapCanvasBridge::layerInTrackingChanged</definition>
+        <argsstring>(QgsVectorLayer *layer, bool tracking)</argsstring>
+        <name>layerInTrackingChanged</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::layerInTrackingChanged</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>tracking</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="83" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.cpp" bodystart="168" bodyend="199"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfLayerTreeMapCanvasBridge_1aafe59856fc31344f780434b8a1cae3a5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeMapCanvasBridge::setCanvasLayers</definition>
+        <argsstring>(QgsLayerTreeNode *node, QList&lt; QgsMapLayer * &gt; &amp;canvasLayers, QList&lt; QgsMapLayer * &gt; &amp;allLayers)</argsstring>
+        <name>setCanvasLayers</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::setCanvasLayers</qualifiedname>
+        <param>
+          <type>QgsLayerTreeNode *</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>QList&lt; QgsMapLayer * &gt; &amp;</type>
+          <declname>canvasLayers</declname>
+        </param>
+        <param>
+          <type>QList&lt; QgsMapLayer * &gt; &amp;</type>
+          <declname>allLayers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="86" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.cpp" bodystart="117" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLayerTreeMapCanvasBridge_1aa71a303d579964d80b63c9a88cba4578" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLayerTreeMapCanvasBridge::deferredSetCanvasLayers</definition>
+        <argsstring>()</argsstring>
+        <name>deferredSetCanvasLayers</name>
+        <qualifiedname>QfLayerTreeMapCanvasBridge::deferredSetCanvasLayers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemapcanvasbridge.h" line="88" column="10" bodyfile="src/core/qflayertreemapcanvasbridge.cpp" bodystart="142" bodyend="149"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The QgsLayerTreeMapCanvasBridge class takes care of updates of layer set for QgsMapCanvas from a layer tree. The class listens to the updates in the layer tree and updates the list of layers for rendering whenever some layers are added, removed, or their visibility changes.</para>
+<para>The update of layers is not done immediately - it is postponed, so a series of updates to the layer tree will trigger just one update of canvas layers.</para>
+<para>Also allows the client to override the default order of layers. This is useful in advanced cases where the grouping in layer tree should be independent from the actual order in the canvas.</para>
+<para>Passes to the legend (LayerTreeModel) the information, if the layer is in a tracking session </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfLayerTreeMapCanvasBridge</label>
+        <link refid="classQfLayerTreeMapCanvasBridge"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfLayerTreeMapCanvasBridge</label>
+        <link refid="classQfLayerTreeMapCanvasBridge"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qflayertreemapcanvasbridge.h" line="49" column="1" bodyfile="src/core/qflayertreemapcanvasbridge.h" bodystart="50" bodyend="107"/>
+    <listofallmembers>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a999963b7a46e13204f4bfa934150ca6b" prot="public" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>autoEnableCrsTransform</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a8e8175d5bc03a15ef6a3c8192bde003d" prot="public" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>autoSetupOnFirstLayer</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1aa71a303d579964d80b63c9a88cba4578" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>deferredSetCanvasLayers</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a46560056fecd66e3390d7a774ea87d77" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>extentChanged</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a0eba09fcc03e4d4d3c7ddf51652d800e" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>layerInTrackingChanged</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a5b05505b6596bec542ec792d7ee8d752" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>layersChanged</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a5b82b3e01d6af868cdf6681ee775c4f3" prot="public" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mapSettings</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a76dbc4a24a7031a5f4d2e6533bbbec42" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mapThemeChanged</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a193612a897c450bac2ddc19df61c47b1" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mAutoEnableCrsTransform</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a5333c02790cf860577bdfd439c158cf1" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mAutoSetupOnFirstLayer</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1ac3c9eca45a922e54cf5bfdb482c654c6" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mCustomLayerOrder</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a37043aae4a284aa2671b7df8ddd232ac" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mFirstCRS</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a4e1d7e2e6806f4d78a4467061ce9f124" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mHasCustomLayerOrder</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a9564d6690c1e5efc9814466d17587403" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mHasFirstLayer</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a423f592b27395bff684b4fadb11fa854" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mHasLayersLoaded</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a51d0a173afe735db05a185e622cf8182" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mMapSettings</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a585e15afe26fb1716c9e62860b757422" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mModel</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a102219841c4d97ad46dc8a1b8b6ab0c5" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mPendingCanvasUpdate</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1ae2f4a09c1d1390bbe0e6aa4267e2caa0" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mRoot</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1ab098b60fa30f8bc927455996aea3a254" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>mTrackingModel</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1aa026713d3f840a892b2ac9fff1df2fc0" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>nodeVisibilityChanged</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a85b8d4aba5f1baca41a78b9a23ed77e1" prot="public" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>QfLayerTreeMapCanvasBridge</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1ad79f1196633a3a3722d2fcf8a506da9b" prot="public" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>rootGroup</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1aeebaceb2c4478c94882cef199f928a60" prot="public" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>setAutoEnableCrsTransform</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a0ae16d001d150168925ef6a67eddac58" prot="public" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>setAutoSetupOnFirstLayer</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1a0b050817c29948b23e80f1eafd43da97" prot="public" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>setCanvasLayers</name></member>
+      <member refid="classQfLayerTreeMapCanvasBridge_1aafe59856fc31344f780434b8a1cae3a5" prot="private" virt="non-virtual"><scope>QfLayerTreeMapCanvasBridge</scope><name>setCanvasLayers</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

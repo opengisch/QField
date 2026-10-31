@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfVertexModel_1_1Vertex" kind="struct" language="C++" prot="public">
+    <compoundname>QfVertexModel::Vertex</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfVertexModel_1_1Vertex_1aede3891eb041cd351da58a2696ad1ae6" prot="public" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfVertexModel::Vertex::point</definition>
+        <argsstring></argsstring>
+        <name>point</name>
+        <qualifiedname>QfVertexModel::Vertex::point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="112" column="18" bodyfile="src/core/qfvertexmodel.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfVertexModel_1_1Vertex_1aa361061b7379213b7b7990fd1d2ed1f4" prot="public" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfVertexModel::Vertex::originalPoint</definition>
+        <argsstring></argsstring>
+        <name>originalPoint</name>
+        <qualifiedname>QfVertexModel::Vertex::originalPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="113" column="18" bodyfile="src/core/qfvertexmodel.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfVertexModel_1_1Vertex_1a06b6929052b0ac697c85bc1313650bdb" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfVertexModel::Vertex::currentVertex</definition>
+        <argsstring></argsstring>
+        <name>currentVertex</name>
+        <qualifiedname>QfVertexModel::Vertex::currentVertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="114" column="14" bodyfile="src/core/qfvertexmodel.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfVertexModel_1_1Vertex_1af0f6e9c611f617a101aac5390ee3ef2f" prot="public" static="no" mutable="no">
+        <type>PointType</type>
+        <definition>PointType QfVertexModel::Vertex::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>QfVertexModel::Vertex::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="115" column="19" bodyfile="src/core/qfvertexmodel.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfVertexModel_1_1Vertex_1ad8cd28f772f968bbee93f19e0c73d8c5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfVertexModel::Vertex::ring</definition>
+        <argsstring></argsstring>
+        <name>ring</name>
+        <qualifiedname>QfVertexModel::Vertex::ring</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfvertexmodel.h" line="116" column="13" bodyfile="src/core/qfvertexmodel.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfvertexmodel.h" line="110" column="5" bodyfile="src/core/qfvertexmodel.h" bodystart="111" bodyend="117"/>
+    <listofallmembers>
+      <member refid="structQfVertexModel_1_1Vertex_1a06b6929052b0ac697c85bc1313650bdb" prot="public" virt="non-virtual"><scope>QfVertexModel::Vertex</scope><name>currentVertex</name></member>
+      <member refid="structQfVertexModel_1_1Vertex_1aa361061b7379213b7b7990fd1d2ed1f4" prot="public" virt="non-virtual"><scope>QfVertexModel::Vertex</scope><name>originalPoint</name></member>
+      <member refid="structQfVertexModel_1_1Vertex_1aede3891eb041cd351da58a2696ad1ae6" prot="public" virt="non-virtual"><scope>QfVertexModel::Vertex</scope><name>point</name></member>
+      <member refid="structQfVertexModel_1_1Vertex_1ad8cd28f772f968bbee93f19e0c73d8c5" prot="public" virt="non-virtual"><scope>QfVertexModel::Vertex</scope><name>ring</name></member>
+      <member refid="structQfVertexModel_1_1Vertex_1af0f6e9c611f617a101aac5390ee3ef2f" prot="public" virt="non-virtual"><scope>QfVertexModel::Vertex</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,508 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLocatorItem" kind="class" language="C++" prot="public">
+    <compoundname>QfLocatorItem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classLocatorItem" prot="public" virt="non-virtual">LocatorItem</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfLocatorItem_1a6757892681a73a5cd291ee0c8cf16ec6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref></type>
+        <definition>QfLocatorModelSuperBridge QfLocatorItem::locatorBridge</definition>
+        <argsstring></argsstring>
+        <name>locatorBridge</name>
+        <qualifiedname>QfLocatorItem::locatorBridge</qualifiedname>
+        <read>dummyGetter_locatorBridge_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="14" column="1" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocatorItem_1aa446b97669efc229e4399c990ae5f45f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLocatorItem::showAvailableSearchDescription</definition>
+        <argsstring></argsstring>
+        <name>showAvailableSearchDescription</name>
+        <qualifiedname>QfLocatorItem::showAvailableSearchDescription</qualifiedname>
+        <read>dummyGetter_showAvailableSearchDescription_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="16" column="1" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocatorItem_1a65861a5f9840fbaf63c342da627105a1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLocatorItem::searchFieldVisible</definition>
+        <argsstring></argsstring>
+        <name>searchFieldVisible</name>
+        <qualifiedname>QfLocatorItem::searchFieldVisible</qualifiedname>
+        <read>dummyGetter_searchFieldVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="18" column="1" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocatorItem_1a150568525cdd785569655a8973b2a3ca" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfLocatorItem::locatorFiltersModel</definition>
+        <argsstring></argsstring>
+        <name>locatorFiltersModel</name>
+        <qualifiedname>QfLocatorItem::locatorFiltersModel</qualifiedname>
+        <read>dummyGetter_locatorFiltersModel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="20" column="1" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfLocatorItem_1ab661dabd19df4a6c1c23a2b766bc642a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfLocatorItem::searchTermHandled</definition>
+        <argsstring></argsstring>
+        <name>searchTermHandled</name>
+        <qualifiedname>QfLocatorItem::searchTermHandled</qualifiedname>
+        <read>dummyGetter_searchTermHandled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="28" column="1" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLocatorItem_1af2118aa3152e95108a9ce41665c473ea" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocatorItem::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>QfLocatorItem::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="30" column="5" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a4bc18885f4d2ca65b764abd9d64726d8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocatorItem::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfLocatorItem::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="31" column="5" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a5b98e04bdb9f2253c3d863656a8daa2c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocatorItem::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfLocatorItem::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="32" column="5" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a0d123dbf4cf8fc78e54b46cbf06b8c7f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocatorItem::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>QfLocatorItem::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="33" column="5" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1aad42331686cbef025579de3482434e86" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfLocatorItem::transitions</definition>
+        <argsstring></argsstring>
+        <name>transitions</name>
+        <qualifiedname>QfLocatorItem::transitions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="34" column="5" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1aaf10bd9234b187180326fb69e0727b06" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfLocatorFiltersModel" kindref="compound">QfLocatorFiltersModel</ref></type>
+        <definition>QfLocatorFiltersModel QfLocatorItem::locatorFilters</definition>
+        <argsstring></argsstring>
+        <name>locatorFilters</name>
+        <qualifiedname>QfLocatorItem::locatorFilters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="35" column="23" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a3e6055a03a198f8b5b71c1450e394857" prot="private" static="no" mutable="no">
+        <type>Connections</type>
+        <definition>Connections QfLocatorItem::codeReaderConnection</definition>
+        <argsstring></argsstring>
+        <name>codeReaderConnection</name>
+        <qualifiedname>QfLocatorItem::codeReaderConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="36" column="13" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a087c089bede6f16a737021a0da000e42" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfLocatorItem::searchFieldRect</definition>
+        <argsstring></argsstring>
+        <name>searchFieldRect</name>
+        <qualifiedname>QfLocatorItem::searchFieldRect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="37" column="11" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1ab1796f4c2009aeb8bf7ce68f811194b5" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfLocatorItem::searchField</definition>
+        <argsstring></argsstring>
+        <name>searchField</name>
+        <qualifiedname>QfLocatorItem::searchField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="38" column="11" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1aeafde2ac3a5e1be99901695c66b5c5b0" prot="private" static="no" mutable="no">
+        <type>BusyIndicator</type>
+        <definition>BusyIndicator QfLocatorItem::busyIndicator</definition>
+        <argsstring></argsstring>
+        <name>busyIndicator</name>
+        <qualifiedname>QfLocatorItem::busyIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="39" column="15" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1ae6e2de1ced5de7d253a632674adde1f2" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfLocatorItem::clearButton</definition>
+        <argsstring></argsstring>
+        <name>clearButton</name>
+        <qualifiedname>QfLocatorItem::clearButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="40" column="14" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1ae7023f6d032a9fa982880e9eb580cf1a" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfLocatorItem::codeReaderButton</definition>
+        <argsstring></argsstring>
+        <name>codeReaderButton</name>
+        <qualifiedname>QfLocatorItem::codeReaderButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="41" column="14" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a2fc8fc3642146b289ab57b0e0c56de27" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfLocatorItem::searchButton</definition>
+        <argsstring></argsstring>
+        <name>searchButton</name>
+        <qualifiedname>QfLocatorItem::searchButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="42" column="14" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1ae06cab20af77054a75767e9464122ac5" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfLocatorItem::resultsBox</definition>
+        <argsstring></argsstring>
+        <name>resultsBox</name>
+        <qualifiedname>QfLocatorItem::resultsBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="43" column="11" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a74b27277e45a3b50375f3b0c4e5a9f1f" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfLocatorItem::resultsList</definition>
+        <argsstring></argsstring>
+        <name>resultsList</name>
+        <qualifiedname>QfLocatorItem::resultsList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="44" column="10" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1abe110703f56ccee85b460ef834be1596" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfLocatorItem::filtersComponent</definition>
+        <argsstring></argsstring>
+        <name>filtersComponent</name>
+        <qualifiedname>QfLocatorItem::filtersComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="45" column="11" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a8eee6495ea3510e7408199acf5e57643" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfLocatorItem::delegateRect</definition>
+        <argsstring></argsstring>
+        <name>delegateRect</name>
+        <qualifiedname>QfLocatorItem::delegateRect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="46" column="11" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a5a7b156582b3e286b0d96ed3238fce86" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column QfLocatorItem::textArea</definition>
+        <argsstring></argsstring>
+        <name>textArea</name>
+        <qualifiedname>QfLocatorItem::textArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="47" column="8" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1ae5f8f8a419a8d6429211fcceafb0cfd9" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfLocatorItem::nameCell</definition>
+        <argsstring></argsstring>
+        <name>nameCell</name>
+        <qualifiedname>QfLocatorItem::nameCell</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="48" column="6" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a6e970333d2e2cad929fa7506447d2900" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfLocatorItem::descriptionCell</definition>
+        <argsstring></argsstring>
+        <name>descriptionCell</name>
+        <qualifiedname>QfLocatorItem::descriptionCell</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="49" column="6" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1addf8ab278ba6786a90e1b7d3853d4c96" prot="private" static="no" mutable="no">
+        <type>MouseArea</type>
+        <definition>MouseArea QfLocatorItem::mouseArea</definition>
+        <argsstring></argsstring>
+        <name>mouseArea</name>
+        <qualifiedname>QfLocatorItem::mouseArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="50" column="11" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1ab67ca5c1bc2cfc4dae37daf23a985cb1" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfLocatorItem::resultsComponent</definition>
+        <argsstring></argsstring>
+        <name>resultsComponent</name>
+        <qualifiedname>QfLocatorItem::resultsComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="51" column="11" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a9b47e1598488dc64d0512525236ed2ff" prot="private" static="no" mutable="no">
+        <type>Row</type>
+        <definition>Row QfLocatorItem::actionsRow</definition>
+        <argsstring></argsstring>
+        <name>actionsRow</name>
+        <qualifiedname>QfLocatorItem::actionsRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="56" column="5" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfLocatorItem_1a35ce1a6f4787a448f73fa25133dd3c38" prot="private" static="no" mutable="no">
+        <type>var Keys</type>
+        <definition>var Keys QfLocatorItem::onReleased</definition>
+        <argsstring></argsstring>
+        <name>onReleased</name>
+        <qualifiedname>QfLocatorItem::onReleased</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="58" column="9" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfLocatorItem_1ad34195b2c0b8e7f0f660015c79fc4fe0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorItem::searchTermChanged</definition>
+        <argsstring>(var searchTerm)</argsstring>
+        <name>searchTermChanged</name>
+        <qualifiedname>QfLocatorItem::searchTermChanged</qualifiedname>
+        <param>
+          <type>var</type>
+          <declname>searchTerm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfLocatorItem.qml" line="26" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>LocatorItem</label>
+        <link refid="classLocatorItem"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfLocatorItem</label>
+        <link refid="classQfLocatorItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfLocatorItem</label>
+        <link refid="classQfLocatorItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfLocatorItem.qml" line="11" column="1" bodyfile="src/gui/qml/QfLocatorItem.qml" bodystart="11" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classQfLocatorItem_1a9b47e1598488dc64d0512525236ed2ff" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>actionsRow</name></member>
+      <member refid="classQfLocatorItem_1aeafde2ac3a5e1be99901695c66b5c5b0" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>busyIndicator</name></member>
+      <member refid="classQfLocatorItem_1ae6e2de1ced5de7d253a632674adde1f2" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>clearButton</name></member>
+      <member refid="classQfLocatorItem_1ae7023f6d032a9fa982880e9eb580cf1a" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>codeReaderButton</name></member>
+      <member refid="classQfLocatorItem_1a3e6055a03a198f8b5b71c1450e394857" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>codeReaderConnection</name></member>
+      <member refid="classQfLocatorItem_1a8eee6495ea3510e7408199acf5e57643" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>delegateRect</name></member>
+      <member refid="classQfLocatorItem_1a6e970333d2e2cad929fa7506447d2900" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>descriptionCell</name></member>
+      <member refid="classQfLocatorItem_1abe110703f56ccee85b460ef834be1596" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>filtersComponent</name></member>
+      <member refid="classQfLocatorItem_1a5b98e04bdb9f2253c3d863656a8daa2c" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>height</name></member>
+      <member refid="classQfLocatorItem_1a6757892681a73a5cd291ee0c8cf16ec6" prot="public" virt="non-virtual"><scope>QfLocatorItem</scope><name>locatorBridge</name></member>
+      <member refid="classQfLocatorItem_1aaf10bd9234b187180326fb69e0727b06" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>locatorFilters</name></member>
+      <member refid="classQfLocatorItem_1a150568525cdd785569655a8973b2a3ca" prot="public" virt="non-virtual"><scope>QfLocatorItem</scope><name>locatorFiltersModel</name></member>
+      <member refid="classQfLocatorItem_1addf8ab278ba6786a90e1b7d3853d4c96" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>mouseArea</name></member>
+      <member refid="classQfLocatorItem_1ae5f8f8a419a8d6429211fcceafb0cfd9" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>nameCell</name></member>
+      <member refid="classQfLocatorItem_1a35ce1a6f4787a448f73fa25133dd3c38" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>onReleased</name></member>
+      <member refid="classQfLocatorItem_1ae06cab20af77054a75767e9464122ac5" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>resultsBox</name></member>
+      <member refid="classQfLocatorItem_1ab67ca5c1bc2cfc4dae37daf23a985cb1" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>resultsComponent</name></member>
+      <member refid="classQfLocatorItem_1a74b27277e45a3b50375f3b0c4e5a9f1f" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>resultsList</name></member>
+      <member refid="classQfLocatorItem_1a2fc8fc3642146b289ab57b0e0c56de27" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>searchButton</name></member>
+      <member refid="classQfLocatorItem_1ab1796f4c2009aeb8bf7ce68f811194b5" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>searchField</name></member>
+      <member refid="classQfLocatorItem_1a087c089bede6f16a737021a0da000e42" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>searchFieldRect</name></member>
+      <member refid="classQfLocatorItem_1a65861a5f9840fbaf63c342da627105a1" prot="public" virt="non-virtual"><scope>QfLocatorItem</scope><name>searchFieldVisible</name></member>
+      <member refid="classQfLocatorItem_1ad34195b2c0b8e7f0f660015c79fc4fe0" prot="public" virt="non-virtual"><scope>QfLocatorItem</scope><name>searchTermChanged</name></member>
+      <member refid="classQfLocatorItem_1ab661dabd19df4a6c1c23a2b766bc642a" prot="public" virt="non-virtual"><scope>QfLocatorItem</scope><name>searchTermHandled</name></member>
+      <member refid="classQfLocatorItem_1aa446b97669efc229e4399c990ae5f45f" prot="public" virt="non-virtual"><scope>QfLocatorItem</scope><name>showAvailableSearchDescription</name></member>
+      <member refid="classQfLocatorItem_1af2118aa3152e95108a9ce41665c473ea" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>state</name></member>
+      <member refid="classQfLocatorItem_1a0d123dbf4cf8fc78e54b46cbf06b8c7f" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>states</name></member>
+      <member refid="classQfLocatorItem_1a5a7b156582b3e286b0d96ed3238fce86" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>textArea</name></member>
+      <member refid="classQfLocatorItem_1aad42331686cbef025579de3482434e86" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>transitions</name></member>
+      <member refid="classQfLocatorItem_1a4bc18885f4d2ca65b764abd9d64726d8" prot="private" virt="non-virtual"><scope>QfLocatorItem</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfCloudAttachmentsModel_1_1Attachment" kind="struct" language="C++" prot="private">
+    <compoundname>QfCloudAttachmentsModel::Attachment</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfCloudAttachmentsModel_1_1Attachment_1a76aa81db288d87a9908e6588f3d47134" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudAttachmentsModel::Attachment::filePath</definition>
+        <argsstring></argsstring>
+        <name>filePath</name>
+        <qualifiedname>QfCloudAttachmentsModel::Attachment::filePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="98" column="17" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudAttachmentsModel_1_1Attachment_1a2a3b452678fe6268fe23bbcb71cd54e0" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudAttachmentsModel::Attachment::fileName</definition>
+        <argsstring></argsstring>
+        <name>fileName</name>
+        <qualifiedname>QfCloudAttachmentsModel::Attachment::fileName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="99" column="17" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudAttachmentsModel_1_1Attachment_1afb85e7cf09f0a0b95b9862da16f8f115" prot="public" static="no" mutable="no">
+        <type>Status</type>
+        <definition>Status QfCloudAttachmentsModel::Attachment::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>QfCloudAttachmentsModel::Attachment::status</qualifiedname>
+        <initializer>= PendingStatus</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="100" column="16" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudAttachmentsModel_1_1Attachment_1a755bfd6930634b540f8f4bf172daaa9b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfCloudAttachmentsModel::Attachment::httpCode</definition>
+        <argsstring></argsstring>
+        <name>httpCode</name>
+        <qualifiedname>QfCloudAttachmentsModel::Attachment::httpCode</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="101" column="13" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfCloudAttachmentsModel_1_1Attachment_1a150b52732726bee30fa91971bb65a58a" prot="public" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QfCloudAttachmentsModel::Attachment::timestamp</definition>
+        <argsstring></argsstring>
+        <name>timestamp</name>
+        <qualifiedname>QfCloudAttachmentsModel::Attachment::timestamp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="102" column="19" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/qfcloudattachmentsmodel.h" line="96" column="5" bodyfile="src/core/qfieldcloud/qfcloudattachmentsmodel.h" bodystart="97" bodyend="103"/>
+    <listofallmembers>
+      <member refid="structQfCloudAttachmentsModel_1_1Attachment_1a2a3b452678fe6268fe23bbcb71cd54e0" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel::Attachment</scope><name>fileName</name></member>
+      <member refid="structQfCloudAttachmentsModel_1_1Attachment_1a76aa81db288d87a9908e6588f3d47134" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel::Attachment</scope><name>filePath</name></member>
+      <member refid="structQfCloudAttachmentsModel_1_1Attachment_1a755bfd6930634b540f8f4bf172daaa9b" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel::Attachment</scope><name>httpCode</name></member>
+      <member refid="structQfCloudAttachmentsModel_1_1Attachment_1afb85e7cf09f0a0b95b9862da16f8f115" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel::Attachment</scope><name>status</name></member>
+      <member refid="structQfCloudAttachmentsModel_1_1Attachment_1a150b52732726bee30fa91971bb65a58a" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsModel::Attachment</scope><name>timestamp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
