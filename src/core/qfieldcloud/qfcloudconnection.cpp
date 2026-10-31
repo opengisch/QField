@@ -1479,7 +1479,6 @@ void QfCloudConnection::processPendingAttachments()
       historyEntry.fileName = fileName;
       QfCloudUtils::addAttachmentHistory( mUsername, projectId, historyEntry );
       QfCloudUtils::removePendingAttachment( mUsername, projectId, fileName );
-      emit attachmentsHistoryChanged( projectId );
       mUploadPendingCount--;
       mUploadDoneCount++;
       mUploadFailingCount = 0;
