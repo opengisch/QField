@@ -20,7 +20,7 @@ Item {
   property alias usageText: usageLabel.text
   property string relatedUrl: ""
 
-  property color normalColor: QfTheme.qfieldcloudBlue
+  property color normalColor: QfTheme.cloudColor
   property color warningColor: QfTheme.warningColor
   property color criticalColor: QfTheme.bookmarkRed
   property double warningThreshold: 0.8
