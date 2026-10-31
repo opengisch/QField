@@ -56,33 +56,35 @@ QImage QfBarcodeImageProvider::requestImage( const QString &id, QSize *size, con
   writer.setEccLevel( 8 );
   writer.setMargin( 0 );
   const ZXing::BitMatrix matrix = writer.encode( text.toStdString(), 0, 0 );
-  const int moduleCount = matrix.width();
+  const int matrixWidth = matrix.width();
 
-  int logoModuleCount = static_cast<int>( std::round( moduleCount * LOGO_RATIO ) );
+  int logoModuleCount = static_cast<int>( std::round( matrixWidth * LOGO_RATIO ) );
   if ( logoModuleCount % 2 == 0 )
   {
     logoModuleCount++;
   }
-  const QRect logoModules( ( moduleCount - logoModuleCount ) / 2, ( moduleCount - logoModuleCount ) / 2, logoModuleCount, logoModuleCount );
+  const QRect logoModules( ( matrixWidth - logoModuleCount ) / 2, ( matrixWidth - logoModuleCount ) / 2, logoModuleCount, logoModuleCount );
 
-  QImage modules( moduleCount, moduleCount, QImage::Format_ARGB32_Premultiplied );
+  const QRgb pixelColor = color.rgba();
+  QImage modules( matrixWidth, matrixWidth, QImage::Format_ARGB32 );
   modules.fill( Qt::transparent );
-  for ( int y = 0; y < moduleCount; ++y )
+  for ( int y = 0; y < matrixWidth; ++y )
   {
-    for ( int x = 0; x < moduleCount; ++x )
+    QRgb *pixel = reinterpret_cast<QRgb *>( modules.scanLine( y ) );
+    for ( int x = 0; x < matrixWidth; ++x, ++pixel )
     {
       if ( matrix.get( x, y ) && !logoModules.contains( x, y ) )
       {
-        modules.setPixelColor( x, y, color );
+        *pixel = pixelColor;
       }
     }
   }
 
   QImage barcodeImage = modules.scaled( width, height, Qt::KeepAspectRatio, Qt::FastTransformation );
 
-  const qreal moduleSize = barcodeImage.width() / static_cast<qreal>( moduleCount );
-  const qreal logoPadding = 0.75 * moduleSize;
-  const QRectF logoRect = QRectF( QPointF( logoModules.topLeft() ) * moduleSize, QSizeF( logoModules.size() ) * moduleSize ).adjusted( logoPadding, logoPadding, -logoPadding, -logoPadding );
+  const qreal matrixCellWidth = barcodeImage.width() / static_cast<qreal>( matrixWidth );
+  const qreal logoPadding = 0.75 * matrixCellWidth;
+  const QRectF logoRect = QRectF( QPointF( logoModules.topLeft() ) * matrixCellWidth, QSizeF( logoModules.size() ) * matrixCellWidth ).adjusted( logoPadding, logoPadding, -logoPadding, -logoPadding );
   QImageReader logoReader( QStringLiteral( ":/images/qfield_logo.svg" ) );
   logoReader.setScaledSize( logoRect.size().toSize() );
   QImage logo = logoReader.read();
