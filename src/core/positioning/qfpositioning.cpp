@@ -476,7 +476,7 @@ void QfPositioning::setServiceMode( bool enabled )
 
   mServiceMode = enabled;
 
-  if ( active() )
+  if ( ( QfPlatformUtilities::instance()->capabilities() & QfPlatformUtilities::PositioningService ) && active() )
   {
     setupSource();
   }
