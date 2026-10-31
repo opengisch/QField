@@ -24,6 +24,13 @@
 QfCloudAttachmentsModel::QfCloudAttachmentsModel( QObject *parent )
   : QAbstractListModel( parent )
 {
+  // A finished upload writes to both the history and the pending attachments files, refresh once for both
+  mRefreshTimer.setSingleShot( true );
+  mRefreshTimer.setInterval( 250 );
+  connect( &mRefreshTimer, &QTimer::timeout, this, &QfCloudAttachmentsModel::refresh );
+
+  connect( &mWatcher, &QFileSystemWatcher::fileChanged, &mRefreshTimer, qOverload<>( &QTimer::start ) );
+  connect( &mWatcher, &QFileSystemWatcher::directoryChanged, this, &QfCloudAttachmentsModel::onWatchedDirectoryChanged );
 }
 
 int QfCloudAttachmentsModel::rowCount( const QModelIndex &parent ) const
@@ -73,6 +80,9 @@ QHash<int, QByteArray> QfCloudAttachmentsModel::roleNames() const
 
 void QfCloudAttachmentsModel::refresh()
 {
+  mRefreshTimer.stop();
+  updateWatchedPaths();
+
   beginResetModel();
   mAttachments.clear();
 
@@ -169,9 +179,6 @@ void QfCloudAttachmentsModel::setCloudConnection( QfCloudConnection *cloudConnec
   if ( mCloudConnection )
   {
     disconnect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::refresh );
-    disconnect( mCloudConnection, &QfCloudConnection::pendingAttachmentsAdded, this, &QfCloudAttachmentsModel::refresh );
-    disconnect( mCloudConnection, &QfCloudConnection::pendingAttachmentsUploadFinished, this, &QfCloudAttachmentsModel::refresh );
-    disconnect( mCloudConnection, &QfCloudConnection::attachmentsHistoryChanged, this, &QfCloudAttachmentsModel::refresh );
   }
 
   mCloudConnection = cloudConnection;
@@ -179,9 +186,6 @@ void QfCloudAttachmentsModel::setCloudConnection( QfCloudConnection *cloudConnec
   if ( mCloudConnection )
   {
     connect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::refresh );
-    connect( mCloudConnection, &QfCloudConnection::pendingAttachmentsAdded, this, &QfCloudAttachmentsModel::refresh );
-    connect( mCloudConnection, &QfCloudConnection::pendingAttachmentsUploadFinished, this, &QfCloudAttachmentsModel::refresh );
-    connect( mCloudConnection, &QfCloudConnection::attachmentsHistoryChanged, this, &QfCloudAttachmentsModel::refresh );
   }
 
   emit cloudConnectionChanged();
@@ -246,4 +250,52 @@ void QfCloudAttachmentsModel::setDeltaFileWrapper( QfDeltaFileWrapper *deltaFile
   {
     connect( mDeltaFileWrapper, &QfDeltaFileWrapper::countChanged, this, &QfCloudAttachmentsModel::refresh );
   }
+}
+
+void QfCloudAttachmentsModel::onWatchedDirectoryChanged()
+{
+  // The directory also changes whenever the attachments lock file is taken, only refresh when a watched file appears
+  if ( updateWatchedPaths() )
+  {
+    mRefreshTimer.start();
+  }
+}
+
+bool QfCloudAttachmentsModel::updateWatchedPaths()
+{
+  const QString username = mCloudConnection ? mCloudConnection->username() : QString();
+  const QString directory = !username.isEmpty() ? QStringLiteral( "%1/%2" ).arg( QfCloudUtils::localCloudDirectory(), username ) : QString();
+  if ( mWatchedDirectory != directory )
+  {
+    const QStringList watchedPaths = mWatcher.files() + mWatcher.directories();
+    if ( !watchedPaths.isEmpty() )
+    {
+      mWatcher.removePaths( watchedPaths );
+    }
+    mWatchedDirectory = directory;
+  }
+
+  if ( mWatchedDirectory.isEmpty() || !QFileInfo( mWatchedDirectory ).isDir() )
+  {
+    return false;
+  }
+
+  if ( !mWatcher.directories().contains( mWatchedDirectory ) )
+  {
+    mWatcher.addPath( mWatchedDirectory );
+  }
+
+  // Files removed from disk stop being watched, they are watched again once they reappear
+  bool fileWatched = false;
+  const QStringList fileNames = { QStringLiteral( "attachments.csv" ), QStringLiteral( "attachments_history.csv" ) };
+  for ( const QString &fileName : fileNames )
+  {
+    const QString filePath = QStringLiteral( "%1/%2" ).arg( mWatchedDirectory, fileName );
+    if ( !mWatcher.files().contains( filePath ) && QFileInfo::exists( filePath ) && mWatcher.addPath( filePath ) )
+    {
+      fileWatched = true;
+    }
+  }
+
+  return fileWatched;
 }

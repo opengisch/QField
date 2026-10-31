@@ -284,7 +284,6 @@ class QfCloudConnection : public QObject
     void pendingAttachmentsUploadFinished( const QString &error = QString() );
     void pendingAttachmentsUploadStatus( const QString &fileName, double fileProgress, qsizetype uploadPending );
     void pendingAttachmentsAdded();
-    void attachmentsHistoryChanged( const QString &projectId );
     void error();
 
     void loginFailed( const QString &reason );
