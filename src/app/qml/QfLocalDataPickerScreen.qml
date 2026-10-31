@@ -34,7 +34,7 @@ Page {
     showBackButton: true
     showApplyButton: false
     showCancelButton: false
-    showMenuButton: localFilesModel.inSelectionMode && (table.selectedItemsUploadableToQField || table.selectedItemsWebDavConfigured || table.selectedItemsDeletable || table.selectedItemsCompressible)
+    showMenuButton: localFilesModel.inSelectionMode && (table.selectedItemsUploadableToCloud || table.selectedItemsWebDavConfigured || table.selectedItemsDeletable || table.selectedItemsCompressible)
     backAsCancel: localFilesModel.inSelectionMode
 
     topMargin: mainWindow.sceneTopMargin
@@ -158,7 +158,7 @@ Page {
 
         property var selectedList: []
         property bool selectedItemsWebDavConfigured
-        property bool selectedItemsUploadableToQField
+        property bool selectedItemsUploadableToCloud
         property bool selectedItemsDeletable
         property bool selectedItemsCompressible
 
@@ -383,12 +383,12 @@ Page {
           }
           if (table.selectedList.length === 0) {
             table.selectedItemsWebDavConfigured = false;
-            table.selectedItemsUploadableToQField = false;
+            table.selectedItemsUploadableToCloud = false;
             table.selectedItemsDeletable = false;
             return;
           }
           table.selectedItemsWebDavConfigured = true;
-          table.selectedItemsUploadableToQField = true;
+          table.selectedItemsUploadableToCloud = true;
           table.selectedItemsDeletable = true;
           table.selectedItemsCompressible = true;
           for (let i = 0; i < table.selectedList.length; ++i) {
@@ -396,7 +396,7 @@ Page {
             const itemWithinQFieldCloudProjectFolder = cloudProjectsModel.currentProjectId !== "" && selectedItem.path.search(cloudProjectsModel.currentProjectId) !== -1;
 
             table.selectedItemsWebDavConfigured = table.selectedItemsWebDavConfigured && webdavConnectionLoader.item.hasWebdavConfiguration(selectedItem.path);
-            table.selectedItemsUploadableToQField = table.selectedItemsUploadableToQField && itemWithinQFieldCloudProjectFolder && !QfProjectUtils.isLayerDataset(qgisProject, selectedItem.path);
+            table.selectedItemsUploadableToCloud = table.selectedItemsUploadableToCloud && itemWithinQFieldCloudProjectFolder && !QfProjectUtils.isLayerDataset(qgisProject, selectedItem.path);
             table.selectedItemsDeletable = table.selectedItemsDeletable && QfFileUtils.isDeletable(selectedItem.path);
             table.selectedItemsCompressible = table.selectedItemsCompressible && selectedItem.metaType === QfLocalFilesModel.Dataset;
           }
@@ -583,8 +583,8 @@ Page {
 
         text: qsTr("Upload to QFieldCloud")
         onTriggered: {
-          uploadFilesToQFieldCloudConnection.enabled = true;
-          uploadFilesToQFieldCloudConnection.sendingMultiple = true;
+          uploadFilesToCloudConnection.enabled = true;
+          uploadFilesToCloudConnection.sendingMultiple = true;
           QfCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QfCloudUtils.getProjectId(table.model.currentPath), [itemMenu.itemPath], cloudConnection, true);
         }
       }
@@ -980,9 +980,9 @@ Page {
       }
 
       MenuItem {
-        id: uploadToQFieldCloud
+        id: uploadFileToCloud
 
-        enabled: table.selectedItemsUploadableToQField
+        enabled: table.selectedItemsUploadableToCloud
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -997,7 +997,7 @@ Page {
             const item = table.model.get(table.selectedList[i]);
             fileNames.push(item.path);
           }
-          uploadFilesToQFieldCloudConnection.enabled = true;
+          uploadFilesToCloudConnection.enabled = true;
           QfCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QfCloudUtils.getProjectId(table.model.currentPath), fileNames, cloudConnection, true);
         }
       }
@@ -1054,7 +1054,7 @@ Page {
   }
 
   Connections {
-    id: uploadFilesToQFieldCloudConnection
+    id: uploadFilesToCloudConnection
     enabled: false
     target: cloudConnection
 
@@ -1062,14 +1062,14 @@ Page {
 
     function onPendingAttachmentsAdded() {
       platformUtilities.uploadPendingAttachments(cloudConnection);
-      if (uploadFilesToQFieldCloudConnection.sendingMultiple) {
+      if (uploadFilesToCloudConnection.sendingMultiple) {
         displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(QfFileUtils.fileName(itemMenu.itemPath)));
-        uploadFilesToQFieldCloudConnection.sendingMultiple = false;
+        uploadFilesToCloudConnection.sendingMultiple = false;
       } else {
         localFilesModel.clearSelection();
         displayToast(qsTr("Items being uploaded to QFieldCloud"));
       }
-      uploadFilesToQFieldCloudConnection.enabled = false;
+      uploadFilesToCloudConnection.enabled = false;
     }
   }
 

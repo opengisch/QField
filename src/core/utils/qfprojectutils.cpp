@@ -35,6 +35,8 @@
 #include <qgsvectortilelayer.h>
 #include <qgsvectortileutils.h>
 
+#include <algorithm>
+
 QfProjectUtils::QfProjectUtils( QObject *parent )
   : QObject( parent )
 {
@@ -126,33 +128,24 @@ bool QfProjectUtils::isLayerDataset( QgsProject *project, const QString &path )
   }
 
   const QMap<QString, QgsMapLayer *> layers = project->mapLayers();
-  for ( QgsMapLayer *layer : layers )
-  {
+  return std::any_of( layers.cbegin(), layers.cend(), [&canonicalPath]( QgsMapLayer *layer ) {
     QgsProviderMetadata *metadata = QgsProviderRegistry::instance()->providerMetadata( layer->providerType() );
     if ( !metadata )
     {
-      continue;
+      return false;
     }
 
     const QString layerPath = metadata->decodeUri( layer->source() ).value( QStringLiteral( "path" ) ).toString();
     if ( layerPath.isEmpty() )
     {
-      continue;
+      return false;
     }
 
-    // SQLite-based datasets (e.g. GeoPackage) keep write-ahead log files next to them, which are not reported as sidecar files
     QSet<QString> datasetFiles = QgsFileUtils::sidecarFilesForPath( layerPath );
+    // Also exclude wal and shm files from SQLite-based datasets such as GeoPackage, spatialite, and mbtiles
     datasetFiles << layerPath << QStringLiteral( "%1-wal" ).arg( layerPath ) << QStringLiteral( "%1-shm" ).arg( layerPath );
-    for ( const QString &datasetFile : std::as_const( datasetFiles ) )
-    {
-      if ( QFileInfo( datasetFile ).canonicalFilePath() == canonicalPath )
-      {
-        return true;
-      }
-    }
-  }
-
-  return false;
+    return std::any_of( datasetFiles.cbegin(), datasetFiles.cend(), [&canonicalPath]( const QString &datasetFile ) { return QFileInfo( datasetFile ).canonicalFilePath() == canonicalPath; } );
+  } );
 }
 
 QString QfProjectUtils::title( QgsProject *project )
