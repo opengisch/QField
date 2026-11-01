@@ -68,7 +68,6 @@ namespace
 
     ZXing::ImageView imageView( image.bits(), image.width(), image.height(), imageFormat, static_cast<int>( image.bytesPerLine() ) );
 
-#if ZXing_VERSION_MAJOR >= 2
     ZXing::ReaderOptions options;
     options.setFormats( ZXing::BarcodeFormat::Any );
     options.setTryRotate( true );
@@ -79,14 +78,6 @@ namespace
     {
       addBarcode( QString::fromStdString( result.text() ), result.position() );
     }
-#else
-    ZXing::DecodeHints hints;
-    hints.setFormats( ZXing::BarcodeFormat::Any );
-    hints.setTryRotate( true );
-
-    const ZXing::Result result = ZXing::ReadBarcode( imageView, hints );
-    addBarcode( QString::fromStdWString( result.text() ), result.position() );
-#endif
 
     return barcodes;
   }
