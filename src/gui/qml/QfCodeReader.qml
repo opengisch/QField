@@ -58,22 +58,6 @@ QfPopup {
     }
   }
 
-  onDecodedStringChanged: {
-    if (decodedString != "") {
-      decodedTimer.restart();
-    } else {
-      decodedTimer.stop();
-    }
-  }
-
-  Timer {
-    id: decodedTimer
-    interval: 1000
-    onTriggered: {
-      codeReader.decoded(codeReader.decodedString);
-    }
-  }
-
   function pickImage() {
     imageResourceSource = platformUtilities.getGalleryPicture(platformUtilities.systemLocalDataLocation() + '/', 'codereader.{extension}', codeReader.contentItem);
     imageResourceSource.resourceReceived.connect(codeReader.decodeImageResource);
@@ -269,10 +253,21 @@ QfPopup {
     id: barcodeDecoder
 
     onDecodedStringChanged: {
-      codeReader.decodedString = decodedString;
       if (decodedString !== '') {
+        codeReader.decodedString = decodedString;
+        decodedTimer.restart();
         decodedFlashAnimation.start();
+      } else {
+        decodedTimer.stop();
       }
+    }
+  }
+
+  Timer {
+    id: decodedTimer
+    interval: 1000
+    onTriggered: {
+      codeReader.decoded(codeReader.decodedString);
     }
   }
 
@@ -545,7 +540,7 @@ QfPopup {
               y: barcodeBounds.y * barcodeOutlines.height - 5
               width: barcodeBounds.width * barcodeOutlines.width + 10
               height: barcodeBounds.height * barcodeOutlines.height + 10
-              outlineColor: model.BarcodeText === codeReader.decodedString ? QfTheme.mainColor : QfTheme.mainTextColor
+              outlineColor: model.BarcodeText === barcodeDecoder.decodedString ? QfTheme.mainColor : QfTheme.mainTextColor
 
               Behavior on barcodeBounds {
                 PropertyAnimation {
