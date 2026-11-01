@@ -59,8 +59,7 @@ namespace
     }
 
     auto addBarcode = [&image, &barcodes]( const QString &text, const ZXing::Position &position ) {
-      const ZXing::Position box = ZXing::BoundingBox( position );
-      const QRectF bounds( QPointF( box.topLeft().x, box.topLeft().y ), QPointF( box.bottomRight().x, box.bottomRight().y ) );
+      const QRectF bounds( QPointF( position.topLeft().x, position.topLeft().y ), QPointF( position.bottomRight().x, position.bottomRight().y ) );
       if ( !text.isEmpty() && bounds.width() > 10 && bounds.height() > 10 )
       {
         barcodes << QfVideoBarcodeModel::Barcode( text, QTransform::fromScale( 1.0 / image.width(), 1.0 / image.height() ).mapRect( bounds ) );
