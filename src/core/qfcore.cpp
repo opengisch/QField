@@ -35,6 +35,7 @@
 #include "qfaudioanalyzer.h"
 #include "qfaudiorecorder.h"
 #include "qfbarcodedecoder.h"
+#include "qfbarcodevideomodel.h"
 #include "qfbookmarkmodel.h"
 #include "qfcameraorientationnormalizer.h"
 #include "qfcore.h"
@@ -85,7 +86,6 @@
 #include "qftracker.h"
 #include "qftrackingmodel.h"
 #include "qfvertexmodel.h"
-#include "qfvideobarcodemodel.h"
 #include "qfvideosinkcapture.h"
 #include "qfviewstatus.h"
 #include "qfwebdavconnection.h"
@@ -259,7 +259,7 @@ namespace QfCore
     qmlRegisterUncreatableType<QfSettings>( "org.qfield.core", 1, 0, "QfSettings", "" );
     qmlRegisterUncreatableType<QfTracker>( "org.qfield.core", 1, 0, "QfTracker", "" );
     qmlRegisterUncreatableType<QfTrackingModel>( "org.qfield.core", 1, 0, "QfTrackingModel", "The TrackingModel is available as context property `trackingModel`." );
-    qmlRegisterUncreatableType<QfVideoBarcodeModel>( "org.qfield.core", 1, 0, "QfVideoBarcodeModel", "The QfVideoBarcodeModel is provided by QfBarcodeDecoder" );
+    qmlRegisterUncreatableType<QfBarcodeVideoModel>( "org.qfield.core", 1, 0, "QfBarcodeVideoModel", "" );
 
 #ifdef WITH_BLUETOOTH
     qmlRegisterType<QfBluetoothDeviceModel>( "org.qfield.core", 1, 0, "QfBluetoothDeviceModel" );

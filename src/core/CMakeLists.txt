@@ -67,6 +67,7 @@ set(QFIELD_CORE_SRCS
     qfaudioanalyzer.cpp
     qfaudiorecorder.cpp
     qfbarcodedecoder.cpp
+    qfbarcodevideomodel.cpp
     qfbookmarkmodel.cpp
     qfcameraorientationnormalizer.cpp
     qfdigitizinglayermodel.cpp
@@ -117,7 +118,6 @@ set(QFIELD_CORE_SRCS
     qftracker.cpp
     qftrackingmodel.cpp
     qfvertexmodel.cpp
-    qfvideobarcodemodel.cpp
     qfvideosinkcapture.cpp
     qfviewstatus.cpp
     qfwebdavconnection.cpp)
@@ -192,6 +192,7 @@ set(QFIELD_CORE_HDRS
     qfaudioanalyzer.h
     qfaudiorecorder.h
     qfbarcodedecoder.h
+    qfbarcodevideomodel.h
     qfbookmarkmodel.h
     qfcameraorientationnormalizer.h
     qfdigitizinglayermodel.h
@@ -242,7 +243,6 @@ set(QFIELD_CORE_HDRS
     qftracker.h
     qftrackingmodel.h
     qfvertexmodel.h
-    qfvideobarcodemodel.h
     qfvideosinkcapture.h
     qfviewstatus.h
     qfwebdavconnection.h

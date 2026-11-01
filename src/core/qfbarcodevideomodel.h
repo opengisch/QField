@@ -25,7 +25,7 @@
  *
  * A list model of the barcodes seen in a video feed.
  */
-class QfVideoBarcodeModel : public QAbstractListModel
+class QfBarcodeVideoModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -49,7 +49,7 @@ class QfVideoBarcodeModel : public QAbstractListModel
         QRectF bounds;
     };
 
-    explicit QfVideoBarcodeModel( QObject *parent = nullptr );
+    explicit QfBarcodeVideoModel( QObject *parent = nullptr );
 
     int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
     QVariant data( const QModelIndex &index, int role ) const override;

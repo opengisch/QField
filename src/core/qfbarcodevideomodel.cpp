@@ -1,5 +1,5 @@
 /***************************************************************************
- qfvideobarcodemodel.cpp - QfVideoBarcodeModel
+ QfBarcodeVideoModel.cpp - QfBarcodeVideoModel
 
  ---------------------
  begin                : October 2026
@@ -14,16 +14,16 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "qfvideobarcodemodel.h"
+#include "qfbarcodevideomodel.h"
 
 #include <QSet>
 
-QfVideoBarcodeModel::QfVideoBarcodeModel( QObject *parent )
+QfBarcodeVideoModel::QfBarcodeVideoModel( QObject *parent )
   : QAbstractListModel( parent )
 {
 }
 
-int QfVideoBarcodeModel::rowCount( const QModelIndex &parent ) const
+int QfBarcodeVideoModel::rowCount( const QModelIndex &parent ) const
 {
   if ( parent.isValid() )
   {
@@ -33,7 +33,7 @@ int QfVideoBarcodeModel::rowCount( const QModelIndex &parent ) const
   return static_cast<int>( mVisibleBarcodes.size() );
 }
 
-QVariant QfVideoBarcodeModel::data( const QModelIndex &index, int role ) const
+QVariant QfBarcodeVideoModel::data( const QModelIndex &index, int role ) const
 {
   const int row = index.row();
   if ( row < 0 || row >= mVisibleBarcodes.size() )
@@ -54,7 +54,7 @@ QVariant QfVideoBarcodeModel::data( const QModelIndex &index, int role ) const
   }
 }
 
-QHash<int, QByteArray> QfVideoBarcodeModel::roleNames() const
+QHash<int, QByteArray> QfBarcodeVideoModel::roleNames() const
 {
   QHash<int, QByteArray> roleNames = QAbstractListModel::roleNames();
   roleNames[BarcodeText] = "BarcodeText";
@@ -62,7 +62,7 @@ QHash<int, QByteArray> QfVideoBarcodeModel::roleNames() const
   return roleNames;
 }
 
-void QfVideoBarcodeModel::updateBarcodes( const QList<Barcode> &barcodes )
+void QfBarcodeVideoModel::updateBarcodes( const QList<Barcode> &barcodes )
 {
   QSet<QString> texts;
 
@@ -106,7 +106,7 @@ void QfVideoBarcodeModel::updateBarcodes( const QList<Barcode> &barcodes )
   }
 }
 
-int QfVideoBarcodeModel::rowForText( const QString &text ) const
+int QfBarcodeVideoModel::rowForText( const QString &text ) const
 {
   for ( int row = 0; row < mVisibleBarcodes.size(); row++ )
   {
@@ -119,7 +119,7 @@ int QfVideoBarcodeModel::rowForText( const QString &text ) const
   return -1;
 }
 
-void QfVideoBarcodeModel::clear()
+void QfBarcodeVideoModel::clear()
 {
   if ( mVisibleBarcodes.isEmpty() )
   {

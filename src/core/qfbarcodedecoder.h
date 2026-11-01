@@ -17,7 +17,7 @@
 #ifndef QFBARCODEDECODER_H
 #define QFBARCODEDECODER_H
 
-#include "qfvideobarcodemodel.h"
+#include "qfbarcodevideomodel.h"
 
 #include <QImage>
 #include <QObject>
@@ -36,7 +36,7 @@ class QfBarcodeDecoder : public QObject
 
     Q_PROPERTY( QVideoSink *videoSink READ videoSink WRITE setVideoSink NOTIFY videoSinkChanged )
     Q_PROPERTY( QString decodedString READ decodedString WRITE setDecodedString NOTIFY decodedStringChanged )
-    Q_PROPERTY( QfVideoBarcodeModel *videoBarcodes READ videoBarcodes CONSTANT )
+    Q_PROPERTY( QfBarcodeVideoModel *videoBarcodes READ videoBarcodes CONSTANT )
 
   public:
     explicit QfBarcodeDecoder( QObject *parent = nullptr );
@@ -55,7 +55,7 @@ class QfBarcodeDecoder : public QObject
     /**
      * Returns the barcodes seen in the latest video frames.
      */
-    QfVideoBarcodeModel *videoBarcodes() const { return mVideoBarcodes; }
+    QfBarcodeVideoModel *videoBarcodes() const { return mVideoBarcodes; }
 
     /**
      * Clears the decoded string value and sets it to an empty string.
@@ -86,7 +86,7 @@ class QfBarcodeDecoder : public QObject
 
   private:
     QString mDecodedString;
-    QfVideoBarcodeModel *mVideoBarcodes = new QfVideoBarcodeModel( this );
+    QfBarcodeVideoModel *mVideoBarcodes = new QfBarcodeVideoModel( this );
     QfBarcodeDecoderThread *mDecodingThread = nullptr;
     QPointer<QVideoSink> mVideoSink;
 };
