@@ -69,7 +69,9 @@ QfPopup {
   Timer {
     id: decodedTimer
     interval: 1000
-    onTriggered: codeReader.decoded(codeReader.decodedString)
+    onTriggered: {
+      codeReader.decoded(codeReader.decodedString);
+    }
   }
 
   function pickImage() {
@@ -93,6 +95,85 @@ QfPopup {
     property real cornerLength: Math.min(40, Math.min(width, height) / 4)
 
     preferredRendererType: Shape.CurveRenderer
+
+    ShapePath {
+      strokeWidth: 5
+      strokeColor: "#000000"
+      strokeStyle: ShapePath.SolidLine
+      joinStyle: ShapePath.MiterJoin
+      fillColor: "transparent"
+
+      startX: 0
+      startY: cornerOutline.cornerLength
+      PathLine {
+        x: 0
+        y: 5
+      }
+      PathArc {
+        x: 5
+        y: 0
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: cornerOutline.cornerLength
+        y: 0
+      }
+      PathMove {
+        x: cornerOutline.width - cornerOutline.cornerLength
+        y: 0
+      }
+      PathLine {
+        x: cornerOutline.width - 5
+        y: 0
+      }
+      PathArc {
+        x: cornerOutline.width
+        y: 5
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: cornerOutline.width
+        y: cornerOutline.cornerLength
+      }
+      PathMove {
+        x: cornerOutline.width
+        y: cornerOutline.height - cornerOutline.cornerLength
+      }
+      PathLine {
+        x: cornerOutline.width
+        y: cornerOutline.height - 5
+      }
+      PathArc {
+        x: cornerOutline.width - 5
+        y: cornerOutline.height
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: cornerOutline.width - cornerOutline.cornerLength
+        y: cornerOutline.height
+      }
+      PathMove {
+        x: cornerOutline.cornerLength
+        y: cornerOutline.height
+      }
+      PathLine {
+        x: 5
+        y: cornerOutline.height
+      }
+      PathArc {
+        x: 0
+        y: cornerOutline.height - 5
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: 0
+        y: cornerOutline.height - cornerOutline.cornerLength
+      }
+    }
 
     ShapePath {
       strokeWidth: 2.5
