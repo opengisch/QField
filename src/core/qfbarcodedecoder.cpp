@@ -221,10 +221,12 @@ void QfBarcodeDecoder::decodeVideoFrame( const QVideoFrame &frame )
     {
       setDecodedString( mVideoBarcodes->data( mVideoBarcodes->index( 0 ), QfBarcodeVideoModel::BarcodeText ).toString() );
     }
-    else if ( barcodeCount > 1 && previousBarcodeCount <= 1 )
+    else if ( barcodeCount > 1 && !mDecodedString.isEmpty() )
     {
-      // more codes came into view, drop the automatic pick
-      clearDecodedString();
+      if ( mVideoBarcodes->rowForText( mDecodedString ) == -1 )
+      {
+        clearDecodedString();
+      }
     }
 
     mDecodingThread->deleteLater();

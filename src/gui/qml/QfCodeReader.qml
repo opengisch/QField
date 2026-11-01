@@ -22,6 +22,7 @@ QfPopup {
   property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
   property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin : mainWindow.height - QfTheme.popupScreenEdgeVerticalMargin
   property bool openedOnce: false
+  property bool tapToDecode: false
   property var imageResourceSource: undefined
 
   width: popupWidth
@@ -40,6 +41,7 @@ QfPopup {
       settings.cameraActive = true;
     }
     decodedString = '';
+    tapToDecode = false;
     barcodeDecoder.clearDecodedString();
     barcodeDecoder.videoBarcodes.clear();
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
@@ -507,7 +509,7 @@ QfPopup {
           y: 20
           width: parent.width - 40
           height: parent.height - 40
-          opacity: barcodeOutlineRepeater.count > 0 ? 0 : 1
+          opacity: codeReader.tapToDecode ? 0 : 1
 
           Behavior on opacity {
             NumberAnimation {
@@ -530,6 +532,16 @@ QfPopup {
           Repeater {
             id: barcodeOutlineRepeater
             model: barcodeDecoder.videoBarcodes
+
+            onCountChanged: {
+              if (!codeReader.tapToDecode && count > 1) {
+                // First time we've hit multiple barcodes, use tap to decode
+                codeReader.tapToDecode = true;
+                codeReader.decodedString = '';
+                barcodeDecoder.decodedString = '';
+                return;
+              }
+            }
 
             delegate: CornerOutline {
               id: barcodeOutline
@@ -695,7 +707,7 @@ QfPopup {
           id: decodedText
           Layout.fillWidth: true
 
-          text: codeReader.decodedString !== '' ? codeReader.decodedString : barcodeOutlineRepeater.count > 1 ? qsTr('Tap a code to select it') : qsTr('Center your device on a code')
+          text: codeReader.decodedString !== '' ? codeReader.decodedString : codeReader.tapToDecode ? qsTr('Tap a code to select it') : qsTr('Center your device on a code')
           font: QfTheme.tipFont
           color: QfTheme.mainTextColor
           horizontalAlignment: Text.AlignLeft

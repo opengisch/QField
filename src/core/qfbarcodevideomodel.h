@@ -65,9 +65,13 @@ class QfBarcodeVideoModel : public QAbstractListModel
      */
     Q_INVOKABLE void clear();
 
-  private:
+    /**
+     * Returns the row matching a given \a text. If the text is not found, the
+     * returned value will be -1.
+     */
     int rowForText( const QString &text ) const;
 
+  private:
     struct TrackedBarcode
     {
         TrackedBarcode() = default;
