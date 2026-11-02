@@ -585,7 +585,7 @@ Page {
         onTriggered: {
           uploadFilesToCloudConnection.enabled = true;
           uploadFilesToCloudConnection.sendingMultiple = true;
-          QfCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QfCloudUtils.getProjectId(table.model.currentPath), [itemMenu.itemPath], cloudConnection, true);
+          QfCloudUtils.addPendingAttachments(cloudConnection.username, QfCloudUtils.getProjectId(table.model.currentPath), [itemMenu.itemPath], cloudConnection, true);
         }
       }
 
