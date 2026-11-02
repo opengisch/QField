@@ -5634,6 +5634,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Center your device on a code</source>
         <translation>Skieruj swoje urządzenie na kod</translation>
     </message>
+    <message>
+        <source>Tap a code to select it</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCogoParameterAngle</name>

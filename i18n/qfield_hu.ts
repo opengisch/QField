@@ -5622,6 +5622,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>Center your device on a code</source>
         <translation>Nézzen a készüléked a kódra</translation>
     </message>
+    <message>
+        <source>Tap a code to select it</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCogoParameterAngle</name>

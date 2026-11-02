@@ -5629,6 +5629,10 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
         <source>Center your device on a code</source>
         <translation>Centrera din enhet på en kod</translation>
     </message>
+    <message>
+        <source>Tap a code to select it</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCogoParameterAngle</name>

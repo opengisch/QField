@@ -5632,6 +5632,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Center your device on a code</source>
         <translation>Наведите камеру на код</translation>
     </message>
+    <message>
+        <source>Tap a code to select it</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCogoParameterAngle</name>

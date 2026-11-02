@@ -5634,6 +5634,10 @@ Messaggio dell&apos;errore: %4</translation>
         <source>Center your device on a code</source>
         <translation>Centra il tuo dispositivo su un code</translation>
     </message>
+    <message>
+        <source>Tap a code to select it</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCogoParameterAngle</name>

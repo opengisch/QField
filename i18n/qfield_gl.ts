@@ -5628,6 +5628,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <source>Center your device on a code</source>
         <translation>Centrar o dispositivo nun código</translation>
     </message>
+    <message>
+        <source>Tap a code to select it</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCogoParameterAngle</name>

@@ -5628,6 +5628,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Center your device on a code</source>
         <translation>请将设备对准条码</translation>
     </message>
+    <message>
+        <source>Tap a code to select it</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCogoParameterAngle</name>

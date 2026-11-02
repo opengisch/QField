@@ -5631,6 +5631,10 @@ epäonnistui, syy: %2</translation>
         <source>Center your device on a code</source>
         <translation>Keskitä laitteesi koodiin. </translation>
     </message>
+    <message>
+        <source>Tap a code to select it</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCogoParameterAngle</name>

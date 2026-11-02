@@ -5626,6 +5626,10 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
         <source>Center your device on a code</source>
         <translation>Centralize seu dispositivo em um código</translation>
     </message>
+    <message>
+        <source>Tap a code to select it</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCogoParameterAngle</name>

@@ -5627,6 +5627,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Center your device on a code</source>
         <translation>기기를 코드 중앙에 맞추십시오</translation>
     </message>
+    <message>
+        <source>Tap a code to select it</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCogoParameterAngle</name>
