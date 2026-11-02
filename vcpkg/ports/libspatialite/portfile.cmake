@@ -153,6 +153,16 @@ else()
     else()
         set(TARGET_ALIAS "")
     endif()
+
+    if(VCPKG_TARGET_IS_IOS)
+        # Short-circuit apple-ios detection for autotools to correctly skip mod_spatialite and export the static C API
+        if(VCPKG_TARGET_ARCHITECTURE STREQUAL "arm64")
+            set(VCPKG_MAKE_BUILD_TRIPLET "--host=aarch64-apple-darwin")
+        else()
+            set(VCPKG_MAKE_BUILD_TRIPLET "--host=x86_64-apple-darwin")
+        endif()
+    endif()
+
     vcpkg_make_configure(
         SOURCE_PATH "${SOURCE_PATH}"
         AUTORECONF
@@ -161,6 +171,7 @@ else()
             ${FREEXL_OPTION}
             ${GCP_OPTION}
             ${RTTOPO_OPTION}
+            ${FORCE_STATIC}
             "--disable-examples"
             "--disable-minizip"
             "cross_compiling=yes" # avoid conftest rpath trouble
