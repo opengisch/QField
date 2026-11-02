@@ -128,24 +128,31 @@ bool QfProjectUtils::isLayerDataset( QgsProject *project, const QString &path )
   }
 
   const QMap<QString, QgsMapLayer *> layers = project->mapLayers();
-  return std::any_of( layers.cbegin(), layers.cend(), [&canonicalPath]( QgsMapLayer *layer ) {
+  for ( QgsMapLayer *layer : layers )
+  {
     QgsProviderMetadata *metadata = QgsProviderRegistry::instance()->providerMetadata( layer->providerType() );
     if ( !metadata )
     {
-      return false;
+      continue;
     }
 
     const QString layerPath = metadata->decodeUri( layer->source() ).value( QStringLiteral( "path" ) ).toString();
     if ( layerPath.isEmpty() )
     {
-      return false;
+      continue;
     }
 
     QSet<QString> datasetFiles = QgsFileUtils::sidecarFilesForPath( layerPath );
     // Also exclude wal and shm files from SQLite-based datasets such as GeoPackage, spatialite, and mbtiles
     datasetFiles << layerPath << QStringLiteral( "%1-wal" ).arg( layerPath ) << QStringLiteral( "%1-shm" ).arg( layerPath );
-    return std::any_of( datasetFiles.cbegin(), datasetFiles.cend(), [&canonicalPath]( const QString &datasetFile ) { return QFileInfo( datasetFile ).canonicalFilePath() == canonicalPath; } );
-  } );
+
+    if ( std::any_of( datasetFiles.cbegin(), datasetFiles.cend(), [&canonicalPath]( const QString &datasetFile ) { return QFileInfo( datasetFile ).canonicalFilePath() == canonicalPath; } ) )
+    {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 QString QfProjectUtils::title( QgsProject *project )
