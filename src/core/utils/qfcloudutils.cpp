@@ -294,7 +294,7 @@ void QfCloudUtils::addPendingAttachments( const QString &username, const QString
     return;
   }
 
-  if ( checkSumCheck && cloudConnection && cloudConnection->hasToken() )
+  if ( checkSumCheck && cloudConnection && cloudConnection->status() == QfCloudConnection::ConnectionStatus::LoggedIn && cloudConnection->isReachable() )
   {
     QVariantMap params;
     params.insert( "skip_metadata", 1 );
