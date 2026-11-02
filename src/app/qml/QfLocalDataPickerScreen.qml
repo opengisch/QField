@@ -584,7 +584,7 @@ Page {
         text: qsTr("Upload to QFieldCloud")
         onTriggered: {
           uploadFilesToCloudConnection.enabled = true;
-          uploadFilesToCloudConnection.sendingMultiple = true;
+          uploadFilesToCloudConnection.sendingMultiple = false;
           QfCloudUtils.addPendingAttachments(cloudConnection.username, QfCloudUtils.getProjectId(table.model.currentPath), [itemMenu.itemPath], cloudConnection, true);
         }
       }
@@ -998,6 +998,7 @@ Page {
             fileNames.push(item.path);
           }
           uploadFilesToCloudConnection.enabled = true;
+          uploadFilesToCloudConnection.sendingMultiple = true;
           QfCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QfCloudUtils.getProjectId(table.model.currentPath), fileNames, cloudConnection, true);
         }
       }
@@ -1063,11 +1064,20 @@ Page {
     function onPendingAttachmentsAdded() {
       platformUtilities.uploadPendingAttachments(cloudConnection);
       if (uploadFilesToCloudConnection.sendingMultiple) {
-        displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(QfFileUtils.fileName(itemMenu.itemPath)));
+        if (cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.isReachable) {
+          displayToast(qsTr("Items being uploaded to QFieldCloud"));
+        } else {
+          displayToast(qsTr("Items queued for upload to QFieldCloud"));
+        }
+
         uploadFilesToCloudConnection.sendingMultiple = false;
-      } else {
         localFilesModel.clearSelection();
-        displayToast(qsTr("Items being uploaded to QFieldCloud"));
+      } else {
+        if (cloudConnection.status === QfCloudConnection.LoggedIn && cloudConnection.isReachable) {
+          displayToast(qsTr("‘%1’ is being uploaded to QFieldCloud").arg(QfFileUtils.fileName(itemMenu.itemPath)));
+        } else {
+          displayToast(qsTr("‘%1’ queued for upload to QFieldCloud").arg(QfFileUtils.fileName(itemMenu.itemPath)));
+        }
       }
       uploadFilesToCloudConnection.enabled = false;
     }
