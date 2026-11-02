@@ -547,7 +547,7 @@ void QfLocalFilesModel::fetchCloudStatus()
 {
   clearCloudFiles();
 
-  if ( !mCloudConnection || mCloudConnection->status() != QfCloudConnection::ConnectionStatus::LoggedIn )
+  if ( !mCloudConnection || ( mCloudConnection->status() != QfCloudConnection::ConnectionStatus::LoggedIn ) )
   {
     return;
   }
