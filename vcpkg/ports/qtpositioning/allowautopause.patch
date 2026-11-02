@@ -1,0 +1,98 @@
+diff --git a/src/plugins/position/corelocation/qgeopositioninfosource_cl.mm b/src/plugins/position/corelocation/qgeopositioninfosource_cl.mm
+index 95d51a8..fd9d9a7 100644
+--- a/src/plugins/position/corelocation/qgeopositioninfosource_cl.mm
++++ b/src/plugins/position/corelocation/qgeopositioninfosource_cl.mm
+@@ -10,7 +10,11 @@
+ #include <QtCore/qtimezone.h>
+ #include <QtCore/QPermission>
+ #include <QtCore/QCoreApplication>
++#include <QtCore/QVariantMap>
+ 
++using namespace Qt::Literals::StringLiterals;
++
++static constexpr auto kAllowAutoPause = "allowAutoPause"_L1;
+ 
+ #define MINIMUM_UPDATE_INTERVAL 1000
+ 
+@@ -87,7 +91,7 @@
+ 
+ QT_BEGIN_NAMESPACE
+ 
+-QGeoPositionInfoSourceCL::QGeoPositionInfoSourceCL(QObject *parent)
++QGeoPositionInfoSourceCL::QGeoPositionInfoSourceCL(const QVariantMap &parameters, QObject *parent)
+     : QGeoPositionInfoSource(parent),
+       m_locationManager(0),
+       m_updatesWanted(false),
+@@ -95,6 +99,7 @@ QGeoPositionInfoSourceCL::QGeoPositionInfoSourceCL(QObject *parent)
+       m_updateTimeout(0),
+       m_positionError(QGeoPositionInfoSource::NoError)
+ {
++      parseParameters(parameters);
+ }
+ 
+ QGeoPositionInfoSourceCL::~QGeoPositionInfoSourceCL()
+@@ -131,6 +136,8 @@ bool QGeoPositionInfoSourceCL::enableLocationManager()
+                 for (id mode in modes) {
+                     if ([@"location" isEqualToString:mode]) {
+                         m_locationManager.allowsBackgroundLocationUpdates = YES;
++                        m_locationManager.pausesLocationUpdatesAutomatically =
++                                m_allowAutoPause ? YES : NO;
+                         break;
+                     }
+                 }
+@@ -153,6 +160,11 @@ void QGeoPositionInfoSourceCL::setTimeoutInterval(int msec)
+     else m_updateTimer = 0;
+ }
+ 
++void QGeoPositionInfoSourceCL::parseParameters(const QVariantMap &parameters)
++{
++    m_allowAutoPause = parameters.value(kAllowAutoPause, true).toBool();
++}
++
+ void QGeoPositionInfoSourceCL::startUpdates()
+ {
+     m_positionError = QGeoPositionInfoSource::NoError;
+diff --git a/src/plugins/position/corelocation/qgeopositioninfosource_cl_p.h b/src/plugins/position/corelocation/qgeopositioninfosource_cl_p.h
+index f49951d..58fd4a3 100644
+--- a/src/plugins/position/corelocation/qgeopositioninfosource_cl_p.h
++++ b/src/plugins/position/corelocation/qgeopositioninfosource_cl_p.h
+@@ -26,7 +26,7 @@ class QGeoPositionInfoSourceCL : public QGeoPositionInfoSource
+ {
+     Q_OBJECT
+ public:
+-    QGeoPositionInfoSourceCL(QObject *parent = 0);
++    QGeoPositionInfoSourceCL(const QVariantMap &parameters, QObject *parent = nullptr);
+     ~QGeoPositionInfoSourceCL();
+ 
+     QGeoPositionInfo lastKnownPosition(bool fromSatellitePositioningMethodsOnly = false) const override;
+@@ -43,6 +43,7 @@ public:
+ private:
+     bool enableLocationManager();
+     void setTimeoutInterval(int msec);
++    void parseParameters(const QVariantMap &parameters);
+ 
+ public Q_SLOTS:
+     void startUpdates() override;
+@@ -55,6 +56,8 @@ protected:
+ 
+ private:
+     Q_DISABLE_COPY(QGeoPositionInfoSourceCL);
++    bool m_allowAutoPause = true;
++
+     CLLocationManager *m_locationManager;
+     bool m_updatesWanted;
+ 
+diff --git a/src/plugins/position/corelocation/qgeopositioninfosourcefactory_cl.mm b/src/plugins/position/corelocation/qgeopositioninfosourcefactory_cl.mm
+index d428d54..8572276 100644
+--- a/src/plugins/position/corelocation/qgeopositioninfosourcefactory_cl.mm
++++ b/src/plugins/position/corelocation/qgeopositioninfosourcefactory_cl.mm
+@@ -8,8 +8,7 @@ QT_BEGIN_NAMESPACE
+ 
+ QGeoPositionInfoSource *QGeoPositionInfoSourceFactoryCL::positionInfoSource(QObject *parent, const QVariantMap &parameters)
+ {
+-    Q_UNUSED(parameters)
+-    return new QGeoPositionInfoSourceCL(parent);
++    return new QGeoPositionInfoSourceCL(parameters, parent);
+ }
+ 
+ QGeoSatelliteInfoSource *QGeoPositionInfoSourceFactoryCL::satelliteInfoSource(QObject *parent, const QVariantMap &parameters)

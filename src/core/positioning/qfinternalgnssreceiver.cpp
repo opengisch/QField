@@ -21,7 +21,7 @@
 
 QfInternalGnssReceiver::QfInternalGnssReceiver( QObject *parent )
   : QfAbstractGnssReceiver( parent )
-  , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( { { "desktopId", QStringLiteral( "opengis.ch.%1" ).arg( Qfield::appName ) } }, nullptr ) ) )
+  , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( { { "desktopId", QStringLiteral( "opengis.ch.%1" ).arg( Qfield::appName ) }, { "allowAutoPause", false } }, nullptr ) ) )
   , mGeoSatelliteSource( std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( { { "desktopId", QStringLiteral( "opengis.ch.%1" ).arg( Qfield::appName ) } }, nullptr ) ) )
 {
   if ( mGeoPositionSource )
