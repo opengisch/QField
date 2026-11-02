@@ -24,7 +24,7 @@
 QfCloudAttachmentsModel::QfCloudAttachmentsModel( QObject *parent )
   : QAbstractListModel( parent )
 {
-  // A finished upload writes to both the history and the pending attachments files, refresh once for both
+  // The attachments file is rewritten in several steps (truncated then written, removed then queued again on retry), refresh once for them
   mRefreshTimer.setSingleShot( true );
   mRefreshTimer.setInterval( 250 );
   connect( &mRefreshTimer, &QTimer::timeout, this, &QfCloudAttachmentsModel::refresh );
@@ -254,9 +254,9 @@ void QfCloudAttachmentsModel::setDeltaFileWrapper( QfDeltaFileWrapper *deltaFile
 
 void QfCloudAttachmentsModel::onWatchedDirectoryChanged()
 {
-  // The directory also changes whenever the attachments lock file is taken, only refresh when a watched file appears
   if ( updateWatchedPaths() )
   {
+    // The watcher is now connected to the attachments file, refresh the model
     mRefreshTimer.start();
   }
 }
@@ -280,21 +280,20 @@ bool QfCloudAttachmentsModel::updateWatchedPaths()
     return false;
   }
 
-  if ( !mWatcher.directories().contains( mWatchedDirectory ) )
+  const QString attachmentsFilePath = QStringLiteral( "%1/attachments.csv" ).arg( mWatchedDirectory );
+  if ( mWatcher.files().contains( attachmentsFilePath ) )
   {
-    mWatcher.addPath( mWatchedDirectory );
+    return false;
   }
 
-  // Files removed from disk stop being watched, they are watched again once they reappear
-  bool fileWatched = false;
-  const QStringList fileNames = { QStringLiteral( "attachments.csv" ), QStringLiteral( "attachments_history.csv" ) };
-  for ( const QString &fileName : fileNames )
+  const bool fileWatched = QFileInfo::exists( attachmentsFilePath ) && mWatcher.addPath( attachmentsFilePath );
+  if ( fileWatched )
   {
-    const QString filePath = QStringLiteral( "%1/%2" ).arg( mWatchedDirectory, fileName );
-    if ( !mWatcher.files().contains( filePath ) && QFileInfo::exists( filePath ) && mWatcher.addPath( filePath ) )
-    {
-      fileWatched = true;
-    }
+    mWatcher.removePath( mWatchedDirectory );
+  }
+  else if ( !mWatcher.directories().contains( mWatchedDirectory ) )
+  {
+    mWatcher.addPath( mWatchedDirectory );
   }
 
   return fileWatched;
