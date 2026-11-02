@@ -23,14 +23,19 @@
 #include <qgsattributeeditorfield.h>
 #include <qgsattributeeditorrelation.h>
 #include <qgscolorutils.h>
+#include <qgsfileutils.h>
 #include <qgsmaplayer.h>
 #include <qgsprojectdisplaysettings.h>
+#include <qgsprovidermetadata.h>
+#include <qgsproviderregistry.h>
 #include <qgsrasterlayer.h>
 #include <qgsrelationcontext.h>
 #include <qgsvectorfilewriter.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectortilelayer.h>
 #include <qgsvectortileutils.h>
+
+#include <algorithm>
 
 QfProjectUtils::QfProjectUtils( QObject *parent )
   : QObject( parent )
@@ -107,6 +112,47 @@ QList<QColor> QfProjectUtils::colorPresets( QgsProject *project )
     colors << QgsColorUtils::colorFromString( colorString );
   }
   return colors;
+}
+
+bool QfProjectUtils::isLayerDataset( QgsProject *project, const QString &path )
+{
+  if ( !project || path.isEmpty() )
+  {
+    return false;
+  }
+
+  const QString canonicalPath = QFileInfo( path ).canonicalFilePath();
+  if ( canonicalPath.isEmpty() )
+  {
+    return false;
+  }
+
+  const QMap<QString, QgsMapLayer *> layers = project->mapLayers();
+  for ( QgsMapLayer *layer : layers )
+  {
+    QgsProviderMetadata *metadata = QgsProviderRegistry::instance()->providerMetadata( layer->providerType() );
+    if ( !metadata )
+    {
+      continue;
+    }
+
+    const QString layerPath = metadata->decodeUri( layer->source() ).value( QStringLiteral( "path" ) ).toString();
+    if ( layerPath.isEmpty() )
+    {
+      continue;
+    }
+
+    QSet<QString> datasetFiles = QgsFileUtils::sidecarFilesForPath( layerPath );
+    // Also exclude wal and shm files from SQLite-based datasets such as GeoPackage, spatialite, and mbtiles
+    datasetFiles << layerPath << QStringLiteral( "%1-wal" ).arg( layerPath ) << QStringLiteral( "%1-shm" ).arg( layerPath );
+
+    if ( std::any_of( datasetFiles.cbegin(), datasetFiles.cend(), [&canonicalPath]( const QString &datasetFile ) { return QFileInfo( datasetFile ).canonicalFilePath() == canonicalPath; } ) )
+    {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 QString QfProjectUtils::title( QgsProject *project )
