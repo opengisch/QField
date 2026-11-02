@@ -294,7 +294,7 @@ void QfCloudUtils::addPendingAttachments( const QString &username, const QString
     return;
   }
 
-  if ( checkSumCheck && cloudConnection )
+  if ( checkSumCheck && cloudConnection && cloudConnection->hasToken() )
   {
     QVariantMap params;
     params.insert( "skip_metadata", 1 );
@@ -307,6 +307,9 @@ void QfCloudUtils::addPendingAttachments( const QString &username, const QString
       if ( rawReply->error() != QNetworkReply::NoError )
       {
         QgsLogger::debug( QStringLiteral( "Project %1: failed to retrieve file information. %2" ).arg( projectId, QfCloudConnection::errorString( rawReply ) ) );
+
+        // Fallback to non-checksum path
+        writeToAttachmentsFile( username, projectId, fileNames, nullptr, false, cloudConnection );
         return;
       }
 
@@ -364,7 +367,9 @@ void QfCloudUtils::writeToAttachmentsFile( const QString &username, const QStrin
     }
 
     if ( cloudConnection )
+    {
       emit cloudConnection->pendingAttachmentsAdded();
+    }
   }
 }
 
