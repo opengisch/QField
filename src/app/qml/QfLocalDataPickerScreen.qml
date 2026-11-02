@@ -554,58 +554,6 @@ Page {
         }
       }
 
-      // File items
-      MenuItem {
-        id: sendDatasetTo
-        enabled: itemMenu.itemMetaType === QfLocalFilesModel.File || (platformUtilities.capabilities & QfPlatformUtilities.CustomSend && itemMenu.itemMetaType === QfLocalFilesModel.Dataset)
-        visible: enabled
-
-        font: QfTheme.defaultFont
-        width: parent.width
-        height: enabled ? 48 : 0
-        leftPadding: QfTheme.menuItemLeftPadding
-
-        text: qsTr("Send to...")
-        onTriggered: {
-          platformUtilities.sendDatasetTo(itemMenu.itemPath);
-        }
-      }
-
-      MenuItem {
-        id: uploadDatasetToCloud
-        enabled: itemMenu.itemWithinQFieldCloudProjectFolder && !QfProjectUtils.isLayerDataset(qgisProject, itemMenu.itemPath)
-        visible: enabled
-
-        font: QfTheme.defaultFont
-        width: parent.width
-        height: enabled ? 48 : 0
-        leftPadding: QfTheme.menuItemLeftPadding
-
-        text: qsTr("Upload to QFieldCloud")
-        onTriggered: {
-          uploadFilesToCloudConnection.enabled = true;
-          uploadFilesToCloudConnection.sendingMultiple = false;
-          QfCloudUtils.addPendingAttachments(cloudConnection.username, QfCloudUtils.getProjectId(table.model.currentPath), [itemMenu.itemPath], cloudConnection, true);
-        }
-      }
-
-      MenuItem {
-        id: exportDatasetTo
-        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomExport && itemMenu.itemMetaType === QfLocalFilesModel.Dataset
-        visible: enabled
-
-        font: QfTheme.defaultFont
-        width: parent.width
-        height: enabled ? 48 : 0
-        leftPadding: QfTheme.menuItemLeftPadding
-
-        text: qsTr("Export to folder...")
-        onTriggered: {
-          platformUtilities.exportDatasetTo(itemMenu.itemPath);
-        }
-      }
-
-      // Folder items
       MenuItem {
         id: toggleFavoriteState
         enabled: itemMenu.itemMetaType === QfLocalFilesModel.Folder && localFilesModel.isPathFavoriteEditable(itemMenu.itemPath)
@@ -627,15 +575,53 @@ Page {
       }
 
       MenuSeparator {
-        enabled: toggleFavoriteState.visible && (exportFolderTo.visible || sendCompressedFolderTo.visible || uploadFolderToWebdav.visible || downloadFolderFromWebdav.visible)
+        enabled: viewFile.enabled || toggleFavoriteState.enabled
         visible: enabled
         width: parent.width
         height: enabled ? undefined : 0
       }
 
       MenuItem {
-        id: exportFolderTo
-        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomExport && itemMenu.itemMetaType === QfLocalFilesModel.Folder
+        id: uploadDatasetToCloud
+        enabled: itemMenu.itemWithinQFieldCloudProjectFolder && !QfProjectUtils.isLayerDataset(qgisProject, itemMenu.itemPath)
+        visible: enabled
+
+        font: QfTheme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: QfTheme.menuItemLeftPadding
+
+        text: qsTr("Upload to QFieldCloud")
+        onTriggered: {
+          uploadFilesToCloudConnection.enabled = true;
+          uploadFilesToCloudConnection.sendingMultiple = false;
+          QfCloudUtils.addPendingAttachments(cloudConnection.username, QfCloudUtils.getProjectId(table.model.currentPath), [itemMenu.itemPath], cloudConnection, true);
+        }
+      }
+
+      MenuItem {
+        id: sendTo
+        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomSend && (itemMenu.itemMetaType === QfLocalFilesModel.Folder || itemMenu.itemMetaType === QfLocalFilesModel.Dataset)
+        visible: enabled
+
+        font: QfTheme.defaultFont
+        width: parent.width
+        height: enabled ? 48 : 0
+        leftPadding: QfTheme.menuItemLeftPadding
+
+        text: itemMenu.itemMetaType === QfLocalFilesModel.Folder ? qsTr("Send compressed folder to...") : qsTr("Send to...")
+        onTriggered: {
+          if (itemMenu.itemMetaType === QfLocalFilesModel.Folder) {
+            platformUtilities.sendCompressedFolderTo(itemMenu.itemPath);
+          } else {
+            platformUtilities.sendDatasetTo(itemMenu.itemPath);
+          }
+        }
+      }
+
+      MenuItem {
+        id: exportTo
+        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomExport && (itemMenu.itemMetaType === QfLocalFilesModel.Dataset || itemMenu.itemMetaType === QfLocalFilesModel.Folder)
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -645,23 +631,11 @@ Page {
 
         text: qsTr("Export to folder...")
         onTriggered: {
-          platformUtilities.exportFolderTo(itemMenu.itemPath);
-        }
-      }
-
-      MenuItem {
-        id: sendCompressedFolderTo
-        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomSend && itemMenu.itemMetaType === QfLocalFilesModel.Folder
-        visible: enabled
-
-        font: QfTheme.defaultFont
-        width: parent.width
-        height: enabled ? 48 : 0
-        leftPadding: QfTheme.menuItemLeftPadding
-
-        text: qsTr("Send compressed folder to...")
-        onTriggered: {
-          platformUtilities.sendCompressedFolderTo(itemMenu.itemPath);
+          if (itemMenu.itemMetaType === QfLocalFilesModel.Folder) {
+            platformUtilities.exportFolderTo(itemMenu.itemPath);
+          } else {
+            platformUtilities.exportDatasetTo(itemMenu.itemPath);
+          }
         }
       }
 
