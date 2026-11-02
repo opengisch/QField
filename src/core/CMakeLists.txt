@@ -68,6 +68,7 @@ set(QFIELD_CORE_SRCS
     qfaudioanalyzer.cpp
     qfaudiorecorder.cpp
     qfbarcodedecoder.cpp
+    qfbarcodevideomodel.cpp
     qfbookmarkmodel.cpp
     qfcameraorientationnormalizer.cpp
     qfdigitizinglayermodel.cpp
@@ -193,6 +194,7 @@ set(QFIELD_CORE_HDRS
     qfaudioanalyzer.h
     qfaudiorecorder.h
     qfbarcodedecoder.h
+    qfbarcodevideomodel.h
     qfbookmarkmodel.h
     qfcameraorientationnormalizer.h
     qfdigitizinglayermodel.h
@@ -292,10 +294,6 @@ find_package(ZXing REQUIRED)
 find_package(QtWebDAV REQUIRED)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
-
-string(SUBSTRING ${ZXing_VERSION} 0 1 ZXing_VERSION_MAJOR)
-target_compile_definitions(qfield_core
-                           PRIVATE ZXing_VERSION_MAJOR=${ZXing_VERSION_MAJOR})
 
 if(WITH_BLUETOOTH)
   target_compile_definitions(qfield_core PRIVATE WITH_BLUETOOTH)

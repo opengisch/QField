@@ -22,6 +22,7 @@ QfPopup {
   property var barcodeRequestedItem: undefined //<! when a feature form is requesting a bardcode, this will be set to attribute editor widget which triggered the request
   property int popupWidth: mainWindow.width <= mainWindow.height ? mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin : mainWindow.height - QfTheme.popupScreenEdgeVerticalMargin
   property bool openedOnce: false
+  property bool tapToDecode: false
   property var imageResourceSource: undefined
 
   width: popupWidth
@@ -40,7 +41,9 @@ QfPopup {
       settings.cameraActive = true;
     }
     decodedString = '';
+    tapToDecode = false;
     barcodeDecoder.clearDecodedString();
+    barcodeDecoder.videoBarcodes.clear();
     if (cameraPermission.status === Qt.PermissionStatus.Undetermined) {
       cameraPermission.request();
     }
@@ -51,14 +54,9 @@ QfPopup {
   }
 
   onAboutToHide: {
+    decodedTimer.stop();
     if (cameraLoader.active) {
       cameraLoader.item.camera.torchMode = Camera.TorchOff;
-    }
-  }
-
-  onDecodedStringChanged: {
-    if (decodedString != "") {
-      decoded(decodedString);
     }
   }
 
@@ -74,6 +72,173 @@ QfPopup {
     }
     platformUtilities.rmFile(filePath);
     imageResourceSource = undefined;
+  }
+
+  component CornerOutline: Shape {
+    id: cornerOutline
+
+    property color outlineColor: QfTheme.light
+    property real cornerLength: Math.min(40, Math.min(width, height) / 4)
+
+    preferredRendererType: Shape.CurveRenderer
+
+    ShapePath {
+      strokeWidth: 5
+      strokeColor: "#000000"
+      strokeStyle: ShapePath.SolidLine
+      joinStyle: ShapePath.MiterJoin
+      fillColor: "transparent"
+
+      startX: 0
+      startY: cornerOutline.cornerLength
+      PathLine {
+        x: 0
+        y: 5
+      }
+      PathArc {
+        x: 5
+        y: 0
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: cornerOutline.cornerLength
+        y: 0
+      }
+      PathMove {
+        x: cornerOutline.width - cornerOutline.cornerLength
+        y: 0
+      }
+      PathLine {
+        x: cornerOutline.width - 5
+        y: 0
+      }
+      PathArc {
+        x: cornerOutline.width
+        y: 5
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: cornerOutline.width
+        y: cornerOutline.cornerLength
+      }
+      PathMove {
+        x: cornerOutline.width
+        y: cornerOutline.height - cornerOutline.cornerLength
+      }
+      PathLine {
+        x: cornerOutline.width
+        y: cornerOutline.height - 5
+      }
+      PathArc {
+        x: cornerOutline.width - 5
+        y: cornerOutline.height
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: cornerOutline.width - cornerOutline.cornerLength
+        y: cornerOutline.height
+      }
+      PathMove {
+        x: cornerOutline.cornerLength
+        y: cornerOutline.height
+      }
+      PathLine {
+        x: 5
+        y: cornerOutline.height
+      }
+      PathArc {
+        x: 0
+        y: cornerOutline.height - 5
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: 0
+        y: cornerOutline.height - cornerOutline.cornerLength
+      }
+    }
+
+    ShapePath {
+      strokeWidth: 2.5
+      strokeColor: cornerOutline.outlineColor
+      strokeStyle: ShapePath.SolidLine
+      joinStyle: ShapePath.MiterJoin
+      fillColor: "transparent"
+
+      startX: 0
+      startY: cornerOutline.cornerLength
+      PathLine {
+        x: 0
+        y: 5
+      }
+      PathArc {
+        x: 5
+        y: 0
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: cornerOutline.cornerLength
+        y: 0
+      }
+      PathMove {
+        x: cornerOutline.width - cornerOutline.cornerLength
+        y: 0
+      }
+      PathLine {
+        x: cornerOutline.width - 5
+        y: 0
+      }
+      PathArc {
+        x: cornerOutline.width
+        y: 5
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: cornerOutline.width
+        y: cornerOutline.cornerLength
+      }
+      PathMove {
+        x: cornerOutline.width
+        y: cornerOutline.height - cornerOutline.cornerLength
+      }
+      PathLine {
+        x: cornerOutline.width
+        y: cornerOutline.height - 5
+      }
+      PathArc {
+        x: cornerOutline.width - 5
+        y: cornerOutline.height
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: cornerOutline.width - cornerOutline.cornerLength
+        y: cornerOutline.height
+      }
+      PathMove {
+        x: cornerOutline.cornerLength
+        y: cornerOutline.height
+      }
+      PathLine {
+        x: 5
+        y: cornerOutline.height
+      }
+      PathArc {
+        x: 0
+        y: cornerOutline.height - 5
+        radiusX: 5
+        radiusY: 5
+      }
+      PathLine {
+        x: 0
+        y: cornerOutline.height - cornerOutline.cornerLength
+      }
+    }
   }
 
   QfCameraPermission {
@@ -92,8 +257,19 @@ QfPopup {
     onDecodedStringChanged: {
       if (decodedString !== '') {
         codeReader.decodedString = decodedString;
+        decodedTimer.restart();
         decodedFlashAnimation.start();
+      } else {
+        decodedTimer.stop();
       }
+    }
+  }
+
+  Timer {
+    id: decodedTimer
+    interval: 1000
+    onTriggered: {
+      codeReader.decoded(codeReader.decodedString);
     }
   }
 
@@ -220,6 +396,7 @@ QfPopup {
             Item {
               property alias camera: captureSession.camera
               property alias sink: videoOutput.videoSink
+              property rect videoContentRect: Qt.rect(videoOutput.x + videoOutput.contentRect.x, videoOutput.y + videoOutput.contentRect.y, videoOutput.contentRect.width, videoOutput.contentRect.height)
 
               CaptureSession {
                 id: captureSession
@@ -325,87 +502,74 @@ QfPopup {
           }
         }
 
-        Shape {
+        CornerOutline {
           id: aim
           visible: settings.cameraActive
-          anchors.fill: parent
+          x: 20
+          y: 20
+          width: parent.width - 40
+          height: parent.height - 40
+          opacity: codeReader.tapToDecode ? 0 : 1
 
-          ShapePath {
-            strokeWidth: 2.5
-            strokeColor: "white"
-            strokeStyle: ShapePath.SolidLine
-            joinStyle: ShapePath.MiterJoin
-            fillColor: "transparent"
+          Behavior on opacity {
+            NumberAnimation {
+              duration: 150
+            }
+          }
+        }
 
-            startX: 20
-            startY: 60
-            PathLine {
-              x: 20
-              y: 25
+        Item {
+          id: barcodeOutlines
+
+          property rect videoContentRect: cameraLoader.item ? cameraLoader.item.videoContentRect : Qt.rect(0, 0, 0, 0)
+
+          visible: settings.cameraActive && cameraLoader.active
+          x: videoContentRect.x
+          y: videoContentRect.y
+          width: videoContentRect.width
+          height: videoContentRect.height
+
+          Repeater {
+            id: barcodeOutlineRepeater
+            model: barcodeDecoder.videoBarcodes
+
+            onCountChanged: {
+              if (!codeReader.tapToDecode && count > 1) {
+                // First time we've hit multiple barcodes, use tap to decode
+                codeReader.tapToDecode = true;
+                codeReader.decodedString = '';
+                barcodeDecoder.decodedString = '';
+                return;
+              }
             }
-            PathArc {
-              x: 25
-              y: 20
-              radiusX: 5
-              radiusY: 5
-            }
-            PathLine {
-              x: 60
-              y: 20
-            }
-            PathMove {
-              x: aim.width - 60
-              y: 20
-            }
-            PathLine {
-              x: aim.width - 25
-              y: 20
-            }
-            PathArc {
-              x: aim.width - 20
-              y: 25
-              radiusX: 5
-              radiusY: 5
-            }
-            PathLine {
-              x: aim.width - 20
-              y: 60
-            }
-            PathMove {
-              x: aim.width - 20
-              y: aim.height - 60
-            }
-            PathLine {
-              x: aim.width - 20
-              y: aim.height - 25
-            }
-            PathArc {
-              x: aim.width - 25
-              y: aim.height - 20
-              radiusX: 5
-              radiusY: 5
-            }
-            PathLine {
-              x: aim.width - 60
-              y: aim.height - 20
-            }
-            PathMove {
-              x: 60
-              y: aim.height - 20
-            }
-            PathLine {
-              x: 25
-              y: aim.height - 20
-            }
-            PathArc {
-              x: 20
-              y: aim.height - 25
-              radiusX: 5
-              radiusY: 5
-            }
-            PathLine {
-              x: 20
-              y: aim.height - 60
+
+            delegate: CornerOutline {
+              id: barcodeOutline
+
+              property rect barcodeBounds: model.BarcodeBounds
+
+              x: barcodeBounds.x * barcodeOutlines.width - 5
+              y: barcodeBounds.y * barcodeOutlines.height - 5
+              width: barcodeBounds.width * barcodeOutlines.width + 10
+              height: barcodeBounds.height * barcodeOutlines.height + 10
+              outlineColor: model.BarcodeText === barcodeDecoder.decodedString ? QfTheme.mainColor : QfTheme.mainTextColor
+
+              Behavior on barcodeBounds {
+                PropertyAnimation {
+                  duration: 200
+                  easing.type: Easing.OutCubic
+                }
+              }
+
+              MouseArea {
+                anchors.centerIn: parent
+                width: Math.max(parent.width, QfTheme.toolButtonSize)
+                height: Math.max(parent.height, QfTheme.toolButtonSize)
+
+                onClicked: {
+                  barcodeDecoder.decodedString = model.BarcodeText;
+                }
+              }
             }
           }
         }
@@ -543,7 +707,7 @@ QfPopup {
           id: decodedText
           Layout.fillWidth: true
 
-          text: codeReader.decodedString !== '' ? codeReader.decodedString : qsTr('Center your device on a code')
+          text: codeReader.decodedString !== '' ? codeReader.decodedString : codeReader.tapToDecode ? qsTr('Tap a code to select it') : qsTr('Center your device on a code')
           font: QfTheme.tipFont
           color: QfTheme.mainTextColor
           horizontalAlignment: Text.AlignLeft
