@@ -30,6 +30,7 @@ set(QFIELD_GUI_QML_FILES
     QfElevationProfile.qml
     QfEmbeddedFeatureForm.qml
     QfExpandableGroupBox.qml
+    QfExternalAccessoryDeviceChooser.qml
     QfFeatureForm.qml
     QfFeatureListForm.qml
     QfFileDeviceChooser.qml
