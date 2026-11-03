@@ -6895,8 +6895,8 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
         <translation>Envoyer vers...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Envoyer vers QFieldCloud</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -6991,12 +6991,8 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
         <translation>Envoyer des fichiers vers WebDAV</translation>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Envoyer des fichiers vers QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Veuillez sélectionner un ou plusieurs fichiers à envoyer vers QFieldCloud</translation>
+        <source>Upload file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>

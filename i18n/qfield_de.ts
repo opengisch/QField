@@ -6890,8 +6890,8 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Senden an...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Zur QFieldCloud hochladen</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -6986,12 +6986,8 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Lade Datei(en) zu WebDAV hoch</translation>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Lade Datei(en) zu QFieldCloud hoch</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Bitte wählen Sie ein oder mehrere Dateien, um sie in die QFieldCloud hochzuladen.</translation>
+        <source>Upload file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>

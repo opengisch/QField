@@ -6893,8 +6893,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>发送到...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>推送到QFieldCloud</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -6989,12 +6989,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>将文件上传到WebDAV</translation>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>将文件推送到QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>请选择一个或多个文件推送到QFieldCloud。</translation>
+        <source>Upload file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>

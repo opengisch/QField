@@ -6901,7 +6901,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <translation>Odeslat</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
+        <source>Upload to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -6997,11 +6997,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
+        <source>Upload file(s) to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>

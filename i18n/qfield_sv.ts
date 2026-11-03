@@ -6895,8 +6895,8 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
         <translation>Skicka till...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Ladda upp till QFieldCloud</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -6991,12 +6991,8 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
         <translation>Ladda upp filer till WebDAV</translation>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Ladda upp filer till QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Välj en eller flera filer att ladda upp till QFieldCloud.</translation>
+        <source>Upload file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>

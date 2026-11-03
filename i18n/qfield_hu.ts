@@ -6887,8 +6887,8 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>Küldés...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Feltöltés a QFieldCloud-ra</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -6983,12 +6983,8 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>Fájl(ok) feltöltése WebDAV-ra</translation>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Fájl(ok) elküldése a QFieldCloudba</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Válassz ki egy, vagy több fájlt a QFieldCloud-ba töltésre.</translation>
+        <source>Upload file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>

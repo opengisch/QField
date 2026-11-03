@@ -6894,8 +6894,8 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Versturen naar...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Versturen naar QFieldCloud</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -6990,11 +6990,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
+        <source>Upload file(s) to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>

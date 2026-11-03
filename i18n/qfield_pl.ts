@@ -6905,8 +6905,8 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation>Wyślij do...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Wyślij do QFieldCloud</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -7001,12 +7001,8 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <translation>Prześlij plik(i) do WebDAV</translation>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Prześlij plik(i) do QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Wybierz jeden lub więcej plików do przesłania do QFieldCloud.</translation>
+        <source>Upload file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>

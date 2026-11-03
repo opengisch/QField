@@ -6886,8 +6886,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>அனுப்பு...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>QFieldCloud க்கு தள்ளவும்</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -6982,12 +6982,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>WebDAV இல் கோப்பு(களை) பதிவேற்றவும்</translation>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>QFieldCloud க்கு கோப்பு(களை) தள்ளவும்</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>QFieldCloud க்கு தள்ள ஒன்று அல்லது அதற்கு மேற்பட்ட கோப்புகளைத் தேர்ந்தெடுக்கவும்.</translation>
+        <source>Upload file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>

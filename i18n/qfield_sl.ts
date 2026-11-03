@@ -6872,8 +6872,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>Pošlji v...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Pošlji v QFieldCloud</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -6968,12 +6968,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Pošlji datoteko(e) v QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Izberi eno ali več datotek in jih pošlji v QFieldCloud.</translation>
+        <source>Upload file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>

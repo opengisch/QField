@@ -6865,8 +6865,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>ສົ່ງໄປ...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>ຍູ້ໄປທີ່ QFieldCloud</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -6961,12 +6961,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>ອັບໂຫຼດໄຟລ໌ໃສ່ WebDAV</translation>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>ຍູ້ໄຟລ໌ໄປຫາ QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>ກະລຸນາເລືອກໜຶ່ງ ຫຼືຫຼາຍໄຟລ໌ເພື່ອຍູ້ໄປທີ່ QFieldCloud.</translation>
+        <source>Upload file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>

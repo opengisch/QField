@@ -5634,7 +5634,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Tap a code to select it</source>
-        <translation type="unfinished"/>
+        <translation>Toqueu un codi per seleccionar-lo</translation>
     </message>
 </context>
 <context>
@@ -6900,8 +6900,8 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
         <translation>Envia a...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Envia a QFieldCloud</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation>Pujar a QFieldCloud</translation>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -6996,12 +6996,8 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
         <translation>Puja el(s) fitxers a WebDAV</translation>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Envia el(s) fitxers al QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Seleccioneu un o més fitxers per enviar a QFieldCloud.</translation>
+        <source>Upload file(s) to QFieldCloud</source>
+        <translation>Carregueu fitxer(s) a QFieldCloud</translation>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>

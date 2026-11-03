@@ -6898,8 +6898,8 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
         <translation>L채het채 ...</translation>
     </message>
     <message>
-        <source>Push to QFieldCloud</source>
-        <translation>Vie QFieldCloudiin</translation>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -6994,12 +6994,8 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
         <translation>L채het채 tiedosto(t) WebDAV-palvelimelle</translation>
     </message>
     <message>
-        <source>Push file(s) to QFieldCloud</source>
-        <translation>Vie tiedosto(t) QFieldCloudiin</translation>
-    </message>
-    <message>
-        <source>Please select one or more files to push to QFieldCloud.</source>
-        <translation>Valitse yksi tai useampi tiedosto vied채ksesi ne QFieldCloudiin</translation>
+        <source>Upload file(s) to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>
