@@ -66,6 +66,7 @@ class QfLocalFilesModel : public QAbstractListModel
     //! Synchronization status of a local file within a cloud project, compared against the files stored on QFieldCloud
     enum CloudStatus
     {
+      Unknown,      //!< The status could not be determined, e.g. while offline or logged out
       LocalOnly,    //!< The file only exists locally and is missing on QFieldCloud
       Synchronized, //!< The file exists on QFieldCloud and its checksum matches the local file
       Divergent,    //!< The file exists on QFieldCloud but its checksum differs from the local file
@@ -247,7 +248,7 @@ class QfLocalFileItem
     QString mPath;
     qint64 mSize = 0;
     bool mChecked = false;
-    QfLocalFilesModel::CloudStatus mCloudStatus = QfLocalFilesModel::CloudStatus::LocalOnly;
+    QfLocalFilesModel::CloudStatus mCloudStatus = QfLocalFilesModel::CloudStatus::Unknown;
 };
 
 Q_DECLARE_METATYPE( QfLocalFileItem )

@@ -20,6 +20,7 @@
 #include "qflocalfilesmodel.h"
 #include "qfnetworkreply.h"
 #include "qfplatformutilities.h"
+#include "qfprojectutils.h"
 #include "qfwebdavconnection.h"
 
 #include <QDir>
@@ -29,6 +30,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QtConcurrent>
+#include <qgsproject.h>
 
 #include <algorithm>
 
@@ -621,18 +623,30 @@ void QfLocalFilesModel::updateCloudStatus()
     return;
   }
 
+  const QString projectFileName = QgsProject::instance()->fileName();
   QList<QPair<QString, QPair<qint64, QString>>> candidates;
-  for ( const QfLocalFileItem &item : std::as_const( mItems ) )
+  for ( int i = 0; i < mItems.size(); i++ )
   {
-    if ( item.metaType() == ItemMetaType::Folder || item.metaType() == ItemMetaType::Favorite )
+    if ( mItems[i].metaType() == ItemMetaType::Folder || mItems[i].metaType() == ItemMetaType::Favorite )
     {
       continue;
     }
 
-    const auto it = mCloudFiles.constFind( projectDir.relativeFilePath( item.path() ) );
+    if ( mItems[i].path() == projectFileName || projectDir.relativeFilePath( mItems[i].path() ) == QLatin1String( "deltafile.json" ) || QfProjectUtils::isLayerDataset( QgsProject::instance(), mItems[i].path() ) )
+    {
+      continue;
+    }
+
+    const auto it = mCloudFiles.constFind( projectDir.relativeFilePath( mItems[i].path() ) );
     if ( it != mCloudFiles.constEnd() )
     {
-      candidates << qMakePair( item.path(), it.value() );
+      candidates << qMakePair( mItems[i].path(), it.value() );
+    }
+    else if ( mItems[i].cloudStatus() != CloudStatus::LocalOnly )
+    {
+      mItems[i].setCloudStatus( CloudStatus::LocalOnly );
+      const QModelIndex changedIndex = index( i, 0, QModelIndex() );
+      emit dataChanged( changedIndex, changedIndex, { ItemCloudStatusRole } );
     }
   }
 
