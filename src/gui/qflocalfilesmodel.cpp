@@ -20,6 +20,7 @@
 #include "qflocalfilesmodel.h"
 #include "qfnetworkreply.h"
 #include "qfplatformutilities.h"
+#include "qfprojectutils.h"
 #include "qfwebdavconnection.h"
 
 #include <QDir>
@@ -29,6 +30,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QtConcurrent>
+#include <qgsproject.h>
 
 #include <algorithm>
 
@@ -292,6 +294,9 @@ void QfLocalFilesModel::reloadModel()
     if ( dir.exists() )
     {
       const QStringList items = dir.entryList( QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot, QDir::DirsFirst | QDir::IgnoreCase );
+      const bool itemsContainProjectFile = std::any_of( items.cbegin(), items.cend(), []( const QString &item ) {
+        return item.endsWith( QStringLiteral( ".qgz" ), Qt::CaseInsensitive ) || item.endsWith( QStringLiteral( ".qgs" ), Qt::CaseInsensitive );
+      } );
       QList<QfLocalFileItem> folders;
       QList<QfLocalFileItem> files;
       QList<QfLocalFileItem> projects;
@@ -306,10 +311,14 @@ void QfLocalFilesModel::reloadModel()
         else
         {
           const QString suffix = fi.suffix().toLower();
-          if ( ( suffix == QStringLiteral( "png" ) || suffix == QStringLiteral( "jpg" ) ) && items.contains( fi.completeBaseName() ) )
+          if ( itemsContainProjectFile && ( suffix == QStringLiteral( "png" ) || suffix == QStringLiteral( "jpg" ) ) )
           {
-            // Skip project preview images
-            continue;
+            const QString completeBaseName = fi.completeBaseName().toLower();
+            if ( completeBaseName.endsWith( QStringLiteral( ".qgz" ) ) || completeBaseName.endsWith( QStringLiteral( ".qgs" ) ) )
+            {
+              // Skip project preview images
+              continue;
+            }
           }
           else if ( suffix == QStringLiteral( "qgs" ) || suffix == QStringLiteral( "qgz" ) )
           {
@@ -324,7 +333,7 @@ void QfLocalFilesModel::reloadModel()
               }
             }
           }
-          else if ( suffix == QStringLiteral( "zip" ) )
+          else if ( itemsContainProjectFile && suffix == QStringLiteral( "zip" ) )
           {
             if ( item.endsWith( QStringLiteral( "_attachments.zip" ), Qt::CaseInsensitive ) )
             {
@@ -348,7 +357,14 @@ void QfLocalFilesModel::reloadModel()
           }
           else if ( SUPPORTED_VECTOR_EXTENSIONS.contains( suffix ) && suffix != QStringLiteral( "pdf" ) )
           {
-            datasets << QfLocalFileItem( ItemMetaType::Dataset, ItemType::VectorDataset, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
+            if ( itemsContainProjectFile && fi.fileName() == QStringLiteral( "deltafile.json" ) )
+            {
+              files << QfLocalFileItem( ItemMetaType::File, ItemType::OtherFile, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
+            }
+            else
+            {
+              datasets << QfLocalFileItem( ItemMetaType::Dataset, ItemType::VectorDataset, fi.completeBaseName(), suffix, fi.absoluteFilePath(), fi.size() );
+            }
           }
           else if ( SUPPORTED_RASTER_EXTENSIONS.contains( suffix ) )
           {
@@ -621,18 +637,30 @@ void QfLocalFilesModel::updateCloudStatus()
     return;
   }
 
+  const QString projectFileName = QgsProject::instance()->fileName();
   QList<QPair<QString, QPair<qint64, QString>>> candidates;
-  for ( const QfLocalFileItem &item : std::as_const( mItems ) )
+  for ( int i = 0; i < mItems.size(); i++ )
   {
-    if ( item.metaType() == ItemMetaType::Folder || item.metaType() == ItemMetaType::Favorite )
+    if ( mItems[i].metaType() == ItemMetaType::Folder || mItems[i].metaType() == ItemMetaType::Favorite )
     {
       continue;
     }
 
-    const auto it = mCloudFiles.constFind( projectDir.relativeFilePath( item.path() ) );
+    if ( mItems[i].path() == projectFileName || projectDir.relativeFilePath( mItems[i].path() ) == QLatin1String( "deltafile.json" ) || QfProjectUtils::isLayerDataset( QgsProject::instance(), mItems[i].path() ) )
+    {
+      continue;
+    }
+
+    const auto it = mCloudFiles.constFind( projectDir.relativeFilePath( mItems[i].path() ) );
     if ( it != mCloudFiles.constEnd() )
     {
-      candidates << qMakePair( item.path(), it.value() );
+      candidates << qMakePair( mItems[i].path(), it.value() );
+    }
+    else if ( mItems[i].cloudStatus() != CloudStatus::LocalOnly )
+    {
+      mItems[i].setCloudStatus( CloudStatus::LocalOnly );
+      const QModelIndex changedIndex = index( i, 0, QModelIndex() );
+      emit dataChanged( changedIndex, changedIndex, { ItemCloudStatusRole } );
     }
   }
 

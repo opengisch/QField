@@ -189,13 +189,23 @@ Page {
             parent: ItemHasThumbnail ? thumbnail : type
             z: 2
             alignment: QfBadge.Alignment.BottomRight
-            visible: ItemCloudStatus !== QfLocalFilesModel.LocalOnly
+            visible: ItemCloudStatus !== QfLocalFilesModel.Unknown
             width: 20
             height: width
             border.width: 2
             bottomMargin: -2
             rightMargin: -2
-            color: ItemCloudStatus === QfLocalFilesModel.Divergent ? QfTheme.warningColor : QfTheme.mainColor
+            color: {
+              switch (ItemCloudStatus) {
+              case QfLocalFilesModel.Synchronized:
+                return QfTheme.mainColor;
+              case QfLocalFilesModel.Divergent:
+                return QfTheme.warningColor;
+              case QfLocalFilesModel.LocalOnly:
+              case QfLocalFilesModel.Unknown:
+                return QfTheme.controlBorderColor;
+              }
+            }
 
             Image {
               anchors.centerIn: parent
@@ -208,12 +218,11 @@ Page {
             }
 
             Rectangle {
-              anchors.centerIn: parent
-              width: 2
-              height: width
+              anchors.fill: parent
+              anchors.margins: 4
+              visible: ItemCloudStatus === QfLocalFilesModel.LocalOnly
+              color: QfTheme.mainBackgroundColor
               radius: width / 2
-              visible: ItemCloudStatus === QfLocalFilesModel.Divergent
-              color: QfTheme.light
             }
           }
 
@@ -583,7 +592,7 @@ Page {
 
       MenuItem {
         id: uploadDatasetToCloud
-        enabled: itemMenu.itemWithinQFieldCloudProjectFolder && !QfProjectUtils.isLayerDataset(qgisProject, itemMenu.itemPath)
+        enabled: itemMenu.itemWithinQFieldCloudProjectFolder && !QfProjectUtils.isLayerDataset(qgisProject, itemMenu.itemPath) && itemMenu.itemPath.indexOf('deltafile.json') == -1
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -601,7 +610,7 @@ Page {
 
       MenuItem {
         id: sendTo
-        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomSend && (itemMenu.itemMetaType === QfLocalFilesModel.Folder || itemMenu.itemMetaType === QfLocalFilesModel.Dataset)
+        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomSend
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -621,7 +630,7 @@ Page {
 
       MenuItem {
         id: exportTo
-        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomExport && (itemMenu.itemMetaType === QfLocalFilesModel.Dataset || itemMenu.itemMetaType === QfLocalFilesModel.Folder)
+        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomExport
         visible: enabled
 
         font: QfTheme.defaultFont
