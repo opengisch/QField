@@ -592,7 +592,7 @@ Page {
 
       MenuItem {
         id: uploadDatasetToCloud
-        enabled: itemMenu.itemWithinQFieldCloudProjectFolder && !QfProjectUtils.isLayerDataset(qgisProject, itemMenu.itemPath)
+        enabled: itemMenu.itemWithinQFieldCloudProjectFolder && !QfProjectUtils.isLayerDataset(qgisProject, itemMenu.itemPath) && itemMenu.itemPath.indexOf('deltafile.json') == -1
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -610,7 +610,7 @@ Page {
 
       MenuItem {
         id: sendTo
-        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomSend && (itemMenu.itemMetaType === QfLocalFilesModel.Folder || itemMenu.itemMetaType === QfLocalFilesModel.Dataset)
+        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomSend
         visible: enabled
 
         font: QfTheme.defaultFont
@@ -630,7 +630,7 @@ Page {
 
       MenuItem {
         id: exportTo
-        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomExport && (itemMenu.itemMetaType === QfLocalFilesModel.Dataset || itemMenu.itemMetaType === QfLocalFilesModel.Folder)
+        enabled: platformUtilities.capabilities & QfPlatformUtilities.CustomExport
         visible: enabled
 
         font: QfTheme.defaultFont
