@@ -24,13 +24,7 @@
 QfCloudAttachmentsModel::QfCloudAttachmentsModel( QObject *parent )
   : QAbstractListModel( parent )
 {
-  // The attachments file is rewritten in several steps (truncated then written, removed then queued again on retry), refresh once for them
-  mRefreshTimer.setSingleShot( true );
-  mRefreshTimer.setInterval( 250 );
-  connect( &mRefreshTimer, &QTimer::timeout, this, &QfCloudAttachmentsModel::refresh );
-
-  connect( &mWatcher, &QFileSystemWatcher::fileChanged, &mRefreshTimer, qOverload<>( &QTimer::start ) );
-  connect( &mWatcher, &QFileSystemWatcher::directoryChanged, this, &QfCloudAttachmentsModel::onWatchedDirectoryChanged );
+  connect( &mCloudAttachmentsWatcher, &QfCloudAttachmentsWatcher::queueChanged, this, &QfCloudAttachmentsModel::refresh );
 }
 
 int QfCloudAttachmentsModel::rowCount( const QModelIndex &parent ) const
@@ -80,9 +74,6 @@ QHash<int, QByteArray> QfCloudAttachmentsModel::roleNames() const
 
 void QfCloudAttachmentsModel::refresh()
 {
-  mRefreshTimer.stop();
-  updateWatchedPaths();
-
   beginResetModel();
   mAttachments.clear();
 
@@ -178,15 +169,17 @@ void QfCloudAttachmentsModel::setCloudConnection( QfCloudConnection *cloudConnec
 
   if ( mCloudConnection )
   {
-    disconnect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::refresh );
+    disconnect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::onUsernameChanged );
   }
 
   mCloudConnection = cloudConnection;
 
   if ( mCloudConnection )
   {
-    connect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::refresh );
+    connect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::onUsernameChanged );
   }
+
+  mCloudAttachmentsWatcher.setUsername( mCloudConnection ? mCloudConnection->username() : QString() );
 
   emit cloudConnectionChanged();
   refresh();
@@ -221,6 +214,7 @@ void QfCloudAttachmentsModel::setCloudProject( QfCloudProject *cloudProject )
   }
 
   setDeltaFileWrapper( mCloudProject ? mCloudProject->deltaFileWrapper() : nullptr );
+  mCloudAttachmentsWatcher.setActive( !mCloudProject.isNull() );
 
   emit cloudProjectChanged();
   refresh();
@@ -252,49 +246,8 @@ void QfCloudAttachmentsModel::setDeltaFileWrapper( QfDeltaFileWrapper *deltaFile
   }
 }
 
-void QfCloudAttachmentsModel::onWatchedDirectoryChanged()
+void QfCloudAttachmentsModel::onUsernameChanged()
 {
-  if ( updateWatchedPaths() )
-  {
-    // The watcher is now connected to the attachments file, refresh the model
-    mRefreshTimer.start();
-  }
-}
-
-bool QfCloudAttachmentsModel::updateWatchedPaths()
-{
-  const QString username = mCloudConnection ? mCloudConnection->username() : QString();
-  const QString directory = !username.isEmpty() ? QStringLiteral( "%1/%2" ).arg( QfCloudUtils::localCloudDirectory(), username ) : QString();
-  if ( mWatchedDirectory != directory )
-  {
-    const QStringList watchedPaths = mWatcher.files() + mWatcher.directories();
-    if ( !watchedPaths.isEmpty() )
-    {
-      mWatcher.removePaths( watchedPaths );
-    }
-    mWatchedDirectory = directory;
-  }
-
-  if ( mWatchedDirectory.isEmpty() || !QFileInfo( mWatchedDirectory ).isDir() )
-  {
-    return false;
-  }
-
-  const QString attachmentsFilePath = QStringLiteral( "%1/attachments.csv" ).arg( mWatchedDirectory );
-  if ( mWatcher.files().contains( attachmentsFilePath ) )
-  {
-    return false;
-  }
-
-  const bool fileWatched = QFileInfo::exists( attachmentsFilePath ) && mWatcher.addPath( attachmentsFilePath );
-  if ( fileWatched )
-  {
-    mWatcher.removePath( mWatchedDirectory );
-  }
-  else if ( !mWatcher.directories().contains( mWatchedDirectory ) )
-  {
-    mWatcher.addPath( mWatchedDirectory );
-  }
-
-  return fileWatched;
+  mCloudAttachmentsWatcher.setUsername( mCloudConnection ? mCloudConnection->username() : QString() );
+  refresh();
 }

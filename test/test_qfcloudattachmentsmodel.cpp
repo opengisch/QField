@@ -18,6 +18,7 @@
 
 #include "catch2.h"
 #include "qfieldcloud/qfcloudattachmentsmodel.h"
+#include "qfieldcloud/qfcloudattachmentswatcher.h"
 #include "qfieldcloud/qfcloudconnection.h"
 #include "qfieldcloud/qfcloudproject.h"
 #include "utils/qfcloudutils.h"
@@ -80,6 +81,63 @@ TEST_CASE( "QfCloudAttachmentsModel watches the attachments files" )
     QfCloudUtils::addPendingAttachments( username, projectId, QStringList() << photoPath );
     REQUIRE_FALSE( resetSpy.wait( 1000 ) );
     REQUIRE( model.rowCount() == 0 );
+  }
+
+  QfCloudUtils::setLocalCloudDirectory( QString() );
+}
+
+
+TEST_CASE( "QfCloudAttachmentsWatcher reports pending attachments queue changes" )
+{
+  QTemporaryDir cloudDir;
+  REQUIRE( cloudDir.isValid() );
+  QfCloudUtils::setLocalCloudDirectory( cloudDir.path() );
+
+  const QString username = QStringLiteral( "alice" );
+  const QString projectId = QStringLiteral( "11111111-1111-1111-1111-111111111111" );
+  REQUIRE( QDir().mkpath( QStringLiteral( "%1/%2/%3" ).arg( cloudDir.path(), username, projectId ) ) );
+
+  const QString photoPath = QStringLiteral( "%1/%2/%3/photo.jpg" ).arg( cloudDir.path(), username, projectId );
+  QFile photoFile( photoPath );
+  REQUIRE( photoFile.open( QIODevice::WriteOnly ) );
+  photoFile.write( QByteArray( "photo" ) );
+  photoFile.close();
+
+  QfCloudAttachmentsWatcher watcher;
+  QSignalSpy queueSpy( &watcher, &QfCloudAttachmentsWatcher::queueChanged );
+  watcher.setUsername( username );
+
+  SECTION( "An inactive watcher does not report queue changes" )
+  {
+    REQUIRE_FALSE( watcher.active() );
+    QfCloudUtils::addPendingAttachments( username, projectId, QStringList() << photoPath );
+    REQUIRE_FALSE( queueSpy.wait( 1000 ) );
+  }
+
+  SECTION( "The queue is reported once created and whenever it changes" )
+  {
+    watcher.setActive( true );
+    QfCloudUtils::addPendingAttachments( username, projectId, QStringList() << photoPath );
+    REQUIRE( queueSpy.wait( 5000 ) );
+
+    queueSpy.clear();
+    QfCloudUtils::removePendingAttachment( username, projectId, photoPath );
+    REQUIRE( queueSpy.wait( 5000 ) );
+  }
+
+  SECTION( "Taking the attachments lock is not reported as a queue change" )
+  {
+    watcher.setActive( true );
+    REQUIRE( QfCloudUtils::getPendingAttachments( username ).isEmpty() );
+    REQUIRE_FALSE( queueSpy.wait( 1000 ) );
+  }
+
+  SECTION( "Deactivating the watcher stops reporting queue changes" )
+  {
+    watcher.setActive( true );
+    watcher.setActive( false );
+    QfCloudUtils::addPendingAttachments( username, projectId, QStringList() << photoPath );
+    REQUIRE_FALSE( queueSpy.wait( 1000 ) );
   }
 
   QfCloudUtils::setLocalCloudDirectory( QString() );

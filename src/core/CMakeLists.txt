@@ -59,6 +59,7 @@ set(QFIELD_CORE_SRCS
     qfieldcloud/qfnetworkmanager.cpp
     qfieldcloud/qfnetworkreply.cpp
     qfieldcloud/qfcloudattachmentsmodel.cpp
+    qfieldcloud/qfcloudattachmentswatcher.cpp
     qfieldcloud/qfcloudconnection.cpp
     qfieldcloud/qfcloudproject.cpp
     qfieldcloud/qfcloudprojectsmodel.cpp
@@ -184,6 +185,7 @@ set(QFIELD_CORE_HDRS
     qfieldcloud/qfnetworkmanager.h
     qfieldcloud/qfnetworkreply.h
     qfieldcloud/qfcloudattachmentsmodel.h
+    qfieldcloud/qfcloudattachmentswatcher.h
     qfieldcloud/qfcloudconnection.h
     qfieldcloud/qfcloudproject.h
     qfieldcloud/qfcloudprojectsmodel.h
