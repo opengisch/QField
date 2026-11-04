@@ -16,6 +16,7 @@
 #ifndef QFLOCALFILESMODEL_H
 #define QFLOCALFILESMODEL_H
 
+#include "qfcloudattachmentswatcher.h"
 #include "qfcloudconnection.h"
 
 #include <QAbstractListModel>
@@ -179,6 +180,7 @@ class QfLocalFilesModel : public QAbstractListModel
     void updateCloudStatus();
     void clearCloudFiles();
     void setIsFetchingCloudStatus( bool isFetching );
+    void updateCloudAttachmentsWatcher();
     const QString getCurrentTitleFromPath( const QString &path ) const;
 
     QStringList mHistory;
@@ -196,6 +198,8 @@ class QfLocalFilesModel : public QAbstractListModel
     bool mCloudFilesFetched = false;
     bool mIsFetchingCloudStatus = false;
     int mCloudFilesRequestId = 0;
+
+    QfCloudAttachmentsWatcher mCloudAttachmentsWatcher;
 };
 
 
