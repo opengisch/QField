@@ -36,6 +36,8 @@
 #include <qgsprintlayout.h>
 #include <qgsproject.h>
 #include <qgsprojectstylesettings.h>
+#include <qgsproviderregistry.h>
+#include <qgsprovidersublayerdetails.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterlayerelevationproperties.h>
 #include <qgssinglesymbolrenderer.h>
@@ -657,6 +659,31 @@ QgsVectorLayer *QfLayerUtils::loadVectorLayer( const QString &uri, const QString
   QgsVectorLayer *layer = new QgsVectorLayer( uri, name, provider );
   QQmlEngine::setObjectOwnership( layer, QQmlEngine::CppOwnership );
   return layer;
+}
+
+QList<QgsMapLayer *> QfLayerUtils::loadMapLayers( const QString &uri, const QString &name )
+{
+  QList<QgsMapLayer *> layers;
+
+  QgsProviderSublayerDetails::LayerOptions options( QgsProject::instance()->transformContext() );
+  const QList<QgsProviderSublayerDetails> sublayers = QgsProviderRegistry::instance()->querySublayers( uri, Qgis::SublayerQueryFlags() | Qgis::SublayerQueryFlag::ResolveGeometryType );
+  const bool nameAsPrefix = sublayers.size() > 1;
+  for ( const QgsProviderSublayerDetails &sublayer : sublayers )
+  {
+    std::unique_ptr<QgsMapLayer> layer( sublayer.toLayer( options ) );
+    if ( !layer || !layer->isValid() )
+    {
+      continue;
+    }
+
+    if ( !name.isEmpty() )
+    {
+      layer->setName( nameAsPrefix ? QStringLiteral( "%1 — %2" ).arg( name, sublayer.name() ) : name );
+      layers << layer.release();
+    }
+  }
+
+  return layers;
 }
 
 QgsRasterLayer *QfLayerUtils::loadRasterLayer( const QString &uri, const QString &name, const QString &provider )

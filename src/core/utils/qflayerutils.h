@@ -201,15 +201,23 @@ class QfLayerUtils : public QObject
     Q_INVOKABLE QSet<QVariant> uniqueValuesForVectorLayerFieldIndex( QgsVectorLayer *layer, int fieldIndex );
 
     /**
-     * Loads a vector layer.
+     * Loads all map layers from a data source.
+     * \param uri the data source uri
+     * \param name the layer(s) name (if more than one layer is present, the name will turn into a prefix)
+     * \param provider the data provider name
+     */
+    Q_INVOKABLE static QList<QgsMapLayer *> loadMapLayers( const QString &uri, const QString &name = QString() );
+
+    /**
+     * Loads a vector layer from a provided data source.
      * \param uri the data source uri
      * \param name the layer name
      * \param provider the data provider name
      */
-    Q_INVOKABLE static QgsVectorLayer *loadVectorLayer( const QString &uri, const QString &name = QString(), const QString &provider = QStringLiteral( "ogr" ) );
+    Q_INVOKABLE static QgsVectorLayer *loadVectorLayer( const QString &uri, const QString &prefix = QString(), const QString &provider = QStringLiteral( "ogr" ) );
 
     /**
-     * Loads a raster layer.
+     * Loads a raster layer from a provided data source.
      * \param uri the data source uri
      * \param name the layer name
      * \param provider the data provider name
