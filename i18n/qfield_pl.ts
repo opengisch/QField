@@ -5636,7 +5636,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Tap a code to select it</source>
-        <translation type="unfinished"/>
+        <translation>Dotknij kodu, żeby go wybrać</translation>
     </message>
 </context>
 <context>
@@ -6906,7 +6906,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Prześlij do QFieldCloud</translation>
     </message>
     <message>
         <source>Export to folder...</source>
@@ -7002,7 +7002,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Upload file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Prześlij plik(i) do QFieldCloud</translation>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>
