@@ -310,8 +310,12 @@ void QfLocalFilesModel::reloadModel()
           const QString suffix = fi.suffix().toLower();
           if ( ( suffix == QStringLiteral( "png" ) || suffix == QStringLiteral( "jpg" ) ) && items.contains( fi.completeBaseName() ) )
           {
-            // Skip project preview images
-            continue;
+            const QString completeBaseName = fi.completeBaseName().toLower();
+            if ( completeBaseName.endsWith( QStringLiteral( ".qgz" ) ) || completeBaseName.endsWith( QStringLiteral( ".qgs" ) ) )
+            {
+              // Skip project preview images
+              continue;
+            }
           }
           else if ( suffix == QStringLiteral( "qgs" ) || suffix == QStringLiteral( "qgz" ) )
           {
