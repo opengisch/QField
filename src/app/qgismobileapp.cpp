@@ -86,8 +86,6 @@
 #include "qfurlhandler.h"
 #include "qfvertexmodel.h"
 #include "qgismobileapp.h"
-#include "qgsproviderregistry.h"
-#include "qgsprovidersublayerdetails.h"
 #include "qgsquickmapcanvasmap.h"
 #include "qgsquickmapsettings.h"
 
@@ -138,6 +136,8 @@
 #include <qgsprojectstorageregistry.h>
 #include <qgsprojectstylesettings.h>
 #include <qgsprojectviewsettings.h>
+#include <qgsproviderregistry.h>
+#include <qgsprovidersublayerdetails.h>
 #include <qgsrasterlayer.h>
 #include <qgsrasterresamplefilter.h>
 #include <qgsscreenproperties.h>
