@@ -195,7 +195,17 @@ Page {
             border.width: 2
             bottomMargin: -2
             rightMargin: -2
-            color: ItemCloudStatus === QfLocalFilesModel.Synchronized ? QfTheme.mainColor : ItemCloudStatus === QfLocalFilesModel.Divergent ? QfTheme.warningColor : QfTheme.controlBorderColor
+            color: {
+              switch (ItemCloudStatus) {
+              case QfLocalFilesModel.Synchronized:
+                return QfTheme.mainColor;
+              case QfLocalFilesModel.Divergent:
+                return QfTheme.warningColor;
+              case QfLocalFilesModel.LocalOnly:
+              case QfLocalFilesModel.Unknown:
+                return QfTheme.controlBorderColor;
+              }
+            }
 
             Image {
               anchors.centerIn: parent
@@ -205,6 +215,14 @@ Page {
               source: QfTheme.getThemeVectorIcon('ic_check_white_24dp')
               sourceSize.width: width * screen.devicePixelRatio
               sourceSize.height: height * screen.devicePixelRatio
+            }
+
+            Rectangle {
+              anchors.fill: parent
+              anchors.margins: 4
+              visible: ItemCloudStatus === QfLocalFilesModel.LocalOnly
+              color: QfTheme.mainBackgroundColor
+              radius: width / 2
             }
           }
 
