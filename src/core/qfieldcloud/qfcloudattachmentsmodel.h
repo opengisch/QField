@@ -16,25 +16,20 @@
 #ifndef QFCLOUDATTACHMENTSMODEL_H
 #define QFCLOUDATTACHMENTSMODEL_H
 
+#include "qfcloudattachmentswatcher.h"
 #include "qfcloudconnection.h"
 #include "qfcloudproject.h"
 #include "qfdeltafilewrapper.h"
 
 #include <QAbstractListModel>
 #include <QDateTime>
-#include <QFileSystemWatcher>
 #include <QPointer>
-#include <QTimer>
 
 /**
  * \ingroup core
  *
  * A model listing the attachments of a QFieldCloud project that are not yet uploaded
  * or pending upload, alongside the outcome of past attachment uploads.
- *
- * The pending attachments file is watched on disk, as uploads can happen in a separate service
- * process which does not reach the model. The attachments upload history is only written right
- * before the pending attachments file, so it does not need to be watched.
  */
 class QfCloudAttachmentsModel : public QAbstractListModel
 {
@@ -95,16 +90,10 @@ class QfCloudAttachmentsModel : public QAbstractListModel
 
   private slots:
     void onDeltaFileWrapperChanged();
-    void onWatchedDirectoryChanged();
+    void onUsernameChanged();
 
   private:
     void setDeltaFileWrapper( QfDeltaFileWrapper *deltaFileWrapper );
-
-    /**
-     * Watches the pending attachments file of the cloud user, or the cloud user directory until that file is created.
-     * \returns TRUE when the watcher switches to the actual attachments file.
-     */
-    bool updateWatchedPaths();
 
     struct Attachment
     {
@@ -121,9 +110,7 @@ class QfCloudAttachmentsModel : public QAbstractListModel
     QPointer<QfCloudProject> mCloudProject;
     QPointer<QfDeltaFileWrapper> mDeltaFileWrapper;
 
-    QFileSystemWatcher mWatcher;
-    QString mWatchedDirectory;
-    QTimer mRefreshTimer;
+    QfCloudAttachmentsWatcher mCloudAttachmentsWatcher;
 };
 
 #endif // QFCLOUDATTACHMENTSMODEL_H
