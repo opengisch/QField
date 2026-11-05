@@ -169,17 +169,17 @@ void QfCloudAttachmentsModel::setCloudConnection( QfCloudConnection *cloudConnec
 
   if ( mCloudConnection )
   {
-    disconnect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::onUsernameChanged );
+    disconnect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::refresh );
   }
 
   mCloudConnection = cloudConnection;
 
   if ( mCloudConnection )
   {
-    connect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::onUsernameChanged );
+    connect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsModel::refresh );
   }
 
-  mCloudAttachmentsWatcher.setUsername( mCloudConnection ? mCloudConnection->username() : QString() );
+  mCloudAttachmentsWatcher.setCloudConnection( mCloudConnection );
 
   emit cloudConnectionChanged();
   refresh();
@@ -244,10 +244,4 @@ void QfCloudAttachmentsModel::setDeltaFileWrapper( QfDeltaFileWrapper *deltaFile
   {
     connect( mDeltaFileWrapper, &QfDeltaFileWrapper::countChanged, this, &QfCloudAttachmentsModel::refresh );
   }
-}
-
-void QfCloudAttachmentsModel::onUsernameChanged()
-{
-  mCloudAttachmentsWatcher.setUsername( mCloudConnection ? mCloudConnection->username() : QString() );
-  refresh();
 }

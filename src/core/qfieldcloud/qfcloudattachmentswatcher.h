@@ -16,19 +16,18 @@
 #ifndef QFCLOUDATTACHMENTSWATCHER_H
 #define QFCLOUDATTACHMENTSWATCHER_H
 
+#include "qfcloudconnection.h"
+
 #include <QFileSystemWatcher>
 #include <QObject>
+#include <QPointer>
 
 #include <memory>
 
 /**
  * \ingroup core
  *
- * Watches the pending attachments file of a QFieldCloud user on disk, as attachments can be
- * uploaded by a separate service process which does not reach the rest of QField.
- *
- * The attachments upload history is written right before the pending attachments file, so
- * a change of the queue also means both files are up to date.
+ * Watches the QFieldCloud pending attachments queue and signals when it has changed.
  */
 class QfCloudAttachmentsWatcher : public QObject
 {
@@ -38,30 +37,35 @@ class QfCloudAttachmentsWatcher : public QObject
     explicit QfCloudAttachmentsWatcher( QObject *parent = nullptr );
     ~QfCloudAttachmentsWatcher() override;
 
-    //! Returns TRUE when the pending attachments file is being watched.
+    //! Returns TRUE when the pending attachments queue is being watched.
     bool active() const;
 
-    //! Sets whether the pending attachments file is being watched.
+    //! Sets whether the pending attachments queue is being watched.
     void setActive( bool active );
 
-    //! Returns the cloud user whose pending attachments file is watched.
-    QString username() const;
+    //! Returns the cloud connection whose user's pending attachments queue is watched.
+    QfCloudConnection *cloudConnection() const;
 
-    //! Sets the cloud \a username whose pending attachments file is watched.
-    void setUsername( const QString &username );
+    //! Sets the \a cloudConnection whose user's pending attachments queue is watched.
+    void setCloudConnection( QfCloudConnection *cloudConnection );
 
   signals:
-    //! Emitted when the pending attachments queue has changed on disk.
+    //! Emitted when the pending attachments queue has changed.
     void queueChanged();
 
+    //! Emitted when an outstanding pending attachments queue has been emptied.
+    void queueFinished();
+
   private slots:
+    void attachWatcher();
+    void onFileChanged();
     void onDirectoryChanged();
 
   private:
-    void attachWatcher();
-
     bool mActive = false;
-    QString mUsername;
+    bool mQueueOutstanding = false;
+    QPointer<QfCloudConnection> mCloudConnection;
+    QString mAttachmentsFilePath;
     std::unique_ptr<QFileSystemWatcher> mWatcher;
 };
 

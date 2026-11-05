@@ -42,60 +42,98 @@ void QfCloudAttachmentsWatcher::setActive( bool active )
   attachWatcher();
 }
 
-QString QfCloudAttachmentsWatcher::username() const
+QfCloudConnection *QfCloudAttachmentsWatcher::cloudConnection() const
 {
-  return mUsername;
+  return mCloudConnection;
 }
 
-void QfCloudAttachmentsWatcher::setUsername( const QString &username )
+void QfCloudAttachmentsWatcher::setCloudConnection( QfCloudConnection *cloudConnection )
 {
-  if ( mUsername == username )
+  if ( mCloudConnection == cloudConnection )
   {
     return;
   }
 
-  mUsername = username;
+  if ( mCloudConnection )
+  {
+    disconnect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsWatcher::attachWatcher );
+  }
+
+  mCloudConnection = cloudConnection;
+
+  if ( mCloudConnection )
+  {
+    connect( mCloudConnection, &QfCloudConnection::usernameChanged, this, &QfCloudAttachmentsWatcher::attachWatcher );
+  }
+
   attachWatcher();
 }
 
 void QfCloudAttachmentsWatcher::attachWatcher()
 {
   mWatcher.reset();
+  mAttachmentsFilePath.clear();
+  mQueueOutstanding = false;
 
-  if ( !mActive || mUsername.isEmpty() )
+  if ( !mActive || !mCloudConnection || mCloudConnection->username().isEmpty() )
   {
     return;
   }
 
-  const QString directory = QStringLiteral( "%1/%2" ).arg( QfCloudUtils::localCloudDirectory(), mUsername );
+  const QString directory = QStringLiteral( "%1/%2" ).arg( QfCloudUtils::localCloudDirectory(), mCloudConnection->username() );
   if ( !QFileInfo( directory ).isDir() )
   {
     return;
   }
 
+  mAttachmentsFilePath = QStringLiteral( "%1/attachments.csv" ).arg( directory );
+
   mWatcher = std::make_unique<QFileSystemWatcher>();
-  connect( mWatcher.get(), &QFileSystemWatcher::fileChanged, this, &QfCloudAttachmentsWatcher::queueChanged );
+  connect( mWatcher.get(), &QFileSystemWatcher::fileChanged, this, &QfCloudAttachmentsWatcher::onFileChanged );
   connect( mWatcher.get(), &QFileSystemWatcher::directoryChanged, this, &QfCloudAttachmentsWatcher::onDirectoryChanged );
 
   // The directory is only watched until the attachments file gets created
-  const QString attachmentsFilePath = QStringLiteral( "%1/attachments.csv" ).arg( directory );
-  mWatcher->addPath( QFileInfo::exists( attachmentsFilePath ) ? attachmentsFilePath : directory );
+  const QFileInfo attachmentsFileInfo( mAttachmentsFilePath );
+  if ( attachmentsFileInfo.exists() )
+  {
+    mWatcher->addPath( mAttachmentsFilePath );
+    mQueueOutstanding = attachmentsFileInfo.size() > 0;
+  }
+  else
+  {
+    mWatcher->addPath( directory );
+  }
+}
+
+void QfCloudAttachmentsWatcher::onFileChanged()
+{
+  emit queueChanged();
+
+  const bool queueOutstanding = QFileInfo( mAttachmentsFilePath ).size() > 0;
+  if ( mQueueOutstanding && !queueOutstanding )
+  {
+    emit queueFinished();
+  }
+  mQueueOutstanding = queueOutstanding;
 }
 
 void QfCloudAttachmentsWatcher::onDirectoryChanged()
 {
-  const QString directory = QStringLiteral( "%1/%2" ).arg( QfCloudUtils::localCloudDirectory(), mUsername );
-  const QString attachmentsFilePath = QStringLiteral( "%1/attachments.csv" ).arg( directory );
-  if ( !mWatcher || mWatcher->files().contains( attachmentsFilePath ) || !QFileInfo::exists( attachmentsFilePath ) )
+  // The directory also changes whenever the attachments lock file is taken, only switch once the attachments file exists
+  if ( !mWatcher || mWatcher->files().contains( mAttachmentsFilePath ) || !QFileInfo::exists( mAttachmentsFilePath ) )
   {
     return;
   }
 
-  if ( mWatcher->addPath( attachmentsFilePath ) )
+  if ( mWatcher->addPath( mAttachmentsFilePath ) )
   {
-    mWatcher->removePath( directory );
+    mWatcher->removePath( QFileInfo( mAttachmentsFilePath ).absolutePath() );
 
-    // The watcher is now connected to the attachments file
-    emit queueChanged();
+    // An empty attachments file does not hold a queue yet, its first write is reported as a file change
+    mQueueOutstanding = QFileInfo( mAttachmentsFilePath ).size() > 0;
+    if ( mQueueOutstanding )
+    {
+      emit queueChanged();
+    }
   }
 }
