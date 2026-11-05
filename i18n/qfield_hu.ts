@@ -6883,18 +6883,6 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>Fájl megnézése</translation>
     </message>
     <message>
-        <source>Send to...</source>
-        <translation>Küldés...</translation>
-    </message>
-    <message>
-        <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>Exportálás mappába...</translation>
-    </message>
-    <message>
         <source>Add to favorites</source>
         <translation>Hozzáadás a Kedvencekhez</translation>
     </message>
@@ -6903,8 +6891,20 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>Eltávolítás a Kedvencek közül</translation>
     </message>
     <message>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Send compressed folder to...</source>
         <translation>Tömörített mappa küldése...</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Küldés...</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Exportálás mappába...</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
@@ -6995,12 +6995,20 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <translation>Fájl(ok) törlése</translation>
     </message>
     <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>A QFieldCloud-ra feltöltendő elemek</translation>
+    </message>
+    <message>
+        <source>Items queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ a QFieldCloud-ra való feltöltés alatt</translation>
     </message>
     <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>A QFieldCloud-ra feltöltendő elemek</translation>
+        <source>‘%1’ queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove File(s)</source>

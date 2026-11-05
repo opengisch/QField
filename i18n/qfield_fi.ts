@@ -6894,18 +6894,6 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>Näytä tiedosto</translation>
     </message>
     <message>
-        <source>Send to...</source>
-        <translation>Lähetä ...</translation>
-    </message>
-    <message>
-        <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>Vie hakemistoon...</translation>
-    </message>
-    <message>
         <source>Add to favorites</source>
         <translation>Lisää suosikkeihin</translation>
     </message>
@@ -6914,8 +6902,20 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>Poista suosikeista</translation>
     </message>
     <message>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Send compressed folder to...</source>
         <translation>Lähetä pakattu hakemisto ...</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Lähetä ...</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Vie hakemistoon...</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
@@ -7006,12 +7006,20 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <translation>Poista tiedostoja</translation>
     </message>
     <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>Kohteita ladataan QFieldCloudiin</translation>
+    </message>
+    <message>
+        <source>Items queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ on ladattu QFieldCloud</translation>
     </message>
     <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>Kohteita ladataan QFieldCloudiin</translation>
+        <source>‘%1’ queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove File(s)</source>

@@ -6891,18 +6891,6 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
         <translation>Visa fil</translation>
     </message>
     <message>
-        <source>Send to...</source>
-        <translation>Skicka till...</translation>
-    </message>
-    <message>
-        <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>Exportera till mapp...</translation>
-    </message>
-    <message>
         <source>Add to favorites</source>
         <translation>Lägg till i favoriter</translation>
     </message>
@@ -6911,8 +6899,20 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
         <translation>Ta bort från favoriter</translation>
     </message>
     <message>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Send compressed folder to...</source>
         <translation>Skicka komprimerad mapp till...</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Skicka till...</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Exportera till mapp...</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
@@ -7003,12 +7003,20 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
         <translation>Ta bort filer</translation>
     </message>
     <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>Objekt som laddas upp till QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Items queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ laddas upp till QFieldCloud</translation>
     </message>
     <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>Objekt som laddas upp till QFieldCloud</translation>
+        <source>‘%1’ queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove File(s)</source>

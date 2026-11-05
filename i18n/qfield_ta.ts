@@ -6882,18 +6882,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>கோப்பைப் பார்க்கவும்</translation>
     </message>
     <message>
-        <source>Send to...</source>
-        <translation>அனுப்பு...</translation>
-    </message>
-    <message>
-        <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>கோப்புறைக்கு ஏற்றுமதி செய்...</translation>
-    </message>
-    <message>
         <source>Add to favorites</source>
         <translation>பிடித்தவைகளில் சேர்க்கவும்</translation>
     </message>
@@ -6902,8 +6890,20 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>பிடித்தவற்றிலிருந்து அகற்று</translation>
     </message>
     <message>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Send compressed folder to...</source>
         <translation>சுருக்கப்பட்ட கோப்புறையை இதற்கு அனுப்பு...</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>அனுப்பு...</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>கோப்புறைக்கு ஏற்றுமதி செய்...</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
@@ -6994,12 +6994,20 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>கோப்பு(களை) நீக்கு</translation>
     </message>
     <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>QFieldCloud இல் உருப்படிகள் பதிவேற்றப்படுகின்றன</translation>
+    </message>
+    <message>
+        <source>Items queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>QFieldCloud இல் ‘%1’ பதிவேற்றப்படுகிறது</translation>
     </message>
     <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>QFieldCloud இல் உருப்படிகள் பதிவேற்றப்படுகின்றன</translation>
+        <source>‘%1’ queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove File(s)</source>

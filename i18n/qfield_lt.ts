@@ -6900,18 +6900,6 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
         <translation>Peržiūrėti failą</translation>
     </message>
     <message>
-        <source>Send to...</source>
-        <translation>Siųsti į...</translation>
-    </message>
-    <message>
-        <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>Eksportuoti į aplanką...</translation>
-    </message>
-    <message>
         <source>Add to favorites</source>
         <translation>Pridėti prie parankinių</translation>
     </message>
@@ -6920,8 +6908,20 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
         <translation>Pašalinti iš parankinių</translation>
     </message>
     <message>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Send compressed folder to...</source>
         <translation>Siųsti suspaustą aplanką į...</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Siųsti į...</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Eksportuoti į aplanką...</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
@@ -7012,12 +7012,20 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
         <translation>Ištrinti failą (-us)</translation>
     </message>
     <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>Elementai įkeliami į QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Items queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>„%1“ įkeliamas į QFieldCloud</translation>
     </message>
     <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>Elementai įkeliami į QFieldCloud</translation>
+        <source>‘%1’ queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove File(s)</source>

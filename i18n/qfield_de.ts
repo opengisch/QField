@@ -6886,18 +6886,6 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Dateien anzeigen</translation>
     </message>
     <message>
-        <source>Send to...</source>
-        <translation>Senden an...</translation>
-    </message>
-    <message>
-        <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>In Ordner exportieren</translation>
-    </message>
-    <message>
         <source>Add to favorites</source>
         <translation>Zu Favoriten hinzufügen</translation>
     </message>
@@ -6906,8 +6894,20 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Aus Favoriten entfernen</translation>
     </message>
     <message>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Send compressed folder to...</source>
         <translation>Komprimierten Ordner senden an...</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Senden an...</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>In Ordner exportieren</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
@@ -6998,12 +6998,20 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <translation>Datei(en) löschen</translation>
     </message>
     <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>Daten werden zur QFieldCloud hochgeladen</translation>
+    </message>
+    <message>
+        <source>Items queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ wird in die QFieldCloud hochgeladen </translation>
     </message>
     <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>Daten werden zur QFieldCloud hochgeladen</translation>
+        <source>‘%1’ queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove File(s)</source>

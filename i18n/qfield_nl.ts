@@ -6890,18 +6890,6 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Bekijk bestand</translation>
     </message>
     <message>
-        <source>Send to...</source>
-        <translation>Versturen naar...</translation>
-    </message>
-    <message>
-        <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>Exporteren naar folder:</translation>
-    </message>
-    <message>
         <source>Add to favorites</source>
         <translation>Toevoegen aan favorieten</translation>
     </message>
@@ -6910,8 +6898,20 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation>Verwijderen uit favorieten</translation>
     </message>
     <message>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Send compressed folder to...</source>
         <translation>Verzend gecomprimeerde map naar...</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Versturen naar...</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Exporteren naar folder:</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
@@ -7002,11 +7002,19 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Items queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>&apos;%1&apos; wordt geüpload naar QFieldCloud</translation>
     </message>
     <message>
-        <source>Items being uploaded to QFieldCloud</source>
+        <source>‘%1’ queued for upload to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>

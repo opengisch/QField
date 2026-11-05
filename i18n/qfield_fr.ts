@@ -6891,18 +6891,6 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
         <translation>Voir le fichier</translation>
     </message>
     <message>
-        <source>Send to...</source>
-        <translation>Envoyer vers...</translation>
-    </message>
-    <message>
-        <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>Exporter vers le dossier...</translation>
-    </message>
-    <message>
         <source>Add to favorites</source>
         <translation>Ajouter aux favoris</translation>
     </message>
@@ -6911,8 +6899,20 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
         <translation>Retirer des favoris</translation>
     </message>
     <message>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Send compressed folder to...</source>
         <translation>Envoyer le dossier compressé à...</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Envoyer vers...</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Exporter vers le dossier...</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
@@ -7003,12 +7003,20 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
         <translation>Supprimer le(s) fichier(s)</translation>
     </message>
     <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>Éléments en cours de téléversement vers QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Items queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’ est en train d&apos;être téléversé vers QFieldCloud</translation>
     </message>
     <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>Éléments en cours de téléversement vers QFieldCloud</translation>
+        <source>‘%1’ queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove File(s)</source>

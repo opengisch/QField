@@ -6888,18 +6888,6 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Send to...</source>
-        <translation>Pošalji na...</translation>
-    </message>
-    <message>
-        <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>Izvezi u mapu...</translation>
-    </message>
-    <message>
         <source>Add to favorites</source>
         <translation type="unfinished"/>
     </message>
@@ -6908,8 +6896,20 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Send compressed folder to...</source>
         <translation>Pošalji kompresiranu mapu na...</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Pošalji na...</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Izvezi u mapu...</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
@@ -7000,11 +7000,19 @@ Geometrija elemenata će se spojiti u element &apos;%1&apos;, koji će zadržati
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Items queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Items being uploaded to QFieldCloud</source>
+        <source>‘%1’ queued for upload to QFieldCloud</source>
         <translation type="unfinished"/>
     </message>
     <message>

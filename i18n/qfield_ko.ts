@@ -6887,18 +6887,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>파일 보기</translation>
     </message>
     <message>
-        <source>Send to...</source>
-        <translation>보내기...</translation>
-    </message>
-    <message>
-        <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>폴더로 내보내기...</translation>
-    </message>
-    <message>
         <source>Add to favorites</source>
         <translation>즐겨찾기에 추가</translation>
     </message>
@@ -6907,8 +6895,20 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>즐겨찾기에서 제거</translation>
     </message>
     <message>
+        <source>Upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Send compressed folder to...</source>
         <translation>압축한 폴더 보내기...</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>보내기...</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>폴더로 내보내기...</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
@@ -6999,12 +6999,20 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>파일 삭제</translation>
     </message>
     <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>QFieldCloud로 업로드 중인 항목</translation>
+    </message>
+    <message>
+        <source>Items queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>‘%1’을(를) QFieldCloud로 업로드하는 중입니다</translation>
     </message>
     <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>QFieldCloud로 업로드 중인 항목</translation>
+        <source>‘%1’ queued for upload to QFieldCloud</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove File(s)</source>

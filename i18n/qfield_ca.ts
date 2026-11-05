@@ -6896,18 +6896,6 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
         <translation>Veure fitxer</translation>
     </message>
     <message>
-        <source>Send to...</source>
-        <translation>Envia a...</translation>
-    </message>
-    <message>
-        <source>Upload to QFieldCloud</source>
-        <translation>Pujar a QFieldCloud</translation>
-    </message>
-    <message>
-        <source>Export to folder...</source>
-        <translation>Exportar a la carpeta...</translation>
-    </message>
-    <message>
         <source>Add to favorites</source>
         <translation>Afegeix als preferits</translation>
     </message>
@@ -6916,8 +6904,20 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
         <translation>Elimina dels preferits</translation>
     </message>
     <message>
+        <source>Upload to QFieldCloud</source>
+        <translation>Pujar a QFieldCloud</translation>
+    </message>
+    <message>
         <source>Send compressed folder to...</source>
         <translation>Envia la carpeta comprimida a...</translation>
+    </message>
+    <message>
+        <source>Send to...</source>
+        <translation>Envia a...</translation>
+    </message>
+    <message>
+        <source>Export to folder...</source>
+        <translation>Exportar a la carpeta...</translation>
     </message>
     <message>
         <source>Upload folder to WebDAV</source>
@@ -7008,12 +7008,20 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
         <translation>Suprimeix fitxer(s)</translation>
     </message>
     <message>
+        <source>Items being uploaded to QFieldCloud</source>
+        <translation>Elements que s&apos;estan pujant a QFieldCloud</translation>
+    </message>
+    <message>
+        <source>Items queued for upload to QFieldCloud</source>
+        <translation>Elements en cua per pujar a QFieldCloud</translation>
+    </message>
+    <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
         <translation>S&apos;està pujant &apos;%1&apos; a QFieldCloud</translation>
     </message>
     <message>
-        <source>Items being uploaded to QFieldCloud</source>
-        <translation>Elements que s&apos;estan pujant a QFieldCloud</translation>
+        <source>‘%1’ queued for upload to QFieldCloud</source>
+        <translation>&apos;%1&apos; en cua per pujar a QFieldCloud</translation>
     </message>
     <message>
         <source>Remove File(s)</source>
