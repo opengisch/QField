@@ -90,7 +90,6 @@ class QfCloudAttachmentsModel : public QAbstractListModel
 
   private slots:
     void onDeltaFileWrapperChanged();
-    void onUsernameChanged();
 
   private:
     void setDeltaFileWrapper( QfDeltaFileWrapper *deltaFileWrapper );

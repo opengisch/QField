@@ -180,7 +180,6 @@ class QfLocalFilesModel : public QAbstractListModel
     void updateCloudStatus();
     void clearCloudFiles();
     void setIsFetchingCloudStatus( bool isFetching );
-    void updateCloudAttachmentsWatcher();
     const QString getCurrentTitleFromPath( const QString &path ) const;
 
     QStringList mHistory;

@@ -45,7 +45,7 @@ QfLocalFilesModel::QfLocalFilesModel( QObject *parent )
   mImportedProjectsPath = QDir::cleanPath( QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory ) );
   mImportedDatasetsPath = QDir::cleanPath( QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory ) );
 
-  connect( &mCloudAttachmentsWatcher, &QfCloudAttachmentsWatcher::queueChanged, this, &QfLocalFilesModel::fetchCloudStatus );
+  connect( &mCloudAttachmentsWatcher, &QfCloudAttachmentsWatcher::queueFinished, this, &QfLocalFilesModel::fetchCloudStatus );
 
   const bool favoritesInitialized = settings.value( QStringLiteral( "qfieldFavoritesInitialized3" ), false ).toBool();
   if ( !favoritesInitialized )
@@ -384,9 +384,9 @@ void QfLocalFilesModel::reloadModel()
 
   endResetModel();
 
-  updateCloudAttachmentsWatcher();
-
   const QString cloudProjectId = QfCloudUtils::getProjectId( currentPath() );
+  mCloudAttachmentsWatcher.setActive( !cloudProjectId.isEmpty() );
+
   if ( !cloudProjectId.isEmpty() && cloudProjectId != mCloudFilesProjectId )
   {
     fetchCloudStatus();
@@ -532,18 +532,11 @@ void QfLocalFilesModel::setCloudConnection( QfCloudConnection *cloudConnection )
   }
 
   mCloudConnection = cloudConnection;
-  updateCloudAttachmentsWatcher();
+  mCloudAttachmentsWatcher.setCloudConnection( mCloudConnection );
 
   emit cloudConnectionChanged();
 
   fetchCloudStatus();
-}
-
-void QfLocalFilesModel::updateCloudAttachmentsWatcher()
-{
-  // Uploads finishing in a separate service process only reach the folder view through the pending attachments file
-  mCloudAttachmentsWatcher.setUsername( mCloudConnection ? mCloudConnection->username() : QString() );
-  mCloudAttachmentsWatcher.setActive( !QfCloudUtils::getProjectId( currentPath() ).isEmpty() );
 }
 
 void QfLocalFilesModel::clearCloudFiles()

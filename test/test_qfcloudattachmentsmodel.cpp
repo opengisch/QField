@@ -103,9 +103,13 @@ TEST_CASE( "QfCloudAttachmentsWatcher reports pending attachments queue changes"
   photoFile.write( QByteArray( "photo" ) );
   photoFile.close();
 
+  QfCloudConnection connection;
+  connection.setUsername( username );
+
   QfCloudAttachmentsWatcher watcher;
   QSignalSpy queueSpy( &watcher, &QfCloudAttachmentsWatcher::queueChanged );
-  watcher.setUsername( username );
+  QSignalSpy finishedSpy( &watcher, &QfCloudAttachmentsWatcher::queueFinished );
+  watcher.setCloudConnection( &connection );
 
   SECTION( "An inactive watcher does not report queue changes" )
   {
@@ -123,6 +127,35 @@ TEST_CASE( "QfCloudAttachmentsWatcher reports pending attachments queue changes"
     queueSpy.clear();
     QfCloudUtils::removePendingAttachment( username, projectId, photoPath );
     REQUIRE( queueSpy.wait( 5000 ) );
+  }
+
+  SECTION( "Emptying an outstanding queue is reported as finished" )
+  {
+    const QString videoPath = QStringLiteral( "%1/%2/%3/video.mp4" ).arg( cloudDir.path(), username, projectId );
+    QFile videoFile( videoPath );
+    REQUIRE( videoFile.open( QIODevice::WriteOnly ) );
+    videoFile.write( QByteArray( "video" ) );
+    videoFile.close();
+
+    watcher.setActive( true );
+    QfCloudUtils::addPendingAttachments( username, projectId, QStringList() << photoPath << videoPath );
+    REQUIRE( queueSpy.wait( 5000 ) );
+
+    QfCloudUtils::removePendingAttachment( username, projectId, photoPath );
+    REQUIRE( queueSpy.wait( 5000 ) );
+    REQUIRE( finishedSpy.isEmpty() );
+
+    QfCloudUtils::removePendingAttachment( username, projectId, videoPath );
+    REQUIRE( finishedSpy.wait( 5000 ) );
+  }
+
+  SECTION( "Creating an empty attachments file is not reported as a queue change" )
+  {
+    watcher.setActive( true );
+    QFile attachmentsFile( QStringLiteral( "%1/%2/attachments.csv" ).arg( cloudDir.path(), username ) );
+    REQUIRE( attachmentsFile.open( QIODevice::WriteOnly ) );
+    attachmentsFile.close();
+    REQUIRE_FALSE( queueSpy.wait( 1000 ) );
   }
 
   SECTION( "Taking the attachments lock is not reported as a queue change" )
