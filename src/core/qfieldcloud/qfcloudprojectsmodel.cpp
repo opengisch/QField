@@ -579,6 +579,10 @@ void QfCloudProjectsModel::projectReceived()
       updateHasTemplates();
     }
   }
+  else
+  {
+    emit projectAppended( projectId, true, tr( "Cloud project details not found." ) );
+  }
 }
 
 void QfCloudProjectsModel::projectListReceived()
