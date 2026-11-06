@@ -54,6 +54,7 @@ Popup {
     Shape {
       id: drawingCurrentStroke
       anchors.fill: parent
+      preferredRendererType: Shape.CurveRenderer
 
       ShapePath {
         strokeColor: drawingCanvas.currentStroke.color

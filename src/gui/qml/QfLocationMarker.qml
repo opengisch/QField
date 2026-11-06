@@ -77,6 +77,7 @@ Item {
     Shape {
       width: 48
       height: 48
+      preferredRendererType: Shape.CurveRenderer
 
       ShapePath {
         strokeWidth: 0
@@ -115,6 +116,7 @@ Item {
     Shape {
       width: 48
       height: 48
+      preferredRendererType: Shape.CurveRenderer
 
       ShapePath {
         strokeWidth: 0
@@ -171,6 +173,7 @@ Item {
       anchors.top: parent.top
       anchors.horizontalCenter: parent.horizontalCenter
       rotation: 180
+      preferredRendererType: Shape.CurveRenderer
 
       ShapePath {
         fillColor: locationMarker.bubbleColor
@@ -217,6 +220,7 @@ Item {
     width: 26
     height: 26
     scale: locationMarker.sizeScale
+    preferredRendererType: Shape.CurveRenderer
 
     x: screenLocation.x - width / 2
     y: screenLocation.y - height / 2
@@ -292,6 +296,7 @@ Item {
     width: 20
     height: 24
     scale: locationMarker.sizeScale
+    preferredRendererType: Shape.CurveRenderer
 
     x: Math.min(mapCanvas.width - width, Math.max(0, screenLocation.x - width / 2))
     y: Math.min(mapCanvas.height - width, Math.max(0, screenLocation.y - width / 2))

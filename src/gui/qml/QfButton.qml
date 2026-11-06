@@ -67,6 +67,8 @@ Button {
       Shape {
         x: progressPath.strokeWidth / 2
         y: progressPath.strokeWidth / 2
+        preferredRendererType: Shape.CurveRenderer
+
         ShapePath {
           id: progressPath
           strokeColor: button.progressColor
@@ -191,6 +193,7 @@ Button {
       height: 20
       visible: true
       opacity: button.enabled ? 1 : 0.25
+      preferredRendererType: Shape.CurveRenderer
 
       ShapePath {
         strokeWidth: 2

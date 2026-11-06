@@ -65,6 +65,7 @@ Item {
 
           width: 36
           height: 40
+          preferredRendererType: Shape.CurveRenderer
 
           ShapePath {
             strokeWidth: 3

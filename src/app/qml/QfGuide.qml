@@ -351,6 +351,7 @@ Popup {
     id: pointerToItem
     rotation: hintPanel.dir ? 0 : 180
     visible: panelXAnimation.running || panelYAnimation.running ? 0 : 1
+    preferredRendererType: Shape.CurveRenderer
 
     x: {
       if (internalObject.target && internalObject.target[0]) {

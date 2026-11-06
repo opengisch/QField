@@ -205,6 +205,7 @@ Item {
 
     width: (isSnapped ? 32 : 48) * locator.cursorSizeScale
     height: width
+    preferredRendererType: Shape.CurveRenderer
 
     x: displayPosition.x - halfWidth
     y: displayPosition.y - halfWidth
