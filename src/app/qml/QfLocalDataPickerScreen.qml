@@ -201,6 +201,8 @@ Page {
                 return QfTheme.mainColor;
               case QfLocalFilesModel.Divergent:
                 return QfTheme.warningColor;
+              case QfLocalFilesModel.UploadQueued:
+                return QfTheme.cloudColor;
               case QfLocalFilesModel.LocalOnly:
               case QfLocalFilesModel.Unknown:
                 return QfTheme.controlBorderColor;
