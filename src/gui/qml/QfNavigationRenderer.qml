@@ -88,6 +88,7 @@ Item {
           visible: !isOnMapCanvas
           width: 20
           height: 24
+          preferredRendererType: Shape.CurveRenderer
 
           x: Math.min(mapCanvas.width - width, Math.max(0, mapToScreenPosition.screenPoint.x - width / 2))
           y: Math.min(mapCanvas.height - width, Math.max(0, mapToScreenPosition.screenPoint.y - width / 2))
