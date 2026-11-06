@@ -27,7 +27,7 @@ jobs:
 
   banned_keywords_check:
     name: banned keywords check
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-slim
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
@@ -36,7 +36,7 @@ jobs:
 
   qml_name_collisions_check:
     name: QML name collisions check
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-slim
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
@@ -45,7 +45,7 @@ jobs:
 
   cppcheck-1_9:
     name: cpp check
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-slim
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
@@ -58,7 +58,7 @@ jobs:
 
   url_check:
     name: URLs check
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-slim
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
