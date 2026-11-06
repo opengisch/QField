@@ -30,8 +30,9 @@ set(${PORT}_PATCHES
         webviewfocus.patch
         focus_window_fix.patch # QTBUG-144577 (until Qt >= 6.11.3)
         vs2026.patch # (until Qt >= 6.11.2)
+        md4c.diff # (until Qt >= 6.12.1)
 )
- 
+
 if(VCPKG_TARGET_IS_WINDOWS AND NOT VCPKG_TARGET_IS_MINGW)
     list(APPEND ${PORT}_PATCHES env.patch)
 endif()
