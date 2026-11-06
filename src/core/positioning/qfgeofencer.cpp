@@ -86,7 +86,11 @@ void QfGeofencer::checkWithin()
   if ( mActive && !mAreas.isEmpty() && !mPosition.isEmpty() )
   {
     std::unique_ptr<QgsGeometryEngine> geometryEngine;
+#if _QGIS_VERSION_INT >= 40300
+    geometryEngine = QgsGeometry::createGeometryEngine( &mPosition );
+#else
     geometryEngine.reset( QgsGeometry::createGeometryEngine( &mPosition ) );
+#endif
     for ( int i = 0; i < mAreas.size(); i++ )
     {
       if ( geometryEngine->within( mAreas.at( i ).feature.geometry().get() ) )
