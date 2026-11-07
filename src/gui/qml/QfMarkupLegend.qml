@@ -33,7 +33,7 @@ ListView {
     property bool isVisibleCollection: markupManager.hiddenCollectionUuids.indexOf(collectionUuid) === -1
 
     width: ListView.view.width
-    height: line.height + 7
+    height: Math.max(32, line.height) + 4
     color: isSelectedCollection ? QfTheme.mainColor : "transparent"
     radius: 2
 
@@ -80,12 +80,12 @@ ListView {
           id: collectionVisibility
 
           height: 24
-          width: parent.height
+          width: 24
           anchors.verticalCenter: parent.verticalCenter
           visible: true
 
           QfToolButton {
-            height: 35
+            height: 32
             width: height
             opacity: isVisibleCollection ? 1 : 0.25
             anchors.centerIn: parent
