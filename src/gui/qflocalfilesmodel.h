@@ -71,7 +71,7 @@ class QfLocalFilesModel : public QAbstractListModel
       LocalOnly,    //!< The file only exists locally and is missing on QFieldCloud
       Synchronized, //!< The file exists on QFieldCloud and its checksum matches the local file
       Divergent,    //!< The file exists on QFieldCloud but its checksum differs from the local file
-      UploadQueued, //!< The file is missing on QFieldCloud or its checksum differs, and it is queued for upload
+      UploadQueued, //!< The file is queued for upload to QFieldCloud
     };
     Q_ENUM( CloudStatus )
 
