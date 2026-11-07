@@ -3564,7 +3564,7 @@ ApplicationWindow {
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         mapSettings: mapCanvas.mapSettings
 
-        stateVisible: stateMachine.state === "digitize" && dashBoard.activeCollection
+        stateVisible: stateMachine.state === "digitize" && dashBoard.activeCollection && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible
         anchors.right: parent.right
       }
 
