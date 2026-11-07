@@ -187,27 +187,41 @@ void QfFeatureListExtentController::zoomToAllFeatures() const
 
 QgsPoint QfFeatureListExtentController::getCentroidFromSelected() const
 {
-  if ( mModel && mSelection && mSelection->focusedItem() > -1 && mMapSettings )
+  if ( !mModel || !mMapSettings || !mSelection || mSelection->focusedItem() == -1 )
   {
-    const QgsFeature feat = mSelection->focusedFeature();
-    const QgsVectorLayer *layer = mSelection->focusedLayer();
-
-    if ( layer && layer->geometryType() != Qgis::GeometryType::Unknown && layer->geometryType() != Qgis::GeometryType::Null )
-    {
-      QgsGeometry geom = feat.geometry();
-
-      const QgsCoordinateTransform transf( layer->crs(), mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
-      try
-      {
-        geom.transform( transf );
-        return QgsPoint( geom.centroid().asPoint() );
-      }
-      catch ( const QgsException &e )
-      {
-        Q_UNUSED( e )
-      }
-    }
+    return QgsPoint();
   }
+
+  const QgsVectorLayer *layer = mSelection->focusedLayer();
+  if ( !layer )
+  {
+    return QgsPoint();
+  }
+
+  const QgsFeature feat = mSelection->focusedFeature();
+  const bool isSpatial = layer && layer->geometryType() != Qgis::GeometryType::Null && ( layer->geometryType() != Qgis::GeometryType::Unknown || QgsWkbTypes::flatType( layer->wkbType() ) == Qgis::WkbType::GeometryCollection );
+  if ( !isSpatial )
+  {
+    return QgsPoint();
+  }
+
+  QgsCoordinateReferenceSystem geometryCrs = layer->crs();
+  if ( layer->dataProvider() && QgsWkbTypes::flatType( layer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+  {
+    geometryCrs = layer->dataProvider()->crs();
+  }
+
+  QgsGeometry geometry = feat.geometry();
+  const QgsCoordinateTransform transf( geometryCrs, mMapSettings->destinationCrs(), mMapSettings->mapSettings().transformContext() );
+  try
+  {
+    geometry.transform( transf );
+    return QgsPoint( geometry.centroid().asPoint() );
+  }
+  catch ( const QgsException & )
+  {
+  }
+
   return QgsPoint();
 }
 
