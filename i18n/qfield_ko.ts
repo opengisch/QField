@@ -4549,7 +4549,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>QGIS의 프로젝트를 기기로 옮기는 가장 쉬운 방법입니다!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -4561,6 +4561,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Create an account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The easiest way to collaborate and manage your projects across devices!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5151,6 +5155,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Cloud project could not be created.</source>
         <translation>클라우드 프로젝트를 생성할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>Cloud project details not found.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

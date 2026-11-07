@@ -4555,7 +4555,7 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>Paprasčiausias būdas perkelti projektą iš QGIS į savo įrenginius!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -4567,6 +4567,10 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
     </message>
     <message>
         <source>Create an account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The easiest way to collaborate and manage your projects across devices!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5157,6 +5161,10 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
     <message>
         <source>Cloud project could not be created.</source>
         <translation>Debesijos projekto sukurti nepavyko.</translation>
+    </message>
+    <message>
+        <source>Cloud project details not found.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -4547,7 +4547,7 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>Der einfachste Weg, um QGIS-Projekte auf Ihre Mobil-Geräte zu bringen!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -4559,6 +4559,10 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     </message>
     <message>
         <source>Create an account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The easiest way to collaborate and manage your projects across devices!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5149,6 +5153,10 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Cloud project could not be created.</source>
         <translation>Das Cloud-Projekt konnte nicht erstellt werden.</translation>
+    </message>
+    <message>
+        <source>Cloud project details not found.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -4551,7 +4551,7 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>Det enklaste sättet att överföra ditt projekt från QGIS till dina enheter!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -4563,6 +4563,10 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
     </message>
     <message>
         <source>Create an account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The easiest way to collaborate and manage your projects across devices!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5153,6 +5157,10 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
     <message>
         <source>Cloud project could not be created.</source>
         <translation>Molnprojektet kunde inte skapas.</translation>
+    </message>
+    <message>
+        <source>Cloud project details not found.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

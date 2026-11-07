@@ -4542,7 +4542,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>Cách dễ nhất để chuyển dự án của bạn từ QGIS sang các thiết bị của bạn!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
@@ -4554,6 +4554,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Create an account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The easiest way to collaborate and manage your projects across devices!</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5144,6 +5148,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Cloud project could not be created.</source>
         <translation>Không thể tạo dự án cloud.</translation>
+    </message>
+    <message>
+        <source>Cloud project details not found.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
