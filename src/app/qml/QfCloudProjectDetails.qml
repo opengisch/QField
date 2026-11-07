@@ -274,6 +274,9 @@ ColumnLayout {
 
           Image {
             id: projectDetailsCode
+
+            property int desiredWidth: Math.min(mainWindow.width - 40, 240)
+
             Layout.preferredWidth: desiredWidth
             Layout.preferredHeight: desiredWidth
             fillMode: Image.PreserveAspectFit
@@ -283,12 +286,11 @@ ColumnLayout {
             source: cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(QfUrlUtils.createActionUrl("qfield", "cloud", {
               "project": cloudProject.owner + '/' + cloudProject.name
             })) + "&color=" + encodeURIComponent(QfTheme.mainTextColor) : ""
-            property int desiredWidth: Math.min(mainWindow.width - 40, 250)
           }
 
           Text {
             id: projectDetailsCodeLabel
-            Layout.preferredWidth: projectDetailsCode.desiredWidth - 20
+            Layout.preferredWidth: projectDetailsCode.desiredWidth
             font: QfTheme.tinyFont
             color: QfTheme.secondaryTextColor
             wrapMode: Text.WordWrap
