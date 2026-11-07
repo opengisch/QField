@@ -20,12 +20,7 @@
       "platform": "windows"
     },
     "flatbush",
-    {
-      "name": "gdal",
-      "default-features": false
-    },
     "geos",
-    "libosmium",
     "pkgconf",
     "protobuf",
     "rapidjson",
@@ -50,6 +45,11 @@
     "data-tools": {
       "description": "Tile building tools and gurka tests",
       "dependencies": [
+        {
+          "name": "gdal",
+          "default-features": false
+        },
+        "libosmium",
         {
           "name": "libspatialite",
           "features": [
