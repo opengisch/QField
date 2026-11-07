@@ -201,20 +201,25 @@ Page {
                 return QfTheme.mainColor;
               case QfLocalFilesModel.Divergent:
                 return QfTheme.warningColor;
+              case QfLocalFilesModel.UploadQueued:
+                return QfTheme.cloudColor;
               case QfLocalFilesModel.LocalOnly:
               case QfLocalFilesModel.Unknown:
                 return QfTheme.controlBorderColor;
               }
             }
 
-            Image {
+            QfToolButton {
               anchors.centerIn: parent
+              enabled: false
               width: parent.width - 6
               height: width
-              visible: ItemCloudStatus === QfLocalFilesModel.Synchronized
-              source: QfTheme.getThemeVectorIcon('ic_check_white_24dp')
-              sourceSize.width: width * screen.devicePixelRatio
-              sourceSize.height: height * screen.devicePixelRatio
+              padding: 0
+              visible: ItemCloudStatus === QfLocalFilesModel.Synchronized || ItemCloudStatus === QfLocalFilesModel.UploadQueued
+              iconSource: ItemCloudStatus === QfLocalFilesModel.Synchronized ? QfTheme.getThemeVectorIcon('ic_check_white_24dp') : QfTheme.getThemeVectorIcon('ic_hourglass_black_24dp')
+              iconColor: "#ffffff"
+              icon.width: width
+              icon.height: width
             }
 
             Rectangle {

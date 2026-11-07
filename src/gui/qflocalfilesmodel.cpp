@@ -45,6 +45,7 @@ QfLocalFilesModel::QfLocalFilesModel( QObject *parent )
   mImportedProjectsPath = QDir::cleanPath( QStringLiteral( "%1/Imported Projects" ).arg( applicationDirectory ) );
   mImportedDatasetsPath = QDir::cleanPath( QStringLiteral( "%1/Imported Datasets" ).arg( applicationDirectory ) );
 
+  connect( &mCloudAttachmentsWatcher, &QfCloudAttachmentsWatcher::queueChanged, this, &QfLocalFilesModel::updateQueuedCloudStatus );
   connect( &mCloudAttachmentsWatcher, &QfCloudAttachmentsWatcher::queueFinished, this, &QfLocalFilesModel::fetchCloudStatus );
 
   const bool favoritesInitialized = settings.value( QStringLiteral( "qfieldFavoritesInitialized3" ), false ).toBool();
@@ -618,6 +619,26 @@ void QfLocalFilesModel::fetchCloudFiles( const QString &endpoint )
   } );
 }
 
+void QfLocalFilesModel::updateQueuedCloudStatus()
+{
+  if ( !mCloudFilesFetched || !mCloudConnection )
+  {
+    return;
+  }
+
+  const QStringList queuedFilePaths = QfCloudUtils::getPendingAttachments( mCloudConnection->username() ).values( mCloudFilesProjectId );
+  const QSet<QString> queuedFiles( queuedFilePaths.cbegin(), queuedFilePaths.cend() );
+  for ( int i = 0; i < mItems.size(); i++ )
+  {
+    if ( ( mItems[i].cloudStatus() == CloudStatus::LocalOnly || mItems[i].cloudStatus() == CloudStatus::Divergent ) && queuedFiles.contains( mItems[i].path() ) )
+    {
+      mItems[i].setCloudStatus( CloudStatus::UploadQueued );
+      const QModelIndex changedIndex = index( i, 0, QModelIndex() );
+      emit dataChanged( changedIndex, changedIndex, { ItemCloudStatusRole } );
+    }
+  }
+}
+
 void QfLocalFilesModel::updateCloudStatus()
 {
   if ( mCloudFilesProjectId.isEmpty() || !mCloudConnection )
@@ -638,6 +659,8 @@ void QfLocalFilesModel::updateCloudStatus()
   }
 
   const QString projectFileName = QgsProject::instance()->fileName();
+  const QStringList queuedFilePaths = QfCloudUtils::getPendingAttachments( mCloudConnection->username() ).values( mCloudFilesProjectId );
+  const QSet<QString> queuedFiles( queuedFilePaths.cbegin(), queuedFilePaths.cend() );
   QList<QPair<QString, QPair<qint64, QString>>> candidates;
   for ( int i = 0; i < mItems.size(); i++ )
   {
@@ -656,11 +679,15 @@ void QfLocalFilesModel::updateCloudStatus()
     {
       candidates << qMakePair( mItems[i].path(), it.value() );
     }
-    else if ( mItems[i].cloudStatus() != CloudStatus::LocalOnly )
+    else
     {
-      mItems[i].setCloudStatus( CloudStatus::LocalOnly );
-      const QModelIndex changedIndex = index( i, 0, QModelIndex() );
-      emit dataChanged( changedIndex, changedIndex, { ItemCloudStatusRole } );
+      const CloudStatus cloudStatus = queuedFiles.contains( mItems[i].path() ) ? CloudStatus::UploadQueued : CloudStatus::LocalOnly;
+      if ( mItems[i].cloudStatus() != cloudStatus )
+      {
+        mItems[i].setCloudStatus( cloudStatus );
+        const QModelIndex changedIndex = index( i, 0, QModelIndex() );
+        emit dataChanged( changedIndex, changedIndex, { ItemCloudStatusRole } );
+      }
     }
   }
 
@@ -669,12 +696,19 @@ void QfLocalFilesModel::updateCloudStatus()
     return;
   }
 
-  QtConcurrent::run( [candidates]() {
+  QtConcurrent::run( [candidates, queuedFiles]() {
     QHash<QString, CloudStatus> statuses;
     for ( const auto &candidate : candidates )
     {
       const bool sameSize = QFileInfo( candidate.first ).size() == candidate.second.first;
-      statuses.insert( candidate.first, sameSize && QfFileUtils::fileEtag( candidate.first ) == candidate.second.second ? CloudStatus::Synchronized : CloudStatus::Divergent );
+      if ( sameSize && QfFileUtils::fileEtag( candidate.first ) == candidate.second.second )
+      {
+        statuses.insert( candidate.first, CloudStatus::Synchronized );
+      }
+      else
+      {
+        statuses.insert( candidate.first, queuedFiles.contains( candidate.first ) ? CloudStatus::UploadQueued : CloudStatus::Divergent );
+      }
     }
     return statuses;
   } )
