@@ -5,9 +5,14 @@ on:
     branches:
       - master
       - release-**
+      - m-kuhn-patch-3
   pull_request:
   release:
     types: ['published']
+
+permissions:
+  security-events: write
+  contents: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -176,6 +181,7 @@ jobs:
         uses: github/codeql-action/init@v4.39.1
         with:
           languages: 'c-cpp'
+          queries: security-and-quality
 
       - name: 🌋 Build
         run: |
