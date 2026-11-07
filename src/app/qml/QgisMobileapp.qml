@@ -2497,6 +2497,21 @@ ApplicationWindow {
       }
 
       QfActionButton {
+        id: closeMovingRotatingTool
+        visible: moveFeaturesToolbar.stateVisible || rotateFeaturesToolbar.stateVisible
+        toolImage: geometryEditorsToolbar.image
+        toolText: moveFeaturesToolbar.stateVisible ? qsTr('Cancel movement') : qsTr('Cancel rotation')
+
+        onClicked: {
+          if (moveFeaturesToolbar.stateVisible) {
+            moveFeaturesToolbar.cancel();
+          } else {
+            rotateFeaturesToolbar.cancel();
+          }
+        }
+      }
+
+      QfActionButton {
         id: abortRequestGeometry
         visible: digitizingToolbar.geometryRequested
         toolImage: QfTheme.getThemeVectorIcon("ic_edit_geometry_white_24dp")
