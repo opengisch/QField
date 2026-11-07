@@ -439,6 +439,7 @@ ApplicationWindow {
     onBackgroundModeChanged: {
       if (trackings.count > 0) {
         if (backgroundMode) {
+          replayTimer.stop();
           trackingModel.suspendUntilReplay();
         } else {
           busyOverlay.text = qsTr("Replaying collected positions, hold on");
