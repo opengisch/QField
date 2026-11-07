@@ -815,10 +815,11 @@ Rectangle {
       // allow only rotation for line or polygon or multipoint
       property bool isGeometryCompatible: {
         const vl = selection.focusedLayer;
-        if (vl !== null) {
-          if (vl.geometryType() === Qgis.GeometryType.Line || vl.geometryType() === Qgis.GeometryType.Polygon) {
-            return true;
-          } else if (vl.geometryType() === Qgis.GeometryType.Point && vl.wkbType() !== Qgis.WkbType.Point && vl.wkbType() !== Qgis.WkbType.PointZ && vl.wkbType() !== Qgis.WkbType.PointM && vl.wkbType() !== Qgis.WkbType.PointZM && vl.wkbType() !== Qgis.WkbType.Point25D) {
+        const geometryType = vl ? vl.geometryType() : Qgis.GeometryType.Null;
+        if (geometryType === Qgis.GeometryType.Line || geometryType === Qgis.GeometryType.Polygon || geometryType === Qgis.GeometryType.Unknown) {
+          return true;
+        } else if (geometryType === Qgis.GeometryType.Point && vl) {
+          if (vl.wkbType() !== Qgis.WkbType.Point && vl.wkbType() !== Qgis.WkbType.PointZ && vl.wkbType() !== Qgis.WkbType.PointM && vl.wkbType() !== Qgis.WkbType.PointZM && vl.wkbType() !== Qgis.WkbType.Point25D) {
             return true;
           }
         }

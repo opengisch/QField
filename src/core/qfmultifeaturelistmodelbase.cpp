@@ -650,11 +650,15 @@ bool QfMultiFeatureListModelBase::canMoveSelection() const
 bool QfMultiFeatureListModelBase::canRotateSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
+  {
     return false;
+  }
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer )
+  {
     return false;
+  }
 
   const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries;
   if ( !isCapable )
@@ -1040,7 +1044,10 @@ bool QfMultiFeatureListModelBase::moveSelection( const double x, const double y,
       QgsGeometryMap geometryMap;
       geometryMap[pair.second.id()] = geom;
       isSuccess = vlayer->dataProvider()->changeGeometryValues( geometryMap );
-      emit vlayer->geometryChanged( pair.second.id(), geom );
+      if ( isSuccess )
+      {
+        emit vlayer->geometryChanged( pair.second.id(), geom );
+      }
     }
     else
     {
@@ -1074,7 +1081,9 @@ bool QfMultiFeatureListModelBase::moveSelection( const double x, const double y,
 bool QfMultiFeatureListModelBase::rotateSelection( const double angle )
 {
   if ( !canRotateSelection() )
+  {
     return false;
+  }
 
   QgsVectorLayer *vlayer = selectedLayer();
   const bool wasEditing = vlayer->editBuffer();
@@ -1090,7 +1099,23 @@ bool QfMultiFeatureListModelBase::rotateSelection( const double angle )
     QgsGeometry geom = pair.second.geometry();
     geom.rotate( angle, geom.centroid().asPoint() );
     pair.second.setGeometry( geom );
-    isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
+
+    if ( vlayer->dataProvider() && QgsWkbTypes::flatType( vlayer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      // QGIS threats a geometry collection is non-spatial, which in turn prohibits geometry changes via edit buffer
+      QgsGeometryMap geometryMap;
+      geometryMap[pair.second.id()] = geom;
+      isSuccess = vlayer->dataProvider()->changeGeometryValues( geometryMap );
+      if ( isSuccess )
+      {
+        emit vlayer->geometryChanged( pair.second.id(), geom );
+      }
+    }
+    else
+    {
+      isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
+    }
+
     if ( !isSuccess )
     {
       QgsMessageLog::logMessage( tr( "Cannot change geometry of feature %1 in %2" ).arg( pair.second.id() ).arg( vlayer->name() ), "QField", Qgis::Critical );
