@@ -21,7 +21,10 @@
     },
     "flatbush",
     "geos",
-    "pkgconf",
+    {
+      "name": "pkgconf",
+      "host": true
+    },
     "protobuf",
     "rapidjson",
     "unordered-dense",
