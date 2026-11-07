@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfBarcodeVideoFilter" kind="class" language="C++" prot="public">
+    <compoundname>QfBarcodeVideoFilter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractVideoFilter</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfBarcodeVideoFilter_1a3a58a9a607227cdb440eaff411d1fe83" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfBarcodeDecoder" kindref="compound">QfBarcodeDecoder</ref> *</type>
+        <definition>QfBarcodeDecoder * QfBarcodeVideoFilter::decoder</definition>
+        <argsstring></argsstring>
+        <name>decoder</name>
+        <qualifiedname>QfBarcodeVideoFilter::decoder</qualifiedname>
+        <read>decoder</read>
+        <write>setDecoder</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="56" column="5" bodyfile="src/core/qfbarcodevideofilter.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfBarcodeVideoFilter_1a2c03711390ce6aea23c00859d70bc2d6" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfBarcodeDecoder" kindref="compound">QfBarcodeDecoder</ref> *</type>
+        <definition>QfBarcodeDecoder* QfBarcodeVideoFilter::mDecoder</definition>
+        <argsstring></argsstring>
+        <name>mDecoder</name>
+        <qualifiedname>QfBarcodeVideoFilter::mDecoder</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="89" column="22" bodyfile="src/core/qfbarcodevideofilter.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBarcodeVideoFilter_1a3f12489d1ddb038693b7786af52e3175" prot="private" static="no" mutable="no">
+        <type>QThread *</type>
+        <definition>QThread* QfBarcodeVideoFilter::mDecodingThread</definition>
+        <argsstring></argsstring>
+        <name>mDecodingThread</name>
+        <qualifiedname>QfBarcodeVideoFilter::mDecodingThread</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="90" column="13" bodyfile="src/core/qfbarcodevideofilter.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfBarcodeVideoFilter_1a8834f10d97b4e4af752dec202ae060bf" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfBarcodeVideoFilter::QfBarcodeVideoFilter</definition>
+        <argsstring>()</argsstring>
+        <name>QfBarcodeVideoFilter</name>
+        <qualifiedname>QfBarcodeVideoFilter::QfBarcodeVideoFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="59" column="14" bodyfile="src/core/qfbarcodevideofilter.cpp" bodystart="46" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeVideoFilter_1af0b0d3bbed02d4f427b0402930fb3744" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfBarcodeDecoder" kindref="compound">QfBarcodeDecoder</ref> *</type>
+        <definition>QfBarcodeDecoder * QfBarcodeVideoFilter::decoder</definition>
+        <argsstring>() const</argsstring>
+        <name>decoder</name>
+        <qualifiedname>QfBarcodeVideoFilter::decoder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the barcode decoder to be used when analyzing video frames. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="64" column="22" bodyfile="src/core/qfbarcodevideofilter.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeVideoFilter_1a946b8537fe2bf34f21e1e7a7d498dbbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBarcodeVideoFilter::setDecoder</definition>
+        <argsstring>(QfBarcodeDecoder *decoder)</argsstring>
+        <name>setDecoder</name>
+        <qualifiedname>QfBarcodeVideoFilter::setDecoder</qualifiedname>
+        <param>
+          <type><ref refid="classQfBarcodeDecoder" kindref="compound">QfBarcodeDecoder</ref> *</type>
+          <declname>decoder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the <emphasis>decoder</emphasis> to be used when analyzing video frames. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="69" column="10" bodyfile="src/core/qfbarcodevideofilter.cpp" bodystart="50" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeVideoFilter_1ae7f9d394d4029519af6ec9439a70959f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBarcodeVideoFilter::decodeVideoFrame</definition>
+        <argsstring>(QVideoFrame *input)</argsstring>
+        <name>decodeVideoFrame</name>
+        <qualifiedname>QfBarcodeVideoFilter::decodeVideoFrame</qualifiedname>
+        <param>
+          <type>QVideoFrame *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handle the decoding of a video frame barcodes. The frame will be analyzed for the presence of a barcode, and if so the decoder will capture the decoded string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="75" column="10" bodyfile="src/core/qfbarcodevideofilter.cpp" bodystart="62" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeVideoFilter_1ae04c4b25081fcdc72a70f36136493e1d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfBarcodeVideoFilter::isDecoding</definition>
+        <argsstring>() const</argsstring>
+        <name>isDecoding</name>
+        <qualifiedname>QfBarcodeVideoFilter::isDecoding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether a video frame decoding is happening, which will dictate whether incoming video frames will be skipped or not. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="81" column="10" bodyfile="src/core/qfbarcodevideofilter.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeVideoFilter_1a982db52be2ad234c072a2db8060baac3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QVideoFilterRunnable *</type>
+        <definition>QVideoFilterRunnable * QfBarcodeVideoFilter::createFilterRunnable</definition>
+        <argsstring>() override</argsstring>
+        <name>createFilterRunnable</name>
+        <qualifiedname>QfBarcodeVideoFilter::createFilterRunnable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="83" column="26" bodyfile="src/core/qfbarcodevideofilter.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfBarcodeVideoFilter_1aab6267581698d9bf3a6f8c91cec09ae1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBarcodeVideoFilter::decoderChanged</definition>
+        <argsstring>()</argsstring>
+        <name>decoderChanged</name>
+        <qualifiedname>QfBarcodeVideoFilter::decoderChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideofilter.h" line="86" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractVideoFilter</label>
+      </node>
+      <node id="1">
+        <label>QfBarcodeVideoFilter</label>
+        <link refid="classQfBarcodeVideoFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractVideoFilter</label>
+      </node>
+      <node id="1">
+        <label>QfBarcodeVideoFilter</label>
+        <link refid="classQfBarcodeVideoFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfbarcodevideofilter.h" line="52" column="1" bodyfile="src/core/qfbarcodevideofilter.h" bodystart="53" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classQfBarcodeVideoFilter_1a982db52be2ad234c072a2db8060baac3" prot="public" virt="non-virtual"><scope>QfBarcodeVideoFilter</scope><name>createFilterRunnable</name></member>
+      <member refid="classQfBarcodeVideoFilter_1a3a58a9a607227cdb440eaff411d1fe83" prot="public" virt="non-virtual"><scope>QfBarcodeVideoFilter</scope><name>decoder</name></member>
+      <member refid="classQfBarcodeVideoFilter_1af0b0d3bbed02d4f427b0402930fb3744" prot="public" virt="non-virtual"><scope>QfBarcodeVideoFilter</scope><name>decoder</name></member>
+      <member refid="classQfBarcodeVideoFilter_1aab6267581698d9bf3a6f8c91cec09ae1" prot="public" virt="non-virtual"><scope>QfBarcodeVideoFilter</scope><name>decoderChanged</name></member>
+      <member refid="classQfBarcodeVideoFilter_1ae7f9d394d4029519af6ec9439a70959f" prot="public" virt="non-virtual"><scope>QfBarcodeVideoFilter</scope><name>decodeVideoFrame</name></member>
+      <member refid="classQfBarcodeVideoFilter_1ae04c4b25081fcdc72a70f36136493e1d" prot="public" virt="non-virtual"><scope>QfBarcodeVideoFilter</scope><name>isDecoding</name></member>
+      <member refid="classQfBarcodeVideoFilter_1a2c03711390ce6aea23c00859d70bc2d6" prot="private" virt="non-virtual"><scope>QfBarcodeVideoFilter</scope><name>mDecoder</name></member>
+      <member refid="classQfBarcodeVideoFilter_1a3f12489d1ddb038693b7786af52e3175" prot="private" virt="non-virtual"><scope>QfBarcodeVideoFilter</scope><name>mDecodingThread</name></member>
+      <member refid="classQfBarcodeVideoFilter_1a8834f10d97b4e4af752dec202ae060bf" prot="public" virt="non-virtual"><scope>QfBarcodeVideoFilter</scope><name>QfBarcodeVideoFilter</name></member>
+      <member refid="classQfBarcodeVideoFilter_1a946b8537fe2bf34f21e1e7a7d498dbbe" prot="public" virt="non-virtual"><scope>QfBarcodeVideoFilter</scope><name>setDecoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

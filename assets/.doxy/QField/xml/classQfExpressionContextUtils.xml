@@ -1,0 +1,636 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfExpressionContextUtils" kind="class" language="C++" prot="public">
+    <compoundname>QfExpressionContextUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfExpressionContextUtils_1afb55f6f0b3ae0742cfe43c4b0a9cf44c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfExpressionContextUtils::QfExpressionContextUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfExpressionContextUtils</name>
+        <qualifiedname>QfExpressionContextUtils::QfExpressionContextUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="39" column="14" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfExpressionContextUtils_1ad03624292ff175d6701b88850ffef4b6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsExpressionContextScope *</type>
+        <definition>QgsExpressionContextScope * QfExpressionContextUtils::positionScope</definition>
+        <argsstring>(const QfGnssPositionInformation &amp;positionInformation, bool positionLocked)</argsstring>
+        <name>positionScope</name>
+        <qualifiedname>QfExpressionContextUtils::positionScope</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>positionLocked</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="41" column="38" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="41" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1a6526bea50e2b34f0cc447ef3e7d0503d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsExpressionContextScope *</type>
+        <definition>QgsExpressionContextScope * QfExpressionContextUtils::mapToolCaptureScope</definition>
+        <argsstring>(const QfSnappingResult &amp;topSnappingResult)</argsstring>
+        <name>mapToolCaptureScope</name>
+        <qualifiedname>QfExpressionContextUtils::mapToolCaptureScope</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref> &amp;</type>
+          <declname>topSnappingResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="42" column="38" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="77" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1a020d00dc0401a6f70bbc51556df97908" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsExpressionContextScope *</type>
+        <definition>QgsExpressionContextScope * QfExpressionContextUtils::cloudUserScope</definition>
+        <argsstring>(const QfCloudUserInformation &amp;cloudUserInformation)</argsstring>
+        <name>cloudUserScope</name>
+        <qualifiedname>QfExpressionContextUtils::cloudUserScope</qualifiedname>
+        <param>
+          <type>const <ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref> &amp;</type>
+          <declname>cloudUserInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="43" column="38" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="98" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1a37bf0c9c577f0913b7d1497c0c0042fa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfExpressionContextUtils::layerVariables</definition>
+        <argsstring>(QgsMapLayer *layer)</argsstring>
+        <name>layerVariables</name>
+        <qualifiedname>QfExpressionContextUtils::layerVariables</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a layer context variables. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>map layer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a5caf2d908c74d468f687ed70702dd1fe" kindref="member">setLayerVariable()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a8b513845f702c1f721bb9d7afaf48107" kindref="member">setLayerVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1abf2e04a99432b55ee55035af22d783a4" kindref="member">removeLayerVariable()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="52" column="36" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="107" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1a5caf2d908c74d468f687ed70702dd1fe" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionContextUtils::setLayerVariable</definition>
+        <argsstring>(QgsMapLayer *layer, const QString &amp;name, const QVariant &amp;value)</argsstring>
+        <name>setLayerVariable</name>
+        <qualifiedname>QfExpressionContextUtils::setLayerVariable</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a layer context variable. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>map layer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>variable name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>variable value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a37bf0c9c577f0913b7d1497c0c0042fa" kindref="member">layerVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a8b513845f702c1f721bb9d7afaf48107" kindref="member">setLayerVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1abf2e04a99432b55ee55035af22d783a4" kindref="member">removeLayerVariable()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="63" column="29" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="125" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1a8b513845f702c1f721bb9d7afaf48107" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionContextUtils::setLayerVariables</definition>
+        <argsstring>(QgsMapLayer *layer, const QVariantMap &amp;variables)</argsstring>
+        <name>setLayerVariables</name>
+        <qualifiedname>QfExpressionContextUtils::setLayerVariables</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>variables</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a layer context variables. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>map layer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>variables</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>new set of layer variables </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a37bf0c9c577f0913b7d1497c0c0042fa" kindref="member">layerVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a5caf2d908c74d468f687ed70702dd1fe" kindref="member">setLayerVariable()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1abf2e04a99432b55ee55035af22d783a4" kindref="member">removeLayerVariable()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="73" column="29" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="142" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1abf2e04a99432b55ee55035af22d783a4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionContextUtils::removeLayerVariable</definition>
+        <argsstring>(QgsMapLayer *layer, const QString &amp;name)</argsstring>
+        <name>removeLayerVariable</name>
+        <qualifiedname>QfExpressionContextUtils::removeLayerVariable</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes a layer context variable. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>map layer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>variable name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a37bf0c9c577f0913b7d1497c0c0042fa" kindref="member">layerVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a5caf2d908c74d468f687ed70702dd1fe" kindref="member">setLayerVariable()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a8b513845f702c1f721bb9d7afaf48107" kindref="member">setLayerVariables()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="83" column="29" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="166" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1a0cab812597e0e0bf5aef1df270a56f31" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfExpressionContextUtils::projectVariables</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>projectVariables</name>
+        <qualifiedname>QfExpressionContextUtils::projectVariables</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a project context variables. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>project </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1aac40e617a9f4621465f5de9ac394862a" kindref="member">setProjectVariable()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a066b2de59741133957b0e5e360934844" kindref="member">setProjectVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1ad428415ea16c56cd08f8be81a32e2d53" kindref="member">removeProjectVariable()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="92" column="36" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="180" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1aac40e617a9f4621465f5de9ac394862a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionContextUtils::setProjectVariable</definition>
+        <argsstring>(QgsProject *project, const QString &amp;name, const QVariant &amp;value)</argsstring>
+        <name>setProjectVariable</name>
+        <qualifiedname>QfExpressionContextUtils::setProjectVariable</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a project context variable. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>project </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>variable name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>variable value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a0cab812597e0e0bf5aef1df270a56f31" kindref="member">projectVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a066b2de59741133957b0e5e360934844" kindref="member">setProjectVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1ad428415ea16c56cd08f8be81a32e2d53" kindref="member">removeProjectVariable()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="103" column="29" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="190" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1a066b2de59741133957b0e5e360934844" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionContextUtils::setProjectVariables</definition>
+        <argsstring>(QgsProject *project, const QVariantMap &amp;variables)</argsstring>
+        <name>setProjectVariables</name>
+        <qualifiedname>QfExpressionContextUtils::setProjectVariables</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>variables</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a project context variables. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>project </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>variables</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>new set of project variables </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a0cab812597e0e0bf5aef1df270a56f31" kindref="member">projectVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1aac40e617a9f4621465f5de9ac394862a" kindref="member">setProjectVariable()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1ad428415ea16c56cd08f8be81a32e2d53" kindref="member">removeProjectVariable()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="113" column="29" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="202" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1ad428415ea16c56cd08f8be81a32e2d53" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionContextUtils::removeProjectVariable</definition>
+        <argsstring>(QgsProject *project, const QString &amp;name)</argsstring>
+        <name>removeProjectVariable</name>
+        <qualifiedname>QfExpressionContextUtils::removeProjectVariable</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes a project context variable. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>project </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>variable name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a0cab812597e0e0bf5aef1df270a56f31" kindref="member">projectVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1aac40e617a9f4621465f5de9ac394862a" kindref="member">setProjectVariable()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a066b2de59741133957b0e5e360934844" kindref="member">setProjectVariables()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="123" column="29" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="212" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1a7c1bd4f9deafb394ac4adf831a843910" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantMap</type>
+        <definition>QVariantMap QfExpressionContextUtils::globalVariables</definition>
+        <argsstring>()</argsstring>
+        <name>globalVariables</name>
+        <qualifiedname>QfExpressionContextUtils::globalVariables</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the global context variables. <simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a9b7b6b822838ec89e9898b2007f1653e" kindref="member">setGlobalVariable()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a277a24ad76afafed95e2fba0ba826806" kindref="member">setGlobalVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a808d7d26c325227bb1452d6904252b54" kindref="member">removeGlobalVariable()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="131" column="36" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="226" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1a9b7b6b822838ec89e9898b2007f1653e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionContextUtils::setGlobalVariable</definition>
+        <argsstring>(const QString &amp;name, const QVariant &amp;value)</argsstring>
+        <name>setGlobalVariable</name>
+        <qualifiedname>QfExpressionContextUtils::setGlobalVariable</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a global context variable. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>variable name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>variable value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a7c1bd4f9deafb394ac4adf831a843910" kindref="member">globalVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a277a24ad76afafed95e2fba0ba826806" kindref="member">setGlobalVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a808d7d26c325227bb1452d6904252b54" kindref="member">removeGlobalVariable()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="141" column="29" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="231" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1a277a24ad76afafed95e2fba0ba826806" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionContextUtils::setGlobalVariables</definition>
+        <argsstring>(const QVariantMap &amp;variables)</argsstring>
+        <name>setGlobalVariables</name>
+        <qualifiedname>QfExpressionContextUtils::setGlobalVariables</qualifiedname>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>variables</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the global context variables. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>variables</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>new set of global variables </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a7c1bd4f9deafb394ac4adf831a843910" kindref="member">globalVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a9b7b6b822838ec89e9898b2007f1653e" kindref="member">setGlobalVariable()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a808d7d26c325227bb1452d6904252b54" kindref="member">removeGlobalVariable()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="150" column="29" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="241" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfExpressionContextUtils_1a808d7d26c325227bb1452d6904252b54" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfExpressionContextUtils::removeGlobalVariable</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>removeGlobalVariable</name>
+        <qualifiedname>QfExpressionContextUtils::removeGlobalVariable</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes a global context variable. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>variable name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a7c1bd4f9deafb394ac4adf831a843910" kindref="member">globalVariables()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a9b7b6b822838ec89e9898b2007f1653e" kindref="member">setGlobalVariable()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfExpressionContextUtils_1a277a24ad76afafed95e2fba0ba826806" kindref="member">setGlobalVariables()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfexpressioncontextutils.h" line="159" column="29" bodyfile="src/core/utils/qfexpressioncontextutils.cpp" bodystart="246" bodyend="253"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfExpressionContextUtils</label>
+        <link refid="classQfExpressionContextUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfExpressionContextUtils</label>
+        <link refid="classQfExpressionContextUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/qfexpressioncontextutils.h" line="34" column="1" bodyfile="src/core/utils/qfexpressioncontextutils.h" bodystart="35" bodyend="160"/>
+    <listofallmembers>
+      <member refid="classQfExpressionContextUtils_1a020d00dc0401a6f70bbc51556df97908" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>cloudUserScope</name></member>
+      <member refid="classQfExpressionContextUtils_1a7c1bd4f9deafb394ac4adf831a843910" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>globalVariables</name></member>
+      <member refid="classQfExpressionContextUtils_1a37bf0c9c577f0913b7d1497c0c0042fa" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>layerVariables</name></member>
+      <member refid="classQfExpressionContextUtils_1a6526bea50e2b34f0cc447ef3e7d0503d" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>mapToolCaptureScope</name></member>
+      <member refid="classQfExpressionContextUtils_1ad03624292ff175d6701b88850ffef4b6" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>positionScope</name></member>
+      <member refid="classQfExpressionContextUtils_1a0cab812597e0e0bf5aef1df270a56f31" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>projectVariables</name></member>
+      <member refid="classQfExpressionContextUtils_1afb55f6f0b3ae0742cfe43c4b0a9cf44c" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>QfExpressionContextUtils</name></member>
+      <member refid="classQfExpressionContextUtils_1a808d7d26c325227bb1452d6904252b54" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>removeGlobalVariable</name></member>
+      <member refid="classQfExpressionContextUtils_1abf2e04a99432b55ee55035af22d783a4" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>removeLayerVariable</name></member>
+      <member refid="classQfExpressionContextUtils_1ad428415ea16c56cd08f8be81a32e2d53" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>removeProjectVariable</name></member>
+      <member refid="classQfExpressionContextUtils_1a9b7b6b822838ec89e9898b2007f1653e" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>setGlobalVariable</name></member>
+      <member refid="classQfExpressionContextUtils_1a277a24ad76afafed95e2fba0ba826806" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>setGlobalVariables</name></member>
+      <member refid="classQfExpressionContextUtils_1a5caf2d908c74d468f687ed70702dd1fe" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>setLayerVariable</name></member>
+      <member refid="classQfExpressionContextUtils_1a8b513845f702c1f721bb9d7afaf48107" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>setLayerVariables</name></member>
+      <member refid="classQfExpressionContextUtils_1aac40e617a9f4621465f5de9ac394862a" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>setProjectVariable</name></member>
+      <member refid="classQfExpressionContextUtils_1a066b2de59741133957b0e5e360934844" prot="public" virt="non-virtual"><scope>QfExpressionContextUtils</scope><name>setProjectVariables</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

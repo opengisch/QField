@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classConfirmationToolbar" kind="class" language="C++" prot="public">
+    <compoundname>ConfirmationToolbar</compoundname>
+    <basecompoundref refid="classQfConfirmationToolbar" prot="public" virt="non-virtual">QfConfirmationToolbar</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ConfirmationToolbar</label>
+        <link refid="classConfirmationToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfConfirmationToolbar</label>
+        <link refid="classQfConfirmationToolbar"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ConfirmationToolbar</label>
+        <link refid="classConfirmationToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfConfirmationToolbar</label>
+        <link refid="classQfConfirmationToolbar"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/ConfirmationToolbar.qml" line="2" column="1" bodyfile="src/app/qml_compat/ConfirmationToolbar.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfConfirmationToolbar_1ad3765805ac85134aba8d3bcc7f22b2de" prot="public" virt="non-virtual"><scope>ConfirmationToolbar</scope><name>cancel</name></member>
+      <member refid="classQfConfirmationToolbar_1af761061564381eadddad80ec28585c8e" prot="public" virt="non-virtual"><scope>ConfirmationToolbar</scope><name>confirm</name></member>
+      <member refid="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" virt="non-virtual"><scope>ConfirmationToolbar</scope><name>stateVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

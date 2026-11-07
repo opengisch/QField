@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudPendingChanges" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudPendingChanges</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Rectangle</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudPendingChanges_1a7c1f7021cca86bcdddb253b4cce00e87" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCloudPendingChanges::deltaFileWrapper</definition>
+        <argsstring></argsstring>
+        <name>deltaFileWrapper</name>
+        <qualifiedname>QfCloudPendingChanges::deltaFileWrapper</qualifiedname>
+        <read>dummyGetter_deltaFileWrapper_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPendingChanges.qml" line="13" column="1" bodyfile="src/app/qml/QfCloudPendingChanges.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudPendingChanges_1a20701cc66481f8bb9c4e11e13a336749" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudPendingChanges::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfCloudPendingChanges::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPendingChanges.qml" line="27" column="5" bodyfile="src/app/qml/QfCloudPendingChanges.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPendingChanges_1aa5e93c5076dde2b5e8bcf5c2eb2c569d" prot="private" static="no" mutable="no">
+        <type>var border</type>
+        <definition>var border QfCloudPendingChanges::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfCloudPendingChanges::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPendingChanges.qml" line="28" column="11" bodyfile="src/app/qml/QfCloudPendingChanges.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPendingChanges_1a1e3a36b0ac3327d8887f8e8408b176c7" prot="private" static="no" mutable="no">
+        <type>var border</type>
+        <definition>var border QfCloudPendingChanges::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCloudPendingChanges::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPendingChanges.qml" line="29" column="11" bodyfile="src/app/qml/QfCloudPendingChanges.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudPendingChanges_1a96891d8c58bc11de4e711cf250aa2843" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfCloudPendingChanges::pendingChangesList</definition>
+        <argsstring></argsstring>
+        <name>pendingChangesList</name>
+        <qualifiedname>QfCloudPendingChanges::pendingChangesList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPendingChanges.qml" line="30" column="10" bodyfile="src/app/qml/QfCloudPendingChanges.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCloudPendingChanges_1affb0b73d07d447bb24fe2ca62d7766f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudPendingChanges::deltaMethodColor</definition>
+        <argsstring>(method)</argsstring>
+        <name>deltaMethodColor</name>
+        <qualifiedname>QfCloudPendingChanges::deltaMethodColor</qualifiedname>
+        <param>
+          <type>method</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPendingChanges.qml" line="15" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudPendingChanges_1a29ec61ad0389726c6ccfaf1cd69c6a7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudPendingChanges::deltaMethodBackgroundColor</definition>
+        <argsstring>(method)</argsstring>
+        <name>deltaMethodBackgroundColor</name>
+        <qualifiedname>QfCloudPendingChanges::deltaMethodBackgroundColor</qualifiedname>
+        <param>
+          <type>method</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPendingChanges.qml" line="17" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudPendingChanges_1ab8b35b90e0e4f734d2052a5e57b97cd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudPendingChanges::deltaMethodLabel</definition>
+        <argsstring>(method)</argsstring>
+        <name>deltaMethodLabel</name>
+        <qualifiedname>QfCloudPendingChanges::deltaMethodLabel</qualifiedname>
+        <param>
+          <type>method</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPendingChanges.qml" line="19" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudPendingChanges_1a21817796b85d0ca7fd3491441e937a82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudPendingChanges::layerGeometryIcon</definition>
+        <argsstring>(geometryType)</argsstring>
+        <name>layerGeometryIcon</name>
+        <qualifiedname>QfCloudPendingChanges::layerGeometryIcon</qualifiedname>
+        <param>
+          <type>geometryType</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPendingChanges.qml" line="21" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudPendingChanges_1a875b9f864b206fee7ea7bbd6db1d5d33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudPendingChanges::attributeValueText</definition>
+        <argsstring>(value)</argsstring>
+        <name>attributeValueText</name>
+        <qualifiedname>QfCloudPendingChanges::attributeValueText</qualifiedname>
+        <param>
+          <type>value</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPendingChanges.qml" line="23" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudPendingChanges_1aad2975043151dd4147902572cdf808db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudPendingChanges::attributeChangeText</definition>
+        <argsstring>(change, method)</argsstring>
+        <name>attributeChangeText</name>
+        <qualifiedname>QfCloudPendingChanges::attributeChangeText</qualifiedname>
+        <param>
+          <type>change</type>
+        </param>
+        <param>
+          <type>method</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudPendingChanges.qml" line="25" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCloudPendingChanges</label>
+        <link refid="classQfCloudPendingChanges"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCloudPendingChanges</label>
+        <link refid="classQfCloudPendingChanges"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Rectangle</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfCloudPendingChanges.qml" line="10" column="1" bodyfile="src/app/qml/QfCloudPendingChanges.qml" bodystart="10" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classQfCloudPendingChanges_1aad2975043151dd4147902572cdf808db" prot="public" virt="non-virtual"><scope>QfCloudPendingChanges</scope><name>attributeChangeText</name></member>
+      <member refid="classQfCloudPendingChanges_1a875b9f864b206fee7ea7bbd6db1d5d33" prot="public" virt="non-virtual"><scope>QfCloudPendingChanges</scope><name>attributeValueText</name></member>
+      <member refid="classQfCloudPendingChanges_1a20701cc66481f8bb9c4e11e13a336749" prot="private" virt="non-virtual"><scope>QfCloudPendingChanges</scope><name>color</name></member>
+      <member refid="classQfCloudPendingChanges_1aa5e93c5076dde2b5e8bcf5c2eb2c569d" prot="private" virt="non-virtual"><scope>QfCloudPendingChanges</scope><name>color</name></member>
+      <member refid="classQfCloudPendingChanges_1a7c1f7021cca86bcdddb253b4cce00e87" prot="public" virt="non-virtual"><scope>QfCloudPendingChanges</scope><name>deltaFileWrapper</name></member>
+      <member refid="classQfCloudPendingChanges_1a29ec61ad0389726c6ccfaf1cd69c6a7c" prot="public" virt="non-virtual"><scope>QfCloudPendingChanges</scope><name>deltaMethodBackgroundColor</name></member>
+      <member refid="classQfCloudPendingChanges_1affb0b73d07d447bb24fe2ca62d7766f6" prot="public" virt="non-virtual"><scope>QfCloudPendingChanges</scope><name>deltaMethodColor</name></member>
+      <member refid="classQfCloudPendingChanges_1ab8b35b90e0e4f734d2052a5e57b97cd2" prot="public" virt="non-virtual"><scope>QfCloudPendingChanges</scope><name>deltaMethodLabel</name></member>
+      <member refid="classQfCloudPendingChanges_1a21817796b85d0ca7fd3491441e937a82" prot="public" virt="non-virtual"><scope>QfCloudPendingChanges</scope><name>layerGeometryIcon</name></member>
+      <member refid="classQfCloudPendingChanges_1a96891d8c58bc11de4e711cf250aa2843" prot="private" virt="non-virtual"><scope>QfCloudPendingChanges</scope><name>pendingChangesList</name></member>
+      <member refid="classQfCloudPendingChanges_1a1e3a36b0ac3327d8887f8e8408b176c7" prot="private" virt="non-virtual"><scope>QfCloudPendingChanges</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

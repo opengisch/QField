@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_a8053b3d69cfefb2b2e6ec7bf9dd5c1a" kind="dir">
+    <compoundname>src/core/utils</compoundname>
+    <innerfile refid="qfauthutils_8cpp">qfauthutils.cpp</innerfile>
+    <innerfile refid="qfauthutils_8h">qfauthutils.h</innerfile>
+    <innerfile refid="qfcloudutils_8cpp">qfcloudutils.cpp</innerfile>
+    <innerfile refid="qfcloudutils_8h">qfcloudutils.h</innerfile>
+    <innerfile refid="qfcoordinatereferencesystemutils_8cpp">qfcoordinatereferencesystemutils.cpp</innerfile>
+    <innerfile refid="qfcoordinatereferencesystemutils_8h">qfcoordinatereferencesystemutils.h</innerfile>
+    <innerfile refid="qfexpressioncontextutils_8cpp">qfexpressioncontextutils.cpp</innerfile>
+    <innerfile refid="qfexpressioncontextutils_8h">qfexpressioncontextutils.h</innerfile>
+    <innerfile refid="qffeatureutils_8cpp">qffeatureutils.cpp</innerfile>
+    <innerfile refid="qffeatureutils_8h">qffeatureutils.h</innerfile>
+    <innerfile refid="qffileutils_8cpp">qffileutils.cpp</innerfile>
+    <innerfile refid="qffileutils_8h">qffileutils.h</innerfile>
+    <innerfile refid="qfgeometryutils_8cpp">qfgeometryutils.cpp</innerfile>
+    <innerfile refid="qfgeometryutils_8h">qfgeometryutils.h</innerfile>
+    <innerfile refid="qflayerutils_8cpp">qflayerutils.cpp</innerfile>
+    <innerfile refid="qflayerutils_8h">qflayerutils.h</innerfile>
+    <innerfile refid="qfpositioningutils_8cpp">qfpositioningutils.cpp</innerfile>
+    <innerfile refid="qfpositioningutils_8h">qfpositioningutils.h</innerfile>
+    <innerfile refid="qfprocessingutils_8cpp">qfprocessingutils.cpp</innerfile>
+    <innerfile refid="qfprocessingutils_8h">qfprocessingutils.h</innerfile>
+    <innerfile refid="qfprojectutils_8cpp">qfprojectutils.cpp</innerfile>
+    <innerfile refid="qfprojectutils_8h">qfprojectutils.h</innerfile>
+    <innerfile refid="qfrelationutils_8cpp">qfrelationutils.cpp</innerfile>
+    <innerfile refid="qfrelationutils_8h">qfrelationutils.h</innerfile>
+    <innerfile refid="qfsnappingutils_8cpp">qfsnappingutils.cpp</innerfile>
+    <innerfile refid="qfsnappingutils_8h">qfsnappingutils.h</innerfile>
+    <innerfile refid="qfstringutils_8cpp">qfstringutils.cpp</innerfile>
+    <innerfile refid="qfstringutils_8h">qfstringutils.h</innerfile>
+    <innerfile refid="qfurlutils_8cpp">qfurlutils.cpp</innerfile>
+    <innerfile refid="qfurlutils_8h">qfurlutils.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/utils/"/>
+  </compounddef>
+</doxygen>

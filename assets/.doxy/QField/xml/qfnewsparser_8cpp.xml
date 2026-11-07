@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfnewsparser_8cpp" kind="file" language="C++">
+    <compoundname>qfnewsparser.cpp</compoundname>
+    <includes refid="qfnewsparser_8h" local="yes">qfnewsparser.h</includes>
+    <includes refid="qfstringutils_8h" local="yes">qfstringutils.h</includes>
+    <includes local="no">QCryptographicHash</includes>
+    <includes local="no">QDir</includes>
+    <includes local="no">QDomDocument</includes>
+    <includes local="no">QFile</includes>
+    <includes local="no">QFileInfo</includes>
+    <includes local="no">QNetworkReply</includes>
+    <includes local="no">QNetworkRequest</includes>
+    <includes local="no">QSettings</includes>
+    <includes local="no">QStandardPaths</includes>
+    <includes local="no">qgsnetworkaccessmanager.h</includes>
+    <includes local="no">algorithm</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/qfnewsparser.cpp</label>
+        <link refid="qfnewsparser_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qfnewsparser.h</label>
+        <link refid="qfnewsparser_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>qfstringutils.h</label>
+        <link refid="qfstringutils_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>QColor</label>
+      </node>
+      <node id="11">
+        <label>QCryptographicHash</label>
+      </node>
+      <node id="3">
+        <label>QDateTime</label>
+      </node>
+      <node id="12">
+        <label>QDir</label>
+      </node>
+      <node id="13">
+        <label>QDomDocument</label>
+      </node>
+      <node id="14">
+        <label>QFile</label>
+      </node>
+      <node id="15">
+        <label>QFileInfo</label>
+      </node>
+      <node id="16">
+        <label>QNetworkReply</label>
+      </node>
+      <node id="17">
+        <label>QNetworkRequest</label>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="18">
+        <label>QSettings</label>
+      </node>
+      <node id="19">
+        <label>QStandardPaths</label>
+      </node>
+      <node id="5">
+        <label>QUrl</label>
+      </node>
+      <node id="21">
+        <label>algorithm</label>
+      </node>
+      <node id="7">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="9">
+        <label>qgscoordinatereferencesystem.h</label>
+      </node>
+      <node id="20">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+      <node id="10">
+        <label>qgspoint.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qfnewsparser.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>----------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>October<sp/>2026</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2026<sp/>by<sp/>Kaustuv<sp/>Pokharel</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>kaustuv@opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfnewsparser.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfstringutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QCryptographicHash&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDir&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QDomDocument&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFile&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFileInfo&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QNetworkReply&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QNetworkRequest&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QSettings&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QStandardPaths&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsnetworkaccessmanager.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><ref refid="classQfNewsParser_1af390ce12e8303e6bfe839e723451e419" kindref="member">QfNewsParser::QfNewsParser</ref>(<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>:<sp/>QObject(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfNewsParser_1aded05e9673ec369c7bb0e121cd61de49" kindref="member">QfNewsParser::setFeedUrl</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QUrl<sp/>&amp;url<sp/>)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mFeedUrl<sp/>==<sp/>url<sp/>)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>mFeedUrl<sp/>=<sp/>url;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQfNewsParser_1adee3bd733ca6859f98edd10148f8c138" kindref="member">feedUrlChanged</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>clearItems();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mEnabled<sp/>&amp;&amp;<sp/>!mFeedUrl.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>restoreItemsFromCache();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>QfNewsParser::enabled()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="59"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mEnabled;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfNewsParser_1aa1743e691e29d75f71fec0edc724c5e5" kindref="member">QfNewsParser::setEnabled</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enabled<sp/>)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mEnabled<sp/>==<sp/>enabled<sp/>)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>mEnabled<sp/>=<sp/>enabled;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQfNewsParser_1a1114a68ccc28d0350d222045da945d2d" kindref="member">enabledChanged</ref>();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>clearItems();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mEnabled<sp/>&amp;&amp;<sp/>!mFeedUrl.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>restoreItemsFromCache();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>QfNewsParser::restoreItemsFromCache()</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>QFile<sp/>cacheFile(<sp/>cacheFilePath()<sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>cacheFile.exists()<sp/>&amp;&amp;<sp/>cacheFile.open(<sp/>QIODevice::ReadOnly<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QfNewsItem&gt;<sp/>feedItems<sp/>=<sp/><ref refid="classQfNewsParser_1a492a8f891518904ddc88f5d64395936f" kindref="member">parseFeed</ref>(<sp/>cacheFile.readAll()<sp/>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!feedItems.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>updateItems(<sp/>feedItems<sp/>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfNewsParser_1a4beaaa82bb8b0f0156e67d32e594df0c" kindref="member">QfNewsParser::fetch</ref>()</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mEnabled<sp/>||<sp/>mFeedUrl.isEmpty()<sp/>||<sp/>mIsFetching<sp/>)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>mIsFetching<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQfNewsParser_1acbb048a7af10a809b19d585ed528c957" kindref="member">isFetchingChanged</ref>();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QUrl<sp/>url<sp/>=<sp/>mFeedUrl;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>QNetworkReply<sp/>*reply<sp/>=<sp/>QgsNetworkAccessManager::instance()-&gt;get(<sp/>QNetworkRequest(<sp/>url<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>connect(<sp/>reply,<sp/>&amp;QNetworkReply::finished,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>reply,<sp/>url]()<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>reply-&gt;deleteLater();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>reply-&gt;error()<sp/>==<sp/>QNetworkReply::NoError<sp/>&amp;&amp;<sp/>enabled()<sp/>&amp;&amp;<sp/>mFeedUrl<sp/>==<sp/>url<sp/>)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QByteArray<sp/>data<sp/>=<sp/>reply-&gt;readAll();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QfNewsItem&gt;<sp/>feedItems<sp/>=<sp/><ref refid="classQfNewsParser_1a492a8f891518904ddc88f5d64395936f" kindref="member">parseFeed</ref>(<sp/>data<sp/>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!feedItems.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QDir().mkpath(<sp/>QFileInfo(<sp/>cacheFilePath()<sp/>).absolutePath()<sp/>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QFile<sp/>cacheFile(<sp/>cacheFilePath()<sp/>);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>cacheFile.open(<sp/>QIODevice::WriteOnly<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cacheFile.write(<sp/>data<sp/>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>updateItems(<sp/>feedItems<sp/>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>mIsFetching<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classQfNewsParser_1acbb048a7af10a809b19d585ed528c957" kindref="member">isFetchingChanged</ref>();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfNewsParser_1aa188ef1f9de639c4174ea6bfbb4869b1" kindref="member">QfNewsParser::dismiss</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>&amp;uuid<sp/>)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>QSettings<sp/>settings;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>QStringList<sp/>dismissedUuids<sp/>=<sp/>settings.value(<sp/><ref refid="classQfNewsParser_1af8b2a0f191d00016f6caa9ac121830f2" kindref="member">DISMISSED_UUIDS_SETTINGS_KEY</ref><sp/>).toStringList();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!dismissedUuids.contains(<sp/>uuid<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>dismissedUuids<sp/>&lt;&lt;<sp/>uuid;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>settings.setValue(<sp/><ref refid="classQfNewsParser_1af8b2a0f191d00016f6caa9ac121830f2" kindref="member">DISMISSED_UUIDS_SETTINGS_KEY</ref>,<sp/>dismissedUuids<sp/>);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>qsizetype<sp/>removedCount<sp/>=<sp/>mItems.removeIf(<sp/>[&amp;uuid](<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref><sp/>&amp;item<sp/>)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>item.<ref refid="classQfNewsItem_1a7728b46f1bb334080c43158117dfd8a0" kindref="member">uuid</ref><sp/>==<sp/>uuid;<sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>removedCount<sp/>&gt;<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classQfNewsParser_1ac25416bf00b52025fa5b85541a6e4c09" kindref="member">itemsChanged</ref>();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal">QList&lt;QfNewsItem&gt;<sp/><ref refid="classQfNewsParser_1a492a8f891518904ddc88f5d64395936f" kindref="member">QfNewsParser::parseFeed</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QByteArray<sp/>&amp;data<sp/>)</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>QList&lt;QfNewsItem&gt;<sp/>items;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>QDomDocument<sp/>document;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!document.setContent(<sp/>data,<sp/>QDomDocument::ParseOption::UseNamespaceProcessing<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>items;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QDomNodeList<sp/>itemNodes<sp/>=<sp/>document.elementsByTagName(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;item&quot;</highlight><highlight class="normal"><sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>itemNodes.size();<sp/>++i<sp/>)</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QDomElement<sp/>itemElement<sp/>=<sp/>itemNodes.at(<sp/>i<sp/>).toElement();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>itemElement.parentNode().toElement().tagName()<sp/>!=<sp/>QLatin1String(<sp/></highlight><highlight class="stringliteral">&quot;channel&quot;</highlight><highlight class="normal"><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref><sp/>item;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>item.<ref refid="classQfNewsItem_1a7728b46f1bb334080c43158117dfd8a0" kindref="member">uuid</ref><sp/>=<sp/>itemElement.firstChildElement(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;guid&quot;</highlight><highlight class="normal"><sp/>)<sp/>).text().trimmed();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>item.<ref refid="classQfNewsItem_1a5b0a7623c8bb1b3b85b4a8558855cb51" kindref="member">title</ref><sp/>=<sp/>itemElement.firstChildElement(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;title&quot;</highlight><highlight class="normal"><sp/>)<sp/>).text().trimmed();</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>item.<ref refid="classQfNewsItem_1adcaa48354f9536e4316f6d812eb7f5e8" kindref="member">url</ref><sp/>=<sp/>QUrl(<sp/>itemElement.firstChildElement(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;link&quot;</highlight><highlight class="normal"><sp/>)<sp/>).text().trimmed()<sp/>);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>item.<ref refid="classQfNewsItem_1a291538856bc0f85fef293e236d918eee" kindref="member">publicationDate</ref><sp/>=<sp/>QDateTime::fromString(<sp/>itemElement.firstChildElement(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;pubDate&quot;</highlight><highlight class="normal"><sp/>)<sp/>).text().trimmed(),<sp/>Qt::RFC2822Date<sp/>);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>item.<ref refid="classQfNewsItem_1a674af561a35808a39cde9fc8bee46216" kindref="member">description</ref><sp/>=<sp/><ref refid="classQfStringUtils_1adfd4c0ce58252cfadaaf61bacf39c9c0" kindref="member">QfStringUtils::htmlToPlainText</ref>(<sp/>itemElement.firstChildElement(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;description&quot;</highlight><highlight class="normal"><sp/>)<sp/>).text()<sp/>);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>QDomElement<sp/>child<sp/>=<sp/>itemElement.firstChildElement();<sp/>!child.isNull();<sp/>child<sp/>=<sp/>child.nextSiblingElement()<sp/>)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>child.localName()<sp/>==<sp/>QLatin1String(<sp/></highlight><highlight class="stringliteral">&quot;content&quot;</highlight><highlight class="normal"><sp/>)<sp/>&amp;&amp;<sp/>child.hasAttribute(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;url&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>item.<ref refid="classQfNewsItem_1a522f83a305998ee180e095d5c0a4edea" kindref="member">imageUrl</ref><sp/>=<sp/>QUrl(<sp/>child.attribute(<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;url&quot;</highlight><highlight class="normal"><sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>guid<sp/>element<sp/>is<sp/>optional<sp/>in<sp/>RSS<sp/>feeds,<sp/>fall<sp/>back<sp/>to<sp/>the<sp/>item<sp/>URL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>item.<ref refid="classQfNewsItem_1a7728b46f1bb334080c43158117dfd8a0" kindref="member">uuid</ref>.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>item.<ref refid="classQfNewsItem_1a7728b46f1bb334080c43158117dfd8a0" kindref="member">uuid</ref><sp/>=<sp/>item.<ref refid="classQfNewsItem_1adcaa48354f9536e4316f6d812eb7f5e8" kindref="member">url</ref>.toString();</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!item.<ref refid="classQfNewsItem_1a7728b46f1bb334080c43158117dfd8a0" kindref="member">uuid</ref>.isEmpty()<sp/>&amp;&amp;<sp/>!item.<ref refid="classQfNewsItem_1a5b0a7623c8bb1b3b85b4a8558855cb51" kindref="member">title</ref>.isEmpty()<sp/>&amp;&amp;<sp/>item.<ref refid="classQfNewsItem_1a291538856bc0f85fef293e236d918eee" kindref="member">publicationDate</ref>.isValid()<sp/>)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>items<sp/>&lt;&lt;<sp/>item;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>items;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal">QString<sp/>QfNewsParser::cacheFilePath()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="199"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>urlHash<sp/>=<sp/>QCryptographicHash::hash(<sp/>mFeedUrl.toString().toUtf8(),<sp/>QCryptographicHash::Sha256<sp/>).toHex();</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/news/%2.xml&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>QStandardPaths::writableLocation(<sp/>QStandardPaths::AppConfigLocation<sp/>),<sp/>urlHash<sp/>);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>QfNewsParser::clearItems()</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mItems.isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>mItems.clear();</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classQfNewsParser_1ac25416bf00b52025fa5b85541a6e4c09" kindref="member">itemsChanged</ref>();</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>QfNewsParser::updateItems(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QfNewsItem&gt;<sp/>&amp;feedItems<sp/>)</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>QSettings<sp/>settings;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QStringList<sp/>dismissedUuids<sp/>=<sp/>settings.value(<sp/><ref refid="classQfNewsParser_1af8b2a0f191d00016f6caa9ac121830f2" kindref="member">DISMISSED_UUIDS_SETTINGS_KEY</ref><sp/>).toStringList();</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>QList&lt;QfNewsItem&gt;<sp/>items;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>QStringList<sp/>feedDismissedUuids;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref><sp/>&amp;item<sp/>:<sp/>feedItems<sp/>)</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>dismissedUuids.contains(<sp/>item.<ref refid="classQfNewsItem_1a7728b46f1bb334080c43158117dfd8a0" kindref="member">uuid</ref><sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>feedDismissedUuids<sp/>&lt;&lt;<sp/>item.<ref refid="classQfNewsItem_1a7728b46f1bb334080c43158117dfd8a0" kindref="member">uuid</ref>;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>item.<ref refid="classQfNewsItem_1a291538856bc0f85fef293e236d918eee" kindref="member">publicationDate</ref>.daysTo(<sp/>QDateTime::currentDateTime()<sp/>)<sp/>&lt;=<sp/>MAXIMUM_AGE_DAYS<sp/>)</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>items<sp/>&lt;&lt;<sp/>item;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Forget<sp/>dismissed<sp/>items<sp/>that<sp/>are<sp/>no<sp/>longer<sp/>part<sp/>of<sp/>the<sp/>feed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>feedDismissedUuids.size()<sp/>!=<sp/>dismissedUuids.size()<sp/>)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>settings.setValue(<sp/><ref refid="classQfNewsParser_1af8b2a0f191d00016f6caa9ac121830f2" kindref="member">DISMISSED_UUIDS_SETTINGS_KEY</ref>,<sp/>feedDismissedUuids<sp/>);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>std::sort(<sp/>items.begin(),<sp/>items.end(),<sp/>[](<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref><sp/>&amp;a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref><sp/>&amp;b<sp/>)<sp/>{<sp/>return<sp/>a.publicationDate<sp/>&gt;<sp/>b.publicationDate;<sp/>}<sp/>);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mItems<sp/>!=<sp/>items<sp/>)</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>mItems<sp/>=<sp/>items;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classQfNewsParser_1ac25416bf00b52025fa5b85541a6e4c09" kindref="member">itemsChanged</ref>();</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfnewsparser.cpp"/>
+  </compounddef>
+</doxygen>

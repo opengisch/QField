@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfNetworkManager" kind="class" language="C++" prot="public">
+    <compoundname>QfNetworkManager</compoundname>
+    <includes refid="qfnetworkmanager_8h" local="no">qfnetworkmanager.h</includes>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfNetworkManager_1a9b33522180bbbef313bbc69f82b656b5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> *</type>
+        <definition>QfNetworkReply * QfNetworkManager::get</definition>
+        <argsstring>(const QNetworkRequest &amp;request)</argsstring>
+        <name>get</name>
+        <qualifiedname>QfNetworkManager::get</qualifiedname>
+        <param>
+          <type>const QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>makes HTTP GET <emphasis>request</emphasis> and returns a reply. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkmanager.h" line="40" column="27" bodyfile="src/core/qfieldcloud/qfnetworkmanager.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkManager_1a6912fc63d412f03834c1c976be4d319d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> *</type>
+        <definition>QfNetworkReply * QfNetworkManager::post</definition>
+        <argsstring>(const QNetworkRequest &amp;request, const QByteArray &amp;payload=QByteArray())</argsstring>
+        <name>post</name>
+        <qualifiedname>QfNetworkManager::post</qualifiedname>
+        <param>
+          <type>const QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>payload</declname>
+          <defval>QByteArray()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>makes HTTP POST <emphasis>request</emphasis> with an optional <emphasis>payload</emphasis> and returns a reply </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkmanager.h" line="46" column="27" bodyfile="src/core/qfieldcloud/qfnetworkmanager.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkManager_1ac18c57ca52ef8007c7e9053787a55a6a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> *</type>
+        <definition>QfNetworkReply * QfNetworkManager::post</definition>
+        <argsstring>(const QNetworkRequest &amp;request, QHttpMultiPart *payload)</argsstring>
+        <name>post</name>
+        <qualifiedname>QfNetworkManager::post</qualifiedname>
+        <param>
+          <type>const QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>QHttpMultiPart *</type>
+          <declname>payload</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>makes HTTP POST <emphasis>request</emphasis> with a multipart <emphasis>payload</emphasis> and returns a reply </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkmanager.h" line="52" column="27" bodyfile="src/core/qfieldcloud/qfnetworkmanager.cpp" bodystart="34" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkManager_1ab3913310b4bcf96f8877409d9f91bc99" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> *</type>
+        <definition>QfNetworkReply * QfNetworkManager::put</definition>
+        <argsstring>(const QNetworkRequest &amp;request, const QByteArray &amp;payload=QByteArray())</argsstring>
+        <name>put</name>
+        <qualifiedname>QfNetworkManager::put</qualifiedname>
+        <param>
+          <type>const QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>payload</declname>
+          <defval>QByteArray()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>makes HTTP PUT <emphasis>request</emphasis> with an optional <emphasis>payload</emphasis> and returns a reply </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkmanager.h" line="58" column="27" bodyfile="src/core/qfieldcloud/qfnetworkmanager.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkManager_1a9a43a116529850088618bc4959405d62" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> *</type>
+        <definition>QfNetworkReply * QfNetworkManager::put</definition>
+        <argsstring>(const QNetworkRequest &amp;request, QHttpMultiPart *payload)</argsstring>
+        <name>put</name>
+        <qualifiedname>QfNetworkManager::put</qualifiedname>
+        <param>
+          <type>const QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>QHttpMultiPart *</type>
+          <declname>payload</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>makes HTTP PUT <emphasis>request</emphasis> with a multipart <emphasis>payload</emphasis> and returns a reply </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkmanager.h" line="64" column="27" bodyfile="src/core/qfieldcloud/qfnetworkmanager.cpp" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNetworkManager_1adc698df245fed8dd813da5862f778588" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> *</type>
+        <definition>QfNetworkReply * QfNetworkManager::deleteResource</definition>
+        <argsstring>(const QNetworkRequest &amp;request, const QByteArray &amp;payload=QByteArray())</argsstring>
+        <name>deleteResource</name>
+        <qualifiedname>QfNetworkManager::deleteResource</qualifiedname>
+        <param>
+          <type>const QNetworkRequest &amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>const QByteArray &amp;</type>
+          <declname>payload</declname>
+          <defval>QByteArray()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>makes HTTP DELETE <emphasis>request</emphasis> with an optional <emphasis>payload</emphasis> and returns a reply </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfnetworkmanager.h" line="70" column="27" bodyfile="src/core/qfieldcloud/qfnetworkmanager.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classQfNetworkManager" kindref="compound">QfNetworkManager</ref> is used to make reliable and retriable network requests. It wraps around <computeroutput>QgsNetworkAccessManager</computeroutput>. <simplesect kind="note"><para>After the request has finished, it is the responsibility of the user to delete the <ref refid="classQfNetworkReply" kindref="compound">QfNetworkReply</ref> object at an appropriate time. </para>
+</simplesect>
+<simplesect kind="note"><para>Do not directly delete it inside the slot connected to finished(). You can use the deleteLater() function. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/core/qfieldcloud/qfnetworkmanager.h" line="34" column="1" bodyfile="src/core/qfieldcloud/qfnetworkmanager.h" bodystart="35" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classQfNetworkManager_1adc698df245fed8dd813da5862f778588" prot="public" virt="non-virtual"><scope>QfNetworkManager</scope><name>deleteResource</name></member>
+      <member refid="classQfNetworkManager_1a9b33522180bbbef313bbc69f82b656b5" prot="public" virt="non-virtual"><scope>QfNetworkManager</scope><name>get</name></member>
+      <member refid="classQfNetworkManager_1a6912fc63d412f03834c1c976be4d319d" prot="public" virt="non-virtual"><scope>QfNetworkManager</scope><name>post</name></member>
+      <member refid="classQfNetworkManager_1ac18c57ca52ef8007c7e9053787a55a6a" prot="public" virt="non-virtual"><scope>QfNetworkManager</scope><name>post</name></member>
+      <member refid="classQfNetworkManager_1ab3913310b4bcf96f8877409d9f91bc99" prot="public" virt="non-virtual"><scope>QfNetworkManager</scope><name>put</name></member>
+      <member refid="classQfNetworkManager_1a9a43a116529850088618bc4959405d62" prot="public" virt="non-virtual"><scope>QfNetworkManager</scope><name>put</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

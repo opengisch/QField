@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_952e15d753357bc11da55d627a96f3ed" kind="dir">
+    <compoundname>src/core/locator</compoundname>
+    <innerfile refid="qfactivelayerfeatureslocatorfilter_8cpp">qfactivelayerfeatureslocatorfilter.cpp</innerfile>
+    <innerfile refid="qfactivelayerfeatureslocatorfilter_8h">qfactivelayerfeatureslocatorfilter.h</innerfile>
+    <innerfile refid="qfbookmarklocatorfilter_8cpp">qfbookmarklocatorfilter.cpp</innerfile>
+    <innerfile refid="qfbookmarklocatorfilter_8h">qfbookmarklocatorfilter.h</innerfile>
+    <innerfile refid="qfexpressioncalculatorlocatorfilter_8cpp">qfexpressioncalculatorlocatorfilter.cpp</innerfile>
+    <innerfile refid="qfexpressioncalculatorlocatorfilter_8h">qfexpressioncalculatorlocatorfilter.h</innerfile>
+    <innerfile refid="qffeatureslocatorfilter_8cpp">qffeatureslocatorfilter.cpp</innerfile>
+    <innerfile refid="qffeatureslocatorfilter_8h">qffeatureslocatorfilter.h</innerfile>
+    <innerfile refid="qffinlandlocatorfilter_8cpp">qffinlandlocatorfilter.cpp</innerfile>
+    <innerfile refid="qffinlandlocatorfilter_8h">qffinlandlocatorfilter.h</innerfile>
+    <innerfile refid="qfgotolocatorfilter_8cpp">qfgotolocatorfilter.cpp</innerfile>
+    <innerfile refid="qfgotolocatorfilter_8h">qfgotolocatorfilter.h</innerfile>
+    <innerfile refid="qfhelplocatorfilter_8cpp">qfhelplocatorfilter.cpp</innerfile>
+    <innerfile refid="qfhelplocatorfilter_8h">qfhelplocatorfilter.h</innerfile>
+    <innerfile refid="qflocatorfilter_8cpp">qflocatorfilter.cpp</innerfile>
+    <innerfile refid="qflocatorfilter_8h">qflocatorfilter.h</innerfile>
+    <innerfile refid="qflocatormodelsuperbridge_8cpp">qflocatormodelsuperbridge.cpp</innerfile>
+    <innerfile refid="qflocatormodelsuperbridge_8h">qflocatormodelsuperbridge.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/locator/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfEgenioussReceiver" kind="class" language="C++" prot="public">
+    <compoundname>QfEgenioussReceiver</compoundname>
+    <basecompoundref refid="classQfAbstractGnssReceiver" prot="public" virt="non-virtual">QfAbstractGnssReceiver</basecompoundref>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classQfEgenioussReceiver_1ac47d3e837ab4b6b6cb403a9b4ae7d662" prot="public" static="yes" mutable="no">
+        <type>QLatin1String</type>
+        <definition>QLatin1String QfEgenioussReceiver::identifier</definition>
+        <argsstring></argsstring>
+        <name>identifier</name>
+        <qualifiedname>QfEgenioussReceiver::identifier</qualifiedname>
+        <initializer>= QLatin1String( &quot;egeniouss&quot; )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="39" column="26" bodyfile="src/core/positioning/qfegenioussreceiver.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfEgenioussReceiver_1a580ac6a4d42c73661e7aca06f73f3590" prot="private" static="no" mutable="no">
+        <type>QTcpSocket *</type>
+        <definition>QTcpSocket* QfEgenioussReceiver::mTcpSocket</definition>
+        <argsstring></argsstring>
+        <name>mTcpSocket</name>
+        <qualifiedname>QfEgenioussReceiver::mTcpSocket</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="54" column="16" bodyfile="src/core/positioning/qfegenioussreceiver.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEgenioussReceiver_1ac4fdc3414fc44da2f9dcc2ac599ef637" prot="private" static="no" mutable="no">
+        <type>QJsonObject</type>
+        <definition>QJsonObject QfEgenioussReceiver::mPayload</definition>
+        <argsstring></argsstring>
+        <name>mPayload</name>
+        <qualifiedname>QfEgenioussReceiver::mPayload</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="55" column="17" bodyfile="src/core/positioning/qfegenioussreceiver.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEgenioussReceiver_1a7ca376e267eb93c9b5f75d50e90270e0" prot="private" static="no" mutable="no">
+        <type>const QHostAddress</type>
+        <definition>const QHostAddress QfEgenioussReceiver::mAddress</definition>
+        <argsstring></argsstring>
+        <name>mAddress</name>
+        <qualifiedname>QfEgenioussReceiver::mAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="56" column="24" bodyfile="src/core/positioning/qfegenioussreceiver.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfEgenioussReceiver_1ae952b4cfeac1d7ca32d2fe412f87ea5a" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int QfEgenioussReceiver::mPort</definition>
+        <argsstring></argsstring>
+        <name>mPort</name>
+        <qualifiedname>QfEgenioussReceiver::mPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="57" column="15" bodyfile="src/core/positioning/qfegenioussreceiver.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfEgenioussReceiver_1a09cdd90bd2d292ce7a9d5a40b93c7613" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfEgenioussReceiver::QfEgenioussReceiver</definition>
+        <argsstring>(const QString &amp;address=QString(), const int port=0, QObject *parent=nullptr)</argsstring>
+        <name>QfEgenioussReceiver</name>
+        <qualifiedname>QfEgenioussReceiver::QfEgenioussReceiver</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>port</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="34" column="14" bodyfile="src/core/positioning/qfegenioussreceiver.cpp" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfEgenioussReceiver_1a51334cb8e1e60f16c087c39ab1a7842c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfEgenioussReceiver::~QfEgenioussReceiver</definition>
+        <argsstring>() override</argsstring>
+        <name>~QfEgenioussReceiver</name>
+        <qualifiedname>QfEgenioussReceiver::~QfEgenioussReceiver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="35" column="5" bodyfile="src/core/positioning/qfegenioussreceiver.cpp" bodystart="40" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfEgenioussReceiver_1ad131e57ae5112bacfdb74858e80827ee" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classQfGnssPositionDetails" kindref="compound">QfGnssPositionDetails</ref></type>
+        <definition>QfGnssPositionDetails QfEgenioussReceiver::details</definition>
+        <argsstring>() const override</argsstring>
+        <name>details</name>
+        <qualifiedname>QfEgenioussReceiver::details</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1aa14976ad83a9cbb9cbace60afc0aca1b">details</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns extra details (such as hdop, vdop, pdop) provided by the positioning device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="37" column="27" bodyfile="src/core/positioning/qfegenioussreceiver.cpp" bodystart="86" bodyend="120"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfEgenioussReceiver_1a9264fb76741b6e1b76f5c313d4c1e145" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfEgenioussReceiver::handleConnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleConnectDevice</name>
+        <qualifiedname>QfEgenioussReceiver::handleConnectDevice</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1ab9f5973a983d7cd8cb88cacd5bc0be19">handleConnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="42" column="10" bodyfile="src/core/positioning/qfegenioussreceiver.cpp" bodystart="46" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfEgenioussReceiver_1a701704594129216be07994f109875cf3" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void QfEgenioussReceiver::handleDisconnectDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>handleDisconnectDevice</name>
+        <qualifiedname>QfEgenioussReceiver::handleDisconnectDevice</qualifiedname>
+        <reimplements refid="classQfAbstractGnssReceiver_1a5ab9458d00d4521488b13c7d7788ef8c">handleDisconnectDevice</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="43" column="10" bodyfile="src/core/positioning/qfegenioussreceiver.cpp" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfEgenioussReceiver_1ab9f65c74dba35a5d964d84eb079fa1ca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfEgenioussReceiver::processReceivedData</definition>
+        <argsstring>()</argsstring>
+        <name>processReceivedData</name>
+        <qualifiedname>QfEgenioussReceiver::processReceivedData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="50" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfEgenioussReceiver_1adac1298a43883390685f0691716825a4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfEgenioussReceiver::handleErrorMessage</definition>
+        <argsstring>(const QString &amp;errorMessage)</argsstring>
+        <name>handleErrorMessage</name>
+        <qualifiedname>QfEgenioussReceiver::handleErrorMessage</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>errorMessage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="51" column="10" bodyfile="src/core/positioning/qfegenioussreceiver.cpp" bodystart="80" bodyend="84"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfEgenioussReceiver_1add36ae8d7f3b77917749ee54971dfdc3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfEgenioussReceiver::onReadyRead</definition>
+        <argsstring>()</argsstring>
+        <name>onReadyRead</name>
+        <qualifiedname>QfEgenioussReceiver::onReadyRead</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="46" column="10" bodyfile="src/core/positioning/qfegenioussreceiver.cpp" bodystart="122" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfEgenioussReceiver_1a50fd1a7d1552da89b634d2eb80e44faa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfEgenioussReceiver::handleError</definition>
+        <argsstring>(QAbstractSocket::SocketError error)</argsstring>
+        <name>handleError</name>
+        <qualifiedname>QfEgenioussReceiver::handleError</qualifiedname>
+        <param>
+          <type>QAbstractSocket::SocketError</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfegenioussreceiver.h" line="47" column="10" bodyfile="src/core/positioning/qfegenioussreceiver.cpp" bodystart="201" bodyend="221"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="2">
+        <label>QfAbstractGnssReceiver</label>
+        <link refid="classQfAbstractGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEgenioussReceiver</label>
+        <link refid="classQfEgenioussReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QObject</label>
+      </node>
+      <node id="2">
+        <label>QfAbstractGnssReceiver</label>
+        <link refid="classQfAbstractGnssReceiver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfEgenioussReceiver</label>
+        <link refid="classQfEgenioussReceiver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/qfegenioussreceiver.h" line="29" column="1" bodyfile="src/core/positioning/qfegenioussreceiver.h" bodystart="30" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classQfAbstractGnssReceiver_1aac097e8d39901f49bfba6633783ce784" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>batteryLevel</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aa540bc95579e25facd7da0621a162cec" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>batteryLevelChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a218f865acbb5c095cda95a6709ea08ed" prot="public" virt="virtual"><scope>QfEgenioussReceiver</scope><name>capabilities</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>Capability</name></member>
+      <member refid="classQfAbstractGnssReceiver_1acd13344a5df00287f22cc4f1108b2505" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>connectDevice</name></member>
+      <member refid="classQfEgenioussReceiver_1ad131e57ae5112bacfdb74858e80827ee" prot="public" virt="virtual"><scope>QfEgenioussReceiver</scope><name>details</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aa3a6cd080093891093d85fd6500320f0" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>disconnectDevice</name></member>
+      <member refid="classQfEgenioussReceiver_1a9264fb76741b6e1b76f5c313d4c1e145" prot="private" virt="virtual"><scope>QfEgenioussReceiver</scope><name>handleConnectDevice</name></member>
+      <member refid="classQfEgenioussReceiver_1a701704594129216be07994f109875cf3" prot="private" virt="virtual"><scope>QfEgenioussReceiver</scope><name>handleDisconnectDevice</name></member>
+      <member refid="classQfEgenioussReceiver_1a50fd1a7d1552da89b634d2eb80e44faa" prot="private" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>handleError</name></member>
+      <member refid="classQfEgenioussReceiver_1adac1298a43883390685f0691716825a4" prot="private" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>handleErrorMessage</name></member>
+      <member refid="classQfEgenioussReceiver_1ac47d3e837ab4b6b6cb403a9b4ae7d662" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>identifier</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a76c09326f896a708603bcd38ca07d927" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>lastError</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a2a24a6fe2fb4dd37c5d0a17e606fe77c" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>lastErrorChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a757b5533e1968510d599257e7e359d9a" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>lastGnssPositionInformation</name></member>
+      <member refid="classQfAbstractGnssReceiver_1aaf98efbbd5b1f4c3bfc153ec081a6cf7" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>lastGnssPositionInformationChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a32149f1fa2d70af22b8ea711b5f0f75e" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>Logging</name></member>
+      <member refid="classQfEgenioussReceiver_1a7ca376e267eb93c9b5f75d50e90270e0" prot="private" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>mAddress</name></member>
+      <member refid="classQfEgenioussReceiver_1ac4fdc3414fc44da2f9dcc2ac599ef637" prot="private" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>mPayload</name></member>
+      <member refid="classQfEgenioussReceiver_1ae952b4cfeac1d7ca32d2fe412f87ea5a" prot="private" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>mPort</name></member>
+      <member refid="classQfEgenioussReceiver_1a580ac6a4d42c73661e7aca06f73f3590" prot="private" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>mTcpSocket</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a8eb58b06d873c2e100d0b74ec9215238" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>NoCapabilities</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325af35004204d33f6a62fc45d6962ee2a58" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>NtripCorrection</name></member>
+      <member refid="classQfAbstractGnssReceiver_1ad33b1ed37c500b32a3b3e6bc2c11b969" prot="public" virt="virtual"><scope>QfEgenioussReceiver</scope><name>onCorrectionDataReceived</name></member>
+      <member refid="classQfEgenioussReceiver_1add36ae8d7f3b77917749ee54971dfdc3" prot="private" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>onReadyRead</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8bd9edcb5394a043712f95f8abd21325a73d1b405c90412d84b32ec9e03e32f55" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>OrthometricAltitude</name></member>
+      <member refid="classQfEgenioussReceiver_1ab9f65c74dba35a5d964d84eb079fa1ca" prot="private" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>processReceivedData</name></member>
+      <member refid="classQfAbstractGnssReceiver_1ab2303acc969f562c75ecabf988c64c62" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>QfAbstractGnssReceiver</name></member>
+      <member refid="classQfEgenioussReceiver_1a09cdd90bd2d292ce7a9d5a40b93c7613" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>QfEgenioussReceiver</name></member>
+      <member refid="classQfAbstractGnssReceiver_1af56b337ca8d29574f31d63892af25a07" prot="protected" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>setSocketState</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a2a6994043dce54d0ca8819344a88e234" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>setValid</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a8725d739983222c78dc93417c5afec45" prot="public" virt="virtual"><scope>QfEgenioussReceiver</scope><name>socketState</name></member>
+      <member refid="classQfAbstractGnssReceiver_1af2ed915f4e3a0db45e29fde997f84c1c" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>socketStateChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a95d28d113cc788e37d63bbef8a54fcef" prot="public" virt="virtual"><scope>QfEgenioussReceiver</scope><name>socketStateString</name></member>
+      <member refid="classQfAbstractGnssReceiver_1ab1b149cfbdd0c1d20cc4c2c055eecb05" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>socketStateStringChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1add322c32a7897bba08ddd8f6aeec0e34" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>startLogging</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a0b03f384c24e5b473352d8c2de0dec23" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>stopLogging</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a28ca8d6d79d1394da7b0e79521a0a845" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>valid</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a26ee820f395b20f02ed32629d1dbb5c1" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>validChanged</name></member>
+      <member refid="classQfAbstractGnssReceiver_1a49b0d1da3fa61943bc6687f07b7b6f0f" prot="public" virt="virtual"><scope>QfEgenioussReceiver</scope><name>~QfAbstractGnssReceiver</name></member>
+      <member refid="classQfEgenioussReceiver_1a51334cb8e1e60f16c087c39ab1a7842c" prot="public" virt="non-virtual"><scope>QfEgenioussReceiver</scope><name>~QfEgenioussReceiver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,363 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfSubtitleWriter" kind="class" language="C++" prot="public">
+    <compoundname>QfSubtitleWriter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfsubtitlewriter_8h" local="no">qfsubtitlewriter.h</includes>
+    <innerclass refid="structQfSubtitleWriter_1_1Cue" prot="private">QfSubtitleWriter::Cue</innerclass>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfSubtitleWriter_1a2908dd254d31966c1f59f1ee5e8fa7d3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfSubtitleWriter::minimumCueDuration</definition>
+        <argsstring></argsstring>
+        <name>minimumCueDuration</name>
+        <qualifiedname>QfSubtitleWriter::minimumCueDuration</qualifiedname>
+        <read>minimumCueDuration</read>
+        <write>setMinimumCueDuration</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="44" column="5" bodyfile="src/core/qfsubtitlewriter.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfSubtitleWriter_1a76c4116cce5c434917bf3e42977e1dc6" prot="private" static="no" mutable="no">
+        <type>QVector&lt; Cue &gt;</type>
+        <definition>QVector&lt;Cue&gt; QfSubtitleWriter::mCues</definition>
+        <argsstring></argsstring>
+        <name>mCues</name>
+        <qualifiedname>QfSubtitleWriter::mCues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="99" column="13" bodyfile="src/core/qfsubtitlewriter.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSubtitleWriter_1ac00b2e6cac5572b4ce81d130873f28fb" prot="private" static="no" mutable="no">
+        <type>Cue</type>
+        <definition>Cue QfSubtitleWriter::mOpenCue</definition>
+        <argsstring></argsstring>
+        <name>mOpenCue</name>
+        <qualifiedname>QfSubtitleWriter::mOpenCue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="100" column="9" bodyfile="src/core/qfsubtitlewriter.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSubtitleWriter_1a0d8006c49d4b47c939b84599d1b742bb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfSubtitleWriter::mHasOpenCue</definition>
+        <argsstring></argsstring>
+        <name>mHasOpenCue</name>
+        <qualifiedname>QfSubtitleWriter::mHasOpenCue</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="101" column="10" bodyfile="src/core/qfsubtitlewriter.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfSubtitleWriter_1ab10143fe59e69dc2d67e001475fbc321" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfSubtitleWriter::mMinimumCueDuration</definition>
+        <argsstring></argsstring>
+        <name>mMinimumCueDuration</name>
+        <qualifiedname>QfSubtitleWriter::mMinimumCueDuration</qualifiedname>
+        <initializer>= 500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="102" column="9" bodyfile="src/core/qfsubtitlewriter.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfSubtitleWriter_1afde5786b4286c9c2aef7f0cfdb5d5741" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfSubtitleWriter::QfSubtitleWriter</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfSubtitleWriter</name>
+        <qualifiedname>QfSubtitleWriter::QfSubtitleWriter</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="47" column="14" bodyfile="src/core/qfsubtitlewriter.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubtitleWriter_1a9c987149a1c1128d41f7118a0f001a34" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfSubtitleWriter::minimumCueDuration</definition>
+        <argsstring>() const</argsstring>
+        <name>minimumCueDuration</name>
+        <qualifiedname>QfSubtitleWriter::minimumCueDuration</qualifiedname>
+        <briefdescription>
+<para>Returns the shortest duration in milliseconds an individual cue may have. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="50" column="9" bodyfile="src/core/qfsubtitlewriter.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubtitleWriter_1a8ac569b55217c092fd23044531eb17a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubtitleWriter::setMinimumCueDuration</definition>
+        <argsstring>(int duration)</argsstring>
+        <name>setMinimumCueDuration</name>
+        <qualifiedname>QfSubtitleWriter::setMinimumCueDuration</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>duration</declname>
+        </param>
+        <briefdescription>
+<para>Sets the shortest <emphasis>duration</emphasis> in milliseconds an individual cue may have. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="53" column="10" bodyfile="src/core/qfsubtitlewriter.cpp" bodystart="32" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubtitleWriter_1a04871563c2188382d072f9c1dc2e2839" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfSubtitleWriter::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QfSubtitleWriter::clear</qualifiedname>
+        <briefdescription>
+<para>Drops every cue, returning the writer to its initial state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="56" column="22" bodyfile="src/core/qfsubtitlewriter.cpp" bodystart="45" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubtitleWriter_1a1a9330cdacd2caae9023205b8de35524" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfSubtitleWriter::addCue</definition>
+        <argsstring>(qint64 elapsedTime, const QString &amp;text)</argsstring>
+        <name>addCue</name>
+        <qualifiedname>QfSubtitleWriter::addCue</qualifiedname>
+        <param>
+          <type>qint64</type>
+          <declname>elapsedTime</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Records <emphasis>text</emphasis> as being valid from <emphasis>elapsedTime</emphasis> milliseconds onwards.</para>
+<para>Passing the text the open cue already holds does nothing, which is what stops an unchanging value from producing a stream of identical cues. An empty <emphasis>text</emphasis> closes the open cue without starting a new one, leaving a gap in the track. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="65" column="22" bodyfile="src/core/qfsubtitlewriter.cpp" bodystart="52" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubtitleWriter_1a6b2a455c319b0101b3c5288d68fc79f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfSubtitleWriter::write</definition>
+        <argsstring>(const QString &amp;mediaFilePath, qint64 endTime)</argsstring>
+        <name>write</name>
+        <qualifiedname>QfSubtitleWriter::write</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mediaFilePath</declname>
+        </param>
+        <param>
+          <type>qint64</type>
+          <declname>endTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes the cues as a SubRip file next to <emphasis>mediaFilePath</emphasis>, closing the open cue at <emphasis>endTime</emphasis> milliseconds. Returns FALSE and writes no file when there is nothing to write. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="72" column="22" bodyfile="src/core/qfsubtitlewriter.cpp" bodystart="125" bodyend="153"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classQfSubtitleWriter_1a20fca894297ba4b8be2d851abd12f889" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfSubtitleWriter::subtitleFilePath</definition>
+        <argsstring>(const QString &amp;mediaFilePath)</argsstring>
+        <name>subtitleFilePath</name>
+        <qualifiedname>QfSubtitleWriter::subtitleFilePath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mediaFilePath</declname>
+        </param>
+        <briefdescription>
+<para>Returns <emphasis>mediaFilePath</emphasis> with its suffix replaced by .srt. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="75" column="20" bodyfile="src/core/qfsubtitlewriter.cpp" bodystart="155" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubtitleWriter_1a9d6d1a7a98661d81a795f2be5fdf2b17" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfSubtitleWriter::formatTimestamp</definition>
+        <argsstring>(qint64 milliseconds)</argsstring>
+        <name>formatTimestamp</name>
+        <qualifiedname>QfSubtitleWriter::formatTimestamp</qualifiedname>
+        <param>
+          <type>qint64</type>
+          <declname>milliseconds</declname>
+        </param>
+        <briefdescription>
+<para>Returns <emphasis>milliseconds</emphasis> as a SubRip timestamp, HH:MM:SS,zzz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="78" column="20" bodyfile="src/core/qfsubtitlewriter.cpp" bodystart="176" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubtitleWriter_1ab8d221480d7824ba6cf29751c8a5ccd1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfSubtitleWriter::sanitizeCueText</definition>
+        <argsstring>(const QString &amp;text)</argsstring>
+        <name>sanitizeCueText</name>
+        <qualifiedname>QfSubtitleWriter::sanitizeCueText</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Returns <emphasis>text</emphasis> with line endings normalized and blank lines removed, as a blank line would end the cue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="81" column="20" bodyfile="src/core/qfsubtitlewriter.cpp" bodystart="192" bodyend="201"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfSubtitleWriter_1aa71035344e4c0e111706c2af8825c5b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubtitleWriter::minimumCueDurationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>minimumCueDurationChanged</name>
+        <qualifiedname>QfSubtitleWriter::minimumCueDurationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="84" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfSubtitleWriter_1a0b883f39a9c5812f805f7eb3ca81ce19" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfSubtitleWriter::closeOpenCue</definition>
+        <argsstring>(qint64 endTime)</argsstring>
+        <name>closeOpenCue</name>
+        <qualifiedname>QfSubtitleWriter::closeOpenCue</qualifiedname>
+        <param>
+          <type>qint64</type>
+          <declname>endTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="94" column="10" bodyfile="src/core/qfsubtitlewriter.cpp" bodystart="94" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfSubtitleWriter_1a0ad873803c4a7e774743521309259a04" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfSubtitleWriter::toString</definition>
+        <argsstring>() const</argsstring>
+        <name>toString</name>
+        <qualifiedname>QfSubtitleWriter::toString</qualifiedname>
+        <briefdescription>
+<para>Returns the SubRip text of the closed cues. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfsubtitlewriter.h" line="97" column="13" bodyfile="src/core/qfsubtitlewriter.cpp" bodystart="106" bodyend="123"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Collects timed text and writes it out as a SubRip (.srt) subtitle file. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The writer holds a single open cue and closes it only when the text changes, so a caller can feed it every update without filtering out repetitions. Changes arriving faster than minimumCueDuration() are folded into the open cue instead of producing subtitles too short to read.</para>
+<para>The caller owns the clock: it passes the elapsed time of every cue and the final duration to <ref refid="classQfSubtitleWriter_1a6b2a455c319b0101b3c5288d68fc79f8" kindref="member">write()</ref>, which keeps the cue timeline expressed against the media itself. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfSubtitleWriter</label>
+        <link refid="classQfSubtitleWriter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfSubtitleWriter</label>
+        <link refid="classQfSubtitleWriter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfsubtitlewriter.h" line="40" column="1" bodyfile="src/core/qfsubtitlewriter.h" bodystart="41" bodyend="103"/>
+    <listofallmembers>
+      <member refid="classQfSubtitleWriter_1a1a9330cdacd2caae9023205b8de35524" prot="public" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>addCue</name></member>
+      <member refid="classQfSubtitleWriter_1a04871563c2188382d072f9c1dc2e2839" prot="public" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>clear</name></member>
+      <member refid="classQfSubtitleWriter_1a0b883f39a9c5812f805f7eb3ca81ce19" prot="private" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>closeOpenCue</name></member>
+      <member refid="classQfSubtitleWriter_1a9d6d1a7a98661d81a795f2be5fdf2b17" prot="public" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>formatTimestamp</name></member>
+      <member refid="classQfSubtitleWriter_1a76c4116cce5c434917bf3e42977e1dc6" prot="private" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>mCues</name></member>
+      <member refid="classQfSubtitleWriter_1a0d8006c49d4b47c939b84599d1b742bb" prot="private" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>mHasOpenCue</name></member>
+      <member refid="classQfSubtitleWriter_1a2908dd254d31966c1f59f1ee5e8fa7d3" prot="public" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>minimumCueDuration</name></member>
+      <member refid="classQfSubtitleWriter_1a9c987149a1c1128d41f7118a0f001a34" prot="public" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>minimumCueDuration</name></member>
+      <member refid="classQfSubtitleWriter_1aa71035344e4c0e111706c2af8825c5b1" prot="public" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>minimumCueDurationChanged</name></member>
+      <member refid="classQfSubtitleWriter_1ab10143fe59e69dc2d67e001475fbc321" prot="private" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>mMinimumCueDuration</name></member>
+      <member refid="classQfSubtitleWriter_1ac00b2e6cac5572b4ce81d130873f28fb" prot="private" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>mOpenCue</name></member>
+      <member refid="classQfSubtitleWriter_1afde5786b4286c9c2aef7f0cfdb5d5741" prot="public" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>QfSubtitleWriter</name></member>
+      <member refid="classQfSubtitleWriter_1ab8d221480d7824ba6cf29751c8a5ccd1" prot="public" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>sanitizeCueText</name></member>
+      <member refid="classQfSubtitleWriter_1a8ac569b55217c092fd23044531eb17a4" prot="public" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>setMinimumCueDuration</name></member>
+      <member refid="classQfSubtitleWriter_1a20fca894297ba4b8be2d851abd12f889" prot="public" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>subtitleFilePath</name></member>
+      <member refid="classQfSubtitleWriter_1a0ad873803c4a7e774743521309259a04" prot="private" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>toString</name></member>
+      <member refid="classQfSubtitleWriter_1a6b2a455c319b0101b3c5288d68fc79f8" prot="public" virt="non-virtual"><scope>QfSubtitleWriter</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

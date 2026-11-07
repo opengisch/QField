@@ -1,0 +1,903 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfDigitizingLogger" kind="class" language="C++" prot="public">
+    <compoundname>QfDigitizingLogger</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfDigitizingLogger_1a17c5a2499f825a814227fff354d2bd66" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfDigitizingLogger::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>QfDigitizingLogger::type</qualifiedname>
+        <read>type</read>
+        <write>setType</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="36" column="5" bodyfile="src/core/qfdigitizinglogger.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingLogger_1a8b5325d54764cefc256d0c23c193de48" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfDigitizingLogger::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QfDigitizingLogger::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="37" column="5" bodyfile="src/core/qfdigitizinglogger.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingLogger_1a092b1be2462ddf7dc3dade8e468daeec" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfDigitizingLogger::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfDigitizingLogger::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="38" column="5" bodyfile="src/core/qfdigitizinglogger.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingLogger_1a1fdfa84bc7c5ecda0743928005d39c2c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfDigitizingLogger::digitizingLayer</definition>
+        <argsstring></argsstring>
+        <name>digitizingLayer</name>
+        <qualifiedname>QfDigitizingLogger::digitizingLayer</qualifiedname>
+        <read>digitizingLayer</read>
+        <write>setDigitizingLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="39" column="5" bodyfile="src/core/qfdigitizinglogger.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingLogger_1a95a5129caf2af17333c4507f12eeb6a9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref></type>
+        <definition>QfGnssPositionInformation QfDigitizingLogger::positionInformation</definition>
+        <argsstring></argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>QfDigitizingLogger::positionInformation</qualifiedname>
+        <read>positionInformation</read>
+        <write>setPositionInformation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="40" column="5" bodyfile="src/core/qfdigitizinglogger.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingLogger_1a1b76db7706a5c3a4ebb2ef05fbf24744" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfDigitizingLogger::positionLocked</definition>
+        <argsstring></argsstring>
+        <name>positionLocked</name>
+        <qualifiedname>QfDigitizingLogger::positionLocked</qualifiedname>
+        <read>positionLocked</read>
+        <write>setPositionLocked</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="41" column="5" bodyfile="src/core/qfdigitizinglogger.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingLogger_1aa79e736ff4e1fd12c94bd920cbb01f24" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref></type>
+        <definition>QfSnappingResult QfDigitizingLogger::topSnappingResult</definition>
+        <argsstring></argsstring>
+        <name>topSnappingResult</name>
+        <qualifiedname>QfDigitizingLogger::topSnappingResult</qualifiedname>
+        <read>topSnappingResult</read>
+        <write>setTopSnappingResult</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="42" column="5" bodyfile="src/core/qfdigitizinglogger.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfDigitizingLogger_1ae17d85fdca8aada79666e0010ac613f4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref></type>
+        <definition>QfCloudUserInformation QfDigitizingLogger::cloudUserInformation</definition>
+        <argsstring></argsstring>
+        <name>cloudUserInformation</name>
+        <qualifiedname>QfDigitizingLogger::cloudUserInformation</qualifiedname>
+        <read>cloudUserInformation</read>
+        <write>setCloudUserInformation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="43" column="5" bodyfile="src/core/qfdigitizinglogger.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfDigitizingLogger_1a23c81a52f6b83d6f17097521bfd6a5ae" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfDigitizingLogger::mType</definition>
+        <argsstring></argsstring>
+        <name>mType</name>
+        <qualifiedname>QfDigitizingLogger::mType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="158" column="13" bodyfile="src/core/qfdigitizinglogger.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLogger_1a89b8aab0078b4383c6062e9b57eb7abe" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QfDigitizingLogger::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QfDigitizingLogger::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="160" column="16" bodyfile="src/core/qfdigitizinglogger.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLogger_1a3eb0ec02ceb176281009c99a4b4fac68" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfDigitizingLogger::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfDigitizingLogger::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="161" column="25" bodyfile="src/core/qfdigitizinglogger.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLogger_1a2b588640d3561322afe3e67c1642e653" prot="private" static="no" mutable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer* QfDigitizingLogger::mLogsLayer</definition>
+        <argsstring></argsstring>
+        <name>mLogsLayer</name>
+        <qualifiedname>QfDigitizingLogger::mLogsLayer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="162" column="20" bodyfile="src/core/qfdigitizinglogger.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLogger_1a0858a2c0b4cf75bf9440a19e86c6cd08" prot="private" static="no" mutable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer* QfDigitizingLogger::mDigitizingLayer</definition>
+        <argsstring></argsstring>
+        <name>mDigitizingLayer</name>
+        <qualifiedname>QfDigitizingLogger::mDigitizingLayer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="163" column="20" bodyfile="src/core/qfdigitizinglogger.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLogger_1ac238050a2e81b2090b03e477d7e51ac0" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref></type>
+        <definition>QfGnssPositionInformation QfDigitizingLogger::mPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>mPositionInformation</name>
+        <qualifiedname>QfDigitizingLogger::mPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="165" column="31" bodyfile="src/core/qfdigitizinglogger.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLogger_1a3b1bc2157337838b34b4709553af2a2c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfDigitizingLogger::mPositionLocked</definition>
+        <argsstring></argsstring>
+        <name>mPositionLocked</name>
+        <qualifiedname>QfDigitizingLogger::mPositionLocked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="166" column="10" bodyfile="src/core/qfdigitizinglogger.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLogger_1addc25ff3c137080be00fc9df637f432e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref></type>
+        <definition>QfSnappingResult QfDigitizingLogger::mTopSnappingResult</definition>
+        <argsstring></argsstring>
+        <name>mTopSnappingResult</name>
+        <qualifiedname>QfDigitizingLogger::mTopSnappingResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="167" column="22" bodyfile="src/core/qfdigitizinglogger.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLogger_1a44e3325cadc55f573d6cf5c4a4b1447b" prot="private" static="no" mutable="no">
+        <type><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref></type>
+        <definition>QfCloudUserInformation QfDigitizingLogger::mCloudUserInformation</definition>
+        <argsstring></argsstring>
+        <name>mCloudUserInformation</name>
+        <qualifiedname>QfDigitizingLogger::mCloudUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="168" column="28" bodyfile="src/core/qfdigitizinglogger.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLogger_1ab4b7da24b754c029db3fc7209514a28c" prot="private" static="no" mutable="no">
+        <type>QList&lt; QgsFeature &gt;</type>
+        <definition>QList&lt;QgsFeature&gt; QfDigitizingLogger::mPointFeatures</definition>
+        <argsstring></argsstring>
+        <name>mPointFeatures</name>
+        <qualifiedname>QfDigitizingLogger::mPointFeatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="170" column="11" bodyfile="src/core/qfdigitizinglogger.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfDigitizingLogger_1ab12b0657063e9dddcfb17af89fd73fca" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfDigitizingLogger::QfDigitizingLogger</definition>
+        <argsstring>()</argsstring>
+        <name>QfDigitizingLogger</name>
+        <qualifiedname>QfDigitizingLogger::QfDigitizingLogger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="46" column="14" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="26" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1aa35182f1348f28f25bcdef204d734ced" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfDigitizingLogger::type</definition>
+        <argsstring>() const</argsstring>
+        <name>type</name>
+        <qualifiedname>QfDigitizingLogger::type</qualifiedname>
+        <briefdescription>
+<para>Returns the digitizing logs type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="49" column="13" bodyfile="src/core/qfdigitizinglogger.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1ac1ca075a64d094337f9916483e820c14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::setType</definition>
+        <argsstring>(const QString &amp;type)</argsstring>
+        <name>setType</name>
+        <qualifiedname>QfDigitizingLogger::setType</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="55" column="10" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1a177660a78e39f2c93ae9435dc77d5f82" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfDigitizingLogger::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QfDigitizingLogger::project</qualifiedname>
+        <briefdescription>
+<para>Returns the current project from which the digitizing logs will be sought. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="58" column="16" bodyfile="src/core/qfdigitizinglogger.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1a136603cd571ba4ac553308b0722c8dd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QfDigitizingLogger::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>project</emphasis> used to find the digitizing logs layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="61" column="10" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="70" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1ab0d1e43d2e33ad93a215967c45a69266" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfDigitizingLogger::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfDigitizingLogger::mapSettings</qualifiedname>
+        <briefdescription>
+<para>Returns map settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="64" column="25" bodyfile="src/core/qfdigitizinglogger.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1a3be298b2ed0a47aea4845e5c9b56396a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfDigitizingLogger::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets map settings <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mapSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="70" column="10" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="93" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1a4e1a95dd62083c3b56230f1866fb6e8e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfDigitizingLogger::digitizingLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>digitizingLayer</name>
+        <qualifiedname>QfDigitizingLogger::digitizingLayer</qualifiedname>
+        <briefdescription>
+<para>Returns the current vector layer used to digitize features. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="73" column="20" bodyfile="src/core/qfdigitizinglogger.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1ac29b86fb82045fec0f291b9a847bec6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::setDigitizingLayer</definition>
+        <argsstring>(QgsVectorLayer *layer)</argsstring>
+        <name>setDigitizingLayer</name>
+        <qualifiedname>QfDigitizingLogger::setDigitizingLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+<para>Sets the current vector <emphasis>layer</emphasis> used to digitze features. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="76" column="10" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="110" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1ad536a04f70a183428e73b3c1d898ab82" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref></type>
+        <definition>QfGnssPositionInformation QfDigitizingLogger::positionInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>QfDigitizingLogger::positionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns position information generated by the TransformedPositionSource according to its provider </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="81" column="31" bodyfile="src/core/qfdigitizinglogger.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1a6ed924355cadb0aa19d5622ab6a78e4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::setPositionInformation</definition>
+        <argsstring>(const QfGnssPositionInformation &amp;positionInformation)</argsstring>
+        <name>setPositionInformation</name>
+        <qualifiedname>QfDigitizingLogger::setPositionInformation</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets position information generated by the TransformedPositionSource according to its provider <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>positionInformation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the position information </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="87" column="10" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="40" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1a847444b68e6bae7730bc3de173767fa0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfDigitizingLogger::positionLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>positionLocked</name>
+        <qualifiedname>QfDigitizingLogger::positionLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the position is locked to the GNSS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="92" column="10" bodyfile="src/core/qfdigitizinglogger.h" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1aca17d60686af2f14568e097c050c9809" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::setPositionLocked</definition>
+        <argsstring>(bool positionLocked)</argsstring>
+        <name>setPositionLocked</name>
+        <qualifiedname>QfDigitizingLogger::setPositionLocked</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>positionLocked</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the position is locked to the GNSS <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>positionLocked</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to TRUE if the position is locked </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="98" column="10" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="50" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1ac42cee7935ed0ad279fe2f144261a582" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref></type>
+        <definition>QfSnappingResult QfDigitizingLogger::topSnappingResult</definition>
+        <argsstring>() const</argsstring>
+        <name>topSnappingResult</name>
+        <qualifiedname>QfDigitizingLogger::topSnappingResult</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the top snapping result of the coordinate locator </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="103" column="22" bodyfile="src/core/qfdigitizinglogger.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1a5d30a16858d7a642e37c4dd63baed862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::setTopSnappingResult</definition>
+        <argsstring>(const QfSnappingResult &amp;topSnappingResult)</argsstring>
+        <name>setTopSnappingResult</name>
+        <qualifiedname>QfDigitizingLogger::setTopSnappingResult</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref> &amp;</type>
+          <declname>topSnappingResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the top snapping result of the coordinate locator <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>topSnappingResult</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the top snapping result object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="109" column="10" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="60" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1af5d34250b36ca85cc4006bf81d0a7583" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref></type>
+        <definition>QfCloudUserInformation QfDigitizingLogger::cloudUserInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>cloudUserInformation</name>
+        <qualifiedname>QfDigitizingLogger::cloudUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current cloud user information </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="114" column="28" bodyfile="src/core/qfdigitizinglogger.h" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1a1cc1337a3c55fb3a5891b372bb32a3bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::setCloudUserInformation</definition>
+        <argsstring>(const QfCloudUserInformation &amp;cloudUserInformation)</argsstring>
+        <name>setCloudUserInformation</name>
+        <qualifiedname>QfDigitizingLogger::setCloudUserInformation</qualifiedname>
+        <param>
+          <type>const <ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref> &amp;</type>
+          <declname>cloudUserInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current cloud user information <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cloudUserInformation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the cloud user information </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="120" column="10" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="103" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1ace07fabb7e2c78e9ae695c0155332adb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDigitizingLogger::addCoordinate</definition>
+        <argsstring>(const QgsPoint &amp;point)</argsstring>
+        <name>addCoordinate</name>
+        <qualifiedname>QfDigitizingLogger::addCoordinate</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a <emphasis>point</emphasis> into the digitizing logs&apos; buffer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="125" column="22" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="141" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1af4ec70b601e13c8eb833e25b1204f483" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDigitizingLogger::removeLastCoordinate</definition>
+        <argsstring>()</argsstring>
+        <name>removeLastCoordinate</name>
+        <qualifiedname>QfDigitizingLogger::removeLastCoordinate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the last point entered into the digitizing logs&apos; buffer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="130" column="22" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="210" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1a08d4030b23fc2e9b29b895d2740508ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDigitizingLogger::writeCoordinates</definition>
+        <argsstring>()</argsstring>
+        <name>writeCoordinates</name>
+        <qualifiedname>QfDigitizingLogger::writeCoordinates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes the points buffer to the digitizing logs layer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="135" column="22" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="216" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLogger_1aac7551140b55244a2ebd35df0d16fe5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfDigitizingLogger::clearCoordinates</definition>
+        <argsstring>()</argsstring>
+        <name>clearCoordinates</name>
+        <qualifiedname>QfDigitizingLogger::clearCoordinates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clear the points buffer from the digitizing logs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="140" column="22" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="247" bodyend="250"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfDigitizingLogger_1a8afd440623f821ec406c95733e4b2acf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::typeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>typeChanged</name>
+        <qualifiedname>QfDigitizingLogger::typeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="144" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingLogger_1a647a8190cba6068bd9bd175d4a0fdf69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QfDigitizingLogger::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="145" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingLogger_1ad25a87146c5194c978f68163087d944c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfDigitizingLogger::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="146" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingLogger_1a1f1dd91f408be6806f8b0c504a2c1313" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::digitizingLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>digitizingLayerChanged</name>
+        <qualifiedname>QfDigitizingLogger::digitizingLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="147" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingLogger_1ad01bf7a58f47234adca04186adc9e64c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::positionInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positionInformationChanged</name>
+        <qualifiedname>QfDigitizingLogger::positionInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="148" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingLogger_1a7c29d3252ba86947ee0feb034087623e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::positionLockedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positionLockedChanged</name>
+        <qualifiedname>QfDigitizingLogger::positionLockedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="149" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingLogger_1a39efe8a57e7fe3b373322a9b6e05211b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::topSnappingResultChanged</definition>
+        <argsstring>()</argsstring>
+        <name>topSnappingResultChanged</name>
+        <qualifiedname>QfDigitizingLogger::topSnappingResultChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="150" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingLogger_1a23fb50a715d89d24a5a79c1bc841da03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::currentCoordinateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>currentCoordinateChanged</name>
+        <qualifiedname>QfDigitizingLogger::currentCoordinateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="151" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingLogger_1a85ab9ee9af58a18f090d904e4a3757c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::cloudUserInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>cloudUserInformationChanged</name>
+        <qualifiedname>QfDigitizingLogger::cloudUserInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="152" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfDigitizingLogger_1af324d85b65eebab9a7093c443c26de43" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLogger::findLogsLayer</definition>
+        <argsstring>()</argsstring>
+        <name>findLogsLayer</name>
+        <qualifiedname>QfDigitizingLogger::findLogsLayer</qualifiedname>
+        <briefdescription>
+<para>Finds and link to the logs layer in present in the project. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglogger.h" line="156" column="10" bodyfile="src/core/qfdigitizinglogger.cpp" bodystart="120" bodyend="139"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfDigitizingLogger</label>
+        <link refid="classQfDigitizingLogger"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfDigitizingLogger</label>
+        <link refid="classQfDigitizingLogger"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfdigitizinglogger.h" line="32" column="1" bodyfile="src/core/qfdigitizinglogger.h" bodystart="33" bodyend="171"/>
+    <listofallmembers>
+      <member refid="classQfDigitizingLogger_1ace07fabb7e2c78e9ae695c0155332adb" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>addCoordinate</name></member>
+      <member refid="classQfDigitizingLogger_1aac7551140b55244a2ebd35df0d16fe5f" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>clearCoordinates</name></member>
+      <member refid="classQfDigitizingLogger_1ae17d85fdca8aada79666e0010ac613f4" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>cloudUserInformation</name></member>
+      <member refid="classQfDigitizingLogger_1af5d34250b36ca85cc4006bf81d0a7583" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>cloudUserInformation</name></member>
+      <member refid="classQfDigitizingLogger_1a85ab9ee9af58a18f090d904e4a3757c7" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>cloudUserInformationChanged</name></member>
+      <member refid="classQfDigitizingLogger_1a23fb50a715d89d24a5a79c1bc841da03" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>currentCoordinateChanged</name></member>
+      <member refid="classQfDigitizingLogger_1a1fdfa84bc7c5ecda0743928005d39c2c" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>digitizingLayer</name></member>
+      <member refid="classQfDigitizingLogger_1a4e1a95dd62083c3b56230f1866fb6e8e" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>digitizingLayer</name></member>
+      <member refid="classQfDigitizingLogger_1a1f1dd91f408be6806f8b0c504a2c1313" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>digitizingLayerChanged</name></member>
+      <member refid="classQfDigitizingLogger_1af324d85b65eebab9a7093c443c26de43" prot="private" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>findLogsLayer</name></member>
+      <member refid="classQfDigitizingLogger_1a092b1be2462ddf7dc3dade8e468daeec" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mapSettings</name></member>
+      <member refid="classQfDigitizingLogger_1ab0d1e43d2e33ad93a215967c45a69266" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mapSettings</name></member>
+      <member refid="classQfDigitizingLogger_1ad25a87146c5194c978f68163087d944c" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfDigitizingLogger_1a44e3325cadc55f573d6cf5c4a4b1447b" prot="private" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mCloudUserInformation</name></member>
+      <member refid="classQfDigitizingLogger_1a0858a2c0b4cf75bf9440a19e86c6cd08" prot="private" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mDigitizingLayer</name></member>
+      <member refid="classQfDigitizingLogger_1a2b588640d3561322afe3e67c1642e653" prot="private" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mLogsLayer</name></member>
+      <member refid="classQfDigitizingLogger_1a3eb0ec02ceb176281009c99a4b4fac68" prot="private" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mMapSettings</name></member>
+      <member refid="classQfDigitizingLogger_1ab4b7da24b754c029db3fc7209514a28c" prot="private" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mPointFeatures</name></member>
+      <member refid="classQfDigitizingLogger_1ac238050a2e81b2090b03e477d7e51ac0" prot="private" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mPositionInformation</name></member>
+      <member refid="classQfDigitizingLogger_1a3b1bc2157337838b34b4709553af2a2c" prot="private" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mPositionLocked</name></member>
+      <member refid="classQfDigitizingLogger_1a89b8aab0078b4383c6062e9b57eb7abe" prot="private" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mProject</name></member>
+      <member refid="classQfDigitizingLogger_1addc25ff3c137080be00fc9df637f432e" prot="private" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mTopSnappingResult</name></member>
+      <member refid="classQfDigitizingLogger_1a23c81a52f6b83d6f17097521bfd6a5ae" prot="private" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>mType</name></member>
+      <member refid="classQfDigitizingLogger_1a95a5129caf2af17333c4507f12eeb6a9" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>positionInformation</name></member>
+      <member refid="classQfDigitizingLogger_1ad536a04f70a183428e73b3c1d898ab82" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>positionInformation</name></member>
+      <member refid="classQfDigitizingLogger_1ad01bf7a58f47234adca04186adc9e64c" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>positionInformationChanged</name></member>
+      <member refid="classQfDigitizingLogger_1a1b76db7706a5c3a4ebb2ef05fbf24744" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>positionLocked</name></member>
+      <member refid="classQfDigitizingLogger_1a847444b68e6bae7730bc3de173767fa0" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>positionLocked</name></member>
+      <member refid="classQfDigitizingLogger_1a7c29d3252ba86947ee0feb034087623e" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>positionLockedChanged</name></member>
+      <member refid="classQfDigitizingLogger_1a8b5325d54764cefc256d0c23c193de48" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>project</name></member>
+      <member refid="classQfDigitizingLogger_1a177660a78e39f2c93ae9435dc77d5f82" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>project</name></member>
+      <member refid="classQfDigitizingLogger_1a647a8190cba6068bd9bd175d4a0fdf69" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>projectChanged</name></member>
+      <member refid="classQfDigitizingLogger_1ab12b0657063e9dddcfb17af89fd73fca" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>QfDigitizingLogger</name></member>
+      <member refid="classQfDigitizingLogger_1af4ec70b601e13c8eb833e25b1204f483" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>removeLastCoordinate</name></member>
+      <member refid="classQfDigitizingLogger_1a1cc1337a3c55fb3a5891b372bb32a3bf" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>setCloudUserInformation</name></member>
+      <member refid="classQfDigitizingLogger_1ac29b86fb82045fec0f291b9a847bec6e" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>setDigitizingLayer</name></member>
+      <member refid="classQfDigitizingLogger_1a3be298b2ed0a47aea4845e5c9b56396a" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>setMapSettings</name></member>
+      <member refid="classQfDigitizingLogger_1a6ed924355cadb0aa19d5622ab6a78e4a" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>setPositionInformation</name></member>
+      <member refid="classQfDigitizingLogger_1aca17d60686af2f14568e097c050c9809" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>setPositionLocked</name></member>
+      <member refid="classQfDigitizingLogger_1a136603cd571ba4ac553308b0722c8dd2" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>setProject</name></member>
+      <member refid="classQfDigitizingLogger_1a5d30a16858d7a642e37c4dd63baed862" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>setTopSnappingResult</name></member>
+      <member refid="classQfDigitizingLogger_1ac1ca075a64d094337f9916483e820c14" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>setType</name></member>
+      <member refid="classQfDigitizingLogger_1aa79e736ff4e1fd12c94bd920cbb01f24" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>topSnappingResult</name></member>
+      <member refid="classQfDigitizingLogger_1ac42cee7935ed0ad279fe2f144261a582" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>topSnappingResult</name></member>
+      <member refid="classQfDigitizingLogger_1a39efe8a57e7fe3b373322a9b6e05211b" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>topSnappingResultChanged</name></member>
+      <member refid="classQfDigitizingLogger_1a17c5a2499f825a814227fff354d2bd66" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>type</name></member>
+      <member refid="classQfDigitizingLogger_1aa35182f1348f28f25bcdef204d734ced" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>type</name></member>
+      <member refid="classQfDigitizingLogger_1a8afd440623f821ec406c95733e4b2acf" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>typeChanged</name></member>
+      <member refid="classQfDigitizingLogger_1a08d4030b23fc2e9b29b895d2740508ac" prot="public" virt="non-virtual"><scope>QfDigitizingLogger</scope><name>writeCoordinates</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

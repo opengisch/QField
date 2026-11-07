@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCogoOperations" kind="class" language="C++" prot="public">
+    <compoundname>CogoOperations</compoundname>
+    <basecompoundref refid="classQfCogoOperations" prot="public" virt="non-virtual">QfCogoOperations</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CogoOperations</label>
+        <link refid="classCogoOperations"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoOperations</label>
+        <link refid="classQfCogoOperations"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CogoOperations</label>
+        <link refid="classCogoOperations"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoOperations</label>
+        <link refid="classQfCogoOperations"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/CogoOperations.qml" line="2" column="1" bodyfile="src/app/qml_compat/CogoOperations.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfCogoOperations_1a0e9df7809e0f44bc20606c0d122342ec" prot="public" virt="non-virtual"><scope>CogoOperations</scope><name>canvasClicked</name></member>
+      <member refid="classQfCogoOperations_1ac7efde90e7367e0253720cf4d2624fa0" prot="public" virt="non-virtual"><scope>CogoOperations</scope><name>canvasLongPressed</name></member>
+      <member refid="classQfCogoOperations_1a8c8650a9f2feff1228ce8db282bfc17e" prot="public" virt="non-virtual"><scope>CogoOperations</scope><name>cogoOperationSettings</name></member>
+      <member refid="classQfCogoOperations_1a6be27fe682d6ca236f39e2af108b2559" prot="public" virt="non-virtual"><scope>CogoOperations</scope><name>featureModel</name></member>
+      <member refid="classQfCogoOperations_1a8e4765f7650c1786487a43743d9ffb68" prot="public" virt="non-virtual"><scope>CogoOperations</scope><name>mapSettings</name></member>
+      <member refid="classQfCogoOperations_1a91802c58020cda1e5a757fcc3e3e3793" prot="public" virt="non-virtual"><scope>CogoOperations</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfCogoOperations_1a097784893560fa765c108968f3f6035a" prot="public" virt="non-virtual"><scope>CogoOperations</scope><name>requestPosition</name></member>
+      <member refid="classQfCogoOperations_1a7e757bc5bd93a01a9c01921da59bb520" prot="public" virt="non-virtual"><scope>CogoOperations</scope><name>rubberbandModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

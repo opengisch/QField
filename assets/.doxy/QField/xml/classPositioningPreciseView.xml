@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningPreciseView" kind="class" language="C++" prot="public">
+    <compoundname>PositioningPreciseView</compoundname>
+    <basecompoundref refid="classQfPositioningPreciseView" prot="public" virt="non-virtual">QfPositioningPreciseView</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PositioningPreciseView</label>
+        <link refid="classPositioningPreciseView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPositioningPreciseView</label>
+        <link refid="classQfPositioningPreciseView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PositioningPreciseView</label>
+        <link refid="classPositioningPreciseView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPositioningPreciseView</label>
+        <link refid="classQfPositioningPreciseView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/PositioningPreciseView.qml" line="2" column="1" bodyfile="src/app/qml_compat/PositioningPreciseView.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfPositioningPreciseView_1a4b1b89ea394478000610d493f6cae880" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>hasAcceptableAccuracy</name></member>
+      <member refid="classQfPositioningPreciseView_1aea9ef89ee5fe9187cfbfbd545cf78737" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>hasAlarmSnoozed</name></member>
+      <member refid="classQfPositioningPreciseView_1ac78e2e8574e6feee28c60c3d13ab3594" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>hasReachedTarget</name></member>
+      <member refid="classQfPositioningPreciseView_1aa24c9105ce1f7d469e56438aea1d213a" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>hasZ</name></member>
+      <member refid="classQfPositioningPreciseView_1a137bffb2388676e57ec32080a0061cfb" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>lastValidDirection</name></member>
+      <member refid="classQfPositioningPreciseView_1a6ceed21b7ad01b3ced056c6eb432cf56" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>maximumHeight</name></member>
+      <member refid="classQfPositioningPreciseView_1af3e090f724b7e498e713018e9f221eed" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>menu</name></member>
+      <member refid="classQfPositioningPreciseView_1a237dc3d904c879debf883919bbbb3fc9" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>negativeLabel</name></member>
+      <member refid="classQfPositioningPreciseView_1af1354c065a9ab55c42a679d9da5fab89" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>positionCenter</name></member>
+      <member refid="classQfPositioningPreciseView_1af82364bc7d06dd39c6204e21d0b2346d" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>positioningSettings</name></member>
+      <member refid="classQfPositioningPreciseView_1adf9cd58a38838f271c963c2d5c283397" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>positionX</name></member>
+      <member refid="classQfPositioningPreciseView_1a40afffc470e935109613ad32127f8133" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>positionY</name></member>
+      <member refid="classQfPositioningPreciseView_1ab3a4a93ec1d83c592f3352c42b8548ce" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>positionZ</name></member>
+      <member refid="classQfPositioningPreciseView_1a9bf6801af55aea0e338e4c92412deef7" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>positiveLabel</name></member>
+      <member refid="classQfPositioningPreciseView_1a4b2e4ef6319d14b651b25dfda17a5ede" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>preciseTargetDiameter</name></member>
+      <member refid="classQfPositioningPreciseView_1a06fe4c54336aea1505d10e9820a2632e" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>precision</name></member>
+      <member refid="classQfPositioningPreciseView_1ac64a8374e7ade52a535594c05c2d6a7a" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>projectDistance</name></member>
+      <member refid="classQfPositioningPreciseView_1a08f0f0ef541dc3e06235c104db67a689" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>projectVerticalDistance</name></member>
+      <member refid="classQfPositioningPreciseView_1aa0b50f5e05d28f9960eaee5d585e9d94" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>rotationAngle</name></member>
+      <member refid="classQfPositioningPreciseView_1a78eb0c5dc5294876e674937c21983534" prot="public" virt="non-virtual"><scope>PositioningPreciseView</scope><name>RotationSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGeometryWrapper" kind="class" language="C++" prot="public">
+    <compoundname>QfGeometryWrapper</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfgeometrywrapper_8h" local="no">qfgeometrywrapper.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGeometryWrapper_1af6d9a7552e497f9dd13ec6e2d58037f3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfGeometryWrapper::qgsGeometry</definition>
+        <argsstring></argsstring>
+        <name>qgsGeometry</name>
+        <qualifiedname>QfGeometryWrapper::qgsGeometry</qualifiedname>
+        <read>qgsGeometry</read>
+        <write>setQgsGeometry</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="33" column="5" bodyfile="src/core/qfgeometrywrapper.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryWrapper_1ace3e04e97471568d5e8ef7c4787b1a34" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfGeometryWrapper::crs</definition>
+        <argsstring></argsstring>
+        <name>crs</name>
+        <qualifiedname>QfGeometryWrapper::crs</qualifiedname>
+        <read>crs</read>
+        <write>setCrs</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="34" column="5" bodyfile="src/core/qfgeometrywrapper.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfGeometryWrapper_1aafe8ef4ecc80e9a8dd5ed846224763bf" prot="private" static="no" mutable="no">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfGeometryWrapper::mQgsGeometry</definition>
+        <argsstring></argsstring>
+        <name>mQgsGeometry</name>
+        <qualifiedname>QfGeometryWrapper::mQgsGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="64" column="17" bodyfile="src/core/qfgeometrywrapper.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryWrapper_1a57c39e6e315854ff164d104348e97dae" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfGeometryWrapper::mCrs</definition>
+        <argsstring></argsstring>
+        <name>mCrs</name>
+        <qualifiedname>QfGeometryWrapper::mCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="65" column="34" bodyfile="src/core/qfgeometrywrapper.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfGeometryWrapper_1a21862ac9b22fa9664191d135af682ca3" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfGeometryWrapper::QfGeometryWrapper</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfGeometryWrapper</name>
+        <qualifiedname>QfGeometryWrapper::QfGeometryWrapper</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="37" column="14" bodyfile="src/core/qfgeometrywrapper.h" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryWrapper_1a09195b5c049b291d6a1d905ff17a319e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfGeometryWrapper::QfGeometryWrapper</definition>
+        <argsstring>(const QgsGeometry &amp;geometry, QgsCoordinateReferenceSystem crs, QObject *parent=nullptr)</argsstring>
+        <name>QfGeometryWrapper</name>
+        <qualifiedname>QfGeometryWrapper::QfGeometryWrapper</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>geometry</declname>
+        </param>
+        <param>
+          <type>QgsCoordinateReferenceSystem</type>
+          <declname>crs</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="41" column="5" bodyfile="src/core/qfgeometrywrapper.h" bodystart="41" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryWrapper_1af4d1254739cf340b6d1855f9b9157ece" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariantList</type>
+        <definition>QVariantList QfGeometryWrapper::pointList</definition>
+        <argsstring>() const</argsstring>
+        <name>pointList</name>
+        <qualifiedname>QfGeometryWrapper::pointList</qualifiedname>
+        <briefdescription>
+<para>Returns a list of points if the geometry has point type (point, multipoint), an empty list otherwise. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="48" column="30" bodyfile="src/core/qfgeometrywrapper.cpp" bodystart="19" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryWrapper_1aecde7062f2568827038ae70c63becdae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfGeometryWrapper::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QfGeometryWrapper::clear</qualifiedname>
+        <briefdescription>
+<para>Clear the wrapper by setting empty geometry and invalid CRS. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="51" column="22" bodyfile="src/core/qfgeometrywrapper.cpp" bodystart="35" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryWrapper_1a49be40de592407ced8d9698a6f9baeed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsGeometry</type>
+        <definition>QgsGeometry QfGeometryWrapper::qgsGeometry</definition>
+        <argsstring>() const</argsstring>
+        <name>qgsGeometry</name>
+        <qualifiedname>QfGeometryWrapper::qgsGeometry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="53" column="17" bodyfile="src/core/qfgeometrywrapper.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryWrapper_1a5c144d20527b29da0736c25ba1020578" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryWrapper::setQgsGeometry</definition>
+        <argsstring>(const QgsGeometry &amp;qgsGeometry)</argsstring>
+        <name>setQgsGeometry</name>
+        <qualifiedname>QfGeometryWrapper::setQgsGeometry</qualifiedname>
+        <param>
+          <type>const QgsGeometry &amp;</type>
+          <declname>qgsGeometry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="54" column="10" bodyfile="src/core/qfgeometrywrapper.cpp" bodystart="46" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryWrapper_1a6b97029e6c662d0b10868658981a5588" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfGeometryWrapper::crs</definition>
+        <argsstring>() const</argsstring>
+        <name>crs</name>
+        <qualifiedname>QfGeometryWrapper::crs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="56" column="34" bodyfile="src/core/qfgeometrywrapper.cpp" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryWrapper_1af2d21f0210649bd09a144eec5df2a57b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryWrapper::setCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;crs)</argsstring>
+        <name>setCrs</name>
+        <qualifiedname>QfGeometryWrapper::setCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>crs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="57" column="10" bodyfile="src/core/qfgeometrywrapper.cpp" bodystart="60" bodyend="67"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfGeometryWrapper_1aa0e29421bb27a57a078e7c1b0327adfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryWrapper::qgsGeometryChanged</definition>
+        <argsstring>()</argsstring>
+        <name>qgsGeometryChanged</name>
+        <qualifiedname>QfGeometryWrapper::qgsGeometryChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="60" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfGeometryWrapper_1a8f7135e528ddc5d861bf94591bc693bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryWrapper::crsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>crsChanged</name>
+        <qualifiedname>QfGeometryWrapper::crsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfgeometrywrapper.h" line="61" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classQfGeometryWrapper" kindref="compound">QfGeometryWrapper</ref> class wraps QGIS geometry and CRS classes to have their contents available from QML. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfGeometryWrapper</label>
+        <link refid="classQfGeometryWrapper"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfGeometryWrapper</label>
+        <link refid="classQfGeometryWrapper"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfgeometrywrapper.h" line="30" column="1" bodyfile="src/core/qfgeometrywrapper.h" bodystart="31" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classQfGeometryWrapper_1aecde7062f2568827038ae70c63becdae" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>clear</name></member>
+      <member refid="classQfGeometryWrapper_1ace3e04e97471568d5e8ef7c4787b1a34" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>crs</name></member>
+      <member refid="classQfGeometryWrapper_1a6b97029e6c662d0b10868658981a5588" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>crs</name></member>
+      <member refid="classQfGeometryWrapper_1a8f7135e528ddc5d861bf94591bc693bb" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>crsChanged</name></member>
+      <member refid="classQfGeometryWrapper_1a57c39e6e315854ff164d104348e97dae" prot="private" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>mCrs</name></member>
+      <member refid="classQfGeometryWrapper_1aafe8ef4ecc80e9a8dd5ed846224763bf" prot="private" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>mQgsGeometry</name></member>
+      <member refid="classQfGeometryWrapper_1af4d1254739cf340b6d1855f9b9157ece" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>pointList</name></member>
+      <member refid="classQfGeometryWrapper_1a21862ac9b22fa9664191d135af682ca3" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>QfGeometryWrapper</name></member>
+      <member refid="classQfGeometryWrapper_1a09195b5c049b291d6a1d905ff17a319e" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>QfGeometryWrapper</name></member>
+      <member refid="classQfGeometryWrapper_1af6d9a7552e497f9dd13ec6e2d58037f3" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>qgsGeometry</name></member>
+      <member refid="classQfGeometryWrapper_1a49be40de592407ced8d9698a6f9baeed" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>qgsGeometry</name></member>
+      <member refid="classQfGeometryWrapper_1aa0e29421bb27a57a078e7c1b0327adfe" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>qgsGeometryChanged</name></member>
+      <member refid="classQfGeometryWrapper_1af2d21f0210649bd09a144eec5df2a57b" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>setCrs</name></member>
+      <member refid="classQfGeometryWrapper_1a5c144d20527b29da0736c25ba1020578" prot="public" virt="non-virtual"><scope>QfGeometryWrapper</scope><name>setQgsGeometry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_4b0af5720da35ca08cf9fbb2fd056889" kind="dir">
+    <compoundname>src/3d</compoundname>
+    <innerdir refid="dir_0f8ad8e65be0e5299208b1ff05c4c6ef">src/3d/qml</innerdir>
+    <innerfile refid="qf3d_8cpp">qf3d.cpp</innerfile>
+    <innerfile refid="qf3d_8h">qf3d.h</innerfile>
+    <innerfile refid="qf3dgeometry_8cpp">qf3dgeometry.cpp</innerfile>
+    <innerfile refid="qf3dgeometry_8h">qf3dgeometry.h</innerfile>
+    <innerfile refid="qf3dgeometryconfiguration_8cpp">qf3dgeometryconfiguration.cpp</innerfile>
+    <innerfile refid="qf3dgeometryconfiguration_8h">qf3dgeometryconfiguration.h</innerfile>
+    <innerfile refid="qf3dgeometryutils_8cpp">qf3dgeometryutils.cpp</innerfile>
+    <innerfile refid="qf3dgeometryutils_8h">qf3dgeometryutils.h</innerfile>
+    <innerfile refid="qf3dmaptexturedata_8cpp">qf3dmaptexturedata.cpp</innerfile>
+    <innerfile refid="qf3dmaptexturedata_8h">qf3dmaptexturedata.h</innerfile>
+    <innerfile refid="qf3drubberbandgeometry_8cpp">qf3drubberbandgeometry.cpp</innerfile>
+    <innerfile refid="qf3drubberbandgeometry_8h">qf3drubberbandgeometry.h</innerfile>
+    <innerfile refid="qf3dterraingeometry_8cpp">qf3dterraingeometry.cpp</innerfile>
+    <innerfile refid="qf3dterraingeometry_8h">qf3dterraingeometry.h</innerfile>
+    <innerfile refid="qf3dterrainprovider_8cpp">qf3dterrainprovider.cpp</innerfile>
+    <innerfile refid="qf3dterrainprovider_8h">qf3dterrainprovider.h</innerfile>
+    <innerfile refid="qfmaptoview3d_8cpp">qfmaptoview3d.cpp</innerfile>
+    <innerfile refid="qfmaptoview3d_8h">qfmaptoview3d.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/3d/"/>
+  </compounddef>
+</doxygen>

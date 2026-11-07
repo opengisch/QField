@@ -1,0 +1,474 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAudioClipRecorder" kind="class" language="C++" prot="public">
+    <compoundname>QfAudioClipRecorder</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <derivedcompoundref refid="classQFieldAudioRecorder" prot="public" virt="non-virtual">QFieldAudioRecorder</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfAudioClipRecorder_1a71992702cdf2bd82730651923fbb8245" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAudioClipRecorder::preRecording</definition>
+        <argsstring></argsstring>
+        <name>preRecording</name>
+        <qualifiedname>QfAudioClipRecorder::preRecording</qualifiedname>
+        <read>dummyGetter_preRecording_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="19" column="1" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfAudioClipRecorder_1acd4c860425706d7a8cdb0a40ace01bab" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAudioClipRecorder::hasRecordedClip</definition>
+        <argsstring></argsstring>
+        <name>hasRecordedClip</name>
+        <qualifiedname>QfAudioClipRecorder::hasRecordedClip</qualifiedname>
+        <read>dummyGetter_hasRecordedClip_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="21" column="1" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfAudioClipRecorder_1a9e9693e9c6fa29a4b5f28349254c6d9a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfAudioClipRecorder::popupWidth</definition>
+        <argsstring></argsstring>
+        <name>popupWidth</name>
+        <qualifiedname>QfAudioClipRecorder::popupWidth</qualifiedname>
+        <read>dummyGetter_popupWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="23" column="1" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a969cf51306d072432d5c6f06b7388acc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfAudioClipRecorder::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfAudioClipRecorder::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="25" column="5" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a51478fca8e029d8e8daa037297a7e399" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfAudioClipRecorder::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfAudioClipRecorder::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="26" column="5" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a7cdd48f9a517b16836b5acab83f12608" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfAudioClipRecorder::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfAudioClipRecorder::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="27" column="5" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a14ffc0ecf4857e69e31643c456f8d3f8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfAudioClipRecorder::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfAudioClipRecorder::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="28" column="5" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a24cb53570030566cccb8bac56c443ab8" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfAudioClipRecorder::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <qualifiedname>QfAudioClipRecorder::z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="29" column="5" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1adbc334028440005a0208f8f5bc5928ba" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfAudioClipRecorder::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfAudioClipRecorder::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="31" column="5" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1ae42e529b277ceae52b6b949638af1bbc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfAudioClipRecorder::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfAudioClipRecorder::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="32" column="5" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1ae6b352a331a794ccc9cd2d7f6ff1a880" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfAudioClipRecorder::dim</definition>
+        <argsstring></argsstring>
+        <name>dim</name>
+        <qualifiedname>QfAudioClipRecorder::dim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="33" column="5" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a5eed72ec15ed13a77b821883a8bcd06f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfAudioClipRecorder::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>QfAudioClipRecorder::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="34" column="5" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a7a799860ef8ade50d876bc526c089537" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMicrophonePermission" kindref="compound">QfMicrophonePermission</ref></type>
+        <definition>QfMicrophonePermission QfAudioClipRecorder::microphonePermission</definition>
+        <argsstring></argsstring>
+        <name>microphonePermission</name>
+        <qualifiedname>QfAudioClipRecorder::microphonePermission</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="35" column="24" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a16d1b8ec851a75509939c7cf3bbabe94" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfAudioRecorder" kindref="compound">QfAudioRecorder</ref></type>
+        <definition>QfAudioRecorder QfAudioClipRecorder::recorder</definition>
+        <argsstring></argsstring>
+        <name>recorder</name>
+        <qualifiedname>QfAudioClipRecorder::recorder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="36" column="17" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1aaec1b51c9d6b53f94bffb5d9ce5eb4b9" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfAudioClipRecorder::captureSessionLoader</definition>
+        <argsstring></argsstring>
+        <name>captureSessionLoader</name>
+        <qualifiedname>QfAudioClipRecorder::captureSessionLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="37" column="8" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a72f28fd522a6de2a78ced05d70aba554" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfAudioClipRecorder::playerLoader</definition>
+        <argsstring></argsstring>
+        <name>playerLoader</name>
+        <qualifiedname>QfAudioClipRecorder::playerLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Until the recorder reliably changes its status across all platforms after calling stop(), use a timer as workaround and check for duration &gt; 0 as condition for successful saved audio recording. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="43" column="7" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a03e94982e6a8ea71326ebe0404448f69" prot="private" static="no" mutable="no">
+        <type>Video</type>
+        <definition>Video QfAudioClipRecorder::player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <qualifiedname>QfAudioClipRecorder::player</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="44" column="7" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1aed26ce85f5379ed909ee2148975ccce0" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfAudioClipRecorder::audioFeedback</definition>
+        <argsstring></argsstring>
+        <name>audioFeedback</name>
+        <qualifiedname>QfAudioClipRecorder::audioFeedback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="45" column="11" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a99642a1d9aa12e315811cc98d1f79689" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfAudioClipRecorder::levelFeedback</definition>
+        <argsstring></argsstring>
+        <name>levelFeedback</name>
+        <qualifiedname>QfAudioClipRecorder::levelFeedback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="46" column="11" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a4a4a8e8437105c4857f4af6d466f656c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfAudioClipRecorder::recordButton</definition>
+        <argsstring></argsstring>
+        <name>recordButton</name>
+        <qualifiedname>QfAudioClipRecorder::recordButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="47" column="14" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a69d887d15f98d2fc9807007bdf4d7853" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfAudioClipRecorder::playButton</definition>
+        <argsstring></argsstring>
+        <name>playButton</name>
+        <qualifiedname>QfAudioClipRecorder::playButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="48" column="14" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1ad7a9a9f7a1482498e62ea15788dc3d57" prot="private" static="no" mutable="no">
+        <type>Slider</type>
+        <definition>Slider QfAudioClipRecorder::positionSlider</definition>
+        <argsstring></argsstring>
+        <name>positionSlider</name>
+        <qualifiedname>QfAudioClipRecorder::positionSlider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="49" column="8" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1afca27369a36f3addfdeb91f56173806b" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfAudioClipRecorder::durationLabel</definition>
+        <argsstring></argsstring>
+        <name>durationLabel</name>
+        <qualifiedname>QfAudioClipRecorder::durationLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="50" column="7" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1a8a42e5654c2d25a2b0bf51f4b7fab47d" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfAudioClipRecorder::durationLabelMetrics</definition>
+        <argsstring></argsstring>
+        <name>durationLabelMetrics</name>
+        <qualifiedname>QfAudioClipRecorder::durationLabelMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="51" column="13" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioClipRecorder_1aed8564e6a5c5404a1fea38b2c7d457c9" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfAudioClipRecorder::acceptButton</definition>
+        <argsstring></argsstring>
+        <name>acceptButton</name>
+        <qualifiedname>QfAudioClipRecorder::acceptButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="52" column="14" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfAudioClipRecorder_1a6cf6c4eb6001fa3b98a9bdd8c28e8878" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAudioClipRecorder::finished</definition>
+        <argsstring>(string path)</argsstring>
+        <name>finished</name>
+        <qualifiedname>QfAudioClipRecorder::finished</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="15" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAudioClipRecorder_1ad569e5bf8e84f1ac9e8c2fb5ec291a97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAudioClipRecorder::canceled</definition>
+        <argsstring>()</argsstring>
+        <name>canceled</name>
+        <qualifiedname>QfAudioClipRecorder::canceled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfAudioClipRecorder.qml" line="17" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="4">
+        <label>QFieldAudioRecorder</label>
+        <link refid="classQFieldAudioRecorder"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfAudioClipRecorder</label>
+        <link refid="classQfAudioClipRecorder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfAudioClipRecorder</label>
+        <link refid="classQfAudioClipRecorder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfAudioClipRecorder.qml" line="12" column="1" bodyfile="src/gui/qml/QfAudioClipRecorder.qml" bodystart="12" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classQfAudioClipRecorder_1aed8564e6a5c5404a1fea38b2c7d457c9" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>acceptButton</name></member>
+      <member refid="classQfAudioClipRecorder_1aed26ce85f5379ed909ee2148975ccce0" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>audioFeedback</name></member>
+      <member refid="classQfAudioClipRecorder_1ad569e5bf8e84f1ac9e8c2fb5ec291a97" prot="public" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>canceled</name></member>
+      <member refid="classQfAudioClipRecorder_1aaec1b51c9d6b53f94bffb5d9ce5eb4b9" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>captureSessionLoader</name></member>
+      <member refid="classQfAudioClipRecorder_1ae42e529b277ceae52b6b949638af1bbc" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>closePolicy</name></member>
+      <member refid="classQfAudioClipRecorder_1ae6b352a331a794ccc9cd2d7f6ff1a880" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>dim</name></member>
+      <member refid="classQfAudioClipRecorder_1afca27369a36f3addfdeb91f56173806b" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>durationLabel</name></member>
+      <member refid="classQfAudioClipRecorder_1a8a42e5654c2d25a2b0bf51f4b7fab47d" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>durationLabelMetrics</name></member>
+      <member refid="classQfAudioClipRecorder_1a6cf6c4eb6001fa3b98a9bdd8c28e8878" prot="public" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>finished</name></member>
+      <member refid="classQfAudioClipRecorder_1acd4c860425706d7a8cdb0a40ace01bab" prot="public" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>hasRecordedClip</name></member>
+      <member refid="classQfAudioClipRecorder_1a51478fca8e029d8e8daa037297a7e399" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>height</name></member>
+      <member refid="classQfAudioClipRecorder_1a99642a1d9aa12e315811cc98d1f79689" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>levelFeedback</name></member>
+      <member refid="classQfAudioClipRecorder_1a7a799860ef8ade50d876bc526c089537" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>microphonePermission</name></member>
+      <member refid="classQfAudioClipRecorder_1a5eed72ec15ed13a77b821883a8bcd06f" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>onAboutToShow</name></member>
+      <member refid="classQfAudioClipRecorder_1adbc334028440005a0208f8f5bc5928ba" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>parent</name></member>
+      <member refid="classQfAudioClipRecorder_1a69d887d15f98d2fc9807007bdf4d7853" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>playButton</name></member>
+      <member refid="classQfAudioClipRecorder_1a03e94982e6a8ea71326ebe0404448f69" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>player</name></member>
+      <member refid="classQfAudioClipRecorder_1a72f28fd522a6de2a78ced05d70aba554" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>playerLoader</name></member>
+      <member refid="classQfAudioClipRecorder_1a9e9693e9c6fa29a4b5f28349254c6d9a" prot="public" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>popupWidth</name></member>
+      <member refid="classQfAudioClipRecorder_1ad7a9a9f7a1482498e62ea15788dc3d57" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>positionSlider</name></member>
+      <member refid="classQfAudioClipRecorder_1a71992702cdf2bd82730651923fbb8245" prot="public" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>preRecording</name></member>
+      <member refid="classQfAudioClipRecorder_1a4a4a8e8437105c4857f4af6d466f656c" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>recordButton</name></member>
+      <member refid="classQfAudioClipRecorder_1a16d1b8ec851a75509939c7cf3bbabe94" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>recorder</name></member>
+      <member refid="classQfAudioClipRecorder_1a969cf51306d072432d5c6f06b7388acc" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>width</name></member>
+      <member refid="classQfAudioClipRecorder_1a7cdd48f9a517b16836b5acab83f12608" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>x</name></member>
+      <member refid="classQfAudioClipRecorder_1a14ffc0ecf4857e69e31643c456f8d3f8" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>y</name></member>
+      <member refid="classQfAudioClipRecorder_1a24cb53570030566cccb8bac56c443ab8" prot="private" virt="non-virtual"><scope>QfAudioClipRecorder</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

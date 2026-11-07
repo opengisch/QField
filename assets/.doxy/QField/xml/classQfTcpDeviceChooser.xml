@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfTcpDeviceChooser" kind="class" language="C++" prot="public">
+    <compoundname>QfTcpDeviceChooser</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classTcpDeviceChooser" prot="public" virt="non-virtual">TcpDeviceChooser</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfTcpDeviceChooser_1acd3d228e529d85f2c844783fe6ac5162" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTcpDeviceChooser::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfTcpDeviceChooser::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTcpDeviceChooser.qml" line="10" column="5" bodyfile="src/gui/qml/QfTcpDeviceChooser.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTcpDeviceChooser_1a3f6c5563348078b45db0bb09d055d085" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTcpDeviceChooser::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfTcpDeviceChooser::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTcpDeviceChooser.qml" line="11" column="5" bodyfile="src/gui/qml/QfTcpDeviceChooser.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTcpDeviceChooser_1ad3b9902f2c1c949f344dd5236d5bea04" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfTcpDeviceChooser::tcpDeviceAddress</definition>
+        <argsstring></argsstring>
+        <name>tcpDeviceAddress</name>
+        <qualifiedname>QfTcpDeviceChooser::tcpDeviceAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTcpDeviceChooser.qml" line="24" column="11" bodyfile="src/gui/qml/QfTcpDeviceChooser.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTcpDeviceChooser_1a2fafbcaf0b8174acf9e205866b1c7b54" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfTcpDeviceChooser::tcpDevicePort</definition>
+        <argsstring></argsstring>
+        <name>tcpDevicePort</name>
+        <qualifiedname>QfTcpDeviceChooser::tcpDevicePort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTcpDeviceChooser.qml" line="25" column="11" bodyfile="src/gui/qml/QfTcpDeviceChooser.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfTcpDeviceChooser_1afbf06a7396fbbe77df3a2b8440058998" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfTcpDeviceChooser::deviceAddress</definition>
+        <argsstring></argsstring>
+        <name>deviceAddress</name>
+        <qualifiedname>QfTcpDeviceChooser::deviceAddress</qualifiedname>
+        <read>dummyGetter_deviceAddress_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTcpDeviceChooser.qml" line="14" column="1" bodyfile="src/gui/qml/QfTcpDeviceChooser.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTcpDeviceChooser_1ab8a9c27c723422f25faab52a34eacf7c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfTcpDeviceChooser::devicePort</definition>
+        <argsstring></argsstring>
+        <name>devicePort</name>
+        <qualifiedname>QfTcpDeviceChooser::devicePort</qualifiedname>
+        <read>dummyGetter_devicePort_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTcpDeviceChooser.qml" line="16" column="1" bodyfile="src/gui/qml/QfTcpDeviceChooser.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfTcpDeviceChooser_1a59af9f0eb7df87d839addb4c4fb57198" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTcpDeviceChooser::generateName</definition>
+        <argsstring>()</argsstring>
+        <name>generateName</name>
+        <qualifiedname>QfTcpDeviceChooser::generateName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTcpDeviceChooser.qml" line="18" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTcpDeviceChooser_1aefb5674dc38d0432f2d8b426d6b94162" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTcpDeviceChooser::setSettings</definition>
+        <argsstring>(settings)</argsstring>
+        <name>setSettings</name>
+        <qualifiedname>QfTcpDeviceChooser::setSettings</qualifiedname>
+        <param>
+          <type>settings</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTcpDeviceChooser.qml" line="20" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTcpDeviceChooser_1ad490a6e4ac45ffbe79b51c3876f02aa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTcpDeviceChooser::getSettings</definition>
+        <argsstring>()</argsstring>
+        <name>getSettings</name>
+        <qualifiedname>QfTcpDeviceChooser::getSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTcpDeviceChooser.qml" line="22" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfTcpDeviceChooser</label>
+        <link refid="classQfTcpDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="3">
+        <label>TcpDeviceChooser</label>
+        <link refid="classTcpDeviceChooser"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfTcpDeviceChooser</label>
+        <link refid="classQfTcpDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfTcpDeviceChooser.qml" line="9" column="1" bodyfile="src/gui/qml/QfTcpDeviceChooser.qml" bodystart="9" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classQfTcpDeviceChooser_1afbf06a7396fbbe77df3a2b8440058998" prot="public" virt="non-virtual"><scope>QfTcpDeviceChooser</scope><name>deviceAddress</name></member>
+      <member refid="classQfTcpDeviceChooser_1ab8a9c27c723422f25faab52a34eacf7c" prot="public" virt="non-virtual"><scope>QfTcpDeviceChooser</scope><name>devicePort</name></member>
+      <member refid="classQfTcpDeviceChooser_1a59af9f0eb7df87d839addb4c4fb57198" prot="public" virt="non-virtual"><scope>QfTcpDeviceChooser</scope><name>generateName</name></member>
+      <member refid="classQfTcpDeviceChooser_1ad490a6e4ac45ffbe79b51c3876f02aa0" prot="public" virt="non-virtual"><scope>QfTcpDeviceChooser</scope><name>getSettings</name></member>
+      <member refid="classQfTcpDeviceChooser_1a3f6c5563348078b45db0bb09d055d085" prot="private" virt="non-virtual"><scope>QfTcpDeviceChooser</scope><name>height</name></member>
+      <member refid="classQfTcpDeviceChooser_1aefb5674dc38d0432f2d8b426d6b94162" prot="public" virt="non-virtual"><scope>QfTcpDeviceChooser</scope><name>setSettings</name></member>
+      <member refid="classQfTcpDeviceChooser_1ad3b9902f2c1c949f344dd5236d5bea04" prot="private" virt="non-virtual"><scope>QfTcpDeviceChooser</scope><name>tcpDeviceAddress</name></member>
+      <member refid="classQfTcpDeviceChooser_1a2fafbcaf0b8174acf9e205866b1c7b54" prot="private" virt="non-virtual"><scope>QfTcpDeviceChooser</scope><name>tcpDevicePort</name></member>
+      <member refid="classQfTcpDeviceChooser_1acd3d228e529d85f2c844783fe6ac5162" prot="private" virt="non-virtual"><scope>QfTcpDeviceChooser</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

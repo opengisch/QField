@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCogoOperationPreview" kind="class" language="C++" prot="public">
+    <compoundname>QfCogoOperationPreview</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCogoOperationPreview_1a751a6030f045df562200a1f04ce31f9d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfCogoOperationPreview::visualGuides</definition>
+        <argsstring></argsstring>
+        <name>visualGuides</name>
+        <qualifiedname>QfCogoOperationPreview::visualGuides</qualifiedname>
+        <read>dummyGetter_visualGuides_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperationPreview.qml" line="11" column="1" bodyfile="src/gui/qml/QfCogoOperationPreview.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCogoOperationPreview_1a17c2d1b6cf2a5edb12adff2b7e4476b1" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfCogoOperationPreview::labelVisualGuide</definition>
+        <argsstring></argsstring>
+        <name>labelVisualGuide</name>
+        <qualifiedname>QfCogoOperationPreview::labelVisualGuide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperationPreview.qml" line="13" column="11" bodyfile="src/gui/qml/QfCogoOperationPreview.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoOperationPreview_1a5508fc184987d9ef3355b1dc3f1f8b7a" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfCogoOperationPreview::pointVisualGuide</definition>
+        <argsstring></argsstring>
+        <name>pointVisualGuide</name>
+        <qualifiedname>QfCogoOperationPreview::pointVisualGuide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperationPreview.qml" line="14" column="11" bodyfile="src/gui/qml/QfCogoOperationPreview.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoOperationPreview_1ab2f94454d6f13178c92bb60f9c5d1d31" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfCogoOperationPreview::lineVisualGuide</definition>
+        <argsstring></argsstring>
+        <name>lineVisualGuide</name>
+        <qualifiedname>QfCogoOperationPreview::lineVisualGuide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperationPreview.qml" line="15" column="11" bodyfile="src/gui/qml/QfCogoOperationPreview.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoOperationPreview_1ac488f71d39540b97edc3c3e3ebbc65a3" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfCogoOperationPreview::circleVisualGuide</definition>
+        <argsstring></argsstring>
+        <name>circleVisualGuide</name>
+        <qualifiedname>QfCogoOperationPreview::circleVisualGuide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperationPreview.qml" line="16" column="11" bodyfile="src/gui/qml/QfCogoOperationPreview.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoOperationPreview_1a6024d350a4a14a8e00c8ae1e7bf0d7f7" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater QfCogoOperationPreview::repeater</definition>
+        <argsstring></argsstring>
+        <name>repeater</name>
+        <qualifiedname>QfCogoOperationPreview::repeater</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCogoOperationPreview.qml" line="17" column="10" bodyfile="src/gui/qml/QfCogoOperationPreview.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCogoOperationPreview</label>
+        <link refid="classQfCogoOperationPreview"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCogoOperationPreview</label>
+        <link refid="classQfCogoOperationPreview"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfCogoOperationPreview.qml" line="8" column="1" bodyfile="src/gui/qml/QfCogoOperationPreview.qml" bodystart="8" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classQfCogoOperationPreview_1ac488f71d39540b97edc3c3e3ebbc65a3" prot="private" virt="non-virtual"><scope>QfCogoOperationPreview</scope><name>circleVisualGuide</name></member>
+      <member refid="classQfCogoOperationPreview_1a17c2d1b6cf2a5edb12adff2b7e4476b1" prot="private" virt="non-virtual"><scope>QfCogoOperationPreview</scope><name>labelVisualGuide</name></member>
+      <member refid="classQfCogoOperationPreview_1ab2f94454d6f13178c92bb60f9c5d1d31" prot="private" virt="non-virtual"><scope>QfCogoOperationPreview</scope><name>lineVisualGuide</name></member>
+      <member refid="classQfCogoOperationPreview_1a5508fc184987d9ef3355b1dc3f1f8b7a" prot="private" virt="non-virtual"><scope>QfCogoOperationPreview</scope><name>pointVisualGuide</name></member>
+      <member refid="classQfCogoOperationPreview_1a6024d350a4a14a8e00c8ae1e7bf0d7f7" prot="private" virt="non-virtual"><scope>QfCogoOperationPreview</scope><name>repeater</name></member>
+      <member refid="classQfCogoOperationPreview_1a751a6030f045df562200a1f04ce31f9d" prot="public" virt="non-virtual"><scope>QfCogoOperationPreview</scope><name>visualGuides</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

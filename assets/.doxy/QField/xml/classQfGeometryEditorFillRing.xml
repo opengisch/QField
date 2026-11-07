@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGeometryEditorFillRing" kind="class" language="C++" prot="public">
+    <compoundname>QfGeometryEditorFillRing</compoundname>
+    <basecompoundref refid="classQfGeometryEditorBase" prot="public" virt="non-virtual">QfGeometryEditorBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGeometryEditorFillRing_1a10d95b1ab526047b302e4306d1a98ffa" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGeometryEditorFillRing::screenHovering</definition>
+        <argsstring></argsstring>
+        <name>screenHovering</name>
+        <qualifiedname>QfGeometryEditorFillRing::screenHovering</qualifiedname>
+        <read>dummyGetter_screenHovering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="9" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryEditorFillRing_1ad84be92a4b42f3c61e432e9be763956f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGeometryEditorFillRing::blocking</definition>
+        <argsstring></argsstring>
+        <name>blocking</name>
+        <qualifiedname>QfGeometryEditorFillRing::blocking</qualifiedname>
+        <read>dummyGetter_blocking_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="12" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryEditorFillRing_1ab1314f9815ef203036fc4bf00f56fab0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGeometryEditorFillRing::addPolygonDialog</definition>
+        <argsstring></argsstring>
+        <name>addPolygonDialog</name>
+        <qualifiedname>QfGeometryEditorFillRing::addPolygonDialog</qualifiedname>
+        <read>dummyGetter_addPolygonDialog_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="14" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryEditorFillRing_1accf9b4c70c04824c1ac64576ecbb3c39" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGeometryEditorFillRing::formPopupLoader</definition>
+        <argsstring></argsstring>
+        <name>formPopupLoader</name>
+        <qualifiedname>QfGeometryEditorFillRing::formPopupLoader</qualifiedname>
+        <read>dummyGetter_formPopupLoader_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="16" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfGeometryEditorFillRing_1aa842b13e542602666ab68b233abdb308" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGeometryEditorFillRing::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfGeometryEditorFillRing::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="18" column="5" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryEditorFillRing_1aaef39c1ba96c90dc9ed707d86b8d02b4" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDigitizingToolbar" kindref="compound">QfDigitizingToolbar</ref></type>
+        <definition>QfDigitizingToolbar QfGeometryEditorFillRing::drawPolygonToolbar</definition>
+        <argsstring></argsstring>
+        <name>drawPolygonToolbar</name>
+        <qualifiedname>QfGeometryEditorFillRing::drawPolygonToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="25" column="21" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryEditorFillRing_1aabed062309160d759e997903a18b9028" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfEmbeddedFeatureForm" kindref="compound">QfEmbeddedFeatureForm</ref></type>
+        <definition>QfEmbeddedFeatureForm QfGeometryEditorFillRing::formPopupLoader</definition>
+        <argsstring></argsstring>
+        <name>formPopupLoader</name>
+        <qualifiedname>QfGeometryEditorFillRing::formPopupLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="26" column="23" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryEditorFillRing_1a9fe06cefe8cb379765165e4c9e887b36" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfGeometryEditorFillRing::addPolygonDialog</definition>
+        <argsstring></argsstring>
+        <name>addPolygonDialog</name>
+        <qualifiedname>QfGeometryEditorFillRing::addPolygonDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="27" column="10" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfGeometryEditorFillRing_1a10bc24dc2d693ab8d4dce5b58f5a18ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorFillRing::canvasClicked</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasClicked</name>
+        <qualifiedname>QfGeometryEditorFillRing::canvasClicked</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="21" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorFillRing_1ac475c430d7780f5bb787967c28aad6bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorFillRing::canvasLongPressed</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasLongPressed</name>
+        <qualifiedname>QfGeometryEditorFillRing::canvasLongPressed</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="23" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorFillRing_1a2e20142a04a984bdc8541f71136016c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorFillRing::init</definition>
+        <argsstring>(featureModel, mapSettings, editorRubberbandModel, editorRenderer)</argsstring>
+        <name>init</name>
+        <qualifiedname>QfGeometryEditorFillRing::init</qualifiedname>
+        <param>
+          <type>featureModel</type>
+        </param>
+        <param>
+          <type>mapSettings</type>
+        </param>
+        <param>
+          <type>editorRubberbandModel</type>
+        </param>
+        <param>
+          <type>editorRenderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorFillRing_1a5a971e2a8c88e4cd6eb2cb191cb91a60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorFillRing::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>QfGeometryEditorFillRing::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorFillRing_1a1702ea26cc7807491f820ffbd4c3f60f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorFillRing::commitRingFeature</definition>
+        <argsstring>()</argsstring>
+        <name>commitRingFeature</name>
+        <qualifiedname>QfGeometryEditorFillRing::commitRingFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="34" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorFillRing_1a20c197140abf62802896b25e95ff8c39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorFillRing::cancelRingFeature</definition>
+        <argsstring>()</argsstring>
+        <name>cancelRingFeature</name>
+        <qualifiedname>QfGeometryEditorFillRing::cancelRingFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="36" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorFillRing_1ae4e904a9abbd63ed5b7c508a7c4e5271" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorFillRing::fillWithPolygon</definition>
+        <argsstring>()</argsstring>
+        <name>fillWithPolygon</name>
+        <qualifiedname>QfGeometryEditorFillRing::fillWithPolygon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="38" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfGeometryEditorBase</label>
+        <link refid="classQfGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfGeometryEditorFillRing</label>
+        <link refid="classQfGeometryEditorFillRing"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfGeometryEditorBase</label>
+        <link refid="classQfGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfGeometryEditorFillRing</label>
+        <link refid="classQfGeometryEditorFillRing"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" line="6" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorFillRing.qml" bodystart="6" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classQfGeometryEditorFillRing_1ab1314f9815ef203036fc4bf00f56fab0" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>addPolygonDialog</name></member>
+      <member refid="classQfGeometryEditorFillRing_1a9fe06cefe8cb379765165e4c9e887b36" prot="private" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>addPolygonDialog</name></member>
+      <member refid="classQfGeometryEditorFillRing_1ad84be92a4b42f3c61e432e9be763956f" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>blocking</name></member>
+      <member refid="classQfGeometryEditorFillRing_1a5a971e2a8c88e4cd6eb2cb191cb91a60" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>cancel</name></member>
+      <member refid="classQfGeometryEditorFillRing_1a20c197140abf62802896b25e95ff8c39" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>cancelRingFeature</name></member>
+      <member refid="classQfGeometryEditorFillRing_1a10bc24dc2d693ab8d4dce5b58f5a18ea" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>canvasClicked</name></member>
+      <member refid="classQfGeometryEditorFillRing_1ac475c430d7780f5bb787967c28aad6bd" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>canvasLongPressed</name></member>
+      <member refid="classQfGeometryEditorFillRing_1a1702ea26cc7807491f820ffbd4c3f60f" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>commitRingFeature</name></member>
+      <member refid="classQfGeometryEditorFillRing_1aaef39c1ba96c90dc9ed707d86b8d02b4" prot="private" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>drawPolygonToolbar</name></member>
+      <member refid="classQfGeometryEditorBase_1a1a7164a5fbdf15d31c6e23b6983bc32c" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>editorRenderer</name></member>
+      <member refid="classQfGeometryEditorBase_1a14439ec56a3b30ac66c32579af50a219" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>featureModel</name></member>
+      <member refid="classQfGeometryEditorFillRing_1ae4e904a9abbd63ed5b7c508a7c4e5271" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>fillWithPolygon</name></member>
+      <member refid="classQfGeometryEditorBase_1ac6337b14ccc5df9f36430f9a91c85f21" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>finished</name></member>
+      <member refid="classQfGeometryEditorFillRing_1accf9b4c70c04824c1ac64576ecbb3c39" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>formPopupLoader</name></member>
+      <member refid="classQfGeometryEditorFillRing_1aabed062309160d759e997903a18b9028" prot="private" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>formPopupLoader</name></member>
+      <member refid="classQfGeometryEditorFillRing_1a2e20142a04a984bdc8541f71136016c8" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>init</name></member>
+      <member refid="classQfGeometryEditorBase_1a30b2a489e975563b19b92e10064073b8" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>mapSettings</name></member>
+      <member refid="classQfGeometryEditorBase_1ae68efe596c2c9c14fba8d1d546dcfde0" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfGeometryEditorFillRing_1a10d95b1ab526047b302e4306d1a98ffa" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>screenHovering</name></member>
+      <member refid="classQfGeometryEditorFillRing_1aa842b13e542602666ab68b233abdb308" prot="private" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>spacing</name></member>
+      <member refid="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" virt="non-virtual"><scope>QfGeometryEditorFillRing</scope><name>stateVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

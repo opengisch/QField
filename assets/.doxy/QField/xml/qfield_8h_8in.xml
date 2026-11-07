@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfield_8h_8in" kind="file" language="C++">
+    <compoundname>qfield.h.in</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">/***************************************************************************</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qfield.h</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>---------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Jun<sp/>2020</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2020<sp/>by<sp/>Ivan<sp/>Ivanov</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>ivan@opengis.ch</highlight></codeline>
+<codeline><highlight class="normal">***************************************************************************/</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">/***************************************************************************</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>***************************************************************************/</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#ifndef<sp/>QFIELD_H</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>QFIELD_H</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;qfield_core_export.h&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;QObject&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;QString&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">/**</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>\brief<sp/>Describes<sp/>the<sp/>running<sp/>application:<sp/>how<sp/>it<sp/>was<sp/>built,<sp/>and<sp/>what<sp/>it<sp/>was<sp/>built<sp/>against.</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>Everything<sp/>here<sp/>is<sp/>settled<sp/>by<sp/>the<sp/>time<sp/>the<sp/>application<sp/>is<sp/>up<sp/>and<sp/>never<sp/>changes</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>afterwards,<sp/>hence<sp/>the<sp/>CONSTANT<sp/>properties.<sp/>QML<sp/>reaches<sp/>it<sp/>as<sp/>`Qfield`<sp/>through<sp/>`import<sp/>org.qfield.core`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>\ingroup<sp/>core</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">class<sp/>QFIELD_CORE_EXPORT<sp/>Qfield</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_GADGET</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//!<sp/>Name<sp/>the<sp/>build<sp/>ships<sp/>under</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>name<sp/>READ<sp/>name<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//!<sp/>Release<sp/>tag<sp/>the<sp/>build<sp/>came<sp/>from</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>version<sp/>READ<sp/>version<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//!<sp/>Version<sp/>as<sp/>shown<sp/>to<sp/>users</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>versionString<sp/>READ<sp/>versionString<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//!<sp/>Full<sp/>SHA<sp/>of<sp/>the<sp/>commit<sp/>the<sp/>build<sp/>came<sp/>from</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>gitRevision<sp/>READ<sp/>gitRevision<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//!<sp/>Qt<sp/>version<sp/>the<sp/>application<sp/>runs<sp/>against</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>qtVersion<sp/>READ<sp/>qtVersion<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//!<sp/>QGIS<sp/>version<sp/>the<sp/>application<sp/>runs<sp/>against,<sp/>formatted<sp/>`&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;-&lt;release<sp/>name&gt;`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>qgisVersion<sp/>READ<sp/>qgisVersion<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//!<sp/>GDAL<sp/>version<sp/>the<sp/>application<sp/>runs<sp/>against</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QString<sp/>gdalVersion<sp/>READ<sp/>gdalVersion<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//!<sp/>TRUE<sp/>when<sp/>the<sp/>build<sp/>supports<sp/>NFC<sp/>and<sp/>the<sp/>device<sp/>provides<sp/>it</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>bool<sp/>hasNfc<sp/>READ<sp/>hasNfc<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//!<sp/>TRUE<sp/>when<sp/>the<sp/>build<sp/>supports<sp/>Bluetooth</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>bool<sp/>hasBluetooth<sp/>READ<sp/>hasBluetooth<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//!<sp/>TRUE<sp/>when<sp/>the<sp/>build<sp/>supports<sp/>serial<sp/>ports</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>bool<sp/>hasSerialPort<sp/>READ<sp/>hasSerialPort<sp/>CONSTANT<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>static<sp/>inline<sp/>const<sp/>QString<sp/>appName{<sp/>QStringLiteral(<sp/>&quot;@APP_NAME@&quot;<sp/>)<sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>static<sp/>inline<sp/>const<sp/>QString<sp/>appVersion{<sp/>QStringLiteral(<sp/>&quot;@APP_VERSION@&quot;<sp/>)<sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>static<sp/>inline<sp/>const<sp/>QString<sp/>appVersionStr{<sp/>QStringLiteral(<sp/>&quot;@APP_VERSION_STR@&quot;<sp/>)<sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>static<sp/>inline<sp/>const<sp/>QString<sp/>gitRev{<sp/>QStringLiteral(<sp/>&quot;@GIT_REV@&quot;<sp/>)<sp/>};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>name()<sp/>const<sp/>{<sp/>return<sp/>appName;<sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>version()<sp/>const<sp/>{<sp/>return<sp/>appVersion;<sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>versionString()<sp/>const<sp/>{<sp/>return<sp/>appVersionStr;<sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>gitRevision()<sp/>const<sp/>{<sp/>return<sp/>gitRev;<sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>qtVersion()<sp/>const;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>qgisVersion()<sp/>const;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>gdalVersion()<sp/>const;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>bool<sp/>hasNfc()<sp/>const;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>bool<sp/>hasBluetooth()<sp/>const;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>bool<sp/>hasSerialPort()<sp/>const;</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#cmakedefine<sp/>QFIELDDEBUG</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#define<sp/>WITH_SENTRY<sp/>@WITH_SENTRY@</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>QGIS_PREFIX_PATH<sp/>&quot;@QGIS_PREFIX_PATH@&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#define<sp/>SUPPORTED_PROJECT_EXTENSIONS<sp/>QStringList(<sp/>{<sp/>QStringLiteral(<sp/>&quot;qgs&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;qgz&quot;<sp/>)<sp/>}<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>SUPPORTED_VECTOR_EXTENSIONS<sp/>QStringList(<sp/>{<sp/>QStringLiteral(<sp/>&quot;gpkg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;shp&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;kml&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;kmz&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;geojson&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;json&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;pdf&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;gpx&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;gml&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;mif&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;fgb&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;db&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;sqlite&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;mbtiles&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;vtpk&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;vrt&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;zip&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;7z&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;rar&quot;<sp/>)<sp/>}<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>SUPPORTED_RASTER_EXTENSIONS<sp/>QStringList(<sp/>{<sp/>QStringLiteral(<sp/>&quot;tif&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;tiff&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;pdf&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jpg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jpeg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;png&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;gpkg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jp2&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;webp&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;mbtiles&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;vrt&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;zip&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;7z&quot;<sp/>)<sp/>}<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>SUPPORTED_FILE_EXTENSIONS<sp/>QStringList(<sp/>{<sp/>QStringLiteral(<sp/>&quot;log&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;txt&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;mp4&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;m4a&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;ogg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;mp3&quot;<sp/>)<sp/>}<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>SUPPORTED_DATASET_THUMBNAIL<sp/>QStringList(<sp/>{<sp/>QStringLiteral(<sp/>&quot;zip&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;tif&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;tiff&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;pdf&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jpg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jpeg&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;png&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;jp2&quot;<sp/>),<sp/>QStringLiteral(<sp/>&quot;webp&quot;<sp/>)<sp/>}<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#endif<sp/>//<sp/>QFIELD_H</highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfield.h.in"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__app" kind="group">
+    <compoundname>app</compoundname>
+    <title>App</title>
+    <innerclass refid="classQfAppAuthRequestHandler" prot="public">QfAppAuthRequestHandler</innerclass>
+    <innerclass refid="classQfAppMissingGridHandler" prot="public">QfAppMissingGridHandler</innerclass>
+    <innerclass refid="classQfBadLayerHandler" prot="public">QfBadLayerHandler</innerclass>
+    <innerclass refid="classQfChangelogContents" prot="public">QfChangelogContents</innerclass>
+    <innerclass refid="classQfClipboardManager" prot="public">QfClipboardManager</innerclass>
+    <innerclass refid="classQfPluginInformation" prot="public">QfPluginInformation</innerclass>
+    <innerclass refid="classQfPluginManager" prot="public">QfPluginManager</innerclass>
+    <innerclass refid="classQfPluginProxyModel" prot="public">QfPluginProxyModel</innerclass>
+    <innerclass refid="classQfScreenDimmer" prot="public">QfScreenDimmer</innerclass>
+    <innerclass refid="classQfUrlHandler" prot="public">QfUrlHandler</innerclass>
+    <innerclass refid="classQgisMobileapp" prot="public">QgisMobileapp</innerclass>
+    <briefdescription>
+<para>QField application C++ classes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

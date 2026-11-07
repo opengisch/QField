@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBluetoothDeviceChooser" kind="class" language="C++" prot="public">
+    <compoundname>BluetoothDeviceChooser</compoundname>
+    <basecompoundref refid="classQfBluetoothDeviceChooser" prot="public" virt="non-virtual">QfBluetoothDeviceChooser</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BluetoothDeviceChooser</label>
+        <link refid="classBluetoothDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfBluetoothDeviceChooser</label>
+        <link refid="classQfBluetoothDeviceChooser"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BluetoothDeviceChooser</label>
+        <link refid="classBluetoothDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfBluetoothDeviceChooser</label>
+        <link refid="classQfBluetoothDeviceChooser"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/BluetoothDeviceChooser.qml" line="2" column="1" bodyfile="src/app/qml_compat/BluetoothDeviceChooser.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfBluetoothDeviceChooser_1a1bf0f34bdb5da9b82ac14744b8fc2c14" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>close</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1aa3744905081d38aaac8e2bfee3a7f426" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>deviceAddress</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1a35b81e714571191e53530f2bf34e3eec" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>deviceBLE</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1a454a1ce1b6f3146ce3c1606ab358190e" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>deviceClassicSupport</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1aa9c66ef493be7554b4d5c8535e09075e" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>deviceLowEnergyByDefault</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1a26dabf2f4c0a038ede31f5d9d7f78634" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>deviceLowEnergySupport</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1ac77514a67f18f1f222ac59778d79dc3b" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>deviceName</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1adba7bb3cc71d5e8693b429b943216029" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>generateName</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1a1edf70e363db7a7c6d37523c2a923af0" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>getSettings</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1aabf782a88963ded4b46b9754ffc22d3c" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>isScanning</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1a5851011ed06a934ce1822e9cfadc98a1" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>pickConfiguration</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1a4542cbf0d5f62a288c32e7cf2de23cb9" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>scannedOnce</name></member>
+      <member refid="classQfBluetoothDeviceChooser_1aa1b3aa6ab7b08cd9ba6b1dafd2a49c82" prot="public" virt="non-virtual"><scope>BluetoothDeviceChooser</scope><name>setSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

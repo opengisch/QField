@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProcessingAlgorithmPreview" kind="class" language="C++" prot="public">
+    <compoundname>QfProcessingAlgorithmPreview</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Repeater</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfProcessingAlgorithmPreview_1a457656b575ee1bc93803013df5617735" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfProcessingAlgorithm" kindref="compound">QfProcessingAlgorithm</ref></type>
+        <definition>QfProcessingAlgorithm QfProcessingAlgorithmPreview::algorithm</definition>
+        <argsstring></argsstring>
+        <name>algorithm</name>
+        <qualifiedname>QfProcessingAlgorithmPreview::algorithm</qualifiedname>
+        <read>dummyGetter_algorithm_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmPreview.qml" line="11" column="1" bodyfile="src/gui/qml/QfProcessingAlgorithmPreview.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingAlgorithmPreview_1a48a3271b60b413050789337c2120e650" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfProcessingAlgorithmPreview::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfProcessingAlgorithmPreview::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmPreview.qml" line="13" column="1" bodyfile="src/gui/qml/QfProcessingAlgorithmPreview.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfProcessingAlgorithmPreview_1aa0136c45a45d2a33ffd9c0703b3478ac" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfProcessingAlgorithmPreview::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfProcessingAlgorithmPreview::color</qualifiedname>
+        <read>dummyGetter_color_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmPreview.qml" line="15" column="1" bodyfile="src/gui/qml/QfProcessingAlgorithmPreview.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfProcessingAlgorithmPreview_1ac42bfb8068c94cc1297bf641041f99d7" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProcessingAlgorithmPreview::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfProcessingAlgorithmPreview::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmPreview.qml" line="17" column="5" bodyfile="src/gui/qml/QfProcessingAlgorithmPreview.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProcessingAlgorithmPreview_1a0e04d4bb5c43f8d36d7673a8c555cfd5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProcessingAlgorithmPreview::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <qualifiedname>QfProcessingAlgorithmPreview::delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProcessingAlgorithmPreview.qml" line="18" column="5" bodyfile="src/gui/qml/QfProcessingAlgorithmPreview.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfProcessingAlgorithmPreview</label>
+        <link refid="classQfProcessingAlgorithmPreview"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfProcessingAlgorithmPreview</label>
+        <link refid="classQfProcessingAlgorithmPreview"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfProcessingAlgorithmPreview.qml" line="8" column="1" bodyfile="src/gui/qml/QfProcessingAlgorithmPreview.qml" bodystart="8" bodyend="19"/>
+    <listofallmembers>
+      <member refid="classQfProcessingAlgorithmPreview_1a457656b575ee1bc93803013df5617735" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmPreview</scope><name>algorithm</name></member>
+      <member refid="classQfProcessingAlgorithmPreview_1aa0136c45a45d2a33ffd9c0703b3478ac" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmPreview</scope><name>color</name></member>
+      <member refid="classQfProcessingAlgorithmPreview_1a0e04d4bb5c43f8d36d7673a8c555cfd5" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmPreview</scope><name>delegate</name></member>
+      <member refid="classQfProcessingAlgorithmPreview_1a48a3271b60b413050789337c2120e650" prot="public" virt="non-virtual"><scope>QfProcessingAlgorithmPreview</scope><name>mapSettings</name></member>
+      <member refid="classQfProcessingAlgorithmPreview_1ac42bfb8068c94cc1297bf641041f99d7" prot="private" virt="non-virtual"><scope>QfProcessingAlgorithmPreview</scope><name>model</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfVertexRubberband" kind="class" language="C++" prot="public">
+    <compoundname>QfVertexRubberband</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Repeater</basecompoundref>
+    <derivedcompoundref refid="classVertexRubberband" prot="public" virt="non-virtual">VertexRubberband</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfVertexRubberband_1ab254bc8f3029cd2414872ff9c530cc86" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfVertexRubberband::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfVertexRubberband::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfVertexRubberband.qml" line="11" column="1" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexRubberband_1a035346918caf3985cddc145f89c63c5d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVertexRubberband::isVisible</definition>
+        <argsstring></argsstring>
+        <name>isVisible</name>
+        <qualifiedname>QfVertexRubberband::isVisible</qualifiedname>
+        <read>dummyGetter_isVisible_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfVertexRubberband.qml" line="13" column="1" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexRubberband_1a59505aa216b0a053c6a71dacfaf6414d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVertexRubberband::isCycling</definition>
+        <argsstring></argsstring>
+        <name>isCycling</name>
+        <qualifiedname>QfVertexRubberband::isCycling</qualifiedname>
+        <read>dummyGetter_isCycling_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfVertexRubberband.qml" line="15" column="1" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexRubberband_1a818a1eccb4c7f7cd278d2f420988e306" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfVertexRubberband::isAddingVertex</definition>
+        <argsstring></argsstring>
+        <name>isAddingVertex</name>
+        <qualifiedname>QfVertexRubberband::isAddingVertex</qualifiedname>
+        <read>dummyGetter_isAddingVertex_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfVertexRubberband.qml" line="17" column="1" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexRubberband_1a5d4b69c37a07fe2c05ed7c76299144d7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfVertexRubberband::vertexColor</definition>
+        <argsstring></argsstring>
+        <name>vertexColor</name>
+        <qualifiedname>QfVertexRubberband::vertexColor</qualifiedname>
+        <read>dummyGetter_vertexColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfVertexRubberband.qml" line="19" column="1" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexRubberband_1a79fb5513d783e3c2bab92cc4c76d56e4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfVertexRubberband::vertexBorderColor</definition>
+        <argsstring></argsstring>
+        <name>vertexBorderColor</name>
+        <qualifiedname>QfVertexRubberband::vertexBorderColor</qualifiedname>
+        <read>dummyGetter_vertexBorderColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfVertexRubberband.qml" line="21" column="1" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexRubberband_1a54d8b90a69146085e56adb6ee96e8b53" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfVertexRubberband::selectedVertexColor</definition>
+        <argsstring></argsstring>
+        <name>selectedVertexColor</name>
+        <qualifiedname>QfVertexRubberband::selectedVertexColor</qualifiedname>
+        <read>dummyGetter_selectedVertexColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfVertexRubberband.qml" line="23" column="1" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexRubberband_1a9e45ecd824f7873d03c2cf4df951f248" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfVertexRubberband::selectedVertexBorderColor</definition>
+        <argsstring></argsstring>
+        <name>selectedVertexBorderColor</name>
+        <qualifiedname>QfVertexRubberband::selectedVertexBorderColor</qualifiedname>
+        <read>dummyGetter_selectedVertexBorderColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfVertexRubberband.qml" line="25" column="1" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexRubberband_1a70b66bb9f2413c70e3bbc9900c984c42" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfVertexRubberband::newVertexColor</definition>
+        <argsstring></argsstring>
+        <name>newVertexColor</name>
+        <qualifiedname>QfVertexRubberband::newVertexColor</qualifiedname>
+        <read>dummyGetter_newVertexColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfVertexRubberband.qml" line="27" column="1" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfVertexRubberband_1abbb34ae146b4226f3a4f291c44b9b4b9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfVertexRubberband::newVertexBorderColor</definition>
+        <argsstring></argsstring>
+        <name>newVertexBorderColor</name>
+        <qualifiedname>QfVertexRubberband::newVertexBorderColor</qualifiedname>
+        <read>dummyGetter_newVertexBorderColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfVertexRubberband.qml" line="29" column="1" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfVertexRubberband_1a0bb7ba2eb38fc1ccc942aab4164a42f9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfVertexRubberband::delegate</definition>
+        <argsstring></argsstring>
+        <name>delegate</name>
+        <qualifiedname>QfVertexRubberband::delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfVertexRubberband.qml" line="31" column="5" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfVertexRubberband</label>
+        <link refid="classQfVertexRubberband"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+      <node id="3">
+        <label>VertexRubberband</label>
+        <link refid="classVertexRubberband"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfVertexRubberband</label>
+        <link refid="classQfVertexRubberband"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Repeater</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qml/QfVertexRubberband.qml" line="8" column="1" bodyfile="src/core/qml/QfVertexRubberband.qml" bodystart="8" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classQfVertexRubberband_1a0bb7ba2eb38fc1ccc942aab4164a42f9" prot="private" virt="non-virtual"><scope>QfVertexRubberband</scope><name>delegate</name></member>
+      <member refid="classQfVertexRubberband_1a818a1eccb4c7f7cd278d2f420988e306" prot="public" virt="non-virtual"><scope>QfVertexRubberband</scope><name>isAddingVertex</name></member>
+      <member refid="classQfVertexRubberband_1a59505aa216b0a053c6a71dacfaf6414d" prot="public" virt="non-virtual"><scope>QfVertexRubberband</scope><name>isCycling</name></member>
+      <member refid="classQfVertexRubberband_1a035346918caf3985cddc145f89c63c5d" prot="public" virt="non-virtual"><scope>QfVertexRubberband</scope><name>isVisible</name></member>
+      <member refid="classQfVertexRubberband_1ab254bc8f3029cd2414872ff9c530cc86" prot="public" virt="non-virtual"><scope>QfVertexRubberband</scope><name>mapSettings</name></member>
+      <member refid="classQfVertexRubberband_1abbb34ae146b4226f3a4f291c44b9b4b9" prot="public" virt="non-virtual"><scope>QfVertexRubberband</scope><name>newVertexBorderColor</name></member>
+      <member refid="classQfVertexRubberband_1a70b66bb9f2413c70e3bbc9900c984c42" prot="public" virt="non-virtual"><scope>QfVertexRubberband</scope><name>newVertexColor</name></member>
+      <member refid="classQfVertexRubberband_1a9e45ecd824f7873d03c2cf4df951f248" prot="public" virt="non-virtual"><scope>QfVertexRubberband</scope><name>selectedVertexBorderColor</name></member>
+      <member refid="classQfVertexRubberband_1a54d8b90a69146085e56adb6ee96e8b53" prot="public" virt="non-virtual"><scope>QfVertexRubberband</scope><name>selectedVertexColor</name></member>
+      <member refid="classQfVertexRubberband_1a79fb5513d783e3c2bab92cc4c76d56e4" prot="public" virt="non-virtual"><scope>QfVertexRubberband</scope><name>vertexBorderColor</name></member>
+      <member refid="classQfVertexRubberband_1a5d4b69c37a07fe2c05ed7c76299144d7" prot="public" virt="non-virtual"><scope>QfVertexRubberband</scope><name>vertexColor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
