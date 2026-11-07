@@ -213,8 +213,8 @@ Page {
               anchors.centerIn: parent
               width: parent.width - 6
               height: width
-              visible: ItemCloudStatus === QfLocalFilesModel.Synchronized
-              source: QfTheme.getThemeVectorIcon('ic_check_white_24dp')
+              visible: ItemCloudStatus === QfLocalFilesModel.Synchronized || ItemCloudStatus === QfLocalFilesModel.UploadQueued
+              source: ItemCloudStatus === QfLocalFilesModel.Synchronized ? QfTheme.getThemeVectorIcon('ic_check_white_24dp') : QfTheme.getThemeVectorIcon('ic_hourglass_black_24dp')
               sourceSize.width: width * screen.devicePixelRatio
               sourceSize.height: height * screen.devicePixelRatio
             }
