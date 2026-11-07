@@ -1120,17 +1120,7 @@ bool QgisMobileapp::print( const QString &layoutName )
   emit printTriggered( layoutToPrint->name() );
 
   QTimer::singleShot( 300, this, [this, layoutToPrint, templateLayout = std::move( templateLayout )]() {
-    QString destination = QStringLiteral( "%1/%2-%3.pdf" ).arg( layoutsFolder(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
-    const QString cloudProjectId = QfCloudUtils::getProjectId( mProjectFilePath );
-    if ( !cloudProjectId.isEmpty() )
-    {
-      const QString sanitizedDestination = QfFileUtils::sanitizeFilePath( destination );
-      if ( !sanitizedDestination.isEmpty() )
-      {
-        destination = sanitizedDestination;
-      }
-    }
-
+    const QString destination = QStringLiteral( "%1/%2-%3.pdf" ).arg( layoutsFolder(), layoutToPrint->name(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMdd_hhmmss" ) ) );
     QString openPath;
     bool success = false;
 
