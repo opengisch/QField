@@ -593,8 +593,8 @@ ApplicationWindow {
     DragHandler {
       id: rotateDragHandler
       enabled: rotateFeaturesToolbar.rotateFeaturesRequested == true
-      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen | PointerDevice.Mouse : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.Stylus
-      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByAnything
+      acceptedDevices: !qfieldSettings.mouseAsTouchScreen ? PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.TouchPad : PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.Stylus
+      grabPermissions: PointerHandler.CanTakeOverFromHandlersOfSameType | PointerHandler.CanTakeOverFromHandlersOfDifferentType
 
       property real pressClickX: 0
       property real pressClickY: 0
@@ -612,10 +612,11 @@ ApplicationWindow {
 
       onTranslationChanged: {
         if (active) {
-          let newPositionX = pressClickX + translation.x;
-          let newPositionY = pressClickY + translation.y;
-          screenCenterX = mapCanvas.mapSettings.coordinateToScreen(featureListForm.extentController.getCentroidFromSelected()).x;
-          screenCenterY = mapCanvas.mapSettings.coordinateToScreen(featureListForm.extentController.getCentroidFromSelected()).y;
+          const newPositionX = pressClickX + translation.x;
+          const newPositionY = pressClickY + translation.y;
+          const screenCentroid = mapCanvas.mapSettings.coordinateToScreen(featureListForm.extentController.getCentroidFromSelected());
+          screenCenterX = screenCentroid.x;
+          screenCenterY = screenCentroid.y;
           let angle = Math.atan2(newPositionY - screenCenterY, newPositionX - screenCenterX) - Math.atan2(pressClickY - screenCenterY, pressClickX - screenCenterX);
           if (angle != 0) {
             moveAndRotateFeaturesHighlight.originX = screenCenterX;
@@ -3548,7 +3549,7 @@ ApplicationWindow {
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         mapSettings: mapCanvas.mapSettings
 
-        stateVisible: stateMachine.state === "digitize" && dashBoard.activeCollection
+        stateVisible: stateMachine.state === "digitize" && dashBoard.activeCollection && !moveFeaturesToolbar.stateVisible && !rotateFeaturesToolbar.stateVisible
         anchors.right: parent.right
       }
 

@@ -110,6 +110,12 @@ class QfMarkupCollection : public QObject
      */
     QgsVectorLayer *asVectorLayer();
 
+    /**
+     * Duplicates the markup item represented as a \a feature geenrated from the memory vector
+     * layer.
+     */
+    QgsFeature duplicateFeatureItem( const QgsFeature &feature );
+
     Q_INVOKABLE static QfMarkupItem createItem( const QString &label, const QString &description, const QgsGeometry &geometry, const QColor &color );
 
   signals:
@@ -127,6 +133,7 @@ class QfMarkupCollection : public QObject
 
   private:
     void processAttributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value );
+    void processFeatureAdded( QgsFeatureId fid );
     void processFeatureDeleted( QgsFeatureId fid );
     void processGeometryChanged( QgsFeatureId fid, const QgsGeometry &geometry );
 

@@ -17,6 +17,7 @@
 
 #include "qffeatureutils.h"
 #include "qflayerutils.h"
+#include "qfmarkupcollection.h"
 #include "qfmultifeaturelistmodel.h"
 #include "qfmultifeaturelistmodelbase.h"
 
@@ -548,11 +549,18 @@ bool QfMultiFeatureListModelBase::canEditAttributesSelection() const
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer )
+  {
     return false;
+  }
+
+  const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeAttributeValues;
+  if ( !isCapable )
+  {
+    return false;
+  }
 
   const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_attribute_editing_locked" ), false ).toBool();
-  const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeAttributeValues;
-  return !isLocked && isCapable;
+  return !isLocked;
 }
 
 bool QfMultiFeatureListModelBase::canMergeSelection() const
@@ -562,11 +570,18 @@ bool QfMultiFeatureListModelBase::canMergeSelection() const
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer )
+  {
     return false;
+  }
+
+  const bool isCapable = ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries );
+  if ( !isCapable )
+  {
+    return false;
+  }
 
   const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_editing_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
-  const bool isCapable = ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures ) && ( vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries );
-  return !isLocked && isCapable;
+  return !isLocked;
 }
 
 bool QfMultiFeatureListModelBase::canDeleteSelection() const
@@ -576,11 +591,19 @@ bool QfMultiFeatureListModelBase::canDeleteSelection() const
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer )
+  {
     return false;
+  }
 
-  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool();
   const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::DeleteFeatures;
-  return !isLocked && isCapable;
+  if ( !isCapable )
+  {
+    return false;
+  }
+
+  const bool isMarkupCollection = vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
+  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_deletion_locked" ), false ).toBool();
+  return isMarkupCollection || !isLocked;
 }
 
 bool QfMultiFeatureListModelBase::canDuplicateSelection() const
@@ -590,31 +613,47 @@ bool QfMultiFeatureListModelBase::canDuplicateSelection() const
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer )
+  {
     return false;
+  }
 
-  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
   const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::AddFeatures;
-  return !isLocked && isCapable;
+  if ( !isCapable )
+  {
+    return false;
+  }
+
+  const bool isMarkupCollection = vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
+  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
+  return isMarkupCollection || !isLocked;
 }
 
 bool QfMultiFeatureListModelBase::canMoveSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
+  {
     return false;
+  }
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer )
+  {
     return false;
+  }
 
   const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries;
   if ( !isCapable )
+  {
     return false;
+  }
 
   const bool isDeprecadedGeometryLock = vlayer->customPropertyKeys().contains( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ) );
   const bool geometryEditingLockedExpressionActive = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ) : QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
   const bool geometryEditingLocked = vlayer->readOnly() || vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked" ) : QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
   if ( geometryEditingLocked && !geometryEditingLockedExpressionActive )
+  {
     return false;
+  }
 
   if ( geometryEditingLockedExpressionActive )
   {
@@ -641,11 +680,15 @@ bool QfMultiFeatureListModelBase::canMoveSelection() const
 bool QfMultiFeatureListModelBase::canRotateSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
+  {
     return false;
+  }
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer )
+  {
     return false;
+  }
 
   const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries;
   if ( !isCapable )
@@ -655,7 +698,9 @@ bool QfMultiFeatureListModelBase::canRotateSelection() const
   const bool geometryEditingLockedExpressionActive = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ) : QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
   const bool geometryEditingLocked = vlayer->readOnly() || vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked" ) : QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
   if ( geometryEditingLocked && !geometryEditingLockedExpressionActive )
+  {
     return false;
+  }
 
   if ( geometryEditingLockedExpressionActive )
   {
@@ -682,24 +727,35 @@ bool QfMultiFeatureListModelBase::canRotateSelection() const
 bool QfMultiFeatureListModelBase::canProcessSelection() const
 {
   if ( mSelectedFeatures.isEmpty() )
+  {
     return false;
+  }
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer )
+  {
     return false;
+  }
 
   const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::ChangeGeometries;
   if ( !isCapable )
+  {
     return false;
+  }
 
-  if ( vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool() )
+  const bool isMarkupCollection = vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
+  if ( isMarkupCollection )
+  {
     return false;
+  }
 
   const bool isDeprecadedGeometryLock = vlayer->customPropertyKeys().contains( QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ) );
   const bool geometryEditingLockedExpressionActive = vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked_expression_active" ) : QStringLiteral( "QFieldSync/is_geometry_locked_expression_active" ), false ).toBool();
   const bool geometryEditingLocked = vlayer->readOnly() || vlayer->customProperty( !isDeprecadedGeometryLock ? QStringLiteral( "QFieldSync/is_geometry_editing_locked" ) : QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool();
   if ( geometryEditingLocked && !geometryEditingLockedExpressionActive )
+  {
     return false;
+  }
 
   if ( geometryEditingLockedExpressionActive )
   {
@@ -726,7 +782,9 @@ bool QfMultiFeatureListModelBase::canProcessSelection() const
 bool QfMultiFeatureListModelBase::mergeSelection()
 {
   if ( !canMergeSelection() )
+  {
     return false;
+  }
 
   QgsVectorLayer *vlayer = selectedLayer();
   QList<QPair<QgsMapLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
@@ -828,7 +886,9 @@ bool QfMultiFeatureListModelBase::deleteFeature( QgsVectorLayer *layer, QgsFeatu
 bool QfMultiFeatureListModelBase::deleteSelection()
 {
   if ( !canDeleteSelection() )
+  {
     return false;
+  }
 
   QgsVectorLayer *vlayer = selectedLayer();
   const bool wasEditing = vlayer->editBuffer();
@@ -866,8 +926,34 @@ bool QfMultiFeatureListModelBase::deleteSelection()
 
 bool QfMultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
 {
-  QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( layer, feature );
-  if ( feature.isValid() )
+  if ( !feature.isValid() )
+  {
+    return false;
+  }
+
+  QgsFeature duplicatedFeature;
+  bool isSuccess = false;
+
+  const bool isMarkupCollection = layer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
+  if ( isMarkupCollection )
+  {
+    duplicatedFeature = QgsFeature( feature.fields() );
+    duplicatedFeature.setAttributes( feature.attributes() );
+    duplicatedFeature.setGeometry( feature.geometry() );
+
+    isSuccess = layer->dataProvider()->addFeature( duplicatedFeature );
+    if ( isSuccess )
+    {
+      emit layer->featureAdded( duplicatedFeature.id() );
+    }
+  }
+  else
+  {
+    duplicatedFeature = QfLayerUtils::duplicateFeature( layer, feature );
+    isSuccess = duplicatedFeature.isValid();
+  }
+
+  if ( isSuccess )
   {
     QList<QPair<QgsMapLayer *, QgsFeature>> duplicatedFeatures;
     duplicatedFeatures << QPair<QgsMapLayer *, QgsFeature>( layer, duplicatedFeature );
@@ -880,26 +966,57 @@ bool QfMultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const
     emit selectedCountChanged();
   }
 
-  return feature.isValid();
+  return isSuccess;
 }
 
 bool QfMultiFeatureListModelBase::duplicateSelection()
 {
   if ( !canDuplicateSelection() )
+  {
     return false;
+  }
 
   QgsVectorLayer *vlayer = selectedLayer();
-
   const QList<QPair<QgsMapLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
   QList<QPair<QgsMapLayer *, QgsFeature>> duplicatedFeatures;
   bool isSuccess = false;
-  for ( const auto &pair : selectedFeatures )
+
+  const bool isMarkupCollection = vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
+  if ( isMarkupCollection )
   {
-    QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( vlayer, pair.second );
-    duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( vlayer, duplicatedFeature );
-    isSuccess = duplicatedFeature.isValid();
-    if ( !isSuccess )
-      break;
+    for ( const auto &pair : selectedFeatures )
+    {
+      QgsFeature duplicatedFeature( pair.second.fields() );
+      duplicatedFeature.setAttributes( pair.second.attributes() );
+      duplicatedFeature.setGeometry( pair.second.geometry() );
+
+      isSuccess = vlayer->dataProvider()->addFeature( duplicatedFeature );
+      if ( isSuccess )
+      {
+        duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( vlayer, duplicatedFeature );
+        emit vlayer->featureAdded( duplicatedFeature.id() );
+      }
+      else
+      {
+        break;
+      }
+    }
+  }
+  else
+  {
+    for ( const auto &pair : selectedFeatures )
+    {
+      QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( vlayer, pair.second );
+      isSuccess = duplicatedFeature.isValid();
+      if ( isSuccess )
+      {
+        duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( vlayer, duplicatedFeature );
+      }
+      else
+      {
+        break;
+      }
+    }
   }
 
   if ( isSuccess )
@@ -974,7 +1091,10 @@ bool QfMultiFeatureListModelBase::moveSelection( const double x, const double y,
       QgsGeometryMap geometryMap;
       geometryMap[pair.second.id()] = geom;
       isSuccess = vlayer->dataProvider()->changeGeometryValues( geometryMap );
-      emit vlayer->geometryChanged( pair.second.id(), geom );
+      if ( isSuccess )
+      {
+        emit vlayer->geometryChanged( pair.second.id(), geom );
+      }
     }
     else
     {
@@ -1008,7 +1128,9 @@ bool QfMultiFeatureListModelBase::moveSelection( const double x, const double y,
 bool QfMultiFeatureListModelBase::rotateSelection( const double angle )
 {
   if ( !canRotateSelection() )
+  {
     return false;
+  }
 
   QgsVectorLayer *vlayer = selectedLayer();
   const bool wasEditing = vlayer->editBuffer();
@@ -1024,7 +1146,23 @@ bool QfMultiFeatureListModelBase::rotateSelection( const double angle )
     QgsGeometry geom = pair.second.geometry();
     geom.rotate( angle, geom.centroid().asPoint() );
     pair.second.setGeometry( geom );
-    isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
+
+    if ( vlayer->dataProvider() && QgsWkbTypes::flatType( vlayer->wkbType() ) == Qgis::WkbType::GeometryCollection )
+    {
+      // QGIS threats a geometry collection is non-spatial, which in turn prohibits geometry changes via edit buffer
+      QgsGeometryMap geometryMap;
+      geometryMap[pair.second.id()] = geom;
+      isSuccess = vlayer->dataProvider()->changeGeometryValues( geometryMap );
+      if ( isSuccess )
+      {
+        emit vlayer->geometryChanged( pair.second.id(), geom );
+      }
+    }
+    else
+    {
+      isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
+    }
+
     if ( !isSuccess )
     {
       QgsMessageLog::logMessage( tr( "Cannot change geometry of feature %1 in %2" ).arg( pair.second.id() ).arg( vlayer->name() ), "QField", Qgis::Critical );

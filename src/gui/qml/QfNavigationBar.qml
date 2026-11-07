@@ -577,8 +577,7 @@ Rectangle {
     MenuItem {
       id: duplicateSelectedFeaturesBtn
       text: qsTr('Duplicate Selected Feature(s)')
-      visible: !editButton.isMarkupItem
-      height: !editButton.isMarkupItem ? 48 : 0
+      height: 48
       icon.source: QfTheme.getThemeVectorIcon("ic_duplicate_black_24dp")
       enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
 
@@ -799,7 +798,7 @@ Rectangle {
       id: duplicateFeatureBtn
       text: qsTr('Duplicate Feature')
       icon.source: QfTheme.getThemeVectorIcon("ic_duplicate_black_24dp")
-      enabled: (projectInfo.insertRights && !editButton.isMarkupItem && (!selection.focusedLayer || (!selection.focusedLayer.readOnly && !featureForm.model.featureModel.featureAdditionLocked)))
+      enabled: (projectInfo.insertRights && (!selection.focusedLayer || (!selection.focusedLayer.readOnly && !featureForm.model.featureModel.featureAdditionLocked)))
       visible: enabled
 
       font: QfTheme.defaultFont
@@ -816,10 +815,11 @@ Rectangle {
       // allow only rotation for line or polygon or multipoint
       property bool isGeometryCompatible: {
         const vl = selection.focusedLayer;
-        if (vl !== null) {
-          if (vl.geometryType() === Qgis.GeometryType.Line || vl.geometryType() === Qgis.GeometryType.Polygon) {
-            return true;
-          } else if (vl.geometryType() === Qgis.GeometryType.Point && vl.wkbType() !== Qgis.WkbType.Point && vl.wkbType() !== Qgis.WkbType.PointZ && vl.wkbType() !== Qgis.WkbType.PointM && vl.wkbType() !== Qgis.WkbType.PointZM && vl.wkbType() !== Qgis.WkbType.Point25D) {
+        const geometryType = vl ? vl.geometryType() : Qgis.GeometryType.Null;
+        if (geometryType === Qgis.GeometryType.Line || geometryType === Qgis.GeometryType.Polygon || geometryType === Qgis.GeometryType.Unknown) {
+          return true;
+        } else if (geometryType === Qgis.GeometryType.Point && vl) {
+          if (vl.wkbType() !== Qgis.WkbType.Point && vl.wkbType() !== Qgis.WkbType.PointZ && vl.wkbType() !== Qgis.WkbType.PointM && vl.wkbType() !== Qgis.WkbType.PointZM && vl.wkbType() !== Qgis.WkbType.Point25D) {
             return true;
           }
         }
