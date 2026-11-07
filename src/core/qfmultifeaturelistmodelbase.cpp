@@ -17,6 +17,7 @@
 
 #include "qffeatureutils.h"
 #include "qflayerutils.h"
+#include "qfmarkupcollection.h"
 #include "qfmultifeaturelistmodel.h"
 #include "qfmultifeaturelistmodelbase.h"
 
@@ -590,11 +591,19 @@ bool QfMultiFeatureListModelBase::canDuplicateSelection() const
 
   QgsVectorLayer *vlayer = qobject_cast<QgsVectorLayer *>( mSelectedFeatures[0].first );
   if ( !vlayer )
+  {
     return false;
+  }
 
-  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
   const bool isCapable = vlayer->dataProvider()->capabilities() & Qgis::VectorProviderCapability::AddFeatures;
-  return !isLocked && isCapable;
+  if ( !isCapable )
+  {
+    return false;
+  }
+
+  const bool isMarkupCollection = vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
+  const bool isLocked = vlayer->readOnly() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_geometry_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QFieldSync/is_feature_addition_locked" ), false ).toBool() || vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
+  return isMarkupCollection || !isLocked;
 }
 
 bool QfMultiFeatureListModelBase::canMoveSelection() const
@@ -866,8 +875,34 @@ bool QfMultiFeatureListModelBase::deleteSelection()
 
 bool QfMultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const QgsFeature &feature )
 {
-  QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( layer, feature );
-  if ( feature.isValid() )
+  if ( !feature.isValid() )
+  {
+    return false;
+  }
+
+  QgsFeature duplicatedFeature;
+  bool isSuccess = false;
+
+  const bool isMarkupCollection = layer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
+  if ( isMarkupCollection )
+  {
+    duplicatedFeature = QgsFeature( feature.fields() );
+    duplicatedFeature.setAttributes( feature.attributes() );
+    duplicatedFeature.setGeometry( feature.geometry() );
+
+    isSuccess = layer->dataProvider()->addFeature( duplicatedFeature );
+    if ( isSuccess )
+    {
+      emit layer->featureAdded( duplicatedFeature.id() );
+    }
+  }
+  else
+  {
+    duplicatedFeature = QfLayerUtils::duplicateFeature( layer, feature );
+    isSuccess = duplicatedFeature.isValid();
+  }
+
+  if ( isSuccess )
   {
     QList<QPair<QgsMapLayer *, QgsFeature>> duplicatedFeatures;
     duplicatedFeatures << QPair<QgsMapLayer *, QgsFeature>( layer, duplicatedFeature );
@@ -880,26 +915,57 @@ bool QfMultiFeatureListModelBase::duplicateFeature( QgsVectorLayer *layer, const
     emit selectedCountChanged();
   }
 
-  return feature.isValid();
+  return isSuccess;
 }
 
 bool QfMultiFeatureListModelBase::duplicateSelection()
 {
   if ( !canDuplicateSelection() )
+  {
     return false;
+  }
 
   QgsVectorLayer *vlayer = selectedLayer();
-
   const QList<QPair<QgsMapLayer *, QgsFeature>> selectedFeatures = mSelectedFeatures;
   QList<QPair<QgsMapLayer *, QgsFeature>> duplicatedFeatures;
   bool isSuccess = false;
-  for ( const auto &pair : selectedFeatures )
+
+  const bool isMarkupCollection = vlayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
+  if ( isMarkupCollection )
   {
-    QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( vlayer, pair.second );
-    duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( vlayer, duplicatedFeature );
-    isSuccess = duplicatedFeature.isValid();
-    if ( !isSuccess )
-      break;
+    for ( const auto &pair : selectedFeatures )
+    {
+      QgsFeature duplicatedFeature( pair.second.fields() );
+      duplicatedFeature.setAttributes( pair.second.attributes() );
+      duplicatedFeature.setGeometry( pair.second.geometry() );
+
+      isSuccess = vlayer->dataProvider()->addFeature( duplicatedFeature );
+      if ( isSuccess )
+      {
+        duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( vlayer, duplicatedFeature );
+        emit vlayer->featureAdded( duplicatedFeature.id() );
+      }
+      else
+      {
+        break;
+      }
+    }
+  }
+  else
+  {
+    for ( const auto &pair : selectedFeatures )
+    {
+      QgsFeature duplicatedFeature = QfLayerUtils::duplicateFeature( vlayer, pair.second );
+      isSuccess = duplicatedFeature.isValid();
+      if ( isSuccess )
+      {
+        duplicatedFeatures << QPair<QgsVectorLayer *, QgsFeature>( vlayer, duplicatedFeature );
+      }
+      else
+      {
+        break;
+      }
+    }
   }
 
   if ( isSuccess )
