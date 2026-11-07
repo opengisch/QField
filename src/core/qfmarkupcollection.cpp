@@ -516,8 +516,16 @@ QgsVectorLayer *QfMarkupCollection::asVectorLayer()
   connect( mVectorLayer.get(), &QgsVectorLayer::attributeValueChanged, this, &QfMarkupCollection::processAttributeValueChanged );
   connect( mVectorLayer.get(), &QgsVectorLayer::geometryChanged, this, &QfMarkupCollection::processGeometryChanged );
   connect( mVectorLayer.get(), &QgsVectorLayer::featureDeleted, this, &QfMarkupCollection::processFeatureDeleted );
+  connect( mVectorLayer.get(), &QgsVectorLayer::featureAdded, this, &QfMarkupCollection::processFeatureAdded );
 
   return mVectorLayer.get();
+}
+
+QgsFeature QfMarkupCollection::duplicateFeatureItem( const QgsFeature &feature )
+{
+  QgsFeature duplicatedFeature( feature.fields() );
+  duplicatedFeature.setAttributes( feature.attributes() );
+  return duplicatedFeature;
 }
 
 void QfMarkupCollection::processAttributeValueChanged( QgsFeatureId fid, int idx, const QVariant &value )
@@ -543,6 +551,23 @@ void QfMarkupCollection::processAttributeValueChanged( QgsFeatureId fid, int idx
   }
 
   replaceItem( mFeatureUuids[fid], item, false );
+}
+
+void QfMarkupCollection::processFeatureAdded( QgsFeatureId fid )
+{
+  if ( fid >= 0 && !mFeatureUuids.contains( fid ) )
+  {
+    QgsFeature feature = mVectorLayer->getFeature( fid );
+    QfMarkupItem item( feature.attribute( QStringLiteral( "label" ) ).toString(),
+                       feature.attribute( QStringLiteral( "description" ) ).toString(),
+                       feature.geometry(),
+                       QgsColorUtils::colorFromString( feature.attribute( QStringLiteral( "color" ) ).toString() ) );
+    mFeatureUuids[fid] = item.uuid();
+    mItems.insert( item.uuid(), item );
+
+    emit countChanged();
+    emit itemsChanged();
+  }
 }
 
 void QfMarkupCollection::processFeatureDeleted( QgsFeatureId fid )

@@ -577,8 +577,7 @@ Rectangle {
     MenuItem {
       id: duplicateSelectedFeaturesBtn
       text: qsTr('Duplicate Selected Feature(s)')
-      visible: !editButton.isMarkupItem
-      height: !editButton.isMarkupItem ? 48 : 0
+      height: 48
       icon.source: QfTheme.getThemeVectorIcon("ic_duplicate_black_24dp")
       enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
 
@@ -799,7 +798,7 @@ Rectangle {
       id: duplicateFeatureBtn
       text: qsTr('Duplicate Feature')
       icon.source: QfTheme.getThemeVectorIcon("ic_duplicate_black_24dp")
-      enabled: (projectInfo.insertRights && !editButton.isMarkupItem && (!selection.focusedLayer || (!selection.focusedLayer.readOnly && !featureForm.model.featureModel.featureAdditionLocked)))
+      enabled: (projectInfo.insertRights && (!selection.focusedLayer || (!selection.focusedLayer.readOnly && !featureForm.model.featureModel.featureAdditionLocked)))
       visible: enabled
 
       font: QfTheme.defaultFont
