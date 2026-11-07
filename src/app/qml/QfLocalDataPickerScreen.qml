@@ -209,14 +209,17 @@ Page {
               }
             }
 
-            Image {
+            QfToolButton {
               anchors.centerIn: parent
+              enabled: false
               width: parent.width - 6
               height: width
+              padding: 0
               visible: ItemCloudStatus === QfLocalFilesModel.Synchronized || ItemCloudStatus === QfLocalFilesModel.UploadQueued
-              source: ItemCloudStatus === QfLocalFilesModel.Synchronized ? QfTheme.getThemeVectorIcon('ic_check_white_24dp') : QfTheme.getThemeVectorIcon('ic_hourglass_black_24dp')
-              sourceSize.width: width * screen.devicePixelRatio
-              sourceSize.height: height * screen.devicePixelRatio
+              iconSource: ItemCloudStatus === QfLocalFilesModel.Synchronized ? QfTheme.getThemeVectorIcon('ic_check_white_24dp') : QfTheme.getThemeVectorIcon('ic_hourglass_black_24dp')
+              iconColor: "#ffffff"
+              icon.width: width
+              icon.height: width
             }
 
             Rectangle {
