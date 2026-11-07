@@ -14,7 +14,6 @@
     "boost-range",
     "boost-tokenizer",
     "curl",
-    "cxxopts",
     "date",
     {
       "name": "dirent",
@@ -27,20 +26,9 @@
     },
     "geos",
     "libosmium",
-    {
-      "name": "libspatialite",
-      "features": [
-        "rttopo"
-      ]
-    },
-    "luajit",
-    "nanobind",
-    "openssl",
     "pkgconf",
     "protobuf",
     "rapidjson",
-    "spatialite-tools",
-    "sqlite3",
     "unordered-dense",
     {
       "name": "vcpkg-cmake",
@@ -53,6 +41,26 @@
     "zlib"
   ],
   "features": {
+    "bindings": {
+      "description": "Python bindings",
+      "dependencies": [
+        "nanobind"
+      ]
+    },
+    "data-tools": {
+      "description": "Tile building tools and gurka tests",
+      "dependencies": [
+        {
+          "name": "libspatialite",
+          "features": [
+            "rttopo"
+          ]
+        },
+        "luajit",
+        "spatialite-tools",
+        "sqlite3"
+      ]
+    },
     "elevation-lz4": {
       "description": "LZ4 decompression support for elevation tiles",
       "dependencies": [
