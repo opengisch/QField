@@ -23,12 +23,12 @@ jobs:
         include:
           - os: macos-15
             triplet: x64-osx
-            deployment-target: "10.15"
+            deployment-target: "13.3"
             target-arch: x86_64
             run-tests: false
           - os: macos-15
             triplet: arm64-osx
-            deployment-target: "11.0"
+            deployment-target: "13.3"
             target-arch: arm64
             run-tests: true
     name: build (macos)
