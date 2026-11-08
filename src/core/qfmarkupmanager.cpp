@@ -180,12 +180,7 @@ void QfMarkupManager::insertCollection( QfMarkupCollection *collection, const QS
 
   mCollections.insert( collection->uuid(), collection );
 
-  QString geoJsonPath = collectionPath;
-  if ( geoJsonPath.isEmpty() )
-  {
-    geoJsonPath = QStringLiteral( "%1/%2markup-%3.geojson" ).arg( mPath, !mPrefix.isEmpty() ? QStringLiteral( "%1-" ).arg( mPrefix ) : QString(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
-  }
-
+  const QString geoJsonPath = collectionPath.trimmed();
   mCollectionPaths.insert( collection->uuid(), geoJsonPath );
 }
 
@@ -201,7 +196,13 @@ void QfMarkupManager::processCollectionItemsChanged()
 
   if ( mCollectionPaths.contains( collection->uuid() ) )
   {
-    const QString geoJsonPath = mCollectionPaths[collection->uuid()];
+    QString geoJsonPath = mCollectionPaths[collection->uuid()];
+    if ( geoJsonPath.isEmpty() )
+    {
+      geoJsonPath = QStringLiteral( "%1/%2markup-%3.geojson" ).arg( mPath, !mPrefix.isEmpty() ? QStringLiteral( "%1-" ).arg( mPrefix ) : QString(), QDateTime::currentDateTime().toString( QStringLiteral( "yyyyMMddHHmmss" ) ) );
+      mCollectionPaths[collection->uuid()] = geoJsonPath;
+    }
+
     if ( !collection->writeGeoJson( geoJsonPath ) )
     {
       qInfo() << QStringLiteral( "Error: Markup collection '%1' could not be written on disk" ).arg( collection->name() );
