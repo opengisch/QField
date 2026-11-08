@@ -4364,6 +4364,8 @@ ApplicationWindow {
         font: QfTheme.defaultFont
 
         icon.source: iconForGeometry(feature.geometry.type)
+        icon.width: 24
+        icon.height: 24
 
         MenuItem {
           text: qsTr('Layer:') + ' ' + layerName
