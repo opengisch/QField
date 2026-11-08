@@ -4566,7 +4566,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>The easiest way to collaborate and manage your projects across devices!</source>
-        <translation type="unfinished"/>
+        <translation>跨设备协作和管理工程的最简单方式！</translation>
     </message>
 </context>
 <context>
@@ -5159,7 +5159,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Cloud project details not found.</source>
-        <translation type="unfinished"/>
+        <translation>未找到云工程详细信息。</translation>
     </message>
 </context>
 <context>
@@ -5638,7 +5638,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Tap a code to select it</source>
-        <translation type="unfinished"/>
+        <translation>点击编码将其选择</translation>
     </message>
 </context>
 <context>
@@ -6906,7 +6906,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Upload to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>上传至QFieldCloud</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
@@ -6998,7 +6998,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Upload file(s) to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>将文件上传至QFieldCloud</translation>
     </message>
     <message>
         <source>Send compressed file(s) to...</source>
@@ -7014,7 +7014,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Items queued for upload to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>待上传至QFieldCloud的项</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
@@ -7022,7 +7022,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>‘%1’ queued for upload to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>待上传至QFieldCloud的 &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Remove File(s)</source>
