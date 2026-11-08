@@ -4537,6 +4537,8 @@ ApplicationWindow {
       return QfTheme.getThemeVectorIcon('ic_geometry_line_24dp');
     case Qgis.GeometryType.Polygon:
       return QfTheme.getThemeVectorIcon('ic_geometry_polygon_24dp');
+    case Qgis.GeometryType.Unknown:
+      return QfTheme.getThemeVectorIcon('ic_markup_collection_24dp');
     default:
       return QfTheme.getThemeVectorIcon('ic_info_white_24dp');
     }
