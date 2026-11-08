@@ -107,15 +107,10 @@ if(WITH_CCACHE)
   include(ccache)
 endif()
 
-set(WITH_BLUETOOTH
-    ON
-    CACHE BOOL "Enable bluetooth support")
-set(WITH_SERIALPORT
-    ON
-    CACHE BOOL "Enable serial port support")
-set(WITH_NFC
-    ON
-    CACHE BOOL "Enable NFC support")
+set(WITH_BLUETOOTH ON CACHE BOOL "Enable bluetooth support")
+set(WITH_SERIALPORT ON CACHE BOOL "Enable serial port support")
+set(WITH_NFC ON CACHE BOOL "Enable NFC support")
+set(WITH_TEXTTOSPEECH ON CACHE BOOL "Enabled text to speech support")
 
 set(SENTRY_DSN "" CACHE STRING "The sentry dsn for logging purpose. If not set, sentry will be disabled")
 set(SENTRY_ENV "" CACHE STRING "The sentry environment for logging purpose.")
@@ -315,6 +310,9 @@ if(WITH_CORE AND NOT CMAKE_GENERATOR STREQUAL "Xcode")
   endif()
   if(WITH_NFC)
     list(APPEND QFIELD_EXPORTED_QT_COMPONENTS Nfc)
+  endif()
+  if(WITH_TEXTTOSPEECH)
+    list(APPEND QFIELD_EXPORTED_QT_COMPONENTS TextToSpeech)
   endif()
   if(WITH_GUI)
     list(APPEND QFIELD_EXPORTED_QT_COMPONENTS WebView)
