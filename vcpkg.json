@@ -89,6 +89,7 @@
       "name": "qtserialport",
       "platform": "!ios"
     },
+    "qtspeech",
     {
       "name": "qttools",
       "host": true,

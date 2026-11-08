@@ -85,6 +85,14 @@ set(QFIELD_APP_HDRS
 
 add_library(qfield_app STATIC ${QFIELD_APP_SRCS} ${QFIELD_APP_HDRS})
 
+if(WITH_TEXTTOSPEECH)
+  find_package(
+    Qt6
+    COMPONENTS TextToSpeech
+    REQUIRED)
+  target_link_libraries(qfield_app PUBLIC Qt6::TextToSpeech)
+endif()
+
 if(WITH_BLUETOOTH)
   target_compile_definitions(qfield_app PRIVATE WITH_BLUETOOTH)
 endif()
