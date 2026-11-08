@@ -636,16 +636,16 @@ Rectangle {
       leftPadding: 2
       rightPadding: 2
       spacing: 2
-      visible: !editButton.isMarkupItem
-      height: !editButton.isMarkupItem ? QfTheme.toolButtonSize : 0
+      height: QfTheme.toolButtonSize
       clip: true
 
       property color hoveredColor: Qt.hsla(QfTheme.mainTextColor.hslHue, QfTheme.mainTextColor.hslSaturation, QfTheme.mainTextColor.hslLightness, 0.2)
 
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
+        visible: QfTheme.toolButtonSize
         height: QfTheme.toolButtonSize
-        width: QfTheme.toolButtonSize
+        width: height
         round: true
         iconSource: QfTheme.getThemeVectorIcon("ic_cut_black_24dp")
         iconColor: enabled ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
@@ -698,14 +698,15 @@ Rectangle {
       }
 
       QfToolButton {
+        enabled: !editButton.isMarkupItem && QfLayerUtils.isAtlasCoverageLayer(selection.focusedLayer)
         anchors.verticalCenter: parent.verticalCenter
+        visible: QfTheme.toolButtonSize
         height: QfTheme.toolButtonSize
-        width: QfTheme.toolButtonSize
+        width: height
         round: true
         iconSource: QfTheme.getThemeVectorIcon("ic_print_black_24dp")
         iconColor: enabled ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
-        enabled: QfLayerUtils.isAtlasCoverageLayer(selection.focusedLayer)
 
         onClicked: {
           featureMenu.close();
@@ -732,8 +733,6 @@ Rectangle {
 
     MenuSeparator {
       width: parent.width
-      height: !editButton.isMarkupItem ? undefined : 0
-      visible: !editButton.isMarkupItem
     }
 
     MenuItem {
