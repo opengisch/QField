@@ -410,7 +410,7 @@ if(WITH_NFC)
 endif()
 
 if(WITH_VALHALLA)
-  target_link_libraries(qfield_core PUBLIC Valhalla::valhalla)
+  target_link_libraries(qfield_core PRIVATE Valhalla::valhalla)
 endif()
 
 if(WITH_SENTRY)
