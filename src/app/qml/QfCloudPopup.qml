@@ -26,7 +26,16 @@ Popup {
 
   property date currentDateTime: new Date()
 
-  onAboutToShow: currentDateTime = new Date()
+  onAboutToShow: {
+    currentDateTime = new Date();
+
+    if (cloudConnection.status === QfCloudConnection.LoggedIn) {
+      if (QfCloudUtils.hasPendingAttachments(cloudConnection.username)) {
+        delayedPendingAttachmentsUploadTimer.stop();
+        platformUtilities.uploadPendingAttachments(cloudConnection);
+      }
+    }
+  }
 
   onAboutToHide: {
     pendingAction = "";
@@ -969,6 +978,18 @@ Popup {
     }
   }
 
+  Timer {
+    id: delayedPendingAttachmentsUploadTimer
+    interval: 300000
+    repeat: false
+
+    onTriggered: {
+      if (QfCloudUtils.hasPendingAttachments(cloudConnection.username)) {
+        platformUtilities.uploadPendingAttachments(cloudConnection);
+      }
+    }
+  }
+
   Connections {
     target: iface
 
@@ -985,6 +1006,7 @@ Popup {
       const collectionPath = markupManager.collectionPath(uuid);
       if (collectionPath !== "") {
         QfCloudUtils.addPendingAttachments(cloudConnection.username, cloudProjectsModel.currentProjectId, [collectionPath], cloudConnection, true);
+        delayedPendingAttachmentsUploadTimer.start();
       }
     }
   }
