@@ -987,7 +987,7 @@ Page {
           }
           uploadFilesToCloudConnection.enabled = true;
           uploadFilesToCloudConnection.sendingMultiple = true;
-          QfCloudUtils.addPendingAttachments(cloudConnection.userInformation.username, QfCloudUtils.getProjectId(table.model.currentPath), fileNames, cloudConnection, true);
+          QfCloudUtils.addPendingAttachments(cloudConnection.username, QfCloudUtils.getProjectId(table.model.currentPath), fileNames, cloudConnection, true);
         }
       }
 

@@ -409,14 +409,6 @@ Popup {
             externalLink: QfCloudUtils.documentationFromErrorString(detailsText)
             titleText: QfCloudUtils.userFriendlyErrorString(detailsText)
             detailsText: ''
-
-            Connections {
-              target: iface
-
-              function onLoadProjectEnded() {
-                transferError.hasError = false;
-              }
-            }
           }
 
           ColumnLayout {
@@ -973,6 +965,26 @@ Popup {
           from: 0
           to: 1
         }
+      }
+    }
+  }
+
+  Connections {
+    target: iface
+
+    function onLoadProjectEnded() {
+      transferError.hasError = false;
+    }
+  }
+
+  Connections {
+    target: markupManager
+    enabled: cloudProjectsModel.currentProjectId !== ""
+
+    function onCollectionItemsChanged(uuid) {
+      const collectionPath = markupManager.collectionPath(uuid);
+      if (collectionPath !== "") {
+        QfCloudUtils.addPendingAttachments(cloudConnection.username, cloudProjectsModel.currentProjectId, [collectionPath], cloudConnection, true);
       }
     }
   }

@@ -43,6 +43,11 @@ QString QfMarkupManager::collectionUuid( QfMarkupCollection *collection ) const
   return mCollections.key( collection );
 }
 
+QString QfMarkupManager::collectionPath( const QString &uuid ) const
+{
+  return mCollectionPaths.value( uuid, QString() );
+}
+
 QfMarkupCollection *QfMarkupManager::collection( const QString &uuid ) const
 {
   return mCollections.contains( uuid ) ? mCollections[uuid] : nullptr;
@@ -197,8 +202,6 @@ void QfMarkupManager::processCollectionItemsChanged()
     return;
   }
 
-  emit collectionItemsChanged( collection->uuid() );
-
   if ( mCollectionPaths.contains( collection->uuid() ) )
   {
     const QString geoJsonPath = mCollectionPaths[collection->uuid()];
@@ -207,4 +210,6 @@ void QfMarkupManager::processCollectionItemsChanged()
       qInfo() << QStringLiteral( "Error: Markup collection '%1' could not be written on disk" ).arg( collection->name() );
     }
   }
+
+  emit collectionItemsChanged( collection->uuid() );
 }

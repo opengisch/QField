@@ -57,6 +57,11 @@ class QfMarkupManager : public QObject
     Q_INVOKABLE QString collectionUuid( QfMarkupCollection *collection ) const;
 
     /**
+     * Returns the file path of the collection's GeoJSON representation.
+     */
+    Q_INVOKABLE QString collectionPath( const QString &uuid ) const;
+
+    /**
      * Returns the collection present in the markup manager matching the \a uuid.
      */
     Q_INVOKABLE QfMarkupCollection *collection( const QString &uuid ) const;
