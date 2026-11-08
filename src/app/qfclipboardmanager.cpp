@@ -96,8 +96,8 @@ void QfClipboardManager::copyFeatureToClipboard( const QgsFeature &feature, bool
 
   if ( includeGeometry )
   {
-    textLines << QStringLiteral( "%1: %2" ).arg( QStringLiteral( "%1:" ).arg( tr( "Geometry" ) ), feature.geometry().asWkt() );
-    htmlLines << QStringLiteral( "<td geometry=\"1\">%1</td><td>%2</td>" ).arg( QStringLiteral( "%1:" ).arg( tr( "Geometry" ) ), feature.geometry().asWkt().toHtmlEscaped() );
+    textLines << QStringLiteral( "%1: %2" ).arg( QStringLiteral( "%1" ).arg( tr( "Geometry" ) ), feature.geometry().asWkt() );
+    htmlLines << QStringLiteral( "<td geometry=\"1\">%1</td><td>%2</td>" ).arg( QStringLiteral( "%1" ).arg( tr( "Geometry" ) ), feature.geometry().asWkt().toHtmlEscaped() );
   }
 
   const QgsFields fields = feature.fields();
