@@ -4416,9 +4416,7 @@ ApplicationWindow {
           font: QfTheme.defaultFont
           icon.source: QfTheme.getThemeVectorIcon("ic_cut_black_24dp")
           leftPadding: QfTheme.menuItemLeftPadding
-          enabled: !isMarkupCollection
-          visible: enabled
-          height: enabled ? 48 : 0
+          height: 48
 
           onTriggered: {
             clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true, true);
@@ -4430,9 +4428,7 @@ ApplicationWindow {
           font: QfTheme.defaultFont
           icon.source: QfTheme.getThemeVectorIcon("ic_copy_black_24dp")
           leftPadding: QfTheme.menuItemLeftPadding
-          enabled: !isMarkupCollection
-          visible: enabled
-          height: enabled ? 48 : 0
+          height: 48
 
           onTriggered: {
             clipboardManager.copyFeatureToClipboard(menu.featureLayer, menu.fid, true);
