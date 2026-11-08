@@ -13,7 +13,6 @@
     "boost-property-tree",
     "boost-range",
     "boost-tokenizer",
-    "curl",
     "date",
     {
       "name": "dirent",
@@ -70,6 +69,12 @@
         "lz4"
       ]
     },
+    "http": {
+      "description": "Python bindings",
+      "dependencies": [
+        "curl"
+      ]
+    },
     "services": {
       "description": "ZMQ + prime_server multiprocess HTTP service. Activate from CMake by setting VCPKG_MANIFEST_FEATURES=services. Only needed for the standalone valhalla_service binary; Python wheels and the embedded library don't need it.",
       "dependencies": [
@@ -86,6 +91,9 @@
           "platform": "windows"
         }
       ]
+    },
+    "tools": {
+      "description": "Tools"
     }
   }
 }

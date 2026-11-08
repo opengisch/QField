@@ -69,14 +69,19 @@ if(VCPKG_HOST_IS_WINDOWS)
     vcpkg_add_to_path("${AWK_EXE_PATH}")
 endif()
 
+vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
+    FEATURES
+        "bindings"      ENABLE_PYTHON_BINDINGS
+        "data-tools"    ENABLE_DATA_TOOLS
+        "http"          ENABLE_HTTP
+        "services"      ENABLE_SERVICES
+        "tools"         ENABLE_TOOLS
+)
+
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
     OPTIONS
-        -DENABLE_TOOLS=OFF
-        -DENABLE_DATA_TOOLS=OFF
-        -DENABLE_PYTHON_BINDINGS=OFF
-        -DENABLE_HTTP=OFF
-        -DENABLE_SERVICES=OFF
+        ${FEATURE_OPTIONS}
         -DENABLE_TESTS=OFF
         -DENABLE_SINGLE_FILES_WERROR=OFF
 )
