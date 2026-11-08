@@ -21,6 +21,7 @@
 #include <QApplication>
 #include <QDomDocument>
 #include <qgsfeature.h>
+#include <qgsgeometrycollection.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerutils.h>
 
@@ -209,20 +210,44 @@ bool QfClipboardManager::pasteFeatureFromClipboardIntoLayer( QgsVectorLayer *lay
 
   // If cut: delete from source before pasting, but do not commit yet
   bool deletedFromSource = false;
-  if ( mIsCutOperation && mSourceLayer )
+  if ( mSourceLayer )
   {
-    if ( !mSourceLayer->isEditable() && !mSourceLayer->startEditing() )
+    if ( mIsCutOperation )
     {
-      qInfo() << tr( "Cut failed: could not start editing on source layer %1" ).arg( mSourceLayer->name() );
-      return false;
+      if ( !mSourceLayer->isEditable() && !mSourceLayer->startEditing() )
+      {
+        qInfo() << tr( "Cut failed: could not start editing on source layer %1" ).arg( mSourceLayer->name() );
+        return false;
+      }
+      if ( !mSourceLayer->deleteFeature( mNativeFeature.id() ) )
+      {
+        qInfo() << tr( "Cut failed: could not delete original feature from source layer %1" ).arg( mSourceLayer->name() );
+        mSourceLayer->rollBack();
+        return false;
+      }
+      deletedFromSource = true;
     }
-    if ( !mSourceLayer->deleteFeature( mNativeFeature.id() ) )
+
+    const bool isMarkupCollection = mSourceLayer->customProperty( QStringLiteral( "QField/is_markup_collection" ), false ).toBool();
+    if ( isMarkupCollection )
     {
-      qInfo() << tr( "Cut failed: could not delete original feature from source layer %1" ).arg( mSourceLayer->name() );
-      mSourceLayer->rollBack();
-      return false;
+      const QgsGeometryCollection *geometryCollection = qgsgeometry_cast<const QgsGeometryCollection *>( feature.geometry().constGet() );
+      if ( !geometryCollection->isEmpty() )
+      {
+        feature.setGeometry( QgsGeometry( geometryCollection->geometryN( 0 )->clone() ) );
+      }
     }
-    deletedFromSource = true;
+
+    QgsGeometry geometry = feature.geometry();
+    QgsCoordinateTransform transform( isMarkupCollection ? mSourceLayer->dataProvider()->crs() : mSourceLayer->crs(), layer->crs(), QgsProject::instance()->transformContext() );
+    try
+    {
+      geometry.transform( transform );
+      feature.setGeometry( geometry );
+    }
+    catch ( const QgsCsException & )
+    {
+    }
   }
 
   const QgsFeatureList compatible = QgsVectorLayerUtils::makeFeaturesCompatible( { feature }, layer );
