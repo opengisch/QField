@@ -5165,7 +5165,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Cloud project details not found.</source>
-        <translation type="unfinished"/>
+        <translation>Nie znaleziono szczegółów projektu w chmurze.</translation>
     </message>
 </context>
 <context>
