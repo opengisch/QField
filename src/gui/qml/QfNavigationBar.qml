@@ -643,9 +643,8 @@ Rectangle {
 
       QfToolButton {
         anchors.verticalCenter: parent.verticalCenter
-        visible: QfTheme.toolButtonSize
         height: QfTheme.toolButtonSize
-        width: height
+        width: QfTheme.toolButtonSize
         round: true
         iconSource: QfTheme.getThemeVectorIcon("ic_cut_black_24dp")
         iconColor: enabled ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
@@ -700,9 +699,8 @@ Rectangle {
       QfToolButton {
         enabled: !editButton.isMarkupItem && QfLayerUtils.isAtlasCoverageLayer(selection.focusedLayer)
         anchors.verticalCenter: parent.verticalCenter
-        visible: QfTheme.toolButtonSize
         height: QfTheme.toolButtonSize
-        width: height
+        width: QfTheme.toolButtonSize
         round: true
         iconSource: QfTheme.getThemeVectorIcon("ic_print_black_24dp")
         iconColor: enabled ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
