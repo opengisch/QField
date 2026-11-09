@@ -111,7 +111,7 @@ class QfMarkupCollection : public QObject
     QgsVectorLayer *asVectorLayer();
 
     /**
-     * Duplicates the markup item represented as a \a feature geenrated from the memory vector
+     * Duplicates the markup item represented as a \a feature generated from the memory vector
      * layer.
      */
     QgsFeature duplicateFeatureItem( const QgsFeature &feature );
