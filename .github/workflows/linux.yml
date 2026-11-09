@@ -182,7 +182,7 @@ jobs:
         uses: github/codeql-action/init@v4.39.1
         with:
           languages: 'c-cpp'
-          queries: security-and-quality
+          queries: security-extended
 
       - name: 🌋 Build
         run: |
