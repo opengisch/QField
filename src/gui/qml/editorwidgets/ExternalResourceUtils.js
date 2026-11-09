@@ -20,6 +20,30 @@ function getAttachmentNaming(layer, fieldName) {
 }
 
 /**
+ * Returns the list of accepted attachment types ('image', 'video', and/or 'audio')
+ * for a given layer and field name, as configured in QFieldSync through the
+ * 'QFieldSync/attachment_accepted_types' configuration key. An empty list means
+ * any attachment type is accepted.
+ */
+function getAttachmentAcceptedTypes(layer, fieldName) {
+  if (layer && fieldName && layer.customProperty('QFieldSync/attachment_accepted_types') !== undefined) {
+    const value = JSON.parse(layer.customProperty('QFieldSync/attachment_accepted_types'))[fieldName];
+    if (Array.isArray(value)) {
+      return value.filter(type => ['image', 'video', 'audio'].includes(type));
+    }
+  }
+  return [];
+}
+
+/**
+ * Returns whether a given attachment type ('image', 'video', or 'audio') is
+ * allowed by a list of accepted attachment types.
+ */
+function acceptsAttachmentType(acceptedTypes, type) {
+  return acceptedTypes.length === 0 || acceptedTypes.includes(type);
+}
+
+/**
  * Returns a sanitized attachment file path based on the evaluated naming
  * expression result. Falls back to a default path with timestamp based on
  * the document viewer type when the expression does not yield a usable suffix.

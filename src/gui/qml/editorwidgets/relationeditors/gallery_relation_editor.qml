@@ -274,6 +274,8 @@ QfRelationEditorBase {
 
   onIsCardViewChanged: stopAllMedia()
 
+  readonly property var attachmentAcceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName)
+
   QfExpressionEvaluator {
     id: attachmentNamingEvaluator
     layer: referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null
@@ -326,7 +328,19 @@ QfRelationEditorBase {
       width: QfTheme.toolButtonSize
       height: QfTheme.toolButtonSize
       enabled: isEnabled
-      visible: isEnabled && isActionEnabled('AddChildFeature')
+      visible: {
+        if (!isEnabled || !isActionEnabled('AddChildFeature')) {
+          return false;
+        }
+        switch (referencingFeatureListModel.attachmentDocumentViewer) {
+        case QfEditorWidgetExternalResource.DocumentVideo:
+          return ExternalResourceUtils.acceptsAttachmentType(attachmentAcceptedTypes, 'video');
+        case QfEditorWidgetExternalResource.DocumentAudio:
+          return ExternalResourceUtils.acceptsAttachmentType(attachmentAcceptedTypes, 'audio');
+        default:
+          return ExternalResourceUtils.acceptsAttachmentType(attachmentAcceptedTypes, 'image');
+        }
+      }
 
       round: false
       iconSource: {
@@ -546,7 +560,7 @@ QfRelationEditorBase {
 
     sourceComponent: Component {
       QfCamera {
-        allowCaptureModeToggle: true
+        allowCaptureModeToggle: ExternalResourceUtils.acceptsAttachmentType(attachmentAcceptedTypes, 'image') && ExternalResourceUtils.acceptsAttachmentType(attachmentAcceptedTypes, 'video')
 
         currentLayer: resourceLayer
 
