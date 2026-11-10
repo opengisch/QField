@@ -9,6 +9,11 @@ on:
   release:
     types: ['published']
 
+permissions:
+  security-events: write
+  contents: read
+  packages: write
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
@@ -176,6 +181,8 @@ jobs:
         uses: github/codeql-action/init@v4.39.1
         with:
           languages: 'c-cpp'
+          # eventually go for "security-and-quality"
+          queries: security-extended
 
       - name: 🌋 Build
         run: |
