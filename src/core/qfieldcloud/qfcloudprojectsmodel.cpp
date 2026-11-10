@@ -1134,6 +1134,16 @@ bool QfCloudProjectsModel::revertLocalChangesFromCurrentProject()
   return true;
 }
 
+bool QfCloudProjectsModel::revertLocalChangeFromCurrentProject( const QString &deltaUuid )
+{
+  if ( !findProject( mCurrentProjectId ) )
+  {
+    return false;
+  }
+
+  return mLayerObserver->deltaFileWrapper()->revertDelta( QgsProject::instance(), deltaUuid );
+}
+
 bool QfCloudProjectsModel::discardLocalChangesFromCurrentProject()
 {
   const QfCloudProject *project = findProject( mCurrentProjectId );

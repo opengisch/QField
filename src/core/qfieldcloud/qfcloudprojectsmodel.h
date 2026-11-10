@@ -165,6 +165,9 @@ class QfCloudProjectsModel : public QAbstractListModel
     //! Reverts the deltas of the current cloud project. The changes would applied in reverse order and opposite methods, e.g. "delete" becomes "create".
     Q_INVOKABLE bool revertLocalChangesFromCurrentProject();
 
+    //! Reverts a single delta of the current cloud project with the given \a deltaUuid, along with the later deltas of the same feature.
+    Q_INVOKABLE bool revertLocalChangeFromCurrentProject( const QString &deltaUuid );
+
     //! Discards the delta records of the current cloud project.
     Q_INVOKABLE bool discardLocalChangesFromCurrentProject();
 
