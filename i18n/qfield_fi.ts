@@ -9802,6 +9802,14 @@ näyttääksesi toiminnot</translation>
         <source>Open folder</source>
         <translation>Open folder</translation>
     </message>
+    <message>
+        <source>Cancel movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel rotation</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

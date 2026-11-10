@@ -9811,6 +9811,14 @@ kad būtų parodyti veiksmai</translation>
         <source>Open folder</source>
         <translation>Atverti aplanką</translation>
     </message>
+    <message>
+        <source>Cancel movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel rotation</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

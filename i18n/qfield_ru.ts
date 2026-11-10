@@ -9810,6 +9810,14 @@ to show actions</source>
         <source>Open folder</source>
         <translation>Открыть папку</translation>
     </message>
+    <message>
+        <source>Cancel movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel rotation</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

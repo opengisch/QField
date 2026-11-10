@@ -9803,6 +9803,14 @@ fermer le projet et quitter l&apos;application</translation>
         <source>Open folder</source>
         <translation>Ouvrir le dossier</translation>
     </message>
+    <message>
+        <source>Cancel movement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel rotation</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

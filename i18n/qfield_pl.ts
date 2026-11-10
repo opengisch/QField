@@ -9812,6 +9812,14 @@ aby wyświetlić działania</translation>
         <source>Open folder</source>
         <translation>Otwórz folder</translation>
     </message>
+    <message>
+        <source>Cancel movement</source>
+        <translation>Anuluj przeniesienie</translation>
+    </message>
+    <message>
+        <source>Cancel rotation</source>
+        <translation>Anuluj obrót</translation>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

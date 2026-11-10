@@ -4569,7 +4569,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>The easiest way to collaborate and manage your projects across devices!</source>
-        <translation type="unfinished"/>
+        <translation>La manera més senzilla de col·laborar i gestionar els vostres projectes a diferents dispositius!</translation>
     </message>
 </context>
 <context>
@@ -5163,7 +5163,7 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     </message>
     <message>
         <source>Cloud project details not found.</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha trobat els detalls del projecte al núvol.</translation>
     </message>
 </context>
 <context>
@@ -9806,6 +9806,14 @@ per mostrar les accions</translation>
     <message>
         <source>Open folder</source>
         <translation>Obre la carpeta</translation>
+    </message>
+    <message>
+        <source>Cancel movement</source>
+        <translation>Cancel·la el moviment</translation>
+    </message>
+    <message>
+        <source>Cancel rotation</source>
+        <translation>Cancel·la la rotació</translation>
     </message>
 </context>
 <context>

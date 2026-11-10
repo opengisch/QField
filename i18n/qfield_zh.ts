@@ -9800,6 +9800,14 @@ to show actions</source>
         <source>Open folder</source>
         <translation>打开文件夹</translation>
     </message>
+    <message>
+        <source>Cancel movement</source>
+        <translation>取消移动</translation>
+    </message>
+    <message>
+        <source>Cancel rotation</source>
+        <translation>取消旋转</translation>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
