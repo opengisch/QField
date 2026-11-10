@@ -411,7 +411,7 @@ void QfTracker::replayPositionInformationList( const QList<QfGnssPositionInforma
     if ( mFeature.id() == FID_NULL )
     {
       mFeatureModel->create( false );
-      mFeature = mFeatureModel->feature();
+      setFeature( mFeatureModel->feature() );
       emit featureCreated();
     }
     else
@@ -478,7 +478,7 @@ void QfTracker::rubberbandModelVertexCountChanged()
           mFeatureModel->applyGeometry( false, true );
           // We must flush the buffer on feature creation to get the proper feature ID
           mFeatureModel->create();
-          mFeature = mFeatureModel->feature();
+          setFeature( mFeatureModel->feature() );
           emit featureCreated();
         }
         else
