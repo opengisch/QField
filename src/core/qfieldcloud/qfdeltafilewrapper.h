@@ -362,6 +362,11 @@ class QfDeltaFileWrapper : public QObject
     Q_INVOKABLE bool applyReversed( const QgsProject *project );
 
     /**
+     * Reverts the delta with the given \a uuid and the later deltas of the same feature, then removes them from the delta file.
+     */
+    bool revertDelta( const QgsProject *project, const QString &uuid );
+
+    /**
      * Returns TRUE if the pushing state is active.
      */
     bool isPushing() const { return mIsPushing; }
@@ -419,17 +424,17 @@ class QfDeltaFileWrapper : public QObject
     QJsonValue geometryToJsonValue( const QgsGeometry &geom ) const;
 
     /**
-     * Applies the current delta file on the current project. A wrapper method arround \a _applyDeltasOnLayers.
+     * Applies the given \a deltasToApply on the current project. A wrapper method arround \a _applyDeltasOnLayers.
      * If \a shouldApplyInReverse is passed, the deltas are applied in reverse order (e.g. discarding the changes).
      */
-    bool applyInternal( const QgsProject *project, bool shouldApplyInReverse );
+    bool applyInternal( const QgsProject *project, const QJsonArray deltasToApply, bool shouldApplyInReverse );
 
 
     /**
-     * Applies the current delta file on a list of given layers \a vectorLayers.
+     * Applies the given \a deltasToApply on a list of given layers \a vectorLayers.
      * If \a shouldApplyInReverse is passed, the deltas are applied in reverse order (e.g. discarding the changes).
      */
-    bool applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &vectorLayers, bool shouldApplyInReverse );
+    bool applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &vectorLayers, const QJsonArray &deltasToApply, bool shouldApplyInReverse );
 
     /**
      * Add file checksums from relevant changed attributes.
