@@ -207,24 +207,18 @@ Rectangle {
             text: FeatureName
           }
 
-          Row {
+          QfToolButton {
             Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: 20
+            Layout.preferredHeight: 20
+            padding: 0
+            icon.width: 20
+            icon.height: 20
             visible: featureRow.isRecording
-            spacing: 5
-
-            Rectangle {
-              anchors.verticalCenter: parent.verticalCenter
-              width: 8
-              height: 8
-              radius: 4
-              color: QfTheme.errorColor
-            }
-
-            Text {
-              font: QfTheme.tipFont
-              color: QfTheme.errorColor
-              text: qsTr('Recording')
-            }
+            enabled: false
+            bgcolor: "transparent"
+            iconSource: QfTheme.getThemeVectorIcon('directions_walk_24dp')
+            iconColor: QfTheme.mainTextColor
           }
 
           Rectangle {
