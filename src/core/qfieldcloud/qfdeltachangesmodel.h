@@ -21,6 +21,7 @@
 #include <QJsonArray>
 #include <QPointer>
 #include <qgis.h>
+#include <qgsfeatureid.h>
 
 class QfDeltaFileWrapper;
 class QJsonObject;
@@ -74,6 +75,8 @@ class QfDeltaChangesModel : public QAbstractListModel
       FeatureNameRole,
       AttributeChangesRole,
       HasGeometryChangeRole,
+      DeltaUuidRole,
+      FeatureIdRole,
     };
     Q_ENUM( ColumnRole )
 
@@ -118,9 +121,11 @@ class QfDeltaChangesModel : public QAbstractListModel
   private:
     struct DeltaChange
     {
+        QString uuid;
         QString layerId;
         DeltaMethod method = UnknownMethod;
         QString featureName;
+        QgsFeatureId featureId = FID_NULL;
         QList<QfDeltaAttributeChange> attributeChanges;
         bool hasGeometryChange = false;
     };
@@ -148,7 +153,7 @@ class QfDeltaChangesModel : public QAbstractListModel
      * Features still present in the layer are named after their display expression and fetched in a single
      * request, the ones already gone are described by the values their delta kept of them.
      */
-    QHash<QString, QString> featureDisplayNames( QgsVectorLayer *layer, const QJsonArray &deltas ) const;
+    QHash<QString, QString> featureDisplayNames( QgsVectorLayer *layer, const QJsonArray &deltas, QHash<QString, QgsFeatureId> &featureIds ) const;
 
     //! Returns the attributes the \a delta changed, honouring the semantics of \a method.
     QList<QfDeltaAttributeChange> attributeChanges( const QJsonObject &delta, DeltaMethod method ) const;
