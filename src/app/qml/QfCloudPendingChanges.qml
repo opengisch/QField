@@ -344,15 +344,6 @@ Rectangle {
             onClicked: pendingChanges.revertRequested(DeltaUuid)
           }
         }
-
-        Text {
-          width: featureDetails.width
-          visible: featureRow.isRecording
-          font: QfTheme.tipFont
-          color: QfTheme.secondaryTextColor
-          wrapMode: Text.WordWrap
-          text: qsTr('Stop tracking to discard this change')
-        }
       }
 
       Rectangle {
