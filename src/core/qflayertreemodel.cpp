@@ -1224,6 +1224,7 @@ bool QfFlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant
         endRow++;
 
       emit dataChanged( index, createIndex( endRow, 0 ), QVector<int>() << QfFlatLayerTreeModel::Visible );
+      updateCurrentMapTheme();
       return true;
     }
 
@@ -1288,6 +1289,7 @@ bool QfFlatLayerTreeModelBase::setData( const QModelIndex &index, const QVariant
 
       emit dataChanged( index, createIndex( endRow, 0 ), QVector<int>() << QfFlatLayerTreeModel::IsCollapsed << QfFlatLayerTreeModel::IsParentCollapsed );
       checkIsCollapsed();
+      updateCurrentMapTheme();
       return true;
     }
 
@@ -1417,8 +1419,6 @@ void QfFlatLayerTreeModelBase::setMapTheme( const QString &mapTheme )
 
 void QfFlatLayerTreeModelBase::updateCurrentMapTheme()
 {
-  mMapTheme.clear();
-
   const QgsMapThemeCollection::MapThemeRecord rec = QgsMapThemeCollection::createThemeFromCurrentState( mLayerTreeModel->rootGroup(), mLayerTreeModel );
   const QStringList mapThemes = QgsProject::instance()->mapThemeCollection()->mapThemes();
 
@@ -1427,9 +1427,15 @@ void QfFlatLayerTreeModelBase::updateCurrentMapTheme()
   auto match = std::find_if( mapThemes.begin(), mapThemes.end(), [&rec]( const QString &name ) {
     return rec.validLayerRecords() == QgsProject::instance()->mapThemeCollection()->mapThemeState( name ).validLayerRecords();
   } );
-  if ( match != mapThemes.end() )
+  if ( match != mapThemes.end() && mMapTheme != *match )
   {
     mMapTheme = *match;
+    emit mapThemeChanged();
+  }
+  else if ( !mMapTheme.isEmpty() )
+  {
+    mMapTheme.clear();
+    emit mapThemeChanged();
   }
 }
 

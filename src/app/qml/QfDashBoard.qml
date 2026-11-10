@@ -21,6 +21,7 @@ Drawer {
   signal toggle3DView
   signal returnHome
 
+  property bool projectLoading: false
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
   property bool allowInteractive: true
   property bool allowActiveLayerChange: true
@@ -69,6 +70,20 @@ Drawer {
         return;
       }
       modeSwitch.checked = stateMachine.state === "digitize";
+    }
+  }
+
+  onProjectLoadingChanged: {
+    if (projectLoading) {
+      mapThemeContainer.isLoading = true;
+    } else {
+      const themes = qgisProject.mapThemeCollection.mapThemes;
+      mapThemeComboBox.model = themes;
+      mapThemeComboBox.enabled = themes.length > 1;
+      mapThemeComboBox.opacity = themes.length > 1 ? 1 : 0.25;
+      mapThemeContainer.visible = themes.length > 1;
+      mapThemeComboBox.currentIndex = flatLayerTree.mapTheme !== '' ? mapThemeComboBox.find(flatLayerTree.mapTheme) : -1;
+      mapThemeContainer.isLoading = false;
     }
   }
 
@@ -415,38 +430,26 @@ Drawer {
           popup.bottomMargin: mainWindow.sceneTopMargin
 
           Connections {
-            target: iface
-
-            function onLoadProjectTriggered() {
-              mapThemeContainer.isLoading = true;
-            }
-
-            function onLoadProjectEnded() {
-              var themes = qgisProject.mapThemeCollection.mapThemes;
-              mapThemeComboBox.model = themes;
-              mapThemeComboBox.enabled = themes.length > 1;
-              mapThemeComboBox.opacity = themes.length > 1 ? 1 : 0.25;
-              mapThemeContainer.visible = themes.length > 1;
-              flatLayerTree.updateCurrentMapTheme();
-              mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find(flatLayerTree.mapTheme) : -1;
-              mapThemeContainer.isLoading = false;
-            }
-          }
-
-          Connections {
             target: flatLayerTree
 
             function onMapThemeChanged() {
               if (!mapThemeContainer.isLoading && mapThemeComboBox.currentText !== flatLayerTree.mapTheme) {
                 mapThemeContainer.isLoading = true;
-                mapThemeComboBox.currentIndex = flatLayerTree.mapTheme != '' ? mapThemeComboBox.find(flatLayerTree.mapTheme) : -1;
+                mapThemeComboBox.currentIndex = flatLayerTree.mapTheme !== '' ? mapThemeComboBox.find(flatLayerTree.mapTheme) : -1;
                 mapThemeContainer.isLoading = false;
+              }
+
+              if (!flatLayerTree.isFrozen && flatLayerTree.mapTheme !== '') {
+                const defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
+                if (defaultActiveLayer !== null) {
+                  dashBoard.activeLayer = defaultActiveLayer;
+                }
               }
             }
           }
 
           onCurrentTextChanged: {
-            if (!mapThemeContainer.isLoading && qgisProject.mapThemeCollection.mapThemes.length > 1) {
+            if (!mapThemeContainer.isLoading && qgisProject.mapThemeCollection.mapThemes.length > 1 && flatLayerTree.mapTheme != mapThemeComboBox.currentText) {
               flatLayerTree.mapTheme = mapThemeComboBox.currentText;
             }
           }

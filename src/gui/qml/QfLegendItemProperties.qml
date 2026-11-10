@@ -162,8 +162,9 @@ QfPopup {
 
           onClicked: {
             layerTree.setData(index, checkState === Qt.Checked, QfFlatLayerTreeModel.Visible);
-            flatLayerTree.mapTheme = '';
-            projectInfo.saveLayerTreeState();
+            if (flatLayerTree.mapTheme === '') {
+              projectInfo.saveLayerTreeState();
+            }
             close();
           }
         }
