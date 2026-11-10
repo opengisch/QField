@@ -1286,13 +1286,13 @@ bool QfDeltaFileWrapper::isDeltaBeingApplied() const
 
 bool QfDeltaFileWrapper::apply( const QgsProject *project )
 {
-  return applyInternal( project, mDeltas, false );
+  return applyInternal( project, QJsonArray( mDeltas ), false );
 }
 
 
 bool QfDeltaFileWrapper::applyReversed( const QgsProject *project )
 {
-  return applyInternal( project, mDeltas, true );
+  return applyInternal( project, QJsonArray( mDeltas ), true );
 }
 
 
@@ -1327,7 +1327,7 @@ bool QfDeltaFileWrapper::revertDelta( const QgsProject *project, const QString &
 
   QJsonArray remainingDeltas;
   QString latestRemainingUuid;
-  for ( const QJsonValue &deltaJson : std::as_const( mDeltas ) )
+  for ( const QJsonValueConstRef &deltaJson : std::as_const( mDeltas ) )
   {
     const QJsonObject otherDelta = deltaJson.toObject();
     const QString otherUuid = otherDelta.value( QStringLiteral( "uuid" ) ).toString();
@@ -1362,7 +1362,7 @@ bool QfDeltaFileWrapper::revertDelta( const QgsProject *project, const QString &
 }
 
 
-bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, const QJsonArray deltasToApply, bool shouldApplyInReverse )
+bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, const QJsonArray &deltasToApply, bool shouldApplyInReverse )
 {
   if ( !toFile() )
     return false;
@@ -1372,7 +1372,7 @@ bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, const QJsonAr
   // 1) get all vector layers referenced in the delta file and make them editable
   QHash<QString, QgsVectorLayer *> vectorLayers;
   QSet<QString> editingLayerIds;
-  for ( const QJsonValue &deltaJson : deltasToApply )
+  for ( const QJsonValueConstRef &deltaJson : deltasToApply )
   {
     const QVariantMap delta = deltaJson.toObject().toVariantMap();
     const QString layerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();

@@ -427,7 +427,7 @@ class QfDeltaFileWrapper : public QObject
      * Applies the given \a deltasToApply on the current project. A wrapper method arround \a _applyDeltasOnLayers.
      * If \a shouldApplyInReverse is passed, the deltas are applied in reverse order (e.g. discarding the changes).
      */
-    bool applyInternal( const QgsProject *project, const QJsonArray deltasToApply, bool shouldApplyInReverse );
+    bool applyInternal( const QgsProject *project, const QJsonArray &deltasToApply, bool shouldApplyInReverse );
 
 
     /**
