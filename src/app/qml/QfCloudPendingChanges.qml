@@ -322,32 +322,18 @@ Rectangle {
           width: featureDetails.width
           spacing: 10
 
-          Column {
-            Layout.fillWidth: true
-            spacing: 5
-
-            QfButton {
-              height: 32
-              visible: featureRow.emptyAttributesCount > 0
-              bgcolor: "transparent"
-              color: QfTheme.mainColor
-              font: QfTheme.tipFont
-              text: featureRow.showEmptyAttributes ? qsTr('Hide empty fields') : qsTr('Show %n empty field(s)', '', featureRow.emptyAttributesCount)
-              onClicked: featureRow.showEmptyAttributes = !featureRow.showEmptyAttributes
-            }
-
-            Text {
-              width: parent.width
-              visible: featureRow.isRecording
-              font: QfTheme.tipFont
-              color: QfTheme.secondaryTextColor
-              wrapMode: Text.WordWrap
-              text: qsTr('Stop tracking to discard this change')
-            }
+          QfButton {
+            Layout.preferredHeight: 32
+            visible: featureRow.emptyAttributesCount > 0
+            bgcolor: "transparent"
+            color: QfTheme.mainColor
+            font: QfTheme.tipFont
+            text: featureRow.showEmptyAttributes ? qsTr('Hide empty fields') : qsTr('Show %n empty field(s)', '', featureRow.emptyAttributesCount)
+            onClicked: featureRow.showEmptyAttributes = !featureRow.showEmptyAttributes
           }
 
           QfButton {
-            Layout.alignment: Qt.AlignVCenter
+            Layout.alignment: Qt.AlignRight
             Layout.preferredHeight: 32
             enabled: !featureRow.isRecording
             bgcolor: "transparent"
@@ -357,6 +343,15 @@ Rectangle {
             icon.source: QfTheme.getThemeVectorIcon('ic_undo_black_24dp')
             onClicked: pendingChanges.revertRequested(DeltaUuid)
           }
+        }
+
+        Text {
+          width: featureDetails.width
+          visible: featureRow.isRecording
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
+          wrapMode: Text.WordWrap
+          text: qsTr('Stop tracking to discard this change')
         }
       }
 
