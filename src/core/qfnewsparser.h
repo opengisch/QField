@@ -139,7 +139,7 @@ class QfNewsParser : public QObject
 
   private:
     //! News items older than this number of days are no longer shown
-    static constexpr int MAXIMUM_AGE_DAYS = 45;
+    static constexpr int MAXIMUM_AGE_DAYS = 60;
 
     QString cacheFilePath() const;
     void restoreItemsFromCache();
