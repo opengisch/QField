@@ -5,7 +5,6 @@ on:
     branches:
       - master
       - release-**
-      - m-kuhn-patch-3
   pull_request:
   release:
     types: ['published']
