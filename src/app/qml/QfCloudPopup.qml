@@ -928,10 +928,8 @@ Popup {
           anchors.margins: 10
           deltaFileWrapper: cloudProjectsModel.layerObserver.deltaFileWrapper
           onRevertRequested: deltaUuid => {
-            const isIdle = cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle;
-            if (!isIdle || !cloudProjectsModel.revertLocalChangeFromCurrentProject(deltaUuid)) {
-              displayToast(qsTr('Failed to discard change'), 'error');
-            }
+            revertChangeDialog.deltaUuid = deltaUuid;
+            revertChangeDialog.open();
           }
         }
       }
@@ -1156,6 +1154,31 @@ Popup {
     onAccepted: {
       revertLocalChangesFromCurrentProject();
       swipeView.currentIndex = 1;
+    }
+    onRejected: {
+      visible = false;
+      popup.focus = true;
+    }
+  }
+
+  QfDialog {
+    id: revertChangeDialog
+    parent: mainWindow.contentItem
+
+    property string deltaUuid: ""
+
+    title: qsTr("Discard local change")
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr("Should this local change be discarded?")
+    }
+
+    onAccepted: {
+      const isIdle = cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle;
+      if (!isIdle || !cloudProjectsModel.revertLocalChangeFromCurrentProject(deltaUuid)) {
+        displayToast(qsTr('Failed to discard change'), 'error');
+      }
     }
     onRejected: {
       visible = false;
