@@ -13,6 +13,8 @@ Rectangle {
 
   property alias deltaFileWrapper: deltaChangesModel.deltaFileWrapper
 
+  signal revertRequested(string deltaUuid)
+
   function deltaMethodColor(method) {
     switch (method) {
     case QfDeltaChangesModel.CreateMethod:
@@ -75,12 +77,20 @@ Rectangle {
   function attributeChangeText(change, method) {
     switch (method) {
     case QfDeltaChangesModel.PatchMethod:
-      return qsTr('%1: %2 to %3').arg(change.name).arg(attributeValueText(change.oldValue)).arg(attributeValueText(change.newValue));
+      return qsTr('%1 to %2').arg(attributeValueText(change.oldValue)).arg(attributeValueText(change.newValue));
     case QfDeltaChangesModel.DeleteMethod:
-      return qsTr('%1: %2').arg(change.name).arg(attributeValueText(change.oldValue));
+      return attributeValueText(change.oldValue);
     default:
-      return qsTr('%1: %2').arg(change.name).arg(attributeValueText(change.newValue));
+      return attributeValueText(change.newValue);
     }
+  }
+
+  function isEmptyAttributeChange(change, method) {
+    if (method === QfDeltaChangesModel.PatchMethod) {
+      return false;
+    }
+    const value = method === QfDeltaChangesModel.DeleteMethod ? change.oldValue : change.newValue;
+    return value === '' || QfFeatureUtils.attributeIsNull(value);
   }
 
   color: QfTheme.controlBackgroundColor
@@ -158,7 +168,10 @@ Rectangle {
       readonly property color badgeColor: pendingChanges.deltaMethodColor(featureRow.deltaMethod)
       readonly property color badgeBackgroundColor: pendingChanges.deltaMethodBackgroundColor(featureRow.deltaMethod)
       readonly property bool hasDetails: AttributeChanges.length > 0 || HasGeometryChange
+      readonly property int emptyAttributesCount: AttributeChanges.filter(change => pendingChanges.isEmptyAttributeChange(change, featureRow.deltaMethod)).length
+      readonly property bool isRecording: trackingModel.activeCount > 0 && trackingModel.layerInActiveTracking(qgisProject.mapLayer(LayerId)) && featureRow.deltaMethod !== QfDeltaChangesModel.DeleteMethod && trackingModel.trackerForLayer(qgisProject.mapLayer(LayerId)).feature.id === FeatureId
       property bool expanded: false
+      property bool showEmptyAttributes: false
 
       width: pendingChangesList.width
       height: featureHeader.height + (featureRow.expanded ? featureDetails.height + 10 : 0)
@@ -192,6 +205,26 @@ Rectangle {
             color: QfTheme.mainTextColor
             elide: Text.ElideRight
             text: FeatureName
+          }
+
+          Row {
+            Layout.alignment: Qt.AlignVCenter
+            visible: featureRow.isRecording
+            spacing: 5
+
+            Rectangle {
+              anchors.verticalCenter: parent.verticalCenter
+              width: 8
+              height: 8
+              radius: 4
+              color: QfTheme.errorColor
+            }
+
+            Text {
+              font: QfTheme.tipFont
+              color: QfTheme.errorColor
+              text: qsTr('Recording')
+            }
           }
 
           Rectangle {
@@ -242,24 +275,94 @@ Rectangle {
         spacing: 5
 
         Repeater {
-          model: AttributeChanges
+          model: featureRow.showEmptyAttributes ? AttributeChanges : AttributeChanges.filter(change => !pendingChanges.isEmptyAttributeChange(change, featureRow.deltaMethod))
 
-          Text {
+          Item {
             width: featureDetails.width
-            font: QfTheme.tinyFont
-            color: QfTheme.secondaryTextColor
-            wrapMode: Text.WordWrap
-            text: pendingChanges.attributeChangeText(modelData, featureRow.deltaMethod)
+            height: attributeRow.implicitHeight + 10
+
+            RowLayout {
+              id: attributeRow
+              anchors.left: parent.left
+              anchors.right: parent.right
+              anchors.verticalCenter: parent.verticalCenter
+              spacing: 10
+
+              Text {
+                Layout.preferredWidth: parent.width * 0.4
+                font: QfTheme.tipFont
+                color: QfTheme.secondaryTextColor
+                elide: Text.ElideRight
+                text: modelData.name
+              }
+
+              Text {
+                Layout.fillWidth: true
+                font: QfTheme.tipFont
+                color: QfTheme.mainTextColor
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                text: pendingChanges.attributeChangeText(modelData, featureRow.deltaMethod)
+              }
+            }
+
+            Rectangle {
+              anchors.left: parent.left
+              anchors.right: parent.right
+              anchors.bottom: parent.bottom
+              height: 1
+              color: QfTheme.controlBorderColor
+            }
           }
         }
 
         Text {
           width: featureDetails.width
           visible: HasGeometryChange
-          font: QfTheme.tinyFont
+          font: QfTheme.tipFont
           color: QfTheme.secondaryTextColor
           wrapMode: Text.WordWrap
           text: qsTr('Geometry modified')
+        }
+
+        RowLayout {
+          width: featureDetails.width
+          spacing: 10
+
+          Column {
+            Layout.fillWidth: true
+            spacing: 5
+
+            QfButton {
+              height: 32
+              visible: featureRow.emptyAttributesCount > 0
+              bgcolor: "transparent"
+              color: QfTheme.mainColor
+              font: QfTheme.tipFont
+              text: featureRow.showEmptyAttributes ? qsTr('Hide empty fields') : qsTr('Show %n empty field(s)', '', featureRow.emptyAttributesCount)
+              onClicked: featureRow.showEmptyAttributes = !featureRow.showEmptyAttributes
+            }
+
+            Text {
+              width: parent.width
+              visible: featureRow.isRecording
+              font: QfTheme.tipFont
+              color: QfTheme.secondaryTextColor
+              wrapMode: Text.WordWrap
+              text: qsTr('Stop tracking to discard this change')
+            }
+          }
+
+          QfButton {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredHeight: 32
+            enabled: !featureRow.isRecording
+            bgcolor: "transparent"
+            color: enabled ? QfTheme.warningColor : QfTheme.mainTextDisabledColor
+            font: QfTheme.tipFont
+            text: qsTr('Discard change')
+            icon.source: QfTheme.getThemeVectorIcon('ic_undo_black_24dp')
+            onClicked: pendingChanges.revertRequested(DeltaUuid)
+          }
         }
       }
 

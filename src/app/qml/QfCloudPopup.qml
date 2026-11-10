@@ -927,6 +927,12 @@ Popup {
           anchors.fill: parent
           anchors.margins: 10
           deltaFileWrapper: cloudProjectsModel.layerObserver.deltaFileWrapper
+          onRevertRequested: deltaUuid => {
+            const isIdle = cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle;
+            if (!isIdle || !cloudProjectsModel.revertLocalChangeFromCurrentProject(deltaUuid)) {
+              displayToast(qsTr('Failed to discard change'), 'error');
+            }
+          }
         }
       }
     }

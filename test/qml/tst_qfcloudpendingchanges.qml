@@ -36,9 +36,9 @@ TestCase {
       "newValue": 12
     };
 
-    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.PatchMethod), "height: 10 to 12");
-    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.DeleteMethod), "height: 10");
-    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.CreateMethod), "height: 12");
+    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.PatchMethod), "10 to 12");
+    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.DeleteMethod), "10");
+    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.CreateMethod), "12");
 
     const cleared = {
       "name": "name",
@@ -46,7 +46,7 @@ TestCase {
       "newValue": null
     };
 
-    compare(pendingChanges.attributeChangeText(cleared, QfDeltaChangesModel.PatchMethod), "name: oak to NULL");
+    compare(pendingChanges.attributeChangeText(cleared, QfDeltaChangesModel.PatchMethod), "oak to NULL");
   }
 
   function test_04_deltaMethodLabels() {
