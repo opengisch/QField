@@ -164,10 +164,21 @@ QList<QfNewsItem> QfNewsParser::parseFeed( const QByteArray &data )
       continue;
     }
 
+    const QString link = itemElement.firstChildElement( QStringLiteral( "link" ) ).text().trimmed();
+    QUrl url = QUrl( link );
+    if ( !url.query().isEmpty() )
+    {
+      url.setQuery( QStringLiteral( "%1&utm_source=qfield" ).arg( url.query() ) );
+    }
+    else
+    {
+      url.setQuery( QStringLiteral( "utm_source=qfield" ) );
+    }
+
     QfNewsItem item;
     item.uuid = itemElement.firstChildElement( QStringLiteral( "guid" ) ).text().trimmed();
     item.title = itemElement.firstChildElement( QStringLiteral( "title" ) ).text().trimmed();
-    item.url = QUrl( itemElement.firstChildElement( QStringLiteral( "link" ) ).text().trimmed() );
+    item.url = url;
     item.publicationDate = QDateTime::fromString( itemElement.firstChildElement( QStringLiteral( "pubDate" ) ).text().trimmed(), Qt::RFC2822Date );
     item.description = QfStringUtils::htmlToPlainText( itemElement.firstChildElement( QStringLiteral( "description" ) ).text() );
 
@@ -183,7 +194,7 @@ QList<QfNewsItem> QfNewsParser::parseFeed( const QByteArray &data )
     // The guid element is optional in RSS feeds, fall back to the item URL
     if ( item.uuid.isEmpty() )
     {
-      item.uuid = item.url.toString();
+      item.uuid = link;
     }
 
     if ( !item.uuid.isEmpty() && !item.title.isEmpty() && item.publicationDate.isValid() )
