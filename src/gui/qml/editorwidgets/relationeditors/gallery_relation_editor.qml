@@ -274,7 +274,7 @@ QfRelationEditorBase {
 
   onIsCardViewChanged: stopAllMedia()
 
-  readonly property var attachmentAcceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName)
+  readonly property list<string> attachmentAcceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName)
 
   QfExpressionEvaluator {
     id: attachmentNamingEvaluator

@@ -72,7 +72,7 @@ QfEditorWidgetBase {
   }
 
   property int documentViewer: config.DocumentViewer
-  property var acceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(currentLayer, field.name)
+  readonly property list<string> acceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(currentLayer, field.name)
 
   property bool isImage: false
   property bool isAudio: false
