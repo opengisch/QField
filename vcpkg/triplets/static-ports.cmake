@@ -1,4 +1,6 @@
 set(STATIC_PORTS
+    arrow
+    snappy
     gdal
     catch2
     libiconv
