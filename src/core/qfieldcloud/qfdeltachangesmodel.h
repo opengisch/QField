@@ -72,11 +72,11 @@ class QfDeltaChangesModel : public QAbstractListModel
     {
       LayerIdRole = Qt::UserRole + 1,
       MethodRole,
+      FeatureIdRole,
       FeatureNameRole,
       AttributeChangesRole,
       HasGeometryChangeRole,
       DeltaUuidRole,
-      FeatureIdRole,
     };
     Q_ENUM( ColumnRole )
 
@@ -124,8 +124,8 @@ class QfDeltaChangesModel : public QAbstractListModel
         QString uuid;
         QString layerId;
         DeltaMethod method = UnknownMethod;
-        QString featureName;
         QgsFeatureId featureId = FID_NULL;
+        QString featureName;
         QList<QfDeltaAttributeChange> attributeChanges;
         bool hasGeometryChange = false;
     };

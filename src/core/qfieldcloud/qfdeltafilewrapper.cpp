@@ -1296,72 +1296,6 @@ bool QfDeltaFileWrapper::applyReversed( const QgsProject *project )
 }
 
 
-bool QfDeltaFileWrapper::revertDelta( const QgsProject *project, const QString &uuid )
-{
-  const int deltaIndex = getDeltaIndexByUuid( uuid );
-  if ( mIsPushing || deltaIndex < 0 )
-  {
-    return false;
-  }
-
-  const QJsonObject delta = mDeltas.at( deltaIndex ).toObject();
-  const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
-  const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
-
-  QJsonArray deltasToRevert;
-  QSet<QString> revertedUuids;
-  for ( int i = deltaIndex; i < mDeltas.size(); i++ )
-  {
-    const QJsonObject otherDelta = mDeltas.at( i ).toObject();
-    if ( otherDelta.value( QStringLiteral( "localLayerId" ) ).toString() == localLayerId && otherDelta.value( QStringLiteral( "localPk" ) ).toString() == localPk )
-    {
-      deltasToRevert.append( otherDelta );
-      revertedUuids.insert( otherDelta.value( QStringLiteral( "uuid" ) ).toString() );
-    }
-  }
-
-  if ( !applyInternal( project, deltasToRevert, true ) )
-  {
-    return false;
-  }
-
-  QJsonArray remainingDeltas;
-  QString latestRemainingUuid;
-  for ( const QJsonValueConstRef &deltaJson : std::as_const( mDeltas ) )
-  {
-    const QJsonObject otherDelta = deltaJson.toObject();
-    const QString otherUuid = otherDelta.value( QStringLiteral( "uuid" ) ).toString();
-    if ( revertedUuids.contains( otherUuid ) )
-    {
-      continue;
-    }
-
-    if ( otherDelta.value( QStringLiteral( "localLayerId" ) ).toString() == localLayerId && otherDelta.value( QStringLiteral( "localPk" ) ).toString() == localPk )
-    {
-      latestRemainingUuid = otherUuid;
-    }
-
-    remainingDeltas.append( otherDelta );
-  }
-
-  mDeltas = remainingDeltas;
-  mIsDirty = true;
-
-  if ( latestRemainingUuid.isEmpty() )
-  {
-    mLocalPkToDeltaUuid[localLayerId].remove( localPk );
-  }
-  else
-  {
-    mLocalPkToDeltaUuid[localLayerId][localPk] = latestRemainingUuid;
-  }
-
-  emit countChanged();
-
-  return toFile();
-}
-
-
 bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, const QJsonArray &deltasToApply, bool shouldApplyInReverse )
 {
   if ( !toFile() )
@@ -1567,6 +1501,71 @@ bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &
   }
 
   return true;
+}
+
+bool QfDeltaFileWrapper::revertDelta( const QgsProject *project, const QString &uuid )
+{
+  const int deltaIndex = getDeltaIndexByUuid( uuid );
+  if ( mIsPushing || deltaIndex < 0 )
+  {
+    return false;
+  }
+
+  const QJsonObject delta = mDeltas.at( deltaIndex ).toObject();
+  const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
+  const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
+
+  QJsonArray deltasToRevert;
+  QSet<QString> revertedUuids;
+  for ( int i = deltaIndex; i < mDeltas.size(); i++ )
+  {
+    const QJsonObject otherDelta = mDeltas.at( i ).toObject();
+    if ( otherDelta.value( QStringLiteral( "localLayerId" ) ).toString() == localLayerId && otherDelta.value( QStringLiteral( "localPk" ) ).toString() == localPk )
+    {
+      deltasToRevert.append( otherDelta );
+      revertedUuids.insert( otherDelta.value( QStringLiteral( "uuid" ) ).toString() );
+    }
+  }
+
+  if ( !applyInternal( project, deltasToRevert, true ) )
+  {
+    return false;
+  }
+
+  QJsonArray remainingDeltas;
+  QString latestRemainingUuid;
+  for ( const QJsonValueConstRef &deltaJson : std::as_const( mDeltas ) )
+  {
+    const QJsonObject otherDelta = deltaJson.toObject();
+    const QString otherUuid = otherDelta.value( QStringLiteral( "uuid" ) ).toString();
+    if ( revertedUuids.contains( otherUuid ) )
+    {
+      continue;
+    }
+
+    if ( otherDelta.value( QStringLiteral( "localLayerId" ) ).toString() == localLayerId && otherDelta.value( QStringLiteral( "localPk" ) ).toString() == localPk )
+    {
+      latestRemainingUuid = otherUuid;
+    }
+
+    remainingDeltas.append( otherDelta );
+  }
+
+  mDeltas = remainingDeltas;
+  mIsDirty = true;
+
+  if ( latestRemainingUuid.isEmpty() )
+  {
+    mLocalPkToDeltaUuid[localLayerId].remove( localPk );
+  }
+  else
+  {
+    mLocalPkToDeltaUuid[localLayerId][localPk] = latestRemainingUuid;
+  }
+
+  emit countChanged();
+
+  return toFile();
 }
 
 QJsonValue QfDeltaFileWrapper::attributeToJsonValue( const QVariant &value )

@@ -12,6 +12,7 @@ Rectangle {
   id: pendingChanges
 
   property alias deltaFileWrapper: deltaChangesModel.deltaFileWrapper
+  property bool isProjectBusy: false
 
   signal revertRequested(string deltaUuid)
 
@@ -335,7 +336,7 @@ Rectangle {
           QfButton {
             Layout.alignment: Qt.AlignRight
             Layout.preferredHeight: 32
-            enabled: !featureRow.isRecording
+            enabled: !featureRow.isRecording && !pendingChanges.isProjectBusy
             bgcolor: "transparent"
             color: enabled ? QfTheme.warningColor : QfTheme.mainTextDisabledColor
             font: QfTheme.tipFont

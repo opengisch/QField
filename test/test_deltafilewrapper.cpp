@@ -2106,6 +2106,44 @@ TEST_CASE( "DeltaFileWrapper" )
   }
 
 
+  SECTION( "RevertDelta" )
+  {
+    QfDeltaFileWrapper dfw( projectId, workDir.filePath( QUuid::createUuid().toString() ) );
+    const QgsFeatureRequest request( QgsExpression( QStringLiteral( " fid = 1 " ) ) );
+
+    // patch then delete the same feature
+    QgsFeature patched = f;
+    patched.setAttribute( QStringLiteral( "str" ), QStringLiteral( "patched" ) );
+    dfw.addPatch( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), f, patched );
+    dfw.addDelete( project, layer->id(), layer->id(), QStringLiteral( "fid" ), QStringLiteral( "fid" ), patched );
+
+    REQUIRE( layer->startEditing() );
+    REQUIRE( layer->deleteFeatures( layer->allFeatureIds() ) );
+    REQUIRE( layer->commitChanges() );
+    REQUIRE( dfw.count() == 2 );
+
+    const QString patchUuid = dfw.deltas().at( 0 ).toObject().value( QStringLiteral( "uuid" ) ).toString();
+    const QString deleteUuid = dfw.deltas().at( 1 ).toObject().value( QStringLiteral( "uuid" ) ).toString();
+    QgsFeature feature;
+
+    SECTION( "Delete only" )
+    {
+      REQUIRE( dfw.revertDelta( project, deleteUuid ) );
+      REQUIRE( dfw.count() == 1 );
+      REQUIRE( layer->getFeatures( request ).nextFeature( feature ) );
+      REQUIRE( feature.attribute( QStringLiteral( "str" ) ) == QStringLiteral( "patched" ) );
+    }
+
+    SECTION( "Patch takes the delete with it" )
+    {
+      REQUIRE( dfw.revertDelta( project, patchUuid ) );
+      REQUIRE( dfw.count() == 0 );
+      REQUIRE( layer->getFeatures( request ).nextFeature( feature ) );
+      REQUIRE( feature.attribute( QStringLiteral( "str" ) ) == QStringLiteral( "stringy" ) );
+    }
+  }
+
+
   SECTION( "AddCreateWithJoinedLayer" )
   {
     QgsVectorLayerJoinInfo ji;

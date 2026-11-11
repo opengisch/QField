@@ -927,6 +927,7 @@ Popup {
           anchors.fill: parent
           anchors.margins: 10
           deltaFileWrapper: cloudProjectsModel.layerObserver.deltaFileWrapper
+          isProjectBusy: !cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QfCloudProject.Idle
           onRevertRequested: deltaUuid => {
             revertChangeDialog.deltaUuid = deltaUuid;
             revertChangeDialog.open();
@@ -1175,8 +1176,9 @@ Popup {
     }
 
     onAccepted: {
-      const isIdle = cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QfCloudProject.Idle;
-      if (!isIdle || !cloudProjectsModel.revertLocalChangeFromCurrentProject(deltaUuid)) {
+      if (!cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QfCloudProject.Idle) {
+        displayToast(qsTr("Can't discard change as project is busy"), 'warning');
+      } else if (!cloudProjectsModel.revertLocalChangeFromCurrentProject(deltaUuid)) {
         displayToast(qsTr('Failed to discard change'), 'error');
       }
     }

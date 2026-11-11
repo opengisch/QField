@@ -90,6 +90,8 @@ QVariant QfDeltaChangesModel::data( const QModelIndex &index, int role ) const
       return deltaChange.layerId;
     case MethodRole:
       return deltaChange.method;
+    case FeatureIdRole:
+      return deltaChange.featureId;
     case FeatureNameRole:
       return deltaChange.featureName;
     case AttributeChangesRole:
@@ -98,8 +100,6 @@ QVariant QfDeltaChangesModel::data( const QModelIndex &index, int role ) const
       return deltaChange.hasGeometryChange;
     case DeltaUuidRole:
       return deltaChange.uuid;
-    case FeatureIdRole:
-      return deltaChange.featureId;
   }
 
   return QVariant();
@@ -110,11 +110,11 @@ QHash<int, QByteArray> QfDeltaChangesModel::roleNames() const
   QHash<int, QByteArray> roles;
   roles[LayerIdRole] = "LayerId";
   roles[MethodRole] = "Method";
+  roles[FeatureIdRole] = "FeatureId";
   roles[FeatureNameRole] = "FeatureName";
   roles[AttributeChangesRole] = "AttributeChanges";
   roles[HasGeometryChangeRole] = "HasGeometryChange";
   roles[DeltaUuidRole] = "DeltaUuid";
-  roles[FeatureIdRole] = "FeatureId";
   return roles;
 }
 
@@ -228,8 +228,8 @@ QList<QfDeltaChangesModel::DeltaChange> QfDeltaChangesModel::layerChanges( const
     change.uuid = delta.value( QStringLiteral( "uuid" ) ).toString();
     change.layerId = layerId;
     change.method = deltaMethod( delta );
-    change.featureName = displayNames.value( localPk, localPk );
     change.featureId = featureIds.value( localPk, FID_NULL );
+    change.featureName = displayNames.value( localPk, localPk );
     change.attributeChanges = attributeChanges( delta, change.method );
     change.hasGeometryChange = change.method == PatchMethod && delta.value( QStringLiteral( "new" ) ).toObject().contains( QStringLiteral( "geometry" ) );
 
