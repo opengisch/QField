@@ -18,7 +18,7 @@
         "archive",
         {
           "name": "parquet",
-          "platform": "(x64 | arm64) & !ios"
+          "platform": "x64 | arm64"
         },
         "poppler"
       ]
