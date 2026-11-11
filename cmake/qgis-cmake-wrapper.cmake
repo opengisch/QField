@@ -63,6 +63,8 @@ endfunction()
 #  set(CMAKE_USE_PTHREADS_INIT 1)
 #endif()
 
+find_package(Arrow QUIET)
+find_package(Parquet QUIET)
 find_package(PkgConfig QUIET)
 
 # The static provider/auth-method archives (authmethod_*_a, provider_*_a)
