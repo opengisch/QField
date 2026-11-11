@@ -80,15 +80,6 @@ vcpkg_copy_pdbs()
 vcpkg_cmake_config_fixup(CONFIG_PATH "lib/cmake/${PORT}")
 vcpkg_fixup_pkgconfig()
 
-if(VCPKG_CROSSCOMPILING)
-    vcpkg_replace_string(
-        "${CURRENT_PACKAGES_DIR}/share/thrift/ThriftConfig.cmake"
-        "set(THRIFT_BIN_DIR \"\${PACKAGE_PREFIX_DIR}/tools/thrift\")"
-        "set(THRIFT_BIN_DIR \"${CURRENT_HOST_INSTALLED_DIR}/tools/thrift\")"
-    )
-endif()
-
-
 file(GLOB COMPILER "${CURRENT_PACKAGES_DIR}/bin/thrift" "${CURRENT_PACKAGES_DIR}/bin/thrift.exe")
 if(COMPILER)
     vcpkg_copy_tools(TOOL_NAMES thrift AUTO_CLEAN)
