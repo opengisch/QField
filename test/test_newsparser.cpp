@@ -89,12 +89,12 @@ TEST_CASE( "NewsParser" )
     REQUIRE( items[0].description == QStringLiteral( "The next version of QField is here." ) );
     REQUIRE( items[0].publicationDate == QDateTime::fromString( QStringLiteral( "2026-09-08T00:02:00Z" ), Qt::ISODate ) );
     REQUIRE( items[0].imageUrl == QUrl( QStringLiteral( "https://qfield.org/blog/2026/09/08/qfield-4.3-danube-summer-of-stability/splash43.webp" ) ) );
-    REQUIRE( items[0].url == QUrl( danubeUuid ) );
+    REQUIRE( items[0].url == QUrl( "https://qfield.org/blog/2026/09/08/qfield-4.3-danube-summer-of-stability/?utm_source=qfield" ) );
 
     REQUIRE( items[1].uuid == projectCreationUuid );
 
     REQUIRE( items[2].uuid == pluginsUuid );
-    REQUIRE( items[2].url == QUrl( QStringLiteral( "https://qfield.org/blog/2026/02/12/qfield-search-and-routing-plugins-updates/" ) ) );
+    REQUIRE( items[2].url == QUrl( QStringLiteral( "https://qfield.org/blog/2026/02/12/qfield-search-and-routing-plugins-updates/?utm_source=qfield" ) ) );
     REQUIRE( items[2].description == QStringLiteral( "Our ninjas improved the OSRM Routing plugin. Open QField’s settings panel." ) );
   }
 
@@ -148,7 +148,7 @@ TEST_CASE( "NewsParser" )
     REQUIRE( enabledSpy.count() == 1 );
 
     fetchAndWait( parser );
-    REQUIRE( parser.items().size() == 2 );
+    REQUIRE( parser.items().size() == 3 );
     REQUIRE( parser.items()[0].uuid == danubeUuid );
     REQUIRE( parser.items()[1].uuid == pluginsUuid );
   }
@@ -160,19 +160,19 @@ TEST_CASE( "NewsParser" )
     parser.setFeedUrl( feedUrl );
     parser.setEnabled( true );
     fetchAndWait( parser );
-    REQUIRE( parser.items().size() == 2 );
+    REQUIRE( parser.items().size() == 3 );
 
     QSignalSpy itemsSpy( &parser, &QfNewsParser::itemsChanged );
     parser.dismiss( pluginsUuid );
     REQUIRE( itemsSpy.count() == 1 );
-    REQUIRE( parser.items().size() == 1 );
+    REQUIRE( parser.items().size() == 2 );
     REQUIRE( parser.items()[0].uuid == danubeUuid );
 
     QfNewsParser otherParser;
     otherParser.setFeedUrl( feedUrl );
     otherParser.setEnabled( true );
     fetchAndWait( otherParser );
-    REQUIRE( otherParser.items().size() == 1 );
+    REQUIRE( otherParser.items().size() == 2 );
     REQUIRE( otherParser.items()[0].uuid == danubeUuid );
     REQUIRE( QSettings().value( QfNewsParser::DISMISSED_UUIDS_SETTINGS_KEY ).toStringList() == QStringList { pluginsUuid } );
   }
@@ -184,7 +184,7 @@ TEST_CASE( "NewsParser" )
     parser.setFeedUrl( feedUrl );
     parser.setEnabled( true );
     fetchAndWait( parser );
-    REQUIRE( parser.items().size() == 2 );
+    REQUIRE( parser.items().size() == 3 );
 
     QfNewsParser otherParser;
     otherParser.setFeedUrl( feedUrl );
@@ -205,7 +205,7 @@ TEST_CASE( "NewsParser" )
     parser.setEnabled( true );
     fetchAndWait( parser );
     parser.dismiss( pluginsUuid );
-    REQUIRE( parser.items().size() == 1 );
+    REQUIRE( parser.items().size() == 2 );
 
     parser.setEnabled( false );
     REQUIRE( !parser.enabled() );
