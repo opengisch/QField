@@ -107,7 +107,7 @@ Rectangle {
 
       readonly property string layerName: deltaChangesModel.layerName(layerHeader.section)
       readonly property int layerGeometryType: deltaChangesModel.layerGeometryType(layerHeader.section)
-      readonly property int layerChangesCount: deltaChangesModel.layerChangesCount(layerHeader.section)
+      readonly property int layerChangesCount: pendingChangesList.count > 0 ? deltaChangesModel.layerChangesCount(layerHeader.section) : 0
 
       width: pendingChangesList.width
       height: 30
