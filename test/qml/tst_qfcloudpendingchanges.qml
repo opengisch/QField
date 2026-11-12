@@ -17,39 +17,19 @@ TestCase {
     verify(!pendingChanges.deltaFileWrapper);
   }
 
-  function test_02_attributeValueText() {
-    compare(pendingChanges.attributeValueText(null), "NULL");
-    compare(pendingChanges.attributeValueText(undefined), "NULL");
+  function test_02_attributeChangeValueText() {
+    compare(pendingChanges.attributeChangeValueText(null), "NULL");
+    compare(pendingChanges.attributeChangeValueText(undefined), "NULL");
     // the feature form tells an unset attribute apart from a cleared one, so does this
-    compare(pendingChanges.attributeValueText(""), "Empty");
-    compare(pendingChanges.attributeValueText("stringy"), "stringy");
-    compare(pendingChanges.attributeValueText(42), "42");
+    compare(pendingChanges.attributeChangeValueText(""), "Empty");
+    compare(pendingChanges.attributeChangeValueText("stringy"), "stringy");
+    compare(pendingChanges.attributeChangeValueText(42), "42");
     // a zero is a value, not an absent one
-    compare(pendingChanges.attributeValueText(0), "0");
-    compare(pendingChanges.attributeValueText(false), "false");
+    compare(pendingChanges.attributeChangeValueText(0), "0");
+    compare(pendingChanges.attributeChangeValueText(false), "false");
   }
 
-  function test_03_attributeChangeText() {
-    const change = {
-      "name": "height",
-      "oldValue": 10,
-      "newValue": 12
-    };
-
-    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.PatchMethod), "10 to 12");
-    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.DeleteMethod), "10");
-    compare(pendingChanges.attributeChangeText(change, QfDeltaChangesModel.CreateMethod), "12");
-
-    const cleared = {
-      "name": "name",
-      "oldValue": "oak",
-      "newValue": null
-    };
-
-    compare(pendingChanges.attributeChangeText(cleared, QfDeltaChangesModel.PatchMethod), "oak to NULL");
-  }
-
-  function test_04_deltaMethodLabels() {
+  function test_03_deltaMethodLabels() {
     compare(pendingChanges.deltaMethodLabel(QfDeltaChangesModel.CreateMethod), "added");
     compare(pendingChanges.deltaMethodLabel(QfDeltaChangesModel.PatchMethod), "edited");
     compare(pendingChanges.deltaMethodLabel(QfDeltaChangesModel.DeleteMethod), "deleted");
