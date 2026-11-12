@@ -68,22 +68,11 @@ Rectangle {
     }
   }
 
-  function attributeValueText(value) {
+  function attributeChangeValueText(value) {
     if (value === '') {
       return qsTr('Empty');
     }
     return QfFeatureUtils.attributeIsNull(value) ? qsTr('NULL') : String(value);
-  }
-
-  function attributeChangeText(change, method) {
-    switch (method) {
-    case QfDeltaChangesModel.PatchMethod:
-      return qsTr('%1 to %2').arg(attributeValueText(change.oldValue)).arg(attributeValueText(change.newValue));
-    case QfDeltaChangesModel.DeleteMethod:
-      return attributeValueText(change.oldValue);
-    default:
-      return attributeValueText(change.newValue);
-    }
   }
 
   function isEmptyAttributeChange(change, method) {
@@ -291,12 +280,41 @@ Rectangle {
                 text: modelData.name
               }
 
-              Text {
-                Layout.fillWidth: true
-                font: QfTheme.tipFont
-                color: QfTheme.mainTextColor
-                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                text: pendingChanges.attributeChangeText(modelData, featureRow.deltaMethod)
+              function attributeChangeValue(change, method) {
+                switch (method) {
+                case QfDeltaChangesModel.PatchMethod:
+                  return qsTr('%1 to %2').arg(attributeValueText(change.oldValue)).arg(attributeValueText(change.newValue));
+                case QfDeltaChangesModel.DeleteMethod:
+                  return change.oldValue;
+                default:
+                  return change.newValue;
+                }
+              }
+
+              ColumnLayout {
+                spacing: 2
+
+                Text {
+                  Layout.fillWidth: true
+                  visible: featureRow.deltaMethod === QfDeltaChangesModel.PatchMethod
+                  font: QfTheme.tipFont
+                  color: QfTheme.mainTextColor
+                  wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                  text: featureRow.deltaMethod === QfDeltaChangesModel.PatchMethod ? pendingChanges.attributeChangeValueText(modelData.oldValue) : ""
+                  opacity: QfFeatureUtils.attributeIsNull(modelData.oldValue) ? 0.125 : 0.5
+                }
+
+                Text {
+                  Layout.fillWidth: true
+                  font: QfTheme.tipFont
+                  color: QfTheme.mainTextColor
+                  wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                  text: pendingChanges.attributeChangeValueText(featureRow.deltaMethod === QfDeltaChangesModel.DeleteMethod ? modelData.oldValue : modelData.newValue)
+                  opacity: {
+                    const value = featureRow.deltaMethod === QfDeltaChangesModel.DeleteMethod ? modelData.oldValue : modelData.newValue;
+                    return value === '' || QfFeatureUtils.attributeIsNull(value) ? 0.25 : 1.0;
+                  }
+                }
               }
             }
 
