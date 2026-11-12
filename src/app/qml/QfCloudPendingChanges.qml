@@ -322,11 +322,14 @@ Rectangle {
           text: qsTr('Geometry modified')
         }
 
-        RowLayout {
+        GridLayout {
           width: featureDetails.width
-          spacing: 10
+          columns: featureDetails.width > 330 ? 2 : 1
+          columnSpacing: 10
+          rowSpacing: 10
 
           QfButton {
+            Layout.fillWidth: parent.columns === 1
             Layout.preferredHeight: 32
             visible: featureRow.emptyAttributesCount > 0
             bgcolor: "transparent"
@@ -338,13 +341,13 @@ Rectangle {
 
           QfButton {
             Layout.alignment: Qt.AlignRight
+            Layout.fillWidth: parent.columns === 1
             Layout.preferredHeight: 32
             enabled: !featureRow.isRecording && !pendingChanges.isProjectBusy
             bgcolor: "transparent"
             color: enabled ? QfTheme.warningColor : QfTheme.mainTextDisabledColor
             font: QfTheme.tipFont
             text: qsTr('Discard change')
-            icon.source: QfTheme.getThemeVectorIcon('ic_undo_black_24dp')
             onClicked: pendingChanges.revertRequested(DeltaUuid)
           }
         }
