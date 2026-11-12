@@ -280,7 +280,7 @@ Rectangle {
               id: attributeRow
               anchors.left: parent.left
               anchors.right: parent.right
-              anchors.verticalCenter: parent.verticalCenter
+              y: 4
               spacing: 10
 
               Text {
@@ -302,10 +302,13 @@ Rectangle {
 
             Rectangle {
               anchors.left: parent.left
+              anchors.leftMargin: 20
               anchors.right: parent.right
+              anchors.rightMargin: 20
               anchors.bottom: parent.bottom
               height: 1
               color: QfTheme.controlBorderColor
+              opacity: 0.5
             }
           }
         }
