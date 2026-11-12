@@ -1356,7 +1356,6 @@ bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, const QJsonAr
   {
     for ( auto [layerId, vl] : vectorLayers.asKeyValueRange() )
     {
-      // despite the error, try to rollback all the changes so far
       if ( vl->commitChanges( !editingLayerIds.contains( layerId ) ) )
       {
         vectorLayers[layerId] = nullptr;
