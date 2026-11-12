@@ -258,6 +258,36 @@ Rectangle {
         anchors.rightMargin: 10
         spacing: 5
 
+        GridLayout {
+          width: featureDetails.width
+          columns: featureDetails.width > 330 ? 2 : 1
+          columnSpacing: 10
+          rowSpacing: 10
+
+          QfButton {
+            Layout.fillWidth: parent.columns === 1
+            Layout.preferredHeight: 32
+            visible: featureRow.emptyAttributesCount > 0
+            bgcolor: "transparent"
+            color: QfTheme.mainColor
+            font: QfTheme.tipFont
+            text: featureRow.showEmptyAttributes ? qsTr('Hide empty fields') : qsTr('Show %n empty field(s)', '', featureRow.emptyAttributesCount)
+            onClicked: featureRow.showEmptyAttributes = !featureRow.showEmptyAttributes
+          }
+
+          QfButton {
+            Layout.alignment: Qt.AlignRight
+            Layout.fillWidth: parent.columns === 1
+            Layout.preferredHeight: 32
+            enabled: !featureRow.isRecording && !pendingChanges.isProjectBusy
+            bgcolor: "transparent"
+            color: enabled ? QfTheme.warningColor : QfTheme.mainTextDisabledColor
+            font: QfTheme.tipFont
+            text: qsTr('Discard change')
+            onClicked: pendingChanges.revertRequested(DeltaUuid)
+          }
+        }
+
         Repeater {
           model: featureRow.showEmptyAttributes ? AttributeChanges : AttributeChanges.filter(change => !pendingChanges.isEmptyAttributeChange(change, featureRow.deltaMethod))
 
@@ -338,36 +368,6 @@ Rectangle {
           color: QfTheme.secondaryTextColor
           wrapMode: Text.WordWrap
           text: qsTr('Geometry modified')
-        }
-
-        GridLayout {
-          width: featureDetails.width
-          columns: featureDetails.width > 330 ? 2 : 1
-          columnSpacing: 10
-          rowSpacing: 10
-
-          QfButton {
-            Layout.fillWidth: parent.columns === 1
-            Layout.preferredHeight: 32
-            visible: featureRow.emptyAttributesCount > 0
-            bgcolor: "transparent"
-            color: QfTheme.mainColor
-            font: QfTheme.tipFont
-            text: featureRow.showEmptyAttributes ? qsTr('Hide empty fields') : qsTr('Show %n empty field(s)', '', featureRow.emptyAttributesCount)
-            onClicked: featureRow.showEmptyAttributes = !featureRow.showEmptyAttributes
-          }
-
-          QfButton {
-            Layout.alignment: Qt.AlignRight
-            Layout.fillWidth: parent.columns === 1
-            Layout.preferredHeight: 32
-            enabled: !featureRow.isRecording && !pendingChanges.isProjectBusy
-            bgcolor: "transparent"
-            color: enabled ? QfTheme.warningColor : QfTheme.mainTextDisabledColor
-            font: QfTheme.tipFont
-            text: qsTr('Discard change')
-            onClicked: pendingChanges.revertRequested(DeltaUuid)
-          }
         }
       }
 
