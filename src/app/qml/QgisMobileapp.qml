@@ -1973,13 +1973,13 @@ ApplicationWindow {
     readonly property int shortVibration: 500
 
     onIsWithinChanged: {
-      if (behavior == QfGeofencer.AlertWhenInsideGeofencedArea && geofencer.isWithin) {
+      if (behavior === QfGeofencer.AlertWhenInsideGeofencedArea && geofencer.isWithin) {
         platformUtilities.vibrate(longVibration);
         displayToast(qsTr("Position has trespassed into ‘%1’").arg(isWithinAreaName), 'error');
-      } else if (behavior == QfGeofencer.AlertWhenOutsideGeofencedArea && !geofencer.isWithin) {
+      } else if (behavior === QfGeofencer.AlertWhenOutsideGeofencedArea && !geofencer.isWithin) {
         platformUtilities.vibrate(longVibration);
         displayToast(qsTr("Position outside areas after leaving ‘%1’").arg(lastWithinAreaName), 'error');
-      } else if (behavior == QfGeofencer.InformWhenEnteringLeavingGeofencedArea) {
+      } else if (behavior === QfGeofencer.InformWhenEnteringLeavingGeofencedArea) {
         if (isWithin) {
           platformUtilities.vibrate(shortVibration);
           displayToast(qsTr("Position entered into ‘%1’").arg(isWithinAreaName));

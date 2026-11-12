@@ -25,6 +25,10 @@
 #include <qgspoint.h>
 #include <qgsvectorlayer.h>
 
+#ifdef WITH_TEXTTOSPEECH
+#include <QTextToSpeech>
+#endif
+
 /**
  * This class provides an interface to manage geofencing of areas as well as
  * providing feedback whenever the position trespasses into or out of those
@@ -160,6 +164,8 @@ class QfGeofencer : public QObject
     void checkWithin();
     void checkAlert();
 
+    void processAudio();
+
     bool mActive = false;
     Behaviors mBehavior = AlertWhenInsideGeofencedArea;
 
@@ -175,6 +181,10 @@ class QfGeofencer : public QObject
     int mLastWithinIndex = -1;
 
     QfFeatureExpressionValuesGatherer *mGatherer = nullptr;
+
+#ifdef WITH_TEXTTOSPEECH
+    std::unique_ptr<QTextToSpeech> mTextToSpeech;
+#endif
 };
 
 #endif // QFGEOFENCER_H
