@@ -1286,35 +1286,55 @@ bool QfDeltaFileWrapper::isDeltaBeingApplied() const
 
 bool QfDeltaFileWrapper::apply( const QgsProject *project )
 {
-  return applyInternal( project, false );
+  return applyInternal( project, QJsonArray( mDeltas ), false );
 }
 
 
 bool QfDeltaFileWrapper::applyReversed( const QgsProject *project )
 {
-  return applyInternal( project, true );
+  return applyInternal( project, QJsonArray( mDeltas ), true );
 }
 
 
-bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, bool shouldApplyInReverse )
+bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, const QJsonArray &deltasToApply, bool shouldApplyInReverse )
 {
   if ( !toFile() )
     return false;
-
-  mIsDeltaFileBeingApplied = true;
 
   bool isSuccess = true;
 
   // 1) get all vector layers referenced in the delta file and make them editable
   QHash<QString, QgsVectorLayer *> vectorLayers;
-  for ( const QJsonValue &deltaJson : std::as_const( mDeltas ) )
+  QSet<QString> editingLayerIds;
+  for ( const QJsonValueConstRef &deltaJson : deltasToApply )
   {
     const QVariantMap delta = deltaJson.toObject().toVariantMap();
     const QString layerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
 
+    if ( vectorLayers.contains( layerId ) )
+    {
+      continue;
+    }
+
     QgsVectorLayer *vl = static_cast<QgsVectorLayer *>( project->mapLayer( layerId ) );
 
-    if ( !vl || ( !vl->isEditable() && !vl->startEditing() ) )
+    if ( !vl )
+    {
+      isSuccess = false;
+      break;
+    }
+
+    if ( vl->isEditable() )
+    {
+      if ( !vl->commitChanges( false ) )
+      {
+        isSuccess = false;
+        break;
+      }
+
+      editingLayerIds.insert( layerId );
+    }
+    else if ( !vl->startEditing() )
     {
       isSuccess = false;
       break;
@@ -1323,18 +1343,23 @@ bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, bool shouldAp
     vectorLayers.insert( vl->id(), vl );
   }
 
+  mIsDeltaFileBeingApplied = true;
+
   // 2) actual application of the delta contents
   if ( isSuccess )
-    isSuccess = applyDeltasOnLayers( vectorLayers, shouldApplyInReverse );
+  {
+    isSuccess = applyDeltasOnLayers( vectorLayers, deltasToApply, shouldApplyInReverse );
+  }
 
   // 3) commit the changes, if fails, revert the rest of the layers
   if ( isSuccess )
   {
     for ( auto [layerId, vl] : vectorLayers.asKeyValueRange() )
     {
-      // despite the error, try to rollback all the changes so far
-      if ( vl->commitChanges() )
+      if ( vl->commitChanges( !editingLayerIds.contains( layerId ) ) )
+      {
         vectorLayers[layerId] = nullptr;
+      }
       else
       {
         QgsMessageLog::logMessage( QStringLiteral( "Failed to commit layer with id \"%1\", all the rest layers will be rolled back" ).arg( layerId ) );
@@ -1351,11 +1376,15 @@ bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, bool shouldAp
     {
       // the layer has already been committed
       if ( !vl )
+      {
         continue;
+      }
 
       // despite the error, try to rollback all the changes so far
-      if ( !vl->rollBack() )
+      if ( !vl->rollBack( !editingLayerIds.contains( layerId ) ) )
+      {
         QgsMessageLog::logMessage( QStringLiteral( "Failed to rollback layer with id \"%1\"" ).arg( layerId ) );
+      }
     }
   }
 
@@ -1365,16 +1394,22 @@ bool QfDeltaFileWrapper::applyInternal( const QgsProject *project, bool shouldAp
 }
 
 
-bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &vectorLayers, bool shouldApplyInReverse )
+bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &vectorLayers, const QJsonArray &deltasToApply, bool shouldApplyInReverse )
 {
   QJsonArray deltas;
 
   if ( shouldApplyInReverse )
+  {
     // not the most optimal solution, but at least the QJsonValues are not copied
-    for ( qsizetype i = mDeltas.size(); i > 0; )
-      deltas.append( mDeltas[--i] );
+    for ( qsizetype i = deltasToApply.size(); i > 0; )
+    {
+      deltas.append( deltasToApply[--i] );
+    }
+  }
   else
-    deltas = QJsonArray( mDeltas );
+  {
+    deltas = QJsonArray( deltasToApply );
+  }
 
   for ( const QJsonValue &deltaJson : std::as_const( deltas ) )
   {
@@ -1391,9 +1426,13 @@ bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &
     if ( shouldApplyInReverse )
     {
       if ( method == QStringLiteral( "create" ) )
+      {
         method = QStringLiteral( "delete" );
+      }
       else if ( method == QStringLiteral( "delete" ) )
+      {
         method = QStringLiteral( "create" );
+      }
 
       std::swap( oldValues, newValues );
     }
@@ -1401,21 +1440,29 @@ bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &
     Q_ASSERT( vectorLayers[layerId] );
 
     if ( !vectorLayers[layerId] )
+    {
       return false;
+    }
 
     if ( method != QStringLiteral( "create" ) )
     {
       QgsFeatureIterator it = vectorLayers[layerId]->getFeatures( localPkRequest( vectorLayers[layerId], { localPk } ) );
 
       if ( !it.nextFeature( f ) )
+      {
         return false;
+      }
 
       QgsFeature tempFeature;
       if ( it.nextFeature( tempFeature ) )
+      {
         return false;
+      }
 
       if ( !f.isValid() )
+      {
         return false;
+      }
     }
 
     if ( method == QStringLiteral( "create" ) )
@@ -1430,17 +1477,23 @@ bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &
       QgsAttributeMap qgsAttributeMap;
 
       if ( !geomWkt.isEmpty() )
+      {
         geom = QgsGeometry::fromWkt( geomWkt );
+      }
 
       for ( auto [attrName, attrValue] : attributes.asKeyValueRange() )
+      {
         qgsAttributeMap.insert( fields.indexFromName( attrName ), attrValue );
+      }
 
       QgsFeature createdFeature = QgsVectorLayerUtils::createFeature( vectorLayers[layerId], geom, qgsAttributeMap );
 
       Q_ASSERT( createdFeature.isValid() );
 
       if ( !vectorLayers[layerId]->addFeature( createdFeature ) )
+      {
         return false;
+      }
     }
     else if ( method == QStringLiteral( "delete" ) )
     {
@@ -1449,7 +1502,9 @@ bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &
       Q_ASSERT( f.isValid() );
 
       if ( !vectorLayers[layerId]->deleteFeature( f.id() ) )
+      {
         return false;
+      }
     }
     else if ( method == QStringLiteral( "patch" ) )
     {
@@ -1469,7 +1524,9 @@ bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &
       for ( auto [attrName, attrValue] : attributes.asKeyValueRange() )
       {
         if ( !vectorLayers[layerId]->changeAttributeValue( f.id(), fields.indexOf( attrName ), attrValue ) )
+        {
           return false;
+        }
       }
     }
     else
@@ -1479,6 +1536,71 @@ bool QfDeltaFileWrapper::applyDeltasOnLayers( QHash<QString, QgsVectorLayer *> &
   }
 
   return true;
+}
+
+bool QfDeltaFileWrapper::revertDelta( const QgsProject *project, const QString &uuid )
+{
+  const int deltaIndex = getDeltaIndexByUuid( uuid );
+  if ( mIsPushing || deltaIndex < 0 )
+  {
+    return false;
+  }
+
+  const QJsonObject delta = mDeltas.at( deltaIndex ).toObject();
+  const QString localLayerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
+  const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
+
+  QJsonArray deltasToRevert;
+  QSet<QString> revertedUuids;
+  for ( int i = deltaIndex; i < mDeltas.size(); i++ )
+  {
+    const QJsonObject otherDelta = mDeltas.at( i ).toObject();
+    if ( otherDelta.value( QStringLiteral( "localLayerId" ) ).toString() == localLayerId && otherDelta.value( QStringLiteral( "localPk" ) ).toString() == localPk )
+    {
+      deltasToRevert.append( otherDelta );
+      revertedUuids.insert( otherDelta.value( QStringLiteral( "uuid" ) ).toString() );
+    }
+  }
+
+  if ( !applyInternal( project, deltasToRevert, true ) )
+  {
+    return false;
+  }
+
+  QJsonArray remainingDeltas;
+  QString latestRemainingUuid;
+  for ( const QJsonValueConstRef &deltaJson : std::as_const( mDeltas ) )
+  {
+    const QJsonObject otherDelta = deltaJson.toObject();
+    const QString otherUuid = otherDelta.value( QStringLiteral( "uuid" ) ).toString();
+    if ( revertedUuids.contains( otherUuid ) )
+    {
+      continue;
+    }
+
+    if ( otherDelta.value( QStringLiteral( "localLayerId" ) ).toString() == localLayerId && otherDelta.value( QStringLiteral( "localPk" ) ).toString() == localPk )
+    {
+      latestRemainingUuid = otherUuid;
+    }
+
+    remainingDeltas.append( otherDelta );
+  }
+
+  mDeltas = remainingDeltas;
+  mIsDirty = true;
+
+  if ( latestRemainingUuid.isEmpty() )
+  {
+    mLocalPkToDeltaUuid[localLayerId].remove( localPk );
+  }
+  else
+  {
+    mLocalPkToDeltaUuid[localLayerId][localPk] = latestRemainingUuid;
+  }
+
+  emit countChanged();
+
+  return toFile();
 }
 
 QJsonValue QfDeltaFileWrapper::attributeToJsonValue( const QVariant &value )

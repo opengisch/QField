@@ -90,12 +90,16 @@ QVariant QfDeltaChangesModel::data( const QModelIndex &index, int role ) const
       return deltaChange.layerId;
     case MethodRole:
       return deltaChange.method;
+    case FeatureIdRole:
+      return deltaChange.featureId;
     case FeatureNameRole:
       return deltaChange.featureName;
     case AttributeChangesRole:
       return QVariant::fromValue( deltaChange.attributeChanges );
     case HasGeometryChangeRole:
       return deltaChange.hasGeometryChange;
+    case DeltaUuidRole:
+      return deltaChange.uuid;
   }
 
   return QVariant();
@@ -106,9 +110,11 @@ QHash<int, QByteArray> QfDeltaChangesModel::roleNames() const
   QHash<int, QByteArray> roles;
   roles[LayerIdRole] = "LayerId";
   roles[MethodRole] = "Method";
+  roles[FeatureIdRole] = "FeatureId";
   roles[FeatureNameRole] = "FeatureName";
   roles[AttributeChangesRole] = "AttributeChanges";
   roles[HasGeometryChangeRole] = "HasGeometryChange";
+  roles[DeltaUuidRole] = "DeltaUuid";
   return roles;
 }
 
@@ -208,7 +214,8 @@ void QfDeltaChangesModel::refresh()
 
 QList<QfDeltaChangesModel::DeltaChange> QfDeltaChangesModel::layerChanges( const QString &layerId, const QJsonArray &deltas, QgsVectorLayer *layer ) const
 {
-  const QHash<QString, QString> displayNames = featureDisplayNames( layer, deltas );
+  QHash<QString, QgsFeatureId> featureIds;
+  const QHash<QString, QString> displayNames = featureDisplayNames( layer, deltas, featureIds );
 
   QList<DeltaChange> changes;
   changes.reserve( deltas.size() );
@@ -218,8 +225,10 @@ QList<QfDeltaChangesModel::DeltaChange> QfDeltaChangesModel::layerChanges( const
     const QString localPk = delta.value( QStringLiteral( "localPk" ) ).toString();
 
     DeltaChange change;
+    change.uuid = delta.value( QStringLiteral( "uuid" ) ).toString();
     change.layerId = layerId;
     change.method = deltaMethod( delta );
+    change.featureId = featureIds.value( localPk, FID_NULL );
     change.featureName = displayNames.value( localPk, localPk );
     change.attributeChanges = attributeChanges( delta, change.method );
     change.hasGeometryChange = change.method == PatchMethod && delta.value( QStringLiteral( "new" ) ).toObject().contains( QStringLiteral( "geometry" ) );
@@ -230,7 +239,7 @@ QList<QfDeltaChangesModel::DeltaChange> QfDeltaChangesModel::layerChanges( const
   return changes;
 }
 
-QHash<QString, QString> QfDeltaChangesModel::featureDisplayNames( QgsVectorLayer *layer, const QJsonArray &deltas ) const
+QHash<QString, QString> QfDeltaChangesModel::featureDisplayNames( QgsVectorLayer *layer, const QJsonArray &deltas, QHash<QString, QgsFeatureId> &featureIds ) const
 {
   QHash<QString, QString> displayNames;
   if ( !layer )
@@ -259,6 +268,8 @@ QHash<QString, QString> QfDeltaChangesModel::featureDisplayNames( QgsVectorLayer
     QgsFeatureIterator features = layer->getFeatures( QfDeltaFileWrapper::localPkRequest( layer, remainingPks ) );
     while ( features.nextFeature( feature ) )
     {
+      featureIds.insert( feature.attribute( localPkFieldName ).toString(), feature.id() );
+
       const QString displayName = QfFeatureUtils::displayName( layer, feature );
       if ( !displayName.isEmpty() )
       {
