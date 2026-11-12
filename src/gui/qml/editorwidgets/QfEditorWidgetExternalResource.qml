@@ -73,6 +73,7 @@ QfEditorWidgetBase {
 
   property int documentViewer: config.DocumentViewer
   readonly property list<string> acceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(currentLayer, field.name)
+  readonly property string captureType: ExternalResourceUtils.getAttachmentCaptureType(acceptedTypes)
 
   property bool isImage: false
   property bool isAudio: false
@@ -594,8 +595,8 @@ QfEditorWidgetBase {
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
 
-    // QField has historically handled no viewer type as image, let's carry that on
-    visible: documentViewer == QfEditorWidgetExternalResource.DocumentImage && isEnabled && ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image')
+    // Accepted types, when set, take precedence over the viewer type
+    visible: isEnabled && (captureType !== '' ? captureType === 'image' : documentViewer == QfEditorWidgetExternalResource.DocumentImage)
 
     anchors.right: cameraVideoButton.left
     anchors.top: parent.top
@@ -612,7 +613,7 @@ QfEditorWidgetBase {
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
 
-    visible: documentViewer == QfEditorWidgetExternalResource.DocumentVideo && isEnabled && ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'video')
+    visible: isEnabled && (captureType !== '' ? captureType === 'video' : documentViewer == QfEditorWidgetExternalResource.DocumentVideo)
 
     anchors.right: microphoneButton.left
     anchors.top: parent.top
@@ -629,7 +630,7 @@ QfEditorWidgetBase {
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
 
-    visible: documentViewer == QfEditorWidgetExternalResource.DocumentAudio && isEnabled && ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'audio')
+    visible: isEnabled && (captureType !== '' ? captureType === 'audio' : documentViewer == QfEditorWidgetExternalResource.DocumentAudio)
 
     anchors.right: fileButton.left
     anchors.top: parent.top
@@ -646,7 +647,7 @@ QfEditorWidgetBase {
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
 
-    visible: platformUtilities.capabilities & QfPlatformUtilities.FilePicker && documentViewer == QfEditorWidgetExternalResource.DocumentFile && isEnabled
+    visible: platformUtilities.capabilities & QfPlatformUtilities.FilePicker && acceptedTypes.length === 0 && documentViewer == QfEditorWidgetExternalResource.DocumentFile && isEnabled
 
     anchors.right: parent.right
     anchors.top: parent.top
@@ -797,7 +798,7 @@ QfEditorWidgetBase {
     const filepath = getResourceFilePath();
     if (acceptedTypes.length === 1) {
       __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, acceptedTypes[0] + "/*", this);
-    } else if (documentViewer == QfEditorWidgetExternalResource.DocumentAudio) {
+    } else if (acceptedTypes.length === 0 && documentViewer == QfEditorWidgetExternalResource.DocumentAudio) {
       __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "audio/*", this);
     } else {
       __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "*/*", this);

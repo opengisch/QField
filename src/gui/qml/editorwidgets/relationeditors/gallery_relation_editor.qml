@@ -275,6 +275,18 @@ QfRelationEditorBase {
   onIsCardViewChanged: stopAllMedia()
 
   readonly property list<string> attachmentAcceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName)
+  // Accepted types, when set, take precedence over the viewer type
+  readonly property int attachmentCaptureViewer: {
+    switch (ExternalResourceUtils.getAttachmentCaptureType(attachmentAcceptedTypes)) {
+    case 'image':
+      return QfEditorWidgetExternalResource.DocumentImage;
+    case 'video':
+      return QfEditorWidgetExternalResource.DocumentVideo;
+    case 'audio':
+      return QfEditorWidgetExternalResource.DocumentAudio;
+    }
+    return referencingFeatureListModel.attachmentDocumentViewer;
+  }
 
   QfExpressionEvaluator {
     id: attachmentNamingEvaluator
@@ -328,23 +340,11 @@ QfRelationEditorBase {
       width: QfTheme.toolButtonSize
       height: QfTheme.toolButtonSize
       enabled: isEnabled
-      visible: {
-        if (!isEnabled || !isActionEnabled('AddChildFeature')) {
-          return false;
-        }
-        switch (referencingFeatureListModel.attachmentDocumentViewer) {
-        case QfEditorWidgetExternalResource.DocumentVideo:
-          return ExternalResourceUtils.acceptsAttachmentType(attachmentAcceptedTypes, 'video');
-        case QfEditorWidgetExternalResource.DocumentAudio:
-          return ExternalResourceUtils.acceptsAttachmentType(attachmentAcceptedTypes, 'audio');
-        default:
-          return ExternalResourceUtils.acceptsAttachmentType(attachmentAcceptedTypes, 'image');
-        }
-      }
+      visible: isEnabled && isActionEnabled('AddChildFeature')
 
       round: false
       iconSource: {
-        switch (referencingFeatureListModel.attachmentDocumentViewer) {
+        switch (attachmentCaptureViewer) {
         case QfEditorWidgetExternalResource.DocumentVideo:
           return QfTheme.getThemeVectorIcon("ic_camera_video_black_24dp");
         case QfEditorWidgetExternalResource.DocumentAudio:
@@ -360,7 +360,7 @@ QfRelationEditorBase {
           return;
         }
 
-        switch (referencingFeatureListModel.attachmentDocumentViewer) {
+        switch (attachmentCaptureViewer) {
         case QfEditorWidgetExternalResource.DocumentVideo:
           captureVideo();
           break;

@@ -44,6 +44,21 @@ function acceptsAttachmentType(acceptedTypes, type) {
 }
 
 /**
+ * Returns the attachment type ('image', 'video', or 'audio') capture actions
+ * should use for a list of accepted attachment types, with images taking
+ * priority over videos, and videos over audio clips. Returns an empty string
+ * when the list is empty.
+ */
+function getAttachmentCaptureType(acceptedTypes) {
+  for (const type of ['image', 'video', 'audio']) {
+    if (acceptedTypes.includes(type)) {
+      return type;
+    }
+  }
+  return '';
+}
+
+/**
  * Returns a sanitized attachment file path based on the evaluated naming
  * expression result. Falls back to a default path with timestamp based on
  * the document viewer type when the expression does not yield a usable suffix.
