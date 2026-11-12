@@ -704,11 +704,8 @@ void QfProjectInfo::restoreSettings( QString &projectFilePath, QgsProject *proje
 
   const QString mapTheme = settings.value( QStringLiteral( "/qgis/projectInfo/%1/maptheme" ).arg( projectFilePath ), QString() ).toString();
   const QString layerTreeState = settings.value( QStringLiteral( "/qgis/projectInfo/%1/layertreestate" ).arg( projectFilePath ), QString() ).toString();
-  if ( !mapTheme.isEmpty() )
-  {
-    layerTree->setMapTheme( mapTheme );
-  }
-  else if ( !layerTreeState.isEmpty() )
+  layerTree->setMapTheme( mapTheme );
+  if ( mapTheme.isEmpty() && !layerTreeState.isEmpty() )
   {
     QDomDocument document;
     document.setContent( layerTreeState );

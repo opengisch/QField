@@ -14,6 +14,7 @@ QfPopup {
   property var layerTree
   property var index
 
+  property bool isValid: false
   property bool zoomToButtonVisible: false
   property bool showFeaturesListButtonVisible: false
   property bool showVisibleFeaturesListDropdownVisible: false
@@ -37,19 +38,21 @@ QfPopup {
   }
 
   onIndexChanged: {
-    if (index === undefined)
+    if (index === undefined) {
       return;
+    }
     updateTitle();
     updateCredits();
+    isValid = layerTree.data(index, QfFlatLayerTreeModel.IsValid);
     itemVisibleCheckBox.checked = layerTree.data(index, QfFlatLayerTreeModel.Visible);
     itemLabelsVisibleCheckBox.checked = layerTree.data(index, QfFlatLayerTreeModel.LabelsVisible);
     expandCheckBox.text = layerTree.data(index, QfFlatLayerTreeModel.Type) === QfFlatLayerTreeModel.Group ? qsTr('Expand group') : qsTr('Expand legend item');
     expandCheckBox.checked = !layerTree.data(index, QfFlatLayerTreeModel.IsCollapsed);
     reloadDataButtonVisible = layerTree.data(index, QfFlatLayerTreeModel.CanReloadData);
     zoomToButtonVisible = layerTree.data(index, QfFlatLayerTreeModel.HasSpatialExtent);
-    showFeaturesListButtonVisible = isShowFeaturesListButtonVisible();
-    showVisibleFeaturesListDropdownVisible = isShowVisibleFeaturesListDropdownVisible();
-    trackingButtonVisible = isTrackingButtonVisible();
+    showFeaturesListButtonVisible = layerTree.data(index, QfFlatLayerTreeModel.IsValid) && layerTree.data(index, QfFlatLayerTreeModel.LayerType) === 'vectorlayer';
+    showVisibleFeaturesListDropdownVisible = showFeaturesListButtonVisible && layerTree.data(index, QfFlatLayerTreeModel.HasSpatialExtent);
+    trackingButtonVisible = layerTree.data(index, QfFlatLayerTreeModel.Type) === QfFlatLayerTreeModel.Layer && !layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) && layerTree.data(index, QfFlatLayerTreeModel.Trackable);
     trackingButtonText = trackingModel.layerInActiveTracking(layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer)) ? qsTr('Stop tracking') : qsTr('Setup tracking');
 
     // the layer tree model returns -1 for items that do not support the opacity setting
@@ -117,7 +120,7 @@ QfPopup {
 
         Text {
           id: invalidText
-          visible: index !== undefined && !layerTree.data(index, QfFlatLayerTreeModel.IsValid)
+          visible: !popup.isValid
           Layout.fillWidth: true
           bottomPadding: 15
 
@@ -139,6 +142,9 @@ QfPopup {
 
           onClicked: {
             layerTree.setData(index, checkState === Qt.Unchecked, QfFlatLayerTreeModel.IsCollapsed);
+            if (flatLayerTree.mapTheme === '') {
+              projectInfo.saveLayerTreeState();
+            }
             close();
           }
         }
@@ -159,8 +165,9 @@ QfPopup {
 
           onClicked: {
             layerTree.setData(index, checkState === Qt.Checked, QfFlatLayerTreeModel.Visible);
-            flatLayerTree.mapTheme = '';
-            projectInfo.saveLayerTreeState();
+            if (flatLayerTree.mapTheme === '') {
+              projectInfo.saveLayerTreeState();
+            }
             close();
           }
         }
@@ -428,19 +435,5 @@ QfPopup {
     }
     creditsText.text = credits;
     creditsText.visible = credits !== '';
-  }
-
-  function isTrackingButtonVisible() {
-    if (!index)
-      return false;
-    return layerTree.data(index, QfFlatLayerTreeModel.Type) === QfFlatLayerTreeModel.Layer && !layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) && layerTree.data(index, QfFlatLayerTreeModel.Trackable);
-  }
-
-  function isShowFeaturesListButtonVisible() {
-    return layerTree.data(index, QfFlatLayerTreeModel.IsValid) && layerTree.data(index, QfFlatLayerTreeModel.LayerType) === 'vectorlayer';
-  }
-
-  function isShowVisibleFeaturesListDropdownVisible() {
-    return isShowFeaturesListButtonVisible() && layerTree.data(index, QfFlatLayerTreeModel.HasSpatialExtent);
   }
 }

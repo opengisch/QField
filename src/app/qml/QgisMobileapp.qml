@@ -5040,6 +5040,7 @@ ApplicationWindow {
       if (geometryEditorsToolbar.stateVisible) {
         geometryEditorsToolbar.cancelEditors();
       }
+      dashBoard.projectLoading = true;
       dashBoard.layerTree.freeze();
       mapCanvasMap.stopRendering();
       mapCanvasMap.freeze('projectload');
@@ -5270,24 +5271,12 @@ ApplicationWindow {
         break;
       }
 
+      dashBoard.projectLoading = false;
       mapCanvasTour.startOnFreshRun();
     }
 
     function onSetMapExtent(extent) {
       mapCanvas.mapSettings.extent = extent;
-    }
-  }
-
-  Connections {
-    target: flatLayerTree
-
-    function onMapThemeChanged() {
-      if (!flatLayerTree.isFrozen && flatLayerTree.mapTheme != '') {
-        const defaultActiveLayer = projectInfo.getDefaultActiveLayerForMapTheme(flatLayerTree.mapTheme);
-        if (defaultActiveLayer !== null) {
-          dashBoard.activeLayer = defaultActiveLayer;
-        }
-      }
     }
   }
 
