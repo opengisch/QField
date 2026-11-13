@@ -146,6 +146,7 @@ void QfIdentifyTool::identify( const QPointF &point )
 
   if ( mPreparedLayers.isEmpty() )
   {
+    emit identifyFinished();
     return;
   }
 
