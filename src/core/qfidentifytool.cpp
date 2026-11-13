@@ -25,6 +25,7 @@
 #include <qgsrenderer.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayertemporalproperties.h>
+#include <qgsvectortiledataprovider.h>
 #include <qgsvectortilelayer.h>
 #include <qgsvectortileloader.h>
 #include <qgsvectortilemvtdecoder.h>
@@ -69,7 +70,7 @@ void QfIdentifyTool::setMarkupManager( QfMarkupManager *markupManager )
   emit markupManagerChanged();
 }
 
-void QfIdentifyTool::identify( const QPointF &point ) const
+void QfIdentifyTool::identify( const QPointF &point )
 {
   if ( !mEnabled )
   {
@@ -84,6 +85,9 @@ void QfIdentifyTool::identify( const QPointF &point ) const
 
   mModel->clear( true );
 
+  mPreparedLayers.clear();
+  mIdentifiedLayers.clear();
+
   QgsPointXY mapPoint = mMapSettings->screenToCoordinate( point );
 
   const QList<QgsMapLayer *> layers = mModel->selectedLayer() ? QList<QgsMapLayer *>() << mModel->selectedLayer() : mMapSettings->mapSettings().layers();
@@ -96,18 +100,24 @@ void QfIdentifyTool::identify( const QPointF &point ) const
 
     if ( QgsVectorLayer *vl = qobject_cast<QgsVectorLayer *>( layer ) )
     {
-      QList<IdentifyResult> results = identifyVectorLayer( vl, mapPoint );
-      mModel->appendFeatures( results );
+      std::shared_ptr<PreparedLayer> preparedLayer;
+      preparedLayer.reset( prepareVectorLayer( vl, mapPoint ) );
+      mPreparedLayers.append( preparedLayer );
+      mIdentifiedLayers.insert( vl->id(), vl );
     }
     else if ( QgsRasterLayer *rl = qobject_cast<QgsRasterLayer *>( layer ) )
     {
-      QList<IdentifyResult> results = identifyRasterLayer( rl, mapPoint );
-      mModel->appendFeatures( results );
+      std::shared_ptr<PreparedLayer> preparedLayer;
+      preparedLayer.reset( prepareRasterLayer( rl, mapPoint ) );
+      mPreparedLayers.append( preparedLayer );
+      mIdentifiedLayers.insert( rl->id(), rl );
     }
     else if ( QgsVectorTileLayer *vtl = qobject_cast<QgsVectorTileLayer *>( layer ) )
     {
-      QList<IdentifyResult> results = identifyVectorTileLayer( vtl, mapPoint );
-      mModel->appendFeatures( results );
+      std::shared_ptr<PreparedLayer> preparedLayer;
+      preparedLayer.reset( prepareVectorTileLayer( vtl, mapPoint ) );
+      mPreparedLayers.append( preparedLayer );
+      mIdentifiedLayers.insert( vtl->id(), vtl );
     }
   }
 
@@ -116,26 +126,78 @@ void QfIdentifyTool::identify( const QPointF &point ) const
     const QList<QfMarkupCollection *> collections = mMarkupManager->visibleCollections();
     for ( QfMarkupCollection *collection : collections )
     {
-      QList<IdentifyResult> results = identifyVectorLayer( collection->asVectorLayer(), mapPoint );
-      mModel->appendFeatures( results );
+      std::shared_ptr<PreparedLayer> preparedLayer;
+      QgsVectorLayer *vl = collection->asVectorLayer();
+      preparedLayer.reset( prepareVectorLayer( vl, mapPoint ) );
+      mPreparedLayers.append( preparedLayer );
+      mIdentifiedLayers.insert( vl->id(), vl );
     }
   }
+
+  QList<QfIdentifyTool::IdentifyResult> results;
+  for ( auto &preparedLayer : std::as_const( mPreparedLayers ) )
+  {
+    if ( !preparedLayer->isValid )
+    {
+      continue;
+    }
+
+    switch ( preparedLayer->layerType )
+    {
+      case Qgis::LayerType::Vector:
+      {
+        results << processVectorLayer( preparedLayer.get() );
+        break;
+      }
+
+      case Qgis::LayerType::Raster:
+      {
+        results << processRasterLayer( preparedLayer.get() );
+        break;
+      }
+
+      case Qgis::LayerType::VectorTile:
+      {
+        results << processVectorTileLayer( preparedLayer.get() );
+        break;
+      }
+
+      case Qgis::LayerType::Plugin:
+      case Qgis::LayerType::Mesh:
+      case Qgis::LayerType::Annotation:
+      case Qgis::LayerType::PointCloud:
+      case Qgis::LayerType::Group:
+      case Qgis::LayerType::TiledScene:
+        break;
+    }
+  }
+
+  for ( IdentifyResult &result : results )
+  {
+    if ( mIdentifiedLayers.contains( result.layerId ) )
+    {
+      result.layer = mIdentifiedLayers.value( result.layerId );
+    }
+  }
+
+  mModel->appendFeatures( results );
 
   emit identifyFinished();
 }
 
-QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const
+QfIdentifyTool::PreparedLayer *QfIdentifyTool::prepareVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const
 {
-  QList<IdentifyResult> results;
+  PreparedLayer *preparedLayer = new PreparedLayer();
+  preparedLayer->layerType = Qgis::LayerType::Vector;
 
   if ( !layer || ( !layer->isSpatial() && layer->wkbType() != QgsWkbTypes::flatType( Qgis::WkbType::GeometryCollection ) ) )
   {
-    return results;
+    return preparedLayer;
   }
 
   if ( !layer->isInScaleRange( mMapSettings->mapSettings().scale() ) )
   {
-    return results;
+    return preparedLayer;
   }
 
   QString temporalFilter;
@@ -143,15 +205,13 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorLayer( QgsVe
   {
     if ( !layer->temporalProperties()->isVisibleInTemporalRange( mMapSettings->mapSettings().temporalRange() ) )
     {
-      return results;
+      return preparedLayer;
     }
 
     QgsVectorLayerTemporalContext temporalContext;
     temporalContext.setLayer( layer );
     temporalFilter = qobject_cast<const QgsVectorLayerTemporalProperties *>( layer->temporalProperties() )->createFilterString( temporalContext, mMapSettings->mapSettings().temporalRange() );
   }
-
-  QgsFeatureList featureList;
 
   // toLayerCoordinates will throw an exception for an 'invalid' point.
   // For example, if you project a world map onto a globe using EPSG 2163
@@ -169,91 +229,128 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorLayer( QgsVe
 
     r = toLayerCoordinates( layer, r );
 
-    QgsFeatureRequest req;
-    req.setFilterRect( r );
+    preparedLayer->request.setFilterRect( r );
     if ( !temporalFilter.isEmpty() )
     {
-      req.setFilterExpression( temporalFilter );
+      preparedLayer->request.setFilterExpression( temporalFilter );
     }
-    req.setLimit( QSettings().value( "/QField/identify/limit", 200 ).toInt() );
-    req.setFlags( Qgis::FeatureRequestFlag::ExactIntersect );
+    preparedLayer->request.setLimit( QSettings().value( "/QField/identify/limit", 200 ).toInt() );
+    preparedLayer->request.setFlags( Qgis::FeatureRequestFlag::ExactIntersect );
 
     QgsAttributeTableConfig config = layer->attributeTableConfig();
     if ( !config.sortExpression().isEmpty() )
     {
-      req.addOrderBy( config.sortExpression(), config.sortOrder() == Qt::AscendingOrder );
+      preparedLayer->request.addOrderBy( config.sortExpression(), config.sortOrder() == Qt::AscendingOrder );
     }
     else if ( !layer->displayExpression().isEmpty() )
     {
-      req.addOrderBy( layer->displayExpression() );
-    }
-
-    QgsFeatureIterator fit = layer->getFeatures( req );
-    QgsFeature f;
-    while ( fit.nextFeature( f ) )
-    {
-      featureList << QgsFeature( f );
+      preparedLayer->request.addOrderBy( layer->displayExpression() );
     }
   }
-  catch ( const QgsCsException &cse )
+  catch ( const QgsCsException & )
   {
-    Q_UNUSED( cse );
-    // catch exception for 'invalid' point and proceed with no features found
+    return preparedLayer;
   }
 
-  QgsRenderContext context( QgsRenderContext::fromMapSettings( mMapSettings->mapSettings() ) );
-  context.setExpressionContext( QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( layer ) ) );
-  context.expressionContext() << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
-  QgsFeatureRenderer *renderer = layer->renderer();
+  preparedLayer->fields = layer->fields();
 
-  if ( renderer )
+  if ( layer->renderer() )
   {
-    renderer->startRender( context, layer->fields() );
+    preparedLayer->renderContext = QgsRenderContext::fromMapSettings( mMapSettings->mapSettings() );
+    preparedLayer->renderContext.setExpressionContext( QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( layer ) ) );
+    preparedLayer->renderContext.expressionContext() << QgsExpressionContextUtils::mapSettingsScope( mMapSettings->mapSettings() );
+    preparedLayer->vectorRenderer.reset( layer->renderer()->clone() );
+  }
+
+  preparedLayer->vectorFeatureSource.reset( new QgsVectorLayerFeatureSource( layer ) );
+
+  preparedLayer->layerId = layer->id();
+  preparedLayer->layerName = layer->name();
+
+  preparedLayer->isValid = true;
+  return preparedLayer;
+}
+
+QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processVectorLayer( PreparedLayer *preparedLayer ) const
+{
+  QList<QfIdentifyTool::IdentifyResult> results;
+  if ( !preparedLayer || !preparedLayer->isValid || preparedLayer->layerType != Qgis::LayerType::Vector )
+  {
+    return results;
+  }
+
+  QgsFeatureList featureList;
+  QgsFeatureIterator fit = preparedLayer->vectorFeatureSource->getFeatures( preparedLayer->request );
+  QgsFeature f;
+  while ( fit.nextFeature( f ) )
+  {
+    featureList << QgsFeature( f );
+  }
+
+  if ( preparedLayer->vectorRenderer )
+  {
+    preparedLayer->vectorRenderer->startRender( preparedLayer->renderContext, preparedLayer->fields );
   }
 
   for ( const QgsFeature &feature : std::as_const( featureList ) )
   {
-    context.expressionContext().setFeature( feature );
-    if ( renderer && !renderer->willRenderFeature( const_cast<QgsFeature &>( feature ), context ) )
-      continue;
+    if ( preparedLayer->vectorRenderer )
+    {
+      preparedLayer->renderContext.expressionContext().setFeature( feature );
+      if ( !preparedLayer->vectorRenderer->willRenderFeature( const_cast<QgsFeature &>( feature ), preparedLayer->renderContext ) )
+        continue;
+    }
 
-    results.append( IdentifyResult( layer, feature ) );
+    results.append( IdentifyResult( preparedLayer->layerId, feature ) );
   }
 
-  if ( renderer )
+  if ( preparedLayer->vectorRenderer )
   {
-    renderer->stopRender( context );
+    preparedLayer->vectorRenderer->stopRender( preparedLayer->renderContext );
   }
 
   return results;
 }
 
-QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const
+QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const
 {
-  QList<QfIdentifyTool::IdentifyResult> results;
-  if ( !layer->dataProvider() || !layer->isValid() )
+  std::unique_ptr<PreparedLayer> preparedLayer;
+  preparedLayer.reset( prepareVectorLayer( layer, point ) );
+  QList<QfIdentifyTool::IdentifyResult> results = processVectorLayer( preparedLayer.get() );
+  for ( IdentifyResult &result : results )
   {
-    return results;
+    result.layer = layer;
+  }
+  return results;
+}
+
+QfIdentifyTool::PreparedLayer *QfIdentifyTool::prepareRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const
+{
+  PreparedLayer *preparedLayer = new PreparedLayer();
+
+  if ( !layer || !layer->dataProvider() || !layer->isValid() )
+  {
+    return preparedLayer;
   }
 
-  std::unique_ptr<QgsRasterDataProvider> dataProvider( layer->dataProvider()->clone() );
-  const Qgis::RasterInterfaceCapabilities capabilities = dataProvider->capabilities();
+  const Qgis::RasterInterfaceCapabilities capabilities = layer->dataProvider()->capabilities();
 
   if ( !( capabilities & Qgis::RasterInterfaceCapability::Identify ) )
   {
-    return results;
+    return preparedLayer;
   }
 
   if ( !( capabilities & Qgis::RasterInterfaceCapability::IdentifyFeature ) )
   {
-    return results;
+    return preparedLayer;
   }
 
-  const QgsPointXY pointInLayerCoordinates = toLayerCoordinates( layer, point );
+  preparedLayer->rasterDataProvider.reset( layer->dataProvider()->clone() );
+  preparedLayer->rasterPoint = toLayerCoordinates( layer, point );
+
   const double mapUnitsPerPixel = mMapSettings->mapSettings().mapUnitsPerPixel();
-  QgsRasterIdentifyResult identifyResult;
   // We can only use current map canvas context (extent, width, height) if layer is not reprojected,
-  if ( dataProvider->crs() != mMapSettings->mapSettings().destinationCrs() )
+  if ( preparedLayer->rasterDataProvider->crs() != mMapSettings->mapSettings().destinationCrs() )
   {
     // To get some reasonable response for point/line WMS vector layers we must
     // use a context with approximately a resolution in layer CRS units
@@ -269,7 +366,9 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyRasterLayer( QgsRa
     // Mapserver (6.0.3, for example) does not work with 1x1 pixel box
     // but that is fixed (the rect is enlarged) in the WMS provider
 
-    identifyResult = dataProvider->identify( pointInLayerCoordinates, Qgis::RasterIdentifyFormat::Feature, r, 1, 1 );
+    preparedLayer->extent = r;
+    preparedLayer->rasterWidth = 1;
+    preparedLayer->rasterHeight = 1;
   }
   else
   {
@@ -285,13 +384,29 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyRasterLayer( QgsRa
     // are similar to source width and height used to reproject layer for drawing.
     // TODO: may be very dangerous, because it may result in different resolutions
     // in source CRS, and WMS server (QGIS server) calcs wrong coor using average resolution.
-    const QgsRectangle extent = mMapSettings->mapSettings().extent();
-    const int width = static_cast<int>( std::round( extent.width() / mapUnitsPerPixel ) );
-    const int height = static_cast<int>( std::round( extent.height() / mapUnitsPerPixel ) );
-
-    identifyResult = dataProvider->identify( point, Qgis::RasterIdentifyFormat::Feature, extent, width, height );
+    preparedLayer->extent = mMapSettings->mapSettings().extent();
+    preparedLayer->rasterWidth = static_cast<int>( std::round( preparedLayer->extent.width() / mapUnitsPerPixel ) );
+    preparedLayer->rasterHeight = static_cast<int>( std::round( preparedLayer->extent.height() / mapUnitsPerPixel ) );
+    ;
   }
 
+  preparedLayer->layerId = layer->id();
+  preparedLayer->layerName = layer->name();
+
+  preparedLayer->isValid = true;
+  return preparedLayer;
+}
+
+QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processRasterLayer( PreparedLayer *preparedLayer ) const
+{
+  QList<QfIdentifyTool::IdentifyResult> results;
+
+  if ( !preparedLayer || !preparedLayer->isValid || preparedLayer->layerType != Qgis::LayerType::Raster )
+  {
+    return results;
+  }
+
+  const QgsRasterIdentifyResult identifyResult = preparedLayer->rasterDataProvider->identify( preparedLayer->rasterPoint, Qgis::RasterIdentifyFormat::Feature, preparedLayer->extent, preparedLayer->rasterWidth, preparedLayer->rasterHeight );
   QMap<int, QVariant> identifyResults = identifyResult.results();
   for ( auto it = identifyResults.constBegin(); it != identifyResults.constEnd(); ++it )
   {
@@ -325,7 +440,7 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyRasterLayer( QgsRa
         featureType.remove( QStringLiteral( "_feature" ) );
 
         QStringList labels;
-        if ( sublayer.compare( layer->name(), Qt::CaseInsensitive ) != 0 && sublayer.compare( QStringLiteral( "Null" ), Qt::CaseInsensitive ) != 0 )
+        if ( sublayer.compare( preparedLayer->layerName, Qt::CaseInsensitive ) != 0 && sublayer.compare( QStringLiteral( "Null" ), Qt::CaseInsensitive ) != 0 )
         {
           labels << sublayer;
         }
@@ -335,7 +450,7 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyRasterLayer( QgsRa
         }
 
 
-        results.append( IdentifyResult( layer, feature, !labels.isEmpty() ? QStringLiteral( "%1 - %2" ).arg( labels.join( QStringLiteral( " - " ) ), layer->name() ) : layer->name() ) );
+        results.append( IdentifyResult( preparedLayer->layerId, feature, !labels.isEmpty() ? QStringLiteral( "%1 - %2" ).arg( labels.join( QStringLiteral( " - " ) ), preparedLayer->layerName ) : preparedLayer->layerName ) );
       }
     }
   }
@@ -343,17 +458,30 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyRasterLayer( QgsRa
   return results;
 }
 
-QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const
+QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const
 {
-  QList<QfIdentifyTool::IdentifyResult> results;
-  if ( !layer || !layer->isSpatial() )
+  std::unique_ptr<PreparedLayer> preparedLayer;
+  preparedLayer.reset( prepareRasterLayer( layer, point ) );
+  QList<QfIdentifyTool::IdentifyResult> results = processRasterLayer( preparedLayer.get() );
+  for ( IdentifyResult &result : results )
   {
-    return results;
+    result.layer = layer;
+  }
+  return results;
+}
+
+QfIdentifyTool::PreparedLayer *QfIdentifyTool::prepareVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const
+{
+  PreparedLayer *preparedLayer = new PreparedLayer();
+
+  if ( !layer || !layer->dataProvider() || !layer->isSpatial() )
+  {
+    return preparedLayer;
   }
 
   if ( !layer->isInScaleRange( mMapSettings->mapSettings().scale() ) )
   {
-    return results;
+    return preparedLayer;
   }
 
   try
@@ -367,63 +495,95 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorTileLayer( Q
     r.setYMinimum( point.y() - searchRadius );
     r.setYMaximum( point.y() + searchRadius );
     r = toLayerCoordinates( layer, r );
+    preparedLayer->extent = r;
+  }
+  catch ( const QgsCsException & )
+  {
+    return preparedLayer;
+  }
 
-    const double tileScale = layer->tileMatrixSet().calculateTileScaleForMap(
-      mMapSettings->mapSettings().scale(),
-      mMapSettings->mapSettings().destinationCrs(),
-      mMapSettings->mapSettings().extent(),
-      mMapSettings->outputSize(),
-      mMapSettings->outputDpi() );
+  preparedLayer->vectorTileScale = layer->tileMatrixSet().calculateTileScaleForMap(
+    mMapSettings->mapSettings().scale(),
+    mMapSettings->mapSettings().destinationCrs(),
+    mMapSettings->mapSettings().extent(),
+    mMapSettings->outputSize(),
+    mMapSettings->outputDpi() );
+  preparedLayer->vectorTileDataProvider.reset( dynamic_cast<QgsVectorTileDataProvider *>( layer->dataProvider() )->clone() );
 
-    const int tileZoom = layer->tileMatrixSet().scaleToZoomLevel( tileScale );
-    const QgsTileMatrix tileMatrix = layer->tileMatrixSet().tileMatrix( tileZoom );
-    const QgsTileRange tileRange = tileMatrix.tileRangeFromExtent( r );
+  preparedLayer->layerId = layer->id();
+  preparedLayer->layerName = layer->name();
 
-    const QVector<QgsTileXYZ> tiles = layer->tileMatrixSet().tilesInRange( tileRange, tileZoom );
-    for ( const QgsTileXYZ &tileID : tiles )
+  preparedLayer->isValid = true;
+  return preparedLayer;
+}
+
+QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processVectorTileLayer( PreparedLayer *preparedLayer ) const
+{
+  QList<QfIdentifyTool::IdentifyResult> results;
+
+  if ( !preparedLayer || !preparedLayer->isValid || preparedLayer->layerType != Qgis::LayerType::VectorTile )
+  {
+    return results;
+  }
+
+  const int tileZoom = preparedLayer->vectorTileDataProvider->tileMatrixSet().scaleToZoomLevel( preparedLayer->vectorTileScale );
+  const QgsTileMatrix tileMatrix = preparedLayer->vectorTileDataProvider->tileMatrixSet().tileMatrix( tileZoom );
+  const QgsTileRange tileRange = tileMatrix.tileRangeFromExtent( preparedLayer->extent );
+
+  const QVector<QgsTileXYZ> tiles = preparedLayer->vectorTileDataProvider->tileMatrixSet().tilesInRange( tileRange, tileZoom );
+  for ( const QgsTileXYZ &tileID : tiles )
+  {
+    const QgsVectorTileRawData data = preparedLayer->vectorTileDataProvider->readTile( preparedLayer->vectorTileDataProvider->tileMatrixSet(), tileID );
+    if ( data.data.isEmpty() )
     {
-      const QgsVectorTileRawData data = layer->getRawTile( tileID );
-      if ( data.data.isEmpty() )
-        continue; // failed to get data
+      continue;
+    }
 
-      QgsVectorTileMVTDecoder decoder( layer->tileMatrixSet() );
-      if ( !decoder.decode( data ) )
-        continue; // failed to decode
+    QgsVectorTileMVTDecoder decoder( preparedLayer->vectorTileDataProvider->tileMatrixSet() );
+    if ( !decoder.decode( data ) )
+    {
+      continue;
+    }
 
-      QMap<QString, QgsFields> perLayerFields;
-      const QStringList layerNames = decoder.layers();
-      for ( const QString &layerName : layerNames )
+    QMap<QString, QgsFields> perLayerFields;
+    const QStringList layerNames = decoder.layers();
+    for ( const QString &layerName : layerNames )
+    {
+      QSet<QString> fieldNames = qgis::listToSet( decoder.layerFieldNames( layerName ) );
+      perLayerFields[layerName] = QgsVectorTileUtils::makeQgisFields( fieldNames );
+    }
+
+    const QgsVectorTileFeatures features = decoder.layerFeatures( perLayerFields, QgsCoordinateTransform() );
+    const QStringList featuresLayerNames = features.keys();
+    for ( const QString &layerName : featuresLayerNames )
+    {
+      const QgsFields fFields = perLayerFields[layerName];
+      const QVector<QgsFeature> &layerFeatures = features[layerName];
+      for ( const QgsFeature &f : layerFeatures )
       {
-        QSet<QString> fieldNames = qgis::listToSet( decoder.layerFieldNames( layerName ) );
-        perLayerFields[layerName] = QgsVectorTileUtils::makeQgisFields( fieldNames );
-      }
+        if ( f.fields().isEmpty() )
+          continue;
 
-      const QgsVectorTileFeatures features = decoder.layerFeatures( perLayerFields, QgsCoordinateTransform() );
-      const QStringList featuresLayerNames = features.keys();
-      for ( const QString &layerName : featuresLayerNames )
-      {
-        const QgsFields fFields = perLayerFields[layerName];
-        const QVector<QgsFeature> &layerFeatures = features[layerName];
-        for ( const QgsFeature &f : layerFeatures )
+        if ( f.geometry().intersects( preparedLayer->extent ) )
         {
-          if ( f.fields().isEmpty() )
-            continue;
-
-          if ( f.geometry().intersects( r ) )
-          {
-            results.append( IdentifyResult( layer, f, QStringLiteral( "%1 - %2" ).arg( layer->name(), layerName ) ) );
-          }
+          results.append( IdentifyResult( preparedLayer->layerId, f, QStringLiteral( "%1 - %2" ).arg( preparedLayer->layerName, layerName ) ) );
         }
       }
     }
   }
-  catch ( QgsCsException &cse )
-  {
-    Q_UNUSED( cse )
-    // catch exception for 'invalid' point and proceed with no features found
-    QgsDebugError( QStringLiteral( "Caught CRS exception %1" ).arg( cse.what() ) );
-  }
 
+  return results;
+}
+
+QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::identifyVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const
+{
+  std::unique_ptr<PreparedLayer> preparedLayer;
+  preparedLayer.reset( prepareVectorTileLayer( layer, point ) );
+  QList<QfIdentifyTool::IdentifyResult> results = processVectorTileLayer( preparedLayer.get() );
+  for ( IdentifyResult &result : results )
+  {
+    result.layer = layer;
+  }
   return results;
 }
 

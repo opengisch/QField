@@ -90,6 +90,11 @@ void QfMultiFeatureListModelBase::appendFeatures( const QList<QfIdentifyTool::Id
   QMap<QString, QgsExpressionContext> expressionContext;
   for ( const QfIdentifyTool::IdentifyResult &result : results )
   {
+    if ( !result.layer )
+    {
+      continue;
+    }
+
     if ( QgsVectorLayer *layer = qobject_cast<QgsVectorLayer *>( result.layer ) )
     {
       QPair<QgsMapLayer *, QgsFeature> item( layer, result.feature );

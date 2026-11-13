@@ -23,7 +23,10 @@
 #include <qgsfeature.h>
 #include <qgsmapsettings.h>
 #include <qgspoint.h>
+#include <qgsrasterdataprovider.h>
 #include <qgsrendercontext.h>
+#include <qgsvectorlayerfeatureiterator.h>
+#include <qgsvectortiledataprovider.h>
 
 class QgsMapLayer;
 class QgsRasterLayer;
@@ -48,13 +51,14 @@ class QfIdentifyTool : public QObject
   public:
     struct IdentifyResult
     {
-        IdentifyResult( QgsMapLayer *layer, const QgsFeature &feature, const QString &representationalLayerName = QString() )
-          : layer( layer )
+        IdentifyResult( QString &layerId, const QgsFeature &feature, const QString &representationalLayerName = QString() )
+          : layerId( layerId )
           , feature( feature )
           , representationalLayerName( representationalLayerName )
         {}
 
-        QgsMapLayer *layer;
+        QString layerId;
+        QgsMapLayer *layer = nullptr;
         QgsFeature feature;
         QString representationalLayerName;
     };
@@ -77,7 +81,7 @@ class QfIdentifyTool : public QObject
     bool enabled() const { return mEnabled; }
     void setEnabled( bool enabled );
 
-    Q_INVOKABLE void identify( const QPointF &point ) const;
+    Q_INVOKABLE void identify( const QPointF &point );
 
     QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
     QList<IdentifyResult> identifyRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const;
@@ -90,9 +94,44 @@ class QfIdentifyTool : public QObject
     void enabledChanged();
     void searchRadiusMmChanged();
 
-    void identifyFinished() const;
+    void identifyFinished();
 
   private:
+    struct PreparedLayer
+    {
+      public:
+        bool isValid = false;
+
+        Qgis::LayerType layerType;
+        QString layerId;
+        QString layerName;
+        QgsRectangle extent;
+
+        std::unique_ptr<QgsVectorLayerFeatureSource> vectorFeatureSource;
+        std::unique_ptr<QgsFeatureRenderer> vectorRenderer;
+        QgsFields fields;
+        QgsFeatureRequest request;
+
+        std::unique_ptr<QgsRasterDataProvider> rasterDataProvider;
+        int rasterWidth = 1;
+        int rasterHeight = 1;
+        QgsPointXY rasterPoint;
+
+        std::unique_ptr<QgsVectorTileDataProvider> vectorTileDataProvider;
+        double vectorTileScale = 0.0;
+
+        QgsRenderContext renderContext;
+    };
+
+    PreparedLayer *prepareVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
+    QList<IdentifyResult> processVectorLayer( PreparedLayer *preparedLayer ) const;
+
+    PreparedLayer *prepareRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const;
+    QList<IdentifyResult> processRasterLayer( PreparedLayer *preparedLayer ) const;
+
+    PreparedLayer *prepareVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const;
+    QList<IdentifyResult> processVectorTileLayer( PreparedLayer *preparedLayer ) const;
+
     double searchRadiusMU( const QgsRenderContext &context ) const;
     double searchRadiusMU() const;
 
@@ -105,6 +144,9 @@ class QfIdentifyTool : public QObject
 
     bool mEnabled = true;
     double mSearchRadiusMm;
+
+    QList<std::shared_ptr<PreparedLayer>> mPreparedLayers;
+    QMap<QString, QPointer<QgsMapLayer>> mIdentifiedLayers;
 
     friend class IdentifyTool;
 };
