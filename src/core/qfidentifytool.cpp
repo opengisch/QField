@@ -18,7 +18,7 @@
 #include "qgsquickmapsettings.h"
 
 #include <QSettings>
-#include <QtConcurrent>
+#include <QtConcurrentRun>
 #include <qgsexpressioncontextutils.h>
 #include <qgsfeaturestore.h>
 #include <qgsrasteridentifyresult.h>
