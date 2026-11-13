@@ -167,6 +167,14 @@ Popup {
       interactive: false
       currentIndex: 1
 
+      onCurrentIndexChanged: {
+        if (currentIndex === 2) {
+          cloudPendingChanges.deltaFileWrapper = cloudProjectsModel.layerObserver.deltaFileWrapper;
+        } else {
+          cloudPendingChanges.deltaFileWrapper = null;
+        }
+      }
+
       QfCloudDangerZone {
         onDiscardRequested: revertDialog.open()
         onResetRequested: resetDialog.open()
@@ -924,10 +932,11 @@ Popup {
 
       Item {
         QfCloudPendingChanges {
+          id: cloudPendingChanges
           anchors.fill: parent
           anchors.margins: 10
-          deltaFileWrapper: cloudProjectsModel.layerObserver.deltaFileWrapper
           isProjectBusy: !cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QfCloudProject.Idle
+
           onRevertRequested: deltaUuid => {
             revertChangeDialog.deltaUuid = deltaUuid;
             revertChangeDialog.open();
