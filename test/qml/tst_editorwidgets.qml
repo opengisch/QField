@@ -172,6 +172,31 @@ TestCase {
     }
   }
 
+  SignalSpy {
+    id: uniqueValuesReloadSpy
+    signalName: "modelReset"
+  }
+
+  EditorWidgets.QfEditorWidgetUniqueValues {
+    id: uniqueValues
+    width: parent.width
+    property var mainWindow: mainWindowItem
+    property var value: undefined
+    property var config: ({})
+    property var field: QfFeatureUtils.createField("team", QfFeatureUtils.String)
+    property var currentLayer: qgisProject.mapLayersByName('TestRelationValues')[0]
+    property bool isEnabled: true
+    property string fieldLabel: "team"
+
+    Connections {
+      target: uniqueValues
+
+      function onValueChangeRequested(value, isNull) {
+        uniqueValues.value = value;
+      }
+    }
+  }
+
   /**
    * Test case for textEdit widget
    *
@@ -1128,5 +1153,69 @@ TestCase {
       const value = featureListModel.dataFromRowIndex(i, QfFeatureListModel.DisplayStringRole);
       compare(value, namesInList[i]);
     }
+  }
+
+  /**
+   * Tests QfEditorWidgetUniqueValues lists each value of the edited field once,
+   * and that picking one of them changes the value.
+   */
+  function test_01_UniqueValues() {
+    uniqueValues.config = {
+      "Editable": false
+    };
+    uniqueValues.value = "A";
+    const relationComboBoxParent = Utils.findChildren(uniqueValues, "uniqueValuesComboBox");
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "relationComboBox");
+    tryCompare(comboBoxItem, "count", 3);
+
+    const featureListModel = comboBoxItem.model;
+    const expectedValues = ["A", "B", "C"];
+    for (let i = 0; i < expectedValues.length; ++i) {
+      compare(featureListModel.dataFromRowIndex(i, QfFeatureListModel.DisplayStringRole), expectedValues[i]);
+    }
+    compare(comboBoxItem.currentIndex, 0);
+
+    comboBoxItem.currentIndex = 2;
+    compare(uniqueValues.value, "C");
+
+    // Picking a value from the search popup changes the value too
+    const openSearchFeaturePopupButton = Utils.findChildren(relationComboBoxParent, "openSearchFeaturePopupButton");
+    openSearchFeaturePopupButton.click();
+    tryCompare(relationComboBoxParent.searchPopup, "opened", true);
+    const searchFeatureResultsList = relationComboBoxParent.searchPopup.contentItem.children[0].children[1].children[1];
+    tryCompare(searchFeatureResultsList, "count", 3);
+    searchFeatureResultsList.itemAtIndex(1).performClick();
+    compare(uniqueValues.value, "B");
+    relationComboBoxParent.searchPopup.close();
+  }
+
+  /**
+   * Tests QfEditorWidgetUniqueValues accepts values missing from the list when editable.
+   */
+  function test_02_UniqueValues() {
+    uniqueValues.config = {
+      "Editable": true
+    };
+    uniqueValues.value = "B";
+    const editableComboBox = Utils.findChildren(uniqueValues, "uniqueValuesEditableComboBox");
+    verify(uniqueValues.allowNewValues);
+    tryCompare(editableComboBox, "count", 3);
+    compare(editableComboBox.editText, "B");
+
+    editableComboBox.contentItem.forceActiveFocus();
+    editableComboBox.contentItem.selectAll();
+    keyClick("D");
+    compare(uniqueValues.value, "D");
+
+    // A list reload while typing keeps the typed value
+    uniqueValuesReloadSpy.target = editableComboBox.model;
+    editableComboBox.model.orderByValue = !editableComboBox.model.orderByValue;
+    uniqueValuesReloadSpy.wait();
+    compare(uniqueValues.value, "D");
+    compare(editableComboBox.editText, "D");
+
+    editableComboBox.contentItem.focus = false;
+    uniqueValues.value = "A";
+    compare(editableComboBox.editText, "A");
   }
 }

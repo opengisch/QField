@@ -85,6 +85,11 @@ class QfFeatureListModel : public QAbstractItemModel
     Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
 
     /**
+     * Set to TRUE if each non-NULL key value should only be listed once
+     */
+    Q_PROPERTY( bool uniqueValues READ uniqueValues WRITE setUniqueValues NOTIFY uniqueValuesChanged )
+
+    /**
      * Expression to filter features with. Empty string if no filter is applied.
      */
     Q_PROPERTY( QString filterExpression READ filterExpression WRITE setFilterExpression NOTIFY filterExpressionChanged )
@@ -204,6 +209,16 @@ class QfFeatureListModel : public QAbstractItemModel
     void setAddNull( bool addNull );
 
     /**
+     * Returns TRUE if each non-NULL key value is only listed once.
+     */
+    bool uniqueValues() const;
+
+    /**
+     * Sets whether each non-NULL key value is only listed once.
+     */
+    void setUniqueValues( bool uniqueValues );
+
+    /**
      * Expression to filter features with. Empty string if no filter is applied.
      */
     QString filterExpression() const;
@@ -253,6 +268,7 @@ class QfFeatureListModel : public QAbstractItemModel
     void orderByFieldChanged();
     void orderByFieldNameChanged();
     void addNullChanged();
+    void uniqueValuesChanged();
     void filterExpressionChanged();
     void searchTermChanged();
     void currentFormFeatureChanged();
@@ -318,6 +334,7 @@ class QfFeatureListModel : public QAbstractItemModel
     bool mOrderByField = false;
     QString mOrderByFieldName;
     bool mAddNull = false;
+    bool mUniqueValues = false;
     QString mFilterExpression;
     QString mSearchTerm;
     QgsFeature mCurrentFormFeature;
