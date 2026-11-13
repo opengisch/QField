@@ -18,6 +18,7 @@
 #include "qgsquickmapsettings.h"
 
 #include <QSettings>
+#include <QtConcurrent>
 #include <qgsexpressioncontextutils.h>
 #include <qgsfeaturestore.h>
 #include <qgsrasteridentifyresult.h>
@@ -31,11 +32,14 @@
 #include <qgsvectortilemvtdecoder.h>
 #include <qgsvectortileutils.h>
 
+
 QfIdentifyTool::QfIdentifyTool( QObject *parent )
   : QObject( parent )
   , mMapSettings( nullptr )
   , mSearchRadiusMm( 5 )
 {
+  connect( &mIdentifyWatcher, &QFutureWatcher<QList<IdentifyResult>>::finished, this, &QfIdentifyTool::onIdentifyFinished );
+  connect( &mIdentifyWatcher, &QFutureWatcher<QList<IdentifyResult>>::canceled, this, &QfIdentifyTool::onIdentifyFinished );
 }
 
 QgsQuickMapSettings *QfIdentifyTool::mapSettings() const
@@ -75,6 +79,12 @@ void QfIdentifyTool::identify( const QPointF &point )
   if ( !mEnabled )
   {
     return;
+  }
+
+  if ( mIdentifyWatcher.isRunning() )
+  {
+    mIdentifyWatcher.cancel();
+    mIdentifyWatcher.waitForFinished();
   }
 
   if ( !mModel || !mMapSettings )
@@ -134,61 +144,99 @@ void QfIdentifyTool::identify( const QPointF &point )
     }
   }
 
-  QList<QfIdentifyTool::IdentifyResult> results;
-  for ( auto &preparedLayer : std::as_const( mPreparedLayers ) )
+  if ( mPreparedLayers.isEmpty() )
   {
-    if ( !preparedLayer->isValid )
-    {
-      continue;
-    }
-
-    switch ( preparedLayer->layerType )
-    {
-      case Qgis::LayerType::Vector:
-      {
-        results << processVectorLayer( preparedLayer.get() );
-        break;
-      }
-
-      case Qgis::LayerType::Raster:
-      {
-        results << processRasterLayer( preparedLayer.get() );
-        break;
-      }
-
-      case Qgis::LayerType::VectorTile:
-      {
-        results << processVectorTileLayer( preparedLayer.get() );
-        break;
-      }
-
-      case Qgis::LayerType::Plugin:
-      case Qgis::LayerType::Mesh:
-      case Qgis::LayerType::Annotation:
-      case Qgis::LayerType::PointCloud:
-      case Qgis::LayerType::Group:
-      case Qgis::LayerType::TiledScene:
-        break;
-    }
+    return;
   }
 
-  for ( IdentifyResult &result : results )
-  {
-    if ( mIdentifiedLayers.contains( result.layerId ) )
+  QFuture<QList<QfIdentifyTool::IdentifyResult>> future = QtConcurrent::run( [this]( QPromise<QList<QfIdentifyTool::IdentifyResult>> &promise ) {
+    QList<QfIdentifyTool::IdentifyResult> results;
+    for ( auto &preparedLayer : std::as_const( mPreparedLayers ) )
     {
-      result.layer = mIdentifiedLayers.value( result.layerId );
+      if ( !preparedLayer->isValid )
+      {
+        continue;
+      }
+
+      switch ( preparedLayer->layerType )
+      {
+        case Qgis::LayerType::Vector:
+        {
+          results << processVectorLayer( preparedLayer.get() );
+          break;
+        }
+
+        case Qgis::LayerType::Raster:
+        {
+          results << processRasterLayer( preparedLayer.get() );
+          break;
+        }
+
+        case Qgis::LayerType::VectorTile:
+        {
+          results << processVectorTileLayer( preparedLayer.get() );
+          break;
+        }
+
+        case Qgis::LayerType::Plugin:
+        case Qgis::LayerType::Mesh:
+        case Qgis::LayerType::Annotation:
+        case Qgis::LayerType::PointCloud:
+        case Qgis::LayerType::Group:
+        case Qgis::LayerType::TiledScene:
+          break;
+      }
+
+      if ( promise.isCanceled() )
+      {
+        return;
+      }
     }
+
+    if ( !promise.isCanceled() )
+    {
+      promise.addResult( results );
+    }
+  } );
+
+  mIdentifyWatcher.setFuture( future );
+
+  emit isIdentifyingChanged();
+}
+
+bool QfIdentifyTool::isIdentifying() const
+{
+  return mIdentifyWatcher.isRunning();
+}
+
+void QfIdentifyTool::onIdentifyFinished()
+{
+  if ( mIdentifyWatcher.isFinished() )
+  {
+    QList<IdentifyResult> results = mIdentifyWatcher.result();
+
+    for ( IdentifyResult &result : results )
+    {
+      if ( mIdentifiedLayers.contains( result.layerId ) )
+      {
+        result.layer = mIdentifiedLayers.value( result.layerId );
+      }
+    }
+
+    mModel->appendFeatures( results );
+
+    emit identifyFinished();
   }
 
-  mModel->appendFeatures( results );
+  mPreparedLayers.clear();
+  mIdentifiedLayers.clear();
 
-  emit identifyFinished();
+  emit isIdentifyingChanged();
 }
 
 QfIdentifyTool::PreparedLayer *QfIdentifyTool::prepareVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const
 {
   PreparedLayer *preparedLayer = new PreparedLayer();
-  preparedLayer->layerType = Qgis::LayerType::Vector;
 
   if ( !layer || ( !layer->isSpatial() && layer->wkbType() != QgsWkbTypes::flatType( Qgis::WkbType::GeometryCollection ) ) )
   {
@@ -264,6 +312,7 @@ QfIdentifyTool::PreparedLayer *QfIdentifyTool::prepareVectorLayer( QgsVectorLaye
 
   preparedLayer->vectorFeatureSource.reset( new QgsVectorLayerFeatureSource( layer ) );
 
+  preparedLayer->layerType = Qgis::LayerType::Vector;
   preparedLayer->layerId = layer->id();
   preparedLayer->layerName = layer->name();
 
@@ -390,6 +439,7 @@ QfIdentifyTool::PreparedLayer *QfIdentifyTool::prepareRasterLayer( QgsRasterLaye
     ;
   }
 
+  preparedLayer->layerType = Qgis::LayerType::Raster;
   preparedLayer->layerId = layer->id();
   preparedLayer->layerName = layer->name();
 
@@ -419,7 +469,6 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processRasterLayer( Prepar
 
     if ( result.userType() == QMetaType::Type::QString )
     {
-      // error
       // TODO: better error reporting
       continue;
     }
@@ -510,6 +559,7 @@ QfIdentifyTool::PreparedLayer *QfIdentifyTool::prepareVectorTileLayer( QgsVector
     mMapSettings->outputDpi() );
   preparedLayer->vectorTileDataProvider.reset( dynamic_cast<QgsVectorTileDataProvider *>( layer->dataProvider() )->clone() );
 
+  preparedLayer->layerType = Qgis::LayerType::VectorTile;
   preparedLayer->layerId = layer->id();
   preparedLayer->layerName = layer->name();
 

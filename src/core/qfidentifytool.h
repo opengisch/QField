@@ -19,6 +19,7 @@
 #include "qfmarkupmanager.h"
 #include "qgsquickmapsettings.h"
 
+#include <QFutureWatcher>
 #include <QObject>
 #include <qgsfeature.h>
 #include <qgsmapsettings.h>
@@ -46,6 +47,7 @@ class QfIdentifyTool : public QObject
     Q_PROPERTY( QfMultiFeatureListModel *model READ model WRITE setModel NOTIFY modelChanged )
 
     Q_PROPERTY( bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged )
+    Q_PROPERTY( bool isIdentifying READ isIdentifying NOTIFY isIdentifyingChanged )
     Q_PROPERTY( double searchRadiusMm READ searchRadiusMm WRITE setSearchRadiusMm NOTIFY searchRadiusMmChanged )
 
   public:
@@ -81,6 +83,8 @@ class QfIdentifyTool : public QObject
     bool enabled() const { return mEnabled; }
     void setEnabled( bool enabled );
 
+    bool isIdentifying() const;
+
     Q_INVOKABLE void identify( const QPointF &point );
 
     QList<IdentifyResult> identifyVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
@@ -88,13 +92,18 @@ class QfIdentifyTool : public QObject
     QList<IdentifyResult> identifyVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const;
 
   signals:
+    void enabledChanged();
+    void isIdentifyingChanged();
+
     void mapSettingsChanged();
     void markupManagerChanged();
     void modelChanged();
-    void enabledChanged();
     void searchRadiusMmChanged();
 
     void identifyFinished();
+
+  private slots:
+    void onIdentifyFinished();
 
   private:
     struct PreparedLayer
@@ -147,6 +156,8 @@ class QfIdentifyTool : public QObject
 
     QList<std::shared_ptr<PreparedLayer>> mPreparedLayers;
     QMap<QString, QPointer<QgsMapLayer>> mIdentifiedLayers;
+
+    QFutureWatcher<QList<IdentifyResult>> mIdentifyWatcher;
 
     friend class IdentifyTool;
 };
