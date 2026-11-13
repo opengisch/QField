@@ -131,7 +131,6 @@ void QfGeofencer::processAudio()
       mTextToSpeech->setVoice( voices.first() );
     }
   }
-#endif
 
   if ( isWithin() )
   {
@@ -167,6 +166,7 @@ void QfGeofencer::processAudio()
         break;
     }
   }
+#endif
 }
 
 void QfGeofencer::checkAlert()
