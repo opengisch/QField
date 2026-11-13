@@ -4673,14 +4673,6 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
-    <message>
-        <source>%1: %2 to %3</source>
-        <translation>%1: nuo %2 iki %3</translation>
-    </message>
-    <message>
-        <source>%1: %2</source>
-        <translation>%1: %2</translation>
-    </message>
     <message numerus="yes">
         <source>%n change(s)</source>
         <translation><numerusform>%n pakeitimas</numerusform><numerusform>%n pakeitimai</numerusform><numerusform>%n pakeitimų</numerusform><numerusform>%n pakeitimo</numerusform></translation>
@@ -4688,6 +4680,22 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
     <message>
         <source>Geometry modified</source>
         <translation>Geometrija pakeista</translation>
+    </message>
+    <message>
+        <source>%1 to %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hide empty fields</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <source>Show %n empty field(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Discard change</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4926,6 +4934,22 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
     </message>
     <message>
         <source>Attachments history</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Discard local change</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Should this local change be discarded?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Can&apos;t discard change as project is busy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to discard change</source>
         <translation type="unfinished"/>
     </message>
 </context>

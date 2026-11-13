@@ -4668,14 +4668,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>NULL</source>
         <translation>空</translation>
     </message>
-    <message>
-        <source>%1: %2 to %3</source>
-        <translation>%1: %2 到 %3</translation>
-    </message>
-    <message>
-        <source>%1: %2</source>
-        <translation>%1: %2</translation>
-    </message>
     <message numerus="yes">
         <source>%n change(s)</source>
         <translation><numerusform>%n个更改</numerusform></translation>
@@ -4683,6 +4675,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Geometry modified</source>
         <translation>几何图形已修改</translation>
+    </message>
+    <message>
+        <source>%1 to %2</source>
+        <translation>%1 到 %2</translation>
+    </message>
+    <message>
+        <source>Hide empty fields</source>
+        <translation>隐藏空字段</translation>
+    </message>
+    <message numerus="yes">
+        <source>Show %n empty field(s)</source>
+        <translation><numerusform>显示%n个空字段</numerusform></translation>
+    </message>
+    <message>
+        <source>Discard change</source>
+        <translation>放弃更改</translation>
     </message>
 </context>
 <context>
@@ -4922,6 +4930,22 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Attachments history</source>
         <translation>附件历史</translation>
+    </message>
+    <message>
+        <source>Discard local change</source>
+        <translation>放弃本地更改</translation>
+    </message>
+    <message>
+        <source>Should this local change be discarded?</source>
+        <translation>是否丢弃此本地更改？</translation>
+    </message>
+    <message>
+        <source>Can&apos;t discard change as project is busy</source>
+        <translation>工程忙，无法丢弃更改</translation>
+    </message>
+    <message>
+        <source>Failed to discard change</source>
+        <translation>无法放弃更改</translation>
     </message>
 </context>
 <context>
