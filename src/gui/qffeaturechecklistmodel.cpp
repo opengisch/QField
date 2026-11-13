@@ -316,6 +316,7 @@ QfFeatureCheckListModel::QfFeatureCheckListModel( QObject *parent )
   connect( mSourceModel, &QfFeatureListModel::orderByFieldChanged, this, &QfFeatureCheckListModel::orderByFieldChanged );
   connect( mSourceModel, &QfFeatureListModel::orderByFieldNameChanged, this, &QfFeatureCheckListModel::orderByFieldNameChanged );
   connect( mSourceModel, &QfFeatureListModel::addNullChanged, this, &QfFeatureCheckListModel::addNullChanged );
+  connect( mSourceModel, &QfFeatureListModel::uniqueValuesChanged, this, &QfFeatureCheckListModel::uniqueValuesChanged );
   connect( mSourceModel, &QfFeatureListModel::filterExpressionChanged, this, &QfFeatureCheckListModel::filterExpressionChanged );
   connect( mSourceModel, &QfFeatureListModel::searchTermChanged, this, &QfFeatureCheckListModel::searchTermChanged );
   connect( mSourceModel, &QfFeatureListModel::currentFormFeatureChanged, this, &QfFeatureCheckListModel::currentFormFeatureChanged );
@@ -444,6 +445,16 @@ bool QfFeatureCheckListModel::addNull() const
 void QfFeatureCheckListModel::setAddNull( bool addNull )
 {
   mSourceModel->setAddNull( addNull );
+}
+
+bool QfFeatureCheckListModel::uniqueValues() const
+{
+  return mSourceModel->uniqueValues();
+}
+
+void QfFeatureCheckListModel::setUniqueValues( bool uniqueValues )
+{
+  mSourceModel->setUniqueValues( uniqueValues );
 }
 
 QString QfFeatureCheckListModel::filterExpression() const
