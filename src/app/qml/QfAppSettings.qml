@@ -1253,6 +1253,7 @@ Page {
                       case QfPositioningDeviceModel.FileDevice:
                         return QfTheme.getThemeVectorIcon("ic_file_black_24dp");
                       case QfPositioningDeviceModel.BluetoothDevice:
+                      case QfPositioningDeviceModel.ExternalAccessoryDevice:
                         return QfTheme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
                       case QfPositioningDeviceModel.TcpDevice:
                         return QfTheme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
@@ -1283,6 +1284,7 @@ Page {
                       case QfPositioningDeviceModel.FileDevice:
                         return QfTheme.getThemeVectorIcon("ic_file_black_24dp");
                       case QfPositioningDeviceModel.BluetoothDevice:
+                      case QfPositioningDeviceModel.ExternalAccessoryDevice:
                         return QfTheme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
                       case QfPositioningDeviceModel.TcpDevice:
                         return QfTheme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');

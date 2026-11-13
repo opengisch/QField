@@ -23,6 +23,9 @@
 #ifdef WITH_SERIALPORT
 #include "qfserialportreceiver.h"
 #endif
+#if defined( Q_OS_IOS )
+#include "qfexternalaccessoryreceiver.h"
+#endif
 
 #include <QFile>
 #include <QGuiApplication>
@@ -233,6 +236,9 @@ void QfPositioning::setActive( bool active )
       && !devId.startsWith( QfFileReceiver::identifier + ":" )
 #ifdef WITH_SERIALPORT
       && !devId.startsWith( QfSerialPortReceiver::identifier + ":" )
+#endif
+#if defined( Q_OS_IOS )
+      && !devId.startsWith( QfExternalAccessoryReceiver::identifier + ":" )
 #endif
     )
     {
