@@ -163,19 +163,19 @@ void QfIdentifyTool::identify( const QPointF &point )
       {
         case Qgis::LayerType::Vector:
         {
-          results << processVectorLayer( preparedLayer.get() );
+          results << processVectorLayer( preparedLayer.get(), &promise );
           break;
         }
 
         case Qgis::LayerType::Raster:
         {
-          results << processRasterLayer( preparedLayer.get() );
+          results << processRasterLayer( preparedLayer.get(), &promise );
           break;
         }
 
         case Qgis::LayerType::VectorTile:
         {
-          results << processVectorTileLayer( preparedLayer.get() );
+          results << processVectorTileLayer( preparedLayer.get(), &promise );
           break;
         }
 
@@ -321,7 +321,7 @@ QfIdentifyTool::PreparedLayer *QfIdentifyTool::prepareVectorLayer( QgsVectorLaye
   return preparedLayer;
 }
 
-QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processVectorLayer( PreparedLayer *preparedLayer ) const
+QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processVectorLayer( PreparedLayer *preparedLayer, QPromise<QList<IdentifyResult>> *promise ) const
 {
   QList<QfIdentifyTool::IdentifyResult> results;
   if ( !preparedLayer || !preparedLayer->isValid || preparedLayer->layerType != Qgis::LayerType::Vector )
@@ -334,7 +334,16 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processVectorLayer( Prepar
   QgsFeature f;
   while ( fit.nextFeature( f ) )
   {
+    if ( promise && promise->isCanceled() )
+    {
+      break;
+    }
     featureList << QgsFeature( f );
+  }
+
+  if ( promise && promise->isCanceled() )
+  {
+    return results;
   }
 
   if ( preparedLayer->vectorRenderer )
@@ -344,6 +353,11 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processVectorLayer( Prepar
 
   for ( const QgsFeature &feature : std::as_const( featureList ) )
   {
+    if ( promise && promise->isCanceled() )
+    {
+      break;
+    }
+
     if ( preparedLayer->vectorRenderer )
     {
       preparedLayer->renderContext.expressionContext().setFeature( feature );
@@ -448,7 +462,7 @@ QfIdentifyTool::PreparedLayer *QfIdentifyTool::prepareRasterLayer( QgsRasterLaye
   return preparedLayer;
 }
 
-QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processRasterLayer( PreparedLayer *preparedLayer ) const
+QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processRasterLayer( PreparedLayer *preparedLayer, QPromise<QList<IdentifyResult>> *promise ) const
 {
   QList<QfIdentifyTool::IdentifyResult> results;
 
@@ -568,7 +582,7 @@ QfIdentifyTool::PreparedLayer *QfIdentifyTool::prepareVectorTileLayer( QgsVector
   return preparedLayer;
 }
 
-QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processVectorTileLayer( PreparedLayer *preparedLayer ) const
+QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processVectorTileLayer( PreparedLayer *preparedLayer, QPromise<QList<IdentifyResult>> *promise ) const
 {
   QList<QfIdentifyTool::IdentifyResult> results;
 
@@ -584,6 +598,11 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processVectorTileLayer( Pr
   const QVector<QgsTileXYZ> tiles = preparedLayer->vectorTileDataProvider->tileMatrixSet().tilesInRange( tileRange, tileZoom );
   for ( const QgsTileXYZ &tileID : tiles )
   {
+    if ( promise && promise->isCanceled() )
+    {
+      break;
+    }
+
     const QgsVectorTileRawData data = preparedLayer->vectorTileDataProvider->readTile( preparedLayer->vectorTileDataProvider->tileMatrixSet(), tileID );
     if ( data.data.isEmpty() )
     {
@@ -608,10 +627,20 @@ QList<QfIdentifyTool::IdentifyResult> QfIdentifyTool::processVectorTileLayer( Pr
     const QStringList featuresLayerNames = features.keys();
     for ( const QString &layerName : featuresLayerNames )
     {
+      if ( promise && promise->isCanceled() )
+      {
+        break;
+      }
+
       const QgsFields fFields = perLayerFields[layerName];
       const QVector<QgsFeature> &layerFeatures = features[layerName];
       for ( const QgsFeature &f : layerFeatures )
       {
+        if ( promise && promise->isCanceled() )
+        {
+          break;
+        }
+
         if ( f.fields().isEmpty() )
           continue;
 

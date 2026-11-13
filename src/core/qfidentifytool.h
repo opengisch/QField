@@ -133,13 +133,13 @@ class QfIdentifyTool : public QObject
     };
 
     PreparedLayer *prepareVectorLayer( QgsVectorLayer *layer, const QgsPointXY &point ) const;
-    QList<IdentifyResult> processVectorLayer( PreparedLayer *preparedLayer ) const;
+    QList<IdentifyResult> processVectorLayer( PreparedLayer *preparedLayer, QPromise<QList<IdentifyResult>> *promise = nullptr ) const;
 
     PreparedLayer *prepareRasterLayer( QgsRasterLayer *layer, const QgsPointXY &point ) const;
-    QList<IdentifyResult> processRasterLayer( PreparedLayer *preparedLayer ) const;
+    QList<IdentifyResult> processRasterLayer( PreparedLayer *preparedLayer, QPromise<QList<IdentifyResult>> *promise = nullptr ) const;
 
     PreparedLayer *prepareVectorTileLayer( QgsVectorTileLayer *layer, const QgsPointXY &point ) const;
-    QList<IdentifyResult> processVectorTileLayer( PreparedLayer *preparedLayer ) const;
+    QList<IdentifyResult> processVectorTileLayer( PreparedLayer *preparedLayer, QPromise<QList<IdentifyResult>> *promise = nullptr ) const;
 
     double searchRadiusMU( const QgsRenderContext &context ) const;
     double searchRadiusMU() const;
