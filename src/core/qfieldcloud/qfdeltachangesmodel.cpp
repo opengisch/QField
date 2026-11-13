@@ -56,11 +56,6 @@ void QfDeltaChangesModel::setDeltaFileWrapper( QfDeltaFileWrapper *deltaFileWrap
     connect( mDeltaFileWrapper, &QfDeltaFileWrapper::countChanged, this, &QfDeltaChangesModel::refresh );
   }
 
-  beginResetModel();
-  mLayerSummaries.clear();
-  mDeltaChanges.clear();
-  endResetModel();
-
   emit deltaFileWrapperChanged();
 
   refresh();
@@ -154,20 +149,25 @@ QfDeltaChangesModel::DeltaMethod QfDeltaChangesModel::deltaMethod( const QJsonOb
 
 void QfDeltaChangesModel::refresh()
 {
+  if ( !mDeltaFileWrapper )
+  {
+    beginResetModel();
+    mLayerSummaries.clear();
+    mDeltaChanges.clear();
+    endResetModel();
+    return;
+  }
+
   QHash<QString, QJsonArray> deltasByLayerId;
   QHash<QString, QString> layerNames;
-
-  if ( mDeltaFileWrapper )
+  const QJsonArray deltas = mDeltaFileWrapper->deltas();
+  for ( const auto &deltaValue : deltas )
   {
-    const QJsonArray deltas = mDeltaFileWrapper->deltas();
-    for ( const auto &deltaValue : deltas )
-    {
-      const QJsonObject delta = deltaValue.toObject();
-      const QString layerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
+    const QJsonObject delta = deltaValue.toObject();
+    const QString layerId = delta.value( QStringLiteral( "localLayerId" ) ).toString();
 
-      deltasByLayerId[layerId].append( delta );
-      layerNames.insert( layerId, delta.value( QStringLiteral( "localLayerName" ) ).toString() );
-    }
+    deltasByLayerId[layerId].append( delta );
+    layerNames.insert( layerId, delta.value( QStringLiteral( "localLayerName" ) ).toString() );
   }
 
   QHash<QString, LayerSummary> layerSummaries;
