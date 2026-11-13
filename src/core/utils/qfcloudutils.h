@@ -245,6 +245,7 @@ struct QfCloudServerInformation
 
     Q_PROPERTY( QfCloudWhitelabelInformation whitelabel MEMBER whitelabel )
     Q_PROPERTY( QString signupUrl MEMBER signupUrl )
+    Q_PROPERTY( QString signupMode MEMBER signupMode )
 
   public:
     QfCloudServerInformation() = default;
@@ -252,6 +253,7 @@ struct QfCloudServerInformation
     explicit QfCloudServerInformation( const QVariantMap &serverInformation )
       : whitelabel( serverInformation.value( QStringLiteral( "whitelabel" ) ).toMap() )
       , signupUrl( serverInformation.value( QStringLiteral( "signup_url" ) ).toString() )
+      , signupMode( serverInformation.value( QStringLiteral( "signup_mode" ) ).toString() )
     {}
 
     bool operator==( const QfCloudServerInformation &other ) const
@@ -269,11 +271,12 @@ struct QfCloudServerInformation
       return {
         { QStringLiteral( "whitelabel" ), whitelabel.toVariantMap() },
         { QStringLiteral( "signup_url" ), signupUrl },
-      };
+        { QStringLiteral( "signup_mode" ), signupMode } };
     }
 
     QfCloudWhitelabelInformation whitelabel;
     QString signupUrl;
+    QString signupMode;
 };
 
 Q_DECLARE_METATYPE( QfCloudServerInformation )
