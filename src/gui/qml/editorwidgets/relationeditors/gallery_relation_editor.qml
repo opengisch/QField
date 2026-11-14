@@ -275,9 +275,10 @@ QfRelationEditorBase {
   onIsCardViewChanged: stopAllMedia()
 
   readonly property list<string> attachmentAcceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName)
+  readonly property string attachmentCaptureType: ExternalResourceUtils.getAttachmentCaptureType(attachmentAcceptedTypes)
   // Accepted types, when set, take precedence over the viewer type
   readonly property int attachmentCaptureViewer: {
-    switch (ExternalResourceUtils.getAttachmentCaptureType(attachmentAcceptedTypes)) {
+    switch (attachmentCaptureType) {
     case 'image':
       return QfEditorWidgetExternalResource.DocumentImage;
     case 'video':
@@ -340,7 +341,8 @@ QfRelationEditorBase {
       width: QfTheme.toolButtonSize
       height: QfTheme.toolButtonSize
       enabled: isEnabled
-      visible: isEnabled && isActionEnabled('AddChildFeature')
+      // Files can't be captured, which is the only way the gallery adds attachments
+      visible: isEnabled && isActionEnabled('AddChildFeature') && attachmentCaptureType !== 'file'
 
       round: false
       iconSource: {

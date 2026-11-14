@@ -20,8 +20,8 @@ function getAttachmentNaming(layer, fieldName) {
 }
 
 /**
- * Returns the list of accepted attachment types ('image', 'video', and/or 'audio')
- * for a given layer and field name, as configured in QFieldSync through the
+ * Returns the list of accepted attachment types ('image', 'video', 'audio', and/or
+ * 'file') for a given layer and field name, as configured in QFieldSync through the
  * 'QFieldSync/attachment_accepted_types' configuration key. An empty list means
  * any attachment type is accepted.
  */
@@ -29,33 +29,51 @@ function getAttachmentAcceptedTypes(layer, fieldName) {
   if (layer && fieldName && layer.customProperty('QFieldSync/attachment_accepted_types') !== undefined) {
     const value = JSON.parse(layer.customProperty('QFieldSync/attachment_accepted_types'))[fieldName];
     if (Array.isArray(value)) {
-      return value.filter(type => ['image', 'video', 'audio'].includes(type));
+      return value.filter(type => ['image', 'video', 'audio', 'file'].includes(type));
     }
   }
   return [];
 }
 
 /**
- * Returns whether a given attachment type ('image', 'video', or 'audio') is
- * allowed by a list of accepted attachment types.
+ * Returns whether a given attachment type ('image', 'video', 'audio', or 'file')
+ * is allowed by a list of accepted attachment types.
  */
 function acceptsAttachmentType(acceptedTypes, type) {
   return acceptedTypes.length === 0 || acceptedTypes.includes(type);
 }
 
 /**
- * Returns the attachment type ('image', 'video', or 'audio') capture actions
- * should use for a list of accepted attachment types, with images taking
- * priority over videos, and videos over audio clips. Returns an empty string
- * when the list is empty.
+ * Returns the attachment type ('image', 'video', 'audio', or 'file') quick
+ * actions should use for a list of accepted attachment types, with images
+ * taking priority over videos, videos over audio clips, and audio clips over
+ * files. Returns an empty string when the list is empty.
  */
 function getAttachmentCaptureType(acceptedTypes) {
-  for (const type of ['image', 'video', 'audio']) {
+  for (const type of ['image', 'video', 'audio', 'file']) {
     if (acceptedTypes.includes(type)) {
       return type;
     }
   }
   return '';
+}
+
+/**
+ * Returns the list of mime types matching a list of accepted attachment types,
+ * or a mime type matching any file when the list is empty.
+ */
+function getAttachmentMimeTypes(acceptedTypes) {
+  const mimeTypesByAttachmentType = {
+    'image': ['image/*'],
+    'video': ['video/*'],
+    'audio': ['audio/*'],
+    'file': ['application/*', 'text/*']
+  };
+  let mimeTypes = [];
+  for (const type of acceptedTypes) {
+    mimeTypes = mimeTypes.concat(mimeTypesByAttachmentType[type]);
+  }
+  return mimeTypes.length > 0 ? mimeTypes : ['*/*'];
 }
 
 /**

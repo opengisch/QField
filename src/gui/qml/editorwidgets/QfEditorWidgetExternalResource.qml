@@ -73,7 +73,24 @@ QfEditorWidgetBase {
 
   property int documentViewer: config.DocumentViewer
   readonly property list<string> acceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(currentLayer, field.name)
-  readonly property string captureType: ExternalResourceUtils.getAttachmentCaptureType(acceptedTypes)
+  // Accepted types, when set, take precedence over the viewer type to pick the quick action
+  readonly property string quickActionType: {
+    const captureType = ExternalResourceUtils.getAttachmentCaptureType(acceptedTypes);
+    if (captureType !== '') {
+      return captureType;
+    }
+    switch (documentViewer) {
+    case QfEditorWidgetExternalResource.DocumentImage:
+      return 'image';
+    case QfEditorWidgetExternalResource.DocumentVideo:
+      return 'video';
+    case QfEditorWidgetExternalResource.DocumentAudio:
+      return 'audio';
+    case QfEditorWidgetExternalResource.DocumentFile:
+      return 'file';
+    }
+    return '';
+  }
 
   property bool isImage: false
   property bool isAudio: false
@@ -228,7 +245,7 @@ QfEditorWidgetBase {
     visible: isVisible
 
     anchors.left: parent.left
-    anchors.right: cameraButton.left
+    anchors.right: quickActionButton.left
     color: {
       if ((!isEditable && isEditing) || isNull || isEmpty) {
         return QfTheme.mainTextDisabledColor;
@@ -282,7 +299,7 @@ QfEditorWidgetBase {
 
   Rectangle {
     id: mediaFrame
-    width: parent.width - fileButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
+    width: parent.width - quickActionButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.isVisible
     color: QfTheme.controlBorderColor
@@ -591,72 +608,46 @@ QfEditorWidgetBase {
   }
 
   QfToolButton {
-    id: cameraButton
+    id: quickActionButton
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
 
-    // Accepted types, when set, take precedence over the viewer type
-    visible: isEnabled && (captureType !== '' ? captureType === 'image' : documentViewer == QfEditorWidgetExternalResource.DocumentImage)
-
-    anchors.right: cameraVideoButton.left
-    anchors.top: parent.top
-
-    iconSource: QfTheme.getThemeVectorIcon("ic_camera_photo_black_24dp")
-    iconColor: QfTheme.mainTextColor
-    bgcolor: "transparent"
-
-    onClicked: capturePhoto()
-  }
-
-  QfToolButton {
-    id: cameraVideoButton
-    width: visible ? QfTheme.toolButtonSize : 0
-    height: QfTheme.toolButtonSize
-
-    visible: isEnabled && (captureType !== '' ? captureType === 'video' : documentViewer == QfEditorWidgetExternalResource.DocumentVideo)
-
-    anchors.right: microphoneButton.left
-    anchors.top: parent.top
-
-    iconSource: QfTheme.getThemeVectorIcon("ic_camera_video_black_24dp")
-    iconColor: QfTheme.mainTextColor
-    bgcolor: "transparent"
-
-    onClicked: captureVideo()
-  }
-
-  QfToolButton {
-    id: microphoneButton
-    width: visible ? QfTheme.toolButtonSize : 0
-    height: QfTheme.toolButtonSize
-
-    visible: isEnabled && (captureType !== '' ? captureType === 'audio' : documentViewer == QfEditorWidgetExternalResource.DocumentAudio)
-
-    anchors.right: fileButton.left
-    anchors.top: parent.top
-
-    iconSource: QfTheme.getThemeVectorIcon("ic_microphone_black_24dp")
-    iconColor: QfTheme.mainTextColor
-    bgcolor: "transparent"
-
-    onClicked: captureAudio()
-  }
-
-  QfToolButton {
-    id: fileButton
-    width: visible ? QfTheme.toolButtonSize : 0
-    height: QfTheme.toolButtonSize
-
-    visible: platformUtilities.capabilities & QfPlatformUtilities.FilePicker && acceptedTypes.length === 0 && documentViewer == QfEditorWidgetExternalResource.DocumentFile && isEnabled
+    visible: isEnabled && quickActionType !== '' && (quickActionType !== 'file' || platformUtilities.capabilities & QfPlatformUtilities.FilePicker)
 
     anchors.right: parent.right
     anchors.top: parent.top
 
-    iconSource: QfTheme.getThemeVectorIcon("ic_file_black_24dp")
+    iconSource: {
+      switch (quickActionType) {
+      case 'video':
+        return QfTheme.getThemeVectorIcon("ic_camera_video_black_24dp");
+      case 'audio':
+        return QfTheme.getThemeVectorIcon("ic_microphone_black_24dp");
+      case 'file':
+        return QfTheme.getThemeVectorIcon("ic_file_black_24dp");
+      default:
+        return QfTheme.getThemeVectorIcon("ic_camera_photo_black_24dp");
+      }
+    }
     iconColor: QfTheme.mainTextColor
     bgcolor: "transparent"
 
-    onClicked: attachFile()
+    onClicked: {
+      switch (quickActionType) {
+      case 'video':
+        captureVideo();
+        break;
+      case 'audio':
+        captureAudio();
+        break;
+      case 'file':
+        attachFile();
+        break;
+      default:
+        capturePhoto();
+        break;
+      }
+    }
   }
 
   Loader {
@@ -796,13 +787,13 @@ QfEditorWidgetBase {
     Qt.inputMethod.hide();
     platformUtilities.requestStoragePermission();
     const filepath = getResourceFilePath();
-    if (acceptedTypes.length === 1) {
-      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, acceptedTypes[0] + "/*", this);
-    } else if (acceptedTypes.length === 0 && documentViewer == QfEditorWidgetExternalResource.DocumentAudio) {
-      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "audio/*", this);
-    } else {
-      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "*/*", this);
+    let mimeTypes = ["*/*"];
+    if (acceptedTypes.length > 0) {
+      mimeTypes = ExternalResourceUtils.getAttachmentMimeTypes(acceptedTypes);
+    } else if (documentViewer == QfEditorWidgetExternalResource.DocumentAudio) {
+      mimeTypes = ["audio/*"];
     }
+    __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, mimeTypes, this);
   }
 
   function attachGallery() {
@@ -811,7 +802,9 @@ QfEditorWidgetBase {
     const filepath = getResourceFilePath();
     const acceptsImage = ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image');
     const acceptsVideo = ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'video');
-    if (acceptsVideo && (!acceptsImage || documentViewer == QfEditorWidgetExternalResource.DocumentVideo)) {
+    if (acceptedTypes.length > 0 && acceptsImage && acceptsVideo) {
+      __resourceSource = platformUtilities.getGalleryMedia(qgisProject.homePath + '/', filepath, this);
+    } else if (acceptsVideo && (!acceptsImage || documentViewer == QfEditorWidgetExternalResource.DocumentVideo)) {
       __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath + '/', filepath, this);
     } else {
       __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/', filepath, this);
