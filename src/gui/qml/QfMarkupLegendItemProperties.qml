@@ -33,7 +33,13 @@ QfPopup {
       showBackButton: false
       showApplyButton: false
       showCancelButton: false
-      showRemoveButton: false
+      showRemoveButton: markupCollection
+
+      onRemove: {
+        if (markupCollection) {
+          removeCollectionDialog.open();
+        }
+      }
     }
 
     ScrollView {
@@ -145,6 +151,25 @@ QfPopup {
             }
           }
         }
+      }
+    }
+  }
+
+  QfDialog {
+    id: removeCollectionDialog
+    parent: mainWindow.contentItem
+    z: 10000 // 1000s are embedded feature forms, user a higher value to insure the dialog will always show above embedded feature forms
+    title: qsTr("Remove markup collection")
+    Label {
+      width: parent.width
+      wrapMode: Text.WordWrap
+      text: qsTr("You are about to permanently remove a markup collection and delete its content, proceed?")
+    }
+
+    onAccepted: {
+      if (markupCollection) {
+        markupManager.removeCollection(markupCollection.uuid);
+        popup.close();
       }
     }
   }
