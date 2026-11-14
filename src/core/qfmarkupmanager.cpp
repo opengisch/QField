@@ -115,7 +115,7 @@ QString QfMarkupManager::createCollection( const QString &title )
   QfMarkupCollection *blankCollection = new QfMarkupCollection( collectionTitle.isEmpty() ? tr( "Untitled collection" ) : collectionTitle );
   insertCollection( blankCollection );
 
-  emit collectionsAdded( QStringList() << blankCollection->uuid() );
+  emit collectionsAdded( { blankCollection->uuid() } );
 
   emit collectionsChanged();
   emit visibleCollectionsChanged();
@@ -144,15 +144,16 @@ void QfMarkupManager::removeCollection( const QString &uuid )
   collection->deleteLater();
   collection = nullptr;
 
-  emit collectionsChanged();
-  emit visibleCollectionsChanged();
-
   if ( mCollections.isEmpty() )
   {
     // A default markup collection is added to avoid a zero-collections scenario
-    QfMarkupCollection *collection = new QfMarkupCollection( tr( "Default collection" ) );
+    collection = new QfMarkupCollection( tr( "Default collection" ) );
     insertCollection( collection );
+    emit collectionsAdded( { collection->uuid() } );
   }
+
+  emit collectionsChanged();
+  emit visibleCollectionsChanged();
 }
 
 void QfMarkupManager::reset( const QString &path, const QString &prefix )
@@ -170,7 +171,7 @@ void QfMarkupManager::reset( const QString &path, const QString &prefix )
   mPath = fi.absoluteFilePath();
   mPrefix = prefix;
 
-  QDirIterator collectionGeoJsonPaths( path, QStringList() << QStringLiteral( "%1*.geojson" ).arg( prefix ), QDir::Files );
+  QDirIterator collectionGeoJsonPaths( path, { QStringLiteral( "%1*.geojson" ).arg( prefix ) }, QDir::Files );
   while ( collectionGeoJsonPaths.hasNext() )
   {
     collectionGeoJsonPaths.next();
