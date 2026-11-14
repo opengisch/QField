@@ -13,9 +13,6 @@ QfPopup {
   id: popup
 
   property bool availablePluginsFetched: false
-  property bool installFromZipPending: false
-  property QfResourceSource installFromZipSource
-  readonly property string installFromZipPrefix: platformUtilities.appDataDirs()[0] + '/plugins/'
 
   width: Math.min(500, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
   height: mainWindow.height - 120
@@ -28,15 +25,6 @@ QfPopup {
   onAboutToShow: {
     projectPluginEnabledContainer.visible = pluginManager.isProjectPluginEnabled(qgisProject.fileName);
     pluginManager.pluginModel.refresh(false);
-  }
-
-  onClosed: {
-    installFromZipPending = false;
-  }
-
-  function pickZipPlugin() {
-    platformUtilities.requestStoragePermission();
-    installFromZipSource = platformUtilities.getFile(installFromZipPrefix, '{filename}', 'application/zip', popup);
   }
 
   Page {
@@ -204,6 +192,9 @@ QfPopup {
           }
 
           onDropdownClicked: {
+            if (!popup.availablePluginsFetched) {
+              pluginManager.pluginModel.refresh(true);
+            }
             const point = mapToItem(page, installFromUrlButton.width - pluginsManagementMenu.width + 10, installFromUrlButton.y + 10);
             pluginsManagementMenu.popup(point);
           }
@@ -267,18 +258,15 @@ QfPopup {
 
     MenuItem {
       text: qsTr('Install plugin from ZIP')
+      enabled: popup.availablePluginsFetched
 
       font: QfTheme.defaultFont
       height: 48
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
-        if (popup.availablePluginsFetched) {
-          popup.pickZipPlugin();
-        } else {
-          popup.installFromZipPending = true;
-          pluginManager.pluginModel.refresh(true);
-        }
+        platformUtilities.requestStoragePermission();
+        installFromZipConnection.target = platformUtilities.getFile(installFromZipConnection.prefix, '{filename}', 'application/zip', popup);
       }
     }
 
@@ -465,19 +453,18 @@ QfPopup {
     function onRemoteFetched() {
       popup.availablePluginsFetched = true;
       installFromUrlDialog.standardButton(Dialog.Ok).enabled = true;
-      if (popup.installFromZipPending) {
-        popup.installFromZipPending = false;
-        Qt.callLater(popup.pickZipPlugin);
-      }
     }
   }
 
   Connections {
-    target: popup.installFromZipSource
+    id: installFromZipConnection
+    target: null
+
+    readonly property string prefix: platformUtilities.appDataDirs()[0] + '/plugins/'
 
     function onResourceReceived(path) {
       if (path) {
-        pluginManager.installFromFile(popup.installFromZipPrefix + path);
+        pluginManager.installFromFile(prefix + path);
       }
     }
   }
