@@ -13,6 +13,8 @@ QfPopup {
 
   property QfMarkupCollection markupCollection
 
+  signal removeMarkupCollection
+
   parent: mainWindow.contentItem
   width: Math.min(childrenRect.width, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
   height: Math.min(popupLayout.childrenRect.height + pageHeader.childrenRect.height + 40, mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
@@ -167,10 +169,7 @@ QfPopup {
     }
 
     onAccepted: {
-      if (markupCollection) {
-        markupManager.removeCollection(markupCollection.uuid);
-        popup.close();
-      }
+      popup.removeMarkupCollection();
     }
   }
 }
