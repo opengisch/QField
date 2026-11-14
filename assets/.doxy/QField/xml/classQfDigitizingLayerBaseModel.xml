@@ -1,0 +1,523 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfDigitizingLayerBaseModel" kind="class" language="C++" prot="public">
+    <compoundname>QfDigitizingLayerBaseModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="qfdigitizinglayermodel_8h" local="no">qfdigitizinglayermodel.h</includes>
+    <innerclass refid="structQfDigitizingLayerBaseModel_1_1DigitizingLayer" prot="private">QfDigitizingLayerBaseModel::DigitizingLayer</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfDigitizingLayerBaseModel_1a53ef0ab204071df39c48dd072cd5d0ba" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfDigitizingLayerBaseModel::mEnabled</definition>
+        <argsstring></argsstring>
+        <name>mEnabled</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::mEnabled</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="190" column="10" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLayerBaseModel_1a863de8b7f5252b9f50687491b916a913" prot="private" static="no" mutable="no">
+        <type>QList&lt; DigitizingLayer &gt;</type>
+        <definition>QList&lt;DigitizingLayer&gt; QfDigitizingLayerBaseModel::mLayers</definition>
+        <argsstring></argsstring>
+        <name>mLayers</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::mLayers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="191" column="11" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLayerBaseModel_1ae3bdb89dc1d0c60d26ce341f5c0c7429" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QfDigitizingLayerBaseModel::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="192" column="16" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfDigitizingLayerBaseModel_1a1f7176f33178caf45af1418b383c05a0" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMarkupManager" kindref="compound">QfMarkupManager</ref> *</type>
+        <definition>QfMarkupManager* QfDigitizingLayerBaseModel::mMarkupManager</definition>
+        <argsstring></argsstring>
+        <name>mMarkupManager</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::mMarkupManager</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="193" column="21" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1af113513986b2349ce3ef9f575f81aea2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfDigitizingLayerBaseModel::QfDigitizingLayerBaseModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfDigitizingLayerBaseModel</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::QfDigitizingLayerBaseModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="134" column="14" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1af8db9e2a0b7d470930cda8074fd0da90" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfDigitizingLayerBaseModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="136" column="9" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="255" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1ab8d3af4b32e70211374a5d0f273691c6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfDigitizingLayerBaseModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="137" column="14" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="265" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1a48a63439b7aa1f0b2574930315f5e2d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfDigitizingLayerBaseModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="138" column="11" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="345" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1a300b908cd2cb1277a7b76a726db5821e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfDigitizingLayerBaseModel::enabled</definition>
+        <argsstring>() const</argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The enabled state of the model. <simplesect kind="note"><para>When disabled, any changes to the project&apos;s map layers registry and markup manager will be ignored   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="141" column="10" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="141" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1a45938734cde2042f891b92b99aef75f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLayerBaseModel::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::setEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The enabled state of the model. <simplesect kind="note"><para>When disabled, any changes to the project&apos;s map layers registry and markup manager will be ignored   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="143" column="10" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="47" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1ab1eb081569b2fdb1bcc2d62443343b6a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfDigitizingLayerBaseModel::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::project</qualifiedname>
+        <briefdescription>
+<para>The project from which map layers will be taken from.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="146" column="16" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="146" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1acff1f7d7b9da2b3d7001d8df0f5f73c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLayerBaseModel::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+<para>The project from which map layers will be taken from.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="148" column="10" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="89" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1ad89cdb12c4f74593bb26a4e2bf6167e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQfMarkupManager" kindref="compound">QfMarkupManager</ref> *</type>
+        <definition>QfMarkupManager * QfDigitizingLayerBaseModel::markupManager</definition>
+        <argsstring>() const</argsstring>
+        <name>markupManager</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::markupManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="151" column="21" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="151" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1a7a73842d746f796739672189ee2f206b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLayerBaseModel::setMarkupManager</definition>
+        <argsstring>(QfMarkupManager *markupManager)</argsstring>
+        <name>setMarkupManager</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::setMarkupManager</qualifiedname>
+        <param>
+          <type><ref refid="classQfMarkupManager" kindref="compound">QfMarkupManager</ref> *</type>
+          <declname>markupManager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="153" column="10" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="114" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1aed11cb6a83660d7e87c4d2bcee8142c7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfDigitizingLayerBaseModel::findLayer</definition>
+        <argsstring>(QgsMapLayer *layer) const</argsstring>
+        <name>findLayer</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::findLayer</qualifiedname>
+        <param>
+          <type>QgsMapLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the model row for given map <emphasis>layer</emphasis>. <simplesect kind="note"><para>If the map layer is not found, -1 will be returned   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="156" column="9" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="358" bodyend="372"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1af6e2cbe1d37486c52c86244310e13860" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfDigitizingLayerBaseModel::findLayerName</definition>
+        <argsstring>(const QString &amp;name) const</argsstring>
+        <name>findLayerName</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::findLayerName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the model row for given map layer <emphasis>name</emphasis>. <simplesect kind="note"><para>If the map layer name is not found, -1 will be returned   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="159" column="9" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="374" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1a39535778b00b97acee715e859a3b536e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfDigitizingLayerBaseModel::findCollection</definition>
+        <argsstring>(QfMarkupCollection *collection) const</argsstring>
+        <name>findCollection</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::findCollection</qualifiedname>
+        <param>
+          <type><ref refid="classQfMarkupCollection" kindref="compound">QfMarkupCollection</ref> *</type>
+          <declname>collection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the model row for given markup <emphasis>collection</emphasis>. <simplesect kind="note"><para>If the collection is not found, -1 will be returned   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="162" column="9" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="390" bodyend="404"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1abfc57d3098201b7ba66fd795a656737a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfDigitizingLayerBaseModel::findCollectionName</definition>
+        <argsstring>(const QString &amp;name) const</argsstring>
+        <name>findCollectionName</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::findCollectionName</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the model row for given markup collection <emphasis>name</emphasis>. <simplesect kind="note"><para>If the collection name is not found, -1 will be returned   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="165" column="9" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="406" bodyend="420"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfDigitizingLayerBaseModel_1a8b0dbbbaf2258cc485c948eb5ae19eb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLayerBaseModel::enabledChanged</definition>
+        <argsstring>()</argsstring>
+        <name>enabledChanged</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::enabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="168" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingLayerBaseModel_1aec7d08277943cb01eb2097651a0484ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLayerBaseModel::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="169" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfDigitizingLayerBaseModel_1a644383ee289f44911fad0372071f977b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLayerBaseModel::markupManagerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>markupManagerChanged</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::markupManagerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="170" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-slot">
+      <memberdef kind="slot" id="classQfDigitizingLayerBaseModel_1adb1ab60406219e435bddbec711bf9be7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLayerBaseModel::removeLayers</definition>
+        <argsstring>(const QStringList &amp;layerIds)</argsstring>
+        <name>removeLayers</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::removeLayers</qualifiedname>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>layerIds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="173" column="10" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="139" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfDigitizingLayerBaseModel_1a014bc25d0108b03b2038d012faf1467b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLayerBaseModel::addLayers</definition>
+        <argsstring>(const QList&lt; QgsMapLayer * &gt; &amp;layers)</argsstring>
+        <name>addLayers</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::addLayers</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsMapLayer * &gt; &amp;</type>
+          <declname>layers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="174" column="10" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="161" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfDigitizingLayerBaseModel_1a2c64c8e1780a993c9352f784b8ea352a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLayerBaseModel::removeCollections</definition>
+        <argsstring>(const QStringList &amp;collectionUuids)</argsstring>
+        <name>removeCollections</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::removeCollections</qualifiedname>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>collectionUuids</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="176" column="10" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="202" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfDigitizingLayerBaseModel_1a609d41a85bc775c2d8615a9e85f8f8a8" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLayerBaseModel::addCollections</definition>
+        <argsstring>(const QStringList &amp;collectionUuids)</argsstring>
+        <name>addCollections</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::addCollections</qualifiedname>
+        <param>
+          <type>const QStringList &amp;</type>
+          <declname>collectionUuids</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="177" column="10" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="224" bodyend="253"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfDigitizingLayerBaseModel_1ac4d78691b673e940533d20eadd6805dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfDigitizingLayerBaseModel::resetModel</definition>
+        <argsstring>()</argsstring>
+        <name>resetModel</name>
+        <qualifiedname>QfDigitizingLayerBaseModel::resetModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfdigitizinglayermodel.h" line="188" column="10" bodyfile="src/core/qfdigitizinglayermodel.cpp" bodystart="26" bodyend="45"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A digitizing layers (map layers and markup collections) base model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfDigitizingLayerBaseModel</label>
+        <link refid="classQfDigitizingLayerBaseModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfDigitizingLayerBaseModel</label>
+        <link refid="classQfDigitizingLayerBaseModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfdigitizinglayermodel.h" line="129" column="1" bodyfile="src/core/qfdigitizinglayermodel.h" bodystart="130" bodyend="194"/>
+    <listofallmembers>
+      <member refid="classQfDigitizingLayerBaseModel_1a609d41a85bc775c2d8615a9e85f8f8a8" prot="protected" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>addCollections</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a014bc25d0108b03b2038d012faf1467b" prot="protected" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>addLayers</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1ab8d3af4b32e70211374a5d0f273691c6" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>data</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a300b908cd2cb1277a7b76a726db5821e" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>enabled</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a8b0dbbbaf2258cc485c948eb5ae19eb8" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>enabledChanged</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a39535778b00b97acee715e859a3b536e" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>findCollection</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1abfc57d3098201b7ba66fd795a656737a" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>findCollectionName</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1aed11cb6a83660d7e87c4d2bcee8142c7" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>findLayer</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1af6e2cbe1d37486c52c86244310e13860" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>findLayerName</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1ad89cdb12c4f74593bb26a4e2bf6167e8" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>markupManager</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a644383ee289f44911fad0372071f977b" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>markupManagerChanged</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a53ef0ab204071df39c48dd072cd5d0ba" prot="private" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>mEnabled</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a863de8b7f5252b9f50687491b916a913" prot="private" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>mLayers</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a1f7176f33178caf45af1418b383c05a0" prot="private" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>mMarkupManager</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1ae3bdb89dc1d0c60d26ce341f5c0c7429" prot="private" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>mProject</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1ab1eb081569b2fdb1bcc2d62443343b6a" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>project</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1aec7d08277943cb01eb2097651a0484ed" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>projectChanged</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1af113513986b2349ce3ef9f575f81aea2" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>QfDigitizingLayerBaseModel</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a2c64c8e1780a993c9352f784b8ea352a" prot="protected" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>removeCollections</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1adb1ab60406219e435bddbec711bf9be7" prot="protected" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>removeLayers</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1ac4d78691b673e940533d20eadd6805dc" prot="private" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>resetModel</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a48a63439b7aa1f0b2574930315f5e2d1" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>roleNames</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1af8db9e2a0b7d470930cda8074fd0da90" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>rowCount</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a45938734cde2042f891b92b99aef75f7" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>setEnabled</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1a7a73842d746f796739672189ee2f206b" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>setMarkupManager</name></member>
+      <member refid="classQfDigitizingLayerBaseModel_1acff1f7d7b9da2b3d7001d8df0f5f73c1" prot="public" virt="non-virtual"><scope>QfDigitizingLayerBaseModel</scope><name>setProject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

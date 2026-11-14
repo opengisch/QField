@@ -1,0 +1,855 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQgsQuickCoordinateTransformer" kind="class" language="C++" prot="public">
+    <compoundname>QgsQuickCoordinateTransformer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qgsquickcoordinatetransformer_8h" local="no">qgsquickcoordinatetransformer.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQgsQuickCoordinateTransformer_1aa39caa792efa25c9dc2002b3c338638b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QgsQuickCoordinateTransformer::projectedPosition</definition>
+        <argsstring></argsstring>
+        <name>projectedPosition</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::projectedPosition</qualifiedname>
+        <read>projectedPosition</read>
+        <briefdescription>
+<para>Projected (destination) position (in destination CRS) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="41" column="5" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QgsQuickCoordinateTransformer::sourcePosition</definition>
+        <argsstring></argsstring>
+        <name>sourcePosition</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::sourcePosition</qualifiedname>
+        <read>sourcePosition</read>
+        <write>setSourcePosition</write>
+        <briefdescription>
+<para>Source position (in source CRS) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="44" column="5" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QGeoCoordinate</type>
+        <definition>QGeoCoordinate QgsQuickCoordinateTransformer::sourceCoordinate</definition>
+        <argsstring></argsstring>
+        <name>sourceCoordinate</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::sourceCoordinate</qualifiedname>
+        <read>sourceCoordinate</read>
+        <write>setSourceCoordinate</write>
+        <briefdescription>
+<para>Source coordinate for integrating with QtPositioning, alternative to source position. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="47" column="5" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickCoordinateTransformer_1a2b27d5e0b59d0bb0654e3d665c96a871" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QgsQuickCoordinateTransformer::destinationCrs</definition>
+        <argsstring></argsstring>
+        <name>destinationCrs</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::destinationCrs</qualifiedname>
+        <read>destinationCrs</read>
+        <write>setDestinationCrs</write>
+        <briefdescription>
+<para>Destination CRS. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="50" column="5" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickCoordinateTransformer_1a20fa24709da8ca1c1fb224cdc9706116" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QgsQuickCoordinateTransformer::sourceCrs</definition>
+        <argsstring></argsstring>
+        <name>sourceCrs</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::sourceCrs</qualifiedname>
+        <read>sourceCrs</read>
+        <write>setSourceCrs</write>
+        <briefdescription>
+<para>Source CRS, default 4326. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="53" column="5" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickCoordinateTransformer_1a77a386b53eae71b769bbf7cf53016a3b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateTransformContext</type>
+        <definition>QgsCoordinateTransformContext QgsQuickCoordinateTransformer::transformContext</definition>
+        <argsstring></argsstring>
+        <name>transformContext</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::transformContext</qualifiedname>
+        <read>transformContext</read>
+        <write>setTransformContext</write>
+        <briefdescription>
+<para>Transformation context, can be set from <ref refid="classQgsQuickMapSettings_1a3c930bca60efefc0a85571312d479a23" kindref="member">QgsQuickMapSettings::transformContext()</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="56" column="5" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickCoordinateTransformer_1a70a06031705612e9cca6e9292594454a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qreal</type>
+        <definition>qreal QgsQuickCoordinateTransformer::deltaZ</definition>
+        <argsstring></argsstring>
+        <name>deltaZ</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::deltaZ</qualifiedname>
+        <read>deltaZ</read>
+        <write>setDeltaZ</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The altitude value of captured coordinates is corrected by the amount of deltaZ. This can be used to correct the altitude with the antenna height for example. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="62" column="5" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickCoordinateTransformer_1add3801dcf826302c9e6b99037a46b242" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickCoordinateTransformer::skipAltitudeTransformation</definition>
+        <argsstring></argsstring>
+        <name>skipAltitudeTransformation</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::skipAltitudeTransformation</qualifiedname>
+        <read>skipAltitudeTransformation</read>
+        <write>setSkipAltitudeTransformation</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Skips any altitude correction handling during CRS transformation. deltaZ will still be applied. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="67" column="5" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQgsQuickCoordinateTransformer_1ad5007c583c3a208a878ea97e17cecf15" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QgsQuickCoordinateTransformer::verticalGrid</definition>
+        <argsstring></argsstring>
+        <name>verticalGrid</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::verticalGrid</qualifiedname>
+        <read>verticalGrid</read>
+        <write>setVerticalGrid</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The vertical grid that will be used to correct the altitude value of captured coordinates </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="72" column="5" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQgsQuickCoordinateTransformer_1a0126ea12e4bde86503cc14f05674fcf7" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QgsQuickCoordinateTransformer::mProjectedPosition</definition>
+        <argsstring></argsstring>
+        <name>mProjectedPosition</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::mProjectedPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="162" column="14" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickCoordinateTransformer_1a1bda5373435faf6752d605be43111044" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QgsQuickCoordinateTransformer::mSourcePosition</definition>
+        <argsstring></argsstring>
+        <name>mSourcePosition</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::mSourcePosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="163" column="14" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickCoordinateTransformer_1a185f23a0c6b47274b82ec2f32f6d30c4" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateTransform</type>
+        <definition>QgsCoordinateTransform QgsQuickCoordinateTransformer::mCoordinateTransform</definition>
+        <argsstring></argsstring>
+        <name>mCoordinateTransform</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::mCoordinateTransform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="164" column="28" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickCoordinateTransformer_1a52e8dd2ae8d20118a086a16ad825ff95" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateTransform</type>
+        <definition>QgsCoordinateTransform QgsQuickCoordinateTransformer::mCoordinateVerticalGridTransform</definition>
+        <argsstring></argsstring>
+        <name>mCoordinateVerticalGridTransform</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::mCoordinateVerticalGridTransform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="165" column="28" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickCoordinateTransformer_1a3ec5f28447eb338102da88a722534fc1" prot="private" static="no" mutable="no">
+        <type>qreal</type>
+        <definition>qreal QgsQuickCoordinateTransformer::mDeltaZ</definition>
+        <argsstring></argsstring>
+        <name>mDeltaZ</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::mDeltaZ</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="167" column="11" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickCoordinateTransformer_1a085c833f5d210cc415bdf461d0aa6303" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QgsQuickCoordinateTransformer::mSkipAltitudeTransformation</definition>
+        <argsstring></argsstring>
+        <name>mSkipAltitudeTransformation</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::mSkipAltitudeTransformation</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="168" column="10" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickCoordinateTransformer_1a2b0a7aef6c2f02d396cba5cb4346009f" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QgsQuickCoordinateTransformer::mVerticalGrid</definition>
+        <argsstring></argsstring>
+        <name>mVerticalGrid</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::mVerticalGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="169" column="13" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQgsQuickCoordinateTransformer_1a986caca415b940029f7a22411357768e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QgsQuickCoordinateTransformer::mVerticalGridPath</definition>
+        <argsstring></argsstring>
+        <name>mVerticalGridPath</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::mVerticalGridPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="170" column="13" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1a8abb4afcc01068f52e62d0ae95dbf66a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QgsQuickCoordinateTransformer::QgsQuickCoordinateTransformer</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QgsQuickCoordinateTransformer</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::QgsQuickCoordinateTransformer</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Creates new coordinate transformer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="76" column="14" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="29" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1a1bd276ac844441136e3cc6399e77c6d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QgsQuickCoordinateTransformer::projectedPosition</definition>
+        <argsstring>() const</argsstring>
+        <name>projectedPosition</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::projectedPosition</qualifiedname>
+        <briefdescription>
+<para>Projected (destination) position (in destination CRS)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="79" column="14" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1a3b6766e1eb96fdd40306379a4948a1fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QgsQuickCoordinateTransformer::sourcePosition</definition>
+        <argsstring>() const</argsstring>
+        <name>sourcePosition</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::sourcePosition</qualifiedname>
+        <briefdescription>
+<para>Source position (in source CRS)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="82" column="14" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1ae435e0863eaec99208da771e95f3b965" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::setSourcePosition</definition>
+        <argsstring>(const QgsPoint &amp;sourcePosition)</argsstring>
+        <name>setSourcePosition</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::setSourcePosition</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>sourcePosition</declname>
+        </param>
+        <briefdescription>
+<para>Source position (in source CRS)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="85" column="10" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="46" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1a1aff94bc1337b40616456a4ac305125c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QgsQuickCoordinateTransformer::destinationCrs</definition>
+        <argsstring>() const</argsstring>
+        <name>destinationCrs</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::destinationCrs</qualifiedname>
+        <briefdescription>
+<para>Destination CRS.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="88" column="34" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1aff225d016c5d2b4e17fcfb1861999c39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::setDestinationCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;destinationCrs)</argsstring>
+        <name>setDestinationCrs</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::setDestinationCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>destinationCrs</declname>
+        </param>
+        <briefdescription>
+<para>Destination CRS.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="91" column="10" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="73" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1afab54b363880858e6e949b1d8919017d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QgsQuickCoordinateTransformer::sourceCrs</definition>
+        <argsstring>() const</argsstring>
+        <name>sourceCrs</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::sourceCrs</qualifiedname>
+        <briefdescription>
+<para>Source CRS, default 4326.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="94" column="34" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1aa2de9e6a954b9d94723d5b43b19728b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::setSourceCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;sourceCrs)</argsstring>
+        <name>setSourceCrs</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::setSourceCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>sourceCrs</declname>
+        </param>
+        <briefdescription>
+<para>Source CRS, default 4326.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="97" column="10" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="88" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1a69c51b0b2fa5ebf6084c73124087919d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::setTransformContext</definition>
+        <argsstring>(const QgsCoordinateTransformContext &amp;context)</argsstring>
+        <name>setTransformContext</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::setTransformContext</qualifiedname>
+        <param>
+          <type>const QgsCoordinateTransformContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Transformation context, can be set from <ref refid="classQgsQuickMapSettings_1a3c930bca60efefc0a85571312d479a23" kindref="member">QgsQuickMapSettings::transformContext()</ref>   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="100" column="10" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="99" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1aba1d379da1563ab68a3fd306191ee059" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateTransformContext</type>
+        <definition>QgsCoordinateTransformContext QgsQuickCoordinateTransformer::transformContext</definition>
+        <argsstring>() const</argsstring>
+        <name>transformContext</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::transformContext</qualifiedname>
+        <briefdescription>
+<para>Transformation context, can be set from <ref refid="classQgsQuickMapSettings_1a3c930bca60efefc0a85571312d479a23" kindref="member">QgsQuickMapSettings::transformContext()</ref>   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="103" column="35" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="108" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1a3931ecbd2b635f76ef7b631b9054d951" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qreal</type>
+        <definition>qreal QgsQuickCoordinateTransformer::deltaZ</definition>
+        <argsstring>() const</argsstring>
+        <name>deltaZ</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::deltaZ</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The altitude value of captured coordinates is corrected by the amount of deltaZ. This can be used to correct the altitude with the antenna height for example.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="106" column="11" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="228" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1aa9f5b3fec7d2aae7523328af30f20349" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::setDeltaZ</definition>
+        <argsstring>(const qreal &amp;deltaZ)</argsstring>
+        <name>setDeltaZ</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::setDeltaZ</qualifiedname>
+        <param>
+          <type>const qreal &amp;</type>
+          <declname>deltaZ</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The altitude value of captured coordinates is corrected by the amount of deltaZ. This can be used to correct the altitude with the antenna height for example.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="109" column="10" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="233" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1ac803b5d728f7971d3304c0fc3219d876" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QGeoCoordinate</type>
+        <definition>QGeoCoordinate QgsQuickCoordinateTransformer::sourceCoordinate</definition>
+        <argsstring>() const</argsstring>
+        <name>sourceCoordinate</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::sourceCoordinate</qualifiedname>
+        <briefdescription>
+<para>Source coordinate for integrating with QtPositioning, alternative to source position.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="112" column="20" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="210" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1a893e5b32957725336ec64e8db48657a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::setSourceCoordinate</definition>
+        <argsstring>(const QGeoCoordinate &amp;sourceCoordinate)</argsstring>
+        <name>setSourceCoordinate</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::setSourceCoordinate</qualifiedname>
+        <param>
+          <type>const QGeoCoordinate &amp;</type>
+          <declname>sourceCoordinate</declname>
+        </param>
+        <briefdescription>
+<para>Source coordinate for integrating with QtPositioning, alternative to source position.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="115" column="10" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="215" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1a8dce0cce6117ab37dea393ce0ba163c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QgsQuickCoordinateTransformer::skipAltitudeTransformation</definition>
+        <argsstring>() const</argsstring>
+        <name>skipAltitudeTransformation</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::skipAltitudeTransformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="118" column="10" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="196" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1a7f8a2609622503a21806a867d6907627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::setSkipAltitudeTransformation</definition>
+        <argsstring>(bool skipAltitudeTransformation)</argsstring>
+        <name>setSkipAltitudeTransformation</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::setSkipAltitudeTransformation</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>skipAltitudeTransformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="121" column="10" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="201" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1ab534e649a4728561e9d410d87bd00b6e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QgsQuickCoordinateTransformer::verticalGrid</definition>
+        <argsstring>() const</argsstring>
+        <name>verticalGrid</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::verticalGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The vertical grid that will be used to correct the altitude value of captured coordinates   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="124" column="13" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="246" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1a82a4116ce97773f566c1e701056ee4bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::setVerticalGrid</definition>
+        <argsstring>(const QString &amp;grid)</argsstring>
+        <name>setVerticalGrid</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::setVerticalGrid</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The vertical grid that will be used to correct the altitude value of captured coordinates   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="127" column="10" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="251" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1ad1232f1289164961e6104fa9235e375a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>QgsPoint QgsQuickCoordinateTransformer::transformPosition</definition>
+        <argsstring>(const QgsPoint &amp;position) const</argsstring>
+        <name>transformPosition</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::transformPosition</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="129" column="26" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="113" bodyend="116"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQgsQuickCoordinateTransformer_1a569d1ed7f852f897e1f653b3d7fe6e35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::projectedPositionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectedPositionChanged</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::projectedPositionChanged</qualifiedname>
+        <briefdescription>
+<para>Projected (destination) position (in destination CRS)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="133" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickCoordinateTransformer_1a5e479377a90e4c7495093113f647a2ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::sourcePositionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>sourcePositionChanged</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::sourcePositionChanged</qualifiedname>
+        <briefdescription>
+<para>Source position (in source CRS)   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="136" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickCoordinateTransformer_1a2129a34cd5832c2ba1159c725fb37d6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::sourceCoordinateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>sourceCoordinateChanged</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::sourceCoordinateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="138" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickCoordinateTransformer_1adfb6d92017b0cb8c04795e7d791fd2eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::destinationCrsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>destinationCrsChanged</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::destinationCrsChanged</qualifiedname>
+        <briefdescription>
+<para>Destination CRS.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="141" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickCoordinateTransformer_1a9878a22575c503fda354cc48f8640f2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::sourceCrsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>sourceCrsChanged</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::sourceCrsChanged</qualifiedname>
+        <briefdescription>
+<para>Source CRS, default 4326.   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="144" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickCoordinateTransformer_1a3a83cf812a6620052a6be0413454b50b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::transformContextChanged</definition>
+        <argsstring>()</argsstring>
+        <name>transformContextChanged</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::transformContextChanged</qualifiedname>
+        <briefdescription>
+<para>Transformation context, can be set from <ref refid="classQgsQuickMapSettings_1a3c930bca60efefc0a85571312d479a23" kindref="member">QgsQuickMapSettings::transformContext()</ref>   </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="147" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickCoordinateTransformer_1a56e9c389b2a7847eda19dcd36e682d83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::deltaZChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deltaZChanged</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::deltaZChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="150" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickCoordinateTransformer_1ae46a3058b15ae134f350ed7b25eaf7b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::skipAltitudeTransformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>skipAltitudeTransformationChanged</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::skipAltitudeTransformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Skips any altitude correction handling during CRS transformation. deltaZ will still be applied.   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="153" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQgsQuickCoordinateTransformer_1afd8e8540536a198cf4419d28b3525b88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::verticalGridChanged</definition>
+        <argsstring>()</argsstring>
+        <name>verticalGridChanged</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::verticalGridChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The vertical grid that will be used to correct the altitude value of captured coordinates   </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="156" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1ade2449c0e1ff1958b222e54d87a7299e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QgsQuickCoordinateTransformer::updatePosition</definition>
+        <argsstring>()</argsstring>
+        <name>updatePosition</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::updatePosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="159" column="10" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="118" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classQgsQuickCoordinateTransformer_1a609096eb0af00978fa3fd918c408f34b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QgsQuickCoordinateTransformer::processPosition</definition>
+        <argsstring>(const QgsPoint &amp;position) const</argsstring>
+        <name>processPosition</name>
+        <qualifiedname>QgsQuickCoordinateTransformer::processPosition</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="160" column="14" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.cpp" bodystart="124" bodyend="194"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Helper class for transform of coordinates (QgsPoint) to a different coordinate reference system.</para>
+<para>It requires connection of transformation context from mapSettings, source position and source CRS to calculate projected position in desired destination CRS.</para>
+<para><simplesect kind="note"><para>QML Type: CoordinateTransformer </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QgsQuickCoordinateTransformer</label>
+        <link refid="classQgsQuickCoordinateTransformer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QgsQuickCoordinateTransformer</label>
+        <link refid="classQgsQuickCoordinateTransformer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qgsquick/qgsquickcoordinatetransformer.h" line="36" column="1" bodyfile="src/core/qgsquick/qgsquickcoordinatetransformer.h" bodystart="37" bodyend="171"/>
+    <listofallmembers>
+      <member refid="classQgsQuickCoordinateTransformer_1a70a06031705612e9cca6e9292594454a" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>deltaZ</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a3931ecbd2b635f76ef7b631b9054d951" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>deltaZ</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a56e9c389b2a7847eda19dcd36e682d83" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>deltaZChanged</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a2b27d5e0b59d0bb0654e3d665c96a871" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>destinationCrs</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a1aff94bc1337b40616456a4ac305125c" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>destinationCrs</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1adfb6d92017b0cb8c04795e7d791fd2eb" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>destinationCrsChanged</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a185f23a0c6b47274b82ec2f32f6d30c4" prot="private" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>mCoordinateTransform</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a52e8dd2ae8d20118a086a16ad825ff95" prot="private" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>mCoordinateVerticalGridTransform</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a3ec5f28447eb338102da88a722534fc1" prot="private" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>mDeltaZ</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a0126ea12e4bde86503cc14f05674fcf7" prot="private" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>mProjectedPosition</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a085c833f5d210cc415bdf461d0aa6303" prot="private" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>mSkipAltitudeTransformation</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a1bda5373435faf6752d605be43111044" prot="private" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>mSourcePosition</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a2b0a7aef6c2f02d396cba5cb4346009f" prot="private" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>mVerticalGrid</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a986caca415b940029f7a22411357768e" prot="private" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>mVerticalGridPath</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a609096eb0af00978fa3fd918c408f34b" prot="private" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>processPosition</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1aa39caa792efa25c9dc2002b3c338638b" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>projectedPosition</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a1bd276ac844441136e3cc6399e77c6d5" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>projectedPosition</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a569d1ed7f852f897e1f653b3d7fe6e35" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>projectedPositionChanged</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a8abb4afcc01068f52e62d0ae95dbf66a" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>QgsQuickCoordinateTransformer</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1aa9f5b3fec7d2aae7523328af30f20349" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>setDeltaZ</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1aff225d016c5d2b4e17fcfb1861999c39" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>setDestinationCrs</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a7f8a2609622503a21806a867d6907627" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>setSkipAltitudeTransformation</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a893e5b32957725336ec64e8db48657a4" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>setSourceCoordinate</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1aa2de9e6a954b9d94723d5b43b19728b5" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>setSourceCrs</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1ae435e0863eaec99208da771e95f3b965" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>setSourcePosition</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a69c51b0b2fa5ebf6084c73124087919d" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>setTransformContext</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a82a4116ce97773f566c1e701056ee4bc" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>setVerticalGrid</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1add3801dcf826302c9e6b99037a46b242" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>skipAltitudeTransformation</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a8dce0cce6117ab37dea393ce0ba163c3" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>skipAltitudeTransformation</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1ae46a3058b15ae134f350ed7b25eaf7b4" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>skipAltitudeTransformationChanged</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1ac8bab10146c77b6fd1c7ef3edafc02ea" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>sourceCoordinate</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1ac803b5d728f7971d3304c0fc3219d876" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>sourceCoordinate</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a2129a34cd5832c2ba1159c725fb37d6d" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>sourceCoordinateChanged</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a20fa24709da8ca1c1fb224cdc9706116" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>sourceCrs</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1afab54b363880858e6e949b1d8919017d" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>sourceCrs</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a9878a22575c503fda354cc48f8640f2a" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>sourceCrsChanged</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1adc0395a329a58b5f268fe7d5dcd13f9f" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>sourcePosition</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a3b6766e1eb96fdd40306379a4948a1fe" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>sourcePosition</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a5e479377a90e4c7495093113f647a2ed" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>sourcePositionChanged</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a77a386b53eae71b769bbf7cf53016a3b" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>transformContext</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1aba1d379da1563ab68a3fd306191ee059" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>transformContext</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1a3a83cf812a6620052a6be0413454b50b" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>transformContextChanged</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1ad1232f1289164961e6104fa9235e375a" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>transformPosition</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1ade2449c0e1ff1958b222e54d87a7299e" prot="private" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>updatePosition</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1ad5007c583c3a208a878ea97e17cecf15" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>verticalGrid</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1ab534e649a4728561e9d410d87bd00b6e" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>verticalGrid</name></member>
+      <member refid="classQgsQuickCoordinateTransformer_1afd8e8540536a198cf4419d28b3525b88" prot="public" virt="non-virtual"><scope>QgsQuickCoordinateTransformer</scope><name>verticalGridChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

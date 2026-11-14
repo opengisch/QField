@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCodeReader_1_1CornerOutline" kind="class" language="C++" prot="public">
+    <compoundname>QfCodeReader::CornerOutline</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Shape</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCodeReader_1_1CornerOutline_1ae33e77ac34df2e849f4c003fd3d3dda8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCodeReader::CornerOutline::outlineColor</definition>
+        <argsstring></argsstring>
+        <name>outlineColor</name>
+        <qualifiedname>QfCodeReader::CornerOutline::outlineColor</qualifiedname>
+        <read>dummyGetter_outlineColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCodeReader.qml" line="50" column="1" bodyfile="src/gui/qml/QfCodeReader.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCodeReader_1_1CornerOutline_1aa9ff5a88a17a269df6b4f7c543409b1c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCodeReader::CornerOutline::cornerLength</definition>
+        <argsstring></argsstring>
+        <name>cornerLength</name>
+        <qualifiedname>QfCodeReader::CornerOutline::cornerLength</qualifiedname>
+        <read>dummyGetter_cornerLength_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCodeReader.qml" line="52" column="1" bodyfile="src/gui/qml/QfCodeReader.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCodeReader_1_1CornerOutline_1a07d84b82b00e027af7b8545107903535" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCodeReader::CornerOutline::preferredRendererType</definition>
+        <argsstring></argsstring>
+        <name>preferredRendererType</name>
+        <qualifiedname>QfCodeReader::CornerOutline::preferredRendererType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCodeReader.qml" line="54" column="5" bodyfile="src/gui/qml/QfCodeReader.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCodeReader::CornerOutline</label>
+        <link refid="classQfCodeReader_1_1CornerOutline"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Shape</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCodeReader::CornerOutline</label>
+        <link refid="classQfCodeReader_1_1CornerOutline"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Shape</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfCodeReader.qml" line="47" column="1" bodyfile="src/gui/qml/QfCodeReader.qml" bodystart="47" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classQfCodeReader_1_1CornerOutline_1aa9ff5a88a17a269df6b4f7c543409b1c" prot="public" virt="non-virtual"><scope>QfCodeReader::CornerOutline</scope><name>cornerLength</name></member>
+      <member refid="classQfCodeReader_1_1CornerOutline_1ae33e77ac34df2e849f4c003fd3d3dda8" prot="public" virt="non-virtual"><scope>QfCodeReader::CornerOutline</scope><name>outlineColor</name></member>
+      <member refid="classQfCodeReader_1_1CornerOutline_1a07d84b82b00e027af7b8545107903535" prot="private" virt="non-virtual"><scope>QfCodeReader::CornerOutline</scope><name>preferredRendererType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

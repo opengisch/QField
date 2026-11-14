@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfScaleBar" kind="class" language="C++" prot="public">
+    <compoundname>QfScaleBar</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classScaleBar" prot="public" virt="non-virtual">ScaleBar</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfScaleBar_1a623411f188898cbef85d05f839e4da76" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfScaleBar::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfScaleBar::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScaleBar.qml" line="12" column="1" bodyfile="src/gui/qml/QfScaleBar.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfScaleBar_1a0e046fc7310fd2a3d966ac2f02f92b3e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfScaleBar::lineWidth</definition>
+        <argsstring></argsstring>
+        <name>lineWidth</name>
+        <qualifiedname>QfScaleBar::lineWidth</qualifiedname>
+        <read>dummyGetter_lineWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScaleBar.qml" line="14" column="1" bodyfile="src/gui/qml/QfScaleBar.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfScaleBar_1a54196237e8259a3e24e9913cb4a5a05f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfScaleBar::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfScaleBar::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScaleBar.qml" line="16" column="5" bodyfile="src/gui/qml/QfScaleBar.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScaleBar_1a6b092c7c124918f584400188749efa46" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfScaleBarMeasurement" kindref="compound">QfScaleBarMeasurement</ref></type>
+        <definition>QfScaleBarMeasurement QfScaleBar::measurement</definition>
+        <argsstring></argsstring>
+        <name>measurement</name>
+        <qualifiedname>QfScaleBar::measurement</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScaleBar.qml" line="17" column="23" bodyfile="src/gui/qml/QfScaleBar.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScaleBar_1a6d447de7a531876388c4b59cfea8d2c6" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfScaleBar::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <qualifiedname>QfScaleBar::label</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScaleBar.qml" line="18" column="6" bodyfile="src/gui/qml/QfScaleBar.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScaleBar_1a4714278cfe21aa8bab28f4733e4b62cc" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfScaleBar::bar</definition>
+        <argsstring></argsstring>
+        <name>bar</name>
+        <qualifiedname>QfScaleBar::bar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScaleBar.qml" line="19" column="7" bodyfile="src/gui/qml/QfScaleBar.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScaleBar_1af0474d3b4b8d3065bc61302b9135ce4b" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath QfScaleBar::barLine</definition>
+        <argsstring></argsstring>
+        <name>barLine</name>
+        <qualifiedname>QfScaleBar::barLine</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfScaleBar.qml" line="20" column="11" bodyfile="src/gui/qml/QfScaleBar.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfScaleBar</label>
+        <link refid="classQfScaleBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="3">
+        <label>ScaleBar</label>
+        <link refid="classScaleBar"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfScaleBar</label>
+        <link refid="classQfScaleBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfScaleBar.qml" line="9" column="1" bodyfile="src/gui/qml/QfScaleBar.qml" bodystart="9" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classQfScaleBar_1a4714278cfe21aa8bab28f4733e4b62cc" prot="private" virt="non-virtual"><scope>QfScaleBar</scope><name>bar</name></member>
+      <member refid="classQfScaleBar_1af0474d3b4b8d3065bc61302b9135ce4b" prot="private" virt="non-virtual"><scope>QfScaleBar</scope><name>barLine</name></member>
+      <member refid="classQfScaleBar_1a54196237e8259a3e24e9913cb4a5a05f" prot="private" virt="non-virtual"><scope>QfScaleBar</scope><name>height</name></member>
+      <member refid="classQfScaleBar_1a6d447de7a531876388c4b59cfea8d2c6" prot="private" virt="non-virtual"><scope>QfScaleBar</scope><name>label</name></member>
+      <member refid="classQfScaleBar_1a0e046fc7310fd2a3d966ac2f02f92b3e" prot="public" virt="non-virtual"><scope>QfScaleBar</scope><name>lineWidth</name></member>
+      <member refid="classQfScaleBar_1a623411f188898cbef85d05f839e4da76" prot="public" virt="non-virtual"><scope>QfScaleBar</scope><name>mapSettings</name></member>
+      <member refid="classQfScaleBar_1a6b092c7c124918f584400188749efa46" prot="private" virt="non-virtual"><scope>QfScaleBar</scope><name>measurement</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

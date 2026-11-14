@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfCloudUserInformation" kind="struct" language="C++" prot="public">
+    <compoundname>QfCloudUserInformation</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="structQfCloudUserInformation_1a2f2081dee4df02e047c251e3a71cbc90" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudUserInformation::username</definition>
+        <argsstring></argsstring>
+        <name>username</name>
+        <qualifiedname>QfCloudUserInformation::username</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="36" column="5" bodyfile="src/core/utils/qfcloudutils.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structQfCloudUserInformation_1af887fdf0deae44844b06dfc15cd9167e" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudUserInformation::email</definition>
+        <argsstring></argsstring>
+        <name>email</name>
+        <qualifiedname>QfCloudUserInformation::email</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="37" column="5" bodyfile="src/core/utils/qfcloudutils.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structQfCloudUserInformation_1a517f72c9c2d7c0c2df6b0fd2b581a54f" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudUserInformation::firstName</definition>
+        <argsstring></argsstring>
+        <name>firstName</name>
+        <qualifiedname>QfCloudUserInformation::firstName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="38" column="5" bodyfile="src/core/utils/qfcloudutils.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structQfCloudUserInformation_1a147478e1cb5a6e71aadbf210a95131e2" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudUserInformation::lastName</definition>
+        <argsstring></argsstring>
+        <name>lastName</name>
+        <qualifiedname>QfCloudUserInformation::lastName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="39" column="5" bodyfile="src/core/utils/qfcloudutils.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="structQfCloudUserInformation_1a60e6d65b8cc79867406a646226e821b0" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfCloudUserInformation::fullName</definition>
+        <argsstring></argsstring>
+        <name>fullName</name>
+        <qualifiedname>QfCloudUserInformation::fullName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="40" column="5" bodyfile="src/core/utils/qfcloudutils.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfCloudUserInformation_1a69ff8fbf33022c6ee00436b39a99b39a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudUserInformation::QfCloudUserInformation</definition>
+        <argsstring>()=default</argsstring>
+        <name>QfCloudUserInformation</name>
+        <qualifiedname>QfCloudUserInformation::QfCloudUserInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="43" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfCloudUserInformation_1a2d2a56a1e996e88a2afb660df132257a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudUserInformation::QfCloudUserInformation</definition>
+        <argsstring>(const QString &amp;username, const QString &amp;email, const QString &amp;firstName=QString(), const QString &amp;lastName=QString(), const QString &amp;fullName=QString())</argsstring>
+        <name>QfCloudUserInformation</name>
+        <qualifiedname>QfCloudUserInformation::QfCloudUserInformation</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>email</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>firstName</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>lastName</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fullName</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="45" column="5" bodyfile="src/core/utils/qfcloudutils.h" bodystart="45" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfCloudUserInformation_1aeee71c95688abba6628cbae2c7d65fd2" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudUserInformation::QfCloudUserInformation</definition>
+        <argsstring>(const QJsonObject &amp;cloudUserInformation)</argsstring>
+        <name>QfCloudUserInformation</name>
+        <qualifiedname>QfCloudUserInformation::QfCloudUserInformation</qualifiedname>
+        <param>
+          <type>const QJsonObject &amp;</type>
+          <declname>cloudUserInformation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="53" column="14" bodyfile="src/core/utils/qfcloudutils.h" bodystart="53" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfCloudUserInformation_1a2046bb18119af7ef27b79336f4f21cb5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudUserInformation::operator==</definition>
+        <argsstring>(const QfCloudUserInformation &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>QfCloudUserInformation::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="structQfCloudUserInformation" kindref="compound">QfCloudUserInformation</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="61" column="10" bodyfile="src/core/utils/qfcloudutils.h" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfCloudUserInformation_1ab6f135c9b6d5f3e7a40b1433ea5b6c00" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QJsonObject</type>
+        <definition>QJsonObject QfCloudUserInformation::toJson</definition>
+        <argsstring>() const</argsstring>
+        <name>toJson</name>
+        <qualifiedname>QfCloudUserInformation::toJson</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="66" column="17" bodyfile="src/core/utils/qfcloudutils.h" bodystart="66" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfCloudUserInformation_1af5fa4cd95c8a6efdbac9ab940caad674" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudUserInformation::isEmpty</definition>
+        <argsstring>() const</argsstring>
+        <name>isEmpty</name>
+        <qualifiedname>QfCloudUserInformation::isEmpty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfcloudutils.h" line="79" column="10" bodyfile="src/core/utils/qfcloudutils.h" bodystart="79" bodyend="83"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/utils/qfcloudutils.h" line="32" column="1" bodyfile="src/core/utils/qfcloudutils.h" bodystart="33" bodyend="90"/>
+    <listofallmembers>
+      <member refid="structQfCloudUserInformation_1af887fdf0deae44844b06dfc15cd9167e" prot="public" virt="non-virtual"><scope>QfCloudUserInformation</scope><name>email</name></member>
+      <member refid="structQfCloudUserInformation_1a517f72c9c2d7c0c2df6b0fd2b581a54f" prot="public" virt="non-virtual"><scope>QfCloudUserInformation</scope><name>firstName</name></member>
+      <member refid="structQfCloudUserInformation_1a60e6d65b8cc79867406a646226e821b0" prot="public" virt="non-virtual"><scope>QfCloudUserInformation</scope><name>fullName</name></member>
+      <member refid="structQfCloudUserInformation_1af5fa4cd95c8a6efdbac9ab940caad674" prot="public" virt="non-virtual"><scope>QfCloudUserInformation</scope><name>isEmpty</name></member>
+      <member refid="structQfCloudUserInformation_1a147478e1cb5a6e71aadbf210a95131e2" prot="public" virt="non-virtual"><scope>QfCloudUserInformation</scope><name>lastName</name></member>
+      <member refid="structQfCloudUserInformation_1a2046bb18119af7ef27b79336f4f21cb5" prot="public" virt="non-virtual"><scope>QfCloudUserInformation</scope><name>operator==</name></member>
+      <member refid="structQfCloudUserInformation_1a69ff8fbf33022c6ee00436b39a99b39a" prot="public" virt="non-virtual"><scope>QfCloudUserInformation</scope><name>QfCloudUserInformation</name></member>
+      <member refid="structQfCloudUserInformation_1a2d2a56a1e996e88a2afb660df132257a" prot="public" virt="non-virtual"><scope>QfCloudUserInformation</scope><name>QfCloudUserInformation</name></member>
+      <member refid="structQfCloudUserInformation_1aeee71c95688abba6628cbae2c7d65fd2" prot="public" virt="non-virtual"><scope>QfCloudUserInformation</scope><name>QfCloudUserInformation</name></member>
+      <member refid="structQfCloudUserInformation_1ab6f135c9b6d5f3e7a40b1433ea5b6c00" prot="public" virt="non-virtual"><scope>QfCloudUserInformation</scope><name>toJson</name></member>
+      <member refid="structQfCloudUserInformation_1a2f2081dee4df02e047c251e3a71cbc90" prot="public" virt="non-virtual"><scope>QfCloudUserInformation</scope><name>username</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

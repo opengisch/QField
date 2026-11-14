@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSerialPortDeviceChooser" kind="class" language="C++" prot="public">
+    <compoundname>SerialPortDeviceChooser</compoundname>
+    <basecompoundref refid="classQfSerialPortDeviceChooser" prot="public" virt="non-virtual">QfSerialPortDeviceChooser</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfSerialPortDeviceChooser</label>
+        <link refid="classQfSerialPortDeviceChooser"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>SerialPortDeviceChooser</label>
+        <link refid="classSerialPortDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfSerialPortDeviceChooser</label>
+        <link refid="classQfSerialPortDeviceChooser"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>SerialPortDeviceChooser</label>
+        <link refid="classSerialPortDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/SerialPortDeviceChooser.qml" line="2" column="1" bodyfile="src/app/qml_compat/SerialPortDeviceChooser.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfSerialPortDeviceChooser_1adb3b593727c99eeffa8a22aa49324047" prot="public" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>deviceAddress</name></member>
+      <member refid="classQfSerialPortDeviceChooser_1a44405a58a1104de6192700c1f7ae6d7a" prot="public" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>deviceName</name></member>
+      <member refid="classQfSerialPortDeviceChooser_1a5da2bdd2141922c7e69464d33f166769" prot="public" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>generateName</name></member>
+      <member refid="classQfSerialPortDeviceChooser_1af73c0c5aebbfba7040144a0e673697ba" prot="public" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>getSettings</name></member>
+      <member refid="classQfSerialPortDeviceChooser_1a3aae175f193b49fbefc7672a5aa7ca9a" prot="public" virt="non-virtual"><scope>SerialPortDeviceChooser</scope><name>setSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

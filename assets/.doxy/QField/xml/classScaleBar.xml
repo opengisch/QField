@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classScaleBar" kind="class" language="C++" prot="public">
+    <compoundname>ScaleBar</compoundname>
+    <basecompoundref refid="classQfScaleBar" prot="public" virt="non-virtual">QfScaleBar</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfScaleBar</label>
+        <link refid="classQfScaleBar"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ScaleBar</label>
+        <link refid="classScaleBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfScaleBar</label>
+        <link refid="classQfScaleBar"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>ScaleBar</label>
+        <link refid="classScaleBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/ScaleBar.qml" line="2" column="1" bodyfile="src/app/qml_compat/ScaleBar.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfScaleBar_1a0e046fc7310fd2a3d966ac2f02f92b3e" prot="public" virt="non-virtual"><scope>ScaleBar</scope><name>lineWidth</name></member>
+      <member refid="classQfScaleBar_1a623411f188898cbef85d05f839e4da76" prot="public" virt="non-virtual"><scope>ScaleBar</scope><name>mapSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

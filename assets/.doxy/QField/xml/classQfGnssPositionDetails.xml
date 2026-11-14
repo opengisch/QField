@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGnssPositionDetails" kind="class" language="C++" prot="public">
+    <compoundname>QfGnssPositionDetails</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfGnssPositionDetails_1a88cfc183694b10888ffe0b0e79189285" prot="private" static="no" mutable="no">
+        <type>QList&lt; QString &gt;</type>
+        <definition>QList&lt;QString&gt; QfGnssPositionDetails::mNames</definition>
+        <argsstring></argsstring>
+        <name>mNames</name>
+        <qualifiedname>QfGnssPositionDetails::mNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfgnsspositioninformation.h" line="424" column="11" bodyfile="src/core/positioning/qfgnsspositioninformation.h" bodystart="424" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGnssPositionDetails_1a481792ed416f36392379a834450a9999" prot="private" static="no" mutable="no">
+        <type>QList&lt; QVariant &gt;</type>
+        <definition>QList&lt;QVariant&gt; QfGnssPositionDetails::mValues</definition>
+        <argsstring></argsstring>
+        <name>mValues</name>
+        <qualifiedname>QfGnssPositionDetails::mValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfgnsspositioninformation.h" line="425" column="11" bodyfile="src/core/positioning/qfgnsspositioninformation.h" bodystart="425" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfGnssPositionDetails_1aa10fcd818c8cfa08086e9c545a1f62d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfGnssPositionDetails::QfGnssPositionDetails</definition>
+        <argsstring>()</argsstring>
+        <name>QfGnssPositionDetails</name>
+        <qualifiedname>QfGnssPositionDetails::QfGnssPositionDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfgnsspositioninformation.h" line="412" column="5" bodyfile="src/core/positioning/qfgnsspositioninformation.h" bodystart="412" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGnssPositionDetails_1aa004640c7b39dadb2740c04a687bf539" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGnssPositionDetails::append</definition>
+        <argsstring>(const QString &amp;name, const QVariant &amp;value)</argsstring>
+        <name>append</name>
+        <qualifiedname>QfGnssPositionDetails::append</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfgnsspositioninformation.h" line="414" column="10" bodyfile="src/core/positioning/qfgnsspositioninformation.h" bodystart="414" bodyend="418"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGnssPositionDetails_1a03656fd61d1ed9f19b72ff6a4a6f55dd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; QString &gt;</type>
+        <definition>QList&lt; QString &gt; QfGnssPositionDetails::names</definition>
+        <argsstring>() const</argsstring>
+        <name>names</name>
+        <qualifiedname>QfGnssPositionDetails::names</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfgnsspositioninformation.h" line="420" column="11" bodyfile="src/core/positioning/qfgnsspositioninformation.h" bodystart="420" bodyend="420"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGnssPositionDetails_1ac1273a5ee6d75b5600ee3c7130f835de" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QList&lt; QVariant &gt;</type>
+        <definition>QList&lt; QVariant &gt; QfGnssPositionDetails::values</definition>
+        <argsstring>() const</argsstring>
+        <name>values</name>
+        <qualifiedname>QfGnssPositionDetails::values</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfgnsspositioninformation.h" line="421" column="11" bodyfile="src/core/positioning/qfgnsspositioninformation.h" bodystart="421" bodyend="421"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classQfGnssPositionDetails_1a2c52f77eee63c503962ef4b012b7bc63" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;stream, const QfGnssPositionDetails &amp;position)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>QfGnssPositionDetails::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classQfGnssPositionDetails" kindref="compound">QfGnssPositionDetails</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfgnsspositioninformation.h" line="427" column="12" bodyfile="src/core/positioning/qfgnsspositioninformation.cpp" bodystart="182" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="friend" id="classQfGnssPositionDetails_1af53bcb3e4b8625000f574e49a50c8c9b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;stream, QfGnssPositionDetails &amp;position)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>QfGnssPositionDetails::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classQfGnssPositionDetails" kindref="compound">QfGnssPositionDetails</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfgnsspositioninformation.h" line="428" column="24" bodyfile="src/core/positioning/qfgnsspositioninformation.cpp" bodystart="188" bodyend="191"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/positioning/qfgnsspositioninformation.h" line="407" column="1" bodyfile="src/core/positioning/qfgnsspositioninformation.h" bodystart="408" bodyend="429"/>
+    <listofallmembers>
+      <member refid="classQfGnssPositionDetails_1aa004640c7b39dadb2740c04a687bf539" prot="public" virt="non-virtual"><scope>QfGnssPositionDetails</scope><name>append</name></member>
+      <member refid="classQfGnssPositionDetails_1a88cfc183694b10888ffe0b0e79189285" prot="private" virt="non-virtual"><scope>QfGnssPositionDetails</scope><name>mNames</name></member>
+      <member refid="classQfGnssPositionDetails_1a481792ed416f36392379a834450a9999" prot="private" virt="non-virtual"><scope>QfGnssPositionDetails</scope><name>mValues</name></member>
+      <member refid="classQfGnssPositionDetails_1a03656fd61d1ed9f19b72ff6a4a6f55dd" prot="public" virt="non-virtual"><scope>QfGnssPositionDetails</scope><name>names</name></member>
+      <member refid="classQfGnssPositionDetails_1a2c52f77eee63c503962ef4b012b7bc63" prot="private" virt="non-virtual"><scope>QfGnssPositionDetails</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classQfGnssPositionDetails_1af53bcb3e4b8625000f574e49a50c8c9b" prot="private" virt="non-virtual"><scope>QfGnssPositionDetails</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classQfGnssPositionDetails_1aa10fcd818c8cfa08086e9c545a1f62d3" prot="public" virt="non-virtual"><scope>QfGnssPositionDetails</scope><name>QfGnssPositionDetails</name></member>
+      <member refid="classQfGnssPositionDetails_1ac1273a5ee6d75b5600ee3c7130f835de" prot="public" virt="non-virtual"><scope>QfGnssPositionDetails</scope><name>values</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

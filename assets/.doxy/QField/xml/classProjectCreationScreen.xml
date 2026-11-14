@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProjectCreationScreen" kind="class" language="C++" prot="public">
+    <compoundname>ProjectCreationScreen</compoundname>
+    <basecompoundref refid="classQfProjectCreationScreen" prot="public" virt="non-virtual">QfProjectCreationScreen</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>ProjectCreationScreen</label>
+        <link refid="classProjectCreationScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProjectCreationScreen</label>
+        <link refid="classQfProjectCreationScreen"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>ProjectCreationScreen</label>
+        <link refid="classProjectCreationScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProjectCreationScreen</label>
+        <link refid="classQfProjectCreationScreen"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/ProjectCreationScreen.qml" line="2" column="1" bodyfile="src/app/qml_compat/ProjectCreationScreen.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfProjectCreationScreen_1ad3a0deaa75f0310973f844110bbc781c" prot="public" virt="non-virtual"><scope>ProjectCreationScreen</scope><name>show</name></member>
+      <member refid="classQfProjectCreationScreen_1ab8c5ef0e28a2c2fc8388bef73befc9d7" prot="public" virt="non-virtual"><scope>ProjectCreationScreen</scope><name>triggerCloudify</name></member>
+      <member refid="classQfProjectCreationScreen_1a874feeb4ff16f3dcf657a4de8086389d" prot="public" virt="non-virtual"><scope>ProjectCreationScreen</scope><name>triggerConnection</name></member>
+      <member refid="classQfProjectCreationScreen_1a17f1a793b543e0fc7a0763d19aab7479" prot="public" virt="non-virtual"><scope>ProjectCreationScreen</scope><name>triggerProjectLoad</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

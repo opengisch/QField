@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classBrowserPanel" kind="class" language="C++" prot="public">
+    <compoundname>BrowserPanel</compoundname>
+    <basecompoundref refid="classQfBrowserPanel" prot="public" virt="non-virtual">QfBrowserPanel</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BrowserPanel</label>
+        <link refid="classBrowserPanel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfBrowserPanel</label>
+        <link refid="classQfBrowserPanel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BrowserPanel</label>
+        <link refid="classBrowserPanel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="2">
+        <label>QfBrowserPanel</label>
+        <link refid="classQfBrowserPanel"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/BrowserPanel.qml" line="2" column="1" bodyfile="src/app/qml_compat/BrowserPanel.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfBrowserPanel_1a17aee04d59a609708bda5fd3b731a437" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>browserCookies</name></member>
+      <member refid="classQfBrowserPanel_1a7cd77b55ec393d9511aedffc4a14595d" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>browserView</name></member>
+      <member refid="classQfBrowserPanel_1a5f7e862e18b67f9eda499aa01fa815b8" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>cancel</name></member>
+      <member refid="classQfBrowserPanel_1abf5a3c4a9cc92435efab52211d57796f" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>clearCookiesOnOpen</name></member>
+      <member refid="classQfBrowserPanel_1a7efbb16bda69a64b5fefe399174acb81" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>deleteCookies</name></member>
+      <member refid="classQfBrowserPanel_1a9672083ee2739a2e8147b0b9fff8d5f6" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>fullscreen</name></member>
+      <member refid="classQfBrowserPanel_1a1ce93d58616c0979476af9eff5146e34" prot="public" virt="non-virtual"><scope>BrowserPanel</scope><name>url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

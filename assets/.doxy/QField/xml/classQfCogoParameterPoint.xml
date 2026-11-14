@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCogoParameterPoint" kind="class" language="C++" prot="public">
+    <compoundname>QfCogoParameterPoint</compoundname>
+    <basecompoundref refid="classQfCogoParameterWidgetBase" prot="public" virt="non-virtual">QfCogoParameterWidgetBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCogoParameterPoint_1ae44d6e68b0b931cc9deb213b3a002fc6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfCogoParameterPoint::positionInformation</definition>
+        <argsstring></argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>QfCogoParameterPoint::positionInformation</qualifiedname>
+        <read>dummyGetter_positionInformation_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" line="10" column="1" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCogoParameterPoint_1aa396b802bae4d0117e5daa9b0f69efea" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoParameterPoint::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCogoParameterPoint::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" line="12" column="5" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoParameterPoint_1a205505907e6999870a63e723687574ff" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCogoParameterPoint::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCogoParameterPoint::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" line="13" column="5" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoParameterPoint_1a7ab3aa86a19027b78cdb822f878e0bd8" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfCogoParameterPoint::pointField</definition>
+        <argsstring></argsstring>
+        <name>pointField</name>
+        <qualifiedname>QfCogoParameterPoint::pointField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" line="14" column="13" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCogoParameterPoint_1abd9b8a3abd7cadf9d80ab780153e8c60" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfCogoParameterPoint::pointPickerLoader</definition>
+        <argsstring></argsstring>
+        <name>pointPickerLoader</name>
+        <qualifiedname>QfCogoParameterPoint::pointPickerLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" line="15" column="8" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCogoParameterPoint_1a479d737a538405c96dfcd2cf41be3279" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoParameterPoint::processValue</definition>
+        <argsstring>()</argsstring>
+        <name>processValue</name>
+        <qualifiedname>QfCogoParameterPoint::processValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" line="18" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoParameterPoint_1a18b7b35028bfaae36fdde426964e0494" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoParameterPoint::applyPoint</definition>
+        <argsstring>(point)</argsstring>
+        <name>applyPoint</name>
+        <qualifiedname>QfCogoParameterPoint::applyPoint</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" line="20" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCogoParameterPoint_1a94c4d01436024c3e62eb1e9b003db7c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCogoParameterPoint::requestedPositionReceived</definition>
+        <argsstring>(position, positionInformation)</argsstring>
+        <name>requestedPositionReceived</name>
+        <qualifiedname>QfCogoParameterPoint::requestedPositionReceived</qualifiedname>
+        <param>
+          <type>position</type>
+        </param>
+        <param>
+          <type>positionInformation</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" line="22" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCogoParameterPoint</label>
+        <link refid="classQfCogoParameterPoint"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoParameterWidgetBase</label>
+        <link refid="classQfCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCogoParameterPoint</label>
+        <link refid="classQfCogoParameterPoint"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfCogoParameterWidgetBase</label>
+        <link refid="classQfCogoParameterWidgetBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" line="7" column="1" bodyfile="src/gui/qml/cogoparameterwidgets/QfCogoParameterPoint.qml" bodystart="7" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classQfCogoParameterPoint_1a18b7b35028bfaae36fdde426964e0494" prot="public" virt="non-virtual"><scope>QfCogoParameterPoint</scope><name>applyPoint</name></member>
+      <member refid="classQfCogoParameterPoint_1a205505907e6999870a63e723687574ff" prot="private" virt="non-virtual"><scope>QfCogoParameterPoint</scope><name>height</name></member>
+      <member refid="classQfCogoParameterPoint_1a7ab3aa86a19027b78cdb822f878e0bd8" prot="private" virt="non-virtual"><scope>QfCogoParameterPoint</scope><name>pointField</name></member>
+      <member refid="classQfCogoParameterPoint_1abd9b8a3abd7cadf9d80ab780153e8c60" prot="private" virt="non-virtual"><scope>QfCogoParameterPoint</scope><name>pointPickerLoader</name></member>
+      <member refid="classQfCogoParameterPoint_1ae44d6e68b0b931cc9deb213b3a002fc6" prot="public" virt="non-virtual"><scope>QfCogoParameterPoint</scope><name>positionInformation</name></member>
+      <member refid="classQfCogoParameterPoint_1a479d737a538405c96dfcd2cf41be3279" prot="public" virt="non-virtual"><scope>QfCogoParameterPoint</scope><name>processValue</name></member>
+      <member refid="classQfCogoParameterPoint_1a94c4d01436024c3e62eb1e9b003db7c8" prot="public" virt="non-virtual"><scope>QfCogoParameterPoint</scope><name>requestedPositionReceived</name></member>
+      <member refid="classQfCogoParameterWidgetBase_1a31b2a7aa825831608188d5c97cf5d8a6" prot="public" virt="non-virtual"><scope>QfCogoParameterPoint</scope><name>requestPosition</name></member>
+      <member refid="classQfCogoParameterWidgetBase_1a021ef367435f055140add8a42b7ea339" prot="public" virt="non-virtual"><scope>QfCogoParameterPoint</scope><name>valueChangeRequested</name></member>
+      <member refid="classQfCogoParameterPoint_1aa396b802bae4d0117e5daa9b0f69efea" prot="private" virt="non-virtual"><scope>QfCogoParameterPoint</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,833 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPositioningInformationModel" kind="class" language="C++" prot="public">
+    <compoundname>QfPositioningInformationModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QStandardItemModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfPositioningInformationModel_1a2fc4c61793696c8fb9c3dcf59301e41e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>QfPositioningInformationModel::Roles</qualifiedname>
+        <enumvalue id="classQfPositioningInformationModel_1a2fc4c61793696c8fb9c3dcf59301e41ea36dec13009f1ab12045d682cc50c0c1b" prot="public">
+          <name>NameRole</name>
+          <initializer>= Qt::UserRole</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfPositioningInformationModel_1a2fc4c61793696c8fb9c3dcf59301e41ea4a9b29072855b6d9375f5458fcbdd9c1" prot="public">
+          <name>ValueRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="22" column="5" bodyfile="src/core/positioning/qfpositioninginformationmodel.h" bodystart="23" bodyend="26"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfPositioningInformationModel_1ab9e01113c0ecfd44c01d2e9234f772c4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfPositioning" kindref="compound">QfPositioning</ref> *</type>
+        <definition>QfPositioning * QfPositioningInformationModel::positioningSource</definition>
+        <argsstring></argsstring>
+        <name>positioningSource</name>
+        <qualifiedname>QfPositioningInformationModel::positioningSource</qualifiedname>
+        <read>positioningSource</read>
+        <write>setPositioningSource</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="16" column="5" bodyfile="src/core/positioning/qfpositioninginformationmodel.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningInformationModel_1a5ff6195e0dba1ae6161157fc7cf5e26f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioningInformationModel::antennaHeight</definition>
+        <argsstring></argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>QfPositioningInformationModel::antennaHeight</qualifiedname>
+        <read>antennaHeight</read>
+        <write>setAntennaHeight</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="17" column="5" bodyfile="src/core/positioning/qfpositioninginformationmodel.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningInformationModel_1a4ab579171e254d19f22a7a4e06916037" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit QfPositioningInformationModel::distanceUnits</definition>
+        <argsstring></argsstring>
+        <name>distanceUnits</name>
+        <qualifiedname>QfPositioningInformationModel::distanceUnits</qualifiedname>
+        <read>distanceUnits</read>
+        <write>setDistanceUnits</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="18" column="5" bodyfile="src/core/positioning/qfpositioninginformationmodel.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioningInformationModel_1af390970a4e2a1b7b7ce7569de24cf5cd" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfPositioningInformationModel::coordinateDisplayCrs</definition>
+        <argsstring></argsstring>
+        <name>coordinateDisplayCrs</name>
+        <qualifiedname>QfPositioningInformationModel::coordinateDisplayCrs</qualifiedname>
+        <read>coordinateDisplayCrs</read>
+        <write>setCoordinateDisplayCrs</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="19" column="5" bodyfile="src/core/positioning/qfpositioninginformationmodel.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfPositioningInformationModel_1a450db104c6b2e38767140313a12e1c70" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfPositioning" kindref="compound">QfPositioning</ref> *</type>
+        <definition>QfPositioning* QfPositioningInformationModel::mPositioningSource</definition>
+        <argsstring></argsstring>
+        <name>mPositioningSource</name>
+        <qualifiedname>QfPositioningInformationModel::mPositioningSource</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="119" column="19" bodyfile="src/core/positioning/qfpositioninginformationmodel.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioningInformationModel_1afd149cb570fc1ac99aa5036a0a62b618" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfPositioningInformationModel::mAntennaHeight</definition>
+        <argsstring></argsstring>
+        <name>mAntennaHeight</name>
+        <qualifiedname>QfPositioningInformationModel::mAntennaHeight</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="120" column="12" bodyfile="src/core/positioning/qfpositioninginformationmodel.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioningInformationModel_1a932101011fab17053d7d0ba50a788e0a" prot="private" static="no" mutable="no">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit QfPositioningInformationModel::mDistanceUnits</definition>
+        <argsstring></argsstring>
+        <name>mDistanceUnits</name>
+        <qualifiedname>QfPositioningInformationModel::mDistanceUnits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="121" column="24" bodyfile="src/core/positioning/qfpositioninginformationmodel.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioningInformationModel_1a3d89f074c4ab5e3db2e660930e74e64b" prot="private" static="no" mutable="no">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfPositioningInformationModel::mCoordinateDisplayCrs</definition>
+        <argsstring></argsstring>
+        <name>mCoordinateDisplayCrs</name>
+        <qualifiedname>QfPositioningInformationModel::mCoordinateDisplayCrs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="122" column="34" bodyfile="src/core/positioning/qfpositioninginformationmodel.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioningInformationModel_1af757ac3bc58f704ea77010a001bf1ff9" prot="private" static="no" mutable="no">
+        <type>QMetaObject::Connection</type>
+        <definition>QMetaObject::Connection QfPositioningInformationModel::positioningSourceConnection</definition>
+        <argsstring></argsstring>
+        <name>positioningSourceConnection</name>
+        <qualifiedname>QfPositioningInformationModel::positioningSourceConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="123" column="29" bodyfile="src/core/positioning/qfpositioninginformationmodel.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a7c9415e4533ea4de80e6658448b96d67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfPositioningInformationModel::QfPositioningInformationModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfPositioningInformationModel</name>
+        <qualifiedname>QfPositioningInformationModel::QfPositioningInformationModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="28" column="5" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="8" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a1029ae1ab0e781ff59fd39c34bfc299f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPositioningInformationModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>QfPositioningInformationModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+<para>Sets the data for the given index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index to set the data for </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>role</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The role of the data </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="36" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="179" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1abd1a6c925949d93217d18d198d1f6f87" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfPositioningInformationModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfPositioningInformationModel::roleNames</qualifiedname>
+        <briefdescription>
+<para>Returns the names of the roles used by the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="41" column="11" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="215" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a3e4f5ca0778365cca8e158a096c008ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::refreshData</definition>
+        <argsstring>()</argsstring>
+        <name>refreshData</name>
+        <qualifiedname>QfPositioningInformationModel::refreshData</qualifiedname>
+        <briefdescription>
+<para>Refreshes the data in the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="46" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="14" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1aec7179a3a96684ae673bc82a9117dd1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::updateInfo</definition>
+        <argsstring>(const QString &amp;name, const QVariant &amp;value)</argsstring>
+        <name>updateInfo</name>
+        <qualifiedname>QfPositioningInformationModel::updateInfo</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Updates the information in the model with the given name and value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the information to update </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="53" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="130" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a41ebaf9a9cff845a02f8242eabb968f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfPositioning" kindref="compound">QfPositioning</ref> *</type>
+        <definition>QfPositioning * QfPositioningInformationModel::positioningSource</definition>
+        <argsstring>() const</argsstring>
+        <name>positioningSource</name>
+        <qualifiedname>QfPositioningInformationModel::positioningSource</qualifiedname>
+        <briefdescription>
+<para>Returns the positioning source. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="58" column="19" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="229" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1ae0757c62715c847287cd6b74ed9e9799" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::setPositioningSource</definition>
+        <argsstring>(QfPositioning *positioningSource)</argsstring>
+        <name>setPositioningSource</name>
+        <qualifiedname>QfPositioningInformationModel::setPositioningSource</qualifiedname>
+        <param>
+          <type><ref refid="classQfPositioning" kindref="compound">QfPositioning</ref> *</type>
+          <declname>positioningSource</declname>
+        </param>
+        <briefdescription>
+<para>Updates the positioning source and reconnects the positionInformationChanged signal to refreshData, while disconnecting the previous connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>positioningSource</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new positioning source to update with </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="64" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="234" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a5da7cfd1a96900e6ecf249f606ce9209" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfPositioningInformationModel::antennaHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>QfPositioningInformationModel::antennaHeight</qualifiedname>
+        <briefdescription>
+<para>Returns the antenna height. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="69" column="12" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="262" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a4293f03bd56f2abddd8fbc6064192aed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::setAntennaHeight</definition>
+        <argsstring>(double antennaHeight)</argsstring>
+        <name>setAntennaHeight</name>
+        <qualifiedname>QfPositioningInformationModel::setAntennaHeight</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>antennaHeight</declname>
+        </param>
+        <briefdescription>
+<para>Sets the antenna height. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>antennaHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new antenna height </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="75" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="267" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a02e65036d95f481246ea1d0fd4bc5e1b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Qgis::DistanceUnit</type>
+        <definition>Qgis::DistanceUnit QfPositioningInformationModel::distanceUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>distanceUnits</name>
+        <qualifiedname>QfPositioningInformationModel::distanceUnits</qualifiedname>
+        <briefdescription>
+<para>Returns the distance units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="80" column="24" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="281" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a9c8806fd24e7b14ca233a72a66eb558c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::setDistanceUnits</definition>
+        <argsstring>(Qgis::DistanceUnit distanceUnits)</argsstring>
+        <name>setDistanceUnits</name>
+        <qualifiedname>QfPositioningInformationModel::setDistanceUnits</qualifiedname>
+        <param>
+          <type>Qgis::DistanceUnit</type>
+          <declname>distanceUnits</declname>
+        </param>
+        <briefdescription>
+<para>Sets the distance units. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>distanceUnits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new distance units </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="86" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="286" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a6ad8a3db0817c306577ed2381d02d867" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfPositioningInformationModel::coordinateDisplayCrs</definition>
+        <argsstring>() const</argsstring>
+        <name>coordinateDisplayCrs</name>
+        <qualifiedname>QfPositioningInformationModel::coordinateDisplayCrs</qualifiedname>
+        <briefdescription>
+<para>Returns the coordinate display CRS. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="91" column="34" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="295" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a311ae51d7a1a05960c28f396c4fe8bd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::setCoordinateDisplayCrs</definition>
+        <argsstring>(const QgsCoordinateReferenceSystem &amp;coordinateDisplayCrs)</argsstring>
+        <name>setCoordinateDisplayCrs</name>
+        <qualifiedname>QfPositioningInformationModel::setCoordinateDisplayCrs</qualifiedname>
+        <param>
+          <type>const QgsCoordinateReferenceSystem &amp;</type>
+          <declname>coordinateDisplayCrs</declname>
+        </param>
+        <briefdescription>
+<para>Sets the coordinate display CRS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coordinateDisplayCrs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new CRS </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="97" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="300" bodyend="309"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfPositioningInformationModel_1a22b94181762aafedbb70d3866ac8951f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::positioningSourceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positioningSourceChanged</name>
+        <qualifiedname>QfPositioningInformationModel::positioningSourceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="100" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioningInformationModel_1a3e8b1c07afc601d13f5c6f8c68005d65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::antennaHeightChanged</definition>
+        <argsstring>()</argsstring>
+        <name>antennaHeightChanged</name>
+        <qualifiedname>QfPositioningInformationModel::antennaHeightChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="101" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioningInformationModel_1a5c9a849922bc1545ebf3105cf6b1dd07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::distanceUnitsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>distanceUnitsChanged</name>
+        <qualifiedname>QfPositioningInformationModel::distanceUnitsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="102" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioningInformationModel_1a457767674760ad0fa765564639044e46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::coordinateDisplayCrsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>coordinateDisplayCrsChanged</name>
+        <qualifiedname>QfPositioningInformationModel::coordinateDisplayCrsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="103" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfPositioningInformationModel_1a2f079906129c6e1bdb75210982042014" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::onDataChanged</definition>
+        <argsstring>(const QModelIndex &amp;topLeft, const QModelIndex &amp;bottomRight, const QVector&lt; int &gt; &amp;roles)</argsstring>
+        <name>onDataChanged</name>
+        <qualifiedname>QfPositioningInformationModel::onDataChanged</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>topLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>bottomRight</declname>
+        </param>
+        <param>
+          <type>const QVector&lt; int &gt; &amp;</type>
+          <declname>roles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="106" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="223" bodyend="227"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a9f436a1e072aa784c40b7f2bce583d3c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::getCoordinateLabels</definition>
+        <argsstring>(QString &amp;coord1Label, QString &amp;coord2Label, bool coordinatesIsXY, bool isGeographic)</argsstring>
+        <name>getCoordinateLabels</name>
+        <qualifiedname>QfPositioningInformationModel::getCoordinateLabels</qualifiedname>
+        <param>
+          <type>QString &amp;</type>
+          <declname>coord1Label</declname>
+        </param>
+        <param>
+          <type>QString &amp;</type>
+          <declname>coord2Label</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>coordinatesIsXY</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isGeographic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="109" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="45" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1aff75e90c046b47b3999b59ecfa90e0dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::getCoordinateValues</definition>
+        <argsstring>(QString &amp;coord1Value, QString &amp;coord2Value, const QgsPoint &amp;coordinates, bool coordinatesIsXY, bool isGeographic)</argsstring>
+        <name>getCoordinateValues</name>
+        <qualifiedname>QfPositioningInformationModel::getCoordinateValues</qualifiedname>
+        <param>
+          <type>QString &amp;</type>
+          <declname>coord1Value</declname>
+        </param>
+        <param>
+          <type>QString &amp;</type>
+          <declname>coord2Value</declname>
+        </param>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>coordinates</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>coordinatesIsXY</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isGeographic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="110" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="59" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a68b44adc2b894947120fd9cbedf3a9fe" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::softReset</definition>
+        <argsstring>()</argsstring>
+        <name>softReset</name>
+        <qualifiedname>QfPositioningInformationModel::softReset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="111" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="256" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a948d0a60b12ac7969c929389ac976bf7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioningInformationModel::updateCoordinates</definition>
+        <argsstring>()</argsstring>
+        <name>updateCoordinates</name>
+        <qualifiedname>QfPositioningInformationModel::updateCoordinates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="112" column="10" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="150" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1aaa46e32605714dde0b2619bd2ebdbeef" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfPositioningInformationModel::getAltitude</definition>
+        <argsstring>(double distanceUnitFactor, const QString &amp;distanceUnitAbbreviation)</argsstring>
+        <name>getAltitude</name>
+        <qualifiedname>QfPositioningInformationModel::getAltitude</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>distanceUnitFactor</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>distanceUnitAbbreviation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="113" column="13" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="87" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a19f03f6aea0893704cbb4b1410faee22" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfPositioningInformationModel::getSpeed</definition>
+        <argsstring>(double distanceUnitFactor, const QString &amp;distanceUnitAbbreviation)</argsstring>
+        <name>getSpeed</name>
+        <qualifiedname>QfPositioningInformationModel::getSpeed</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>distanceUnitFactor</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>distanceUnitAbbreviation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="114" column="13" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1af5d8ca49dafdcf5f45265fd4030c00f4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfPositioningInformationModel::getHorizontalAccuracy</definition>
+        <argsstring>(double distanceUnitFactor, const QString &amp;distanceUnitAbbreviation)</argsstring>
+        <name>getHorizontalAccuracy</name>
+        <qualifiedname>QfPositioningInformationModel::getHorizontalAccuracy</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>distanceUnitFactor</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>distanceUnitAbbreviation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="115" column="13" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioningInformationModel_1a3fdc9bfd18f2c6b0d483333dc7a8b51d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfPositioningInformationModel::getVerticalAccuracy</definition>
+        <argsstring>(double distanceUnitFactor, const QString &amp;distanceUnitAbbreviation)</argsstring>
+        <name>getVerticalAccuracy</name>
+        <qualifiedname>QfPositioningInformationModel::getVerticalAccuracy</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>distanceUnitFactor</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>distanceUnitAbbreviation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioninginformationmodel.h" line="116" column="13" bodyfile="src/core/positioning/qfpositioninginformationmodel.cpp" bodystart="125" bodyend="128"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfPositioningInformationModel</label>
+        <link refid="classQfPositioningInformationModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QStandardItemModel</label>
+      </node>
+      <node id="1">
+        <label>QfPositioningInformationModel</label>
+        <link refid="classQfPositioningInformationModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/qfpositioninginformationmodel.h" line="12" column="1" bodyfile="src/core/positioning/qfpositioninginformationmodel.h" bodystart="13" bodyend="124"/>
+    <listofallmembers>
+      <member refid="classQfPositioningInformationModel_1a5ff6195e0dba1ae6161157fc7cf5e26f" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>antennaHeight</name></member>
+      <member refid="classQfPositioningInformationModel_1a5da7cfd1a96900e6ecf249f606ce9209" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>antennaHeight</name></member>
+      <member refid="classQfPositioningInformationModel_1a3e8b1c07afc601d13f5c6f8c68005d65" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>antennaHeightChanged</name></member>
+      <member refid="classQfPositioningInformationModel_1af390970a4e2a1b7b7ce7569de24cf5cd" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>coordinateDisplayCrs</name></member>
+      <member refid="classQfPositioningInformationModel_1a6ad8a3db0817c306577ed2381d02d867" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>coordinateDisplayCrs</name></member>
+      <member refid="classQfPositioningInformationModel_1a457767674760ad0fa765564639044e46" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>coordinateDisplayCrsChanged</name></member>
+      <member refid="classQfPositioningInformationModel_1a4ab579171e254d19f22a7a4e06916037" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>distanceUnits</name></member>
+      <member refid="classQfPositioningInformationModel_1a02e65036d95f481246ea1d0fd4bc5e1b" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>distanceUnits</name></member>
+      <member refid="classQfPositioningInformationModel_1a5c9a849922bc1545ebf3105cf6b1dd07" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>distanceUnitsChanged</name></member>
+      <member refid="classQfPositioningInformationModel_1aaa46e32605714dde0b2619bd2ebdbeef" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>getAltitude</name></member>
+      <member refid="classQfPositioningInformationModel_1a9f436a1e072aa784c40b7f2bce583d3c" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>getCoordinateLabels</name></member>
+      <member refid="classQfPositioningInformationModel_1aff75e90c046b47b3999b59ecfa90e0dc" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>getCoordinateValues</name></member>
+      <member refid="classQfPositioningInformationModel_1af5d8ca49dafdcf5f45265fd4030c00f4" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>getHorizontalAccuracy</name></member>
+      <member refid="classQfPositioningInformationModel_1a19f03f6aea0893704cbb4b1410faee22" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>getSpeed</name></member>
+      <member refid="classQfPositioningInformationModel_1a3fdc9bfd18f2c6b0d483333dc7a8b51d" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>getVerticalAccuracy</name></member>
+      <member refid="classQfPositioningInformationModel_1afd149cb570fc1ac99aa5036a0a62b618" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>mAntennaHeight</name></member>
+      <member refid="classQfPositioningInformationModel_1a3d89f074c4ab5e3db2e660930e74e64b" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>mCoordinateDisplayCrs</name></member>
+      <member refid="classQfPositioningInformationModel_1a932101011fab17053d7d0ba50a788e0a" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>mDistanceUnits</name></member>
+      <member refid="classQfPositioningInformationModel_1a450db104c6b2e38767140313a12e1c70" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>mPositioningSource</name></member>
+      <member refid="classQfPositioningInformationModel_1a2fc4c61793696c8fb9c3dcf59301e41ea36dec13009f1ab12045d682cc50c0c1b" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>NameRole</name></member>
+      <member refid="classQfPositioningInformationModel_1a2f079906129c6e1bdb75210982042014" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>onDataChanged</name></member>
+      <member refid="classQfPositioningInformationModel_1ab9e01113c0ecfd44c01d2e9234f772c4" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>positioningSource</name></member>
+      <member refid="classQfPositioningInformationModel_1a41ebaf9a9cff845a02f8242eabb968f9" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>positioningSource</name></member>
+      <member refid="classQfPositioningInformationModel_1a22b94181762aafedbb70d3866ac8951f" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>positioningSourceChanged</name></member>
+      <member refid="classQfPositioningInformationModel_1af757ac3bc58f704ea77010a001bf1ff9" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>positioningSourceConnection</name></member>
+      <member refid="classQfPositioningInformationModel_1a7c9415e4533ea4de80e6658448b96d67" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>QfPositioningInformationModel</name></member>
+      <member refid="classQfPositioningInformationModel_1a3e4f5ca0778365cca8e158a096c008ed" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>refreshData</name></member>
+      <member refid="classQfPositioningInformationModel_1abd1a6c925949d93217d18d198d1f6f87" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>roleNames</name></member>
+      <member refid="classQfPositioningInformationModel_1a2fc4c61793696c8fb9c3dcf59301e41e" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>Roles</name></member>
+      <member refid="classQfPositioningInformationModel_1a4293f03bd56f2abddd8fbc6064192aed" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>setAntennaHeight</name></member>
+      <member refid="classQfPositioningInformationModel_1a311ae51d7a1a05960c28f396c4fe8bd9" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>setCoordinateDisplayCrs</name></member>
+      <member refid="classQfPositioningInformationModel_1a1029ae1ab0e781ff59fd39c34bfc299f" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>setData</name></member>
+      <member refid="classQfPositioningInformationModel_1a9c8806fd24e7b14ca233a72a66eb558c" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>setDistanceUnits</name></member>
+      <member refid="classQfPositioningInformationModel_1ae0757c62715c847287cd6b74ed9e9799" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>setPositioningSource</name></member>
+      <member refid="classQfPositioningInformationModel_1a68b44adc2b894947120fd9cbedf3a9fe" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>softReset</name></member>
+      <member refid="classQfPositioningInformationModel_1a948d0a60b12ac7969c929389ac976bf7" prot="private" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>updateCoordinates</name></member>
+      <member refid="classQfPositioningInformationModel_1aec7179a3a96684ae673bc82a9117dd1f" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>updateInfo</name></member>
+      <member refid="classQfPositioningInformationModel_1a2fc4c61793696c8fb9c3dcf59301e41ea4a9b29072855b6d9375f5458fcbdd9c1" prot="public" virt="non-virtual"><scope>QfPositioningInformationModel</scope><name>ValueRole</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfScreenLocker" kind="class" language="C++" prot="public">
+    <compoundname>QfScreenLocker</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfScreenLocker_1a4c488bd9dad0547b67e13b60ee4a11df" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfScreenLocker::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfScreenLocker::enabled</qualifiedname>
+        <read>dummyGetter_enabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfScreenLocker.qml" line="11" column="1" bodyfile="src/app/qml/QfScreenLocker.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfScreenLocker_1a89c2ccdd985b91620109ac189036c22c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfScreenLocker::threshold</definition>
+        <argsstring></argsstring>
+        <name>threshold</name>
+        <qualifiedname>QfScreenLocker::threshold</qualifiedname>
+        <read>dummyGetter_threshold_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfScreenLocker.qml" line="13" column="1" bodyfile="src/app/qml/QfScreenLocker.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfScreenLocker_1a61e9352228ca1ee60531469a47d180b0" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfScreenLocker::fill</definition>
+        <argsstring></argsstring>
+        <name>fill</name>
+        <qualifiedname>QfScreenLocker::fill</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfScreenLocker.qml" line="15" column="12" bodyfile="src/app/qml/QfScreenLocker.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScreenLocker_1acaf912d6d81abf88cb50601c67edb4dc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfScreenLocker::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>QfScreenLocker::visible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfScreenLocker.qml" line="16" column="5" bodyfile="src/app/qml/QfScreenLocker.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScreenLocker_1ad15be0ac29d78b2f8255b47654707b36" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfScreenLocker::onEnabledChanged</definition>
+        <argsstring></argsstring>
+        <name>onEnabledChanged</name>
+        <qualifiedname>QfScreenLocker::onEnabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfScreenLocker.qml" line="17" column="5" bodyfile="src/app/qml/QfScreenLocker.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScreenLocker_1a29dfe1ec9400bed327598d6defc8b9d7" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfScreenLocker::unlockThreshold</definition>
+        <argsstring></argsstring>
+        <name>unlockThreshold</name>
+        <qualifiedname>QfScreenLocker::unlockThreshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfScreenLocker.qml" line="18" column="11" bodyfile="src/app/qml/QfScreenLocker.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScreenLocker_1a50ff4c43ee807696dbf4685d117ba883" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfScreenLocker::unlockNode</definition>
+        <argsstring></argsstring>
+        <name>unlockNode</name>
+        <qualifiedname>QfScreenLocker::unlockNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfScreenLocker.qml" line="19" column="11" bodyfile="src/app/qml/QfScreenLocker.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScreenLocker_1ae9f9158568b42b25189d6beea44225e2" prot="private" static="no" mutable="no">
+        <type>DragHandler</type>
+        <definition>DragHandler QfScreenLocker::unlockHandler</definition>
+        <argsstring></argsstring>
+        <name>unlockHandler</name>
+        <qualifiedname>QfScreenLocker::unlockHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfScreenLocker.qml" line="20" column="13" bodyfile="src/app/qml/QfScreenLocker.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScreenLocker_1a09297b2553211d2de7600f2d1ed22b08" prot="private" static="no" mutable="no">
+        <type>Timer</type>
+        <definition>Timer QfScreenLocker::unlockOpacityTimer</definition>
+        <argsstring></argsstring>
+        <name>unlockOpacityTimer</name>
+        <qualifiedname>QfScreenLocker::unlockOpacityTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfScreenLocker.qml" line="21" column="7" bodyfile="src/app/qml/QfScreenLocker.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfScreenLocker</label>
+        <link refid="classQfScreenLocker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfScreenLocker</label>
+        <link refid="classQfScreenLocker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfScreenLocker.qml" line="8" column="1" bodyfile="src/app/qml/QfScreenLocker.qml" bodystart="8" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classQfScreenLocker_1a4c488bd9dad0547b67e13b60ee4a11df" prot="public" virt="non-virtual"><scope>QfScreenLocker</scope><name>enabled</name></member>
+      <member refid="classQfScreenLocker_1a61e9352228ca1ee60531469a47d180b0" prot="private" virt="non-virtual"><scope>QfScreenLocker</scope><name>fill</name></member>
+      <member refid="classQfScreenLocker_1ad15be0ac29d78b2f8255b47654707b36" prot="private" virt="non-virtual"><scope>QfScreenLocker</scope><name>onEnabledChanged</name></member>
+      <member refid="classQfScreenLocker_1a89c2ccdd985b91620109ac189036c22c" prot="public" virt="non-virtual"><scope>QfScreenLocker</scope><name>threshold</name></member>
+      <member refid="classQfScreenLocker_1ae9f9158568b42b25189d6beea44225e2" prot="private" virt="non-virtual"><scope>QfScreenLocker</scope><name>unlockHandler</name></member>
+      <member refid="classQfScreenLocker_1a50ff4c43ee807696dbf4685d117ba883" prot="private" virt="non-virtual"><scope>QfScreenLocker</scope><name>unlockNode</name></member>
+      <member refid="classQfScreenLocker_1a09297b2553211d2de7600f2d1ed22b08" prot="private" virt="non-virtual"><scope>QfScreenLocker</scope><name>unlockOpacityTimer</name></member>
+      <member refid="classQfScreenLocker_1a29dfe1ec9400bed327598d6defc8b9d7" prot="private" virt="non-virtual"><scope>QfScreenLocker</scope><name>unlockThreshold</name></member>
+      <member refid="classQfScreenLocker_1acaf912d6d81abf88cb50601c67edb4dc" prot="private" virt="non-virtual"><scope>QfScreenLocker</scope><name>visible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

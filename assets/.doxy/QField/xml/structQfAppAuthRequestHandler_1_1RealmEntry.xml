@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfAppAuthRequestHandler_1_1RealmEntry" kind="struct" language="C++" prot="private">
+    <compoundname>QfAppAuthRequestHandler::RealmEntry</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfAppAuthRequestHandler_1_1RealmEntry_1af99c82f89ce7c5f60671e6947cd6b19e" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfAppAuthRequestHandler::RealmEntry::realm</definition>
+        <argsstring></argsstring>
+        <name>realm</name>
+        <qualifiedname>QfAppAuthRequestHandler::RealmEntry::realm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="106" column="17" bodyfile="src/app/qfappauthrequesthandler.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfAppAuthRequestHandler_1_1RealmEntry_1a2474820b6eff5c348aa56a15826e33c6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfAppAuthRequestHandler::RealmEntry::canceled</definition>
+        <argsstring></argsstring>
+        <name>canceled</name>
+        <qualifiedname>QfAppAuthRequestHandler::RealmEntry::canceled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="107" column="14" bodyfile="src/app/qfappauthrequesthandler.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfAppAuthRequestHandler_1_1RealmEntry_1aa171b029ee868d409504625be8877409" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfAppAuthRequestHandler::RealmEntry::RealmEntry</definition>
+        <argsstring>(const QString &amp;realm, bool canceled=false)</argsstring>
+        <name>RealmEntry</name>
+        <qualifiedname>QfAppAuthRequestHandler::RealmEntry::RealmEntry</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>realm</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>canceled</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qfappauthrequesthandler.h" line="101" column="18" bodyfile="src/app/qfappauthrequesthandler.h" bodystart="101" bodyend="104"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>the realms that are not (yet) successfully logged in into </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/app/qfappauthrequesthandler.h" line="99" column="5" bodyfile="src/app/qfappauthrequesthandler.h" bodystart="100" bodyend="108"/>
+    <listofallmembers>
+      <member refid="structQfAppAuthRequestHandler_1_1RealmEntry_1a2474820b6eff5c348aa56a15826e33c6" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler::RealmEntry</scope><name>canceled</name></member>
+      <member refid="structQfAppAuthRequestHandler_1_1RealmEntry_1af99c82f89ce7c5f60671e6947cd6b19e" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler::RealmEntry</scope><name>realm</name></member>
+      <member refid="structQfAppAuthRequestHandler_1_1RealmEntry_1aa171b029ee868d409504625be8877409" prot="public" virt="non-virtual"><scope>QfAppAuthRequestHandler::RealmEntry</scope><name>RealmEntry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group____3d" kind="group">
+    <compoundname>_3d</compoundname>
+    <title>3D</title>
+    <innerclass refid="classQf3DGeometry" prot="public">Qf3DGeometry</innerclass>
+    <innerclass refid="classQf3DGeometryConfiguration" prot="public">Qf3DGeometryConfiguration</innerclass>
+    <innerclass refid="classQf3DGeometryUtils" prot="public">Qf3DGeometryUtils</innerclass>
+    <innerclass refid="classQf3DMapTextureData" prot="public">Qf3DMapTextureData</innerclass>
+    <innerclass refid="classQf3DRubberbandGeometry" prot="public">Qf3DRubberbandGeometry</innerclass>
+    <innerclass refid="classQf3DTerrainGeometry" prot="public">Qf3DTerrainGeometry</innerclass>
+    <innerclass refid="classQf3DTerrainProvider" prot="public">Qf3DTerrainProvider</innerclass>
+    <innerclass refid="classQfMapToView3D" prot="public">QfMapToView3D</innerclass>
+    <briefdescription>
+<para>QField application C++ classes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

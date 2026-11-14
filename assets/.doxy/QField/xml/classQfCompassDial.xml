@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCompassDial" kind="class" language="C++" prot="public">
+    <compoundname>QfCompassDial</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCompassDial_1a496f29121590feda6fa6b87c639a2467" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCompassDial::mapRotation</definition>
+        <argsstring></argsstring>
+        <name>mapRotation</name>
+        <qualifiedname>QfCompassDial::mapRotation</qualifiedname>
+        <read>dummyGetter_mapRotation_ignore</read>
+        <briefdescription>
+<para>Map canvas rotation in degrees represented by the needle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCompassDial.qml" line="12" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCompassDial_1ab3bfe7d603f24f6bd7ccbd1fa5237df8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCompassDial::northColor</definition>
+        <argsstring></argsstring>
+        <name>northColor</name>
+        <qualifiedname>QfCompassDial::northColor</qualifiedname>
+        <read>dummyGetter_northColor_ignore</read>
+        <briefdescription>
+<para>Color of the needle half pointing north. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCompassDial.qml" line="14" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCompassDial_1a572ce4411ba075583867e169d30dc9f6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCompassDial::southColor</definition>
+        <argsstring></argsstring>
+        <name>southColor</name>
+        <qualifiedname>QfCompassDial::southColor</qualifiedname>
+        <read>dummyGetter_southColor_ignore</read>
+        <briefdescription>
+<para>Color of the needle half pointing south and the rim circling the dial disc. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCompassDial.qml" line="16" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCompassDial_1af816d3cfcb87acb96f82fc2761d1a015" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCompassDial::tickColor</definition>
+        <argsstring></argsstring>
+        <name>tickColor</name>
+        <qualifiedname>QfCompassDial::tickColor</qualifiedname>
+        <read>dummyGetter_tickColor_ignore</read>
+        <briefdescription>
+<para>Color of the tick marks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCompassDial.qml" line="18" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCompassDial_1a7690a99a28a07d517e6e8d4a92d6ff35" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCompassDial::backgroundColor</definition>
+        <argsstring></argsstring>
+        <name>backgroundColor</name>
+        <qualifiedname>QfCompassDial::backgroundColor</qualifiedname>
+        <read>dummyGetter_backgroundColor_ignore</read>
+        <briefdescription>
+<para>Color of the dial disc and the needle hub ring. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCompassDial.qml" line="20" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCompassDial_1a62a5c5b2f54867ca9dbfc89250aa0f51" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCompassDial::centerX</definition>
+        <argsstring></argsstring>
+        <name>centerX</name>
+        <qualifiedname>QfCompassDial::centerX</qualifiedname>
+        <read>dummyGetter_centerX_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCompassDial.qml" line="23" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCompassDial_1a618b18d9c95dcb5a87477f4763017409" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCompassDial::centerY</definition>
+        <argsstring></argsstring>
+        <name>centerY</name>
+        <qualifiedname>QfCompassDial::centerY</qualifiedname>
+        <read>dummyGetter_centerY_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCompassDial.qml" line="26" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCompassDial_1a3b217f0ddbf9fa7de66d0db5c3c5eec1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCompassDial::needleHalfLength</definition>
+        <argsstring></argsstring>
+        <name>needleHalfLength</name>
+        <qualifiedname>QfCompassDial::needleHalfLength</qualifiedname>
+        <read>dummyGetter_needleHalfLength_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCompassDial.qml" line="29" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCompassDial_1a7f16e007fb7fa118ac0d7d7d3ee24478" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCompassDial::needleHalfWidth</definition>
+        <argsstring></argsstring>
+        <name>needleHalfWidth</name>
+        <qualifiedname>QfCompassDial::needleHalfWidth</qualifiedname>
+        <read>dummyGetter_needleHalfWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCompassDial.qml" line="32" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCompassDial_1a9671c2aa72339d9f1983f6f18f77832b" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCompassDial::hubRadius</definition>
+        <argsstring></argsstring>
+        <name>hubRadius</name>
+        <qualifiedname>QfCompassDial::hubRadius</qualifiedname>
+        <read>dummyGetter_hubRadius_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCompassDial.qml" line="35" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCompassDial_1af66a242b868196859ae03e59df364c49" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCompassDial::tickRadius</definition>
+        <argsstring></argsstring>
+        <name>tickRadius</name>
+        <qualifiedname>QfCompassDial::tickRadius</qualifiedname>
+        <read>dummyGetter_tickRadius_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfCompassDial.qml" line="38" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A compass dial face made of a two-toned needle surrounded by evenly spaced tick marks. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCompassDial</label>
+        <link refid="classQfCompassDial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCompassDial</label>
+        <link refid="classQfCompassDial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfCompassDial.qml" line="9" column="1" bodyfile="src/gui/qml/QfCompassDial.qml" bodystart="9" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classQfCompassDial_1a7690a99a28a07d517e6e8d4a92d6ff35" prot="public" virt="non-virtual"><scope>QfCompassDial</scope><name>backgroundColor</name></member>
+      <member refid="classQfCompassDial_1a62a5c5b2f54867ca9dbfc89250aa0f51" prot="public" virt="non-virtual"><scope>QfCompassDial</scope><name>centerX</name></member>
+      <member refid="classQfCompassDial_1a618b18d9c95dcb5a87477f4763017409" prot="public" virt="non-virtual"><scope>QfCompassDial</scope><name>centerY</name></member>
+      <member refid="classQfCompassDial_1a9671c2aa72339d9f1983f6f18f77832b" prot="public" virt="non-virtual"><scope>QfCompassDial</scope><name>hubRadius</name></member>
+      <member refid="classQfCompassDial_1a496f29121590feda6fa6b87c639a2467" prot="public" virt="non-virtual"><scope>QfCompassDial</scope><name>mapRotation</name></member>
+      <member refid="classQfCompassDial_1a3b217f0ddbf9fa7de66d0db5c3c5eec1" prot="public" virt="non-virtual"><scope>QfCompassDial</scope><name>needleHalfLength</name></member>
+      <member refid="classQfCompassDial_1a7f16e007fb7fa118ac0d7d7d3ee24478" prot="public" virt="non-virtual"><scope>QfCompassDial</scope><name>needleHalfWidth</name></member>
+      <member refid="classQfCompassDial_1ab3bfe7d603f24f6bd7ccbd1fa5237df8" prot="public" virt="non-virtual"><scope>QfCompassDial</scope><name>northColor</name></member>
+      <member refid="classQfCompassDial_1a572ce4411ba075583867e169d30dc9f6" prot="public" virt="non-virtual"><scope>QfCompassDial</scope><name>southColor</name></member>
+      <member refid="classQfCompassDial_1af816d3cfcb87acb96f82fc2761d1a015" prot="public" virt="non-virtual"><scope>QfCompassDial</scope><name>tickColor</name></member>
+      <member refid="classQfCompassDial_1af66a242b868196859ae03e59df364c49" prot="public" virt="non-virtual"><scope>QfCompassDial</scope><name>tickRadius</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningDeviceSettings" kind="class" language="C++" prot="public">
+    <compoundname>PositioningDeviceSettings</compoundname>
+    <basecompoundref refid="classQfPositioningDeviceSettings" prot="public" virt="non-virtual">QfPositioningDeviceSettings</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>PositioningDeviceSettings</label>
+        <link refid="classPositioningDeviceSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPositioningDeviceSettings</label>
+        <link refid="classQfPositioningDeviceSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>PositioningDeviceSettings</label>
+        <link refid="classPositioningDeviceSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPositioningDeviceSettings</label>
+        <link refid="classQfPositioningDeviceSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/PositioningDeviceSettings.qml" line="2" column="1" bodyfile="src/app/qml_compat/PositioningDeviceSettings.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfPositioningDeviceSettings_1a2bba09568503477575f43dca7aad0e0b" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>apply</name></member>
+      <member refid="classQfPositioningDeviceSettings_1a21b9d9c9f899f13207583fec463d2a55" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>generateName</name></member>
+      <member refid="classQfPositioningDeviceSettings_1ae9710f0b0c6080d50d91dd100c4784a0" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>getSettings</name></member>
+      <member refid="classQfPositioningDeviceSettings_1a6a676bd748f43fd63463a926a9b165e7" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>handleEgenioussChange</name></member>
+      <member refid="classQfPositioningDeviceSettings_1a995a41e32dfeee28184af5d49952f93e" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>name</name></member>
+      <member refid="classQfPositioningDeviceSettings_1a6e0c73184d04f226f33a075db67f0248" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>setSettings</name></member>
+      <member refid="classQfPositioningDeviceSettings_1a4230c90a73e1ebef470d14be00ceb53d" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>setType</name></member>
+      <member refid="classQfPositioningDeviceSettings_1a4a00001e45995203f85f5ca0c806a373" prot="public" virt="non-virtual"><scope>PositioningDeviceSettings</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

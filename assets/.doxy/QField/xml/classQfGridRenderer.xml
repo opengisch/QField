@@ -1,0 +1,531 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGridRenderer" kind="class" language="C++" prot="public">
+    <compoundname>QfGridRenderer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <derivedcompoundref refid="classGridRenderer" prot="public" virt="non-virtual">GridRenderer</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGridRenderer_1ad81cec9da370e922d5d54af815140ebe" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <qualifiedname>QfGridRenderer::enabled</qualifiedname>
+        <read>dummyGetter_enabled_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="14" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1a5ab6b4c43268dda4ee341780ee61671a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref></type>
+        <definition>QgsQuickMapSettings QfGridRenderer::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfGridRenderer::mapSettings</qualifiedname>
+        <read>dummyGetter_mapSettings_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="16" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1a163746e46fed4b7d76b13750a6ac4515" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::indeterminate</definition>
+        <argsstring></argsstring>
+        <name>indeterminate</name>
+        <qualifiedname>QfGridRenderer::indeterminate</qualifiedname>
+        <read>dummyGetter_indeterminate_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="18" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1ac982308e01e696e96d4b7b6a27d11675" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::xInterval</definition>
+        <argsstring></argsstring>
+        <name>xInterval</name>
+        <qualifiedname>QfGridRenderer::xInterval</qualifiedname>
+        <read>dummyGetter_xInterval_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="20" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1a73f32e4ecafb000fcee60e3bd2fc2c20" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::yInterval</definition>
+        <argsstring></argsstring>
+        <name>yInterval</name>
+        <qualifiedname>QfGridRenderer::yInterval</qualifiedname>
+        <read>dummyGetter_yInterval_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="22" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1acdbe75eedeb6689cd615654991e316e3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::xOffset</definition>
+        <argsstring></argsstring>
+        <name>xOffset</name>
+        <qualifiedname>QfGridRenderer::xOffset</qualifiedname>
+        <read>dummyGetter_xOffset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="24" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1a339a78fbfa3bf3a09dca7965debddfd9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::yOffset</definition>
+        <argsstring></argsstring>
+        <name>yOffset</name>
+        <qualifiedname>QfGridRenderer::yOffset</qualifiedname>
+        <read>dummyGetter_yOffset_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="26" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1ac4a51a9d6939a8ae7316ca250f98c283" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::autoColor</definition>
+        <argsstring></argsstring>
+        <name>autoColor</name>
+        <qualifiedname>QfGridRenderer::autoColor</qualifiedname>
+        <read>dummyGetter_autoColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="28" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1ac39b62c12d2d5d11a3d8345f6ab23266" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::majorLineColor</definition>
+        <argsstring></argsstring>
+        <name>majorLineColor</name>
+        <qualifiedname>QfGridRenderer::majorLineColor</qualifiedname>
+        <read>dummyGetter_majorLineColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="30" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1a7d9166681e1cfb0f64746fae3d27941e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::minorLineColor</definition>
+        <argsstring></argsstring>
+        <name>minorLineColor</name>
+        <qualifiedname>QfGridRenderer::minorLineColor</qualifiedname>
+        <read>dummyGetter_minorLineColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="32" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1a97457289815e608bee9480a0cd315d72" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::markerColor</definition>
+        <argsstring></argsstring>
+        <name>markerColor</name>
+        <qualifiedname>QfGridRenderer::markerColor</qualifiedname>
+        <read>dummyGetter_markerColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="34" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1a2b920077b6c8025f225d59f39912c3bd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::annotationColor</definition>
+        <argsstring></argsstring>
+        <name>annotationColor</name>
+        <qualifiedname>QfGridRenderer::annotationColor</qualifiedname>
+        <read>dummyGetter_annotationColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="36" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1a8189ed1aadcae9beb35f5f2a13216030" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::annotationOutlineColor</definition>
+        <argsstring></argsstring>
+        <name>annotationOutlineColor</name>
+        <qualifiedname>QfGridRenderer::annotationOutlineColor</qualifiedname>
+        <read>dummyGetter_annotationOutlineColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="38" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1ab6122a7ec69da4d46805545a64067796" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::annotationHasOutline</definition>
+        <argsstring></argsstring>
+        <name>annotationHasOutline</name>
+        <qualifiedname>QfGridRenderer::annotationHasOutline</qualifiedname>
+        <read>dummyGetter_annotationHasOutline_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="40" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1a574a1067d1daf9637f37ce1867751667" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::annotationPrecision</definition>
+        <argsstring></argsstring>
+        <name>annotationPrecision</name>
+        <qualifiedname>QfGridRenderer::annotationPrecision</qualifiedname>
+        <read>dummyGetter_annotationPrecision_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="42" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1a36ddb4f10808d92e7db9d3da0613e6ca" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>font</type>
+        <definition>font QfGridRenderer::annotationFont</definition>
+        <argsstring></argsstring>
+        <name>annotationFont</name>
+        <qualifiedname>QfGridRenderer::annotationFont</qualifiedname>
+        <read>dummyGetter_annotationFont_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="44" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1af5d6cb4f9722fcc87ca691c5425f5229" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::prepareLines</definition>
+        <argsstring></argsstring>
+        <name>prepareLines</name>
+        <qualifiedname>QfGridRenderer::prepareLines</qualifiedname>
+        <read>dummyGetter_prepareLines_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="46" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1aacb35bc8cd7c6ba329c945c65c79a4f4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::prepareMarkers</definition>
+        <argsstring></argsstring>
+        <name>prepareMarkers</name>
+        <qualifiedname>QfGridRenderer::prepareMarkers</qualifiedname>
+        <read>dummyGetter_prepareMarkers_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="48" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGridRenderer_1a83c0b960080a78ebbfabb182d1af691d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfGridRenderer::prepareAnnotations</definition>
+        <argsstring></argsstring>
+        <name>prepareAnnotations</name>
+        <qualifiedname>QfGridRenderer::prepareAnnotations</qualifiedname>
+        <read>dummyGetter_prepareAnnotations_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="50" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfGridRenderer_1a2f8027f4783962e8b2f8a91953f5f42d" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfGridModel" kindref="compound">QfGridModel</ref></type>
+        <definition>QfGridModel QfGridRenderer::gridModel</definition>
+        <argsstring></argsstring>
+        <name>gridModel</name>
+        <qualifiedname>QfGridRenderer::gridModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="52" column="13" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridRenderer_1a9b2c2fc2de6098664c3494c99435f107" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfGridRenderer::minorLinesContainer</definition>
+        <argsstring></argsstring>
+        <name>minorLinesContainer</name>
+        <qualifiedname>QfGridRenderer::minorLinesContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="53" column="7" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridRenderer_1a895f90acffd58b3b56ad9978497684e9" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath QfGridRenderer::minorLinesPath</definition>
+        <argsstring></argsstring>
+        <name>minorLinesPath</name>
+        <qualifiedname>QfGridRenderer::minorLinesPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="54" column="11" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridRenderer_1afcc3db444e5c7342656cb4ac058fe96e" prot="private" static="no" mutable="no">
+        <type>PathSvg</type>
+        <definition>PathSvg QfGridRenderer::minorLineSvgPath</definition>
+        <argsstring></argsstring>
+        <name>minorLineSvgPath</name>
+        <qualifiedname>QfGridRenderer::minorLineSvgPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="55" column="9" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridRenderer_1a6cfadbd3b2a4c96d7861d9988187fa83" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfGridRenderer::majorLinesContainer</definition>
+        <argsstring></argsstring>
+        <name>majorLinesContainer</name>
+        <qualifiedname>QfGridRenderer::majorLinesContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="56" column="7" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridRenderer_1af10bf1e9accdc7d9c16956db984c9587" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath QfGridRenderer::majorLinesPath</definition>
+        <argsstring></argsstring>
+        <name>majorLinesPath</name>
+        <qualifiedname>QfGridRenderer::majorLinesPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="57" column="11" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridRenderer_1a2c83dfbde28d231e3577f08c6c92e8cf" prot="private" static="no" mutable="no">
+        <type>PathSvg</type>
+        <definition>PathSvg QfGridRenderer::majorLineSvgPath</definition>
+        <argsstring></argsstring>
+        <name>majorLineSvgPath</name>
+        <qualifiedname>QfGridRenderer::majorLineSvgPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="58" column="9" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridRenderer_1a081cd4afb9b3aef418cc8a345d3275fa" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape QfGridRenderer::markersContainer</definition>
+        <argsstring></argsstring>
+        <name>markersContainer</name>
+        <qualifiedname>QfGridRenderer::markersContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="59" column="7" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridRenderer_1a455d28fac9dea7a4bc25074efcbc25a3" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath QfGridRenderer::markerPath</definition>
+        <argsstring></argsstring>
+        <name>markerPath</name>
+        <qualifiedname>QfGridRenderer::markerPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="60" column="11" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridRenderer_1aa24940385cddc5ab4f5a2506bb4185e6" prot="private" static="no" mutable="no">
+        <type>PathSvg</type>
+        <definition>PathSvg QfGridRenderer::markerSvgPath</definition>
+        <argsstring></argsstring>
+        <name>markerSvgPath</name>
+        <qualifiedname>QfGridRenderer::markerSvgPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="61" column="9" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridRenderer_1aea645b19e601fe39bbd7512a873c9c3b" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater QfGridRenderer::annotationsContainer</definition>
+        <argsstring></argsstring>
+        <name>annotationsContainer</name>
+        <qualifiedname>QfGridRenderer::annotationsContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="62" column="10" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGridRenderer_1aef03a0c9925246d71ec47e548b4e794a" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfGridRenderer::annotation</definition>
+        <argsstring></argsstring>
+        <name>annotation</name>
+        <qualifiedname>QfGridRenderer::annotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfGridRenderer.qml" line="63" column="6" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="63" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>GridRenderer</label>
+        <link refid="classGridRenderer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfGridRenderer</label>
+        <link refid="classQfGridRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfGridRenderer</label>
+        <link refid="classQfGridRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qml/QfGridRenderer.qml" line="11" column="1" bodyfile="src/core/qml/QfGridRenderer.qml" bodystart="11" bodyend="64"/>
+    <listofallmembers>
+      <member refid="classQfGridRenderer_1aef03a0c9925246d71ec47e548b4e794a" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>annotation</name></member>
+      <member refid="classQfGridRenderer_1a2b920077b6c8025f225d59f39912c3bd" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>annotationColor</name></member>
+      <member refid="classQfGridRenderer_1a36ddb4f10808d92e7db9d3da0613e6ca" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>annotationFont</name></member>
+      <member refid="classQfGridRenderer_1ab6122a7ec69da4d46805545a64067796" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>annotationHasOutline</name></member>
+      <member refid="classQfGridRenderer_1a8189ed1aadcae9beb35f5f2a13216030" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>annotationOutlineColor</name></member>
+      <member refid="classQfGridRenderer_1a574a1067d1daf9637f37ce1867751667" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>annotationPrecision</name></member>
+      <member refid="classQfGridRenderer_1aea645b19e601fe39bbd7512a873c9c3b" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>annotationsContainer</name></member>
+      <member refid="classQfGridRenderer_1ac4a51a9d6939a8ae7316ca250f98c283" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>autoColor</name></member>
+      <member refid="classQfGridRenderer_1ad81cec9da370e922d5d54af815140ebe" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>enabled</name></member>
+      <member refid="classQfGridRenderer_1a2f8027f4783962e8b2f8a91953f5f42d" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>gridModel</name></member>
+      <member refid="classQfGridRenderer_1a163746e46fed4b7d76b13750a6ac4515" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>indeterminate</name></member>
+      <member refid="classQfGridRenderer_1ac39b62c12d2d5d11a3d8345f6ab23266" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>majorLineColor</name></member>
+      <member refid="classQfGridRenderer_1a6cfadbd3b2a4c96d7861d9988187fa83" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>majorLinesContainer</name></member>
+      <member refid="classQfGridRenderer_1af10bf1e9accdc7d9c16956db984c9587" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>majorLinesPath</name></member>
+      <member refid="classQfGridRenderer_1a2c83dfbde28d231e3577f08c6c92e8cf" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>majorLineSvgPath</name></member>
+      <member refid="classQfGridRenderer_1a5ab6b4c43268dda4ee341780ee61671a" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>mapSettings</name></member>
+      <member refid="classQfGridRenderer_1a97457289815e608bee9480a0cd315d72" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>markerColor</name></member>
+      <member refid="classQfGridRenderer_1a455d28fac9dea7a4bc25074efcbc25a3" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>markerPath</name></member>
+      <member refid="classQfGridRenderer_1a081cd4afb9b3aef418cc8a345d3275fa" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>markersContainer</name></member>
+      <member refid="classQfGridRenderer_1aa24940385cddc5ab4f5a2506bb4185e6" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>markerSvgPath</name></member>
+      <member refid="classQfGridRenderer_1a7d9166681e1cfb0f64746fae3d27941e" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>minorLineColor</name></member>
+      <member refid="classQfGridRenderer_1a9b2c2fc2de6098664c3494c99435f107" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>minorLinesContainer</name></member>
+      <member refid="classQfGridRenderer_1a895f90acffd58b3b56ad9978497684e9" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>minorLinesPath</name></member>
+      <member refid="classQfGridRenderer_1afcc3db444e5c7342656cb4ac058fe96e" prot="private" virt="non-virtual"><scope>QfGridRenderer</scope><name>minorLineSvgPath</name></member>
+      <member refid="classQfGridRenderer_1a83c0b960080a78ebbfabb182d1af691d" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>prepareAnnotations</name></member>
+      <member refid="classQfGridRenderer_1af5d6cb4f9722fcc87ca691c5425f5229" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>prepareLines</name></member>
+      <member refid="classQfGridRenderer_1aacb35bc8cd7c6ba329c945c65c79a4f4" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>prepareMarkers</name></member>
+      <member refid="classQfGridRenderer_1ac982308e01e696e96d4b7b6a27d11675" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>xInterval</name></member>
+      <member refid="classQfGridRenderer_1acdbe75eedeb6689cd615654991e316e3" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>xOffset</name></member>
+      <member refid="classQfGridRenderer_1a73f32e4ecafb000fcee60e3bd2fc2c20" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>yInterval</name></member>
+      <member refid="classQfGridRenderer_1a339a78fbfa3bf3a09dca7965debddfd9" prot="public" virt="non-virtual"><scope>QfGridRenderer</scope><name>yOffset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
