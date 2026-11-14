@@ -15,7 +15,7 @@ QfPopup {
 
   parent: mainWindow.contentItem
   width: Math.min(childrenRect.width, mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin)
-  height: Math.min(popupLayout.childrenRect.height + headerLayout.childrenRect.height + 40, mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
+  height: Math.min(popupLayout.childrenRect.height + pageHeader.childrenRect.height + 40, mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4))
   x: (mainWindow.width - width) / 2
   y: (mainWindow.height - height) / 2
   closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
@@ -26,18 +26,14 @@ QfPopup {
     width: parent.width
     height: parent.height
     padding: 0
-    header: RowLayout {
-      id: headerLayout
-      spacing: 2
-      Label {
-        id: titleLabel
-        Layout.fillWidth: true
-        Layout.margins: 10
-        text: markupCollection ? markupCollection.name : ''
-        font: QfTheme.strongFont
-        horizontalAlignment: Text.AlignHCenter
-        wrapMode: Text.WrapAnywhere
-      }
+    header: QfPageHeader {
+      id: pageHeader
+      title: markupCollection ? markupCollection.name : ''
+
+      showBackButton: false
+      showApplyButton: false
+      showCancelButton: false
+      showRemoveButton: false
     }
 
     ScrollView {
