@@ -124,11 +124,14 @@ class QFIELD_CORE_EXPORT QfGeometryUtils : public QObject
     //! Returns a rectangle from two points.
     static Q_INVOKABLE QgsRectangle createRectangleFromPoints( const QgsPoint &p1, const QgsPoint &p2 );
 
-    //! Returns TRUE is a geometry is within a reference geometry.
+    //! Returns TRUE if a geometry is within a reference geometry.
     static Q_INVOKABLE bool geometryWithin( const QgsGeometry &geometry, const QgsGeometry &referenceGeometry );
 
-    //! Returns TRUE is a geometry overlaps a reference geometry.
+    //! Returns TRUE if a geometry overlaps a reference geometry.
     static Q_INVOKABLE bool geometryOverlaps( const QgsGeometry &geometry, const QgsGeometry &referenceGeometry );
+
+    //! Retruns TRUE if a geometry is topolgically equal to a referenced geometry.
+    static Q_INVOKABLE bool geometryIsTopologicallyEqual( const QgsGeometry &geometry, const QgsGeometry &referenceGeometry );
 };
 
 #endif // QFGEOMETRYUTILS_H

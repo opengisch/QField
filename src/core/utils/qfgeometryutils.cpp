@@ -528,3 +528,8 @@ bool QfGeometryUtils::geometryOverlaps( const QgsGeometry &geometry, const QgsGe
 {
   return geometry.overlaps( referenceGeometry );
 }
+
+bool QfGeometryUtils::geometryIsTopologicallyEqual( const QgsGeometry &geometry, const QgsGeometry &referenceGeometry )
+{
+  return geometry.isTopologicallyEqual( referenceGeometry );
+}
