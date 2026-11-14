@@ -122,6 +122,33 @@ QString QfMarkupManager::createCollection( const QString &title )
 
   return blankCollection->uuid();
 }
+void QfMarkupManager::removeCollection( const QString &uuid )
+{
+  if ( !mCollectionPaths.contains( uuid ) )
+  {
+    return;
+  }
+
+  if ( mCollectionPaths.contains( uuid ) )
+  {
+    QFile::remove( mCollectionPaths[uuid] );
+    mCollectionPaths.remove( uuid );
+  }
+
+  QfMarkupCollection *collection = mCollections.take( uuid );
+  collection->deleteLater();
+  collection = nullptr;
+
+  emit collectionsChanged();
+  emit visibleCollectionsChanged();
+
+  if ( mCollections.isEmpty() )
+  {
+    // A default markup collection is added to avoid a zero-collections scenario
+    QfMarkupCollection *collection = new QfMarkupCollection( tr( "Default collection" ) );
+    insertCollection( collection );
+  }
+}
 
 void QfMarkupManager::reset( const QString &path, const QString &prefix )
 {
