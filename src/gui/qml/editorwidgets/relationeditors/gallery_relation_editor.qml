@@ -274,6 +274,20 @@ QfRelationEditorBase {
 
   onIsCardViewChanged: stopAllMedia()
 
+  readonly property list<string> attachmentAcceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null, referencingFeatureListModel.attachmentFieldName)
+  // Accepted types, when set, take precedence over the viewer type
+  readonly property int attachmentCaptureViewer: {
+    switch (ExternalResourceUtils.getAttachmentCaptureType(attachmentAcceptedTypes)) {
+    case 'image':
+      return QfEditorWidgetExternalResource.DocumentImage;
+    case 'video':
+      return QfEditorWidgetExternalResource.DocumentVideo;
+    case 'audio':
+      return QfEditorWidgetExternalResource.DocumentAudio;
+    }
+    return referencingFeatureListModel.attachmentDocumentViewer;
+  }
+
   QfExpressionEvaluator {
     id: attachmentNamingEvaluator
     layer: referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null
@@ -330,7 +344,7 @@ QfRelationEditorBase {
 
       round: false
       iconSource: {
-        switch (referencingFeatureListModel.attachmentDocumentViewer) {
+        switch (attachmentCaptureViewer) {
         case QfEditorWidgetExternalResource.DocumentVideo:
           return QfTheme.getThemeVectorIcon("ic_camera_video_black_24dp");
         case QfEditorWidgetExternalResource.DocumentAudio:
@@ -346,7 +360,7 @@ QfRelationEditorBase {
           return;
         }
 
-        switch (referencingFeatureListModel.attachmentDocumentViewer) {
+        switch (attachmentCaptureViewer) {
         case QfEditorWidgetExternalResource.DocumentVideo:
           captureVideo();
           break;
@@ -546,7 +560,7 @@ QfRelationEditorBase {
 
     sourceComponent: Component {
       QfCamera {
-        allowCaptureModeToggle: true
+        allowCaptureModeToggle: ExternalResourceUtils.acceptsAttachmentType(attachmentAcceptedTypes, 'image') && ExternalResourceUtils.acceptsAttachmentType(attachmentAcceptedTypes, 'video')
 
         currentLayer: resourceLayer
 

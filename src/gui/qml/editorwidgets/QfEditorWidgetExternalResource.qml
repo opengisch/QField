@@ -72,6 +72,8 @@ QfEditorWidgetBase {
   }
 
   property int documentViewer: config.DocumentViewer
+  readonly property list<string> acceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(currentLayer, field.name)
+  readonly property string captureType: ExternalResourceUtils.getAttachmentCaptureType(acceptedTypes)
 
   property bool isImage: false
   property bool isAudio: false
@@ -593,8 +595,8 @@ QfEditorWidgetBase {
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
 
-    // QField has historically handled no viewer type as image, let's carry that on
-    visible: documentViewer == QfEditorWidgetExternalResource.DocumentImage && isEnabled
+    // Accepted types, when set, take precedence over the viewer type
+    visible: isEnabled && (captureType !== '' ? captureType === 'image' : documentViewer == QfEditorWidgetExternalResource.DocumentImage)
 
     anchors.right: cameraVideoButton.left
     anchors.top: parent.top
@@ -611,7 +613,7 @@ QfEditorWidgetBase {
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
 
-    visible: documentViewer == QfEditorWidgetExternalResource.DocumentVideo && isEnabled
+    visible: isEnabled && (captureType !== '' ? captureType === 'video' : documentViewer == QfEditorWidgetExternalResource.DocumentVideo)
 
     anchors.right: microphoneButton.left
     anchors.top: parent.top
@@ -628,7 +630,7 @@ QfEditorWidgetBase {
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
 
-    visible: documentViewer == QfEditorWidgetExternalResource.DocumentAudio && isEnabled
+    visible: isEnabled && (captureType !== '' ? captureType === 'audio' : documentViewer == QfEditorWidgetExternalResource.DocumentAudio)
 
     anchors.right: fileButton.left
     anchors.top: parent.top
@@ -645,7 +647,7 @@ QfEditorWidgetBase {
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
 
-    visible: platformUtilities.capabilities & QfPlatformUtilities.FilePicker && documentViewer == QfEditorWidgetExternalResource.DocumentFile && isEnabled
+    visible: platformUtilities.capabilities & QfPlatformUtilities.FilePicker && acceptedTypes.length === 0 && documentViewer == QfEditorWidgetExternalResource.DocumentFile && isEnabled
 
     anchors.right: parent.right
     anchors.top: parent.top
@@ -707,7 +709,7 @@ QfEditorWidgetBase {
       id: qfieldCamera
       visible: false
 
-      allowCaptureModeToggle: true
+      allowCaptureModeToggle: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image') && ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'video')
 
       currentLayer: resourceLayer
       currentFeature: resourceFeature
@@ -794,7 +796,9 @@ QfEditorWidgetBase {
     Qt.inputMethod.hide();
     platformUtilities.requestStoragePermission();
     const filepath = getResourceFilePath();
-    if (documentViewer == QfEditorWidgetExternalResource.DocumentAudio) {
+    if (acceptedTypes.length === 1) {
+      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, acceptedTypes[0] + "/*", this);
+    } else if (acceptedTypes.length === 0 && documentViewer == QfEditorWidgetExternalResource.DocumentAudio) {
       __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "audio/*", this);
     } else {
       __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "*/*", this);
@@ -805,7 +809,9 @@ QfEditorWidgetBase {
     Qt.inputMethod.hide();
     platformUtilities.requestStoragePermission();
     const filepath = getResourceFilePath();
-    if (documentViewer == QfEditorWidgetExternalResource.DocumentVideo) {
+    const acceptsImage = ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image');
+    const acceptsVideo = ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'video');
+    if (acceptsVideo && (!acceptsImage || documentViewer == QfEditorWidgetExternalResource.DocumentVideo)) {
       __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath + '/', filepath, this);
     } else {
       __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/', filepath, this);
@@ -865,10 +871,12 @@ QfEditorWidgetBase {
     MenuItem {
       id: capturePhotoMenuItem
       text: qsTr('Take a photo')
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image')
+      visible: enabled
 
       font: QfTheme.defaultFont
       icon.source: QfTheme.getThemeVectorIcon("ic_camera_photo_black_24dp")
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: capturePhoto()
@@ -877,10 +885,12 @@ QfEditorWidgetBase {
     MenuItem {
       id: captureVideoMenuItem
       text: qsTr('Take a video')
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'video')
+      visible: enabled
 
       font: QfTheme.defaultFont
       icon.source: QfTheme.getThemeVectorIcon("ic_camera_video_black_24dp")
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: captureVideo()
@@ -889,10 +899,12 @@ QfEditorWidgetBase {
     MenuItem {
       id: captureAudioMenuItem
       text: qsTr('Record an audio clip')
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'audio')
+      visible: enabled
 
       font: QfTheme.defaultFont
       icon.source: QfTheme.getThemeVectorIcon("ic_microphone_black_24dp")
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: captureAudio()
@@ -906,10 +918,12 @@ QfEditorWidgetBase {
     MenuItem {
       id: attachGalleryMenuItem
       text: qsTr('Attach a gallery item')
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image') || ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'video')
+      visible: enabled
 
       font: QfTheme.defaultFont
       icon.source: QfTheme.getThemeVectorIcon("ic_gallery_black_24dp")
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: attachGallery()
@@ -929,16 +943,21 @@ QfEditorWidgetBase {
 
     MenuSeparator {
       id: separatorDrawingItem
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image')
+      visible: enabled
       width: parent.width
+      height: enabled ? undefined : 0
     }
 
     MenuItem {
       id: attachDrawingMenuItem
       text: qsTr('Draw a sketch')
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image')
+      visible: enabled
 
       font: QfTheme.defaultFont
       icon.source: QfTheme.getThemeVectorIcon("ic_freehand_white_24dp")
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {
