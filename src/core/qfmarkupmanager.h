@@ -105,6 +105,13 @@ class QfMarkupManager : public QObject
     Q_INVOKABLE QString createCollection( const QString &title );
 
     /**
+     * Removes a markup collection matching a provided UUID. The  collection's associated
+     * GeoJSON file will also be deleted.
+     * \param uuid The UUID of the collection to be removed.
+     */
+    Q_INVOKABLE void removeCollection( const QString &uuid );
+
+    /**
      * Exports the markup \a collection via available platform capabilities.
      */
     Q_INVOKABLE void exportCollection( QfMarkupCollection *collection );

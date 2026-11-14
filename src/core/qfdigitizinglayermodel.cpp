@@ -209,7 +209,7 @@ void QfDigitizingLayerBaseModel::removeCollections( const QStringList &collectio
   for ( const QString &collectionUuid : collectionUuids )
   {
     auto match = std::find_if( mLayers.begin(), mLayers.end(), [this, &collectionUuid]( const DigitizingLayer &l ) {
-      return l.type == QfDigitizingLayerModel::MarkupCollection && mMarkupManager->collection( collectionUuid );
+      return l.type == QfDigitizingLayerModel::MarkupCollection && l.markupCollection->uuid() == collectionUuid;
     } );
     if ( match != mLayers.end() )
     {

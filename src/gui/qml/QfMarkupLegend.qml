@@ -148,6 +148,17 @@ ListView {
 
   QfMarkupLegendItemProperties {
     id: itemProperties
+
+    onRemoveMarkupCollection: {
+      if (markupCollection) {
+        if (markupCollection === activeCollection) {
+          activeCollection = null;
+        }
+
+        markupManager.removeCollection(markupCollection.uuid);
+        close();
+      }
+    }
   }
 
   function openProperties(collection) {
