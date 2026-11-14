@@ -20,10 +20,12 @@
 #include "qgsvectorlayer.h"
 
 #include <QRegularExpression>
+#include <QSet>
 #include <qgsexpressioncontextutils.h>
 #include <qgsproject.h>
 #include <qgsstringutils.h>
 #include <qgsvaluerelationfieldformatter.h>
+#include <qgsvariantutils.h>
 
 #define UNACCENTED_MAX_FEATURE_COUNT 15000
 
@@ -458,9 +460,19 @@ void QfFeatureListModel::processFeatureList()
   mGatherer->deleteLater();
   mGatherer = nullptr;
 
+  QSet<QVariant> listedKeys;
   for ( const QfFeatureExpressionValuesGatherer::Entry &gatheredEntry : gatheredEntries )
   {
     Entry entry( gatheredEntry.value, gatheredEntry.identifierFields.at( 0 ), gatheredEntry.identifierFields.at( 1 ), gatheredEntry.featureId, gatheredEntry.identifierFields.at( 2 ).toString() );
+
+    if ( mUniqueValues )
+    {
+      if ( QgsVariantUtils::isNull( entry.key ) || listedKeys.contains( entry.key ) )
+      {
+        continue;
+      }
+      listedKeys.insert( entry.key );
+    }
 
     if ( !mSearchTerm.isEmpty() )
     {
@@ -564,6 +576,23 @@ void QfFeatureListModel::setAddNull( bool addNull )
   emit addNullChanged();
 
   reloadLayer();
+}
+
+bool QfFeatureListModel::uniqueValues() const
+{
+  return mUniqueValues;
+}
+
+void QfFeatureListModel::setUniqueValues( bool uniqueValues )
+{
+  if ( mUniqueValues == uniqueValues )
+  {
+    return;
+  }
+
+  mUniqueValues = uniqueValues;
+  reloadLayer();
+  emit uniqueValuesChanged();
 }
 
 bool QfFeatureListModel::orderByValue() const

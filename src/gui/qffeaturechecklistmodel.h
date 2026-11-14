@@ -137,6 +137,9 @@ class QfFeatureCheckListModel : public QSortFilterProxyModel
     //! Set to TRUE if null values are allowed in the list
     Q_PROPERTY( bool addNull READ addNull WRITE setAddNull NOTIFY addNullChanged )
 
+    //! Set to TRUE if each non-NULL key value should only be listed once
+    Q_PROPERTY( bool uniqueValues READ uniqueValues WRITE setUniqueValues NOTIFY uniqueValuesChanged )
+
     //! Expression to filter features with. Empty string if no filter is applied.
     Q_PROPERTY( QString filterExpression READ filterExpression WRITE setFilterExpression NOTIFY filterExpressionChanged )
 
@@ -242,6 +245,16 @@ class QfFeatureCheckListModel : public QSortFilterProxyModel
     void setAddNull( bool addNull );
 
     /**
+     * Returns TRUE if each non-NULL key value is only listed once.
+     */
+    bool uniqueValues() const;
+
+    /**
+     * Sets whether each non-NULL key value is only listed once.
+     */
+    void setUniqueValues( bool uniqueValues );
+
+    /**
     * Expression to filter features with. Empty string if no filter is applied.
     */
     QString filterExpression() const;
@@ -343,6 +356,7 @@ class QfFeatureCheckListModel : public QSortFilterProxyModel
     void orderByFieldChanged();
     void orderByFieldNameChanged();
     void addNullChanged();
+    void uniqueValuesChanged();
     void filterExpressionChanged();
     void searchTermChanged();
     void currentFormFeatureChanged();
