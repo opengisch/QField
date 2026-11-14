@@ -133,8 +133,11 @@ void QfMarkupManager::removeCollection( const QString &uuid )
 
   if ( mCollectionPaths.contains( uuid ) )
   {
-    QFile::remove( mCollectionPaths[uuid] );
-    mCollectionPaths.remove( uuid );
+    const QString collectionPath = mCollectionPaths.take( uuid );
+    if ( !collectionPath.isEmpty() && QFileInfo::exists( collectionPath ) )
+    {
+      QFile::remove( collectionPath );
+    }
   }
 
   QfMarkupCollection *collection = mCollections.take( uuid );
