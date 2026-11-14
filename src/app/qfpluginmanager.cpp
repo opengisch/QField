@@ -437,66 +437,8 @@ void QfPluginManager::installFromUrl( const QString &url )
           file.write( data );
           file.close();
 
-          bool pluginDirectoryWithinZip = false;
-          QString pluginDirectoryName;
-          QStringList zipFiles = QgsZipUtils::files( filePath );
-          if ( !zipFiles.isEmpty() && !zipFiles.contains( "main.qml" ) && zipFiles.at( 0 ).indexOf( '/' ) >= 0 )
-          {
-            pluginDirectoryName = zipFiles.at( 0 ).mid( 0, zipFiles.at( 0 ).indexOf( '/' ) );
-            pluginDirectoryWithinZip = true;
-          }
-          if ( zipFiles.contains( QStringLiteral( "%1main.qml" ).arg( !pluginDirectoryName.isEmpty() ? pluginDirectoryName + "/" : QString() ) ) )
-          {
-            if ( !pluginDirectoryWithinZip )
-            {
-              // Remove the .zip suffix as well as version information (e.g. myplugin-v1.0.zip becomes myplugin)
-              pluginDirectoryName = fileName.replace( QRegularExpression( "(-v?\\d+(\\.\\d+)*)?.zip$", QRegularExpression::CaseInsensitiveOption ), QString() );
-            }
-
-            // Insure no previous version is running
-            disableAppPlugin( pluginDirectoryName );
-
-            if ( mPluginModel->hasPluginInformation( pluginDirectoryName ) )
-            {
-              QfPluginInformation pluginInformation = mPluginModel->pluginInformation( pluginDirectoryName );
-              if ( pluginInformation.remotelyAvailable && pluginInformation.downloadLink != url )
-              {
-                error = tr( "The requested plugin URL is present in the available plugins list, please install via its download button" );
-                emit installEnded( QString(), error );
-                return;
-              }
-            }
-
-            QDir pluginDirectory = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, pluginDirectoryName );
-            if ( pluginDirectory.exists() )
-            {
-              pluginDirectory.removeRecursively();
-            }
-            pluginDirectory.mkpath( "." );
-            if ( pluginDirectoryWithinZip )
-            {
-              pluginDirectory.cdUp();
-            }
-            if ( QgsZipUtils::unzip( filePath, pluginDirectory.absolutePath(), zipFiles, false ) )
-            {
-              file.remove();
-
-              mPluginModel->refresh( false );
-              emit installEnded( pluginDirectoryName );
-
-              return;
-            }
-            else
-            {
-              pluginDirectory.removeRecursively();
-              error = tr( "The downloaded zip file could not be decompressed" );
-            }
-          }
-          else
-          {
-            error = tr( "The downloaded zip file does not contain the required main.qml plugin file" );
-          }
-          file.remove();
+          installFromZip( filePath, url );
+          return;
         }
         else
         {
@@ -515,6 +457,92 @@ void QfPluginManager::installFromUrl( const QString &url )
 
     emit installEnded( QString(), error );
   } );
+}
+
+void QfPluginManager::installFromFile( const QString &path )
+{
+  const QFileInfo fileInfo( path );
+  emit installTriggered( fileInfo.fileName() );
+
+  if ( !fileInfo.exists() || fileInfo.suffix().toLower() != QLatin1String( "zip" ) )
+  {
+    emit installEnded( QString(), tr( "The selected file is not a zipped plugin" ) );
+    return;
+  }
+
+  installFromZip( fileInfo.absoluteFilePath(), QString() );
+}
+
+void QfPluginManager::installFromZip( const QString &filePath, const QString &url )
+{
+  const QString dataDir = QfPlatformUtilities::instance()->appDataDirs().at( 0 );
+  QString fileName = QFileInfo( filePath ).fileName();
+  QFile file( filePath );
+  QString error;
+
+  bool pluginDirectoryWithinZip = false;
+  QString pluginDirectoryName;
+  QStringList zipFiles = QgsZipUtils::files( filePath );
+  if ( !zipFiles.isEmpty() && !zipFiles.contains( "main.qml" ) && zipFiles.at( 0 ).indexOf( '/' ) >= 0 )
+  {
+    pluginDirectoryName = zipFiles.at( 0 ).mid( 0, zipFiles.at( 0 ).indexOf( '/' ) );
+    pluginDirectoryWithinZip = true;
+  }
+  if ( zipFiles.contains( QStringLiteral( "%1main.qml" ).arg( !pluginDirectoryName.isEmpty() ? pluginDirectoryName + "/" : QString() ) ) )
+  {
+    if ( !pluginDirectoryWithinZip )
+    {
+      // Remove the .zip suffix as well as version information (e.g. myplugin-v1.0.zip becomes myplugin)
+      pluginDirectoryName = fileName.replace( QRegularExpression( "(-v?\\d+(\\.\\d+)*)?.zip$", QRegularExpression::CaseInsensitiveOption ), QString() );
+    }
+
+    // Insure no previous version is running
+    disableAppPlugin( pluginDirectoryName );
+
+    if ( mPluginModel->hasPluginInformation( pluginDirectoryName ) )
+    {
+      QfPluginInformation pluginInformation = mPluginModel->pluginInformation( pluginDirectoryName );
+      if ( pluginInformation.remotelyAvailable && pluginInformation.downloadLink != url )
+      {
+        file.remove();
+        error = url.isEmpty() ? tr( "This plugin is present in the available plugins list, please install via its download button" )
+                              : tr( "The requested plugin URL is present in the available plugins list, please install via its download button" );
+        emit installEnded( QString(), error );
+        return;
+      }
+    }
+
+    QDir pluginDirectory = QStringLiteral( "%1/plugins/%2" ).arg( dataDir, pluginDirectoryName );
+    if ( pluginDirectory.exists() )
+    {
+      pluginDirectory.removeRecursively();
+    }
+    pluginDirectory.mkpath( "." );
+    if ( pluginDirectoryWithinZip )
+    {
+      pluginDirectory.cdUp();
+    }
+    if ( QgsZipUtils::unzip( filePath, pluginDirectory.absolutePath(), zipFiles, false ) )
+    {
+      file.remove();
+
+      mPluginModel->refresh( false );
+      emit installEnded( pluginDirectoryName );
+
+      return;
+    }
+    else
+    {
+      pluginDirectory.removeRecursively();
+      error = tr( "The plugin zip file could not be decompressed" );
+    }
+  }
+  else
+  {
+    error = tr( "The plugin zip file does not contain the required main.qml plugin file" );
+  }
+  file.remove();
+  emit installEnded( QString(), error );
 }
 
 void QfPluginManager::uninstall( const QString &uuid )

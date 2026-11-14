@@ -174,6 +174,12 @@ class QfPluginManager : public QObject
     Q_INVOKABLE void installFromUrl( const QString &url );
 
     /**
+     * Installs a plugin from a local zip file at \a path.
+     * \note The zip file is removed once the installation attempt has completed.
+     */
+    Q_INVOKABLE void installFromFile( const QString &path );
+
+    /**
      * Installs a plugin from the given repository \a uuid.
      */
     Q_INVOKABLE void installFromRepository( const QString &uuid );
@@ -215,6 +221,8 @@ class QfPluginManager : public QObject
     void callPluginMethod( const QString &uuid, const QString &methodName ) const;
 
   private:
+    void installFromZip( const QString &filePath, const QString &url );
+
     QQmlEngine *mEngine = nullptr;
     QMap<QString, QPointer<QObject>> mLoadedPlugins;
     QMap<QString, QTranslator *> mLoadedPluginTranslators;

@@ -192,6 +192,9 @@ QfPopup {
           }
 
           onDropdownClicked: {
+            if (!popup.availablePluginsFetched) {
+              pluginManager.pluginModel.refresh(true);
+            }
             const point = mapToItem(page, installFromUrlButton.width - pluginsManagementMenu.width + 10, installFromUrlButton.y + 10);
             pluginsManagementMenu.popup(point);
           }
@@ -252,6 +255,24 @@ QfPopup {
   QfMenu {
     id: pluginsManagementMenu
     title: qsTr('Plugins management menu')
+
+    MenuItem {
+      text: qsTr('Install plugin from ZIP')
+      enabled: popup.availablePluginsFetched
+
+      font: QfTheme.defaultFont
+      height: 48
+      leftPadding: QfTheme.menuItemLeftPadding
+
+      onTriggered: {
+        platformUtilities.requestStoragePermission();
+        installFromZipConnection.target = platformUtilities.getFile(installFromZipConnection.prefix, '{filename}', 'application/zip', popup);
+      }
+    }
+
+    MenuSeparator {
+      width: parent.width
+    }
 
     MenuItem {
       text: qsTr('Clear remembered permissions')
@@ -432,6 +453,19 @@ QfPopup {
     function onRemoteFetched() {
       popup.availablePluginsFetched = true;
       installFromUrlDialog.standardButton(Dialog.Ok).enabled = true;
+    }
+  }
+
+  Connections {
+    id: installFromZipConnection
+    target: null
+
+    readonly property string prefix: platformUtilities.appDataDirs()[0] + '/plugins/'
+
+    function onResourceReceived(path) {
+      if (path) {
+        pluginManager.installFromFile(prefix + path);
+      }
     }
   }
 
