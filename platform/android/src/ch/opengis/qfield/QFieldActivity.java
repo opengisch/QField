@@ -930,14 +930,24 @@ public class QFieldActivity extends QtActivity {
         resourcePrefix = prefix;
         resourceFilePath = filePath;
 
+        String[] mimeTypes = mimeType.split(",");
         Intent intent;
         if (Build.VERSION.SDK_INT >= 33) {
             intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
-            intent.setType(mimeType);
+            // The photo picker offers both images and videos when no type is
+            // set
+            if (mimeTypes.length == 1) {
+                intent.setType(mimeType);
+            }
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         } else {
             intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.setType(mimeType);
+            if (mimeTypes.length > 1) {
+                intent.setType("*/*");
+                intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+            } else {
+                intent.setType(mimeType);
+            }
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         }

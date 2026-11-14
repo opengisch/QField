@@ -61,6 +61,8 @@ class QfIosPlatformUtilities : public QfPlatformUtilities
       getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent = nullptr ) override;
     virtual QfResourceSource *
       getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr ) override;
+    virtual QfResourceSource *
+      getGalleryMedia( const QString &prefix, const QString &mediaFilePath, QObject *parent = nullptr ) override;
     virtual QfViewStatus *open( const QString &uri, bool editing = false, QObject *parent = nullptr ) override;
     virtual QfProjectSource *openProject( QObject *parent = nullptr ) override;
 

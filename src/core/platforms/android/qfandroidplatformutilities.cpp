@@ -529,6 +529,11 @@ QfResourceSource *QfAndroidPlatformUtilities::getGalleryVideo( const QString &pr
   return processGalleryActivity( prefix, videoFilePath, QStringLiteral( "video/*" ), parent );
 }
 
+QfResourceSource *QfAndroidPlatformUtilities::getGalleryMedia( const QString &prefix, const QString &mediaFilePath, QObject *parent )
+{
+  return processGalleryActivity( prefix, mediaFilePath, QStringLiteral( "image/*,video/*" ), parent );
+}
+
 QfResourceSource *QfAndroidPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QStringList &mimeTypes, QObject *parent )
 {
   const QFileInfo destinationInfo( prefix + filePath );

@@ -519,6 +519,13 @@ QfResourceSource *QfPlatformUtilities::getGalleryVideo( const QString &prefix, c
   return createResource( prefix, videoFilePath, fileName, parent );
 }
 
+QfResourceSource *QfPlatformUtilities::getGalleryMedia( const QString &prefix, const QString &mediaFilePath, QObject *parent )
+{
+  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Image or Video File" ), prefix,
+                                                   tr( "All images and video (*.jpg *.jpeg *.png *.bmp *.mp4 *.mkv *.mov);;All images (*.jpg *.jpeg *.png *.bmp);;All video (*.mp4 *.mkv *.mov)" ) );
+  return createResource( prefix, mediaFilePath, fileName, parent );
+}
+
 QfResourceSource *QfPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QStringList &mimeTypes, QObject *parent )
 {
   // Wildcard mime types are not understood by the file dialog, expanding them into the matching file patterns

@@ -228,6 +228,14 @@ class QFIELD_CORE_EXPORT QfPlatformUtilities : public QObject
     Q_INVOKABLE virtual QfResourceSource *getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr );
 
     /**
+     * Get a picture or a video from gallery and copy it to the requested prefix
+     * @param prefix The project folder
+     * @param mediaFilePath The path (including subfolders and name) of the picture or video
+     * @return The name of the picture or video or null
+     */
+    Q_INVOKABLE virtual QfResourceSource *getGalleryMedia( const QString &prefix, const QString &mediaFilePath, QObject *parent = nullptr );
+
+    /**
      * Get a file from the operating system and copy it to the requested prefix
      * @param prefix The project folder
      * @param filePath The path (including subfolders and name) of the file
