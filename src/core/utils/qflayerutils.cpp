@@ -86,13 +86,22 @@ void QfLayerUtils::setDefaultRenderer( QgsVectorLayer *layer, QgsProject *projec
     return;
   }
 
-  QgsSymbol *symbol = project ? project->styleSettings()->defaultSymbol( symbolType ) : nullptr;
-  if ( !symbol )
+  std::unique_ptr<QgsSymbol> symbol;
+  if ( project )
   {
-    symbol = QfLayerUtils::defaultSymbol( layer, attachmentField, colorField );
+#if _QGIS_VERSION_INT >= 40300
+    symbol = project->styleSettings()->defaultSymbol( symbolType );
+#else
+    symbol.reset( project->styleSettings()->defaultSymbol( symbolType ) );
+#endif
   }
 
-  QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol );
+  if ( !symbol )
+  {
+    symbol.reset( QfLayerUtils::defaultSymbol( layer, attachmentField, colorField ) );
+  }
+
+  QgsSingleSymbolRenderer *renderer = new QgsSingleSymbolRenderer( symbol.release() );
   layer->setRenderer( renderer );
 }
 
