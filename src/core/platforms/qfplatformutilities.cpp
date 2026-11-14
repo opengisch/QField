@@ -37,6 +37,7 @@
 #include <QFileInfo>
 #include <QMargins>
 #include <QMessageBox>
+#include <QMimeDatabase>
 #include <QQuickWindow>
 #include <QStandardPaths>
 #include <QStorageInfo>
@@ -518,10 +519,31 @@ QfResourceSource *QfPlatformUtilities::getGalleryVideo( const QString &prefix, c
   return createResource( prefix, videoFilePath, fileName, parent );
 }
 
-QfResourceSource *QfPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent )
+QfResourceSource *QfPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QStringList &mimeTypes, QObject *parent )
 {
+  // Wildcard mime types are not understood by the file dialog, expanding them into the matching file patterns
+  QStringList patterns;
+  if ( !mimeTypes.contains( QStringLiteral( "*/*" ) ) )
+  {
+    const QList<QMimeType> allMimeTypes = QMimeDatabase().allMimeTypes();
+    for ( const QString &mimeType : mimeTypes )
+    {
+      for ( const QMimeType &type : allMimeTypes )
+      {
+        if ( mimeType.endsWith( QLatin1String( "/*" ) ) ? type.name().startsWith( mimeType.chopped( 1 ) ) : type.name() == mimeType )
+        {
+          patterns << type.globPatterns();
+        }
+      }
+    }
+    patterns.removeDuplicates();
+  }
+
   QFileDialog fileDialog( nullptr, tr( "Select File" ), prefix );
-  fileDialog.setMimeTypeFilters( { mimeType } );
+  if ( !patterns.isEmpty() )
+  {
+    fileDialog.setNameFilter( QStringLiteral( "%1 (%2)" ).arg( tr( "Supported Files" ), patterns.join( QLatin1Char( ' ' ) ) ) );
+  }
   if ( fileDialog.exec() )
   {
     return createResource( prefix, filePath, fileDialog.selectedFiles().at( 0 ), parent );

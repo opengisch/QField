@@ -957,7 +957,13 @@ public class QFieldActivity extends QtActivity {
         intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
-        intent.setType(mimeType);
+        String[] mimeTypes = mimeType.split(",");
+        if (mimeTypes.length > 1) {
+            intent.setType("*/*");
+            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+        } else {
+            intent.setType(mimeType);
+        }
         Log.d("QField", "File picker intent starting");
         startActivityForResult(intent, FILE_PICKER_RESOURCE);
         return;

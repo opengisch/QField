@@ -529,7 +529,7 @@ QfResourceSource *QfAndroidPlatformUtilities::getGalleryVideo( const QString &pr
   return processGalleryActivity( prefix, videoFilePath, QStringLiteral( "video/*" ), parent );
 }
 
-QfResourceSource *QfAndroidPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent )
+QfResourceSource *QfAndroidPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QStringList &mimeTypes, QObject *parent )
 {
   const QFileInfo destinationInfo( prefix + filePath );
   const QDir prefixDir( prefix );
@@ -540,6 +540,7 @@ QfResourceSource *QfAndroidPlatformUtilities::getFile( const QString &prefix, co
   {
     resourceSource = new QfAndroidResourceSource( prefix, parent );
 
+    const QString mimeType = mimeTypes.join( QLatin1Char( ',' ) );
     runOnAndroidMainThread( [prefix, filePath, mimeType] {
       auto activity = qtAndroidContext();
       if ( activity.isValid() )

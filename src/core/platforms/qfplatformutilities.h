@@ -231,10 +231,10 @@ class QFIELD_CORE_EXPORT QfPlatformUtilities : public QObject
      * Get a file from the operating system and copy it to the requested prefix
      * @param prefix The project folder
      * @param filePath The path (including subfolders and name) of the file
-     * @param filter The filter string (e.g. *.mp3)
+     * @param mimeTypes The accepted mime types, where a * subtype matches any subtype
      * @return The name of the file or null
      */
-    Q_INVOKABLE virtual QfResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &mimeType = QStringLiteral( "*/*" ), QObject *parent = nullptr );
+    Q_INVOKABLE virtual QfResourceSource *getFile( const QString &prefix, const QString &filePath, const QStringList &mimeTypes = { QStringLiteral( "*/*" ) }, QObject *parent = nullptr );
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.
