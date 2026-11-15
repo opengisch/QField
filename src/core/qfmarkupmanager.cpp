@@ -154,6 +154,7 @@ void QfMarkupManager::removeCollection( const QString &uuid )
 
   emit collectionsChanged();
   emit visibleCollectionsChanged();
+  emit hasItemsChanged();
 }
 
 void QfMarkupManager::reset( const QString &path, const QString &prefix )
