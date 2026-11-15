@@ -7622,14 +7622,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>URL plugin ທີ່ຮ້ອງຂໍແມ່ນມີຢູ່ໃນລາຍຊື່ plugins ທີ່ມີຢູ່, ກະລຸນາຕິດຕັ້ງຜ່ານປຸ່ມດາວໂຫລດ</translation>
     </message>
     <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>ໄຟລ໌ zip ທີ່ດາວໂຫລດມາບໍ່ສາມາດຖືກບີບອັດໄດ້</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>ໄຟລ໌ zip ທີ່ດາວໂຫລດມາບໍ່ມີໄຟລ໌ plugin main.qml ທີ່ຕ້ອງການ</translation>
-    </message>
-    <message>
         <source>Can&apos;t save the downloaded file</source>
         <translation>ບໍ່ສາມາດບັນທຶກໄຟລ໌ທີ່ດາວໂຫລດໄດ້</translation>
     </message>
@@ -7640,6 +7632,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Network error</source>
         <translation>ເຄືອຂ່າຍຜິດພາດ</translation>
+    </message>
+    <message>
+        <source>The selected file is not a zipped plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This plugin is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The plugin zip file could not be decompressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The plugin zip file does not contain the required main.qml plugin file</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7703,6 +7711,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Installing %1</source>
         <translation>ກຳລັງຕິດຕັ້ງ %1</translation>
+    </message>
+    <message>
+        <source>Install plugin from ZIP</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

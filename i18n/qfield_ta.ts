@@ -7643,14 +7643,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>கோரப்பட்ட செருகுநிரல் முகவரி கிடைக்கக்கூடிய செருகுநிரல்கள் பட்டியலில் உள்ளது, அதன் பதிவிறக்க பொத்தான் மூலம் நிறுவவும்</translation>
     </message>
     <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>பதிவிறக்கம் செய்யப்பட்ட சிப் கோப்பை டிகம்ப்ரச் செய்ய முடியவில்லை</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>பதிவிறக்கம் செய்யப்பட்ட சிப் கோப்பில் தேவையான main.qml செருகுநிரல் கோப்பு இல்லை</translation>
-    </message>
-    <message>
         <source>Can&apos;t save the downloaded file</source>
         <translation>பதிவிறக்கிய கோப்பைச் சேமிக்க முடியவில்லை</translation>
     </message>
@@ -7661,6 +7653,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Network error</source>
         <translation>பிணையம் பிழை</translation>
+    </message>
+    <message>
+        <source>The selected file is not a zipped plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This plugin is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The plugin zip file could not be decompressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The plugin zip file does not contain the required main.qml plugin file</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7724,6 +7732,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Installing %1</source>
         <translation>% 1ஐ நிறுவுகிறது</translation>
+    </message>
+    <message>
+        <source>Install plugin from ZIP</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

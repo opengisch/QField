@@ -7657,14 +7657,6 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
         <translation>L&apos;URL del connector sol·licitat figura a la llista de connectors disponibles; si us plau, instal·leu-lo mitjançant el botó de descàrrega.</translation>
     </message>
     <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>El fitxer zip descarregat no s&apos;ha pogut descomprimir.</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>El fitxer zip descarregat no conté el fitxer de connector main.qml necessari.</translation>
-    </message>
-    <message>
         <source>Can&apos;t save the downloaded file</source>
         <translation>No es pot desar el fitxer descarregat</translation>
     </message>
@@ -7675,6 +7667,22 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>Network error</source>
         <translation>Error de xarxa</translation>
+    </message>
+    <message>
+        <source>The selected file is not a zipped plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This plugin is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The plugin zip file could not be decompressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The plugin zip file does not contain the required main.qml plugin file</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7738,6 +7746,10 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>Installing %1</source>
         <translation>Instal·lant %1</translation>
+    </message>
+    <message>
+        <source>Install plugin from ZIP</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

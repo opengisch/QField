@@ -7648,14 +7648,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>요청한 플러그인 URL이 사용 가능한 플러그인 목록에 있습니다. 해당 항목의 내려받기 버튼으로 설치하십시오</translation>
     </message>
     <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>내려받은 ZIP 파일의 압축을 풀 수 없습니다</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>내려받은 ZIP 파일에 필수 플러그인 파일 main.qml이 없습니다</translation>
-    </message>
-    <message>
         <source>Can&apos;t save the downloaded file</source>
         <translation>내려받은 파일을 저장할 수 없습니다</translation>
     </message>
@@ -7666,6 +7658,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Network error</source>
         <translation>네트워크 오류</translation>
+    </message>
+    <message>
+        <source>The selected file is not a zipped plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This plugin is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The plugin zip file could not be decompressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The plugin zip file does not contain the required main.qml plugin file</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7729,6 +7737,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Installing %1</source>
         <translation>%1 설치 중</translation>
+    </message>
+    <message>
+        <source>Install plugin from ZIP</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

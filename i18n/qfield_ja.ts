@@ -7648,14 +7648,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>リクエストされたプラグインのURLは利用可能なプラグインのリストにあります。ダウンロードボタンからインストールしてください。</translation>
     </message>
     <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>ダウンロードされたZIPファイルは解凍できませんでした</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>ダウンロードされたZIPファイルには必須ファイルであるmain.qmlプラグインファイルが含まれていません</translation>
-    </message>
-    <message>
         <source>Can&apos;t save the downloaded file</source>
         <translation>ダウンロードされたファイルを保存できませんでした</translation>
     </message>
@@ -7666,6 +7658,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Network error</source>
         <translation>ネットワークエラー</translation>
+    </message>
+    <message>
+        <source>The selected file is not a zipped plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This plugin is present in the available plugins list, please install via its download button</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The plugin zip file could not be decompressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The plugin zip file does not contain the required main.qml plugin file</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7729,6 +7737,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Installing %1</source>
         <translation>%1をインストールしています</translation>
+    </message>
+    <message>
+        <source>Install plugin from ZIP</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

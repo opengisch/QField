@@ -7650,24 +7650,32 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>请求插件URL位于可用插件列表中，请通过其下载按钮安装</translation>
     </message>
     <message>
-        <source>The downloaded zip file could not be decompressed</source>
-        <translation>无法解压下载的zip文件</translation>
-    </message>
-    <message>
-        <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation>下载的zip文件不包含必需的 main.qml 插件文件</translation>
-    </message>
-    <message>
         <source>Can&apos;t save the downloaded file</source>
         <translation>无法保存下载的文件</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation>下载文件不是压缩插件</translation>
+        <translation>下载文件不是已压缩的插件</translation>
     </message>
     <message>
         <source>Network error</source>
         <translation>网络错误</translation>
+    </message>
+    <message>
+        <source>The selected file is not a zipped plugin</source>
+        <translation>所选文件不是已压缩的插件</translation>
+    </message>
+    <message>
+        <source>This plugin is present in the available plugins list, please install via its download button</source>
+        <translation>此插件已出现在可用插件列表，请通过其下载按钮进行安装</translation>
+    </message>
+    <message>
+        <source>The plugin zip file could not be decompressed</source>
+        <translation>插件的压缩文件无法解压</translation>
+    </message>
+    <message>
+        <source>The plugin zip file does not contain the required main.qml plugin file</source>
+        <translation>插件的压缩文件未包含必需的 main.qml 插件文件</translation>
     </message>
 </context>
 <context>
@@ -7731,6 +7739,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Installing %1</source>
         <translation>正在安装 %1</translation>
+    </message>
+    <message>
+        <source>Install plugin from ZIP</source>
+        <translation>从ZIP安装插件</translation>
     </message>
 </context>
 <context>
