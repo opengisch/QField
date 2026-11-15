@@ -265,38 +265,72 @@ ColumnLayout {
           }
         }
 
-        ColumnLayout {
-          Layout.topMargin: 20
-          Layout.bottomMargin: 20
-          Layout.preferredWidth: projectDetailsCode.desiredWidth
-          Layout.alignment: Qt.AlignHCenter
-          spacing: 5
+        Rectangle {
+          Layout.fillWidth: true
+          Layout.topMargin: 10
+          Layout.bottomMargin: 10
+          implicitHeight: projectDetailsShareLayout.implicitHeight + 40
+          radius: 10
+          color: QfTheme.groupBoxBackgroundColor
 
-          Image {
-            id: projectDetailsCode
+          RowLayout {
+            id: projectDetailsShareLayout
+            anchors.fill: parent
+            anchors.margins: 20
+            spacing: 20
 
-            property int desiredWidth: Math.min(mainWindow.width - 40, 240)
+            Rectangle {
+              id: projectDetailsCodeFrame
+              Layout.preferredWidth: 108
+              Layout.preferredHeight: 108
+              Layout.alignment: Qt.AlignTop
+              radius: 10
+              color: QfTheme.mainBackgroundColor
+              opacity: projectDetailsCodePopup.visible ? 0 : 1
 
-            Layout.preferredWidth: desiredWidth
-            Layout.preferredHeight: desiredWidth
-            fillMode: Image.PreserveAspectFit
+              Image {
+                id: projectDetailsCode
+                anchors.fill: parent
+                anchors.margins: 5
+                fillMode: Image.PreserveAspectFit
+                sourceSize.width: width * Screen.devicePixelRatio
+                sourceSize.height: height * Screen.devicePixelRatio
+                source: cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(QfUrlUtils.createActionUrl("qfield", "cloud", {
+                  "project": cloudProject.owner + '/' + cloudProject.name
+                })) + "&color=" + encodeURIComponent(QfTheme.mainTextColor) : ""
+              }
+            }
 
-            sourceSize.width: desiredWidth * Screen.devicePixelRatio
-            sourceSize.height: desiredWidth * Screen.devicePixelRatio
-            source: cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(QfUrlUtils.createActionUrl("qfield", "cloud", {
-              "project": cloudProject.owner + '/' + cloudProject.name
-            })) + "&color=" + encodeURIComponent(QfTheme.mainTextColor) : ""
+            ColumnLayout {
+              Layout.fillWidth: true
+              Layout.alignment: Qt.AlignTop
+              spacing: 5
+
+              Text {
+                id: projectDetailsCodeLabel
+                Layout.fillWidth: true
+                font: QfTheme.tipFont
+                color: QfTheme.secondaryTextColor
+                wrapMode: Text.WordWrap
+
+                text: qsTr("This QR code can be scanned for users with the appropriate access to download and open this project")
+              }
+
+              Text {
+                font: QfTheme.strongTipFont
+                color: QfTheme.mainColor
+
+                text: qsTr("Enlarge")
+              }
+            }
           }
 
-          Text {
-            id: projectDetailsCodeLabel
-            Layout.preferredWidth: projectDetailsCode.desiredWidth
-            font: QfTheme.tinyFont
-            color: QfTheme.secondaryTextColor
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-
-            text: qsTr("This QR code can be scanned for users with the appropriate access to download and open this project")
+          MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              projectDetailsCodePopup.codeFrameRect = projectDetailsCodeFrame.mapToItem(null, 0, 0, projectDetailsCodeFrame.width, projectDetailsCodeFrame.height);
+              projectDetailsCodePopup.open();
+            }
           }
         }
       }
@@ -411,6 +445,91 @@ ColumnLayout {
 
     onDropdownClicked: {
       projectDetailsMenu.popup(openProjectBtn.width - projectDetailsMenu.width, openProjectBtn.y);
+    }
+  }
+
+  QfPopup {
+    id: projectDetailsCodePopup
+
+    property real enlargeProgress: 0
+    property rect codeFrameRect
+    readonly property real enlargedSize: Math.min(width - 40, height - 160, 420)
+    readonly property rect enlargedRect: Qt.rect((width - enlargedSize) / 2, (height - enlargedSize) / 2, enlargedSize, enlargedSize)
+
+    function interpolate(from, to) {
+      return from + (to - from) * enlargeProgress;
+    }
+
+    parent: Overlay.overlay
+    width: mainWindow.width
+    height: mainWindow.height
+    padding: 0
+    dim: false
+    closePolicy: Popup.CloseOnEscape
+
+    enter: Transition {
+      NumberAnimation {
+        target: projectDetailsCodePopup
+        property: "enlargeProgress"
+        to: 1
+        duration: 450
+        easing.type: Easing.OutBack
+        easing.overshoot: 0.8
+      }
+    }
+
+    exit: Transition {
+      NumberAnimation {
+        target: projectDetailsCodePopup
+        property: "enlargeProgress"
+        to: 0
+        duration: 300
+        easing.type: Easing.InOutCubic
+      }
+    }
+
+    background: Rectangle {
+      color: QfTheme.darkGraySemiOpaque
+      opacity: projectDetailsCodePopup.enlargeProgress
+    }
+
+    contentItem: Item {
+      MouseArea {
+        anchors.fill: parent
+        onClicked: projectDetailsCodePopup.close()
+      }
+
+      Rectangle {
+        id: projectDetailsEnlargedCodeFrame
+        x: projectDetailsCodePopup.interpolate(projectDetailsCodePopup.codeFrameRect.x, projectDetailsCodePopup.enlargedRect.x)
+        y: projectDetailsCodePopup.interpolate(projectDetailsCodePopup.codeFrameRect.y, projectDetailsCodePopup.enlargedRect.y)
+        width: projectDetailsCodePopup.interpolate(projectDetailsCodePopup.codeFrameRect.width, projectDetailsCodePopup.enlargedRect.width)
+        height: projectDetailsCodePopup.interpolate(projectDetailsCodePopup.codeFrameRect.height, projectDetailsCodePopup.enlargedRect.height)
+        radius: projectDetailsCodeFrame.radius
+        color: QfTheme.mainBackgroundColor
+
+        Image {
+          anchors.fill: parent
+          anchors.margins: projectDetailsCodePopup.interpolate(5, 20)
+          fillMode: Image.PreserveAspectFit
+          sourceSize.width: projectDetailsCodePopup.enlargedSize * Screen.devicePixelRatio
+          sourceSize.height: projectDetailsCodePopup.enlargedSize * Screen.devicePixelRatio
+          source: projectDetailsCode.source
+        }
+      }
+
+      Text {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: projectDetailsEnlargedCodeFrame.bottom
+        anchors.topMargin: 20
+        width: projectDetailsCodePopup.enlargedSize
+        opacity: projectDetailsCodePopup.enlargeProgress
+        font: QfTheme.strongFont
+        color: QfTheme.light
+        wrapMode: Text.WordWrap
+        horizontalAlignment: Text.AlignHCenter
+        text: cloudProject != undefined ? cloudProject.owner + '/' + cloudProject.name : ""
+      }
     }
   }
 
