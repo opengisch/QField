@@ -17,6 +17,7 @@
 
 #include "qfresourcesource.h"
 
+class QQuickItem;
 
 class QfIosResourceSource : public QfResourceSource
 {
