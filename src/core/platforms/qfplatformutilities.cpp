@@ -526,6 +526,11 @@ QfResourceSource *QfPlatformUtilities::getGalleryMedia( const QString &prefix, c
   return createResource( prefix, mediaFilePath, fileName, parent );
 }
 
+QfResourceSource *QfPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent )
+{
+  return getFile( prefix, filePath, QStringList { mimeType }, parent );
+}
+
 QfResourceSource *QfPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QStringList &mimeTypes, QObject *parent )
 {
   // Wildcard mime types are not understood by the file dialog, expanding them into the matching file patterns
@@ -535,9 +540,11 @@ QfResourceSource *QfPlatformUtilities::getFile( const QString &prefix, const QSt
     const QList<QMimeType> allMimeTypes = QMimeDatabase().allMimeTypes();
     for ( const QString &mimeType : mimeTypes )
     {
+      const bool isWildcard = mimeType.endsWith( QLatin1String( "/*" ) );
+      const QString mimeTypePrefix = mimeType.chopped( 1 );
       for ( const QMimeType &type : allMimeTypes )
       {
-        if ( mimeType.endsWith( QLatin1String( "/*" ) ) ? type.name().startsWith( mimeType.chopped( 1 ) ) : type.name() == mimeType )
+        if ( ( isWildcard && type.name().startsWith( mimeTypePrefix ) ) || type.name() == mimeType )
         {
           patterns << type.globPatterns();
         }
