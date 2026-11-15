@@ -297,6 +297,9 @@ find_package(QtWebDAV REQUIRED)
 
 add_library(qfield_core STATIC ${QFIELD_CORE_SRCS} ${QFIELD_CORE_HDRS})
 
+if(WITH_TEXTTOSPEECH)
+  target_compile_definitions(qfield_core PRIVATE WITH_TEXTTOSPEECH)
+endif()
 if(WITH_BLUETOOTH)
   target_compile_definitions(qfield_core PRIVATE WITH_BLUETOOTH)
 endif()
@@ -383,6 +386,14 @@ target_link_libraries(
          Qca::qca
          libzip::zip
          QtWebDAV::QtWebDAV)
+
+if(WITH_TEXTTOSPEECH)
+  find_package(
+    Qt6
+    COMPONENTS TextToSpeech
+    REQUIRED)
+  target_link_libraries(qfield_core PUBLIC Qt6::TextToSpeech)
+endif()
 
 if(WITH_BLUETOOTH)
   find_package(
