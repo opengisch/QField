@@ -42,6 +42,15 @@ QfIdentifyTool::QfIdentifyTool( QObject *parent )
   connect( &mIdentifyWatcher, &QFutureWatcher<QList<IdentifyResult>>::canceled, this, &QfIdentifyTool::onIdentifyFinished );
 }
 
+QfIdentifyTool::~QfIdentifyTool()
+{
+  if ( mIdentifyWatcher.isRunning() )
+  {
+    // We're deliberately not waiting here to avoid a hang when exiting the application
+    mIdentifyWatcher.cancel();
+  }
+}
+
 QgsQuickMapSettings *QfIdentifyTool::mapSettings() const
 {
   return mMapSettings;
@@ -95,11 +104,11 @@ void QfIdentifyTool::identify( const QPointF &point )
 
   mModel->clear( true );
 
-  mPreparedLayers.clear();
   mIdentifiedLayers.clear();
 
   QgsPointXY mapPoint = mMapSettings->screenToCoordinate( point );
 
+  QList<std::shared_ptr<PreparedLayer>> preparedLayers;
   const QList<QgsMapLayer *> layers = mModel->selectedLayer() ? QList<QgsMapLayer *>() << mModel->selectedLayer() : mMapSettings->mapSettings().layers();
   for ( QgsMapLayer *layer : layers )
   {
@@ -112,21 +121,21 @@ void QfIdentifyTool::identify( const QPointF &point )
     {
       std::shared_ptr<PreparedLayer> preparedLayer;
       preparedLayer.reset( prepareVectorLayer( vl, mapPoint ) );
-      mPreparedLayers.append( preparedLayer );
+      preparedLayers.append( preparedLayer );
       mIdentifiedLayers.insert( vl->id(), vl );
     }
     else if ( QgsRasterLayer *rl = qobject_cast<QgsRasterLayer *>( layer ) )
     {
       std::shared_ptr<PreparedLayer> preparedLayer;
       preparedLayer.reset( prepareRasterLayer( rl, mapPoint ) );
-      mPreparedLayers.append( preparedLayer );
+      preparedLayers.append( preparedLayer );
       mIdentifiedLayers.insert( rl->id(), rl );
     }
     else if ( QgsVectorTileLayer *vtl = qobject_cast<QgsVectorTileLayer *>( layer ) )
     {
       std::shared_ptr<PreparedLayer> preparedLayer;
       preparedLayer.reset( prepareVectorTileLayer( vtl, mapPoint ) );
-      mPreparedLayers.append( preparedLayer );
+      preparedLayers.append( preparedLayer );
       mIdentifiedLayers.insert( vtl->id(), vtl );
     }
   }
@@ -139,20 +148,20 @@ void QfIdentifyTool::identify( const QPointF &point )
       std::shared_ptr<PreparedLayer> preparedLayer;
       QgsVectorLayer *vl = collection->asVectorLayer();
       preparedLayer.reset( prepareVectorLayer( vl, mapPoint ) );
-      mPreparedLayers.append( preparedLayer );
+      preparedLayers.append( preparedLayer );
       mIdentifiedLayers.insert( vl->id(), vl );
     }
   }
 
-  if ( mPreparedLayers.isEmpty() )
+  if ( preparedLayers.isEmpty() )
   {
     emit identifyFinished();
     return;
   }
 
-  QFuture<QList<QfIdentifyTool::IdentifyResult>> future = QtConcurrent::run( [this]( QPromise<QList<QfIdentifyTool::IdentifyResult>> &promise ) {
+  QFuture<QList<QfIdentifyTool::IdentifyResult>> future = QtConcurrent::run( [this]( QPromise<QList<QfIdentifyTool::IdentifyResult>> &promise, QList<std::shared_ptr<PreparedLayer>> preparedLayers ) {
     QList<QfIdentifyTool::IdentifyResult> results;
-    for ( auto &preparedLayer : std::as_const( mPreparedLayers ) )
+    for ( auto &preparedLayer : std::as_const( preparedLayers ) )
     {
       if ( !preparedLayer->isValid )
       {
@@ -198,7 +207,8 @@ void QfIdentifyTool::identify( const QPointF &point )
     {
       promise.addResult( results );
     }
-  } );
+  },
+                                                                             std::move( preparedLayers ) );
 
   mIdentifyWatcher.setFuture( future );
 
@@ -229,7 +239,6 @@ void QfIdentifyTool::onIdentifyFinished()
     emit identifyFinished();
   }
 
-  mPreparedLayers.clear();
   mIdentifiedLayers.clear();
 
   emit isIdentifyingChanged();

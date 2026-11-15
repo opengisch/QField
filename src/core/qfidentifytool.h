@@ -53,7 +53,7 @@ class QfIdentifyTool : public QObject
   public:
     struct IdentifyResult
     {
-        IdentifyResult( QString &layerId, const QgsFeature &feature, const QString &representationalLayerName = QString() )
+        IdentifyResult( const QString &layerId, const QgsFeature &feature, const QString &representationalLayerName = QString() )
           : layerId( layerId )
           , feature( feature )
           , representationalLayerName( representationalLayerName )
@@ -67,6 +67,7 @@ class QfIdentifyTool : public QObject
 
   public:
     explicit QfIdentifyTool( QObject *parent = nullptr );
+    ~QfIdentifyTool();
 
     QgsQuickMapSettings *mapSettings() const;
     void setMapSettings( QgsQuickMapSettings *mapSettings );
@@ -154,9 +155,7 @@ class QfIdentifyTool : public QObject
     bool mEnabled = true;
     double mSearchRadiusMm;
 
-    QList<std::shared_ptr<PreparedLayer>> mPreparedLayers;
     QMap<QString, QPointer<QgsMapLayer>> mIdentifiedLayers;
-
     QFutureWatcher<QList<IdentifyResult>> mIdentifyWatcher;
 
     friend class IdentifyTool;
