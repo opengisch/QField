@@ -233,6 +233,9 @@ Rectangle {
         digitizingLayerComboBox.skipCurrentIndexChange = true;
         digitizingLayerComboBox.currentIndex = idx;
       }
+    } else if (!activeDigitizingCollection) {
+      // No map layer nor markup collection active
+      digitizingLayerComboBox.currentIndex = -1;
     }
   }
 
@@ -243,6 +246,9 @@ Rectangle {
         digitizingLayerComboBox.skipCurrentIndexChange = true;
         digitizingLayerComboBox.currentIndex = idx;
       }
+    } else if (!activeDigitizingLayer) {
+      // No map layer nor markup collection active
+      digitizingLayerComboBox.currentIndex = -1;
     }
   }
 
