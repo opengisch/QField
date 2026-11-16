@@ -307,7 +307,7 @@ ApplicationWindow {
     state: "browse"
 
     onStateChanged: {
-      if (state !== "browse" && is3DView) {
+      if (state === "digitize" && is3DView) {
         mapCanvas3DLoader.close();
       }
     }
@@ -363,7 +363,9 @@ ApplicationWindow {
 
   onClose3DView: {
     mapCanvas3DLoader.close();
-    changeMode(mapCanvas3DLoader.previousMode);
+    if (stateMachine.state !== 'measure') {
+      changeMode(mapCanvas3DLoader.previousMode);
+    }
   }
 
   /**
@@ -813,6 +815,7 @@ ApplicationWindow {
         item.mapSettings = mapCanvas.mapSettings;
         item.markups = markupManager;
         item.trackingModel = trackingModel;
+        item.rubberbandModel = Qt.binding(() => stateMachine.state === 'measure' ? measuringTool.measuringRubberband.model : null);
         item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
         item.selectionColor = Qt.binding(() => QfTheme.mainColor);
 
@@ -1322,7 +1325,7 @@ ApplicationWindow {
       rubberbandModel: geometryEditorsToolbar.stateVisible ? geometryEditorsToolbar.editorRubberbandModel : digitizingToolbar.rubberbandModel
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
-      overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
+      overrideLocation: positionLocked ? positionSource.projectedPosition : stateMachine.is3DView && mapCanvas3DLoader.item ? mapCanvas3DLoader.item.centerCoordinate : undefined
 
       snapToCommonAngles: qfieldSettings.snapToCommonAngleIsEnabled && (dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line))
       snappingIsRelative: qfieldSettings.snapToCommonAngleIsRelative
@@ -2236,13 +2239,13 @@ ApplicationWindow {
 
       // The position is dynamically calculated to follow the coordinate locator
       x: {
-        var newX = coordinateLocator.displayPosition.x + 20;
+        let newX = (stateMachine.is3DView ? mapCanvas.width / 2 : coordinateLocator.displayPosition.x) + 20;
         if (newX + width > mapCanvas.x + mapCanvas.width)
           newX -= width + 40;
         return newX;
       }
       y: {
-        var newY = coordinateLocator.displayPosition.y + 14;
+        let newY = (stateMachine.is3DView ? mapCanvas.height / 2 : coordinateLocator.displayPosition.y) + 14;
         if (newY + height > mapCanvas.y + mapCanvas.height)
           newY -= height - 28;
         return newY;
@@ -2430,7 +2433,7 @@ ApplicationWindow {
       objectName: "mainMenuBar"
       visible: !screenLocker.enabled
       width: childrenRect.width
-      height: childrenRect.height
+      height: menuButton.height
       topPadding: mainWindow.sceneTopMargin + 4
       leftPadding: mainWindow.sceneLeftMargin + 4
       spacing: 4
@@ -2462,28 +2465,33 @@ ApplicationWindow {
         }
       }
 
-      QfActionButton {
-        id: closeMeasureTool
-        visible: stateMachine.state === 'measure'
-        toolImage: QfTheme.getThemeVectorIcon("ic_measurement_black_24dp")
-        toolText: qsTr('Close measure tool')
+      Column {
+        visible: stateMachine.state === 'measure' || stateMachine.is3DView
+        spacing: 4
 
-        onClicked: mainWindow.closeMeasureTool()
-      }
+        QfActionButton {
+          id: closeMeasureTool
+          visible: stateMachine.state === 'measure'
+          toolImage: QfTheme.getThemeVectorIcon("ic_measurement_black_24dp")
+          toolText: qsTr('Close measure tool')
 
-      QfActionButton {
-        id: close3DView
-        visible: stateMachine.is3DView
-        toolImage: QfTheme.getThemeVectorIcon("ic_3d_white_24dp")
-        toolText: qsTr('Close 3D view')
+          onClicked: mainWindow.closeMeasureTool()
+        }
 
-        onClicked: {
-          if (mapCanvas3DLoader.item && mapCanvas3DLoader.item.playClosingAnimation) {
-            mapCanvas3DLoader.item.playClosingAnimation(function () {
+        QfActionButton {
+          id: close3DView
+          visible: stateMachine.is3DView
+          toolImage: QfTheme.getThemeVectorIcon("ic_3d_white_24dp")
+          toolText: qsTr('Close 3D view')
+
+          onClicked: {
+            if (mapCanvas3DLoader.item && mapCanvas3DLoader.item.playClosingAnimation) {
+              mapCanvas3DLoader.item.playClosingAnimation(function () {
+                mainWindow.close3DView();
+              });
+            } else {
               mainWindow.close3DView();
-            });
-          } else {
-            mainWindow.close3DView();
+            }
           }
         }
       }
@@ -3807,8 +3815,12 @@ ApplicationWindow {
     mainMenu.close();
     dashBoard.close();
     if (!stateMachine.is3DView) {
-      mapCanvas3DLoader.previousMode = stateMachine.state;
-      changeMode('browse');
+      if (stateMachine.state === 'measure') {
+        mapCanvas3DLoader.previousMode = stateMachine.lastState;
+      } else {
+        mapCanvas3DLoader.previousMode = stateMachine.state;
+        changeMode('browse');
+      }
       stateMachine.is3DView = true;
     }
   }

@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Shapes
 import QtQuick3D
 import QtQuick3D.Helpers
 import org.qfield._3d
@@ -40,6 +41,9 @@ Item {
   property alias selectionColor: selectionHighlight.selectedColor
 
   property QfTrackingModel trackingModel: null
+
+  property QfRubberbandModel rubberbandModel: null
+  property var centerCoordinate: undefined
 
   property alias terrainProvider: mapTerrainProvider
   property Item pluginContainer: null
@@ -248,6 +252,11 @@ Item {
       }
     }
 
+    QfRubberband3D {
+      rubberbandModel: mapArea.rubberbandModel
+      terrainProvider: mapTerrainProvider
+    }
+
     Repeater3D {
       model: mapArea.pluginContainer ? mapArea.pluginContainer.children : null
 
@@ -271,6 +280,45 @@ Item {
             cullMode: PrincipledMaterial.NoCulling
           }
         }
+      }
+    }
+  }
+
+  Shape {
+    id: crosshair
+    anchors.centerIn: parent
+    visible: mapArea.rubberbandModel !== null
+    preferredRendererType: Shape.CurveRenderer
+
+    ShapePath {
+      strokeColor: "#FFFFFF"
+      strokeWidth: 4
+      fillColor: "transparent"
+      capStyle: ShapePath.SquareCap
+      PathSvg {
+        id: crosshairPath
+        path: "M 0 -8 V 8 M -8 0 H 8"
+      }
+    }
+    ShapePath {
+      strokeColor: "#000000"
+      strokeWidth: 2
+      fillColor: "transparent"
+      capStyle: ShapePath.SquareCap
+      PathSvg {
+        path: crosshairPath.path
+      }
+    }
+  }
+
+  Connections {
+    target: mapArea.Window.window
+    enabled: crosshair.visible
+
+    function onFrameSwapped() {
+      const pickResult = view3d.pick(mapArea.width / 2, mapArea.height / 2);
+      if (pickResult.objectHit) {
+        mapArea.centerCoordinate = mapTerrainProvider.scene3DToGeo(pickResult.scenePosition.x, pickResult.scenePosition.z);
       }
     }
   }
