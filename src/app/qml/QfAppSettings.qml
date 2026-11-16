@@ -1363,6 +1363,8 @@ Page {
                     positioningDeviceSettings.name = name;
                     positioningDeviceSettings.setType(positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceType));
                     positioningDeviceSettings.setSettings(positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceSettings));
+                    if (name === positioningDeviceSettings.generateName())
+                      positioningDeviceSettings.name = '';
                     positioningDeviceSettings.open();
                   }
                 }
@@ -1383,29 +1385,53 @@ Page {
 
               QfButton {
                 id: connectButton
+                property bool connecting: false
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
                 Layout.topMargin: 5
+                showProgress: connecting || (positionSource.deviceSocketState !== QAbstractSocket.UnconnectedState && positionSource.deviceSocketState !== QAbstractSocket.ConnectedState && positionSource.deviceSocketState !== QAbstractSocket.BoundState)
                 text: {
+                  if (connecting) return qsTr('Cancel connection to %1').arg(positioningSettings.positioningDeviceName.trim());
                   switch (positionSource.deviceSocketState) {
                   case QAbstractSocket.ConnectedState:
                   case QAbstractSocket.BoundState:
-                    return qsTr('Connected to %1').arg(positioningSettings.positioningDeviceName.trim());
+                    return qsTr('Disconnect from %1').arg(positioningSettings.positioningDeviceName.trim());
                   case QAbstractSocket.UnconnectedState:
                     return qsTr('Connect to %1').arg(positioningSettings.positioningDeviceName.trim());
                   default:
-                    return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName.trim());
+                    return qsTr('Cancel connection to %1').arg(positioningSettings.positioningDeviceName.trim());
                   }
                 }
-                enabled: positionSource.deviceSocketState === QAbstractSocket.UnconnectedState
                 visible: positionSource.deviceId !== ''
 
                 onClicked: {
+                  if (connecting || positionSource.deviceSocketState !== QAbstractSocket.UnconnectedState) {
+                    connecting = false;
+                    positionSource.triggerDisconnectDevice();
+                    positioningSettings.positioningActivated = false;
+                    return;
+                  }
+                  connecting = true;
                   // make sure positioning is active when connecting to the bluetooth device
                   if (!positioningSettings.positioningActivated) {
                     positioningSettings.positioningActivated = true;
                   } else {
                     positionSource.triggerConnectDevice();
+                  }
+                }
+
+                Connections {
+                  target: positionSource
+                  function onDeviceSocketStateChanged() {
+                    if (positionSource.deviceSocketState === QAbstractSocket.ConnectedState || positionSource.deviceSocketState === QAbstractSocket.BoundState)
+                      connectButton.connecting = false;
+                  }
+                  function onDeviceLastErrorChanged() {
+                    if (positionSource.deviceSocketState === QAbstractSocket.UnconnectedState)
+                      connectButton.connecting = false;
+                  }
+                  function onDeviceIdChanged() {
+                    connectButton.connecting = false;
                   }
                 }
               }
@@ -2272,6 +2298,9 @@ Page {
       }
       var index = positioningDeviceModel.addDevice(type, name, settings);
       positioningDeviceComboBox.currentIndex = index;
+      const modelIndex = positioningDeviceModel.index(index, 0);
+      positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceId);
+      positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceName);
     }
   }
 

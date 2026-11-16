@@ -21,7 +21,7 @@ Button {
   property bool dropdown: false
   property real progressValue: 0.0
   property bool showProgress: false
-  property color progressColor: QfTheme.mainColor
+  property color progressColor: button.color
 
   signal dropdownClicked
 

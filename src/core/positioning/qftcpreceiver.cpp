@@ -77,7 +77,12 @@ void QfTcpReceiver::handleConnectDevice()
 void QfTcpReceiver::handleDisconnectDevice()
 {
   mReconnectOnDisconnect = false;
+  mReconnectTimer.stop();
   mSocket->disconnectFromHost();
+  if ( mSocket->state() == QAbstractSocket::UnconnectedState )
+  {
+    setSocketState( QAbstractSocket::UnconnectedState );
+  }
 }
 
 QString QfTcpReceiver::socketStateString()
