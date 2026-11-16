@@ -37,6 +37,7 @@
 #include <QFileInfo>
 #include <QMargins>
 #include <QMessageBox>
+#include <QMimeDatabase>
 #include <QQuickWindow>
 #include <QStandardPaths>
 #include <QStorageInfo>
@@ -518,10 +519,45 @@ QfResourceSource *QfPlatformUtilities::getGalleryVideo( const QString &prefix, c
   return createResource( prefix, videoFilePath, fileName, parent );
 }
 
+QfResourceSource *QfPlatformUtilities::getGalleryMedia( const QString &prefix, const QString &mediaFilePath, QObject *parent )
+{
+  QString fileName = QFileDialog::getOpenFileName( nullptr, tr( "Select Image or Video File" ), prefix,
+                                                   tr( "All images and video (*.jpg *.jpeg *.png *.bmp *.mp4 *.mkv *.mov);;All images (*.jpg *.jpeg *.png *.bmp);;All video (*.mp4 *.mkv *.mov)" ) );
+  return createResource( prefix, mediaFilePath, fileName, parent );
+}
+
 QfResourceSource *QfPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent )
 {
+  return getFile( prefix, filePath, QStringList { mimeType }, parent );
+}
+
+QfResourceSource *QfPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QStringList &mimeTypes, QObject *parent )
+{
+  // Wildcard mime types are not understood by the file dialog, expanding them into the matching file patterns
+  QStringList patterns;
+  if ( !mimeTypes.contains( QStringLiteral( "*/*" ) ) )
+  {
+    const QList<QMimeType> allMimeTypes = QMimeDatabase().allMimeTypes();
+    for ( const QString &mimeType : mimeTypes )
+    {
+      const bool isWildcard = mimeType.endsWith( QLatin1String( "/*" ) );
+      const QString mimeTypePrefix = mimeType.chopped( 1 );
+      for ( const QMimeType &type : allMimeTypes )
+      {
+        if ( ( isWildcard && type.name().startsWith( mimeTypePrefix ) ) || type.name() == mimeType )
+        {
+          patterns << type.globPatterns();
+        }
+      }
+    }
+    patterns.removeDuplicates();
+  }
+
   QFileDialog fileDialog( nullptr, tr( "Select File" ), prefix );
-  fileDialog.setMimeTypeFilters( { mimeType } );
+  if ( !patterns.isEmpty() )
+  {
+    fileDialog.setNameFilter( QStringLiteral( "%1 (%2)" ).arg( tr( "Supported Files" ), patterns.join( QLatin1Char( ' ' ) ) ) );
+  }
   if ( fileDialog.exec() )
   {
     return createResource( prefix, filePath, fileDialog.selectedFiles().at( 0 ), parent );

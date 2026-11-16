@@ -72,6 +72,25 @@ QfEditorWidgetBase {
   }
 
   property int documentViewer: config.DocumentViewer
+  readonly property list<string> acceptedTypes: ExternalResourceUtils.getAttachmentAcceptedTypes(currentLayer, field.name)
+  // Accepted types, when set, take precedence over the viewer type to pick the quick action
+  readonly property string quickActionType: {
+    const captureType = ExternalResourceUtils.getAttachmentCaptureType(acceptedTypes);
+    if (captureType !== '') {
+      return captureType;
+    }
+    switch (documentViewer) {
+    case QfEditorWidgetExternalResource.DocumentImage:
+      return 'image';
+    case QfEditorWidgetExternalResource.DocumentVideo:
+      return 'video';
+    case QfEditorWidgetExternalResource.DocumentAudio:
+      return 'audio';
+    case QfEditorWidgetExternalResource.DocumentFile:
+      return 'file';
+    }
+    return '';
+  }
 
   property bool isImage: false
   property bool isAudio: false
@@ -226,7 +245,7 @@ QfEditorWidgetBase {
     visible: isVisible
 
     anchors.left: parent.left
-    anchors.right: cameraButton.left
+    anchors.right: quickActionButton.left
     color: {
       if ((!isEditable && isEditing) || isNull || isEmpty) {
         return QfTheme.mainTextDisabledColor;
@@ -280,7 +299,7 @@ QfEditorWidgetBase {
 
   Rectangle {
     id: mediaFrame
-    width: parent.width - fileButton.width - cameraButton.width - cameraVideoButton.width - microphoneButton.width - (isEnabled ? 5 : 0)
+    width: parent.width - quickActionButton.width - (isEnabled ? 5 : 0)
     height: 48
     visible: !linkField.isVisible
     color: QfTheme.controlBorderColor
@@ -589,72 +608,46 @@ QfEditorWidgetBase {
   }
 
   QfToolButton {
-    id: cameraButton
+    id: quickActionButton
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
 
-    // QField has historically handled no viewer type as image, let's carry that on
-    visible: documentViewer == QfEditorWidgetExternalResource.DocumentImage && isEnabled
-
-    anchors.right: cameraVideoButton.left
-    anchors.top: parent.top
-
-    iconSource: QfTheme.getThemeVectorIcon("ic_camera_photo_black_24dp")
-    iconColor: QfTheme.mainTextColor
-    bgcolor: "transparent"
-
-    onClicked: capturePhoto()
-  }
-
-  QfToolButton {
-    id: cameraVideoButton
-    width: visible ? QfTheme.toolButtonSize : 0
-    height: QfTheme.toolButtonSize
-
-    visible: documentViewer == QfEditorWidgetExternalResource.DocumentVideo && isEnabled
-
-    anchors.right: microphoneButton.left
-    anchors.top: parent.top
-
-    iconSource: QfTheme.getThemeVectorIcon("ic_camera_video_black_24dp")
-    iconColor: QfTheme.mainTextColor
-    bgcolor: "transparent"
-
-    onClicked: captureVideo()
-  }
-
-  QfToolButton {
-    id: microphoneButton
-    width: visible ? QfTheme.toolButtonSize : 0
-    height: QfTheme.toolButtonSize
-
-    visible: documentViewer == QfEditorWidgetExternalResource.DocumentAudio && isEnabled
-
-    anchors.right: fileButton.left
-    anchors.top: parent.top
-
-    iconSource: QfTheme.getThemeVectorIcon("ic_microphone_black_24dp")
-    iconColor: QfTheme.mainTextColor
-    bgcolor: "transparent"
-
-    onClicked: captureAudio()
-  }
-
-  QfToolButton {
-    id: fileButton
-    width: visible ? QfTheme.toolButtonSize : 0
-    height: QfTheme.toolButtonSize
-
-    visible: platformUtilities.capabilities & QfPlatformUtilities.FilePicker && documentViewer == QfEditorWidgetExternalResource.DocumentFile && isEnabled
+    visible: isEnabled && quickActionType !== '' && (quickActionType !== 'file' || platformUtilities.capabilities & QfPlatformUtilities.FilePicker)
 
     anchors.right: parent.right
     anchors.top: parent.top
 
-    iconSource: QfTheme.getThemeVectorIcon("ic_file_black_24dp")
+    iconSource: {
+      switch (quickActionType) {
+      case 'video':
+        return QfTheme.getThemeVectorIcon("ic_camera_video_black_24dp");
+      case 'audio':
+        return QfTheme.getThemeVectorIcon("ic_microphone_black_24dp");
+      case 'file':
+        return QfTheme.getThemeVectorIcon("ic_file_black_24dp");
+      default:
+        return QfTheme.getThemeVectorIcon("ic_camera_photo_black_24dp");
+      }
+    }
     iconColor: QfTheme.mainTextColor
     bgcolor: "transparent"
 
-    onClicked: attachFile()
+    onClicked: {
+      switch (quickActionType) {
+      case 'video':
+        captureVideo();
+        break;
+      case 'audio':
+        captureAudio();
+        break;
+      case 'file':
+        attachFile();
+        break;
+      default:
+        capturePhoto();
+        break;
+      }
+    }
   }
 
   Loader {
@@ -707,7 +700,7 @@ QfEditorWidgetBase {
       id: qfieldCamera
       visible: false
 
-      allowCaptureModeToggle: true
+      allowCaptureModeToggle: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image') && ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'video')
 
       currentLayer: resourceLayer
       currentFeature: resourceFeature
@@ -794,18 +787,24 @@ QfEditorWidgetBase {
     Qt.inputMethod.hide();
     platformUtilities.requestStoragePermission();
     const filepath = getResourceFilePath();
-    if (documentViewer == QfEditorWidgetExternalResource.DocumentAudio) {
-      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "audio/*", this);
-    } else {
-      __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, "*/*", this);
+    let mimeTypes = ["*/*"];
+    if (acceptedTypes.length > 0) {
+      mimeTypes = ExternalResourceUtils.getAttachmentMimeTypes(acceptedTypes);
+    } else if (documentViewer == QfEditorWidgetExternalResource.DocumentAudio) {
+      mimeTypes = ["audio/*"];
     }
+    __resourceSource = platformUtilities.getFile(qgisProject.homePath + '/', filepath, mimeTypes, this);
   }
 
   function attachGallery() {
     Qt.inputMethod.hide();
     platformUtilities.requestStoragePermission();
     const filepath = getResourceFilePath();
-    if (documentViewer == QfEditorWidgetExternalResource.DocumentVideo) {
+    const acceptsImage = ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image');
+    const acceptsVideo = ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'video');
+    if (acceptedTypes.length > 0 && acceptsImage && acceptsVideo) {
+      __resourceSource = platformUtilities.getGalleryMedia(qgisProject.homePath + '/', filepath, this);
+    } else if (acceptsVideo && (!acceptsImage || documentViewer == QfEditorWidgetExternalResource.DocumentVideo)) {
       __resourceSource = platformUtilities.getGalleryVideo(qgisProject.homePath + '/', filepath, this);
     } else {
       __resourceSource = platformUtilities.getGalleryPicture(qgisProject.homePath + '/', filepath, this);
@@ -865,10 +864,12 @@ QfEditorWidgetBase {
     MenuItem {
       id: capturePhotoMenuItem
       text: qsTr('Take a photo')
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image')
+      visible: enabled
 
       font: QfTheme.defaultFont
       icon.source: QfTheme.getThemeVectorIcon("ic_camera_photo_black_24dp")
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: capturePhoto()
@@ -877,10 +878,12 @@ QfEditorWidgetBase {
     MenuItem {
       id: captureVideoMenuItem
       text: qsTr('Take a video')
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'video')
+      visible: enabled
 
       font: QfTheme.defaultFont
       icon.source: QfTheme.getThemeVectorIcon("ic_camera_video_black_24dp")
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: captureVideo()
@@ -889,10 +892,12 @@ QfEditorWidgetBase {
     MenuItem {
       id: captureAudioMenuItem
       text: qsTr('Record an audio clip')
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'audio')
+      visible: enabled
 
       font: QfTheme.defaultFont
       icon.source: QfTheme.getThemeVectorIcon("ic_microphone_black_24dp")
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: captureAudio()
@@ -906,10 +911,12 @@ QfEditorWidgetBase {
     MenuItem {
       id: attachGalleryMenuItem
       text: qsTr('Attach a gallery item')
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image') || ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'video')
+      visible: enabled
 
       font: QfTheme.defaultFont
       icon.source: QfTheme.getThemeVectorIcon("ic_gallery_black_24dp")
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: attachGallery()
@@ -929,16 +936,21 @@ QfEditorWidgetBase {
 
     MenuSeparator {
       id: separatorDrawingItem
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image')
+      visible: enabled
       width: parent.width
+      height: enabled ? undefined : 0
     }
 
     MenuItem {
       id: attachDrawingMenuItem
       text: qsTr('Draw a sketch')
+      enabled: ExternalResourceUtils.acceptsAttachmentType(acceptedTypes, 'image')
+      visible: enabled
 
       font: QfTheme.defaultFont
       icon.source: QfTheme.getThemeVectorIcon("ic_freehand_white_24dp")
-      height: 48
+      height: visible ? 48 : 0
       leftPadding: QfTheme.menuItemLeftPadding
 
       onTriggered: {

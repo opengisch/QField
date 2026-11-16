@@ -412,6 +412,14 @@ QfResourceSource *QfIosPlatformUtilities::getGalleryVideo(
   return videoSource;
 }
 
+QfResourceSource *QfIosPlatformUtilities::getGalleryMedia(
+    const QString &prefix, const QString &mediaFilePath, QObject *parent) {
+  QfIosResourceSource *mediaSource =
+      new QfIosResourceSource(prefix, mediaFilePath, parent);
+  mediaSource->pickGalleryMedia();
+  return mediaSource;
+}
+
 QfViewStatus *QfIosPlatformUtilities::open(const QString &uri, bool,
                                            QObject *) {
   // Code from https://bugreports.qt.io/browse/QTBUG-42942

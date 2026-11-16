@@ -228,13 +228,30 @@ class QFIELD_CORE_EXPORT QfPlatformUtilities : public QObject
     Q_INVOKABLE virtual QfResourceSource *getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr );
 
     /**
+     * Get a picture or a video from gallery and copy it to the requested prefix
+     * @param prefix The project folder
+     * @param mediaFilePath The path (including subfolders and name) of the picture or video
+     * @return The name of the picture or video or null
+     */
+    Q_INVOKABLE virtual QfResourceSource *getGalleryMedia( const QString &prefix, const QString &mediaFilePath, QObject *parent = nullptr );
+
+    /**
      * Get a file from the operating system and copy it to the requested prefix
      * @param prefix The project folder
      * @param filePath The path (including subfolders and name) of the file
-     * @param filter The filter string (e.g. *.mp3)
+     * @param mimeType The accepted mime type
      * @return The name of the file or null
      */
-    Q_INVOKABLE virtual QfResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &mimeType = QStringLiteral( "*/*" ), QObject *parent = nullptr );
+    Q_INVOKABLE QfResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &mimeType = QStringLiteral( "*/*" ), QObject *parent = nullptr );
+
+    /**
+     * Get a file from the operating system and copy it to the requested prefix
+     * @param prefix The project folder
+     * @param filePath The path (including subfolders and name) of the file
+     * @param mimeTypes The accepted mime types, where a * subtype matches any subtype
+     * @return The name of the file or null
+     */
+    Q_INVOKABLE virtual QfResourceSource *getFile( const QString &prefix, const QString &filePath, const QStringList &mimeTypes, QObject *parent = nullptr );
 
     /**
      * Open the resource (file, image, ...) that is available under \a uri.

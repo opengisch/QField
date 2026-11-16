@@ -17,6 +17,7 @@
 
 #include "qfresourcesource.h"
 
+class QQuickItem;
 
 class QfIosResourceSource : public QfResourceSource
 {
@@ -36,6 +37,7 @@ class QfIosResourceSource : public QfResourceSource
     void takeVideo();
     void pickGalleryPicture();
     void pickGalleryVideo();
+    void pickGalleryMedia();
 
   private:
     QQuickItem *mParent = nullptr;

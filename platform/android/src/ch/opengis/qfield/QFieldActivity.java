@@ -930,14 +930,24 @@ public class QFieldActivity extends QtActivity {
         resourcePrefix = prefix;
         resourceFilePath = filePath;
 
+        String[] mimeTypes = mimeType.split(",");
         Intent intent;
         if (Build.VERSION.SDK_INT >= 33) {
             intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
-            intent.setType(mimeType);
+            // The photo picker offers both images and videos when no type is
+            // set
+            if (mimeTypes.length == 1) {
+                intent.setType(mimeType);
+            }
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         } else {
             intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.setType(mimeType);
+            if (mimeTypes.length > 1) {
+                intent.setType("*/*");
+                intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+            } else {
+                intent.setType(mimeType);
+            }
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         }
@@ -957,7 +967,13 @@ public class QFieldActivity extends QtActivity {
         intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
-        intent.setType(mimeType);
+        String[] mimeTypes = mimeType.split(",");
+        if (mimeTypes.length > 1) {
+            intent.setType("*/*");
+            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+        } else {
+            intent.setType(mimeType);
+        }
         Log.d("QField", "File picker intent starting");
         startActivityForResult(intent, FILE_PICKER_RESOURCE);
         return;

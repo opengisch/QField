@@ -214,3 +214,26 @@ void QfIosResourceSource::pickGalleryVideo() {
                              animated:YES
                            completion:nil];
 }
+
+void QfIosResourceSource::pickGalleryMedia() {
+  // Get the UIView that backs our QQuickWindow:
+  UIView *view = (__bridge UIView *)(QGuiApplication::platformNativeInterface()
+                                         ->nativeResourceForWindow(
+                                             "uiview", mParent->window()));
+  UIViewController *qtController = [[view window] rootViewController];
+
+  // Create a new image picker controller to show on top of Qt's view
+  // controller:
+  UIImagePickerController *imageController =
+      [[UIImagePickerController alloc] init];
+  [imageController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+  [imageController setDelegate:id(mDelegate->_cameraDelegate)];
+
+  imageController.mediaTypes =
+      @[ (NSString *)kUTTypeImage, (NSString *)kUTTypeMovie ];
+
+  // Tell the imagecontroller to animate on top:
+  [qtController presentViewController:imageController
+                             animated:YES
+                           completion:nil];
+}

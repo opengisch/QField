@@ -61,7 +61,8 @@ class QfAndroidPlatformUtilities : public QfPlatformUtilities
     QfResourceSource *getCameraVideo( const QString &prefix, const QString &videoFilePath, const QString &suffix, QObject *parent = nullptr ) override;
     QfResourceSource *getGalleryPicture( const QString &prefix, const QString &pictureFilePath, QObject *parent = nullptr ) override;
     QfResourceSource *getGalleryVideo( const QString &prefix, const QString &videoFilePath, QObject *parent = nullptr ) override;
-    QfResourceSource *getFile( const QString &prefix, const QString &filePath, const QString &mimeType, QObject *parent = nullptr ) override;
+    QfResourceSource *getGalleryMedia( const QString &prefix, const QString &mediaFilePath, QObject *parent = nullptr ) override;
+    QfResourceSource *getFile( const QString &prefix, const QString &filePath, const QStringList &mimeTypes, QObject *parent = nullptr ) override;
 
     QfViewStatus *open( const QString &filePath, bool isEditing, QObject *parent = nullptr ) override;
 
