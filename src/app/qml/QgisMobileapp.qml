@@ -3027,7 +3027,7 @@ ApplicationWindow {
       anchors.top: mainToolbar.bottom
       width: menuButton.width + 10
       height: width
-      running: mapCanvasMap.isRendering || (stateMachine.is3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && !mapCanvas3DLoader.item.isFirstLoad)
+      running: mapCanvasMap.isRendering || identifyTool.isIdentifying || (stateMachine.is3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.isLoading && !mapCanvas3DLoader.item.isFirstLoad)
     }
 
     Column {
