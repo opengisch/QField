@@ -4688,7 +4688,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Hide empty fields</source>
-        <translation type="unfinished"/>
+        <translation>Ukryj puste pola</translation>
     </message>
     <message numerus="yes">
         <source>Show %n empty field(s)</source>
@@ -4696,7 +4696,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Discard change</source>
-        <translation type="unfinished"/>
+        <translation>Odrzuć zmianę</translation>
     </message>
 </context>
 <context>
@@ -4939,19 +4939,19 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Discard local change</source>
-        <translation type="unfinished"/>
+        <translation>Odrzuć lokalną zmianę</translation>
     </message>
     <message>
         <source>Should this local change be discarded?</source>
-        <translation type="unfinished"/>
+        <translation>Czy tę lokalną zmianę należy odrzucić?</translation>
     </message>
     <message>
         <source>Can&apos;t discard change as project is busy</source>
-        <translation type="unfinished"/>
+        <translation>Nie mogę odrzucić zmiany, bo projekt jest zajęty</translation>
     </message>
     <message>
         <source>Failed to discard change</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się odrzucić zmiany</translation>
     </message>
 </context>
 <context>
@@ -7675,19 +7675,19 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>The selected file is not a zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>Wybrany plik nie jest wtyczką w formacie ZIP</translation>
     </message>
     <message>
         <source>This plugin is present in the available plugins list, please install via its download button</source>
-        <translation type="unfinished"/>
+        <translation>Ta wtyczka znajduje się na liście dostępnych wtyczek – zainstaluj ją, klikając przycisk pobierania</translation>
     </message>
     <message>
         <source>The plugin zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się rozpakować pliku ZIP z wtyczką</translation>
     </message>
     <message>
         <source>The plugin zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>Plik ZIP z wtyczką nie zawiera wymaganego pliku wtyczki „main.qml”</translation>
     </message>
 </context>
 <context>
@@ -7754,7 +7754,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Install plugin from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>Zainstaluj wtyczkę z pliku ZIP</translation>
     </message>
 </context>
 <context>
