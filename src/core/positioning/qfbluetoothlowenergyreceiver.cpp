@@ -484,6 +484,7 @@ void QfBluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &d
 
   if ( mRxCharacteristic.uuid() == QBluetoothUuid( "0000ffe1-0000-1000-8000-00805f9b34fb" ) ) // Beken Corp. handling
   {
+    qDebug() << "BEKEN";
     auto shortToByteArray = []( qint16 s ) -> QByteArray {
       QByteArray targets;
 
@@ -536,6 +537,7 @@ void QfBluetoothLowEnergyReceiver::onCorrectionDataReceived( const QByteArray &d
   }
   else
   {
+    qDebug() << "OTHER";
     mCorrectionBytesReceived += data.size();
     mCorrectionData.append( data );
   }
