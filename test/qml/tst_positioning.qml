@@ -21,6 +21,12 @@ TestCase {
     }
   }
 
+  SignalSpy {
+    id: deviceStateSpy
+    target: positioning
+    signalName: 'deviceSocketStateChanged'
+  }
+
   Repeater {
     id: positioningInformations
     model: QfPositioningInformationModel {
@@ -159,8 +165,24 @@ TestCase {
     compare(Math.floor(positioning.positionInformation.vacc), 4);
   }
 
+  function test_05a_cancelFailedTcpConnection() {
+    positioning.deviceId = 'tcp:127.0.0.1:9000';
+    positioning.active = true;
+    tryCompare(positioning, 'deviceSocketState', QAbstractSocket.ConnectingState, 5000);
+    wait(2500);
+
+    positioning.triggerDisconnectDevice();
+    positioning.active = false;
+    tryCompare(positioning, 'deviceSocketState', QAbstractSocket.UnconnectedState, 1000);
+    deviceStateSpy.clear();
+    wait(2500);
+    compare(positioning.deviceSocketState, QAbstractSocket.UnconnectedState);
+    compare(deviceStateSpy.count, 0);
+  }
+
   function test_06_happyIMU() {
     positioning.deviceId = 'udp:localhost:1959';
+    positioning.active = true;
     positioning.elevationCorrectionMode = QfPositioning.ElevationCorrectionMode.None;
     coordinateTransformer.deltaZ = 0;
     coordinateTransformer.verticalGrid = '';
