@@ -1,4 +1,5 @@
 import QtCore
+import QtQml
 import org.qfield.core
 import org.qfield.gui
 
@@ -24,6 +25,8 @@ Settings {
 
   property bool enableNtrip: false
   property var ntripSettings: ({})
+  property var ntripPresets: []
+  property int ntripPresetIndex: 0
 
   property bool alwaysShowPreciseView: false
   property real preciseViewPrecision: 2.5
@@ -64,4 +67,20 @@ Settings {
   property bool egenioussEnabled: false
 
   property int positionFollowMode: QfPositioningSettings.FollowMode.PositionOnly
+
+  Component.onCompleted: {
+    if (ntripPresets.length === 0) {
+      ntripPresets = [
+        {
+          "name": qsTr("Default server"),
+          "settings": ntripSettings
+        }
+      ];
+      ntripPresetIndex = 0;
+    }
+  }
+
+  function ntripPresetSettings() {
+    return ntripPresetIndex < ntripPresets.length ? ntripPresets[ntripPresetIndex].settings : {};
+  }
 }

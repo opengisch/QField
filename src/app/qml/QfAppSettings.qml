@@ -1440,7 +1440,7 @@ Page {
                   clip: true
 
                   onClicked: {
-                    positioningNtripSettings.updateFromNtripSettings(QfPositioningUtils.createNtripSettings(positioningSettings.ntripSettings));
+                    positioningNtripSettings.updateFromNtripPresets(positioningSettings.ntripPresets, positioningSettings.ntripPresetIndex);
                     positioningNtripSettings.open();
                   }
                 }
@@ -2279,7 +2279,8 @@ Page {
     id: positioningNtripSettings
 
     onApply: {
-      positioningSettings.ntripSettings = createSettingsMap();
+      positioningSettings.ntripPresets = presets;
+      positioningSettings.ntripPresetIndex = presetIndex;
     }
   }
 

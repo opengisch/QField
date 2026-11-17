@@ -24,7 +24,11 @@ QfPopup {
   focus: visible
   closePolicy: Popup.CloseOnEscape
 
+  property var presets: []
+  property int presetIndex: 0
+
   onAboutToHide: {
+    savePreset();
     popup.apply();
   }
 
@@ -397,5 +401,24 @@ QfPopup {
       "mountPoint": ntripMountPointComboBox.editText,
       "forwardNmeaSentences": ntripForwardNmeaSentencesSwitch.checked
     };
+  }
+
+  function updateFromNtripPresets(ntripPresets, ntripPresetIndex) {
+    presets = [...ntripPresets];
+    presetIndex = ntripPresetIndex;
+    loadPreset();
+  }
+
+  function loadPreset() {
+    updateFromNtripSettings(QfPositioningUtils.createNtripSettings(presets[presetIndex].settings));
+  }
+
+  function savePreset() {
+    let updatedPresets = [...presets];
+    updatedPresets[presetIndex] = {
+      "name": presets[presetIndex].name,
+      "settings": createSettingsMap()
+    };
+    presets = updatedPresets;
   }
 }
