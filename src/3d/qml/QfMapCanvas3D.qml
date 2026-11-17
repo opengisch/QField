@@ -4,6 +4,7 @@ import QtQuick3D
 import QtQuick3D.Helpers
 import org.qfield._3d
 import org.qfield.core
+import org.qgis
 
 /**
  * \defgroup qml_3d QML 3D
@@ -42,6 +43,7 @@ Item {
   property QfTrackingModel trackingModel: null
 
   property QfRubberbandModel rubberbandModel: null
+  property alias rubberbandColor: rubberbandGeometry.color
   property var crosshairCoordinate: undefined
   readonly property point crosshairPosition: hoverHandler.hovered ? hoverHandler.point.position : Qt.point(width / 2, height / 2)
   property bool mouseAsTouchScreen: false
@@ -256,9 +258,25 @@ Item {
       }
     }
 
-    QfRubberband3D {
-      rubberbandModel: mapArea.rubberbandModel
-      terrainProvider: mapTerrainProvider
+    Model {
+      geometry: Qf3DGeometry {
+        id: rubberbandGeometry
+        crs: mapArea.mapSettings ? mapArea.mapSettings.destinationCrs : QfCoordinateReferenceSystemUtils.invalidCrs()
+        qgsGeometry: {
+          const model = mapArea.rubberbandModel;
+          if (!model || model.vertices.length < 2) {
+            return QfGeometryUtils.createGeometryFromWkt("");
+          }
+          return model.geometryType === Qgis.GeometryType.Polygon ? QfGeometryUtils.polygonFromRubberband(model, crs) : QfGeometryUtils.lineFromRubberband(model, crs);
+        }
+        terrainProvider: mapTerrainProvider
+      }
+      materials: PrincipledMaterial {
+        vertexColorsEnabled: true
+        alphaMode: PrincipledMaterial.Blend
+        depthDrawMode: Material.OpaqueOnlyDepthDraw
+        cullMode: PrincipledMaterial.NoCulling
+      }
     }
 
     Repeater3D {

@@ -816,6 +816,7 @@ ApplicationWindow {
         item.markups = markupManager;
         item.trackingModel = trackingModel;
         item.rubberbandModel = Qt.binding(() => stateMachine.state === 'measure' ? measuringTool.measuringRubberband.model : null);
+        item.rubberbandColor = measuringTool.measuringRubberband.color;
         item.mouseAsTouchScreen = Qt.binding(() => qfieldSettings.mouseAsTouchScreen);
         item.crosshair.fillColor = Qt.binding(() => coordinateLocator.cursorFillColor);
         item.crosshair.outlineColor = Qt.binding(() => coordinateLocator.cursorOutlineColor);

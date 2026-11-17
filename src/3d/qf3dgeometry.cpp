@@ -340,6 +340,11 @@ void Qf3DGeometry::updateGeometry()
     }
   }
 
+  if ( !workingGeom.isGeosValid() )
+  {
+    workingGeom = workingGeom.makeValid();
+  }
+
   workingGeom = workingGeom.intersection( QgsGeometry::fromRect( mTerrainProvider->extent() ) );
   if ( workingGeom.isNull() || workingGeom.isEmpty() )
   {
