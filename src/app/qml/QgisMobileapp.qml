@@ -817,6 +817,9 @@ ApplicationWindow {
         item.trackingModel = trackingModel;
         item.rubberbandModel = Qt.binding(() => stateMachine.state === 'measure' ? measuringTool.measuringRubberband.model : null);
         item.mouseAsTouchScreen = Qt.binding(() => qfieldSettings.mouseAsTouchScreen);
+        item.crosshair.fillColor = Qt.binding(() => coordinateLocator.cursorFillColor);
+        item.crosshair.outlineColor = Qt.binding(() => coordinateLocator.cursorOutlineColor);
+        item.crosshair.sizeScale = Qt.binding(() => coordinateLocator.cursorSizeScale);
         item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
         item.selectionColor = Qt.binding(() => QfTheme.mainColor);
 
@@ -2441,7 +2444,7 @@ ApplicationWindow {
       objectName: "mainMenuBar"
       visible: !screenLocker.enabled
       width: childrenRect.width
-      height: menuButton.height
+      height: childrenRect.height
       topPadding: mainWindow.sceneTopMargin + 4
       leftPadding: mainWindow.sceneLeftMargin + 4
       spacing: 4
@@ -2473,33 +2476,28 @@ ApplicationWindow {
         }
       }
 
-      Column {
-        visible: stateMachine.state === 'measure' || stateMachine.is3DView
-        spacing: 4
+      QfActionButton {
+        id: closeMeasureTool
+        visible: stateMachine.state === 'measure'
+        toolImage: QfTheme.getThemeVectorIcon("ic_measurement_black_24dp")
+        toolText: qsTr('Close measure tool')
 
-        QfActionButton {
-          id: closeMeasureTool
-          visible: stateMachine.state === 'measure'
-          toolImage: QfTheme.getThemeVectorIcon("ic_measurement_black_24dp")
-          toolText: qsTr('Close measure tool')
+        onClicked: mainWindow.closeMeasureTool()
+      }
 
-          onClicked: mainWindow.closeMeasureTool()
-        }
+      QfActionButton {
+        id: close3DView
+        visible: stateMachine.is3DView && stateMachine.state !== 'measure'
+        toolImage: QfTheme.getThemeVectorIcon("ic_3d_white_24dp")
+        toolText: qsTr('Close 3D view')
 
-        QfActionButton {
-          id: close3DView
-          visible: stateMachine.is3DView
-          toolImage: QfTheme.getThemeVectorIcon("ic_3d_white_24dp")
-          toolText: qsTr('Close 3D view')
-
-          onClicked: {
-            if (mapCanvas3DLoader.item && mapCanvas3DLoader.item.playClosingAnimation) {
-              mapCanvas3DLoader.item.playClosingAnimation(function () {
-                mainWindow.close3DView();
-              });
-            } else {
+        onClicked: {
+          if (mapCanvas3DLoader.item && mapCanvas3DLoader.item.playClosingAnimation) {
+            mapCanvas3DLoader.item.playClosingAnimation(function () {
               mainWindow.close3DView();
-            }
+            });
+          } else {
+            mainWindow.close3DView();
           }
         }
       }
@@ -2993,7 +2991,7 @@ ApplicationWindow {
         iconSource: QfTheme.getThemeVectorIcon('ic_3d_settings_white_24dp')
         iconColor: QfTheme.toolButtonColor
         spacing: 4
-        visible: stateMachine.is3DView && mapCanvas3DLoader.item
+        visible: stateMachine.is3DView && mapCanvas3DLoader.item && stateMachine.state !== 'measure'
 
         QfToolButton {
           id: extentModeButton

@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Shapes
 import QtQuick3D
 import QtQuick3D.Helpers
 import org.qfield._3d
@@ -47,6 +46,7 @@ Item {
   readonly property point crosshairPosition: hoverHandler.hovered ? hoverHandler.point.position : Qt.point(width / 2, height / 2)
   property bool mouseAsTouchScreen: false
   property alias hovered: hoverHandler.hovered
+  property alias crosshair: crosshair
 
   property alias terrainProvider: mapTerrainProvider
   property Item pluginContainer: null
@@ -288,32 +288,11 @@ Item {
     }
   }
 
-  Shape {
+  QfCrosshair {
     id: crosshair
-    x: mapArea.crosshairPosition.x
-    y: mapArea.crosshairPosition.y
+    x: mapArea.crosshairPosition.x - halfWidth
+    y: mapArea.crosshairPosition.y - halfWidth
     visible: mapArea.rubberbandModel !== null
-    preferredRendererType: Shape.CurveRenderer
-
-    ShapePath {
-      strokeColor: "#FFFFFF"
-      strokeWidth: 4
-      fillColor: "transparent"
-      capStyle: ShapePath.SquareCap
-      PathSvg {
-        id: crosshairPath
-        path: "M 0 -8 V 8 M -8 0 H 8"
-      }
-    }
-    ShapePath {
-      strokeColor: "#000000"
-      strokeWidth: 2
-      fillColor: "transparent"
-      capStyle: ShapePath.SquareCap
-      PathSvg {
-        path: crosshairPath.path
-      }
-    }
   }
 
   HoverHandler {

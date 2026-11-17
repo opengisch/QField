@@ -1,4 +1,5 @@
 set(QFIELD_CORE_QML_FILES
+    QfCrosshair.qml
     QfGridRenderer.qml
     QfKineticHandler.qml
     QfLinePolygon.qml
