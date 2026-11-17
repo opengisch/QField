@@ -7273,6 +7273,14 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
         <source>Export collection</source>
         <translation>Exporta la col·lecció</translation>
     </message>
+    <message>
+        <source>Remove markup collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to permanently remove a markup collection and delete its content, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfMarkupManager</name>
@@ -7633,6 +7641,18 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
         <translation>No s&apos;ha pogut moure el fitxer sidecar &apos;%1&apos; al costat de &apos;%2&apos;</translation>
+    </message>
+    <message>
+        <source>Select Image or Video File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All images and video (*.jpg *.jpeg *.png *.bmp *.mp4 *.mkv *.mov);;All images (*.jpg *.jpeg *.png *.bmp);;All video (*.mp4 *.mkv *.mov)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Supported Files</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -7271,6 +7271,14 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
         <source>Export collection</source>
         <translation>Vie kokoelma</translation>
     </message>
+    <message>
+        <source>Remove markup collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to permanently remove a markup collection and delete its content, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfMarkupManager</name>
@@ -7631,6 +7639,18 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     <message>
         <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
         <translation>Sivutiedoston &apos;%1&apos; siirt채minen kohteen &apos;%2&apos; rinnalle ei onnistunut</translation>
+    </message>
+    <message>
+        <source>Select Image or Video File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All images and video (*.jpg *.jpeg *.png *.bmp *.mp4 *.mkv *.mov);;All images (*.jpg *.jpeg *.png *.bmp);;All video (*.mp4 *.mkv *.mov)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Supported Files</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

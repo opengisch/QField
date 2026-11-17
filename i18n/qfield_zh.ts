@@ -7266,6 +7266,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Export collection</source>
         <translation>导出集合</translation>
     </message>
+    <message>
+        <source>Remove markup collection</source>
+        <translation>移除标记集合</translation>
+    </message>
+    <message>
+        <source>You are about to permanently remove a markup collection and delete its content, proceed?</source>
+        <translation>将永久移除标记集合并删除其内容，是否继续？</translation>
+    </message>
 </context>
 <context>
     <name>QfMarkupManager</name>
@@ -7626,6 +7634,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
         <translation>无法将附属文件 &quot;%1&quot; 移到 &quot;%2&quot; 旁边</translation>
+    </message>
+    <message>
+        <source>Select Image or Video File</source>
+        <translation>选择图像或视频文件</translation>
+    </message>
+    <message>
+        <source>All images and video (*.jpg *.jpeg *.png *.bmp *.mp4 *.mkv *.mov);;All images (*.jpg *.jpeg *.png *.bmp);;All video (*.mp4 *.mkv *.mov)</source>
+        <translation>所有图片和视频 (*.jpg *.jpeg *.png *.bmp *.mp4 *.mkv *.mov);;所有图像 (*.jpg *.jpeg *.png *.bmp);;所有视频 (*.mp4 *.mkv *.mov)</translation>
+    </message>
+    <message>
+        <source>Supported Files</source>
+        <translation>支持的文件</translation>
     </message>
 </context>
 <context>

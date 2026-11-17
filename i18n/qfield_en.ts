@@ -5747,56 +5747,16 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>NULL</source>
-        <translation type="unfinished">NULL</translation>
+        <translation type="obsolete">NULL</translation>
     </message>
     <message>
         <source>No Value</source>
-        <translation type="unfinished">No Value</translation>
+        <translation type="obsolete">No Value</translation>
     </message>
     <message>
         <source>Cannot handle this file type</source>
-        <translation type="unfinished">Cannot handle this file type</translation>
-    </message>
-    <message>
-        <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Take a photo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Take a video</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Record an audio clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Attach a gallery item</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Attach a file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Draw a sketch</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Cannot handle this file type</translation>
     </message>
 </context>
 <context>
@@ -6881,6 +6841,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Export collection</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Remove markup collection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are about to permanently remove a markup collection and delete its content, proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QfMarkupManager</name>
@@ -7240,6 +7208,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Image or Video File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All images and video (*.jpg *.jpeg *.png *.bmp *.mp4 *.mkv *.mov);;All images (*.jpg *.jpeg *.png *.bmp);;All video (*.mp4 *.mkv *.mov)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supported Files</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

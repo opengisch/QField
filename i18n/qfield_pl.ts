@@ -7278,6 +7278,14 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Export collection</source>
         <translation>Eksportuj kolekcję</translation>
     </message>
+    <message>
+        <source>Remove markup collection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are about to permanently remove a markup collection and delete its content, proceed?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfMarkupManager</name>
@@ -7638,6 +7646,18 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Could not move the sidecar file &apos;%1&apos; alongside &apos;%2&apos;</source>
         <translation>Nie udało się przenieść pliku sidecar „%1” razem z plikiem „%2”</translation>
+    </message>
+    <message>
+        <source>Select Image or Video File</source>
+        <translation>Wybierz plik obrazu lub wideo</translation>
+    </message>
+    <message>
+        <source>All images and video (*.jpg *.jpeg *.png *.bmp *.mp4 *.mkv *.mov);;All images (*.jpg *.jpeg *.png *.bmp);;All video (*.mp4 *.mkv *.mov)</source>
+        <translation>Wszystkie obrazy i filmy (*.jpg *.jpeg *.png *.bmp *.mp4 *.mkv *.mov);;Wszystkie obrazy (*.jpg *.jpeg *.png *.bmp);;Wszystkie filmy (*.mp4 *.mkv *.mov)</translation>
+    </message>
+    <message>
+        <source>Supported Files</source>
+        <translation>Obsługiwane pliki</translation>
     </message>
 </context>
 <context>
