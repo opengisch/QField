@@ -591,6 +591,7 @@ void QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
     mCorrectionData.remove( 0, chunkSize );
 
     const QLowEnergyService::WriteMode writeMode = ( mTxCharacteristic.properties() & QLowEnergyCharacteristic::WriteNoResponse ) ? QLowEnergyService::WriteWithoutResponse : QLowEnergyService::WriteWithResponse;
+    qDebug() << "WRITEMODE" << writeMode;
     mService->writeCharacteristic( mTxCharacteristic, chunk, writeMode );
 
     mCorrectionBytesWritten += chunk.size();
