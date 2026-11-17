@@ -43,13 +43,17 @@ Item {
   property QfTrackingModel trackingModel: null
 
   property QfRubberbandModel rubberbandModel: null
-  property var centerCoordinate: undefined
+  property var crosshairCoordinate: undefined
+  readonly property point crosshairPosition: hoverHandler.hovered ? hoverHandler.point.position : Qt.point(width / 2, height / 2)
+  property bool mouseAsTouchScreen: false
+  property alias hovered: hoverHandler.hovered
 
   property alias terrainProvider: mapTerrainProvider
   property Item pluginContainer: null
 
   signal cameraInteractionDetected
   signal featureIdentifyRequested(point screenPoint)
+  signal addVertexRequested
 
   Qf3DTerrainProvider {
     id: mapTerrainProvider
@@ -286,7 +290,8 @@ Item {
 
   Shape {
     id: crosshair
-    anchors.centerIn: parent
+    x: mapArea.crosshairPosition.x
+    y: mapArea.crosshairPosition.y
     visible: mapArea.rubberbandModel !== null
     preferredRendererType: Shape.CurveRenderer
 
@@ -311,14 +316,20 @@ Item {
     }
   }
 
+  HoverHandler {
+    id: hoverHandler
+    enabled: crosshair.visible
+    acceptedDevices: !mapArea.mouseAsTouchScreen ? PointerDevice.TouchPad | PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+  }
+
   Connections {
     target: mapArea.Window.window
     enabled: crosshair.visible
 
     function onFrameSwapped() {
-      const pickResult = view3d.pick(mapArea.width / 2, mapArea.height / 2);
+      const pickResult = view3d.pick(mapArea.crosshairPosition.x, mapArea.crosshairPosition.y);
       if (pickResult.objectHit) {
-        mapArea.centerCoordinate = mapTerrainProvider.scene3DToGeo(pickResult.scenePosition.x, pickResult.scenePosition.z);
+        mapArea.crosshairCoordinate = mapTerrainProvider.scene3DToGeo(pickResult.scenePosition.x, pickResult.scenePosition.z);
       }
     }
   }
@@ -343,6 +354,11 @@ Item {
       }
 
       const geoPoint = mapTerrainProvider.scene3DToGeo(pickResult.scenePosition.x, pickResult.scenePosition.z);
+      if (hoverHandler.hovered) {
+        mapArea.crosshairCoordinate = geoPoint;
+        mapArea.addVertexRequested();
+        return;
+      }
       mapArea.featureIdentifyRequested(mapArea.mapSettings.coordinateToScreen(geoPoint));
     }
     onUserInteractionStarted: {

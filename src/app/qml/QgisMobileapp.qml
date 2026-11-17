@@ -816,6 +816,7 @@ ApplicationWindow {
         item.markups = markupManager;
         item.trackingModel = trackingModel;
         item.rubberbandModel = Qt.binding(() => stateMachine.state === 'measure' ? measuringTool.measuringRubberband.model : null);
+        item.mouseAsTouchScreen = Qt.binding(() => qfieldSettings.mouseAsTouchScreen);
         item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
         item.selectionColor = Qt.binding(() => QfTheme.mainColor);
 
@@ -831,6 +832,12 @@ ApplicationWindow {
           if (gnssButton.followActive) {
             mapCanvasMap.unfreeze('follow');
             gnssButton.followActive = false;
+          }
+        });
+
+        item.addVertexRequested.connect(function () {
+          if (!coordinateLocator.positionLocked) {
+            digitizingToolbar.addVertex();
           }
         });
 
@@ -1325,7 +1332,7 @@ ApplicationWindow {
       rubberbandModel: geometryEditorsToolbar.stateVisible ? geometryEditorsToolbar.editorRubberbandModel : digitizingToolbar.rubberbandModel
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
-      overrideLocation: positionLocked ? positionSource.projectedPosition : stateMachine.is3DView && mapCanvas3DLoader.item ? mapCanvas3DLoader.item.centerCoordinate : undefined
+      overrideLocation: positionLocked ? positionSource.projectedPosition : stateMachine.is3DView && mapCanvas3DLoader.item ? mapCanvas3DLoader.item.crosshairCoordinate : undefined
 
       snapToCommonAngles: qfieldSettings.snapToCommonAngleIsEnabled && (dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line))
       snappingIsRelative: qfieldSettings.snapToCommonAngleIsRelative
@@ -2226,6 +2233,7 @@ ApplicationWindow {
 
       property bool coordinatesIsXY: QfCoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs)
       property bool coordinatesIsGeographic: projectInfo.coordinateDisplayCrs.isGeographic
+      readonly property point crosshairPosition: stateMachine.is3DView && mapCanvas3DLoader.item ? mapCanvas3DLoader.item.crosshairPosition : coordinateLocator.displayPosition
 
       QfDistanceArea {
         id: digitizingGeometryMeasure
@@ -2239,13 +2247,13 @@ ApplicationWindow {
 
       // The position is dynamically calculated to follow the coordinate locator
       x: {
-        let newX = (stateMachine.is3DView ? mapCanvas.width / 2 : coordinateLocator.displayPosition.x) + 20;
+        let newX = crosshairPosition.x + 20;
         if (newX + width > mapCanvas.x + mapCanvas.width)
           newX -= width + 40;
         return newX;
       }
       y: {
-        let newY = (stateMachine.is3DView ? mapCanvas.height / 2 : coordinateLocator.displayPosition.y) + 14;
+        let newY = crosshairPosition.y + 14;
         if (newY + height > mapCanvas.y + mapCanvas.height)
           newY -= height - 28;
         return newY;
@@ -3382,7 +3390,7 @@ ApplicationWindow {
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         mapSettings: mapCanvas.mapSettings
         showConfirmButton: stateMachine.state === "digitize"
-        screenHovering: mapCanvasMap.hovered
+        screenHovering: mapCanvasMap.hovered || (stateMachine.is3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.hovered)
         cogoOperationSettings: informationDrawer.cogoOperationSettings
 
         digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
