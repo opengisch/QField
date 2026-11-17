@@ -1391,7 +1391,8 @@ Page {
                 Layout.topMargin: 5
                 showProgress: connecting || (positionSource.deviceSocketState !== QAbstractSocket.UnconnectedState && positionSource.deviceSocketState !== QAbstractSocket.ConnectedState && positionSource.deviceSocketState !== QAbstractSocket.BoundState)
                 text: {
-                  if (connecting) return qsTr('Cancel connection to %1').arg(positioningSettings.positioningDeviceName.trim());
+                  if (connecting)
+                    return qsTr('Cancel connection to %1').arg(positioningSettings.positioningDeviceName.trim());
                   switch (positionSource.deviceSocketState) {
                   case QAbstractSocket.ConnectedState:
                   case QAbstractSocket.BoundState:
