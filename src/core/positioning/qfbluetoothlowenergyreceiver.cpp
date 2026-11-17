@@ -175,17 +175,6 @@ void QfBluetoothLowEnergyReceiver::deviceConnected()
                .arg( mtu )
                .arg( mBleTxPayloadSize );
 
-  QLowEnergyConnectionParameters parameters;
-  parameters.setIntervalRange( 15.0, 30.0 );
-  parameters.setLatency( 0 );
-  parameters.setSupervisionTimeout( 2000 );
-  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Requesting faster BLE connection parameters, interval=%1-%2 ms, latency=%3, supervisionTimeout=%4 ms" )
-               .arg( parameters.minimumInterval() )
-               .arg( parameters.maximumInterval() )
-               .arg( parameters.latency() )
-               .arg( parameters.supervisionTimeout() );
-  mController->requestConnectionUpdate( parameters );
-
   mController->discoverServices();
 }
 
@@ -265,6 +254,17 @@ void QfBluetoothLowEnergyReceiver::serviceDiscoveryFinished()
   }
 
   clearService();
+
+  QLowEnergyConnectionParameters parameters;
+  parameters.setIntervalRange( 15.0, 30.0 );
+  parameters.setLatency( 0 );
+  parameters.setSupervisionTimeout( 2000 );
+  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Requesting faster BLE connection parameters, interval=%1-%2 ms, latency=%3, supervisionTimeout=%4 ms" )
+               .arg( parameters.minimumInterval() )
+               .arg( parameters.maximumInterval() )
+               .arg( parameters.latency() )
+               .arg( parameters.supervisionTimeout() );
+  mController->requestConnectionUpdate( parameters );
 
   const QList<QBluetoothUuid> controllerServices = mController->services();
   if ( !controllerServices.isEmpty() )
@@ -589,7 +589,10 @@ void QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
     const qsizetype chunkSize = std::min( mBleTxPayloadSize, mCorrectionData.size() );
     QByteArray chunk = mCorrectionData.left( chunkSize );
     mCorrectionData.remove( 0, chunkSize );
-    mService->writeCharacteristic( mTxCharacteristic, chunk, QLowEnergyService::WriteWithoutResponse );
+
+    const QLowEnergyService::WriteMode writeMode = ( mTxCharacteristic.properties() & QLowEnergyCharacteristic::WriteNoResponse ) ? QLowEnergyService::WriteWithoutResponse : QLowEnergyService::WriteWithResponse;
+    mService->writeCharacteristic( mTxCharacteristic, chunk, writeMode );
+
     mCorrectionBytesWritten += chunk.size();
     mCorrectionChunksWritten++;
     bytesWrittenThisTick += chunk.size();
