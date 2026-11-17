@@ -575,13 +575,18 @@ void QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
     return;
   }
 
+  const QLowEnergyService::WriteMode writeMode = ( mTxCharacteristic.properties() & QLowEnergyCharacteristic::Write ) ? QLowEnergyService::WriteWithResponse : QLowEnergyService::WriteWithoutResponse;
+  qDebug() << "WRITEMODE" << writeMode;
+
   qsizetype bytesWrittenThisTick = 0;
   qsizetype lastChunkSize = 0;
   int chunksWrittenThisTick = 0;
-  // With the default BLE MTU, each write carries 20 payload bytes. At a
-  // 20 ms timer interval, 3 chunks/tick keeps up with typical 2-3 KB/s RTCM
-  // streams while 6 chunks/tick allows catching up after short bursts.
-  const int maxChunksPerTick = mCorrectionData.size() > CORRECTION_CATCH_UP_THRESHOLD_BYTES ? CATCH_UP_CORRECTION_CHUNKS_PER_TICK : NORMAL_CORRECTION_CHUNKS_PER_TICK;
+
+  int maxChunksPerTick = 1;
+  if ( writeMode == QLowEnergyService::WriteWithResponse )
+  {
+    maxChunksPerTick = mCorrectionData.size() > CORRECTION_CATCH_UP_THRESHOLD_BYTES ? CATCH_UP_CORRECTION_CHUNKS_PER_TICK : NORMAL_CORRECTION_CHUNKS_PER_TICK;
+  }
 
   while ( !mCorrectionData.isEmpty() && chunksWrittenThisTick < maxChunksPerTick )
   {
@@ -590,8 +595,6 @@ void QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
     QByteArray chunk = mCorrectionData.left( chunkSize );
     mCorrectionData.remove( 0, chunkSize );
 
-    const QLowEnergyService::WriteMode writeMode = ( mTxCharacteristic.properties() & QLowEnergyCharacteristic::WriteNoResponse ) ? QLowEnergyService::WriteWithoutResponse : QLowEnergyService::WriteWithResponse;
-    qDebug() << "WRITEMODE" << writeMode;
     mService->writeCharacteristic( mTxCharacteristic, chunk, writeMode );
 
     mCorrectionBytesWritten += chunk.size();
