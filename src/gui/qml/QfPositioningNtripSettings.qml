@@ -68,6 +68,74 @@ QfPopup {
         spacing: 10
         width: page.width - 20
 
+        RowLayout {
+          Layout.fillWidth: true
+
+          QfComboBox {
+            id: ntripPresetComboBox
+            Layout.fillWidth: true
+            font: QfTheme.defaultFont
+
+            popup.font: QfTheme.defaultFont
+            popup.topMargin: mainWindow.sceneTopMargin
+            popup.bottomMargin: mainWindow.sceneTopMargin
+
+            model: presets
+            textRole: "name"
+
+            onActivated: function (index) {
+              switchToPreset(index);
+            }
+          }
+
+          QfToolButton {
+            id: renameNtripPresetButton
+            Layout.preferredWidth: QfTheme.toolButtonSize
+            Layout.preferredHeight: QfTheme.toolButtonSize
+            round: true
+            bgcolor: "transparent"
+            borderColor: QfTheme.secondaryTextColor
+            iconSource: QfTheme.getThemeVectorIcon("ic_create_white_24dp")
+            iconColor: QfTheme.mainTextColor
+
+            onClicked: {
+              ntripPresetNameDialog.isRenaming = true;
+              ntripPresetNameDialog.open();
+            }
+          }
+
+          QfToolButton {
+            id: removeNtripPresetButton
+            Layout.preferredWidth: QfTheme.toolButtonSize
+            Layout.preferredHeight: QfTheme.toolButtonSize
+            round: true
+            bgcolor: "transparent"
+            borderColor: QfTheme.secondaryTextColor
+            iconSource: QfTheme.getThemeVectorIcon("ic_delete_forever_white_24dp")
+            iconColor: QfTheme.mainTextColor
+
+            onClicked: {
+              removePreset();
+            }
+          }
+
+          QfToolButton {
+            id: addNtripPresetButton
+            Layout.preferredWidth: QfTheme.toolButtonSize
+            Layout.preferredHeight: QfTheme.toolButtonSize
+            round: true
+            bgcolor: "transparent"
+            borderColor: QfTheme.secondaryTextColor
+            iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
+            iconColor: QfTheme.mainTextColor
+
+            onClicked: {
+              ntripPresetNameDialog.isRenaming = false;
+              ntripPresetNameDialog.open();
+            }
+          }
+        }
+
         GridLayout {
           columns: 2
           columnSpacing: 5
@@ -381,6 +449,47 @@ QfPopup {
     }
   }
 
+  QfDialog {
+    id: ntripPresetNameDialog
+
+    property bool isRenaming: false
+
+    parent: mainWindow.contentItem
+    title: isRenaming ? qsTr("Rename Preset") : qsTr("Add Preset")
+    width: mainWindow.width - 40
+
+    ColumnLayout {
+      width: ntripPresetNameDialog.availableWidth
+      spacing: 10
+
+      Label {
+        Layout.fillWidth: true
+        wrapMode: Text.WordWrap
+        text: qsTr("Enter the preset name")
+      }
+
+      QfTextField {
+        id: ntripPresetNameTextField
+        Layout.fillWidth: true
+      }
+    }
+
+    onAboutToShow: {
+      ntripPresetNameTextField.text = isRenaming ? presets[presetIndex].name : "";
+      ntripPresetNameTextField.forceActiveFocus();
+      standardButton(Dialog.Ok).enabled = Qt.binding(() => isPresetNameAvailable(ntripPresetNameTextField.text.trim(), isRenaming ? presetIndex : -1));
+    }
+
+    onAccepted: {
+      const name = ntripPresetNameTextField.text.trim();
+      if (isRenaming) {
+        renamePreset(name);
+      } else {
+        addPreset(name);
+      }
+    }
+  }
+
   function updateFromNtripSettings(ntripSettings) {
     ntripHostTextField.text = ntripSettings.host;
     ntripPortTextField.text = ntripSettings.port;
@@ -410,6 +519,7 @@ QfPopup {
   }
 
   function loadPreset() {
+    ntripPresetComboBox.currentIndex = presetIndex;
     updateFromNtripSettings(QfPositioningUtils.createNtripSettings(presets[presetIndex].settings));
   }
 
@@ -420,5 +530,63 @@ QfPopup {
       "settings": createSettingsMap()
     };
     presets = updatedPresets;
+  }
+
+  function clearMountPoints() {
+    ntripSourceTableFetcher.cancel();
+    ntripMountPointComboBox.model = [];
+    refreshNtripMountPointsFeedback.text = "";
+  }
+
+  function switchToPreset(index) {
+    if (index === presetIndex) {
+      return;
+    }
+    savePreset();
+    presetIndex = index;
+    clearMountPoints();
+    loadPreset();
+  }
+
+  function addPreset(name) {
+    savePreset();
+    let updatedPresets = [...presets];
+    updatedPresets.push({
+      "name": name,
+      "settings": {}
+    });
+    presets = updatedPresets;
+    presetIndex = presets.length - 1;
+    clearMountPoints();
+    loadPreset();
+  }
+
+  function renamePreset(name) {
+    let updatedPresets = [...presets];
+    updatedPresets[presetIndex] = {
+      "name": name,
+      "settings": presets[presetIndex].settings
+    };
+    presets = updatedPresets;
+    ntripPresetComboBox.currentIndex = presetIndex;
+  }
+
+  function removePreset() {
+    let updatedPresets = [...presets];
+    updatedPresets.splice(presetIndex, 1);
+    if (updatedPresets.length === 0) {
+      updatedPresets.push({
+        "name": qsTr("Default server"),
+        "settings": {}
+      });
+    }
+    presets = updatedPresets;
+    presetIndex = Math.min(presetIndex, presets.length - 1);
+    clearMountPoints();
+    loadPreset();
+  }
+
+  function isPresetNameAvailable(name, ignoredIndex) {
+    return name !== "" && !presets.some((preset, index) => index !== ignoredIndex && preset.name === name);
   }
 }
