@@ -2,6 +2,7 @@ set(STATIC_PORTS
     arrow
     snappy
     thrift
+    expat
     gdal
     catch2
     libiconv
