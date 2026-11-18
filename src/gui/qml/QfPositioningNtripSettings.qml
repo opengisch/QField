@@ -71,6 +71,36 @@ QfPopup {
         RowLayout {
           Layout.fillWidth: true
 
+          Label {
+            id: ntripPresetLabel
+            text: qsTr("Preset")
+            font: QfTheme.defaultFont
+            color: QfTheme.mainTextColor
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
+          }
+
+          QfToolButton {
+            id: addNtripPresetButton
+            Layout.topMargin: (ntripPresetLabel.implicitHeight - QfTheme.toolButtonSize) / 2
+            Layout.bottomMargin: (ntripPresetLabel.implicitHeight - QfTheme.toolButtonSize) / 2
+            iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
+            iconColor: QfTheme.mainTextColor
+            bgcolor: "transparent"
+            Layout.preferredWidth: QfTheme.toolButtonSize
+            Layout.preferredHeight: QfTheme.toolButtonSize
+            padding: 0
+
+            onClicked: {
+              ntripPresetNameDialog.isRenaming = false;
+              ntripPresetNameDialog.open();
+            }
+          }
+        }
+
+        RowLayout {
+          Layout.fillWidth: true
+
           QfComboBox {
             id: ntripPresetComboBox
             Layout.fillWidth: true
@@ -90,13 +120,12 @@ QfPopup {
 
           QfToolButton {
             id: renameNtripPresetButton
-            Layout.preferredWidth: QfTheme.toolButtonSize
-            Layout.preferredHeight: QfTheme.toolButtonSize
-            round: true
-            bgcolor: "transparent"
-            borderColor: QfTheme.secondaryTextColor
             iconSource: QfTheme.getThemeVectorIcon("ic_create_white_24dp")
             iconColor: QfTheme.mainTextColor
+            bgcolor: "transparent"
+            Layout.preferredWidth: QfTheme.toolButtonSize
+            Layout.preferredHeight: QfTheme.toolButtonSize
+            padding: 0
 
             onClicked: {
               ntripPresetNameDialog.isRenaming = true;
@@ -106,34 +135,25 @@ QfPopup {
 
           QfToolButton {
             id: removeNtripPresetButton
-            Layout.preferredWidth: QfTheme.toolButtonSize
-            Layout.preferredHeight: QfTheme.toolButtonSize
-            round: true
-            bgcolor: "transparent"
-            borderColor: QfTheme.secondaryTextColor
             iconSource: QfTheme.getThemeVectorIcon("ic_delete_forever_white_24dp")
             iconColor: QfTheme.mainTextColor
+            bgcolor: "transparent"
+            Layout.preferredWidth: QfTheme.toolButtonSize
+            Layout.preferredHeight: QfTheme.toolButtonSize
+            padding: 0
 
             onClicked: {
               removePreset();
             }
           }
+        }
 
-          QfToolButton {
-            id: addNtripPresetButton
-            Layout.preferredWidth: QfTheme.toolButtonSize
-            Layout.preferredHeight: QfTheme.toolButtonSize
-            round: true
-            bgcolor: "transparent"
-            borderColor: QfTheme.secondaryTextColor
-            iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
-            iconColor: QfTheme.mainTextColor
-
-            onClicked: {
-              ntripPresetNameDialog.isRenaming = false;
-              ntripPresetNameDialog.open();
-            }
-          }
+        Rectangle {
+          Layout.fillWidth: true
+          Layout.topMargin: 5
+          Layout.bottomMargin: 5
+          height: 1
+          color: QfTheme.controlBorderColor
         }
 
         GridLayout {
