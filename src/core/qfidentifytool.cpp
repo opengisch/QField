@@ -93,7 +93,6 @@ void QfIdentifyTool::identify( const QPointF &point )
   if ( mIdentifyWatcher.isRunning() )
   {
     mIdentifyWatcher.cancel();
-    mIdentifyWatcher.waitForFinished();
   }
 
   if ( !mModel || !mMapSettings )
