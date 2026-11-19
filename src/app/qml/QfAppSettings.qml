@@ -1363,6 +1363,9 @@ Page {
                     positioningDeviceSettings.name = name;
                     positioningDeviceSettings.setType(positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceType));
                     positioningDeviceSettings.setSettings(positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceSettings));
+                    if (name === positioningDeviceSettings.generateName()) {
+                      positioningDeviceSettings.name = '';
+                    }
                     positioningDeviceSettings.open();
                   }
                 }
@@ -2272,6 +2275,9 @@ Page {
       }
       var index = positioningDeviceModel.addDevice(type, name, settings);
       positioningDeviceComboBox.currentIndex = index;
+      const modelIndex = positioningDeviceModel.index(index, 0);
+      positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceId);
+      positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceName);
     }
   }
 
