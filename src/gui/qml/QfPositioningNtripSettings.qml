@@ -16,6 +16,7 @@ QfPopup {
   parent: mainWindow.contentItem
 
   signal apply
+  property string profileName: ""
 
   width: mainWindow.width - QfTheme.popupScreenEdgeHorizontalMargin * 2
   height: mainWindow.height - Math.max(QfTheme.popupScreenEdgeVerticalMargin * 2, mainWindow.sceneTopMargin * 2 + 4, mainWindow.sceneBottomMargin * 2 + 4)
@@ -24,10 +25,6 @@ QfPopup {
   focus: visible
   closePolicy: Popup.CloseOnEscape
 
-  onAboutToHide: {
-    popup.apply();
-  }
-
   Page {
     id: page
     width: parent.width
@@ -35,15 +32,18 @@ QfPopup {
     padding: 5
     header: QfPageHeader {
       id: pageHeader
+      objectName: "positioningNtripSettingsPageHeader"
       title: qsTr("NTRIP Settings")
 
       showBackButton: false
-      showCancelButton: false
+      showCancelButton: true
       showApplyButton: true
 
       onApply: {
+        popup.apply();
         popup.close();
       }
+      onCancel: popup.close()
     }
 
     ScrollView {
@@ -63,6 +63,19 @@ QfPopup {
         id: settingsLayout
         spacing: 10
         width: page.width - 20
+
+        Label {
+          text: qsTr("Profile name")
+          font: QfTheme.defaultFont
+          color: QfTheme.mainTextColor
+        }
+
+        QfTextField {
+          id: ntripProfileNameTextField
+          Layout.fillWidth: true
+          font: QfTheme.defaultFont
+          placeholderText: qsTr("Name")
+        }
 
         GridLayout {
           columns: 2
@@ -378,6 +391,7 @@ QfPopup {
   }
 
   function updateFromNtripSettings(ntripSettings) {
+    ntripProfileNameTextField.text = profileName;
     ntripHostTextField.text = ntripSettings.host;
     ntripPortTextField.text = ntripSettings.port;
     ntripProtocolComboBox.currentValue = ntripSettings.protocol;
@@ -397,5 +411,9 @@ QfPopup {
       "mountPoint": ntripMountPointComboBox.editText,
       "forwardNmeaSentences": ntripForwardNmeaSentencesSwitch.checked
     };
+  }
+
+  function profileDisplayName() {
+    return ntripProfileNameTextField.text.trim();
   }
 }

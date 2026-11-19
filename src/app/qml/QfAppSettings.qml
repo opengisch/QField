@@ -1181,6 +1181,7 @@ Page {
 
       Item {
         Flickable {
+          id: positioningFlickable
           topMargin: 5
           ScrollBar.vertical: QfScrollBar {}
           contentWidth: positioningGrid.width
@@ -1410,10 +1411,101 @@ Page {
                 }
               }
 
+              Label {
+                text: qsTr("NTRIP profile in use:")
+                font: QfTheme.defaultFont
+                color: QfTheme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 15
+                Layout.bottomMargin: 5
+                Layout.columnSpan: 2
+              }
+
+              QfComboBox {
+                id: ntripProfileComboBox
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                textRole: "name"
+                model: positioningSettings.ntripProfiles
+
+                Component.onCompleted: {
+                  let profiles = positioningSettings.ntripProfiles;
+                  if (profiles.length === 0 && positioningSettings.ntripSettings.host) {
+                    profiles = [
+                      {
+                        name: qsTr("Default"),
+                        settings: positioningSettings.ntripSettings
+                      }
+                    ];
+                    positioningSettings.ntripProfiles = profiles;
+                    positioningSettings.ntripProfileName = profiles[0].name;
+                  }
+                  const index = profiles.findIndex(profile => profile.name === positioningSettings.ntripProfileName);
+                  currentIndex = index >= 0 ? index : profiles.length ? 0 : -1;
+                  if (currentIndex >= 0) {
+                    positioningSettings.ntripProfileName = profiles[currentIndex].name;
+                    positioningSettings.ntripSettings = profiles[currentIndex].settings;
+                  }
+                }
+
+                onActivated: {
+                  positioningSettings.enableNtrip = false;
+                  positioningSettings.ntripProfileName = positioningSettings.ntripProfiles[currentIndex].name;
+                  positioningSettings.ntripSettings = positioningSettings.ntripProfiles[currentIndex].settings;
+                }
+              }
+
               RowLayout {
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
-                visible: positionSource.deviceCapabilities & QfAbstractGnssReceiver.NtripCorrection
+
+                QfButton {
+                  id: addNtripProfileButton
+                  text: qsTr("Add")
+                  onClicked: {
+                    positioningNtripSettings.profileName = "";
+                    positioningNtripSettings.updateFromNtripSettings(QfPositioningUtils.createNtripSettings({}));
+                    positioningNtripSettings.open();
+                  }
+                }
+
+                Item {
+                  Layout.fillWidth: true
+                }
+
+                QfButton {
+                  id: editNtripProfileButton
+                  text: qsTr("Edit")
+                  enabled: ntripProfileComboBox.currentIndex >= 0
+                  onClicked: {
+                    const profile = positioningSettings.ntripProfiles[ntripProfileComboBox.currentIndex];
+                    positioningNtripSettings.profileName = profile.name;
+                    positioningNtripSettings.updateFromNtripSettings(QfPositioningUtils.createNtripSettings(profile.settings));
+                    positioningNtripSettings.open();
+                  }
+                }
+
+                QfButton {
+                  id: removeNtripProfileButton
+                  text: qsTr("Remove")
+                  enabled: ntripProfileComboBox.currentIndex >= 0
+                  onClicked: {
+                    const profiles = positioningSettings.ntripProfiles.slice();
+                    profiles.splice(ntripProfileComboBox.currentIndex, 1);
+                    positioningSettings.enableNtrip = false;
+                    positioningSettings.ntripProfiles = profiles;
+                    ntripProfileComboBox.currentIndex = profiles.length ? 0 : -1;
+                    positioningSettings.ntripProfileName = profiles.length ? profiles[0].name : "";
+                    positioningSettings.ntripSettings = profiles.length ? profiles[0].settings : {};
+                  }
+                }
+              }
+
+              RowLayout {
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                visible: ntripProfileComboBox.currentIndex >= 0 && positionSource.deviceCapabilities & QfAbstractGnssReceiver.NtripCorrection
 
                 Label {
                   text: qsTr("Enable NTRIP corrections")
@@ -1425,23 +1517,6 @@ Page {
                   MouseArea {
                     anchors.fill: parent
                     onClicked: enableNtripClient.toggle()
-                  }
-                }
-
-                QfToolButton {
-                  id: showNtripSettings
-                  Layout.preferredWidth: QfTheme.toolButtonSize
-                  Layout.preferredHeight: QfTheme.toolButtonSize
-                  Layout.alignment: Qt.AlignVCenter
-
-                  iconSource: QfTheme.getThemeVectorIcon("ic_tune_white_24dp")
-                  iconColor: QfTheme.mainTextColor
-                  bgcolor: "transparent"
-                  clip: true
-
-                  onClicked: {
-                    positioningNtripSettings.updateFromNtripSettings(QfPositioningUtils.createNtripSettings(positioningSettings.ntripSettings));
-                    positioningNtripSettings.open();
                   }
                 }
 
@@ -2279,7 +2354,27 @@ Page {
     id: positioningNtripSettings
 
     onApply: {
-      positioningSettings.ntripSettings = createSettingsMap();
+      const profiles = positioningSettings.ntripProfiles.slice();
+      let index = profiles.findIndex(profile => profile.name === positioningNtripSettings.profileName);
+      let name = positioningNtripSettings.profileDisplayName() || positioningNtripSettings.profileName || qsTr("NTRIP profile %1").arg(profiles.length + 1);
+      const baseName = name;
+      let suffix = 1;
+      while (profiles.some((profile, i) => i !== index && profile.name === name)) {
+        name = baseName + " " + ++suffix;
+      }
+      const profile = {
+        name: name,
+        settings: createSettingsMap()
+      };
+      if (index < 0) {
+        index = profiles.length;
+      }
+      profiles[index] = profile;
+      positioningSettings.enableNtrip = false;
+      positioningSettings.ntripProfiles = profiles;
+      ntripProfileComboBox.currentIndex = index;
+      positioningSettings.ntripProfileName = name;
+      positioningSettings.ntripSettings = profile.settings;
     }
   }
 

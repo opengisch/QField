@@ -24,6 +24,8 @@ Settings {
 
   property bool enableNtrip: false
   property var ntripSettings: ({})
+  property var ntripProfiles: ([])
+  property string ntripProfileName: ""
 
   property bool alwaysShowPreciseView: false
   property real preciseViewPrecision: 2.5
