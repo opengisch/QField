@@ -74,6 +74,12 @@ QfPopup {
         "value": QfPositioningDeviceModel.SerialPortDevice
       });
     }
+    if (Qt.platform.os === "ios") {
+      positioningDeviceTypeModel.insert(positioningDeviceTypeModel.count, {
+        "name": qsTr('External accessory (NMEA)'),
+        "value": QfPositioningDeviceModel.ExternalAccessoryDevice
+      });
+    }
     if (Qt.platform.os !== "android" && Qt.platform.os !== "ios") {
       positioningDeviceTypeModel.insert(positioningDeviceTypeModel.count, {
         "name": qsTr('Logs file (NMEA)'),
@@ -172,6 +178,7 @@ QfPopup {
               case QfPositioningDeviceModel.FileDevice:
                 return QfTheme.getThemeVectorIcon("ic_file_black_24dp");
               case QfPositioningDeviceModel.BluetoothDevice:
+              case QfPositioningDeviceModel.ExternalAccessoryDevice:
                 return QfTheme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
               case QfPositioningDeviceModel.TcpDevice:
                 return QfTheme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
@@ -200,6 +207,7 @@ QfPopup {
               case QfPositioningDeviceModel.FileDevice:
                 return QfTheme.getThemeVectorIcon("ic_file_black_24dp");
               case QfPositioningDeviceModel.BluetoothDevice:
+              case QfPositioningDeviceModel.ExternalAccessoryDevice:
                 return QfTheme.getThemeVectorIcon('ic_bluetooth_receiver_black_24dp');
               case QfPositioningDeviceModel.TcpDevice:
                 return QfTheme.getThemeVectorIcon('ic_tcp_receiver_black_24dp');
@@ -270,6 +278,8 @@ QfPopup {
               return "QfSerialPortDeviceChooser.qml";
             case QfPositioningDeviceModel.EgenioussDevice:
               return "QfEgenioussDeviceChooser.qml";
+            case QfPositioningDeviceModel.ExternalAccessoryDevice:
+              return "QfExternalAccessoryDeviceChooser.qml";
             }
             return '';
           }
