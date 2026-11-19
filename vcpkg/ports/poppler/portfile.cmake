@@ -69,6 +69,7 @@ vcpkg_cmake_configure(
         -DENABLE_UTILS=OFF
         -DENABLE_GOBJECT_INTROSPECTION=OFF
         -DENABLE_QT5=OFF
+        -DENABLE_HARFBUZZ=OFF
         -DENABLE_RELOCATABLE=OFF # https://gitlab.freedesktop.org/poppler/poppler/-/issues/1209
         -DCMAKE_REQUIRE_FIND_PACKAGE_PkgConfig=ON
         -DCMAKE_REQUIRE_FIND_PACKAGE_OpenJPEG=ON
