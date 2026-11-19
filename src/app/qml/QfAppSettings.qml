@@ -1363,8 +1363,6 @@ Page {
                     positioningDeviceSettings.name = name;
                     positioningDeviceSettings.setType(positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceType));
                     positioningDeviceSettings.setSettings(positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceSettings));
-                    if (name === positioningDeviceSettings.generateName())
-                      positioningDeviceSettings.name = '';
                     positioningDeviceSettings.open();
                   }
                 }
@@ -1391,8 +1389,9 @@ Page {
                 Layout.topMargin: 5
                 showProgress: connecting || (positionSource.deviceSocketState !== QAbstractSocket.UnconnectedState && positionSource.deviceSocketState !== QAbstractSocket.ConnectedState && positionSource.deviceSocketState !== QAbstractSocket.BoundState)
                 text: {
-                  if (connecting)
+                  if (connecting) {
                     return qsTr('Cancel connection to %1').arg(positioningSettings.positioningDeviceName.trim());
+                  }
                   switch (positionSource.deviceSocketState) {
                   case QAbstractSocket.ConnectedState:
                   case QAbstractSocket.BoundState:
@@ -1424,12 +1423,14 @@ Page {
                 Connections {
                   target: positionSource
                   function onDeviceSocketStateChanged() {
-                    if (positionSource.deviceSocketState === QAbstractSocket.ConnectedState || positionSource.deviceSocketState === QAbstractSocket.BoundState)
+                    if (positionSource.deviceSocketState === QAbstractSocket.ConnectedState || positionSource.deviceSocketState === QAbstractSocket.BoundState) {
                       connectButton.connecting = false;
+                    }
                   }
                   function onDeviceLastErrorChanged() {
-                    if (positionSource.deviceSocketState === QAbstractSocket.UnconnectedState)
+                    if (positionSource.deviceSocketState === QAbstractSocket.UnconnectedState) {
                       connectButton.connecting = false;
+                    }
                   }
                   function onDeviceIdChanged() {
                     connectButton.connecting = false;
@@ -2299,9 +2300,6 @@ Page {
       }
       var index = positioningDeviceModel.addDevice(type, name, settings);
       positioningDeviceComboBox.currentIndex = index;
-      const modelIndex = positioningDeviceModel.index(index, 0);
-      positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceId);
-      positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceName);
     }
   }
 
