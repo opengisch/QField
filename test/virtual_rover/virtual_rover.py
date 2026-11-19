@@ -22,6 +22,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("fixture", type=Path)
     parser.add_argument("forward_gga", choices=("on", "off"))
+    parser.add_argument("solution", choices=("fixed", "float"))
     args = parser.parse_args()
 
     with tempfile.TemporaryDirectory() as directory:
@@ -111,12 +112,14 @@ def main():
                 stderr=subprocess.DEVNULL,
                 check=True,
             )
+            ambiguity = ["-v", "0.0"] if args.solution == "float" else []
             result = subprocess.run(
                 [
                     "rnx2rtkp",
                     "-n",
+                    *ambiguity,
                     "-o",
-                    "fixed.nmea",
+                    "solution.nmea",
                     "rover.obs",
                     "base.obs",
                     "rover.nav",
@@ -126,17 +129,20 @@ def main():
                 stderr=subprocess.PIPE,
                 check=True,
             )
-            if not (root / "fixed.nmea").exists():
+            if not (root / "solution.nmea").exists():
                 raise RuntimeError(
                     f"RTKLIB produced no NMEA: {result.stderr[-1000:]!r}"
                 )
+            quality = b"5" if args.solution == "float" else b"4"
             gga = [
                 line
-                for line in (root / "fixed.nmea").read_bytes().splitlines()
-                if b"GGA" in line and line.split(b",")[6] == b"4"
+                for line in (root / "solution.nmea").read_bytes().splitlines()
+                if b"GGA" in line and line.split(b",")[6] == quality
             ]
             if len(gga) < 2:
-                raise RuntimeError("RTKLIB did not compute a fixed RTK solution")
+                raise RuntimeError(
+                    f"RTKLIB did not compute an RTK {args.solution} solution"
+                )
             for sentence in gga[:3]:
                 connection.sendall(sentence + b"\r\n")
                 threading.Event().wait(0.2)

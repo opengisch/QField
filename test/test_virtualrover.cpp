@@ -21,13 +21,14 @@
 #include <QProcess>
 #include <QTest>
 
-static void testVirtualRover( bool forwardPosition )
+static void testVirtualRover( bool forwardPosition, int expectedQuality )
 {
   QProcess rover;
   rover.start( QStringLiteral( "python3" ),
                { QStringLiteral( TEST_DATA_DIR "/../virtual_rover/virtual_rover.py" ),
                  QStringLiteral( TEST_DATA_DIR "/../virtual_rover/rtklib-rover-base.tar.gz" ),
-                 forwardPosition ? QStringLiteral( "on" ) : QStringLiteral( "off" ) } );
+                 forwardPosition ? QStringLiteral( "on" ) : QStringLiteral( "off" ),
+                 expectedQuality == 5 ? QStringLiteral( "float" ) : QStringLiteral( "fixed" ) } );
   REQUIRE( rover.waitForStarted() );
   REQUIRE( rover.waitForReadyRead( 5000 ) );
   const QStringList ports = QString::fromUtf8( rover.readLine() ).trimmed().split( ' ' );
@@ -44,7 +45,7 @@ static void testVirtualRover( bool forwardPosition )
   REQUIRE( source.deviceSocketState() == QAbstractSocket::ConnectedState );
   QTest::qWait( 250 );
   REQUIRE( source.ntripBytesReceived() == 0 );
-  REQUIRE( source.positionInformation().quality() != 4 );
+  REQUIRE( source.positionInformation().quality() != expectedQuality );
 
   QfNtripSettings settings;
   settings.setHost( QStringLiteral( "127.0.0.1" ) );
@@ -57,13 +58,13 @@ static void testVirtualRover( bool forwardPosition )
   source.setEnableNtrip( true );
 
   timer.restart();
-  while ( source.positionInformation().quality() != 4 && timer.elapsed() < 30000 )
+  while ( source.positionInformation().quality() != expectedQuality && timer.elapsed() < 30000 )
     QTest::qWait( 20 );
 
   INFO( "NTRIP error: " << source.ntripLastError() );
   INFO( "Virtual rover: " << QString::fromUtf8( rover.readAllStandardError() ) );
   REQUIRE( source.ntripBytesReceived() > 0 );
-  REQUIRE( source.positionInformation().quality() == 4 );
+  REQUIRE( source.positionInformation().quality() == expectedQuality );
   if ( rover.state() != QProcess::NotRunning )
     REQUIRE( rover.waitForFinished( 5000 ) );
   INFO( "Virtual rover: " << QString::fromUtf8( rover.readAllStandardError() ) );
@@ -76,11 +77,24 @@ TEST_CASE( "NTRIP corrections produce a fixed RTK position" )
 {
   SECTION( "Forward position to caster" )
   {
-    testVirtualRover( true );
+    testVirtualRover( true, 4 );
   }
 
   SECTION( "Do not forward position to caster" )
   {
-    testVirtualRover( false );
+    testVirtualRover( false, 4 );
+  }
+}
+
+TEST_CASE( "NTRIP corrections produce a float RTK position" )
+{
+  SECTION( "Forward position to caster" )
+  {
+    testVirtualRover( true, 5 );
+  }
+
+  SECTION( "Do not forward position to caster" )
+  {
+    testVirtualRover( false, 5 );
   }
 }

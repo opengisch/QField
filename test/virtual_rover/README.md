@@ -10,5 +10,7 @@ convbin -r nov -ti 1 -o rover.obs -n rover.nav oemv_20090515c.gps
 
 The test runs RTKLIB on the base bytes that QField forwards to the virtual rover.
 RTKLIB then emits the NMEA GGA sentence whose quality QField checks.
+Disabling RTKLIB's integer ambiguity resolution produces a float solution;
+the test checks both fixed (quality 4) and float (quality 5).
 The caster checks the forwarded GGA when enabled and checks that no position
 arrives when forwarding is disabled.
