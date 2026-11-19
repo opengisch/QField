@@ -168,6 +168,7 @@ class Qf3DTerrainProvider : public QObject
     /**
      * Converts a 3D scene position back to geographic coordinates in map CRS.
      * Inverse of geoTo3D(); returns an empty QgsPoint when the extent is invalid.
+     * The Z value is the real height of the terrain mesh at that position.
      */
     Q_INVOKABLE QgsPoint scene3DToGeo( double sceneX, double sceneZ ) const;
 

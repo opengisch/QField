@@ -171,7 +171,7 @@ class QFIELD_CORE_EXPORT QfRubberbandModel : public QObject
     bool isEmpty() const;
 
     //! Sets a vertex point at given index
-    void setVertex( int index, QgsPoint coordinate );
+    Q_INVOKABLE void setVertex( int index, QgsPoint coordinate );
 
     //! Inserts vertices
     void insertVertices( int index, int count );
