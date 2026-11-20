@@ -1335,6 +1335,7 @@ Page {
                 Layout.columnSpan: 2
 
                 QfButton {
+                  id: addPositioningDeviceButton
                   leftPadding: 10
                   rightPadding: 10
                   text: qsTr('Add')

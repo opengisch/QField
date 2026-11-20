@@ -14,3 +14,5 @@ Disabling RTKLIB's integer ambiguity resolution produces a float solution;
 the test checks both fixed (quality 4) and float (quality 5).
 The caster checks the forwarded GGA when enabled and checks that no position
 arrives when forwarding is disabled.
+The profile integration test starts two casters on separate ports and confirms
+that selecting each profile sends its corrections to the virtual rover.
