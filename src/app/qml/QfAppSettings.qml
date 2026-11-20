@@ -2270,17 +2270,15 @@ Page {
       if (originalName != '') {
         positioningDeviceModel.removeDevice(originalName);
       }
-      var name = positioningDeviceSettings.name;
-      var type = positioningDeviceSettings.type;
-      var settings = positioningDeviceSettings.getSettings();
+      let name = positioningDeviceSettings.name;
+      const type = positioningDeviceSettings.type;
+      const settings = positioningDeviceSettings.getSettings();
       if (name === '') {
         name = positioningDeviceSettings.generateName();
       }
-      var index = positioningDeviceModel.addDevice(type, name, settings);
+      const index = positioningDeviceModel.addDevice(type, name, settings);
+      positioningDeviceComboBox.currentIndex = -1;
       positioningDeviceComboBox.currentIndex = index;
-      const modelIndex = positioningDeviceModel.index(index, 0);
-      positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceId);
-      positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceName);
     }
   }
 
