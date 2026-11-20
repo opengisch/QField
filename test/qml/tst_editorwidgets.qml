@@ -1197,25 +1197,34 @@ TestCase {
       "Editable": true
     };
     uniqueValues.value = "B";
-    const editableComboBox = Utils.findChildren(uniqueValues, "uniqueValuesEditableComboBox");
-    verify(uniqueValues.allowNewValues);
-    tryCompare(editableComboBox, "count", 3);
-    compare(editableComboBox.editText, "B");
+    const relationComboBoxParent = Utils.findChildren(uniqueValues, "uniqueValuesComboBox");
+    const comboBoxItem = Utils.findChildren(relationComboBoxParent, "relationComboBox");
+    const searchableText = Utils.findChildren(relationComboBoxParent, "relationComboBoxSearchableText");
+    verify(relationComboBoxParent.allowNewValues);
+    tryCompare(comboBoxItem, "count", 3);
+    compare(comboBoxItem.displayText, "B");
 
-    editableComboBox.contentItem.forceActiveFocus();
-    editableComboBox.contentItem.selectAll();
+    // Existing values stay searchable through the popup
+    verify(Utils.findChildren(relationComboBoxParent, "openSearchFeaturePopupButton").enabled);
+
+    searchableText.forceActiveFocus();
+    searchableText.selectAll();
     keyClick("D");
+    keyClick(Qt.Key_Return);
     compare(uniqueValues.value, "D");
+    compare(comboBoxItem.displayText, "D");
 
-    // A list reload while typing keeps the typed value
-    uniqueValuesReloadSpy.target = editableComboBox.model;
-    editableComboBox.model.orderByValue = !editableComboBox.model.orderByValue;
+    // A list reload keeps the new value
+    uniqueValuesReloadSpy.target = comboBoxItem.model;
+    comboBoxItem.model.orderByValue = !comboBoxItem.model.orderByValue;
     uniqueValuesReloadSpy.wait();
     compare(uniqueValues.value, "D");
-    compare(editableComboBox.editText, "D");
+    compare(comboBoxItem.displayText, "D");
 
-    editableComboBox.contentItem.focus = false;
-    uniqueValues.value = "A";
-    compare(editableComboBox.editText, "A");
+    // Typing an existing value picks it from the list
+    keyClick("C");
+    searchableText.focus = false;
+    compare(uniqueValues.value, "C");
+    compare(comboBoxItem.displayText, "C");
   }
 }
