@@ -198,7 +198,7 @@ class QfPositioningSource : public QObject
     /**
      * Returns the current device orientation
      */
-    double orientation() const { return mOrientation; }
+    double orientation() const { return std::isnan( mReceiverOrientation ) ? mOrientation : mReceiverOrientation; }
 
     /**
      * Returns whether GNSS devices will log their incoming position stream into a logfile.
@@ -363,6 +363,7 @@ class QfPositioningSource : public QObject
     QCompass mCompass;
     QTimer mCompassTimer;
     double mOrientation = std::numeric_limits<double>::quiet_NaN();
+    double mReceiverOrientation = std::numeric_limits<double>::quiet_NaN();
 };
 
 Q_DECLARE_METATYPE( QfPositioningSource::NtripState )
