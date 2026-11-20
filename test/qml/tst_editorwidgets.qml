@@ -222,10 +222,8 @@ TestCase {
    * Finally, setting the value of the range and verifying that it is displayed correctly in both text and slider formats.
    */
   function test_01_range() {
-    const sliderRow = range.children[0];
-    const textField = sliderRow.children[0];
-    const valueLabel = range.children[1].children[0];
-    const slider = range.children[1].children[1];
+    const widgetStyleLoader = range.children[0];
+    const textField = widgetStyleLoader.item.children[0];
     compare(textField.text, range.default_value + "");
     range.config = {
       "Style": undefined,
@@ -249,8 +247,6 @@ TestCase {
     compare(range.min, -Infinity);
     compare(range.max, Infinity);
 
-    // Row
-    // compare(sliderRow.visible, true) // ERROR ? should work but not working!
     compare(textField.text, "3");
     range.config = {
       "Style": "Slider",
@@ -267,7 +263,8 @@ TestCase {
     compare(range.max, 10);
     compare(range.step, 10);
     compare(range.suffix, "DEFAULT_SUFFIX");
-    compare(sliderRow.visible, false);
+    const valueLabel = widgetStyleLoader.item.children[0];
+    const slider = widgetStyleLoader.item.children[1];
     compare(valueLabel.text, range.min + ".0000DEFAULT_SUFFIX"); // NOTE: using `range.min` because of `rangeItem.parent.value`
     compare(slider.value, range.min); // NOTE: using `range.min` because of `rangeItem.parent.value`
   }
@@ -282,7 +279,7 @@ TestCase {
     isEditing = true;
     waitForRendering(range);
 
-    const textField = range.children[0].children[1];
+    const textField = range.children[0].item.children[1];
 
     textField.text = "20";
     textField.commitValue();
@@ -297,6 +294,41 @@ TestCase {
     compare(range.value, 150);
 
     isEditing = false;
+  }
+
+  function test_03_range_dial() {
+    range.config = {
+      "Style": "Dial",
+      "Min": 0,
+      "Max": 359,
+      "Step": 1,
+      "Suffix": "°"
+    };
+    range.value = 90;
+
+    const dialRow = range.children[0].item.children[0];
+    const decreaseButton = dialRow.children[0];
+    const dial = dialRow.children[1];
+    const increaseButton = dialRow.children[2];
+    compare(dial.startAngle, 0);
+    compare(dial.endAngle, 359);
+    compare(dial.wrap, true);
+    compare(dial.value, 90);
+    fuzzyCompare(dial.angle, 90, 0.0001);
+
+    increaseButton.clicked();
+    compare(range.value, 91);
+    decreaseButton.clicked();
+    decreaseButton.clicked();
+    compare(range.value, 89);
+
+    range.value = 359;
+    increaseButton.clicked();
+    compare(range.value, 359);
+
+    dial.value = 180;
+    dial.moved();
+    compare(range.value, 180);
   }
 
   /**

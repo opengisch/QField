@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Shapes
 import org.qfield.core
 import org.qfield.gui
 
@@ -17,299 +18,501 @@ QfEditorWidgetBase {
 
   height: childrenRect.height
 
-  Row {
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.top: parent.top
-    visible: widgetStyle != "Slider"
-    spacing: 5
-
-    Label {
-      id: textReadonlyValue
-      height: textField.height
-      width: parent.width
-      topPadding: 10
-      bottomPadding: 10
-      leftPadding: 0
-      visible: !isEditing
-      font: QfTheme.defaultFont
-      color: (!isEditable && isEditing) || isNull || isEmpty ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
-      opacity: 1
-      wrapMode: Text.Wrap
-      text: {
-        if (isEmpty) {
-          return qsTr("Empty");
-        } else if (isNull) {
-          return qsTr("NULL");
-        }
-        return rangeItem.suffix ? value + " " + rangeItem.suffix : value;
-      }
-    }
-
-    QfTextField {
-      id: textField
-      leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
-      width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
-      visible: isEditing
-
-      font: QfTheme.defaultFont
-      color: (!isEditable && isEditing) ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
-      suffixText: rangeItem.suffix
-
-      text: isNull ? '' : value
-
-      validator: doubleValidator
-
-      inputMethodHints: Qt.ImhFormattedNumbersOnly | Qt.ImhNoPredictiveText
-
-      background.visible: isEnabled || (!isEditable && isEditing)
-
-      onTextEdited: {
-        if (text === "") {
-          if (!isNull) {
-            valueChangeRequested(text, true);
-          }
-        } else {
-          const parsedValue = parseFloat(text);
-          if (!isNaN(parsedValue)) {
-            if (Number.isFinite(rangeItem.max) && parsedValue > rangeItem.max) {
-              valueChangeRequested(rangeItem.max, false);
-              text = Qt.binding(function () {
-                return isNull ? '' : value;
-              });
-            } else {
-              valueChangeRequested(parsedValue, false);
-            }
-          }
-        }
-      }
-
-      onActiveFocusChanged: {
-        if (!activeFocus) {
-          commitValue();
-        }
-      }
-
-      onEditingFinished: commitValue()
-
-      function commitValue() {
-        if (text !== "") {
-          const parsedValue = parseFloat(text);
-          if (!isNaN(parsedValue)) {
-            let clampedValue = parsedValue;
-            if (Number.isFinite(rangeItem.min) && parsedValue < rangeItem.min) {
-              clampedValue = rangeItem.min;
-            } else if (Number.isFinite(rangeItem.max) && parsedValue > rangeItem.max) {
-              clampedValue = rangeItem.max;
-            }
-            if (clampedValue !== value) {
-              valueChangeRequested(clampedValue, false);
-            }
-            text = Qt.binding(function () {
-              return isNull ? '' : value;
-            });
-          }
-        }
-      }
-    }
-
-    QfToolButton {
-      id: decreaseButton
-      width: enabled ? QfTheme.toolButtonSize : 0
-      height: QfTheme.toolButtonSize
-
-      anchors.verticalCenter: textField.verticalCenter
-
-      iconSource: QfTheme.getThemeVectorIcon("ic_remove_white_24dp")
-      iconColor: QfTheme.mainTextColor
-      bgcolor: "transparent"
-      visible: enabled
-
-      onClicked: {
-        decreaseValue();
-      }
-      onDoubleClicked: {
-        decreaseValue();
-      }
-      onPressAndHold: {
-        changeValueTimer.increase = false;
-        changeValueTimer.interval = changeValueTimer.initialInterval;
-        changeValueTimer.triggered();
-        changeValueTimer.restart();
-      }
-      onReleased: {
-        changeValueTimer.stop();
-      }
-      onCanceled: {
-        changeValueTimer.stop();
-      }
-    }
-
-    QfToolButton {
-      id: increaseButton
-      width: enabled ? QfTheme.toolButtonSize : 0
-      height: QfTheme.toolButtonSize
-
-      anchors.verticalCenter: textField.verticalCenter
-
-      iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
-      iconColor: QfTheme.mainTextColor
-      bgcolor: "transparent"
-      visible: enabled
-
-      onClicked: {
-        increaseValue();
-      }
-      onDoubleClicked: {
-        increaseValue();
-      }
-      onPressAndHold: {
-        changeValueTimer.increase = true;
-        changeValueTimer.interval = changeValueTimer.initialInterval;
-        changeValueTimer.triggered();
-        changeValueTimer.restart();
-      }
-      onReleased: {
-        changeValueTimer.stop();
-      }
-      onCanceled: {
-        changeValueTimer.stop();
-      }
-    }
-  }
-
-  Timer {
-    id: changeValueTimer
-    property int initialInterval: 500
-    interval: initialInterval
-    repeat: true
-
-    property bool increase: true
-
-    onTriggered: {
-      let hitBoundary = false;
-      if (increase) {
-        increaseValue();
-        hitBoundary = textField.text === rangeItem.max;
-      } else {
-        decreaseValue();
-        hitBoundary = textField.text === rangeItem.min;
-      }
-      if (!hitBoundary) {
-        if (interval > 50)
-          interval = interval * 0.7;
-      } else {
-        stop();
-      }
-    }
-  }
-
-  function decreaseValue() {
-    const currentValue = Number.parseFloat(textField.text);
-    let newValue;
-    if (!isNaN(currentValue)) {
-      newValue = roundValue(currentValue - rangeItem.step, rangeItem.precision);
-      newValue = Math.max(rangeItem.min, Math.min(rangeItem.max, newValue));
-      valueChangeRequested(newValue, false);
-    } else {
-      if (rangeItem.max <= 0) {
-        newValue = Math.max(0, rangeItem.min);
-      } else {
-        newValue = rangeItem.min;
-      }
-      valueChangeRequested(newValue, false);
-    }
-  }
-
-  function increaseValue() {
-    const currentValue = Number.parseFloat(textField.text);
-    let newValue;
-    if (!isNaN(currentValue)) {
-      newValue = roundValue(currentValue + rangeItem.step, rangeItem.precision);
-      newValue = Math.min(rangeItem.max, Math.max(rangeItem.min, newValue));
-      valueChangeRequested(newValue, false);
-    } else {
-      if (rangeItem.max >= 0) {
-        newValue = Math.max(0, rangeItem.min);
-      } else {
-        newValue = rangeItem.min;
-      }
-      valueChangeRequested(newValue, false);
-    }
-  }
-
   function roundValue(value, precision) {
     const multiplier = Math.pow(10, precision || 0);
     return Math.round(value * multiplier) / multiplier;
   }
 
-  Row {
-    id: sliderRow
+  Loader {
+    id: widgetStyleLoader
     anchors.left: parent.left
+    anchors.right: parent.right
     anchors.top: parent.top
-    width: parent.width
-    height: childrenRect.height
-    visible: widgetStyle === "Slider"
 
-    Text {
-      id: valueLabel
-      width: sliderRow.width / 4
-      height: fontMetrics.height + 20
-      elide: Text.ElideRight
-      text: {
-        const formattedValue = Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix;
-        if (isEmpty) {
-          return qsTr("Empty");
-        } else if (isNull) {
-          return qsTr("NULL");
-        }
-        return formattedValue;
+    sourceComponent: {
+      if (widgetStyle === "Dial") {
+        return dialComponent;
+      } else if (widgetStyle === "Slider") {
+        return sliderComponent;
       }
-      verticalAlignment: Text.AlignVCenter
-      horizontalAlignment: Text.AlignLeft
-      font: QfTheme.defaultFont
-      color: (!isEditable && isEditing) || isNull || isEmpty ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
-    }
-
-    QfSlider {
-      id: slider
-      showValueLabel: false
-      width: sliderRow.width - valueLabel.width
-      height: fontMetrics.height + 20
-      implicitWidth: width
-      from: !Number.isFinite(rangeItem.min) ? Number.MIN_VALUE : rangeItem.min
-      to: !Number.isFinite(rangeItem.max) ? Number.MAX_VALUE : rangeItem.max
-      stepSize: !Number.isFinite(rangeItem.step) ? 1 : rangeItem.step
-      // TODO: using `rangeItem.parent.value` makes item reuseability harder.
-      value: rangeItem.parent.value !== undefined && rangeItem.parent.value !== '' ? Number(rangeItem.parent.value) : from
-
-      onValueChanged: {
-        if (sliderRow.visible) {
-          rangeItem.valueChangeRequested(slider.value, false);
-        }
-      }
+      return spinBoxComponent;
     }
   }
 
-  FontMetrics {
-    id: fontMetrics
-    font: textField.font
+  Component {
+    id: spinBoxComponent
+
+    Row {
+      spacing: 5
+
+      Label {
+        id: textReadonlyValue
+        height: textField.height
+        width: parent.width
+        topPadding: 10
+        bottomPadding: 10
+        leftPadding: 0
+        visible: !isEditing
+        font: QfTheme.defaultFont
+        color: (!isEditable && isEditing) || isNull || isEmpty ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
+        opacity: 1
+        wrapMode: Text.Wrap
+        text: {
+          if (isEmpty) {
+            return qsTr("Empty");
+          } else if (isNull) {
+            return qsTr("NULL");
+          }
+          return rangeItem.suffix ? value + " " + rangeItem.suffix : value;
+        }
+      }
+
+      QfTextField {
+        id: textField
+        leftPadding: isEnabled || (!isEditable && isEditing) ? 10 : 0
+        width: parent.width - decreaseButton.width - increaseButton.width - parent.spacing * 2
+        visible: isEditing
+
+        font: QfTheme.defaultFont
+        color: (!isEditable && isEditing) ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
+        suffixText: rangeItem.suffix
+
+        text: isNull ? '' : value
+
+        validator: doubleValidator
+
+        inputMethodHints: Qt.ImhFormattedNumbersOnly | Qt.ImhNoPredictiveText
+
+        background.visible: isEnabled || (!isEditable && isEditing)
+
+        onTextEdited: {
+          if (text === "") {
+            if (!isNull) {
+              valueChangeRequested(text, true);
+            }
+          } else {
+            const parsedValue = parseFloat(text);
+            if (!isNaN(parsedValue)) {
+              if (Number.isFinite(rangeItem.max) && parsedValue > rangeItem.max) {
+                valueChangeRequested(rangeItem.max, false);
+                text = Qt.binding(function () {
+                  return isNull ? '' : value;
+                });
+              } else {
+                valueChangeRequested(parsedValue, false);
+              }
+            }
+          }
+        }
+
+        onActiveFocusChanged: {
+          if (!activeFocus) {
+            commitValue();
+          }
+        }
+
+        onEditingFinished: commitValue()
+
+        function commitValue() {
+          if (text !== "") {
+            const parsedValue = parseFloat(text);
+            if (!isNaN(parsedValue)) {
+              let clampedValue = parsedValue;
+              if (Number.isFinite(rangeItem.min) && parsedValue < rangeItem.min) {
+                clampedValue = rangeItem.min;
+              } else if (Number.isFinite(rangeItem.max) && parsedValue > rangeItem.max) {
+                clampedValue = rangeItem.max;
+              }
+              if (clampedValue !== value) {
+                valueChangeRequested(clampedValue, false);
+              }
+              text = Qt.binding(function () {
+                return isNull ? '' : value;
+              });
+            }
+          }
+        }
+      }
+
+      QfToolButton {
+        id: decreaseButton
+        width: enabled ? QfTheme.toolButtonSize : 0
+        height: QfTheme.toolButtonSize
+
+        anchors.verticalCenter: textField.verticalCenter
+
+        iconSource: QfTheme.getThemeVectorIcon("ic_remove_white_24dp")
+        iconColor: QfTheme.mainTextColor
+        bgcolor: "transparent"
+        visible: enabled
+
+        onClicked: {
+          decreaseValue();
+        }
+        onDoubleClicked: {
+          decreaseValue();
+        }
+        onPressAndHold: {
+          changeValueTimer.increase = false;
+          changeValueTimer.interval = changeValueTimer.initialInterval;
+          changeValueTimer.triggered();
+          changeValueTimer.restart();
+        }
+        onReleased: {
+          changeValueTimer.stop();
+        }
+        onCanceled: {
+          changeValueTimer.stop();
+        }
+      }
+
+      QfToolButton {
+        id: increaseButton
+        width: enabled ? QfTheme.toolButtonSize : 0
+        height: QfTheme.toolButtonSize
+
+        anchors.verticalCenter: textField.verticalCenter
+
+        iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
+        iconColor: QfTheme.mainTextColor
+        bgcolor: "transparent"
+        visible: enabled
+
+        onClicked: {
+          increaseValue();
+        }
+        onDoubleClicked: {
+          increaseValue();
+        }
+        onPressAndHold: {
+          changeValueTimer.increase = true;
+          changeValueTimer.interval = changeValueTimer.initialInterval;
+          changeValueTimer.triggered();
+          changeValueTimer.restart();
+        }
+        onReleased: {
+          changeValueTimer.stop();
+        }
+        onCanceled: {
+          changeValueTimer.stop();
+        }
+      }
+
+      Timer {
+        id: changeValueTimer
+        property int initialInterval: 500
+        interval: initialInterval
+        repeat: true
+
+        property bool increase: true
+
+        onTriggered: {
+          let hitBoundary = false;
+          if (increase) {
+            increaseValue();
+            hitBoundary = textField.text === rangeItem.max;
+          } else {
+            decreaseValue();
+            hitBoundary = textField.text === rangeItem.min;
+          }
+          if (!hitBoundary) {
+            if (interval > 50)
+              interval = interval * 0.7;
+          } else {
+            stop();
+          }
+        }
+      }
+
+      function decreaseValue() {
+        const currentValue = Number.parseFloat(textField.text);
+        let newValue;
+        if (!isNaN(currentValue)) {
+          newValue = rangeItem.roundValue(currentValue - rangeItem.step, rangeItem.precision);
+          newValue = Math.max(rangeItem.min, Math.min(rangeItem.max, newValue));
+          valueChangeRequested(newValue, false);
+        } else {
+          if (rangeItem.max <= 0) {
+            newValue = Math.max(0, rangeItem.min);
+          } else {
+            newValue = rangeItem.min;
+          }
+          valueChangeRequested(newValue, false);
+        }
+      }
+
+      function increaseValue() {
+        const currentValue = Number.parseFloat(textField.text);
+        let newValue;
+        if (!isNaN(currentValue)) {
+          newValue = rangeItem.roundValue(currentValue + rangeItem.step, rangeItem.precision);
+          newValue = Math.min(rangeItem.max, Math.max(rangeItem.min, newValue));
+          valueChangeRequested(newValue, false);
+        } else {
+          if (rangeItem.max >= 0) {
+            newValue = Math.max(0, rangeItem.min);
+          } else {
+            newValue = rangeItem.min;
+          }
+          valueChangeRequested(newValue, false);
+        }
+      }
+
+      DoubleValidator {
+        id: doubleValidator
+
+        locale: 'C'
+
+        bottom: rangeItem.min
+        top: rangeItem.max
+        decimals: isDouble ? -1 : 0
+      }
+    }
   }
 
-  IntValidator {
-    id: intValidator
+  Component {
+    id: sliderComponent
 
-    bottom: rangeItem.min
-    top: rangeItem.max
+    Row {
+      id: sliderRow
+      height: childrenRect.height
+
+      Text {
+        id: valueLabel
+        width: sliderRow.width / 4
+        height: Math.max(QfTheme.toolButtonSize, fontMetrics.height + 20)
+        elide: Text.ElideRight
+        text: {
+          const formattedValue = Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix;
+          if (isEmpty) {
+            return qsTr("Empty");
+          } else if (isNull) {
+            return qsTr("NULL");
+          }
+          return formattedValue;
+        }
+        verticalAlignment: Text.AlignVCenter
+        horizontalAlignment: Text.AlignLeft
+        font: QfTheme.defaultFont
+        color: (!isEditable && isEditing) || isNull || isEmpty ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
+      }
+
+      QfSlider {
+        id: slider
+        showValueLabel: false
+        width: sliderRow.width - valueLabel.width
+        height: Math.max(QfTheme.toolButtonSize, fontMetrics.height + 20)
+        implicitWidth: width
+        from: !Number.isFinite(rangeItem.min) ? Number.MIN_VALUE : rangeItem.min
+        to: !Number.isFinite(rangeItem.max) ? Number.MAX_VALUE : rangeItem.max
+        stepSize: !Number.isFinite(rangeItem.step) ? 1 : rangeItem.step
+        // TODO: using `rangeItem.parent.value` makes item reuseability harder.
+        value: rangeItem.parent.value !== undefined && rangeItem.parent.value !== '' ? Number(rangeItem.parent.value) : from
+
+        onValueChanged: {
+          if (sliderRow.visible) {
+            rangeItem.valueChangeRequested(slider.value, false);
+          }
+        }
+      }
+
+      FontMetrics {
+        id: fontMetrics
+        font: QfTheme.defaultFont
+      }
+    }
   }
 
-  DoubleValidator {
-    id: doubleValidator
+  Component {
+    id: dialComponent
 
-    locale: 'C'
+    Item {
+      id: dialItem
 
-    bottom: rangeItem.min
-    top: rangeItem.max
-    decimals: isDouble ? -1 : 0
+      readonly property var fieldValue: value
+
+      height: dialRow.height + 12
+
+      Row {
+        id: dialRow
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 6
+        spacing: 12
+
+        QfToolButton {
+          id: dialDecreaseButton
+          anchors.verticalCenter: parent.verticalCenter
+          width: QfTheme.toolButtonSize
+          height: QfTheme.toolButtonSize
+          visible: enabled
+          autoRepeat: true
+
+          iconSource: QfTheme.getThemeVectorIcon("ic_remove_white_24dp")
+          iconColor: QfTheme.mainTextColor
+          bgcolor: "transparent"
+
+          onClicked: {
+            dial.stepValue(false);
+          }
+        }
+
+        Dial {
+          id: dial
+          width: QfTheme.toolButtonSize * 2.75
+          height: width
+
+          readonly property bool hasValue: !isNull && !isEmpty
+          readonly property real trackWidth: 6
+          readonly property real handleSize: 20
+          readonly property real trackRadius: width / 2 - handleSize / 2 - 1
+          readonly property color activeColor: enabled ? QfTheme.mainColor : QfTheme.mainTextDisabledColor
+
+          from: Number.isFinite(rangeItem.min) ? rangeItem.min : -Number.MAX_VALUE
+          to: Number.isFinite(rangeItem.max) ? rangeItem.max : Number.MAX_VALUE
+          stepSize: Number.isFinite(rangeItem.step) && rangeItem.step > 0 ? rangeItem.step : 1
+          snapMode: Dial.SnapAlways
+          wrap: true
+          startAngle: 0
+          // The range plus one step spans the full circle, so min and max do not overlap and 0 to 359 maps onto actual degrees
+          endAngle: {
+            const range = to - from;
+            return Number.isFinite(range) && range > 0 ? 360 * range / (range + stepSize) : 360;
+          }
+          value: hasValue ? Number(dialItem.fieldValue) : from
+
+          onMoved: {
+            rangeItem.valueChangeRequested(rangeItem.roundValue(value, rangeItem.precision), false);
+          }
+
+          function stepValue(increase) {
+            const previousValue = value;
+            if (increase) {
+              dial.increase();
+            } else {
+              dial.decrease();
+            }
+            if (value !== previousValue || !hasValue) {
+              rangeItem.valueChangeRequested(rangeItem.roundValue(value, rangeItem.precision), false);
+            }
+          }
+
+          background: Shape {
+            width: dial.width
+            height: dial.height
+            preferredRendererType: Shape.CurveRenderer
+
+            ShapePath {
+              strokeWidth: dial.trackWidth
+              strokeColor: Qt.alpha(QfTheme.mainTextColor, 0.1)
+              fillColor: "transparent"
+
+              PathAngleArc {
+                centerX: dial.width / 2
+                centerY: dial.height / 2
+                radiusX: dial.trackRadius
+                radiusY: dial.trackRadius
+                startAngle: -90
+                sweepAngle: 360
+              }
+            }
+
+            ShapePath {
+              strokeWidth: dial.trackWidth
+              strokeColor: dial.hasValue ? dial.activeColor : "transparent"
+              fillColor: "transparent"
+              capStyle: ShapePath.RoundCap
+
+              PathAngleArc {
+                centerX: dial.width / 2
+                centerY: dial.height / 2
+                radiusX: dial.trackRadius
+                radiusY: dial.trackRadius
+                startAngle: dial.startAngle - 90
+                sweepAngle: dial.angle - dial.startAngle
+              }
+            }
+          }
+
+          handle: Rectangle {
+            x: dial.width / 2 + dial.trackRadius * Math.sin(dial.angle * Math.PI / 180) - width / 2
+            y: dial.height / 2 - dial.trackRadius * Math.cos(dial.angle * Math.PI / 180) - height / 2
+            width: dial.pressed ? dial.handleSize + 4 : dial.handleSize
+            height: width
+            radius: width / 2
+            color: QfTheme.controlBackgroundColor
+            border.width: 4
+            border.color: dial.hasValue ? dial.activeColor : QfTheme.mainTextDisabledColor
+            layer.enabled: true
+            layer.effect: QfDropShadow {
+              transparentBorder: true
+              color: "#33000000"
+              horizontalOffset: 0
+              verticalOffset: 1
+              blurMax: 8
+              shadowBlur: 0.6
+            }
+          }
+
+          Column {
+            anchors.centerIn: parent
+
+            Row {
+              anchors.horizontalCenter: parent.horizontalCenter
+              spacing: 2
+
+              Text {
+                id: dialValueText
+                text: dial.hasValue ? Number(dial.value).toFixed(rangeItem.precision) : isEmpty ? qsTr("Empty") : qsTr("NULL")
+                font.family: QfTheme.defaultFont.family
+                font.pointSize: dial.hasValue ? Math.max(QfTheme.tipFont.pointSize, dialValueMetrics.font.pointSize * Math.min(1, dial.width * 0.55 / Math.max(1, dialValueMetrics.advanceWidth))) : QfTheme.defaultFont.pointSize
+                font.weight: dial.hasValue ? Font.DemiBold : Font.Normal
+                color: (!isEditable && isEditing) || !dial.hasValue ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
+              }
+
+              Text {
+                anchors.baseline: dialValueText.baseline
+                visible: dial.hasValue && rangeItem.suffix !== ""
+                text: rangeItem.suffix
+                font: QfTheme.tipFont
+                color: QfTheme.secondaryTextColor
+              }
+            }
+
+            Text {
+              anchors.horizontalCenter: parent.horizontalCenter
+              visible: Number.isFinite(dial.to - dial.from)
+              text: Number(dial.from).toFixed(rangeItem.precision) + " – " + Number(dial.to).toFixed(rangeItem.precision)
+              font: QfTheme.tinyFont
+              color: QfTheme.secondaryTextColor
+            }
+          }
+
+          TextMetrics {
+            id: dialValueMetrics
+            font.family: QfTheme.defaultFont.family
+            font.pointSize: QfTheme.defaultFont.pointSize * 1.8
+            font.weight: Font.DemiBold
+            text: dialValueText.text
+          }
+        }
+
+        QfToolButton {
+          id: dialIncreaseButton
+          anchors.verticalCenter: parent.verticalCenter
+          width: QfTheme.toolButtonSize
+          height: QfTheme.toolButtonSize
+          visible: enabled
+          autoRepeat: true
+
+          iconSource: QfTheme.getThemeVectorIcon("ic_add_white_24dp")
+          iconColor: QfTheme.mainTextColor
+          bgcolor: "transparent"
+
+          onClicked: {
+            dial.stepValue(true);
+          }
+        }
+      }
+    }
   }
 }
