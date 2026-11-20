@@ -296,6 +296,41 @@ TestCase {
     isEditing = false;
   }
 
+  function test_03_range_dial() {
+    range.config = {
+      "Style": "Dial",
+      "Min": 0,
+      "Max": 359,
+      "Step": 1,
+      "Suffix": "°"
+    };
+    range.value = 90;
+
+    const dialRow = range.children[0].item.children[0];
+    const decreaseButton = dialRow.children[0];
+    const dial = dialRow.children[1];
+    const increaseButton = dialRow.children[2];
+    compare(dial.startAngle, 0);
+    compare(dial.endAngle, 359);
+    compare(dial.wrap, true);
+    compare(dial.value, 90);
+    fuzzyCompare(dial.angle, 90, 0.0001);
+
+    increaseButton.clicked();
+    compare(range.value, 91);
+    decreaseButton.clicked();
+    decreaseButton.clicked();
+    compare(range.value, 89);
+
+    range.value = 359;
+    increaseButton.clicked();
+    compare(range.value, 359);
+
+    dial.value = 180;
+    dial.moved();
+    compare(range.value, 180);
+  }
+
   /**
    * Test case for datetime widget
    *
