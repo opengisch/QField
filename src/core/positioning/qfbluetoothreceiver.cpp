@@ -50,8 +50,13 @@ QfBluetoothReceiver::QfBluetoothReceiver( const QString &address, QObject *paren
     }
   } );
 
-  initNmeaConnection( mSocket );
+  mReconnectTimer.setSingleShot( true );
+  mReconnectTimer.setInterval( 1000 );
+  connect( &mReconnectTimer, &QTimer::timeout, this, [this]() {
+    doConnectDevice();
+  } );
 
+  initNmeaConnection( mSocket );
   setValid( !mAddress.isEmpty() );
 }
 
@@ -71,7 +76,16 @@ QfAbstractGnssReceiver::Capabilities QfBluetoothReceiver::capabilities() const
 void QfBluetoothReceiver::handleDisconnectDevice()
 {
   mConnectOnDisconnect = false;
-  doDisconnectDevice();
+  mReconnectTimer.stop();
+  if ( mSocket->state() != QBluetoothSocket::SocketState::UnconnectedState )
+  {
+    doDisconnectDevice();
+  }
+  else
+  {
+    // The socket state might not have been set to unconnected due to auto-reconnect, insure it is updated
+    setSocketState( QAbstractSocket::UnconnectedState );
+  }
 }
 
 void QfBluetoothReceiver::handleConnectDevice()
@@ -126,7 +140,7 @@ void QfBluetoothReceiver::handleStateChanged( QBluetoothSocket::SocketState stat
   if ( currentState == QAbstractSocket::UnconnectedState && mConnectOnDisconnect )
   {
     qInfo() << QStringLiteral( "BluetoothReceiver: Reconnecting on failure (try #%1)" ).arg( mConnectionFailureCount );
-    QTimer::singleShot( 1000, this, &QfBluetoothReceiver::doConnectDevice );
+    mReconnectTimer.start();
   }
   else
   {
