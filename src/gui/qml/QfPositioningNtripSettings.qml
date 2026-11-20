@@ -120,8 +120,9 @@ QfPopup {
 
           QfToolButton {
             id: renameNtripPresetButton
+            enabled: presetIndex > 0
             iconSource: QfTheme.getThemeVectorIcon("ic_create_white_24dp")
-            iconColor: QfTheme.mainTextColor
+            iconColor: enabled ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
             bgcolor: "transparent"
             Layout.preferredWidth: QfTheme.toolButtonSize
             Layout.preferredHeight: QfTheme.toolButtonSize
@@ -135,8 +136,9 @@ QfPopup {
 
           QfToolButton {
             id: removeNtripPresetButton
+            enabled: presetIndex > 0
             iconSource: QfTheme.getThemeVectorIcon("ic_delete_forever_white_24dp")
-            iconColor: QfTheme.mainTextColor
+            iconColor: enabled ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
             bgcolor: "transparent"
             Layout.preferredWidth: QfTheme.toolButtonSize
             Layout.preferredHeight: QfTheme.toolButtonSize
@@ -582,6 +584,9 @@ QfPopup {
   }
 
   function renamePreset(name) {
+    if (presetIndex === 0) {
+      return;
+    }
     let updatedPresets = [...presets];
     updatedPresets[presetIndex] = {
       "name": name,
@@ -592,14 +597,11 @@ QfPopup {
   }
 
   function removePreset() {
+    if (presetIndex === 0) {
+      return;
+    }
     let updatedPresets = [...presets];
     updatedPresets.splice(presetIndex, 1);
-    if (updatedPresets.length === 0) {
-      updatedPresets.push({
-        "name": qsTr("Default server"),
-        "settings": {}
-      });
-    }
     presets = updatedPresets;
     presetIndex = Math.min(presetIndex, presets.length - 1);
     clearMountPoints();

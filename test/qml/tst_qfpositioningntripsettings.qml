@@ -93,12 +93,13 @@ TestCase {
   }
 
   function test_04_renamingKeepsSettings() {
+    ntripSettings.switchToPreset(1);
     ntripSettings.renamePreset("Renamed");
     compare(ntripSettings.presets.length, 2);
-    compare(ntripSettings.presetIndex, 0);
-    compare(ntripSettings.presets[0].name, "Renamed");
-    compare(ntripSettings.presets[0].settings.host, "alpha.example.com");
-    compare(ntripSettings.createSettingsMap().host, "alpha.example.com");
+    compare(ntripSettings.presetIndex, 1);
+    compare(ntripSettings.presets[1].name, "Renamed");
+    compare(ntripSettings.presets[1].settings.host, "beta.example.com");
+    compare(ntripSettings.createSettingsMap().host, "beta.example.com");
   }
 
   function test_05_removingPresetSelectsRemainingPreset() {
@@ -110,14 +111,13 @@ TestCase {
     compare(ntripSettings.createSettingsMap().host, "alpha.example.com");
   }
 
-  function test_06_removingLastPresetRecreatesDefaultServer() {
+  function test_06_firstPresetCannotBeRenamedOrRemoved() {
+    ntripSettings.renamePreset("Renamed");
     ntripSettings.removePreset();
-    ntripSettings.removePreset();
-    compare(ntripSettings.presets.length, 1);
+    compare(ntripSettings.presets.length, 2);
     compare(ntripSettings.presetIndex, 0);
-    compare(ntripSettings.presets[0].name, "Default server");
-    compare(ntripSettings.createSettingsMap().host, "");
-    compare(ntripSettings.createSettingsMap().port, "2101");
+    compare(ntripSettings.presets[0].name, "Alpha");
+    compare(ntripSettings.createSettingsMap().host, "alpha.example.com");
   }
 
   function test_07_presetNameAvailability() {
