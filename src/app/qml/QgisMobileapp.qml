@@ -2296,18 +2296,18 @@ ApplicationWindow {
           lines.push(coordinates);
         }
         if (digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0) {
-          addLine(digitizingGeometryMeasure.useZValues ? (hasSeveralSegments ? qsTr('Slope segment') : qsTr('Slope distance')) : (hasSeveralSegments ? qsTr('Segment') : qsTr('Length')), formatLength(digitizingGeometryMeasure.segmentLength));
+          addLine(digitizingGeometryMeasure.useZValues ? (hasSeveralSegments ? qsTr('Segment (3D)') : qsTr('Length (3D)')) : (hasSeveralSegments ? qsTr('Segment') : qsTr('Length')), formatLength(digitizingGeometryMeasure.segmentLength));
           addLine(qsTr('Azimuth'), UnitTypes.formatAngle(digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, Qgis.AngleUnit.Degrees));
         }
         if (isPolygon) {
           if (digitizingGeometryMeasure.perimeterValid) {
-            addLine(digitizingGeometryMeasure.useZValues ? qsTr('Slice perimeter') : qsTr('Perimeter'), formatLength(digitizingGeometryMeasure.perimeter));
+            addLine(digitizingGeometryMeasure.useZValues ? qsTr('Perimeter (3D)') : qsTr('Perimeter'), formatLength(digitizingGeometryMeasure.perimeter));
           }
         } else if (digitizingGeometryMeasure.lengthValid && hasSeveralSegments) {
-          addLine(digitizingGeometryMeasure.useZValues ? qsTr('Slope distance') : qsTr('Length'), formatLength(digitizingGeometryMeasure.length));
+          addLine(digitizingGeometryMeasure.useZValues ? qsTr('Length (3D)') : qsTr('Length'), formatLength(digitizingGeometryMeasure.length));
         }
         if (digitizingGeometryMeasure.areaValid) {
-          addLine(digitizingGeometryMeasure.useZValues ? qsTr('Slice area') : qsTr('Area'), UnitTypes.formatArea(digitizingGeometryMeasure.convertAreaMeansurement(digitizingGeometryMeasure.area, projectInfo.areaUnits), 3, projectInfo.areaUnits));
+          addLine(digitizingGeometryMeasure.useZValues ? qsTr('Surface') : qsTr('Area'), UnitTypes.formatArea(digitizingGeometryMeasure.convertAreaMeansurement(digitizingGeometryMeasure.area, projectInfo.areaUnits), 3, projectInfo.areaUnits));
         }
         if (stateMachine.state === 'measure' && digitizingToolbar.isDigitizing) {
           lines.push(coordinates);
