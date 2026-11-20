@@ -88,8 +88,17 @@ void QfUdpReceiver::handleConnectDevice()
 void QfUdpReceiver::handleDisconnectDevice()
 {
   mReconnectOnDisconnect = false;
-  mBuffer->close();
-  mSocket->close();
+  mReconnectTimer.stop();
+  if ( mSocket->state() != QAbstractSocket::UnconnectedState )
+  {
+    mBuffer->close();
+    mSocket->close();
+  }
+  else
+  {
+    // The socket state might not have been set to unconnected due to auto-reconnect, insure it is updated
+    setSocketState( QAbstractSocket::UnconnectedState );
+  }
 }
 
 QString QfUdpReceiver::socketStateString()
@@ -111,6 +120,7 @@ void QfUdpReceiver::handleStateChanged( QAbstractSocket::SocketState state )
       if ( mReconnectOnDisconnect )
       {
         mReconnectTimer.start( 2000 );
+        break;
       }
       break;
 
