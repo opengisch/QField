@@ -5146,6 +5146,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Create project from template</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>

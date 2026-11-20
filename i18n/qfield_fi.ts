@@ -5126,6 +5126,10 @@ epäonnistui, syy: %2</translation>
         <source>Create project from template</source>
         <translation>Luo projekti mallista</translation>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5891,18 +5895,6 @@ epäonnistui, syy: %2</translation>
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>Ulkoisen tallennustilan todennusasetusten tunnus puuttuu. Varmista, että se on tuotu kohteeseen %1</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Opi lisää</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Tyhjä</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5913,6 +5905,18 @@ epäonnistui, syy: %2</translation>
     <message>
         <source>Cannot handle this file type</source>
         <translation>Tiedostotyyppiä ei tueta</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>Ulkoisen tallennustilan todennusasetusten tunnus puuttuu. Varmista, että se on tuotu kohteeseen %1</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Opi lisää</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Tyhjä</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

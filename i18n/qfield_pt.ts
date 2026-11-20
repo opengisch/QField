@@ -5125,6 +5125,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <source>Create project from template</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5890,18 +5894,6 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Saber mais</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5912,6 +5904,18 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
     <message>
         <source>Cannot handle this file type</source>
         <translation>Não é possível lidar com este tipo de ficheiro</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Saber mais</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

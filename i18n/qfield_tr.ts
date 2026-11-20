@@ -5118,6 +5118,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <source>Create project from template</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5883,18 +5887,6 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Daha fazla bilgi edinin</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5905,6 +5897,18 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <message>
         <source>Cannot handle this file type</source>
         <translation>Bu dosya türü işlenemez</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Daha fazla bilgi edinin</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

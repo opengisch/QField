@@ -5122,6 +5122,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Create project from template</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5887,18 +5891,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>외부 저장소의 인증 설정 ID가 없습니다. %1에 인증 설정을 가져왔는지 확인하십시오</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>자세히 알아보기</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>비어 있음</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5909,6 +5901,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Cannot handle this file type</source>
         <translation>이 파일 형식은 처리할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>외부 저장소의 인증 설정 ID가 없습니다. %1에 인증 설정을 가져왔는지 확인하십시오</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>자세히 알아보기</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>비어 있음</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

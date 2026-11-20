@@ -5123,6 +5123,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Create project from template</source>
         <translation>从模板创建工程</translation>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation>扩大</translation>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5888,18 +5892,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>外部存储的认证配置ID缺失，请确保已将其导入%1</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>点击了解更多信息</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>空</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>空</translation>
     </message>
@@ -5910,6 +5902,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Cannot handle this file type</source>
         <translation>无法处理此文件类型</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>外部存储的认证配置ID缺失，请确保已将其导入%1</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>点击了解更多信息</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>空</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

@@ -5124,6 +5124,10 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
         <source>Create project from template</source>
         <translation>Skapa projekt från mall</translation>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5889,18 +5893,6 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>Autentiseringskonfigurationens id för den externa lagringen saknas. Kontrollera att konfigurationen har importerats till %1</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Läs mer</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Tomt</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5911,6 +5903,18 @@ Du kan fortfarande visa och använda projektet, men vi rekommenderar starkt att 
     <message>
         <source>Cannot handle this file type</source>
         <translation>Kan inte hantera denna filtyp</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>Autentiseringskonfigurationens id för den externa lagringen saknas. Kontrollera att konfigurationen har importerats till %1</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Läs mer</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Tomt</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

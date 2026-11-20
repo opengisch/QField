@@ -5121,6 +5121,10 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
         <source>Create project from template</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5886,18 +5890,6 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>O ID da configuração de autenticação do armazenamento externo está ausente. Certifique-se de que ele foi importado para %1</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Saiba mais</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Vazio</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>Nulo</translation>
     </message>
@@ -5908,6 +5900,18 @@ Acesse a %1página de configurações%2 para gerenciar sua conta</translation>
     <message>
         <source>Cannot handle this file type</source>
         <translation>Não é possível lidar com este tipo de arquivo</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>O ID da configuração de autenticação do armazenamento externo está ausente. Certifique-se de que ele foi importado para %1</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Saiba mais</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Vazio</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

@@ -5128,6 +5128,10 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <source>Create project from template</source>
         <translation>Sukurti projektą iš šablono</translation>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5893,18 +5897,6 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>Trūksta išorinės saugyklos tapatybės nustatymo konfigūracijos ID. Įsitikinkite, kad jis importuotas į %1</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Sužinoti daugiau</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Tuščia</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5915,6 +5907,18 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
     <message>
         <source>Cannot handle this file type</source>
         <translation>Šio tipo failas nepalaikomas</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>Trūksta išorinės saugyklos tapatybės nustatymo konfigūracijos ID. Įsitikinkite, kad jis importuotas į %1</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Sužinoti daugiau</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Tuščia</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

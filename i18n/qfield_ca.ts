@@ -5127,6 +5127,10 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <source>Create project from template</source>
         <translation>Crear projecte des de plantilla</translation>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5892,18 +5896,6 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>Falta l&apos;ID de configuració d&apos;autenticació d&apos;emmagatzematge extern. Assegureu-vos que s&apos;hagi importat a %1.</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Més informació</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Buit</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NUL</translation>
     </message>
@@ -5914,6 +5906,18 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
     <message>
         <source>Cannot handle this file type</source>
         <translation>No es pot gestionar aquest tipus de fitxer</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>Falta l&apos;ID de configuració d&apos;autenticació d&apos;emmagatzematge extern. Assegureu-vos que s&apos;hagi importat a %1.</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Més informació</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Buit</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

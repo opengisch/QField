@@ -5123,6 +5123,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Create project from template</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5888,18 +5892,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>Falta el ID de configuración de autenticación del almacenamiento externo. Asegúrese de importarlo a %1.</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Aprende más</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Vacío</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULO</translation>
     </message>
@@ -5910,6 +5902,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Cannot handle this file type</source>
         <translation>No se puede resolver este tipo de archivos</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>Falta el ID de configuración de autenticación del almacenamiento externo. Asegúrese de importarlo a %1.</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Aprende más</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Vacío</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

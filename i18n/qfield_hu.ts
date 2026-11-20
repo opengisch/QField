@@ -5117,6 +5117,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <source>Create project from template</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5882,18 +5886,6 @@ name(string), owner(string), description(string), user_role(string), is_public(b
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>A külső tároló bejelentkezési azonosítójának beállítása hiányzik. Győződjön meg róla, hogy importálásra került ide: %1</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Tudjon meg többet</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Üres</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5904,6 +5896,18 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     <message>
         <source>Cannot handle this file type</source>
         <translation>Nem tudom kezelni ezt a fájl típust</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>A külső tároló bejelentkezési azonosítójának beállítása hiányzik. Győződjön meg róla, hogy importálásra került ide: %1</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Tudjon meg többet</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Üres</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

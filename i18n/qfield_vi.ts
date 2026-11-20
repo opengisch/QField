@@ -5115,6 +5115,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Create project from template</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5880,18 +5884,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Tìm hiểu thêm</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Trống</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5902,6 +5894,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Cannot handle this file type</source>
         <translation>Không thể xử lý loại tệp này</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Tìm hiểu thêm</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Trống</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

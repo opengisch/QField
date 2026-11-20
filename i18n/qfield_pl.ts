@@ -5129,6 +5129,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>Create project from template</source>
         <translation>Utwórz projekt z szablonu</translation>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5894,18 +5898,6 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>Brakuje identyfikatora konfiguracji uwierzytelniania zewnętrznego nośnika danych – upewnij się, że został zaimportowany do %1</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Dowiedz się więcej</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Pusty</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5916,6 +5908,18 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Cannot handle this file type</source>
         <translation>Nie można obsłużyć tego rodzaju pliku</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>Brakuje identyfikatora konfiguracji uwierzytelniania zewnętrznego nośnika danych – upewnij się, że został zaimportowany do %1</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Dowiedz się więcej</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Pusty</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

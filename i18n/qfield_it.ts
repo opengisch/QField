@@ -5129,6 +5129,10 @@ Messaggio dell&apos;errore: %4</translation>
         <source>Create project from template</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5894,18 +5898,6 @@ Messaggio dell&apos;errore: %4</translation>
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Per saperne di più</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Vuoto</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5916,6 +5908,18 @@ Messaggio dell&apos;errore: %4</translation>
     <message>
         <source>Cannot handle this file type</source>
         <translation>Non posso gestire questo tipo di file</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Per saperne di più</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Vuoto</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

@@ -5123,6 +5123,10 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <source>Create project from template</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5888,18 +5892,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Meer info</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Leeg</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5910,6 +5902,18 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
     <message>
         <source>Cannot handle this file type</source>
         <translation>Bestandstype niet bruikbaar</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Meer info</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Leeg</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

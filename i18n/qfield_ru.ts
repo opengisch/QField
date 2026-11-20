@@ -5127,6 +5127,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Create project from template</source>
         <translation>Создать проект по шаблону</translation>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5892,18 +5896,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>Отсутствует идентификатор конфигурации аутентификации внешнего хранилища. Убедитесь, что он импортирован в %1.</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>Узнать больше</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>Пусто</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>Пусто</translation>
     </message>
@@ -5914,6 +5906,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Cannot handle this file type</source>
         <translation>Данный тип файла невозможно обработать</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>Отсутствует идентификатор конфигурации аутентификации внешнего хранилища. Убедитесь, что он импортирован в %1.</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Узнать больше</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>Пусто</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>

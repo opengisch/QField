@@ -5119,6 +5119,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Create project from template</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Enlarge</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfCloudProjectFilter</name>
@@ -5884,18 +5888,6 @@ While you can still view and use the project, it is strongly recommended to rese
 <context>
     <name>QfEditorWidgetExternalResource</name>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation>வெளிப்புற சேமிப்பக அங்கீகார உள்ளமைவு ஐடி காணவில்லை, தயவுசெய்து அது %1 க்கு இறக்குமதி செய்யப்பட்டுள்ளதா என்பதை உறுதிப்படுத்தவும்.</translation>
-    </message>
-    <message>
-        <source>Learn more</source>
-        <translation>மேலும் அறிக</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation>காலி</translation>
-    </message>
-    <message>
         <source>NULL</source>
         <translation>NULL</translation>
     </message>
@@ -5906,6 +5898,18 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Cannot handle this file type</source>
         <translation>இந்தக் கோப்பு வகையைக் கையாள முடியாது</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>வெளிப்புற சேமிப்பக அங்கீகார உள்ளமைவு ஐடி காணவில்லை, தயவுசெய்து அது %1 க்கு இறக்குமதி செய்யப்பட்டுள்ளதா என்பதை உறுதிப்படுத்தவும்.</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>மேலும் அறிக</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation>காலி</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
