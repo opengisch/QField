@@ -58,14 +58,11 @@ TestCase {
    *    signaling that the feature model has processed the positioning data correctly.
    */
   function test_00_featureModelPositioning() {
-    // wait a few seconds so positioning can catch some NMEA strings
+    // Wait for a valid position before evaluating the layer's default expressions
     verify(featureModel.feature.attribute("x") === undefined);
     verify(featureModel.feature.attribute("y") === undefined);
     verify(featureModel.feature.attribute("z") === undefined);
-    wait(500);
-    tryVerify(() => positioning.positionInformation.sourceName !== undefined && positioning.positionInformation.fixStatus !== undefined);
-
-    sleep(5);
+    tryVerify(() => positioning.positionInformation.isValid, 10000);
     featureModel.resetAttributes();
     tryVerify(() => featureModel.feature.attribute("source") === "manual", 4000);
     verify(featureModel.feature.attribute("Quality") !== undefined);
