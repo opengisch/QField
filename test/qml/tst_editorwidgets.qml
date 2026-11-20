@@ -247,10 +247,8 @@ TestCase {
    * Finally, setting the value of the range and verifying that it is displayed correctly in both text and slider formats.
    */
   function test_01_range() {
-    const sliderRow = range.children[0];
-    const textField = sliderRow.children[0];
-    const valueLabel = range.children[1].children[0];
-    const slider = range.children[1].children[1];
+    const widgetStyleLoader = range.children[0];
+    const textField = widgetStyleLoader.item.children[0];
     compare(textField.text, range.default_value + "");
     range.config = {
       "Style": undefined,
@@ -274,8 +272,6 @@ TestCase {
     compare(range.min, -Infinity);
     compare(range.max, Infinity);
 
-    // Row
-    // compare(sliderRow.visible, true) // ERROR ? should work but not working!
     compare(textField.text, "3");
     range.config = {
       "Style": "Slider",
@@ -292,7 +288,8 @@ TestCase {
     compare(range.max, 10);
     compare(range.step, 10);
     compare(range.suffix, "DEFAULT_SUFFIX");
-    compare(sliderRow.visible, false);
+    const valueLabel = widgetStyleLoader.item.children[0];
+    const slider = widgetStyleLoader.item.children[1];
     compare(valueLabel.text, range.min + ".0000DEFAULT_SUFFIX"); // NOTE: using `range.min` because of `rangeItem.parent.value`
     compare(slider.value, range.min); // NOTE: using `range.min` because of `rangeItem.parent.value`
   }
@@ -307,7 +304,7 @@ TestCase {
     isEditing = true;
     waitForRendering(range);
 
-    const textField = range.children[0].children[1];
+    const textField = range.children[0].item.children[1];
 
     textField.text = "20";
     textField.commitValue();
