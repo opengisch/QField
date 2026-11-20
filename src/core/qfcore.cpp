@@ -135,6 +135,9 @@
 #include "positioning/qfserialportmodel.h"
 #include "positioning/qfserialportreceiver.h"
 #endif
+#if defined( Q_OS_IOS )
+#include "positioning/qfexternalaccessorymodel.h"
+#endif
 
 #define REGISTER_SINGLETON( uri, _class, name ) qmlRegisterSingletonType<_class>( uri, 1, 0, name, []( QQmlEngine *engine, QJSEngine *scriptEngine ) -> QObject * { Q_UNUSED( engine ); Q_UNUSED( scriptEngine ); return new _class(); } )
 
@@ -270,6 +273,9 @@ namespace QfCore
 #ifdef WITH_SERIALPORT
     qmlRegisterType<QfSerialPortModel>( "org.qfield.core", 1, 0, "QfSerialPortModel" );
     qmlRegisterType<QfSerialPortReceiver>( "org.qfield.core", 1, 0, "QfSerialPortReceiver" );
+#endif
+#if defined( Q_OS_IOS )
+    qmlRegisterType<QfExternalAccessoryModel>( "org.qfield.core", 1, 0, "QfExternalAccessoryModel" );
 #endif
 
     qmlRegisterType<QfFeatureIterator>( "org.qfield.core", 1, 0, "featureIterator" );
