@@ -63,15 +63,24 @@ QgsPointSequence QfRubberbandModel::pointSequence( const QgsCoordinateReferenceS
 
   for ( const QgsPoint &pt : mPointList )
   {
-    //crs transformation of XY
-    QgsPointXY p1 = ct.transform( pt.x(), pt.y() );
+    QgsPointXY p1;
+    try
+    {
+      // CRS transformation of XY
+      p1 = ct.transform( pt.x(), pt.y() );
+    }
+    catch ( const QgsCsException & )
+    {
+      // Transformaton fails, but there's still value in serving any valid points
+      continue;
+    }
 
-    //get point containing ZM if existing
+    // Get point containing z and m values if existing
     QgsPoint p2 = QfSnappingUtils::newPoint( pt, wkbType );
     p2.setX( p1.x() );
     p2.setY( p1.y() );
 
-    //overwrite z and m values if already existent in the point
+    // Overwrite z and m values if already existent in the point
     if ( QgsWkbTypes::hasM( wkbType ) )
     {
       p2.addMValue( QgsWkbTypes::hasM( pt.wkbType() ) ? pt.m() : 0 );
