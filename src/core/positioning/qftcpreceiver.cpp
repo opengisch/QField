@@ -25,16 +25,7 @@ QfTcpReceiver::QfTcpReceiver( const QString &address, const int port, QObject *p
   , mSocket( new QTcpSocket() )
 {
   connect( mSocket, qOverload<QAbstractSocket::SocketError>( &QAbstractSocket::errorOccurred ), this, &QfTcpReceiver::handleError );
-  connect( mSocket, &QTcpSocket::stateChanged, this, [this]( QAbstractSocket::SocketState state ) {
-    if ( state == QAbstractSocket::SocketState::UnconnectedState && mReconnectOnDisconnect )
-    {
-      mReconnectTimer.start( 2000 );
-    }
-    else
-    {
-      setSocketState( state );
-    }
-  } );
+  connect( mSocket, &QTcpSocket::stateChanged, this, &QfTcpReceiver::handleStateChanged );
 
   connect( mSocket, &QAbstractSocket::connected, this, [this] {
     // This line enables gpsd's NMEA through TCP
@@ -77,7 +68,16 @@ void QfTcpReceiver::handleConnectDevice()
 void QfTcpReceiver::handleDisconnectDevice()
 {
   mReconnectOnDisconnect = false;
-  mSocket->disconnectFromHost();
+  mReconnectTimer.stop();
+  if ( mSocket->state() != QAbstractSocket::UnconnectedState )
+  {
+    mSocket->disconnectFromHost();
+  }
+  else
+  {
+    // The socket state might not have been set to unconnected due to auto-reconnect, ensure it is updated
+    setSocketState( QAbstractSocket::UnconnectedState );
+  }
 }
 
 QString QfTcpReceiver::socketStateString()
@@ -89,6 +89,30 @@ QString QfTcpReceiver::socketStateString()
     socketStateString.append( QStringLiteral( ": %1" ).arg( mSocket->errorString() ) );
   }
   return socketStateString;
+}
+
+void QfTcpReceiver::handleStateChanged( QAbstractSocket::SocketState state )
+{
+  switch ( state )
+  {
+    case QAbstractSocket::SocketState::UnconnectedState:
+      if ( mReconnectOnDisconnect )
+      {
+        mReconnectTimer.start( 2000 );
+        return;
+      }
+      break;
+
+    case QAbstractSocket::BoundState:
+    case QAbstractSocket::ClosingState:
+    case QAbstractSocket::HostLookupState:
+    case QAbstractSocket::ConnectingState:
+    case QAbstractSocket::ConnectedState:
+    case QAbstractSocket::ListeningState:
+      break;
+  }
+
+  setSocketState( state );
 }
 
 void QfTcpReceiver::handleError( QAbstractSocket::SocketError error )

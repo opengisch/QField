@@ -19,6 +19,7 @@
 #include "qfnmeagnssreceiver.h"
 
 #include <QObject>
+#include <QTimer>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QBluetoothSocket>
 
@@ -71,6 +72,7 @@ class QfBluetoothReceiver : public QfNmeaGnssReceiver
     bool mDisconnecting = false;
     bool mConnectOnDisconnect = false;
     int mConnectionFailureCount = 0;
+    QTimer mReconnectTimer;
 };
 
 #endif // QFBLUETOOTHRECEIVER_H

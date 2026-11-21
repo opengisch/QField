@@ -50,6 +50,12 @@ QfBluetoothLowEnergyReceiver::QfBluetoothLowEnergyReceiver( const QString &addre
   mCorrectionTimer.setInterval( CORRECTION_TIMER_INTERVAL_MS );
   connect( &mCorrectionTimer, &QTimer::timeout, this, &QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk );
 
+  mReconnectTimer.setSingleShot( true );
+  mReconnectTimer.setInterval( 1000 );
+  connect( &mReconnectTimer, &QTimer::timeout, this, [this]() {
+    doConnectDevice();
+  } );
+
   initNmeaConnection( mBuffer );
   setValid( !mAddress.isEmpty() );
 }
@@ -96,9 +102,10 @@ void QfBluetoothLowEnergyReceiver::handleConnectDevice()
 
 void QfBluetoothLowEnergyReceiver::handleDisconnectDevice()
 {
-  setSocketState( QAbstractSocket::UnconnectedState );
   mConnectOnDisconnect = false;
+  mReconnectTimer.stop();
   doDisconnectDevice();
+  setSocketState( QAbstractSocket::UnconnectedState );
 }
 
 void QfBluetoothLowEnergyReceiver::doConnectDevice()
@@ -231,12 +238,12 @@ void QfBluetoothLowEnergyReceiver::controllerErrorOccurred( QLowEnergyController
       mConnectOnDisconnect = false;
     }
 
-    if ( !mDisconnecting )
+    if ( mConnectOnDisconnect && !mDisconnecting )
     {
       qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Reconnection attempt %1" ).arg( mConnectionFailureCount );
       doDisconnectDevice();
       mDisconnecting = false;
-      QTimer::singleShot( 1000, this, [this] { doConnectDevice(); } );
+      mReconnectTimer.start();
     }
 
     return;

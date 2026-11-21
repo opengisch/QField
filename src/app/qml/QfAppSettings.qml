@@ -1400,18 +1400,26 @@ Page {
                   case QAbstractSocket.UnconnectedState:
                     return qsTr('Connect to %1').arg(positioningSettings.positioningDeviceName.trim());
                   default:
-                    return qsTr('Connecting to %1').arg(positioningSettings.positioningDeviceName.trim());
+                    return qsTr('Cancel connection to %1').arg(positioningSettings.positioningDeviceName.trim());
                   }
                 }
-                enabled: positionSource.deviceSocketState === QAbstractSocket.UnconnectedState
+                color: enabled ? positionSource.deviceSocketState === QAbstractSocket.UnconnectedState ? QfTheme.buttonColor : QfTheme.buttonBackgroundColor : QfTheme.mainTextDisabledColor
+                bgcolor: positionSource.deviceSocketState === QAbstractSocket.UnconnectedState ? QfTheme.buttonBackgroundColor : "transparent"
+                borderColor: enabled ? QfTheme.buttonBackgroundColor : "transparent"
+                showProgress: positionSource.deviceId !== '' && positionSource.deviceSocketState !== QAbstractSocket.UnconnectedState && positionSource.deviceSocketState !== QAbstractSocket.ConnectedState && positionSource.deviceSocketState !== QAbstractSocket.BoundState
+                enabled: positionSource.deviceSocketState !== QAbstractSocket.ConnectedState && positionSource.deviceSocketState !== QAbstractSocket.BoundState
                 visible: positionSource.deviceId !== ''
 
                 onClicked: {
-                  // make sure positioning is active when connecting to the bluetooth device
-                  if (!positioningSettings.positioningActivated) {
-                    positioningSettings.positioningActivated = true;
+                  if (positionSource.deviceSocketState !== QAbstractSocket.UnconnectedState) {
+                    positionSource.triggerDisconnectDevice();
                   } else {
-                    positionSource.triggerConnectDevice();
+                    // make sure positioning is active when connecting to the bluetooth device
+                    if (!positioningSettings.positioningActivated) {
+                      positioningSettings.positioningActivated = true;
+                    } else {
+                      positionSource.triggerConnectDevice();
+                    }
                   }
                 }
               }

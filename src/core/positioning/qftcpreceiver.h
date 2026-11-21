@@ -46,6 +46,7 @@ class QfTcpReceiver : public QfNmeaGnssReceiver
     void handleConnectDevice() override;
     void handleDisconnectDevice() override;
     void handleError( QAbstractSocket::SocketError error );
+    void handleStateChanged( QAbstractSocket::SocketState state );
 
     QString mAddress;
     int mPort = 0;
