@@ -2286,33 +2286,33 @@ ApplicationWindow {
         const coordinates = coordinatesIsXY ? xLine + yLine : yLine + xLine;
 
         const isPolygon = currentRubberband && currentRubberband.model && currentRubberband.model.geometryType === Qgis.GeometryType.Polygon;
-        const hasSeveralSegments = digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length;
+        const hasMultipleSegments = digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length;
         const formatLength = length => UnitTypes.formatDistance(digitizingGeometryMeasure.convertLengthMeansurement(length, projectInfo.distanceUnits), 3, projectInfo.distanceUnits);
 
-        const lines = [];
-        const addLine = (label, value) => lines.push('%1: %2\n'.arg(label).arg(value));
+        const details = [];
+        const addDetail = (label, value) => details.push('%1: %2\n'.arg(label).arg(value));
 
         if (stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing) {
-          lines.push(coordinates);
+          details.push(coordinates);
         }
         if (digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0) {
-          addLine(digitizingGeometryMeasure.useZValues ? (hasSeveralSegments ? qsTr('Segment (3D)') : qsTr('Length (3D)')) : (hasSeveralSegments ? qsTr('Segment') : qsTr('Length')), formatLength(digitizingGeometryMeasure.segmentLength));
-          addLine(qsTr('Azimuth'), UnitTypes.formatAngle(digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, Qgis.AngleUnit.Degrees));
+          addDetail(digitizingGeometryMeasure.useZValues ? (hasMultipleSegments ? qsTr('Segment (3D)') : qsTr('Length (3D)')) : (hasMultipleSegments ? qsTr('Segment') : qsTr('Length')), formatLength(digitizingGeometryMeasure.segmentLength));
+          addDetail(qsTr('Azimuth'), UnitTypes.formatAngle(digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, Qgis.AngleUnit.Degrees));
         }
         if (isPolygon) {
           if (digitizingGeometryMeasure.perimeterValid) {
-            addLine(digitizingGeometryMeasure.useZValues ? qsTr('Perimeter (3D)') : qsTr('Perimeter'), formatLength(digitizingGeometryMeasure.perimeter));
+            addDetail(digitizingGeometryMeasure.useZValues ? qsTr('Perimeter (3D)') : qsTr('Perimeter'), formatLength(digitizingGeometryMeasure.perimeter));
           }
-        } else if (digitizingGeometryMeasure.lengthValid && hasSeveralSegments) {
-          addLine(digitizingGeometryMeasure.useZValues ? qsTr('Length (3D)') : qsTr('Length'), formatLength(digitizingGeometryMeasure.length));
+        } else if (digitizingGeometryMeasure.lengthValid && hasMultipleSegments) {
+          addDetail(digitizingGeometryMeasure.useZValues ? qsTr('Length (3D)') : qsTr('Length'), formatLength(digitizingGeometryMeasure.length));
         }
         if (digitizingGeometryMeasure.areaValid) {
-          addLine(digitizingGeometryMeasure.useZValues ? qsTr('Surface') : qsTr('Area'), UnitTypes.formatArea(digitizingGeometryMeasure.convertAreaMeansurement(digitizingGeometryMeasure.area, projectInfo.areaUnits), 3, projectInfo.areaUnits));
+          addDetail(digitizingGeometryMeasure.useZValues ? qsTr('Surface') : qsTr('Area'), UnitTypes.formatArea(digitizingGeometryMeasure.convertAreaMeansurement(digitizingGeometryMeasure.area, projectInfo.areaUnits), 3, projectInfo.areaUnits));
         }
         if (stateMachine.state === 'measure' && digitizingToolbar.isDigitizing) {
-          lines.push(coordinates);
+          details.push(coordinates);
         }
-        return lines.join('');
+        return details.join('');
       }
 
       font: QfTheme.strongTipFont
