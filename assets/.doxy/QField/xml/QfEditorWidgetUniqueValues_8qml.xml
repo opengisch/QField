@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="QfEditorWidgetUniqueValues_8qml" kind="file" language="C++">
+    <compoundname>QfEditorWidgetUniqueValues.qml</compoundname>
+    <innerclass refid="classQfEditorWidgetUniqueValues" prot="public">QfEditorWidgetUniqueValues</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>QtQuick</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>org.qfield.core</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">import<sp/>org.qfield.gui</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">import<sp/>org.qgis</highlight></codeline>
+<codeline lineno="5" refid="classQfEditorWidgetUniqueValues" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">QfEditorWidgetBase<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>id:<sp/>uniqueValuesWidget</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>readonly<sp/>property<sp/>VectorLayer<sp/>editedLayer:<sp/>currentLayer</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>height:<sp/>uniqueValuesComboBox.height<sp/>+<sp/>4</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>QfFeatureCheckListModel<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>listModel</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>currentLayer:<sp/>editedLayer</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>keyField:<sp/>field.name</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>displayValueField:<sp/>field.name</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>uniqueValues:<sp/>true</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>attributeField:<sp/>field</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>attributeValue<sp/>has<sp/>to<sp/>be<sp/>the<sp/>last<sp/>one<sp/>set<sp/>to<sp/>make<sp/>sure<sp/>the<sp/>property’s<sp/>value<sp/>is<sp/>handled<sp/>properly</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>attributeValue:<sp/>value<sp/>!==<sp/>undefined<sp/>?<sp/>value<sp/>:<sp/>&apos;&apos;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>onListUpdated:<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>valueChangeRequested(attributeValue,<sp/>false);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="classQfRelationCombobox" kindref="compound">QfRelationCombobox</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>id:<sp/>uniqueValuesComboBox</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>objectName:<sp/></highlight><highlight class="stringliteral">&quot;uniqueValuesComboBox&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>anchors<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>left:<sp/>parent.left</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>right:<sp/>parent.right</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>featureListModel:<sp/>listModel</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>allowNewValues:<sp/>Number(config[</highlight><highlight class="stringliteral">&apos;Editable&apos;</highlight><highlight class="normal">])<sp/>===<sp/>1</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>useCompleter:<sp/>allowNewValues</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>enabled:<sp/>isEnabled</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>relation:<sp/>undefined</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/gui/qml/editorwidgets/QfEditorWidgetUniqueValues.qml"/>
+  </compounddef>
+</doxygen>

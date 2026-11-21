@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTcpDeviceChooser" kind="class" language="C++" prot="public">
+    <compoundname>TcpDeviceChooser</compoundname>
+    <basecompoundref refid="classQfTcpDeviceChooser" prot="public" virt="non-virtual">QfTcpDeviceChooser</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfTcpDeviceChooser</label>
+        <link refid="classQfTcpDeviceChooser"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>TcpDeviceChooser</label>
+        <link refid="classTcpDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfTcpDeviceChooser</label>
+        <link refid="classQfTcpDeviceChooser"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+      <node id="1">
+        <label>TcpDeviceChooser</label>
+        <link refid="classTcpDeviceChooser"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/TcpDeviceChooser.qml" line="2" column="1" bodyfile="src/app/qml_compat/TcpDeviceChooser.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfTcpDeviceChooser_1afbf06a7396fbbe77df3a2b8440058998" prot="public" virt="non-virtual"><scope>TcpDeviceChooser</scope><name>deviceAddress</name></member>
+      <member refid="classQfTcpDeviceChooser_1ab8a9c27c723422f25faab52a34eacf7c" prot="public" virt="non-virtual"><scope>TcpDeviceChooser</scope><name>devicePort</name></member>
+      <member refid="classQfTcpDeviceChooser_1a59af9f0eb7df87d839addb4c4fb57198" prot="public" virt="non-virtual"><scope>TcpDeviceChooser</scope><name>generateName</name></member>
+      <member refid="classQfTcpDeviceChooser_1ad490a6e4ac45ffbe79b51c3876f02aa0" prot="public" virt="non-virtual"><scope>TcpDeviceChooser</scope><name>getSettings</name></member>
+      <member refid="classQfTcpDeviceChooser_1aefb5674dc38d0432f2d8b426d6b94162" prot="public" virt="non-virtual"><scope>TcpDeviceChooser</scope><name>setSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

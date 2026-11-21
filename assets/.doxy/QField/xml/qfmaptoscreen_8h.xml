@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfmaptoscreen_8h" kind="file" language="C++">
+    <compoundname>qfmaptoscreen.h</compoundname>
+    <includes refid="qgsquickmapsettings_8h" local="yes">qgsquickmapsettings.h</includes>
+    <includes local="no">QObject</includes>
+    <includes local="no">QPointF</includes>
+    <includes local="no">qgspoint.h</includes>
+    <includes local="no">limits</includes>
+    <includedby refid="qfcore_8cpp" local="yes">src/core/qfcore.cpp</includedby>
+    <includedby refid="qfmaptoscreen_8cpp" local="yes">src/core/qfmaptoscreen.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/qfmaptoscreen.h</label>
+        <link refid="qfmaptoscreen_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qgsquickmapsettings.h</label>
+        <link refid="qgsquickmapsettings_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QObject</label>
+      </node>
+      <node id="11">
+        <label>QPointF</label>
+      </node>
+      <node id="12">
+        <label>limits</label>
+      </node>
+      <node id="3">
+        <label>qfield_core_export.h</label>
+      </node>
+      <node id="5">
+        <label>qgscoordinatetransformcontext.h</label>
+      </node>
+      <node id="6">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="7">
+        <label>qgsmapsettings.h</label>
+      </node>
+      <node id="8">
+        <label>qgsmapthemecollection.h</label>
+      </node>
+      <node id="9">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="10">
+        <label>qgsrectangle.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classQfMapToScreen" prot="public">QfMapToScreen</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qfmaptoscreen.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>----------------------------------------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>date<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>22.08.2018</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2018<sp/>by<sp/>Denis<sp/>Rouzaud</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>denis<sp/>(at)<sp/>opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QFMAPTOSCREEN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QFMAPTOSCREEN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qgsquickmapsettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QObject&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QPointF&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgspoint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classQfMapToScreen" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQfMapToScreen" kindref="compound">QfMapToScreen</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QObject</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classQfMapToScreen_1a689af63d465d1682f5db72f1e54cf2a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classQfMapToScreen_1a689af63d465d1682f5db72f1e54cf2a3" kindref="member">mapSettings</ref><sp/>READ<sp/><ref refid="classQfMapToScreen_1a689af63d465d1682f5db72f1e54cf2a3" kindref="member">mapSettings</ref><sp/>WRITE<sp/><ref refid="classQfMapToScreen_1af0f6c4b752e4765c164bdaaf77dcc98c" kindref="member">setMapSettings</ref><sp/>NOTIFY<sp/><ref refid="classQfMapToScreen_1a4eff548c56bc27180675a033c032a136" kindref="member">mapSettingsChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="40" refid="classQfMapToScreen_1a6897da3689b209cc54918af53c56cc20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsPoint<sp/><ref refid="classQfMapToScreen_1a6897da3689b209cc54918af53c56cc20" kindref="member">mapPoint</ref><sp/>READ<sp/><ref refid="classQfMapToScreen_1a6897da3689b209cc54918af53c56cc20" kindref="member">mapPoint</ref><sp/>WRITE<sp/><ref refid="classQfMapToScreen_1aa70f1d2dd6b221ed6b20e4ce54fbd1b5" kindref="member">setMapPoint</ref><sp/>NOTIFY<sp/><ref refid="classQfMapToScreen_1a04d6a92a5d4bfe6bbc419187e620b76a" kindref="member">mapPointChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="42" refid="classQfMapToScreen_1a6aa436ea93d7881410f48b4156d1a03f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1a6aa436ea93d7881410f48b4156d1a03f" kindref="member">mapDistance</ref><sp/>READ<sp/><ref refid="classQfMapToScreen_1a6aa436ea93d7881410f48b4156d1a03f" kindref="member">mapDistance</ref><sp/>WRITE<sp/><ref refid="classQfMapToScreen_1af4cfd0d90815c281422b936706bd7464" kindref="member">setMapDistance</ref><sp/>NOTIFY<sp/><ref refid="classQfMapToScreen_1a40f14abe0bf588665428635dd0c39152" kindref="member">mapDistanceChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="44" refid="classQfMapToScreen_1a68540f011bed5242bc12b135a6d48520" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QPointF<sp/><ref refid="classQfMapToScreen_1a68540f011bed5242bc12b135a6d48520" kindref="member">screenPoint</ref><sp/>READ<sp/><ref refid="classQfMapToScreen_1a68540f011bed5242bc12b135a6d48520" kindref="member">screenPoint</ref><sp/>NOTIFY<sp/><ref refid="classQfMapToScreen_1ac872826c619bdce3081c90ad79c72957" kindref="member">screenPointChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="46" refid="classQfMapToScreen_1ab5e2fe4bfa6c5f637e9e7c89ebc1e805" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1ab5e2fe4bfa6c5f637e9e7c89ebc1e805" kindref="member">screenDistance</ref><sp/>READ<sp/><ref refid="classQfMapToScreen_1ab5e2fe4bfa6c5f637e9e7c89ebc1e805" kindref="member">screenDistance</ref><sp/>NOTIFY<sp/><ref refid="classQfMapToScreen_1a463ac7ed7c0eb575122d66b6ec4e3fe6" kindref="member">screenDistanceChanged</ref><sp/>)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>public:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>explicit<sp/><ref refid="classQfMapToScreen" kindref="compound">QfMapToScreen</ref>(<sp/>QObject<sp/>*parent<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1af0f6c4b752e4765c164bdaaf77dcc98c" kindref="member">setMapSettings</ref>(<sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classQfMapToScreen_1a689af63d465d1682f5db72f1e54cf2a3" kindref="member">mapSettings</ref><sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*<ref refid="classQfMapToScreen_1a689af63d465d1682f5db72f1e54cf2a3" kindref="member">mapSettings</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1aa70f1d2dd6b221ed6b20e4ce54fbd1b5" kindref="member">setMapPoint</ref>(<sp/>const<sp/>QgsPoint<sp/>&amp;point<sp/>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/><ref refid="classQfMapToScreen_1a6897da3689b209cc54918af53c56cc20" kindref="member">mapPoint</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1af4cfd0d90815c281422b936706bd7464" kindref="member">setMapDistance</ref>(<sp/>const<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>distance<sp/>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1a6aa436ea93d7881410f48b4156d1a03f" kindref="member">mapDistance</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>QPointF<sp/><ref refid="classQfMapToScreen_1a68540f011bed5242bc12b135a6d48520" kindref="member">screenPoint</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1ab5e2fe4bfa6c5f637e9e7c89ebc1e805" kindref="member">screenDistance</ref>()<sp/>const;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>signals:</highlight></codeline>
+<codeline lineno="74" refid="classQfMapToScreen_1a4eff548c56bc27180675a033c032a136" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1a4eff548c56bc27180675a033c032a136" kindref="member">mapSettingsChanged</ref>();</highlight></codeline>
+<codeline lineno="76" refid="classQfMapToScreen_1a04d6a92a5d4bfe6bbc419187e620b76a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1a04d6a92a5d4bfe6bbc419187e620b76a" kindref="member">mapPointChanged</ref>();</highlight></codeline>
+<codeline lineno="78" refid="classQfMapToScreen_1a40f14abe0bf588665428635dd0c39152" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1a40f14abe0bf588665428635dd0c39152" kindref="member">mapDistanceChanged</ref>();</highlight></codeline>
+<codeline lineno="80" refid="classQfMapToScreen_1ac872826c619bdce3081c90ad79c72957" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1ac872826c619bdce3081c90ad79c72957" kindref="member">screenPointChanged</ref>();</highlight></codeline>
+<codeline lineno="82" refid="classQfMapToScreen_1a463ac7ed7c0eb575122d66b6ec4e3fe6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfMapToScreen_1a463ac7ed7c0eb575122d66b6ec4e3fe6" kindref="member">screenDistanceChanged</ref>();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>private<sp/>slots:</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>transformPoint();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>transformDistance();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>private:</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref><sp/>*mMapSettings<sp/>=<sp/></highlight><highlight class="keywordtype">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/>mMapPoint<sp/>=<sp/>QgsPoint();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mMapDistance<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>QPointF<sp/>mScreenPoint<sp/>=<sp/>QPointF();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mScreenDistance<sp/>=<sp/>std::numeric_limits&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;::quiet_NaN();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QFMAPTOSCREEN_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfmaptoscreen.h"/>
+  </compounddef>
+</doxygen>

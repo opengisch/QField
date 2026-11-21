@@ -1,0 +1,1872 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfTracker" kind="class" language="C++" prot="public">
+    <compoundname>QfTracker</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfTracker_1acd1365be2d016f811f8b2847b665ace6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>MeasureType</name>
+        <qualifiedname>QfTracker::MeasureType</qualifiedname>
+        <enumvalue id="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a02c1134d208d578780d1c555f0b7a3c9" prot="public">
+          <name>SecondsSinceStart</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfTracker_1acd1365be2d016f811f8b2847b665ace6af4e9dc363814b626610d489b7d005ff5" prot="public">
+          <name>Timestamp</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a12c12f9a657ba21a968c5f70f1295a56" prot="public">
+          <name>GroundSpeed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a08acc0d842c25bd9de4a3776ccb299d4" prot="public">
+          <name>Bearing</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfTracker_1acd1365be2d016f811f8b2847b665ace6ad6b9e00bff53f14eea97f04a52792621" prot="public">
+          <name>HorizontalAccuracy</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a4e23d9716ab71c7f46adc0830ea37471" prot="public">
+          <name>VerticalAccuracy</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a0c9477331fff4e192c44e24bd1745460" prot="public">
+          <name>PDOP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a0c0a2da9efddaa9a235a7ee0e1d3cd51" prot="public">
+          <name>HDOP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a2df29f6e1e3fde299be02f3dd4e2587d" prot="public">
+          <name>VDOP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="64" column="5" bodyfile="src/core/qftracker.h" bodystart="65" bodyend="75"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfTracker_1a52560af5e5c68e724cd7580a16cd01d9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::isActive</definition>
+        <argsstring></argsstring>
+        <name>isActive</name>
+        <qualifiedname>QfTracker::isActive</qualifiedname>
+        <read>isActive</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="39" column="5" bodyfile="src/core/qftracker.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1ada989750390846787ee77a2202024daf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::isSuspended</definition>
+        <argsstring></argsstring>
+        <name>isSuspended</name>
+        <qualifiedname>QfTracker::isSuspended</qualifiedname>
+        <read>isSuspended</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="40" column="5" bodyfile="src/core/qftracker.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1acbf93f28394af6bd5f7d67fe0e9af944" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::isReplaying</definition>
+        <argsstring></argsstring>
+        <name>isReplaying</name>
+        <qualifiedname>QfTracker::isReplaying</qualifiedname>
+        <read>isReplaying</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="41" column="5" bodyfile="src/core/qftracker.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1ac754700c6c5786afbef04a6c0d7550dd" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::visible</definition>
+        <argsstring></argsstring>
+        <name>visible</name>
+        <qualifiedname>QfTracker::visible</qualifiedname>
+        <read>visible</read>
+        <write>setVisible</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="43" column="5" bodyfile="src/core/qftracker.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1a9f66913b0eb94ac938d5202fd449ce21" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QColor</type>
+        <definition>QColor QfTracker::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>QfTracker::color</qualifiedname>
+        <read>color</read>
+        <write>setColor</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="44" column="5" bodyfile="src/core/qftracker.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1a5f9257bedefdbbf9e8c658d43ed29503" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfTracker::vectorLayer</definition>
+        <argsstring></argsstring>
+        <name>vectorLayer</name>
+        <qualifiedname>QfTracker::vectorLayer</qualifiedname>
+        <read>vectorLayer</read>
+        <write>setVectorLayer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="46" column="5" bodyfile="src/core/qftracker.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1a3d68fade8c96d036baa7925752781ab0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfTracker::feature</definition>
+        <argsstring></argsstring>
+        <name>feature</name>
+        <qualifiedname>QfTracker::feature</qualifiedname>
+        <read>feature</read>
+        <write>setFeature</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="47" column="5" bodyfile="src/core/qftracker.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1af42941a86a0401086e7a9cc8a2c3dd1f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * QfTracker::rubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfTracker::rubberbandModel</qualifiedname>
+        <read>rubberbandModel</read>
+        <write>setRubberbandModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="49" column="5" bodyfile="src/core/qftracker.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1a219befe8318e1d613229b963ff8bb761" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref> *</type>
+        <definition>QfFeatureModel * QfTracker::featureModel</definition>
+        <argsstring></argsstring>
+        <name>featureModel</name>
+        <qualifiedname>QfTracker::featureModel</qualifiedname>
+        <read>featureModel</read>
+        <write>setFeatureModel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="50" column="5" bodyfile="src/core/qftracker.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1a6fa065b40fc10c07193df445158623eb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfTracker::timeInterval</definition>
+        <argsstring></argsstring>
+        <name>timeInterval</name>
+        <qualifiedname>QfTracker::timeInterval</qualifiedname>
+        <read>timeInterval</read>
+        <write>setTimeInterval</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="52" column="5" bodyfile="src/core/qftracker.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1ae038ed99d3dde7e6ca354f9b6f2bcc81" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfTracker::minimumDistance</definition>
+        <argsstring></argsstring>
+        <name>minimumDistance</name>
+        <qualifiedname>QfTracker::minimumDistance</qualifiedname>
+        <read>minimumDistance</read>
+        <write>setMinimumDistance</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="53" column="5" bodyfile="src/core/qftracker.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1aea06d5e9e3ba06514c641cd2a76f69fb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfTracker::maximumDistance</definition>
+        <argsstring></argsstring>
+        <name>maximumDistance</name>
+        <qualifiedname>QfTracker::maximumDistance</qualifiedname>
+        <read>maximumDistance</read>
+        <write>setMaximumDistance</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="54" column="5" bodyfile="src/core/qftracker.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1ac530da19c9b72352f7f3cff8ce841af7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::sensorCapture</definition>
+        <argsstring></argsstring>
+        <name>sensorCapture</name>
+        <qualifiedname>QfTracker::sensorCapture</qualifiedname>
+        <read>sensorCapture</read>
+        <write>setSensorCapture</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="55" column="5" bodyfile="src/core/qftracker.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1a373d4873cb276e030b4a4f7b09bf7f14" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::conjunction</definition>
+        <argsstring></argsstring>
+        <name>conjunction</name>
+        <qualifiedname>QfTracker::conjunction</qualifiedname>
+        <read>conjunction</read>
+        <write>setConjunction</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="56" column="5" bodyfile="src/core/qftracker.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1a1159df8f3b10fac89edbb1840ce8af18" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>MeasureType</type>
+        <definition>MeasureType QfTracker::measureType</definition>
+        <argsstring></argsstring>
+        <name>measureType</name>
+        <qualifiedname>QfTracker::measureType</qualifiedname>
+        <read>measureType</read>
+        <write>setMeasureType</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="57" column="5" bodyfile="src/core/qftracker.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1a6befa8d1fc70cb15664abe1ce120896e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QfTracker::startPositionTimestamp</definition>
+        <argsstring></argsstring>
+        <name>startPositionTimestamp</name>
+        <qualifiedname>QfTracker::startPositionTimestamp</qualifiedname>
+        <read>startPositionTimestamp</read>
+        <write>setStartPositionTimestamp</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="59" column="5" bodyfile="src/core/qftracker.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfTracker_1ad4178923f02589e16afa1f965383eeb2" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::filterAccuracy</definition>
+        <argsstring></argsstring>
+        <name>filterAccuracy</name>
+        <qualifiedname>QfTracker::filterAccuracy</qualifiedname>
+        <read>filterAccuracy</read>
+        <write>setFilterAccuracy</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="61" column="5" bodyfile="src/core/qftracker.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfTracker_1a8358ba05f04287f4e72064a776f480ce" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mIsActive</definition>
+        <argsstring></argsstring>
+        <name>mIsActive</name>
+        <qualifiedname>QfTracker::mIsActive</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="205" column="10" bodyfile="src/core/qftracker.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1aaa606d778d386db1dc4914275b98a7ca" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mIsSuspended</definition>
+        <argsstring></argsstring>
+        <name>mIsSuspended</name>
+        <qualifiedname>QfTracker::mIsSuspended</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="206" column="10" bodyfile="src/core/qftracker.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1abea44b5d04168f84b959a046e5059fa5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mIsReplaying</definition>
+        <argsstring></argsstring>
+        <name>mIsReplaying</name>
+        <qualifiedname>QfTracker::mIsReplaying</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="207" column="10" bodyfile="src/core/qftracker.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1aa24f619d5ae88ec5d25837b4a9c4c017" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel* QfTracker::mRubberbandModel</definition>
+        <argsstring></argsstring>
+        <name>mRubberbandModel</name>
+        <qualifiedname>QfTracker::mRubberbandModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="209" column="23" bodyfile="src/core/qftracker.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1a4118358e319e0d3d87293f68a71b2277" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref> *</type>
+        <definition>QfFeatureModel* QfTracker::mFeatureModel</definition>
+        <argsstring></argsstring>
+        <name>mFeatureModel</name>
+        <qualifiedname>QfTracker::mFeatureModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="210" column="20" bodyfile="src/core/qftracker.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1ae9fd2617c3181c051f45ce3c5e93844a" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 QfTracker::mLastFeatureModelSaveMSSecsSinceEpoch</definition>
+        <argsstring></argsstring>
+        <name>mLastFeatureModelSaveMSSecsSinceEpoch</name>
+        <qualifiedname>QfTracker::mLastFeatureModelSaveMSSecsSinceEpoch</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="211" column="12" bodyfile="src/core/qftracker.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1a18429bc25d6fba20168afab2c7768c25" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfTracker::mTimeInterval</definition>
+        <argsstring></argsstring>
+        <name>mTimeInterval</name>
+        <qualifiedname>QfTracker::mTimeInterval</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="213" column="12" bodyfile="src/core/qftracker.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1a057453649fcbd2d02932df96b26c2cf9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfTracker::mMinimumDistance</definition>
+        <argsstring></argsstring>
+        <name>mMinimumDistance</name>
+        <qualifiedname>QfTracker::mMinimumDistance</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="214" column="12" bodyfile="src/core/qftracker.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1a27866a29b4f18ecea9d0a52141b822e6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfTracker::mMaximumDistance</definition>
+        <argsstring></argsstring>
+        <name>mMaximumDistance</name>
+        <qualifiedname>QfTracker::mMaximumDistance</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="215" column="12" bodyfile="src/core/qftracker.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1a443ee7c81bf303b844b964ca46d5b041" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfTracker::mMaximumDistanceFailuresCount</definition>
+        <argsstring></argsstring>
+        <name>mMaximumDistanceFailuresCount</name>
+        <qualifiedname>QfTracker::mMaximumDistanceFailuresCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="216" column="9" bodyfile="src/core/qftracker.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1a9a0b6e169af885c34b6c6ac11210e7c8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfTracker::mCurrentDistance</definition>
+        <argsstring></argsstring>
+        <name>mCurrentDistance</name>
+        <qualifiedname>QfTracker::mCurrentDistance</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="217" column="12" bodyfile="src/core/qftracker.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1a735548679970d964c52a1fb26cb7a000" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mSensorCapture</definition>
+        <argsstring></argsstring>
+        <name>mSensorCapture</name>
+        <qualifiedname>QfTracker::mSensorCapture</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="218" column="10" bodyfile="src/core/qftracker.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1ab8ccbeaaac2077a66c2adfd64548729c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mConjunction</definition>
+        <argsstring></argsstring>
+        <name>mConjunction</name>
+        <qualifiedname>QfTracker::mConjunction</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="219" column="10" bodyfile="src/core/qftracker.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1aa59bc2cffa7daa5b21a3062f6b35bc2c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mTimeIntervalFulfilled</definition>
+        <argsstring></argsstring>
+        <name>mTimeIntervalFulfilled</name>
+        <qualifiedname>QfTracker::mTimeIntervalFulfilled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="220" column="10" bodyfile="src/core/qftracker.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1abab57c5a66d39ab2904ad6b9ffe8c6c6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mMinimumDistanceFulfilled</definition>
+        <argsstring></argsstring>
+        <name>mMinimumDistanceFulfilled</name>
+        <qualifiedname>QfTracker::mMinimumDistanceFulfilled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="221" column="10" bodyfile="src/core/qftracker.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1abde18ec79fb043b3e21072f83b48fe88" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mSensorCaptureFulfilled</definition>
+        <argsstring></argsstring>
+        <name>mSensorCaptureFulfilled</name>
+        <qualifiedname>QfTracker::mSensorCaptureFulfilled</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="222" column="10" bodyfile="src/core/qftracker.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1ac5e17f653744fcc58748fd4483732ee9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mSkipPositionReceived</definition>
+        <argsstring></argsstring>
+        <name>mSkipPositionReceived</name>
+        <qualifiedname>QfTracker::mSkipPositionReceived</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="223" column="10" bodyfile="src/core/qftracker.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1a49b75ca3bf67b94e39847af61fa9ced4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mSkipBadPositionReceived</definition>
+        <argsstring></argsstring>
+        <name>mSkipBadPositionReceived</name>
+        <qualifiedname>QfTracker::mSkipBadPositionReceived</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="224" column="10" bodyfile="src/core/qftracker.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1af8c005b9f32c54d620fdccf15a097282" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; QgsVectorLayer &gt;</type>
+        <definition>QPointer&lt;QgsVectorLayer&gt; QfTracker::mVectorLayer</definition>
+        <argsstring></argsstring>
+        <name>mVectorLayer</name>
+        <qualifiedname>QfTracker::mVectorLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="226" column="14" bodyfile="src/core/qftracker.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1a897e36e407a13fc8ca9685c307b4c4e9" prot="private" static="no" mutable="no">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfTracker::mFeature</definition>
+        <argsstring></argsstring>
+        <name>mFeature</name>
+        <qualifiedname>QfTracker::mFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="227" column="16" bodyfile="src/core/qftracker.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1ae10a93511352c25c650d9b8ae273fac2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mVisible</definition>
+        <argsstring></argsstring>
+        <name>mVisible</name>
+        <qualifiedname>QfTracker::mVisible</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="229" column="10" bodyfile="src/core/qftracker.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1aabe0bbb217f53185a546f70630903746" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfTracker::mFilterAccuracy</definition>
+        <argsstring></argsstring>
+        <name>mFilterAccuracy</name>
+        <qualifiedname>QfTracker::mFilterAccuracy</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="230" column="10" bodyfile="src/core/qftracker.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1ab6c8b0b80586e07e34aa8ebb254b4b7a" prot="private" static="no" mutable="no">
+        <type>QColor</type>
+        <definition>QColor QfTracker::mColor</definition>
+        <argsstring></argsstring>
+        <name>mColor</name>
+        <qualifiedname>QfTracker::mColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="232" column="12" bodyfile="src/core/qftracker.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1af883d01eb7c5d3e37ec647973c86218c" prot="private" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QfTracker::mStartPositionTimestamp</definition>
+        <argsstring></argsstring>
+        <name>mStartPositionTimestamp</name>
+        <qualifiedname>QfTracker::mStartPositionTimestamp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="234" column="15" bodyfile="src/core/qftracker.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1aff65e6fb532724088f8fd0a4fd4ef9ce" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 QfTracker::mLastDevicePositionTimestampMSecsSinceEpoch</definition>
+        <argsstring></argsstring>
+        <name>mLastDevicePositionTimestampMSecsSinceEpoch</name>
+        <qualifiedname>QfTracker::mLastDevicePositionTimestampMSecsSinceEpoch</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="235" column="12" bodyfile="src/core/qftracker.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1adfef7007e152a808688c49cbaa5b7844" prot="private" static="no" mutable="no">
+        <type>qint64</type>
+        <definition>qint64 QfTracker::mLastVertexPositionTimestampMSecsSinceEpoch</definition>
+        <argsstring></argsstring>
+        <name>mLastVertexPositionTimestampMSecsSinceEpoch</name>
+        <qualifiedname>QfTracker::mLastVertexPositionTimestampMSecsSinceEpoch</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="236" column="12" bodyfile="src/core/qftracker.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1aa33c27e3835536517b59a13066cef8b7" prot="private" static="no" mutable="no">
+        <type>MeasureType</type>
+        <definition>MeasureType QfTracker::mMeasureType</definition>
+        <argsstring></argsstring>
+        <name>mMeasureType</name>
+        <qualifiedname>QfTracker::mMeasureType</qualifiedname>
+        <initializer>= QfTracker::SecondsSinceStart</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="238" column="17" bodyfile="src/core/qftracker.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTracker_1a8d87d419f3969e63086c315c6c53c249" prot="private" static="no" mutable="no">
+        <type>QgsDistanceArea</type>
+        <definition>QgsDistanceArea QfTracker::mDa</definition>
+        <argsstring></argsstring>
+        <name>mDa</name>
+        <qualifiedname>QfTracker::mDa</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="240" column="21" bodyfile="src/core/qftracker.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfTracker_1a26f3d3a944c8c8ed75a371ac9db9a6dd" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfTracker::QfTracker</definition>
+        <argsstring>(QgsVectorLayer *vectorLayer)</argsstring>
+        <name>QfTracker</name>
+        <qualifiedname>QfTracker::QfTracker</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>vectorLayer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="78" column="14" bodyfile="src/core/qftracker.cpp" bodystart="27" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a92d2824684a484f3d9f7bff39cce7e36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QColor</type>
+        <definition>QColor QfTracker::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <qualifiedname>QfTracker::color</qualifiedname>
+        <briefdescription>
+<para>Returns the track rubberband color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="81" column="12" bodyfile="src/core/qftracker.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1ae97463966756de7d36283a1194b69f70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setColor</definition>
+        <argsstring>(const QColor &amp;color)</argsstring>
+        <name>setColor</name>
+        <qualifiedname>QfTracker::setColor</qualifiedname>
+        <param>
+          <type>const QColor &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Sets the track rubberband color. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="83" column="10" bodyfile="src/core/qftracker.cpp" bodystart="37" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1aef0085073ec26e98e24392d4b53cf94b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+        <definition>QfRubberbandModel * QfTracker::rubberbandModel</definition>
+        <argsstring>() const</argsstring>
+        <name>rubberbandModel</name>
+        <qualifiedname>QfTracker::rubberbandModel</qualifiedname>
+        <briefdescription>
+<para>Returns the rubber band model used to generate the track geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="86" column="23" bodyfile="src/core/qftracker.cpp" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a1a0c341b0c305c92519077cbf00946f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setRubberbandModel</definition>
+        <argsstring>(QfRubberbandModel *rubberbandModel)</argsstring>
+        <name>setRubberbandModel</name>
+        <qualifiedname>QfTracker::setRubberbandModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfRubberbandModel" kindref="compound">QfRubberbandModel</ref> *</type>
+          <declname>rubberbandModel</declname>
+        </param>
+        <briefdescription>
+<para>Sets the rubber band model used to generate the track geometry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="88" column="10" bodyfile="src/core/qftracker.cpp" bodystart="71" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a078956b0e8716173b90d260d09cfbcae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref> *</type>
+        <definition>QfFeatureModel * QfTracker::featureModel</definition>
+        <argsstring>() const</argsstring>
+        <name>featureModel</name>
+        <qualifiedname>QfTracker::featureModel</qualifiedname>
+        <briefdescription>
+<para>Returns the feature model used to generate the track attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="91" column="20" bodyfile="src/core/qftracker.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a2d12df344febb9ba412933844fd810ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setFeatureModel</definition>
+        <argsstring>(QfFeatureModel *featureModel)</argsstring>
+        <name>setFeatureModel</name>
+        <qualifiedname>QfTracker::setFeatureModel</qualifiedname>
+        <param>
+          <type><ref refid="classQfFeatureModel" kindref="compound">QfFeatureModel</ref> *</type>
+          <declname>featureModel</declname>
+        </param>
+        <briefdescription>
+<para>Sets the feature model used to generate the track attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="93" column="10" bodyfile="src/core/qftracker.cpp" bodystart="96" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1aa6b858bd9783b4bb35aa24291073f8fe" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfTracker::timeInterval</definition>
+        <argsstring>() const</argsstring>
+        <name>timeInterval</name>
+        <qualifiedname>QfTracker::timeInterval</qualifiedname>
+        <briefdescription>
+<para>Returns the minimum time interval constraint between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="96" column="12" bodyfile="src/core/qftracker.h" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a137d5c7e86fb7a5333588afdd3d378ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setTimeInterval</definition>
+        <argsstring>(double timeInterval)</argsstring>
+        <name>setTimeInterval</name>
+        <qualifiedname>QfTracker::setTimeInterval</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>timeInterval</declname>
+        </param>
+        <briefdescription>
+<para>Sets the minimum time interval constraint between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="98" column="10" bodyfile="src/core/qftracker.cpp" bodystart="119" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1afa9823db26ca94dd9ef8b100a1e8e809" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfTracker::minimumDistance</definition>
+        <argsstring>() const</argsstring>
+        <name>minimumDistance</name>
+        <qualifiedname>QfTracker::minimumDistance</qualifiedname>
+        <briefdescription>
+<para>Returns the minimum distance constraint between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="101" column="12" bodyfile="src/core/qftracker.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1af91effdb211dc145770c30d9bc58da18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setMinimumDistance</definition>
+        <argsstring>(double minimumDistance)</argsstring>
+        <name>setMinimumDistance</name>
+        <qualifiedname>QfTracker::setMinimumDistance</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>minimumDistance</declname>
+        </param>
+        <briefdescription>
+<para>Sets the minimum distance constraint between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="103" column="10" bodyfile="src/core/qftracker.cpp" bodystart="128" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a44da10af14a7b3fc84baaad3726f6b97" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfTracker::maximumDistance</definition>
+        <argsstring>() const</argsstring>
+        <name>maximumDistance</name>
+        <qualifiedname>QfTracker::maximumDistance</qualifiedname>
+        <briefdescription>
+<para>Returns the maximum distance tolerated beyond which a position will be considered errenous. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="106" column="12" bodyfile="src/core/qftracker.h" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a69e8b9edcf322fccf9075756b1cb08f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setMaximumDistance</definition>
+        <argsstring>(double maximumDistance)</argsstring>
+        <name>setMaximumDistance</name>
+        <qualifiedname>QfTracker::setMaximumDistance</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>maximumDistance</declname>
+        </param>
+        <briefdescription>
+<para>Sets the maximum distance tolerated beyond which a position will be considered errenous. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="108" column="10" bodyfile="src/core/qftracker.cpp" bodystart="137" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1af5b808c4a87915580cf4187368e5b93a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfTracker::sensorCapture</definition>
+        <argsstring>() const</argsstring>
+        <name>sensorCapture</name>
+        <qualifiedname>QfTracker::sensorCapture</qualifiedname>
+        <briefdescription>
+<para>Returns if TRUE, newly captured sensor data is needed between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="111" column="10" bodyfile="src/core/qftracker.h" bodystart="111" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a706d80d150fcdcfcec39d4eb1225659a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setSensorCapture</definition>
+        <argsstring>(bool capture)</argsstring>
+        <name>setSensorCapture</name>
+        <qualifiedname>QfTracker::setSensorCapture</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>capture</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether newly captured sensor data is needed between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="113" column="10" bodyfile="src/core/qftracker.cpp" bodystart="146" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a776e1463d2a3df3708e1fa2313850318" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfTracker::conjunction</definition>
+        <argsstring>() const</argsstring>
+        <name>conjunction</name>
+        <qualifiedname>QfTracker::conjunction</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if all constraints need to be fulfilled between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="116" column="10" bodyfile="src/core/qftracker.h" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1ac36d821033b6d5a25d75361a1239ef6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setConjunction</definition>
+        <argsstring>(bool conjunction)</argsstring>
+        <name>setConjunction</name>
+        <qualifiedname>QfTracker::setConjunction</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>conjunction</declname>
+        </param>
+        <briefdescription>
+<para>Sets where all constraints need to be fulfilled between each tracked point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="118" column="10" bodyfile="src/core/qftracker.cpp" bodystart="155" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a0583e3198d2aa193027701f7544195d7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDateTime</type>
+        <definition>QDateTime QfTracker::startPositionTimestamp</definition>
+        <argsstring>() const</argsstring>
+        <name>startPositionTimestamp</name>
+        <qualifiedname>QfTracker::startPositionTimestamp</qualifiedname>
+        <briefdescription>
+<para>Returns the timestamp of the first recorded point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="121" column="15" bodyfile="src/core/qftracker.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1ab57789c6f887510abc34e6a1f283fe77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setStartPositionTimestamp</definition>
+        <argsstring>(const QDateTime &amp;startPositionTimestamp)</argsstring>
+        <name>setStartPositionTimestamp</name>
+        <qualifiedname>QfTracker::setStartPositionTimestamp</qualifiedname>
+        <param>
+          <type>const QDateTime &amp;</type>
+          <declname>startPositionTimestamp</declname>
+        </param>
+        <briefdescription>
+<para>Sets the timestamp of the first recorded point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="123" column="10" bodyfile="src/core/qftracker.h" bodystart="123" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1acf34a4bf285ebb66869367365a90ee04" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>QgsVectorLayer *</type>
+        <definition>QgsVectorLayer * QfTracker::vectorLayer</definition>
+        <argsstring>() const</argsstring>
+        <name>vectorLayer</name>
+        <qualifiedname>QfTracker::vectorLayer</qualifiedname>
+        <briefdescription>
+<para>Returns the current layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="126" column="20" bodyfile="src/core/qftracker.h" bodystart="126" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a4a3e66a08590bb98ee426ab40ee5ea90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setVectorLayer</definition>
+        <argsstring>(QgsVectorLayer *vectorLayer)</argsstring>
+        <name>setVectorLayer</name>
+        <qualifiedname>QfTracker::setVectorLayer</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>vectorLayer</declname>
+        </param>
+        <briefdescription>
+<para>Sets the current layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="128" column="10" bodyfile="src/core/qftracker.cpp" bodystart="57" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a22498c19598fb2de0f83f74900036018" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsFeature</type>
+        <definition>QgsFeature QfTracker::feature</definition>
+        <argsstring>() const</argsstring>
+        <name>feature</name>
+        <qualifiedname>QfTracker::feature</qualifiedname>
+        <briefdescription>
+<para>Returns the created feature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="131" column="16" bodyfile="src/core/qftracker.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1af0e562b2ecaac7b0ddcd6c75e0b8c6be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setFeature</definition>
+        <argsstring>(const QgsFeature &amp;feature)</argsstring>
+        <name>setFeature</name>
+        <qualifiedname>QfTracker::setFeature</qualifiedname>
+        <param>
+          <type>const QgsFeature &amp;</type>
+          <declname>feature</declname>
+        </param>
+        <briefdescription>
+<para>Sets the created feature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="133" column="10" bodyfile="src/core/qftracker.cpp" bodystart="110" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1ae7a728d9a42a0b5a8ee99a5211e7c948" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfTracker::visible</definition>
+        <argsstring>() const</argsstring>
+        <name>visible</name>
+        <qualifiedname>QfTracker::visible</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if the tracker rubberband is visible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="136" column="10" bodyfile="src/core/qftracker.h" bodystart="136" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1abadbb5e19bfa6cd9a4be3e61c918744b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setVisible</definition>
+        <argsstring>(bool visible)</argsstring>
+        <name>setVisible</name>
+        <qualifiedname>QfTracker::setVisible</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>visible</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether the tracker rubberband is visible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="138" column="10" bodyfile="src/core/qftracker.cpp" bodystart="48" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a25b74374c66711e0c0794db163b5dd54" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>MeasureType</type>
+        <definition>MeasureType QfTracker::measureType</definition>
+        <argsstring>() const</argsstring>
+        <name>measureType</name>
+        <qualifiedname>QfTracker::measureType</qualifiedname>
+        <briefdescription>
+<para>Returns the measure type used with the tracker geometry&apos;s M dimension when available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="141" column="17" bodyfile="src/core/qftracker.h" bodystart="141" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a908066e7d794ab98e162d9fe95e2f740" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setMeasureType</definition>
+        <argsstring>(MeasureType type)</argsstring>
+        <name>setMeasureType</name>
+        <qualifiedname>QfTracker::setMeasureType</qualifiedname>
+        <param>
+          <type>MeasureType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Sets the measure type used with the tracker geometry&apos;s M dimension when available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="143" column="10" bodyfile="src/core/qftracker.cpp" bodystart="164" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a997f94c6b14e7620503b83581d4350d7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfTracker::isActive</definition>
+        <argsstring>() const</argsstring>
+        <name>isActive</name>
+        <qualifiedname>QfTracker::isActive</qualifiedname>
+        <briefdescription>
+<para>Returns whether the tracker has been started. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="146" column="10" bodyfile="src/core/qftracker.h" bodystart="146" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a80b6263ecfded1f4a732cfa47d64acc8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfTracker::isSuspended</definition>
+        <argsstring>() const</argsstring>
+        <name>isSuspended</name>
+        <qualifiedname>QfTracker::isSuspended</qualifiedname>
+        <briefdescription>
+<para>Returns whether the track has been suspended. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="149" column="10" bodyfile="src/core/qftracker.h" bodystart="149" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a9132e37f9cfb6953050554309fbd00a5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfTracker::isReplaying</definition>
+        <argsstring>() const</argsstring>
+        <name>isReplaying</name>
+        <qualifiedname>QfTracker::isReplaying</qualifiedname>
+        <briefdescription>
+<para>Returns whether the tracker is replaying positions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="152" column="10" bodyfile="src/core/qftracker.h" bodystart="152" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1acbc5fbc503df04197089bfc49535f310" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::start</definition>
+        <argsstring>(const QfGnssPositionInformation &amp;positionInformation=QfGnssPositionInformation(), const QgsPoint &amp;projectedPosition=QgsPoint())</argsstring>
+        <name>start</name>
+        <qualifiedname>QfTracker::start</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+          <defval><ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref>()</defval>
+        </param>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>projectedPosition</declname>
+          <defval>QgsPoint()</defval>
+        </param>
+        <briefdescription>
+<para>Starts tracking. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="155" column="10" bodyfile="src/core/qftracker.cpp" bodystart="269" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a39d24497a050ff061122214a36e6b569" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <qualifiedname>QfTracker::stop</qualifiedname>
+        <briefdescription>
+<para>Stops tracking. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="157" column="10" bodyfile="src/core/qftracker.cpp" bodystart="310" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a40b1ef706c8a5448c7e32256bdb26e2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfTracker::processPositionInformation</definition>
+        <argsstring>(const QfGnssPositionInformation &amp;positionInformation, const QgsPoint &amp;projectedPosition)</argsstring>
+        <name>processPositionInformation</name>
+        <qualifiedname>QfTracker::processPositionInformation</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> &amp;</type>
+          <declname>positionInformation</declname>
+        </param>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>projectedPosition</declname>
+        </param>
+        <briefdescription>
+<para>Process the given position information and projected position passed onto the tracker. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="160" column="22" bodyfile="src/core/qftracker.cpp" bodystart="330" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1aa826a4e6c76ca5e4b8b79d1b56abd769" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::replayPositionInformationList</definition>
+        <argsstring>(const QList&lt; QfGnssPositionInformation &gt; &amp;positionInformationList, QgsQuickCoordinateTransformer *coordinateTransformer=nullptr)</argsstring>
+        <name>replayPositionInformationList</name>
+        <qualifiedname>QfTracker::replayPositionInformationList</qualifiedname>
+        <param>
+          <type>const QList&lt; <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> &gt; &amp;</type>
+          <declname>positionInformationList</declname>
+        </param>
+        <param>
+          <type><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> *</type>
+          <declname>coordinateTransformer</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Replays a list of position information taking into account the tracker settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="163" column="10" bodyfile="src/core/qftracker.cpp" bodystart="378" bodyend="438"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1ac908f904cdcf11720eef39c630fc0e9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::suspendUntilReplay</definition>
+        <argsstring>()</argsstring>
+        <name>suspendUntilReplay</name>
+        <qualifiedname>QfTracker::suspendUntilReplay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="165" column="10" bodyfile="src/core/qftracker.cpp" bodystart="440" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a5fed6788008d478d13ca8ddb11170817" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfTracker::filterAccuracy</definition>
+        <argsstring>() const</argsstring>
+        <name>filterAccuracy</name>
+        <qualifiedname>QfTracker::filterAccuracy</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if GNSS accuracy filtering is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="168" column="10" bodyfile="src/core/qftracker.cpp" bodystart="499" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfTracker_1a9f51fd4eb1886d27ce318e852e365ed1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::setFilterAccuracy</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setFilterAccuracy</name>
+        <qualifiedname>QfTracker::setFilterAccuracy</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether GNSS accuracy filtering is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="171" column="10" bodyfile="src/core/qftracker.cpp" bodystart="504" bodyend="511"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfTracker_1a938dad60842a4722e336772f3eb9b5c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::isActiveChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isActiveChanged</name>
+        <qualifiedname>QfTracker::isActiveChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="174" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1aa63e60fde13441c22a9174a5d21eb3bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::isSuspendedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isSuspendedChanged</name>
+        <qualifiedname>QfTracker::isSuspendedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="175" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1a198a86f606f3ca5bfb461bf397444579" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::isReplayingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isReplayingChanged</name>
+        <qualifiedname>QfTracker::isReplayingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="176" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1a5bca998d73ce55cedc9a8d02339293be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::visibleChanged</definition>
+        <argsstring>()</argsstring>
+        <name>visibleChanged</name>
+        <qualifiedname>QfTracker::visibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="177" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1a667eb14a89239c7f665bdb0fdcb24401" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::vectorLayerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>vectorLayerChanged</name>
+        <qualifiedname>QfTracker::vectorLayerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="178" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1abd3bad16ea08cd1a5afa26da052a53bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::rubberbandModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rubberbandModelChanged</name>
+        <qualifiedname>QfTracker::rubberbandModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="179" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1aa40a1be9e9d0352266953186a389df8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::featureModelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureModelChanged</name>
+        <qualifiedname>QfTracker::featureModelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="180" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1a7a612be0d1ed6f66b1ebc295ec77fc7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::timeIntervalChanged</definition>
+        <argsstring>()</argsstring>
+        <name>timeIntervalChanged</name>
+        <qualifiedname>QfTracker::timeIntervalChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="182" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1a5d0324c12104fae3f0b859cc6748e9cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::minimumDistanceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>minimumDistanceChanged</name>
+        <qualifiedname>QfTracker::minimumDistanceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="183" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1aba28807ee3559461e427b0b54e1e67bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::maximumDistanceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>maximumDistanceChanged</name>
+        <qualifiedname>QfTracker::maximumDistanceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="184" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1a4bd14063d5960cc6d2984202a6a25bed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::sensorCaptureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>sensorCaptureChanged</name>
+        <qualifiedname>QfTracker::sensorCaptureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="185" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1af12a2b1c32b222b5b616a284e0327fd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::conjunctionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>conjunctionChanged</name>
+        <qualifiedname>QfTracker::conjunctionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="186" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1a90d3b4707cbd49e235cff9905da44181" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::measureTypeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>measureTypeChanged</name>
+        <qualifiedname>QfTracker::measureTypeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="187" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1af77da3f74fa2eb1a167ae74a434b1631" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::featureCreated</definition>
+        <argsstring>()</argsstring>
+        <name>featureCreated</name>
+        <qualifiedname>QfTracker::featureCreated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="189" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1aa96c9d400ee31149fff91079b5aaeacc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::featureChanged</definition>
+        <argsstring>()</argsstring>
+        <name>featureChanged</name>
+        <qualifiedname>QfTracker::featureChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="190" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1abc961fb756a5fbe184ea6589e8da2f17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::startPositionTimestampChanged</definition>
+        <argsstring>()</argsstring>
+        <name>startPositionTimestampChanged</name>
+        <qualifiedname>QfTracker::startPositionTimestampChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="192" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1a435ae0ee5a8b9b989045fd9402dc7b67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::filterAccuracyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>filterAccuracyChanged</name>
+        <qualifiedname>QfTracker::filterAccuracyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="194" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfTracker_1aad200fe520625debcea5cc2175f13e42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::colorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>colorChanged</name>
+        <qualifiedname>QfTracker::colorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="195" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfTracker_1a12a01ebef0b02cd011c3196f33c4b054" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::positionReceived</definition>
+        <argsstring>()</argsstring>
+        <name>positionReceived</name>
+        <qualifiedname>QfTracker::positionReceived</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="198" column="10" bodyfile="src/core/qftracker.cpp" bodystart="200" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfTracker_1a7f15657cbeb4832601113a95a9732361" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::sensorDataReceived</definition>
+        <argsstring>()</argsstring>
+        <name>sensorDataReceived</name>
+        <qualifiedname>QfTracker::sensorDataReceived</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="199" column="10" bodyfile="src/core/qftracker.cpp" bodystart="259" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfTracker_1a515cca6e223b633748214128d1df4459" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::rubberbandModelVertexCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rubberbandModelVertexCountChanged</name>
+        <qualifiedname>QfTracker::rubberbandModelVertexCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="200" column="10" bodyfile="src/core/qftracker.cpp" bodystart="450" bodyend="497"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfTracker_1abe78b276594c63205544c74307b27177" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfTracker::trackPosition</definition>
+        <argsstring>()</argsstring>
+        <name>trackPosition</name>
+        <qualifiedname>QfTracker::trackPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qftracker.h" line="203" column="10" bodyfile="src/core/qftracker.cpp" bodystart="173" bodyend="198"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfTracker</label>
+        <link refid="classQfTracker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfTracker</label>
+        <link refid="classQfTracker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qftracker.h" line="35" column="1" bodyfile="src/core/qftracker.h" bodystart="36" bodyend="241"/>
+    <listofallmembers>
+      <member refid="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a08acc0d842c25bd9de4a3776ccb299d4" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>Bearing</name></member>
+      <member refid="classQfTracker_1a9f66913b0eb94ac938d5202fd449ce21" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>color</name></member>
+      <member refid="classQfTracker_1a92d2824684a484f3d9f7bff39cce7e36" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>color</name></member>
+      <member refid="classQfTracker_1aad200fe520625debcea5cc2175f13e42" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>colorChanged</name></member>
+      <member refid="classQfTracker_1a373d4873cb276e030b4a4f7b09bf7f14" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>conjunction</name></member>
+      <member refid="classQfTracker_1a776e1463d2a3df3708e1fa2313850318" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>conjunction</name></member>
+      <member refid="classQfTracker_1af12a2b1c32b222b5b616a284e0327fd4" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>conjunctionChanged</name></member>
+      <member refid="classQfTracker_1a3d68fade8c96d036baa7925752781ab0" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>feature</name></member>
+      <member refid="classQfTracker_1a22498c19598fb2de0f83f74900036018" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>feature</name></member>
+      <member refid="classQfTracker_1aa96c9d400ee31149fff91079b5aaeacc" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>featureChanged</name></member>
+      <member refid="classQfTracker_1af77da3f74fa2eb1a167ae74a434b1631" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>featureCreated</name></member>
+      <member refid="classQfTracker_1a219befe8318e1d613229b963ff8bb761" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>featureModel</name></member>
+      <member refid="classQfTracker_1a078956b0e8716173b90d260d09cfbcae" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>featureModel</name></member>
+      <member refid="classQfTracker_1aa40a1be9e9d0352266953186a389df8e" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>featureModelChanged</name></member>
+      <member refid="classQfTracker_1ad4178923f02589e16afa1f965383eeb2" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>filterAccuracy</name></member>
+      <member refid="classQfTracker_1a5fed6788008d478d13ca8ddb11170817" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>filterAccuracy</name></member>
+      <member refid="classQfTracker_1a435ae0ee5a8b9b989045fd9402dc7b67" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>filterAccuracyChanged</name></member>
+      <member refid="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a12c12f9a657ba21a968c5f70f1295a56" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>GroundSpeed</name></member>
+      <member refid="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a0c0a2da9efddaa9a235a7ee0e1d3cd51" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>HDOP</name></member>
+      <member refid="classQfTracker_1acd1365be2d016f811f8b2847b665ace6ad6b9e00bff53f14eea97f04a52792621" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>HorizontalAccuracy</name></member>
+      <member refid="classQfTracker_1a52560af5e5c68e724cd7580a16cd01d9" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>isActive</name></member>
+      <member refid="classQfTracker_1a997f94c6b14e7620503b83581d4350d7" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>isActive</name></member>
+      <member refid="classQfTracker_1a938dad60842a4722e336772f3eb9b5c8" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>isActiveChanged</name></member>
+      <member refid="classQfTracker_1acbf93f28394af6bd5f7d67fe0e9af944" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>isReplaying</name></member>
+      <member refid="classQfTracker_1a9132e37f9cfb6953050554309fbd00a5" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>isReplaying</name></member>
+      <member refid="classQfTracker_1a198a86f606f3ca5bfb461bf397444579" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>isReplayingChanged</name></member>
+      <member refid="classQfTracker_1ada989750390846787ee77a2202024daf" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>isSuspended</name></member>
+      <member refid="classQfTracker_1a80b6263ecfded1f4a732cfa47d64acc8" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>isSuspended</name></member>
+      <member refid="classQfTracker_1aa63e60fde13441c22a9174a5d21eb3bd" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>isSuspendedChanged</name></member>
+      <member refid="classQfTracker_1aea06d5e9e3ba06514c641cd2a76f69fb" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>maximumDistance</name></member>
+      <member refid="classQfTracker_1a44da10af14a7b3fc84baaad3726f6b97" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>maximumDistance</name></member>
+      <member refid="classQfTracker_1aba28807ee3559461e427b0b54e1e67bc" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>maximumDistanceChanged</name></member>
+      <member refid="classQfTracker_1ab6c8b0b80586e07e34aa8ebb254b4b7a" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mColor</name></member>
+      <member refid="classQfTracker_1ab8ccbeaaac2077a66c2adfd64548729c" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mConjunction</name></member>
+      <member refid="classQfTracker_1a9a0b6e169af885c34b6c6ac11210e7c8" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mCurrentDistance</name></member>
+      <member refid="classQfTracker_1a8d87d419f3969e63086c315c6c53c249" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mDa</name></member>
+      <member refid="classQfTracker_1a1159df8f3b10fac89edbb1840ce8af18" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>measureType</name></member>
+      <member refid="classQfTracker_1a25b74374c66711e0c0794db163b5dd54" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>measureType</name></member>
+      <member refid="classQfTracker_1acd1365be2d016f811f8b2847b665ace6" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>MeasureType</name></member>
+      <member refid="classQfTracker_1a90d3b4707cbd49e235cff9905da44181" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>measureTypeChanged</name></member>
+      <member refid="classQfTracker_1a897e36e407a13fc8ca9685c307b4c4e9" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mFeature</name></member>
+      <member refid="classQfTracker_1a4118358e319e0d3d87293f68a71b2277" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mFeatureModel</name></member>
+      <member refid="classQfTracker_1aabe0bbb217f53185a546f70630903746" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mFilterAccuracy</name></member>
+      <member refid="classQfTracker_1ae038ed99d3dde7e6ca354f9b6f2bcc81" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>minimumDistance</name></member>
+      <member refid="classQfTracker_1afa9823db26ca94dd9ef8b100a1e8e809" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>minimumDistance</name></member>
+      <member refid="classQfTracker_1a5d0324c12104fae3f0b859cc6748e9cf" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>minimumDistanceChanged</name></member>
+      <member refid="classQfTracker_1a8358ba05f04287f4e72064a776f480ce" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mIsActive</name></member>
+      <member refid="classQfTracker_1abea44b5d04168f84b959a046e5059fa5" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mIsReplaying</name></member>
+      <member refid="classQfTracker_1aaa606d778d386db1dc4914275b98a7ca" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mIsSuspended</name></member>
+      <member refid="classQfTracker_1aff65e6fb532724088f8fd0a4fd4ef9ce" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mLastDevicePositionTimestampMSecsSinceEpoch</name></member>
+      <member refid="classQfTracker_1ae9fd2617c3181c051f45ce3c5e93844a" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mLastFeatureModelSaveMSSecsSinceEpoch</name></member>
+      <member refid="classQfTracker_1adfef7007e152a808688c49cbaa5b7844" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mLastVertexPositionTimestampMSecsSinceEpoch</name></member>
+      <member refid="classQfTracker_1a27866a29b4f18ecea9d0a52141b822e6" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mMaximumDistance</name></member>
+      <member refid="classQfTracker_1a443ee7c81bf303b844b964ca46d5b041" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mMaximumDistanceFailuresCount</name></member>
+      <member refid="classQfTracker_1aa33c27e3835536517b59a13066cef8b7" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mMeasureType</name></member>
+      <member refid="classQfTracker_1a057453649fcbd2d02932df96b26c2cf9" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mMinimumDistance</name></member>
+      <member refid="classQfTracker_1abab57c5a66d39ab2904ad6b9ffe8c6c6" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mMinimumDistanceFulfilled</name></member>
+      <member refid="classQfTracker_1aa24f619d5ae88ec5d25837b4a9c4c017" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mRubberbandModel</name></member>
+      <member refid="classQfTracker_1a735548679970d964c52a1fb26cb7a000" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mSensorCapture</name></member>
+      <member refid="classQfTracker_1abde18ec79fb043b3e21072f83b48fe88" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mSensorCaptureFulfilled</name></member>
+      <member refid="classQfTracker_1a49b75ca3bf67b94e39847af61fa9ced4" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mSkipBadPositionReceived</name></member>
+      <member refid="classQfTracker_1ac5e17f653744fcc58748fd4483732ee9" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mSkipPositionReceived</name></member>
+      <member refid="classQfTracker_1af883d01eb7c5d3e37ec647973c86218c" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mStartPositionTimestamp</name></member>
+      <member refid="classQfTracker_1a18429bc25d6fba20168afab2c7768c25" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mTimeInterval</name></member>
+      <member refid="classQfTracker_1aa59bc2cffa7daa5b21a3062f6b35bc2c" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mTimeIntervalFulfilled</name></member>
+      <member refid="classQfTracker_1af8c005b9f32c54d620fdccf15a097282" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mVectorLayer</name></member>
+      <member refid="classQfTracker_1ae10a93511352c25c650d9b8ae273fac2" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>mVisible</name></member>
+      <member refid="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a0c9477331fff4e192c44e24bd1745460" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>PDOP</name></member>
+      <member refid="classQfTracker_1a12a01ebef0b02cd011c3196f33c4b054" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>positionReceived</name></member>
+      <member refid="classQfTracker_1a40b1ef706c8a5448c7e32256bdb26e2c" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>processPositionInformation</name></member>
+      <member refid="classQfTracker_1a26f3d3a944c8c8ed75a371ac9db9a6dd" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>QfTracker</name></member>
+      <member refid="classQfTracker_1aa826a4e6c76ca5e4b8b79d1b56abd769" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>replayPositionInformationList</name></member>
+      <member refid="classQfTracker_1af42941a86a0401086e7a9cc8a2c3dd1f" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>rubberbandModel</name></member>
+      <member refid="classQfTracker_1aef0085073ec26e98e24392d4b53cf94b" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>rubberbandModel</name></member>
+      <member refid="classQfTracker_1abd3bad16ea08cd1a5afa26da052a53bf" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>rubberbandModelChanged</name></member>
+      <member refid="classQfTracker_1a515cca6e223b633748214128d1df4459" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>rubberbandModelVertexCountChanged</name></member>
+      <member refid="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a02c1134d208d578780d1c555f0b7a3c9" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>SecondsSinceStart</name></member>
+      <member refid="classQfTracker_1ac530da19c9b72352f7f3cff8ce841af7" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>sensorCapture</name></member>
+      <member refid="classQfTracker_1af5b808c4a87915580cf4187368e5b93a" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>sensorCapture</name></member>
+      <member refid="classQfTracker_1a4bd14063d5960cc6d2984202a6a25bed" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>sensorCaptureChanged</name></member>
+      <member refid="classQfTracker_1a7f15657cbeb4832601113a95a9732361" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>sensorDataReceived</name></member>
+      <member refid="classQfTracker_1ae97463966756de7d36283a1194b69f70" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setColor</name></member>
+      <member refid="classQfTracker_1ac36d821033b6d5a25d75361a1239ef6d" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setConjunction</name></member>
+      <member refid="classQfTracker_1af0e562b2ecaac7b0ddcd6c75e0b8c6be" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setFeature</name></member>
+      <member refid="classQfTracker_1a2d12df344febb9ba412933844fd810ee" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setFeatureModel</name></member>
+      <member refid="classQfTracker_1a9f51fd4eb1886d27ce318e852e365ed1" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setFilterAccuracy</name></member>
+      <member refid="classQfTracker_1a69e8b9edcf322fccf9075756b1cb08f4" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setMaximumDistance</name></member>
+      <member refid="classQfTracker_1a908066e7d794ab98e162d9fe95e2f740" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setMeasureType</name></member>
+      <member refid="classQfTracker_1af91effdb211dc145770c30d9bc58da18" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setMinimumDistance</name></member>
+      <member refid="classQfTracker_1a1a0c341b0c305c92519077cbf00946f6" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setRubberbandModel</name></member>
+      <member refid="classQfTracker_1a706d80d150fcdcfcec39d4eb1225659a" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setSensorCapture</name></member>
+      <member refid="classQfTracker_1ab57789c6f887510abc34e6a1f283fe77" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setStartPositionTimestamp</name></member>
+      <member refid="classQfTracker_1a137d5c7e86fb7a5333588afdd3d378ec" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setTimeInterval</name></member>
+      <member refid="classQfTracker_1a4a3e66a08590bb98ee426ab40ee5ea90" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setVectorLayer</name></member>
+      <member refid="classQfTracker_1abadbb5e19bfa6cd9a4be3e61c918744b" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>setVisible</name></member>
+      <member refid="classQfTracker_1acbc5fbc503df04197089bfc49535f310" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>start</name></member>
+      <member refid="classQfTracker_1a6befa8d1fc70cb15664abe1ce120896e" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>startPositionTimestamp</name></member>
+      <member refid="classQfTracker_1a0583e3198d2aa193027701f7544195d7" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>startPositionTimestamp</name></member>
+      <member refid="classQfTracker_1abc961fb756a5fbe184ea6589e8da2f17" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>startPositionTimestampChanged</name></member>
+      <member refid="classQfTracker_1a39d24497a050ff061122214a36e6b569" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>stop</name></member>
+      <member refid="classQfTracker_1ac908f904cdcf11720eef39c630fc0e9d" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>suspendUntilReplay</name></member>
+      <member refid="classQfTracker_1a6fa065b40fc10c07193df445158623eb" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>timeInterval</name></member>
+      <member refid="classQfTracker_1aa6b858bd9783b4bb35aa24291073f8fe" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>timeInterval</name></member>
+      <member refid="classQfTracker_1a7a612be0d1ed6f66b1ebc295ec77fc7e" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>timeIntervalChanged</name></member>
+      <member refid="classQfTracker_1acd1365be2d016f811f8b2847b665ace6af4e9dc363814b626610d489b7d005ff5" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>Timestamp</name></member>
+      <member refid="classQfTracker_1abe78b276594c63205544c74307b27177" prot="private" virt="non-virtual"><scope>QfTracker</scope><name>trackPosition</name></member>
+      <member refid="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a2df29f6e1e3fde299be02f3dd4e2587d" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>VDOP</name></member>
+      <member refid="classQfTracker_1a5f9257bedefdbbf9e8c658d43ed29503" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>vectorLayer</name></member>
+      <member refid="classQfTracker_1acf34a4bf285ebb66869367365a90ee04" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>vectorLayer</name></member>
+      <member refid="classQfTracker_1a667eb14a89239c7f665bdb0fdcb24401" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>vectorLayerChanged</name></member>
+      <member refid="classQfTracker_1acd1365be2d016f811f8b2847b665ace6a4e23d9716ab71c7f46adc0830ea37471" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>VerticalAccuracy</name></member>
+      <member refid="classQfTracker_1ac754700c6c5786afbef04a6c0d7550dd" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>visible</name></member>
+      <member refid="classQfTracker_1ae7a728d9a42a0b5a8ee99a5211e7c948" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>visible</name></member>
+      <member refid="classQfTracker_1a5bca998d73ce55cedc9a8d02339293be" prot="public" virt="non-virtual"><scope>QfTracker</scope><name>visibleChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

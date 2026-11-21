@@ -1,0 +1,433 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudRegister" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudRegister</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCloudRegister_1a0b2936a0be2c94d97e23d8ec01dc1b58" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudRegister::isRegistering</definition>
+        <argsstring></argsstring>
+        <name>isRegistering</name>
+        <qualifiedname>QfCloudRegister::isRegistering</qualifiedname>
+        <read>dummyGetter_isRegistering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="13" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1a1a950c1298d33d078dd4884ccc3cfedf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudRegister::registrationError</definition>
+        <argsstring></argsstring>
+        <name>registrationError</name>
+        <qualifiedname>QfCloudRegister::registrationError</qualifiedname>
+        <read>dummyGetter_registrationError_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="15" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1af88287fb4616b4a3e1c503dc6621b1f3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudRegister::captchaKey</definition>
+        <argsstring></argsstring>
+        <name>captchaKey</name>
+        <qualifiedname>QfCloudRegister::captchaKey</qualifiedname>
+        <read>dummyGetter_captchaKey_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="17" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1a5821e3b41e8839a7a76c0c96d3e1510e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfCloudRegister::captchaImageUrl</definition>
+        <argsstring></argsstring>
+        <name>captchaImageUrl</name>
+        <qualifiedname>QfCloudRegister::captchaImageUrl</qualifiedname>
+        <read>dummyGetter_captchaImageUrl_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="19" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1af09504f280bcac0062aeb7eda7ff5c3d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfCloudRegister::minimumUsernameLength</definition>
+        <argsstring></argsstring>
+        <name>minimumUsernameLength</name>
+        <qualifiedname>QfCloudRegister::minimumUsernameLength</qualifiedname>
+        <read>dummyGetter_minimumUsernameLength_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="21" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1aada1fedf1f5c20b903f3ecbbf28ee39f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfCloudRegister::maximumUsernameLength</definition>
+        <argsstring></argsstring>
+        <name>maximumUsernameLength</name>
+        <qualifiedname>QfCloudRegister::maximumUsernameLength</qualifiedname>
+        <read>dummyGetter_maximumUsernameLength_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="23" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1a7a106b41f1abda7f948af564c445bc0a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfCloudRegister::usernameExpression</definition>
+        <argsstring></argsstring>
+        <name>usernameExpression</name>
+        <qualifiedname>QfCloudRegister::usernameExpression</qualifiedname>
+        <read>dummyGetter_usernameExpression_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="25" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1a67a11fe806ad9eab46301290301f2797" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudRegister::isEmailValid</definition>
+        <argsstring></argsstring>
+        <name>isEmailValid</name>
+        <qualifiedname>QfCloudRegister::isEmailValid</qualifiedname>
+        <read>dummyGetter_isEmailValid_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="28" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1a3eb7d6a4fc3317b4d86dbc64d081c372" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudRegister::hasUsernameMinimumLength</definition>
+        <argsstring></argsstring>
+        <name>hasUsernameMinimumLength</name>
+        <qualifiedname>QfCloudRegister::hasUsernameMinimumLength</qualifiedname>
+        <read>dummyGetter_hasUsernameMinimumLength_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="31" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1adb978c4d7a92768d3f0a05b7d9305a68" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudRegister::isUsernameStartingWithLetter</definition>
+        <argsstring></argsstring>
+        <name>isUsernameStartingWithLetter</name>
+        <qualifiedname>QfCloudRegister::isUsernameStartingWithLetter</qualifiedname>
+        <read>dummyGetter_isUsernameStartingWithLetter_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="34" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1a1e390839425957bbb002bd7f6aca8c3d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudRegister::hasUsernameAllowedCharacters</definition>
+        <argsstring></argsstring>
+        <name>hasUsernameAllowedCharacters</name>
+        <qualifiedname>QfCloudRegister::hasUsernameAllowedCharacters</qualifiedname>
+        <read>dummyGetter_hasUsernameAllowedCharacters_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="37" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1a436216d60d3bed3c4b40e94e949c2c1f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudRegister::isUsernameValid</definition>
+        <argsstring></argsstring>
+        <name>isUsernameValid</name>
+        <qualifiedname>QfCloudRegister::isUsernameValid</qualifiedname>
+        <read>dummyGetter_isUsernameValid_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="40" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCloudRegister_1af69ff3177327d2a31bf70c5d02dd027e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCloudRegister::isPasswordRepeated</definition>
+        <argsstring></argsstring>
+        <name>isPasswordRepeated</name>
+        <qualifiedname>QfCloudRegister::isPasswordRepeated</qualifiedname>
+        <read>dummyGetter_isPasswordRepeated_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="43" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudRegister_1a53ef22fc43c71ee48b33ed4a0a972ede" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCloudRegister::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>QfCloudRegister::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="49" column="5" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudRegister_1affbade1e2d5b31a92970652001ad488e" prot="private" static="no" mutable="no">
+        <type>var Material</type>
+        <definition>var Material QfCloudRegister::accent</definition>
+        <argsstring></argsstring>
+        <name>accent</name>
+        <qualifiedname>QfCloudRegister::accent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="50" column="13" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudRegister_1a76ae22fb51457648db662c6bff42f825" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudRegister::registrationLayout</definition>
+        <argsstring></argsstring>
+        <name>registrationLayout</name>
+        <qualifiedname>QfCloudRegister::registrationLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="51" column="14" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudRegister_1af272b5633f96131c59c342a6f9575849" prot="private" static="no" mutable="no">
+        <type>SwipeView</type>
+        <definition>SwipeView QfCloudRegister::stepView</definition>
+        <argsstring></argsstring>
+        <name>stepView</name>
+        <qualifiedname>QfCloudRegister::stepView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="52" column="11" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudRegister_1a6692a338246890618135326d81f49cce" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfCloudRegister::identityStep</definition>
+        <argsstring></argsstring>
+        <name>identityStep</name>
+        <qualifiedname>QfCloudRegister::identityStep</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="53" column="14" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudRegister_1a00a144013e84e218e0c490bbbfc291f8" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTextField" kindref="compound">QfTextField</ref></type>
+        <definition>QfTextField QfCloudRegister::emailField</definition>
+        <argsstring></argsstring>
+        <name>emailField</name>
+        <qualifiedname>QfCloudRegister::emailField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="54" column="13" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudRegister_1abbdfeea526947ce4b3674cca79044c82" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfCloudRegister::backButton</definition>
+        <argsstring></argsstring>
+        <name>backButton</name>
+        <qualifiedname>QfCloudRegister::backButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="55" column="10" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudRegister_1a26f4b0e9f309a2486c9aeef47894d8b1" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfProgressRing" kindref="compound">QfProgressRing</ref></type>
+        <definition>QfProgressRing QfCloudRegister::stepRing</definition>
+        <argsstring></argsstring>
+        <name>stepRing</name>
+        <qualifiedname>QfCloudRegister::stepRing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="56" column="16" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudRegister_1a184f02704f094b95034fbf943faa7248" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfCloudRegister::continueButton</definition>
+        <argsstring></argsstring>
+        <name>continueButton</name>
+        <qualifiedname>QfCloudRegister::continueButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="57" column="10" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCloudRegister_1a4b4a7a6c4b4b325e19542f8366458d32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudRegister::cancelled</definition>
+        <argsstring>()</argsstring>
+        <name>cancelled</name>
+        <qualifiedname>QfCloudRegister::cancelled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="45" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudRegister_1ad0469d8c5874b815e748ddbc59383932" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudRegister::finished</definition>
+        <argsstring>()</argsstring>
+        <name>finished</name>
+        <qualifiedname>QfCloudRegister::finished</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfCloudRegister.qml" line="47" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCloudRegister</label>
+        <link refid="classQfCloudRegister"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCloudRegister</label>
+        <link refid="classQfCloudRegister"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfCloudRegister.qml" line="10" column="1" bodyfile="src/app/qml/QfCloudRegister.qml" bodystart="10" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classQfCloudRegister_1affbade1e2d5b31a92970652001ad488e" prot="private" virt="non-virtual"><scope>QfCloudRegister</scope><name>accent</name></member>
+      <member refid="classQfCloudRegister_1abbdfeea526947ce4b3674cca79044c82" prot="private" virt="non-virtual"><scope>QfCloudRegister</scope><name>backButton</name></member>
+      <member refid="classQfCloudRegister_1a4b4a7a6c4b4b325e19542f8366458d32" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>cancelled</name></member>
+      <member refid="classQfCloudRegister_1a5821e3b41e8839a7a76c0c96d3e1510e" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>captchaImageUrl</name></member>
+      <member refid="classQfCloudRegister_1af88287fb4616b4a3e1c503dc6621b1f3" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>captchaKey</name></member>
+      <member refid="classQfCloudRegister_1a184f02704f094b95034fbf943faa7248" prot="private" virt="non-virtual"><scope>QfCloudRegister</scope><name>continueButton</name></member>
+      <member refid="classQfCloudRegister_1a00a144013e84e218e0c490bbbfc291f8" prot="private" virt="non-virtual"><scope>QfCloudRegister</scope><name>emailField</name></member>
+      <member refid="classQfCloudRegister_1ad0469d8c5874b815e748ddbc59383932" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>finished</name></member>
+      <member refid="classQfCloudRegister_1a1e390839425957bbb002bd7f6aca8c3d" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>hasUsernameAllowedCharacters</name></member>
+      <member refid="classQfCloudRegister_1a3eb7d6a4fc3317b4d86dbc64d081c372" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>hasUsernameMinimumLength</name></member>
+      <member refid="classQfCloudRegister_1a6692a338246890618135326d81f49cce" prot="private" virt="non-virtual"><scope>QfCloudRegister</scope><name>identityStep</name></member>
+      <member refid="classQfCloudRegister_1a53ef22fc43c71ee48b33ed4a0a972ede" prot="private" virt="non-virtual"><scope>QfCloudRegister</scope><name>implicitHeight</name></member>
+      <member refid="classQfCloudRegister_1a67a11fe806ad9eab46301290301f2797" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>isEmailValid</name></member>
+      <member refid="classQfCloudRegister_1af69ff3177327d2a31bf70c5d02dd027e" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>isPasswordRepeated</name></member>
+      <member refid="classQfCloudRegister_1a0b2936a0be2c94d97e23d8ec01dc1b58" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>isRegistering</name></member>
+      <member refid="classQfCloudRegister_1adb978c4d7a92768d3f0a05b7d9305a68" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>isUsernameStartingWithLetter</name></member>
+      <member refid="classQfCloudRegister_1a436216d60d3bed3c4b40e94e949c2c1f" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>isUsernameValid</name></member>
+      <member refid="classQfCloudRegister_1aada1fedf1f5c20b903f3ecbbf28ee39f" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>maximumUsernameLength</name></member>
+      <member refid="classQfCloudRegister_1af09504f280bcac0062aeb7eda7ff5c3d" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>minimumUsernameLength</name></member>
+      <member refid="classQfCloudRegister_1a1a950c1298d33d078dd4884ccc3cfedf" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>registrationError</name></member>
+      <member refid="classQfCloudRegister_1a76ae22fb51457648db662c6bff42f825" prot="private" virt="non-virtual"><scope>QfCloudRegister</scope><name>registrationLayout</name></member>
+      <member refid="classQfCloudRegister_1a26f4b0e9f309a2486c9aeef47894d8b1" prot="private" virt="non-virtual"><scope>QfCloudRegister</scope><name>stepRing</name></member>
+      <member refid="classQfCloudRegister_1af272b5633f96131c59c342a6f9575849" prot="private" virt="non-virtual"><scope>QfCloudRegister</scope><name>stepView</name></member>
+      <member refid="classQfCloudRegister_1a7a106b41f1abda7f948af564c445bc0a" prot="public" virt="non-virtual"><scope>QfCloudRegister</scope><name>usernameExpression</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classOverlayFeatureFormDrawer" kind="class" language="C++" prot="public">
+    <compoundname>OverlayFeatureFormDrawer</compoundname>
+    <basecompoundref refid="classQfOverlayFeatureFormDrawer" prot="public" virt="non-virtual">QfOverlayFeatureFormDrawer</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Drawer</label>
+      </node>
+      <node id="1">
+        <label>OverlayFeatureFormDrawer</label>
+        <link refid="classOverlayFeatureFormDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfOverlayFeatureFormDrawer</label>
+        <link refid="classQfOverlayFeatureFormDrawer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Drawer</label>
+      </node>
+      <node id="1">
+        <label>OverlayFeatureFormDrawer</label>
+        <link refid="classOverlayFeatureFormDrawer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfOverlayFeatureFormDrawer</label>
+        <link refid="classQfOverlayFeatureFormDrawer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/OverlayFeatureFormDrawer.qml" line="2" column="1" bodyfile="src/app/qml_compat/OverlayFeatureFormDrawer.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfOverlayFeatureFormDrawer_1ab5e31131f3cdf393b82239a576498d36" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>codeReader</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1a74b8e7c203de3e2eabaa94e8d898908f" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>digitizingToolbar</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1aa88be0931755fccce1f108312c7b0626" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>dragHeightAdjustment</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1a830f443cfc9da6ed3ebd6657dffc9f28" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>dragWidthAdjustment</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1a604d672bd83edf0b1baf237d77ce6501" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>featureForm</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1ab0c882c64ff43cbd69be32ca30602e64" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>featureModel</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1a4a1f42343cc7df0e2d6fc2c0a34f1d03" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>fullScreenView</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1a1955bf12016752d5754b039f2e3ab4ce" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>isAdding</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1a84fecb0d8330caa19c20efd5854bd529" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>isDragging</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1a6d3f78884c764bd89aa6f52e0a05a727" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>isVertical</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1a0aa55384908a403a07c217cf3e084687" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>lastHeight</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1a3e3dfa57061d23aa53ee770bdb1f7472" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>lastWidth</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1a9aed05313f790f702eebc4ba1a469179" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfOverlayFeatureFormDrawer_1a9c194f824b515f487a4a41a8267623d8" prot="public" virt="non-virtual"><scope>OverlayFeatureFormDrawer</scope><name>state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

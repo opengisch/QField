@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCloudAttachmentsWatcher" kind="class" language="C++" prot="public">
+    <compoundname>QfCloudAttachmentsWatcher</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfcloudattachmentswatcher_8h" local="no">qfcloudattachmentswatcher.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCloudAttachmentsWatcher_1a1781d8762d6c08f4aa83d6d5cb40a695" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudAttachmentsWatcher::mActive</definition>
+        <argsstring></argsstring>
+        <name>mActive</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::mActive</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="65" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsWatcher_1af04d3422408f78e5ad2e66aa68020135" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfCloudAttachmentsWatcher::mQueueOutstanding</definition>
+        <argsstring></argsstring>
+        <name>mQueueOutstanding</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::mQueueOutstanding</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="66" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsWatcher_1abb72483c47cfba97aebc22e7561ce090" prot="private" static="no" mutable="no">
+        <type>QPointer&lt; <ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> &gt;</type>
+        <definition>QPointer&lt;QfCloudConnection&gt; QfCloudAttachmentsWatcher::mCloudConnection</definition>
+        <argsstring></argsstring>
+        <name>mCloudConnection</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::mCloudConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="67" column="14" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsWatcher_1a4bfe79cc64a4be3fd08e6d8ce7c39d70" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfCloudAttachmentsWatcher::mAttachmentsFilePath</definition>
+        <argsstring></argsstring>
+        <name>mAttachmentsFilePath</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::mAttachmentsFilePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="68" column="13" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCloudAttachmentsWatcher_1af5ba52ca54102e56e9ba6cca147bc7de" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QFileSystemWatcher &gt;</type>
+        <definition>std::unique_ptr&lt;QFileSystemWatcher&gt; QfCloudAttachmentsWatcher::mWatcher</definition>
+        <argsstring></argsstring>
+        <name>mWatcher</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::mWatcher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="69" column="21" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfCloudAttachmentsWatcher_1aae5e84ea2dceab01ba709d11a624da76" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudAttachmentsWatcher::QfCloudAttachmentsWatcher</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfCloudAttachmentsWatcher</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::QfCloudAttachmentsWatcher</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="37" column="14" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsWatcher_1aa3d72f61e49d244d825e8778f82641c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfCloudAttachmentsWatcher::~QfCloudAttachmentsWatcher</definition>
+        <argsstring>() override</argsstring>
+        <name>~QfCloudAttachmentsWatcher</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::~QfCloudAttachmentsWatcher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="38" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsWatcher_1a63b893e28b8af7005fc56a785fb4bcb3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfCloudAttachmentsWatcher::active</definition>
+        <argsstring>() const</argsstring>
+        <name>active</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::active</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE when the pending attachments queue is being watched. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="41" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.cpp" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsWatcher_1a90e9af46d900a65adec798ad6108914d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsWatcher::setActive</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>setActive</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::setActive</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether the pending attachments queue is being watched. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="44" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.cpp" bodystart="34" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsWatcher_1a5fd1e491a32d517db1f5b5a355a83620" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> *</type>
+        <definition>QfCloudConnection * QfCloudAttachmentsWatcher::cloudConnection</definition>
+        <argsstring>() const</argsstring>
+        <name>cloudConnection</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::cloudConnection</qualifiedname>
+        <briefdescription>
+<para>Returns the cloud connection whose user&apos;s pending attachments queue is watched. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="47" column="23" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfCloudAttachmentsWatcher_1ae18b3c6609f15688ccd9caa36c352c02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsWatcher::setCloudConnection</definition>
+        <argsstring>(QfCloudConnection *cloudConnection)</argsstring>
+        <name>setCloudConnection</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::setCloudConnection</qualifiedname>
+        <param>
+          <type><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref> *</type>
+          <declname>cloudConnection</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>cloudConnection</emphasis> whose user&apos;s pending attachments queue is watched. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="50" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.cpp" bodystart="50" bodyend="70"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfCloudAttachmentsWatcher_1a310b3b605431dcd02dd749cd53a61d3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsWatcher::queueChanged</definition>
+        <argsstring>()</argsstring>
+        <name>queueChanged</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::queueChanged</qualifiedname>
+        <briefdescription>
+<para>Emitted when the pending attachments queue has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="54" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfCloudAttachmentsWatcher_1a380faa6f4075be4e5d8c3af1de88dbe7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsWatcher::queueFinished</definition>
+        <argsstring>()</argsstring>
+        <name>queueFinished</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::queueFinished</qualifiedname>
+        <briefdescription>
+<para>Emitted when an outstanding pending attachments queue has been emptied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="57" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfCloudAttachmentsWatcher_1a2cf22ca6bb83cb8c67916b552d3333a1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsWatcher::attachWatcher</definition>
+        <argsstring>()</argsstring>
+        <name>attachWatcher</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::attachWatcher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="60" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.cpp" bodystart="72" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfCloudAttachmentsWatcher_1a27259acfb32ea1e463e563bc185eb9da" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsWatcher::onFileChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onFileChanged</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::onFileChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="61" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.cpp" bodystart="108" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfCloudAttachmentsWatcher_1a7fc77c7b2df791554f90b3506d85bc86" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfCloudAttachmentsWatcher::onDirectoryChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onDirectoryChanged</name>
+        <qualifiedname>QfCloudAttachmentsWatcher::onDirectoryChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="62" column="10" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.cpp" bodystart="120" bodyend="139"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Watches the QFieldCloud pending attachments queue and signals when it has changed. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCloudAttachmentsWatcher</label>
+        <link refid="classQfCloudAttachmentsWatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfCloudAttachmentsWatcher</label>
+        <link refid="classQfCloudAttachmentsWatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.h" line="32" column="1" bodyfile="src/core/qfieldcloud/qfcloudattachmentswatcher.h" bodystart="33" bodyend="70"/>
+    <listofallmembers>
+      <member refid="classQfCloudAttachmentsWatcher_1a63b893e28b8af7005fc56a785fb4bcb3" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>active</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1a2cf22ca6bb83cb8c67916b552d3333a1" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>attachWatcher</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1a5fd1e491a32d517db1f5b5a355a83620" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>cloudConnection</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1a1781d8762d6c08f4aa83d6d5cb40a695" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>mActive</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1a4bfe79cc64a4be3fd08e6d8ce7c39d70" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>mAttachmentsFilePath</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1abb72483c47cfba97aebc22e7561ce090" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>mCloudConnection</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1af04d3422408f78e5ad2e66aa68020135" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>mQueueOutstanding</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1af5ba52ca54102e56e9ba6cca147bc7de" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>mWatcher</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1a7fc77c7b2df791554f90b3506d85bc86" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>onDirectoryChanged</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1a27259acfb32ea1e463e563bc185eb9da" prot="private" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>onFileChanged</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1aae5e84ea2dceab01ba709d11a624da76" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>QfCloudAttachmentsWatcher</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1a310b3b605431dcd02dd749cd53a61d3c" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>queueChanged</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1a380faa6f4075be4e5d8c3af1de88dbe7" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>queueFinished</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1a90e9af46d900a65adec798ad6108914d" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>setActive</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1ae18b3c6609f15688ccd9caa36c352c02" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>setCloudConnection</name></member>
+      <member refid="classQfCloudAttachmentsWatcher_1aa3d72f61e49d244d825e8778f82641c6" prot="public" virt="non-virtual"><scope>QfCloudAttachmentsWatcher</scope><name>~QfCloudAttachmentsWatcher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

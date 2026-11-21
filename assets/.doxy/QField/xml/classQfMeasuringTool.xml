@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMeasuringTool" kind="class" language="C++" prot="public">
+    <compoundname>QfMeasuringTool</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMeasuringTool_1ad5dcab118a8ce2eb29226f7347834ade" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMeasuringTool::measuringRubberband</definition>
+        <argsstring></argsstring>
+        <name>measuringRubberband</name>
+        <qualifiedname>QfMeasuringTool::measuringRubberband</qualifiedname>
+        <read>dummyGetter_measuringRubberband_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfMeasuringTool.qml" line="11" column="1" bodyfile="src/app/qml/QfMeasuringTool.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeasuringTool_1a515b3c1f0b708eb97664356d0b369e99" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMeasuringTool::isClosingArea</definition>
+        <argsstring></argsstring>
+        <name>isClosingArea</name>
+        <qualifiedname>QfMeasuringTool::isClosingArea</qualifiedname>
+        <read>dummyGetter_isClosingArea_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfMeasuringTool.qml" line="13" column="1" bodyfile="src/app/qml/QfMeasuringTool.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeasuringTool_1aa851418601a6dfd1cf1042d45647c43e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMeasuringTool::isArea</definition>
+        <argsstring></argsstring>
+        <name>isArea</name>
+        <qualifiedname>QfMeasuringTool::isArea</qualifiedname>
+        <read>dummyGetter_isArea_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfMeasuringTool.qml" line="15" column="1" bodyfile="src/app/qml/QfMeasuringTool.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMeasuringTool_1a00e114b60b42fccba82a5f7e0558474f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMapToScreen" kindref="compound">QfMapToScreen</ref></type>
+        <definition>QfMapToScreen QfMeasuringTool::vertexFirstLastDistance</definition>
+        <argsstring></argsstring>
+        <name>vertexFirstLastDistance</name>
+        <qualifiedname>QfMeasuringTool::vertexFirstLastDistance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfMeasuringTool.qml" line="17" column="15" bodyfile="src/app/qml/QfMeasuringTool.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMeasuringTool_1ab4e3e4cd3a3d699ccf7902524e6e2ff2" prot="private" static="no" mutable="no">
+        <type>Repeater</type>
+        <definition>Repeater QfMeasuringTool::vertices</definition>
+        <argsstring></argsstring>
+        <name>vertices</name>
+        <qualifiedname>QfMeasuringTool::vertices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfMeasuringTool.qml" line="18" column="10" bodyfile="src/app/qml/QfMeasuringTool.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMeasuringTool_1a7b29a40f0c7ffe54a1100ac27e5ba8c8" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfRubberband" kindref="compound">QfRubberband</ref></type>
+        <definition>QfRubberband QfMeasuringTool::rubberband</definition>
+        <argsstring></argsstring>
+        <name>rubberband</name>
+        <qualifiedname>QfMeasuringTool::rubberband</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfMeasuringTool.qml" line="19" column="14" bodyfile="src/app/qml/QfMeasuringTool.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfMeasuringTool</label>
+        <link refid="classQfMeasuringTool"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfMeasuringTool</label>
+        <link refid="classQfMeasuringTool"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfMeasuringTool.qml" line="8" column="1" bodyfile="src/app/qml/QfMeasuringTool.qml" bodystart="8" bodyend="20"/>
+    <listofallmembers>
+      <member refid="classQfMeasuringTool_1aa851418601a6dfd1cf1042d45647c43e" prot="public" virt="non-virtual"><scope>QfMeasuringTool</scope><name>isArea</name></member>
+      <member refid="classQfMeasuringTool_1a515b3c1f0b708eb97664356d0b369e99" prot="public" virt="non-virtual"><scope>QfMeasuringTool</scope><name>isClosingArea</name></member>
+      <member refid="classQfMeasuringTool_1ad5dcab118a8ce2eb29226f7347834ade" prot="public" virt="non-virtual"><scope>QfMeasuringTool</scope><name>measuringRubberband</name></member>
+      <member refid="classQfMeasuringTool_1a7b29a40f0c7ffe54a1100ac27e5ba8c8" prot="private" virt="non-virtual"><scope>QfMeasuringTool</scope><name>rubberband</name></member>
+      <member refid="classQfMeasuringTool_1a00e114b60b42fccba82a5f7e0558474f" prot="private" virt="non-virtual"><scope>QfMeasuringTool</scope><name>vertexFirstLastDistance</name></member>
+      <member refid="classQfMeasuringTool_1ab4e3e4cd3a3d699ccf7902524e6e2ff2" prot="private" virt="non-virtual"><scope>QfMeasuringTool</scope><name>vertices</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

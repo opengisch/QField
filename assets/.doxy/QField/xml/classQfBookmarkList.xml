@@ -1,0 +1,496 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfBookmarkList" kind="class" language="C++" prot="public">
+    <compoundname>QfBookmarkList</compoundname>
+    <basecompoundref refid="classQfPaneDrawer" prot="public" virt="non-virtual">QfPaneDrawer</basecompoundref>
+    <derivedcompoundref refid="classBookmarkList" prot="public" virt="non-virtual">BookmarkList</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfBookmarkList_1abfd0feca356809b2bd20d4e5955b4fcb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfBookmarkList::model</definition>
+        <argsstring></argsstring>
+        <name>model</name>
+        <qualifiedname>QfBookmarkList::model</qualifiedname>
+        <read>dummyGetter_model_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="15" column="1" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBookmarkList_1a880c89c091e6582f32a749469f7ad587" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfBookmarkList::multiSelection</definition>
+        <argsstring></argsstring>
+        <name>multiSelection</name>
+        <qualifiedname>QfBookmarkList::multiSelection</qualifiedname>
+        <read>dummyGetter_multiSelection_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="17" column="1" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfBookmarkList_1aa83b72485b78b917d5b6830db4193dbf" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkList::contentVisible</definition>
+        <argsstring></argsstring>
+        <name>contentVisible</name>
+        <qualifiedname>QfBookmarkList::contentVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="23" column="5" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a61f72102bee207b148fbc823eed36ca2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkList::freezeKey</definition>
+        <argsstring></argsstring>
+        <name>freezeKey</name>
+        <qualifiedname>QfBookmarkList::freezeKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="24" column="5" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a8953f4e7728228d1e8bd6fdfb592c092" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkList::headerHeight</definition>
+        <argsstring></argsstring>
+        <name>headerHeight</name>
+        <qualifiedname>QfBookmarkList::headerHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="25" column="5" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a78ce8a2bd6c3add34fdbf199d2c4ccd6" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkList::minContentHeight</definition>
+        <argsstring></argsstring>
+        <name>minContentHeight</name>
+        <qualifiedname>QfBookmarkList::minContentHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="26" column="5" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a918113e77dc41139edf5731439dacf0d" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkList::onCollapsed</definition>
+        <argsstring></argsstring>
+        <name>onCollapsed</name>
+        <qualifiedname>QfBookmarkList::onCollapsed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="27" column="5" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a500f01f68f21e1ad2a9226f96ec8b5f0" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkList::states</definition>
+        <argsstring></argsstring>
+        <name>states</name>
+        <qualifiedname>QfBookmarkList::states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="28" column="5" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a7112a7fc701ad13bdb231a40d440a3e5" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBookmarkList::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>QfBookmarkList::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="29" column="5" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1aaa8ea17aa6c004d0998c3bb0c957989a" prot="private" static="no" mutable="no">
+        <type>QtObject</type>
+        <definition>QtObject QfBookmarkList::props</definition>
+        <argsstring></argsstring>
+        <name>props</name>
+        <qualifiedname>QfBookmarkList::props</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="30" column="10" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a7fe82314891a4aafb4c819693387a5da" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfBookmarkList::bookmarkListToolBar</definition>
+        <argsstring></argsstring>
+        <name>bookmarkListToolBar</name>
+        <qualifiedname>QfBookmarkList::bookmarkListToolBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="31" column="11" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a89fcf6620f322afb8171babf8de4dd3b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfBookmarkList::backButton</definition>
+        <argsstring></argsstring>
+        <name>backButton</name>
+        <qualifiedname>QfBookmarkList::backButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="32" column="14" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a14303ec8dedaab278ff1d391e3546c6a" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfBookmarkList::selectionCount</definition>
+        <argsstring></argsstring>
+        <name>selectionCount</name>
+        <qualifiedname>QfBookmarkList::selectionCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="33" column="6" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1abfd60887b4cfca2774d5a23c99d72d7f" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfBookmarkList::menuButton</definition>
+        <argsstring></argsstring>
+        <name>menuButton</name>
+        <qualifiedname>QfBookmarkList::menuButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="34" column="14" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1ad860c82dd680ce3ebe6c47d3d9f2b978" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QfBookmarkList::bookmarkListMenu</definition>
+        <argsstring></argsstring>
+        <name>bookmarkListMenu</name>
+        <qualifiedname>QfBookmarkList::bookmarkListMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="35" column="8" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a4d0fd45279ff9edc613d2eba7a348f6d" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem QfBookmarkList::deleteSelectedBookmarksBtn</definition>
+        <argsstring></argsstring>
+        <name>deleteSelectedBookmarksBtn</name>
+        <qualifiedname>QfBookmarkList::deleteSelectedBookmarksBtn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="36" column="10" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1ac3d1ee5fcbe13feb27f97d29f7c05dff" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfMenu" kindref="compound">QfMenu</ref></type>
+        <definition>QfMenu QfBookmarkList::itemMenu</definition>
+        <argsstring></argsstring>
+        <name>itemMenu</name>
+        <qualifiedname>QfBookmarkList::itemMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="37" column="8" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a2dc1d6334ec3c603b7339de44172a27e" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfBookmarkList::removeBookmarkDialog</definition>
+        <argsstring></argsstring>
+        <name>removeBookmarkDialog</name>
+        <qualifiedname>QfBookmarkList::removeBookmarkDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="38" column="10" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a4be89dd5ac59854e467cc666b93fca69" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDialog" kindref="compound">QfDialog</ref></type>
+        <definition>QfDialog QfBookmarkList::deleteBookmarksDialog</definition>
+        <argsstring></argsstring>
+        <name>deleteBookmarksDialog</name>
+        <qualifiedname>QfBookmarkList::deleteBookmarksDialog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="39" column="10" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a70ba800c944917e4f8012e7195542afd" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfBookmarkList::bookmarksList</definition>
+        <argsstring></argsstring>
+        <name>bookmarksList</name>
+        <qualifiedname>QfBookmarkList::bookmarksList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="40" column="10" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1aff08083cf484d75aba755cf9b00ea3d6" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfBookmarkList::zeroBookmarksLabel</definition>
+        <argsstring></argsstring>
+        <name>zeroBookmarksLabel</name>
+        <qualifiedname>QfBookmarkList::zeroBookmarksLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="41" column="7" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkList_1a9b34fe8834dae72419e6468dff6a309a" prot="private" static="no" mutable="no">
+        <type>var Keys</type>
+        <definition>var Keys QfBookmarkList::onReleased</definition>
+        <argsstring></argsstring>
+        <name>onReleased</name>
+        <qualifiedname>QfBookmarkList::onReleased</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="42" column="9" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfBookmarkList_1a8c6b38e280ef7812056c260f88c6e2ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkList::requestBookmarkProperties</definition>
+        <argsstring>(string bookmarkId, string bookmarkName, string bookmarkGroup)</argsstring>
+        <name>requestBookmarkProperties</name>
+        <qualifiedname>QfBookmarkList::requestBookmarkProperties</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>bookmarkId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>bookmarkName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>bookmarkGroup</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="19" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfBookmarkList_1a3b913b0ced8d1729163bbf70a70da823" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkList::requestBookmarkNavigation</definition>
+        <argsstring>(int bookmarkIndex)</argsstring>
+        <name>requestBookmarkNavigation</name>
+        <qualifiedname>QfBookmarkList::requestBookmarkNavigation</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>bookmarkIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="21" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfBookmarkList_1abada7d34d3dbb0e0095c6310ad01e513" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkList::show</definition>
+        <argsstring>()</argsstring>
+        <name>show</name>
+        <qualifiedname>QfBookmarkList::show</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="45" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkList_1a985e8608aeb8fa8ca93cb9f3becfebef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkList::setMultiSelection</definition>
+        <argsstring>(active)</argsstring>
+        <name>setMultiSelection</name>
+        <qualifiedname>QfBookmarkList::setMultiSelection</qualifiedname>
+        <param>
+          <type>active</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="47" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkList_1ae7376009a1b266e3ace99a07a9bf343b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkList::hide</definition>
+        <argsstring>()</argsstring>
+        <name>hide</name>
+        <qualifiedname>QfBookmarkList::hide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBookmarkList.qml" line="49" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>BookmarkList</label>
+        <link refid="classBookmarkList"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Pane</label>
+      </node>
+      <node id="1">
+        <label>QfBookmarkList</label>
+        <link refid="classQfBookmarkList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPaneDrawer</label>
+        <link refid="classQfPaneDrawer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Pane</label>
+      </node>
+      <node id="1">
+        <label>QfBookmarkList</label>
+        <link refid="classQfBookmarkList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPaneDrawer</label>
+        <link refid="classQfPaneDrawer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfBookmarkList.qml" line="12" column="1" bodyfile="src/gui/qml/QfBookmarkList.qml" bodystart="12" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classQfBookmarkList_1a89fcf6620f322afb8171babf8de4dd3b" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>backButton</name></member>
+      <member refid="classQfBookmarkList_1ad860c82dd680ce3ebe6c47d3d9f2b978" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>bookmarkListMenu</name></member>
+      <member refid="classQfBookmarkList_1a7fe82314891a4aafb4c819693387a5da" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>bookmarkListToolBar</name></member>
+      <member refid="classQfBookmarkList_1a70ba800c944917e4f8012e7195542afd" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>bookmarksList</name></member>
+      <member refid="classQfPaneDrawer_1a3d87cc2208337720912d471f31698cfe" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>collapsed</name></member>
+      <member refid="classQfBookmarkList_1aa83b72485b78b917d5b6830db4193dbf" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>contentVisible</name></member>
+      <member refid="classQfBookmarkList_1a4be89dd5ac59854e467cc666b93fca69" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>deleteBookmarksDialog</name></member>
+      <member refid="classQfBookmarkList_1a4d0fd45279ff9edc613d2eba7a348f6d" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>deleteSelectedBookmarksBtn</name></member>
+      <member refid="classQfBookmarkList_1a61f72102bee207b148fbc823eed36ca2" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>freezeKey</name></member>
+      <member refid="classQfBookmarkList_1a8953f4e7728228d1e8bd6fdfb592c092" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>headerHeight</name></member>
+      <member refid="classQfBookmarkList_1ae7376009a1b266e3ace99a07a9bf343b" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>hide</name></member>
+      <member refid="classQfPaneDrawer_1a2c058006b0d920db8b5ce16b98d35b7c" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>isDragging</name></member>
+      <member refid="classQfPaneDrawer_1abb06ab543bee39cb153d5f9d4e724a81" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>isFullscreen</name></member>
+      <member refid="classQfPaneDrawer_1a8f1662990e15603b5d732968edc40e71" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>isVertical</name></member>
+      <member refid="classQfBookmarkList_1ac3d1ee5fcbe13feb27f97d29f7c05dff" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>itemMenu</name></member>
+      <member refid="classQfBookmarkList_1abfd60887b4cfca2774d5a23c99d72d7f" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>menuButton</name></member>
+      <member refid="classQfBookmarkList_1a78ce8a2bd6c3add34fdbf199d2c4ccd6" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>minContentHeight</name></member>
+      <member refid="classQfBookmarkList_1abfd0feca356809b2bd20d4e5955b4fcb" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>model</name></member>
+      <member refid="classQfBookmarkList_1a880c89c091e6582f32a749469f7ad587" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>multiSelection</name></member>
+      <member refid="classQfBookmarkList_1a918113e77dc41139edf5731439dacf0d" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>onCollapsed</name></member>
+      <member refid="classQfBookmarkList_1a9b34fe8834dae72419e6468dff6a309a" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>onReleased</name></member>
+      <member refid="classQfBookmarkList_1aaa8ea17aa6c004d0998c3bb0c957989a" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>props</name></member>
+      <member refid="classQfBookmarkList_1a2dc1d6334ec3c603b7339de44172a27e" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>removeBookmarkDialog</name></member>
+      <member refid="classQfBookmarkList_1a3b913b0ced8d1729163bbf70a70da823" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>requestBookmarkNavigation</name></member>
+      <member refid="classQfBookmarkList_1a8c6b38e280ef7812056c260f88c6e2ad" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>requestBookmarkProperties</name></member>
+      <member refid="classQfBookmarkList_1a14303ec8dedaab278ff1d391e3546c6a" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>selectionCount</name></member>
+      <member refid="classQfBookmarkList_1a985e8608aeb8fa8ca93cb9f3becfebef" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>setMultiSelection</name></member>
+      <member refid="classQfBookmarkList_1abada7d34d3dbb0e0095c6310ad01e513" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>show</name></member>
+      <member refid="classQfBookmarkList_1a7112a7fc701ad13bdb231a40d440a3e5" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>state</name></member>
+      <member refid="classQfBookmarkList_1a500f01f68f21e1ad2a9226f96ec8b5f0" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>states</name></member>
+      <member refid="classQfPaneDrawer_1a4df2c713f02fe09c5de8ad1bd0e6c1ab" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>statusIndicatorDragged</name></member>
+      <member refid="classQfPaneDrawer_1a6ecf6a1796fff4e1930a6ceb46033514" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>statusIndicatorDragReleased</name></member>
+      <member refid="classQfPaneDrawer_1a289556a9c53ee962fbb951d0aad0ee38" prot="public" virt="non-virtual"><scope>QfBookmarkList</scope><name>useDefaultMinHeight</name></member>
+      <member refid="classQfBookmarkList_1aff08083cf484d75aba755cf9b00ea3d6" prot="private" virt="non-virtual"><scope>QfBookmarkList</scope><name>zeroBookmarksLabel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfNewsItem" kind="class" language="C++" prot="public">
+    <compoundname>QfNewsItem</compoundname>
+    <includes refid="qfnewsparser_8h" local="no">qfnewsparser.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfNewsItem_1a7728b46f1bb334080c43158117dfd8a0" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfNewsItem::uuid</definition>
+        <argsstring></argsstring>
+        <name>uuid</name>
+        <qualifiedname>QfNewsItem::uuid</qualifiedname>
+        <briefdescription>
+<para>The news item unique identifier. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="34" column="5" bodyfile="src/core/qfnewsparser.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNewsItem_1a5b0a7623c8bb1b3b85b4a8558855cb51" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfNewsItem::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QfNewsItem::title</qualifiedname>
+        <briefdescription>
+<para>The news item title. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="35" column="5" bodyfile="src/core/qfnewsparser.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNewsItem_1a674af561a35808a39cde9fc8bee46216" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfNewsItem::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>QfNewsItem::description</qualifiedname>
+        <briefdescription>
+<para>The news item short plain text description. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="36" column="5" bodyfile="src/core/qfnewsparser.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNewsItem_1a291538856bc0f85fef293e236d918eee" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QfNewsItem::publicationDate</definition>
+        <argsstring></argsstring>
+        <name>publicationDate</name>
+        <qualifiedname>QfNewsItem::publicationDate</qualifiedname>
+        <briefdescription>
+<para>The news item publication date. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="37" column="5" bodyfile="src/core/qfnewsparser.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNewsItem_1a522f83a305998ee180e095d5c0a4edea" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QUrl</type>
+        <definition>QUrl QfNewsItem::imageUrl</definition>
+        <argsstring></argsstring>
+        <name>imageUrl</name>
+        <qualifiedname>QfNewsItem::imageUrl</qualifiedname>
+        <briefdescription>
+<para>The news item illustration image URL. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="38" column="5" bodyfile="src/core/qfnewsparser.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfNewsItem_1adcaa48354f9536e4316f6d812eb7f5e8" prot="public" static="no" readable="no" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QUrl</type>
+        <definition>QUrl QfNewsItem::url</definition>
+        <argsstring></argsstring>
+        <name>url</name>
+        <qualifiedname>QfNewsItem::url</qualifiedname>
+        <briefdescription>
+<para>The news item URL. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="39" column="5" bodyfile="src/core/qfnewsparser.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfNewsItem_1a6978f2ad4d76fef7a910560a660bf835" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNewsItem::operator==</definition>
+        <argsstring>(const QfNewsItem &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>QfNewsItem::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="42" column="10" bodyfile="src/core/qfnewsparser.h" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfNewsItem_1af974f4dce11cc62191a8aeb696fae775" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfNewsItem::operator!=</definition>
+        <argsstring>(const QfNewsItem &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>QfNewsItem::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfNewsItem" kindref="compound">QfNewsItem</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfnewsparser.h" line="46" column="10" bodyfile="src/core/qfnewsparser.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A class containing information on a news item. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfnewsparser.h" line="30" column="1" bodyfile="src/core/qfnewsparser.h" bodystart="31" bodyend="60"/>
+    <listofallmembers>
+      <member refid="classQfNewsItem_1a674af561a35808a39cde9fc8bee46216" prot="public" virt="non-virtual"><scope>QfNewsItem</scope><name>description</name></member>
+      <member refid="classQfNewsItem_1a522f83a305998ee180e095d5c0a4edea" prot="public" virt="non-virtual"><scope>QfNewsItem</scope><name>imageUrl</name></member>
+      <member refid="classQfNewsItem_1af974f4dce11cc62191a8aeb696fae775" prot="public" virt="non-virtual"><scope>QfNewsItem</scope><name>operator!=</name></member>
+      <member refid="classQfNewsItem_1a6978f2ad4d76fef7a910560a660bf835" prot="public" virt="non-virtual"><scope>QfNewsItem</scope><name>operator==</name></member>
+      <member refid="classQfNewsItem_1a291538856bc0f85fef293e236d918eee" prot="public" virt="non-virtual"><scope>QfNewsItem</scope><name>publicationDate</name></member>
+      <member refid="classQfNewsItem_1a5b0a7623c8bb1b3b85b4a8558855cb51" prot="public" virt="non-virtual"><scope>QfNewsItem</scope><name>title</name></member>
+      <member refid="classQfNewsItem_1adcaa48354f9536e4316f6d812eb7f5e8" prot="public" virt="non-virtual"><scope>QfNewsItem</scope><name>url</name></member>
+      <member refid="classQfNewsItem_1a7728b46f1bb334080c43158117dfd8a0" prot="public" virt="non-virtual"><scope>QfNewsItem</scope><name>uuid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

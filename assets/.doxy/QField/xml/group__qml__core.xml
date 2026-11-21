@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__qml__core" kind="group">
+    <compoundname>qml_core</compoundname>
+    <title>QML core</title>
+    <innerclass refid="classQfGridRenderer" prot="public">QfGridRenderer</innerclass>
+    <innerclass refid="classQfKineticHandler" prot="public">QfKineticHandler</innerclass>
+    <innerclass refid="classQfLinePolygon" prot="public">QfLinePolygon</innerclass>
+    <innerclass refid="classQfMapCanvas" prot="public">QfMapCanvas</innerclass>
+    <innerclass refid="classQfMapCanvasPointHandler" prot="public">QfMapCanvasPointHandler</innerclass>
+    <innerclass refid="classQfRubberband" prot="public">QfRubberband</innerclass>
+    <innerclass refid="classQfVertexRubberband" prot="public">QfVertexRubberband</innerclass>
+    <briefdescription>
+<para>QField core QML items available through import org.qfield.core. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

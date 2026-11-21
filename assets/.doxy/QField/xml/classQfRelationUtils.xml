@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfRelationUtils" kind="class" language="C++" prot="public">
+    <compoundname>QfRelationUtils</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfRelationUtils_1a6837d88af652df9ad7a20c640323e2aa" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfRelationUtils::QfRelationUtils</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfRelationUtils</name>
+        <qualifiedname>QfRelationUtils::QfRelationUtils</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfrelationutils.h" line="32" column="14" bodyfile="src/core/utils/qfrelationutils.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRelationUtils_1a9e8b1a5b344f6286dd261e0b315af0e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsRelation</type>
+        <definition>QgsRelation QfRelationUtils::resolveReferencingRelation</definition>
+        <argsstring>(QgsProject *project, QgsVectorLayer *layer, const QString &amp;fieldName, const QString &amp;relationId)</argsstring>
+        <name>resolveReferencingRelation</name>
+        <qualifiedname>QfRelationUtils::resolveReferencingRelation</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>layer</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>fieldName</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>relationId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfrelationutils.h" line="34" column="29" bodyfile="src/core/utils/qfrelationutils.cpp" bodystart="28" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRelationUtils_1a20f1fc2655cf5792f6e0945de6fb1b12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsRelation</type>
+        <definition>QgsRelation QfRelationUtils::createRelation</definition>
+        <argsstring>(const QgsVectorLayer *referencedLayer, const QgsVectorLayer *referencingLayer, const QVariantMap &amp;fieldPairs)</argsstring>
+        <name>createRelation</name>
+        <qualifiedname>QfRelationUtils::createRelation</qualifiedname>
+        <param>
+          <type>const QgsVectorLayer *</type>
+          <declname>referencedLayer</declname>
+        </param>
+        <param>
+          <type>const QgsVectorLayer *</type>
+          <declname>referencingLayer</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>fieldPairs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a relation between referenced and referencing layers. Note: Layers must be added to the project first</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>referencedLayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The referenced (parent) layer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>referencingLayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The referencing (child) layer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fieldPairs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A map where keys are referenced field names and values are referencing field names </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A QgsRelation object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfrelationutils.h" line="45" column="29" bodyfile="src/core/utils/qfrelationutils.cpp" bodystart="48" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRelationUtils_1acc46b06b9ecae4c37a1c7501915b30f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPolymorphicRelation</type>
+        <definition>QgsPolymorphicRelation QfRelationUtils::createPolymorphicRelation</definition>
+        <argsstring>(const QVariantList &amp;referencedLayers, const QgsVectorLayer *referencingLayer, const QVariantMap &amp;fieldPairs, const QString &amp;referencedLayerField, const QString &amp;referencedLayerExpression)</argsstring>
+        <name>createPolymorphicRelation</name>
+        <qualifiedname>QfRelationUtils::createPolymorphicRelation</qualifiedname>
+        <param>
+          <type>const QVariantList &amp;</type>
+          <declname>referencedLayers</declname>
+        </param>
+        <param>
+          <type>const QgsVectorLayer *</type>
+          <declname>referencingLayer</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>fieldPairs</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>referencedLayerField</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>referencedLayerExpression</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a polymorphic relation between multiple referenced layers and a referencing layer. Note: Layers must be added to the project first</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>referencedLayers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The list of referenced (parent) layers </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>referencingLayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The referencing (child) layer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fieldPairs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A map where keys are referenced field names and values are referencing field names </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>referencedLayerField</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The field name in the child layer that stores the parent layer name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>referencedLayerExpression</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expression to identify the parent layer name (e.g., &quot;@layer_name&quot;) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A QgsPolymorphicRelation object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfrelationutils.h" line="60" column="40" bodyfile="src/core/utils/qfrelationutils.cpp" bodystart="73" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfRelationUtils_1a099f8ca938679a3eb7097be50b9e1af5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPolymorphicRelation</type>
+        <definition>QgsPolymorphicRelation QfRelationUtils::addPolymorphicRelation</definition>
+        <argsstring>(QgsProject *project, const QVariantList &amp;referencedLayers, const QgsVectorLayer *referencingLayer, const QVariantMap &amp;fieldPairs, const QString &amp;referencedLayerField, const QString &amp;referencedLayerExpression)</argsstring>
+        <name>addPolymorphicRelation</name>
+        <qualifiedname>QfRelationUtils::addPolymorphicRelation</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>const QVariantList &amp;</type>
+          <declname>referencedLayers</declname>
+        </param>
+        <param>
+          <type>const QgsVectorLayer *</type>
+          <declname>referencingLayer</declname>
+        </param>
+        <param>
+          <type>const QVariantMap &amp;</type>
+          <declname>fieldPairs</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>referencedLayerField</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>referencedLayerExpression</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates and adds a polymorphic relation to the project. This is a convenience function that creates the relation and adds it to the project&apos;s relation manager.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The project to add the relation to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>referencedLayers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The list of referenced (parent) layers </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>referencingLayer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The referencing (child) layer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fieldPairs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A map where keys are referenced field names and values are referencing field names </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>referencedLayerField</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The field name in the child layer that stores the parent layer name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>referencedLayerExpression</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expression to identify the parent layer name (e.g., &quot;@layer_name&quot;) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A QgsPolymorphicRelation object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/utils/qfrelationutils.h" line="78" column="40" bodyfile="src/core/utils/qfrelationutils.cpp" bodystart="108" bodyend="118"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfRelationUtils</label>
+        <link refid="classQfRelationUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfRelationUtils</label>
+        <link refid="classQfRelationUtils"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/utils/qfrelationutils.h" line="27" column="1" bodyfile="src/core/utils/qfrelationutils.h" bodystart="28" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classQfRelationUtils_1a099f8ca938679a3eb7097be50b9e1af5" prot="public" virt="non-virtual"><scope>QfRelationUtils</scope><name>addPolymorphicRelation</name></member>
+      <member refid="classQfRelationUtils_1acc46b06b9ecae4c37a1c7501915b30f0" prot="public" virt="non-virtual"><scope>QfRelationUtils</scope><name>createPolymorphicRelation</name></member>
+      <member refid="classQfRelationUtils_1a20f1fc2655cf5792f6e0945de6fb1b12" prot="public" virt="non-virtual"><scope>QfRelationUtils</scope><name>createRelation</name></member>
+      <member refid="classQfRelationUtils_1a6837d88af652df9ad7a20c640323e2aa" prot="public" virt="non-virtual"><scope>QfRelationUtils</scope><name>QfRelationUtils</name></member>
+      <member refid="classQfRelationUtils_1a9e8b1a5b344f6286dd261e0b315af0e4" prot="public" virt="non-virtual"><scope>QfRelationUtils</scope><name>resolveReferencingRelation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,806 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfBookmarkModel" kind="class" language="C++" prot="public">
+    <compoundname>QfBookmarkModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>QfBookmarkModel::Roles</qualifiedname>
+        <enumvalue id="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aab76ce4f37326775513e66babe31f1cbd" prot="public">
+          <name>BookmarkId</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aa27e222ce04789d7fcc15fde9d2dd5d5f" prot="public">
+          <name>BookmarkName</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aaa5ae78ddd28babcf9d93bca0d7e64527" prot="public">
+          <name>BookmarkGroup</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aa9b9690264f9522fba4261bb785f1fd64" prot="public">
+          <name>BookmarkPoint</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aab0c5adf783727c608f36ab05c9f90a8e" prot="public">
+          <name>BookmarkCrs</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aa04a03fb319de46e13c87de496239db89" prot="public">
+          <name>BookmarkUser</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aa98bdeab8c806cacae8d6b3189896ba10" prot="public">
+          <name>BookmarkSelected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aac577a215aee71773d380037729fb7d9e" prot="public">
+          <name>BookmarkSection</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="44" column="5" bodyfile="src/core/qfbookmarkmodel.h" bodystart="45" bodyend="54"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfBookmarkModel_1a3dfb084aef878c0079cc410c61cbf9a7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfBookmarkModel::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfBookmarkModel::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="35" column="5" bodyfile="src/core/qfbookmarkmodel.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBookmarkModel_1a49819a3ad980bd210e44ed1069fecd9c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfBookmarkModel::hideProjectBookmarks</definition>
+        <argsstring></argsstring>
+        <name>hideProjectBookmarks</name>
+        <qualifiedname>QfBookmarkModel::hideProjectBookmarks</qualifiedname>
+        <read>hideProjectBookmarks</read>
+        <write>setHideProjectBookmarks</write>
+        <briefdescription>
+<para>When TRUE, project bookmarks are hidden so only user bookmarks (those created in QField) are listed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="38" column="5" bodyfile="src/core/qfbookmarkmodel.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBookmarkModel_1ac9f56ed767011ed372b862324dc1b756" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qsizetype</type>
+        <definition>qsizetype QfBookmarkModel::selectedCount</definition>
+        <argsstring></argsstring>
+        <name>selectedCount</name>
+        <qualifiedname>QfBookmarkModel::selectedCount</qualifiedname>
+        <read>selectedCount</read>
+        <briefdescription>
+<para>Number of currently selected bookmarks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="41" column="5" bodyfile="src/core/qfbookmarkmodel.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfBookmarkModel_1a44c2a782cf0e6d18a24cd366a3b4936f" prot="private" static="no" mutable="no">
+        <type>QObjectUniquePtr&lt; QgsBookmarkManagerModel &gt;</type>
+        <definition>QObjectUniquePtr&lt;QgsBookmarkManagerModel&gt; QfBookmarkModel::mModel</definition>
+        <argsstring></argsstring>
+        <name>mModel</name>
+        <qualifiedname>QfBookmarkModel::mModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="118" column="22" bodyfile="src/core/qfbookmarkmodel.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkModel_1a9be26d608130c460bbc2b41bf2ae401c" prot="private" static="no" mutable="no">
+        <type>QgsBookmarkManager *</type>
+        <definition>QgsBookmarkManager* QfBookmarkModel::mManager</definition>
+        <argsstring></argsstring>
+        <name>mManager</name>
+        <qualifiedname>QfBookmarkModel::mManager</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="119" column="24" bodyfile="src/core/qfbookmarkmodel.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkModel_1aa00a6bad5e603ab6c632fc60d32a5227" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfBookmarkModel::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfBookmarkModel::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="120" column="25" bodyfile="src/core/qfbookmarkmodel.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkModel_1a6ebe766e66a8cd1dfdf9bb00671aab23" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfBookmarkModel::mHideProjectBookmarks</definition>
+        <argsstring></argsstring>
+        <name>mHideProjectBookmarks</name>
+        <qualifiedname>QfBookmarkModel::mHideProjectBookmarks</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="121" column="10" bodyfile="src/core/qfbookmarkmodel.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBookmarkModel_1a8da73e5abb0501ff03a8dcc1c993765f" prot="private" static="no" mutable="no">
+        <type>QSet&lt; QString &gt;</type>
+        <definition>QSet&lt;QString&gt; QfBookmarkModel::mSelectedIds</definition>
+        <argsstring></argsstring>
+        <name>mSelectedIds</name>
+        <qualifiedname>QfBookmarkModel::mSelectedIds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="122" column="10" bodyfile="src/core/qfbookmarkmodel.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfBookmarkModel_1ab066569981aa785be94a9c748de1c654" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfBookmarkModel::QfBookmarkModel</definition>
+        <argsstring>(QgsBookmarkManager *manager, QgsBookmarkManager *projectManager=nullptr, QObject *parent=nullptr)</argsstring>
+        <name>QfBookmarkModel</name>
+        <qualifiedname>QfBookmarkModel::QfBookmarkModel</qualifiedname>
+        <param>
+          <type>QgsBookmarkManager *</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type>QgsBookmarkManager *</type>
+          <declname>projectManager</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="57" column="14" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="30" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a1b3099b91978f220f5c8d4b9486ea526" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfBookmarkModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfBookmarkModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="59" column="14" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="42" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a23e691b297150ab3a61b04ef02d16c35" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfBookmarkModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfBookmarkModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="61" column="11" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="100" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a104b7a47fa61ac066fbfd8e878c3c126" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfBookmarkModel::setExtentFromBookmark</definition>
+        <argsstring>(const QModelIndex &amp;index)</argsstring>
+        <name>setExtentFromBookmark</name>
+        <qualifiedname>QfBookmarkModel::setExtentFromBookmark</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="63" column="22" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="124" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1aaea87090dd7ae887bef9bf23ffb73e1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>QgsPoint QfBookmarkModel::getBookmarkPoint</definition>
+        <argsstring>(int idx)</argsstring>
+        <name>getBookmarkPoint</name>
+        <qualifiedname>QfBookmarkModel::getBookmarkPoint</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+<para>Returns the center point of the bookmark at row <emphasis>idx</emphasis> transformed to the map canvas CRS, or an empty point on failure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="66" column="26" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="152" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a11f8fd063b5d315585b874eea82a0f7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString QfBookmarkModel::addBookmarkAtPoint</definition>
+        <argsstring>(QgsPoint point, const QString &amp;name=QString(), const QString &amp;group=QString())</argsstring>
+        <name>addBookmarkAtPoint</name>
+        <qualifiedname>QfBookmarkModel::addBookmarkAtPoint</qualifiedname>
+        <param>
+          <type>QgsPoint</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+          <defval>QString()</defval>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>group</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="68" column="25" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="176" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1affd3adb618692fb8287f246613447f49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfBookmarkModel::updateBookmarkDetails</definition>
+        <argsstring>(const QString &amp;id, const QString &amp;name, const QString &amp;group)</argsstring>
+        <name>updateBookmarkDetails</name>
+        <qualifiedname>QfBookmarkModel::updateBookmarkDetails</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>group</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="70" column="22" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="203" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a7d4966ab0b51fcdb290ef0e81ccc4e2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfBookmarkModel::removeBookmark</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>removeBookmark</name>
+        <qualifiedname>QfBookmarkModel::removeBookmark</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="72" column="22" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="211" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a8cba12c93f752f63617531adad94903b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsPoint</type>
+        <definition>QgsPoint QfBookmarkModel::getBookmarkPoint</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>getBookmarkPoint</name>
+        <qualifiedname>QfBookmarkModel::getBookmarkPoint</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="74" column="26" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="217" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1af1b9e4e978c7fccbd1d60c0d0907cffc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsCoordinateReferenceSystem</type>
+        <definition>QgsCoordinateReferenceSystem QfBookmarkModel::getBookmarkCrs</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>getBookmarkCrs</name>
+        <qualifiedname>QfBookmarkModel::getBookmarkCrs</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="76" column="46" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="223" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1af5707a4295c467d9ee3e7fafc4ff918b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfBookmarkModel::store</definition>
+        <argsstring>()</argsstring>
+        <name>store</name>
+        <qualifiedname>QfBookmarkModel::store</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="78" column="22" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="229" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a9a4e48508bfe1f0a7e0696b0a2de6ddd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkModel::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfBookmarkModel::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="80" column="10" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="114" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1ae3017cd3b58123d9efff9cab2945fb7b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfBookmarkModel::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfBookmarkModel::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="82" column="25" bodyfile="src/core/qfbookmarkmodel.h" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1aad8ccefbb18a22a122984ca5bc1e1ab3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfBookmarkModel::hideProjectBookmarks</definition>
+        <argsstring>() const</argsstring>
+        <name>hideProjectBookmarks</name>
+        <qualifiedname>QfBookmarkModel::hideProjectBookmarks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="84" column="10" bodyfile="src/core/qfbookmarkmodel.h" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a684f97532109e4493d42701a44b700ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkModel::setHideProjectBookmarks</definition>
+        <argsstring>(bool hideProjectBookmarks)</argsstring>
+        <name>setHideProjectBookmarks</name>
+        <qualifiedname>QfBookmarkModel::setHideProjectBookmarks</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>hideProjectBookmarks</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="85" column="10" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="250" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a45a87315922776542b34d2601c915b0a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>qsizetype</type>
+        <definition>qsizetype QfBookmarkModel::selectedCount</definition>
+        <argsstring>() const</argsstring>
+        <name>selectedCount</name>
+        <qualifiedname>QfBookmarkModel::selectedCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="87" column="15" bodyfile="src/core/qfbookmarkmodel.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1ab894df9e5ab259970898b82522180da5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfBookmarkModel::toggleSelected</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>toggleSelected</name>
+        <qualifiedname>QfBookmarkModel::toggleSelected</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Toggles the selection state of the bookmark identified by <emphasis>id</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="90" column="22" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="276" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a61df355276c6abe42fe50ba725f2395e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfBookmarkModel::clearSelection</definition>
+        <argsstring>()</argsstring>
+        <name>clearSelection</name>
+        <qualifiedname>QfBookmarkModel::clearSelection</qualifiedname>
+        <briefdescription>
+<para>Clears the current selection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="93" column="22" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="302" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a612f7d3dda93f2c76f982c5cfd8ecd2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int QfBookmarkModel::deleteSelected</definition>
+        <argsstring>()</argsstring>
+        <name>deleteSelected</name>
+        <qualifiedname>QfBookmarkModel::deleteSelected</qualifiedname>
+        <briefdescription>
+<para>Deletes all currently selected bookmarks, persisting once. Returns the number deleted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="96" column="21" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="317" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a6baba41065e0ab650c084cb196baa475" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfBookmarkModel::exportBookmarks</definition>
+        <argsstring>(bool selectedOnly)</argsstring>
+        <name>exportBookmarks</name>
+        <qualifiedname>QfBookmarkModel::exportBookmarks</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>selectedOnly</declname>
+        </param>
+        <briefdescription>
+<para>Exports user bookmarks to a temporary GeoPackage and sends it via the platform&apos;s native sharing. When <emphasis>selectedOnly</emphasis> is TRUE, only selected bookmarks are exported. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="99" column="22" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="337" bodyend="401"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfBookmarkModel_1ab754102ebc2e94a21711486337731a91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkModel::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfBookmarkModel::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="102" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfBookmarkModel_1a56b98dc7889c9292c6a413994a800686" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkModel::hideProjectBookmarksChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hideProjectBookmarksChanged</name>
+        <qualifiedname>QfBookmarkModel::hideProjectBookmarksChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="103" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfBookmarkModel_1a2eeafc0cc83bee84af41a8944f18c8ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkModel::selectedCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>selectedCountChanged</name>
+        <qualifiedname>QfBookmarkModel::selectedCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="104" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfBookmarkModel_1aeea7c3a36ec502c733ce39dbfd2fcaba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBookmarkModel::requestJumpToPoint</definition>
+        <argsstring>(const QgsPoint &amp;center, const double &amp;scale=-1.0, bool handleMargins=false) const</argsstring>
+        <name>requestJumpToPoint</name>
+        <qualifiedname>QfBookmarkModel::requestJumpToPoint</qualifiedname>
+        <param>
+          <type>const QgsPoint &amp;</type>
+          <declname>center</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>scale</declname>
+          <defval>-1.0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>handleMargins</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="105" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classQfBookmarkModel_1a1a71a5967351d12950c3999ff57df7dd" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfBookmarkModel::filterAcceptsRow</definition>
+        <argsstring>(int sourceRow, const QModelIndex &amp;sourceParent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>QfBookmarkModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceParent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="108" column="10" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="267" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a4af08101876e247e01bc31e6a7748a4a" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfBookmarkModel::lessThan</definition>
+        <argsstring>(const QModelIndex &amp;sourceLeft, const QModelIndex &amp;sourceRight) const override</argsstring>
+        <name>lessThan</name>
+        <qualifiedname>QfBookmarkModel::lessThan</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceLeft</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>sourceRight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="109" column="10" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="422" bodyend="435"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfBookmarkModel_1a163b7d671c2ab547339292c96f95e26b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfBookmarkModel::isUserBookmark</definition>
+        <argsstring>(int sourceRow) const</argsstring>
+        <name>isUserBookmark</name>
+        <qualifiedname>QfBookmarkModel::isUserBookmark</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sourceRow</declname>
+        </param>
+        <briefdescription>
+<para>Returns TRUE if the source row is a user/global bookmark, FALSE if it is a project bookmark. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="113" column="10" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="262" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBookmarkModel_1a28e20581a9bfab6dd78e88885e089d95" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfBookmarkModel::groupRank</definition>
+        <argsstring>(const QString &amp;group) const</argsstring>
+        <name>groupRank</name>
+        <qualifiedname>QfBookmarkModel::groupRank</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>group</declname>
+        </param>
+        <briefdescription>
+<para>Returns the sort rank for a bookmark group/color (&quot;&quot; first, then orange, red, blue). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbookmarkmodel.h" line="116" column="9" bodyfile="src/core/qfbookmarkmodel.cpp" bodystart="403" bodyend="420"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfBookmarkModel</label>
+        <link refid="classQfBookmarkModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfBookmarkModel</label>
+        <link refid="classQfBookmarkModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfbookmarkmodel.h" line="31" column="1" bodyfile="src/core/qfbookmarkmodel.h" bodystart="32" bodyend="123"/>
+    <listofallmembers>
+      <member refid="classQfBookmarkModel_1a11f8fd063b5d315585b874eea82a0f7e" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>addBookmarkAtPoint</name></member>
+      <member refid="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aab0c5adf783727c608f36ab05c9f90a8e" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>BookmarkCrs</name></member>
+      <member refid="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aaa5ae78ddd28babcf9d93bca0d7e64527" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>BookmarkGroup</name></member>
+      <member refid="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aab76ce4f37326775513e66babe31f1cbd" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>BookmarkId</name></member>
+      <member refid="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aa27e222ce04789d7fcc15fde9d2dd5d5f" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>BookmarkName</name></member>
+      <member refid="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aa9b9690264f9522fba4261bb785f1fd64" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>BookmarkPoint</name></member>
+      <member refid="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aac577a215aee71773d380037729fb7d9e" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>BookmarkSection</name></member>
+      <member refid="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aa98bdeab8c806cacae8d6b3189896ba10" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>BookmarkSelected</name></member>
+      <member refid="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486aa04a03fb319de46e13c87de496239db89" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>BookmarkUser</name></member>
+      <member refid="classQfBookmarkModel_1a61df355276c6abe42fe50ba725f2395e" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>clearSelection</name></member>
+      <member refid="classQfBookmarkModel_1a1b3099b91978f220f5c8d4b9486ea526" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>data</name></member>
+      <member refid="classQfBookmarkModel_1a612f7d3dda93f2c76f982c5cfd8ecd2c" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>deleteSelected</name></member>
+      <member refid="classQfBookmarkModel_1a6baba41065e0ab650c084cb196baa475" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>exportBookmarks</name></member>
+      <member refid="classQfBookmarkModel_1a1a71a5967351d12950c3999ff57df7dd" prot="protected" virt="non-virtual"><scope>QfBookmarkModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classQfBookmarkModel_1af1b9e4e978c7fccbd1d60c0d0907cffc" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>getBookmarkCrs</name></member>
+      <member refid="classQfBookmarkModel_1aaea87090dd7ae887bef9bf23ffb73e1f" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>getBookmarkPoint</name></member>
+      <member refid="classQfBookmarkModel_1a8cba12c93f752f63617531adad94903b" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>getBookmarkPoint</name></member>
+      <member refid="classQfBookmarkModel_1a28e20581a9bfab6dd78e88885e089d95" prot="private" virt="non-virtual"><scope>QfBookmarkModel</scope><name>groupRank</name></member>
+      <member refid="classQfBookmarkModel_1a49819a3ad980bd210e44ed1069fecd9c" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>hideProjectBookmarks</name></member>
+      <member refid="classQfBookmarkModel_1aad8ccefbb18a22a122984ca5bc1e1ab3" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>hideProjectBookmarks</name></member>
+      <member refid="classQfBookmarkModel_1a56b98dc7889c9292c6a413994a800686" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>hideProjectBookmarksChanged</name></member>
+      <member refid="classQfBookmarkModel_1a163b7d671c2ab547339292c96f95e26b" prot="private" virt="non-virtual"><scope>QfBookmarkModel</scope><name>isUserBookmark</name></member>
+      <member refid="classQfBookmarkModel_1a4af08101876e247e01bc31e6a7748a4a" prot="protected" virt="non-virtual"><scope>QfBookmarkModel</scope><name>lessThan</name></member>
+      <member refid="classQfBookmarkModel_1a3dfb084aef878c0079cc410c61cbf9a7" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>mapSettings</name></member>
+      <member refid="classQfBookmarkModel_1ae3017cd3b58123d9efff9cab2945fb7b" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>mapSettings</name></member>
+      <member refid="classQfBookmarkModel_1ab754102ebc2e94a21711486337731a91" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfBookmarkModel_1a6ebe766e66a8cd1dfdf9bb00671aab23" prot="private" virt="non-virtual"><scope>QfBookmarkModel</scope><name>mHideProjectBookmarks</name></member>
+      <member refid="classQfBookmarkModel_1a9be26d608130c460bbc2b41bf2ae401c" prot="private" virt="non-virtual"><scope>QfBookmarkModel</scope><name>mManager</name></member>
+      <member refid="classQfBookmarkModel_1aa00a6bad5e603ab6c632fc60d32a5227" prot="private" virt="non-virtual"><scope>QfBookmarkModel</scope><name>mMapSettings</name></member>
+      <member refid="classQfBookmarkModel_1a44c2a782cf0e6d18a24cd366a3b4936f" prot="private" virt="non-virtual"><scope>QfBookmarkModel</scope><name>mModel</name></member>
+      <member refid="classQfBookmarkModel_1a8da73e5abb0501ff03a8dcc1c993765f" prot="private" virt="non-virtual"><scope>QfBookmarkModel</scope><name>mSelectedIds</name></member>
+      <member refid="classQfBookmarkModel_1ab066569981aa785be94a9c748de1c654" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>QfBookmarkModel</name></member>
+      <member refid="classQfBookmarkModel_1a7d4966ab0b51fcdb290ef0e81ccc4e2e" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>removeBookmark</name></member>
+      <member refid="classQfBookmarkModel_1aeea7c3a36ec502c733ce39dbfd2fcaba" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfBookmarkModel_1a23e691b297150ab3a61b04ef02d16c35" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>roleNames</name></member>
+      <member refid="classQfBookmarkModel_1a92fa220653ed86a3dcb903157c6b486a" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>Roles</name></member>
+      <member refid="classQfBookmarkModel_1ac9f56ed767011ed372b862324dc1b756" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>selectedCount</name></member>
+      <member refid="classQfBookmarkModel_1a45a87315922776542b34d2601c915b0a" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>selectedCount</name></member>
+      <member refid="classQfBookmarkModel_1a2eeafc0cc83bee84af41a8944f18c8ec" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>selectedCountChanged</name></member>
+      <member refid="classQfBookmarkModel_1a104b7a47fa61ac066fbfd8e878c3c126" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>setExtentFromBookmark</name></member>
+      <member refid="classQfBookmarkModel_1a684f97532109e4493d42701a44b700ea" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>setHideProjectBookmarks</name></member>
+      <member refid="classQfBookmarkModel_1a9a4e48508bfe1f0a7e0696b0a2de6ddd" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>setMapSettings</name></member>
+      <member refid="classQfBookmarkModel_1af5707a4295c467d9ee3e7fafc4ff918b" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>store</name></member>
+      <member refid="classQfBookmarkModel_1ab894df9e5ab259970898b82522180da5" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>toggleSelected</name></member>
+      <member refid="classQfBookmarkModel_1affd3adb618692fb8287f246613447f49" prot="public" virt="non-virtual"><scope>QfBookmarkModel</scope><name>updateBookmarkDetails</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

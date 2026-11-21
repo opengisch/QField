@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="FeatureListSelectionHighlight_8qml" kind="file" language="C++">
+    <compoundname>FeatureListSelectionHighlight.qml</compoundname>
+    <innerclass refid="classFeatureListSelectionHighlight" prot="public">FeatureListSelectionHighlight</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.qfield.app</highlight></codeline>
+<codeline lineno="2" refid="classFeatureListSelectionHighlight" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">QfFeatureListSelectionHighlight<sp/>{}</highlight></codeline>
+    </programlisting>
+    <location file="src/app/qml_compat/FeatureListSelectionHighlight.qml"/>
+  </compounddef>
+</doxygen>

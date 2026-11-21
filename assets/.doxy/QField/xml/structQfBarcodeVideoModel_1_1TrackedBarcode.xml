@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfBarcodeVideoModel_1_1TrackedBarcode" kind="struct" language="C++" prot="private">
+    <compoundname>QfBarcodeVideoModel::TrackedBarcode</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfBarcodeVideoModel_1_1TrackedBarcode_1a2defbc60efa0653bed656cc22ce082c5" prot="public" static="no" mutable="no">
+        <type><ref refid="structQfBarcodeVideoModel_1_1Barcode" kindref="compound">Barcode</ref></type>
+        <definition>Barcode QfBarcodeVideoModel::TrackedBarcode::barcode</definition>
+        <argsstring></argsstring>
+        <name>barcode</name>
+        <qualifiedname>QfBarcodeVideoModel::TrackedBarcode::barcode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="83" column="17" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfBarcodeVideoModel_1_1TrackedBarcode_1a74e1f42e54302ba97cbf03ee7c018a45" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfBarcodeVideoModel::TrackedBarcode::missedFrameCount</definition>
+        <argsstring></argsstring>
+        <name>missedFrameCount</name>
+        <qualifiedname>QfBarcodeVideoModel::TrackedBarcode::missedFrameCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="84" column="13" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfBarcodeVideoModel_1_1TrackedBarcode_1a0323c9038e476a0012d6d5a277fa3224" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfBarcodeVideoModel::TrackedBarcode::TrackedBarcode</definition>
+        <argsstring>()=default</argsstring>
+        <name>TrackedBarcode</name>
+        <qualifiedname>QfBarcodeVideoModel::TrackedBarcode::TrackedBarcode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="77" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfBarcodeVideoModel_1_1TrackedBarcode_1ac4f292a1d652c83d0aced2856455c7a8" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfBarcodeVideoModel::TrackedBarcode::TrackedBarcode</definition>
+        <argsstring>(const Barcode &amp;barcode)</argsstring>
+        <name>TrackedBarcode</name>
+        <qualifiedname>QfBarcodeVideoModel::TrackedBarcode::TrackedBarcode</qualifiedname>
+        <param>
+          <type>const <ref refid="structQfBarcodeVideoModel_1_1Barcode" kindref="compound">Barcode</ref> &amp;</type>
+          <declname>barcode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="79" column="18" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="79" bodyend="81"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfBarcodeVideoModel::Barcode</label>
+        <link refid="structQfBarcodeVideoModel_1_1Barcode"/>
+      </node>
+      <node id="1">
+        <label>QfBarcodeVideoModel::TrackedBarcode</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>barcode</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfbarcodevideomodel.h" line="75" column="5" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="76" bodyend="85"/>
+    <listofallmembers>
+      <member refid="structQfBarcodeVideoModel_1_1TrackedBarcode_1a2defbc60efa0653bed656cc22ce082c5" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel::TrackedBarcode</scope><name>barcode</name></member>
+      <member refid="structQfBarcodeVideoModel_1_1TrackedBarcode_1a74e1f42e54302ba97cbf03ee7c018a45" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel::TrackedBarcode</scope><name>missedFrameCount</name></member>
+      <member refid="structQfBarcodeVideoModel_1_1TrackedBarcode_1a0323c9038e476a0012d6d5a277fa3224" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel::TrackedBarcode</scope><name>TrackedBarcode</name></member>
+      <member refid="structQfBarcodeVideoModel_1_1TrackedBarcode_1ac4f292a1d652c83d0aced2856455c7a8" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel::TrackedBarcode</scope><name>TrackedBarcode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

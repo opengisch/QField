@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfTextField" kind="class" language="C++" prot="public">
+    <compoundname>QfTextField</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">TextField</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfTextField_1ac75dc773927594c7beb7af63cd90cb8f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfTextField::suffixText</definition>
+        <argsstring></argsstring>
+        <name>suffixText</name>
+        <qualifiedname>QfTextField::suffixText</qualifiedname>
+        <read>dummyGetter_suffixText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTextField.qml" line="11" column="1" bodyfile="src/gui/qml/QfTextField.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfTextField_1a74b4f017f2443bbbf340b8ff4238faf9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTextField::echoMode</definition>
+        <argsstring></argsstring>
+        <name>echoMode</name>
+        <qualifiedname>QfTextField::echoMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTextField.qml" line="13" column="5" bodyfile="src/gui/qml/QfTextField.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTextField_1a93a4aad8a0a2797d8f07800954722f3a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTextField::passwordMaskDelay</definition>
+        <argsstring></argsstring>
+        <name>passwordMaskDelay</name>
+        <qualifiedname>QfTextField::passwordMaskDelay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTextField.qml" line="14" column="5" bodyfile="src/gui/qml/QfTextField.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTextField_1a7ce2a0ea69a3973b5cc84ec342d28634" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTextField::font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>QfTextField::font</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTextField.qml" line="15" column="5" bodyfile="src/gui/qml/QfTextField.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTextField_1a1b7f3bc1596bdd73782811e3f652a2da" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTextField::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>QfTextField::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTextField.qml" line="16" column="5" bodyfile="src/gui/qml/QfTextField.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTextField_1abed8ade6bb4cbbb0bb199afab304214f" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfTextField::inputMethodHints</definition>
+        <argsstring></argsstring>
+        <name>inputMethodHints</name>
+        <qualifiedname>QfTextField::inputMethodHints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTextField.qml" line="17" column="5" bodyfile="src/gui/qml/QfTextField.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTextField_1a0d5f1853875527393abcac5d87f4c059" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfTextField::suffixLabel</definition>
+        <argsstring></argsstring>
+        <name>suffixLabel</name>
+        <qualifiedname>QfTextField::suffixLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTextField.qml" line="18" column="7" bodyfile="src/gui/qml/QfTextField.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTextField_1a0349b89e66655c41f41b55100a5f5e93" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfTextField::showPasswordButton</definition>
+        <argsstring></argsstring>
+        <name>showPasswordButton</name>
+        <qualifiedname>QfTextField::showPasswordButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTextField.qml" line="19" column="14" bodyfile="src/gui/qml/QfTextField.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfTextField_1a86fb60e982d0df5b65c36545f09d7524" prot="private" static="no" mutable="no">
+        <type>FontMetrics</type>
+        <definition>FontMetrics QfTextField::fontMetrics</definition>
+        <argsstring></argsstring>
+        <name>fontMetrics</name>
+        <qualifiedname>QfTextField::fontMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfTextField.qml" line="20" column="13" bodyfile="src/gui/qml/QfTextField.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfTextField</label>
+        <link refid="classQfTextField"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>TextField</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfTextField</label>
+        <link refid="classQfTextField"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>TextField</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfTextField.qml" line="8" column="1" bodyfile="src/gui/qml/QfTextField.qml" bodystart="8" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classQfTextField_1a74b4f017f2443bbbf340b8ff4238faf9" prot="private" virt="non-virtual"><scope>QfTextField</scope><name>echoMode</name></member>
+      <member refid="classQfTextField_1a7ce2a0ea69a3973b5cc84ec342d28634" prot="private" virt="non-virtual"><scope>QfTextField</scope><name>font</name></member>
+      <member refid="classQfTextField_1a86fb60e982d0df5b65c36545f09d7524" prot="private" virt="non-virtual"><scope>QfTextField</scope><name>fontMetrics</name></member>
+      <member refid="classQfTextField_1abed8ade6bb4cbbb0bb199afab304214f" prot="private" virt="non-virtual"><scope>QfTextField</scope><name>inputMethodHints</name></member>
+      <member refid="classQfTextField_1a93a4aad8a0a2797d8f07800954722f3a" prot="private" virt="non-virtual"><scope>QfTextField</scope><name>passwordMaskDelay</name></member>
+      <member refid="classQfTextField_1a1b7f3bc1596bdd73782811e3f652a2da" prot="private" virt="non-virtual"><scope>QfTextField</scope><name>rightPadding</name></member>
+      <member refid="classQfTextField_1a0349b89e66655c41f41b55100a5f5e93" prot="private" virt="non-virtual"><scope>QfTextField</scope><name>showPasswordButton</name></member>
+      <member refid="classQfTextField_1a0d5f1853875527393abcac5d87f4c059" prot="private" virt="non-virtual"><scope>QfTextField</scope><name>suffixLabel</name></member>
+      <member refid="classQfTextField_1ac75dc773927594c7beb7af63cd90cb8f" prot="public" virt="non-virtual"><scope>QfTextField</scope><name>suffixText</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

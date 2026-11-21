@@ -1,0 +1,480 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfScaleBarMeasurement" kind="class" language="C++" prot="public">
+    <compoundname>QfScaleBarMeasurement</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfScaleBarMeasurement_1a1089cc13ef83ca2aaa95004cae99e8c6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfScaleBarMeasurement::project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>QfScaleBarMeasurement::project</qualifiedname>
+        <read>project</read>
+        <write>setProject</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="33" column="5" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfScaleBarMeasurement_1a14c91a908349e865053804752518dede" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfScaleBarMeasurement::mapSettings</definition>
+        <argsstring></argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfScaleBarMeasurement::mapSettings</qualifiedname>
+        <read>mapSettings</read>
+        <write>setMapSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="34" column="5" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfScaleBarMeasurement_1a1ca326c6c1a2ade339ac1690af389010" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfScaleBarMeasurement::screenLength</definition>
+        <argsstring></argsstring>
+        <name>screenLength</name>
+        <qualifiedname>QfScaleBarMeasurement::screenLength</qualifiedname>
+        <read>screenLength</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="36" column="5" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfScaleBarMeasurement_1a66a1e05d90cee2f21ca1ac484a7b31e2" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfScaleBarMeasurement::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <qualifiedname>QfScaleBarMeasurement::label</qualifiedname>
+        <read>label</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="37" column="5" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfScaleBarMeasurement_1ad6b283a423cd46b81ce3f2b98efc55ec" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfScaleBarMeasurement::referenceScreenLength</definition>
+        <argsstring></argsstring>
+        <name>referenceScreenLength</name>
+        <qualifiedname>QfScaleBarMeasurement::referenceScreenLength</qualifiedname>
+        <read>referenceScreenLength</read>
+        <write>setReferenceScreenLength</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="39" column="5" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfScaleBarMeasurement_1aba2249a5080c59e7f44846dce6347670" prot="private" static="no" mutable="no">
+        <type>QgsProject *</type>
+        <definition>QgsProject* QfScaleBarMeasurement::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QfScaleBarMeasurement::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="71" column="16" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScaleBarMeasurement_1a5a2fc764f0fdbf215405f3dd7241c652" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings* QfScaleBarMeasurement::mMapSettings</definition>
+        <argsstring></argsstring>
+        <name>mMapSettings</name>
+        <qualifiedname>QfScaleBarMeasurement::mMapSettings</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="72" column="25" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScaleBarMeasurement_1a97672c4ec67ada7b2fdb69584ffe5637" prot="private" static="no" mutable="no">
+        <type>QgsDistanceArea</type>
+        <definition>QgsDistanceArea QfScaleBarMeasurement::mDistanceArea</definition>
+        <argsstring></argsstring>
+        <name>mDistanceArea</name>
+        <qualifiedname>QfScaleBarMeasurement::mDistanceArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="74" column="21" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScaleBarMeasurement_1aa7be05a20a6974686e03a279c07a9e9a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfScaleBarMeasurement::mScreenLength</definition>
+        <argsstring></argsstring>
+        <name>mScreenLength</name>
+        <qualifiedname>QfScaleBarMeasurement::mScreenLength</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="76" column="12" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScaleBarMeasurement_1a6b46086d1e2cb3c89f0ebcd441852b45" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfScaleBarMeasurement::mLabel</definition>
+        <argsstring></argsstring>
+        <name>mLabel</name>
+        <qualifiedname>QfScaleBarMeasurement::mLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="78" column="13" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfScaleBarMeasurement_1af8f96b57116ba4a857ad23e7d6202d24" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfScaleBarMeasurement::mReferenceScreenLength</definition>
+        <argsstring></argsstring>
+        <name>mReferenceScreenLength</name>
+        <qualifiedname>QfScaleBarMeasurement::mReferenceScreenLength</qualifiedname>
+        <initializer>= 300.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="80" column="12" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfScaleBarMeasurement_1a75ba4f412aece077c0a2e9aed752fad2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfScaleBarMeasurement::QfScaleBarMeasurement</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfScaleBarMeasurement</name>
+        <qualifiedname>QfScaleBarMeasurement::QfScaleBarMeasurement</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="42" column="14" bodyfile="src/core/qfscalebarmeasurement.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfScaleBarMeasurement_1a4f2b55bccf59a1875bda6fe64d2a3905" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfScaleBarMeasurement::referenceScreenLength</definition>
+        <argsstring>() const</argsstring>
+        <name>referenceScreenLength</name>
+        <qualifiedname>QfScaleBarMeasurement::referenceScreenLength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="44" column="12" bodyfile="src/core/qfscalebarmeasurement.cpp" bodystart="183" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfScaleBarMeasurement_1a77d8bea4bf133d4c049aa9b05fe6bb88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfScaleBarMeasurement::setReferenceScreenLength</definition>
+        <argsstring>(double referenceScreenLength)</argsstring>
+        <name>setReferenceScreenLength</name>
+        <qualifiedname>QfScaleBarMeasurement::setReferenceScreenLength</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>referenceScreenLength</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="45" column="10" bodyfile="src/core/qfscalebarmeasurement.cpp" bodystart="173" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfScaleBarMeasurement_1ae03ab326fdd28aa716ff2c14b5f38e95" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfScaleBarMeasurement::screenLength</definition>
+        <argsstring>() const</argsstring>
+        <name>screenLength</name>
+        <qualifiedname>QfScaleBarMeasurement::screenLength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="47" column="12" bodyfile="src/core/qfscalebarmeasurement.cpp" bodystart="188" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfScaleBarMeasurement_1ae2931feb17d834f35f8200d11e4ca589" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfScaleBarMeasurement::label</definition>
+        <argsstring>() const</argsstring>
+        <name>label</name>
+        <qualifiedname>QfScaleBarMeasurement::label</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="48" column="13" bodyfile="src/core/qfscalebarmeasurement.cpp" bodystart="193" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfScaleBarMeasurement_1a193c3b52c8967e648bf5d8caa36a08b5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfScaleBarMeasurement::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QfScaleBarMeasurement::project</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="50" column="16" bodyfile="src/core/qfscalebarmeasurement.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfScaleBarMeasurement_1a46b5f9cc7807be65f815909682314f19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfScaleBarMeasurement::setProject</definition>
+        <argsstring>(QgsProject *project)</argsstring>
+        <name>setProject</name>
+        <qualifiedname>QfScaleBarMeasurement::setProject</qualifiedname>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="51" column="10" bodyfile="src/core/qfscalebarmeasurement.cpp" bodystart="46" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfScaleBarMeasurement_1a6e81a64ab39aef592de34dc167e6a395" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+        <definition>QgsQuickMapSettings * QfScaleBarMeasurement::mapSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>mapSettings</name>
+        <qualifiedname>QfScaleBarMeasurement::mapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="53" column="25" bodyfile="src/core/qfscalebarmeasurement.cpp" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfScaleBarMeasurement_1ac27d0f5873c0a5f6a9a5c91f37bb9a5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfScaleBarMeasurement::setMapSettings</definition>
+        <argsstring>(QgsQuickMapSettings *mapSettings)</argsstring>
+        <name>setMapSettings</name>
+        <qualifiedname>QfScaleBarMeasurement::setMapSettings</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="54" column="10" bodyfile="src/core/qfscalebarmeasurement.cpp" bodystart="69" bodyend="87"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfScaleBarMeasurement_1a21e4926dc7af587b2450e62f0ab17cce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfScaleBarMeasurement::projectChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectChanged</name>
+        <qualifiedname>QfScaleBarMeasurement::projectChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="57" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfScaleBarMeasurement_1adda70bede666e5c83ff8f71a591244c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfScaleBarMeasurement::mapSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapSettingsChanged</name>
+        <qualifiedname>QfScaleBarMeasurement::mapSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="58" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfScaleBarMeasurement_1a9b3e9ddfa07a9294d069300b2345c4d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfScaleBarMeasurement::screenLengthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>screenLengthChanged</name>
+        <qualifiedname>QfScaleBarMeasurement::screenLengthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="60" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfScaleBarMeasurement_1a2580ec98c78d4987516ab3b0b3379d5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfScaleBarMeasurement::labelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>labelChanged</name>
+        <qualifiedname>QfScaleBarMeasurement::labelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="61" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfScaleBarMeasurement_1ae515bfd3c2f4b6493edbccc17c5be89f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfScaleBarMeasurement::referenceScreenLengthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>referenceScreenLengthChanged</name>
+        <qualifiedname>QfScaleBarMeasurement::referenceScreenLengthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="63" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfScaleBarMeasurement_1a23951d825c14ae3af84c35f89f40470c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfScaleBarMeasurement::resetDistanceArea</definition>
+        <argsstring>()</argsstring>
+        <name>resetDistanceArea</name>
+        <qualifiedname>QfScaleBarMeasurement::resetDistanceArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="67" column="10" bodyfile="src/core/qfscalebarmeasurement.cpp" bodystart="28" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfScaleBarMeasurement_1ac14ea70941986c32e27fb0a70133ddd3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfScaleBarMeasurement::measure</definition>
+        <argsstring>()</argsstring>
+        <name>measure</name>
+        <qualifiedname>QfScaleBarMeasurement::measure</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfscalebarmeasurement.h" line="68" column="10" bodyfile="src/core/qfscalebarmeasurement.cpp" bodystart="94" bodyend="171"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfScaleBarMeasurement</label>
+        <link refid="classQfScaleBarMeasurement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfScaleBarMeasurement</label>
+        <link refid="classQfScaleBarMeasurement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfscalebarmeasurement.h" line="29" column="1" bodyfile="src/core/qfscalebarmeasurement.h" bodystart="30" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classQfScaleBarMeasurement_1a66a1e05d90cee2f21ca1ac484a7b31e2" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>label</name></member>
+      <member refid="classQfScaleBarMeasurement_1ae2931feb17d834f35f8200d11e4ca589" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>label</name></member>
+      <member refid="classQfScaleBarMeasurement_1a2580ec98c78d4987516ab3b0b3379d5a" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>labelChanged</name></member>
+      <member refid="classQfScaleBarMeasurement_1a14c91a908349e865053804752518dede" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>mapSettings</name></member>
+      <member refid="classQfScaleBarMeasurement_1a6e81a64ab39aef592de34dc167e6a395" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>mapSettings</name></member>
+      <member refid="classQfScaleBarMeasurement_1adda70bede666e5c83ff8f71a591244c6" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>mapSettingsChanged</name></member>
+      <member refid="classQfScaleBarMeasurement_1a97672c4ec67ada7b2fdb69584ffe5637" prot="private" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>mDistanceArea</name></member>
+      <member refid="classQfScaleBarMeasurement_1ac14ea70941986c32e27fb0a70133ddd3" prot="private" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>measure</name></member>
+      <member refid="classQfScaleBarMeasurement_1a6b46086d1e2cb3c89f0ebcd441852b45" prot="private" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>mLabel</name></member>
+      <member refid="classQfScaleBarMeasurement_1a5a2fc764f0fdbf215405f3dd7241c652" prot="private" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>mMapSettings</name></member>
+      <member refid="classQfScaleBarMeasurement_1aba2249a5080c59e7f44846dce6347670" prot="private" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>mProject</name></member>
+      <member refid="classQfScaleBarMeasurement_1af8f96b57116ba4a857ad23e7d6202d24" prot="private" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>mReferenceScreenLength</name></member>
+      <member refid="classQfScaleBarMeasurement_1aa7be05a20a6974686e03a279c07a9e9a" prot="private" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>mScreenLength</name></member>
+      <member refid="classQfScaleBarMeasurement_1a1089cc13ef83ca2aaa95004cae99e8c6" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>project</name></member>
+      <member refid="classQfScaleBarMeasurement_1a193c3b52c8967e648bf5d8caa36a08b5" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>project</name></member>
+      <member refid="classQfScaleBarMeasurement_1a21e4926dc7af587b2450e62f0ab17cce" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>projectChanged</name></member>
+      <member refid="classQfScaleBarMeasurement_1a75ba4f412aece077c0a2e9aed752fad2" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>QfScaleBarMeasurement</name></member>
+      <member refid="classQfScaleBarMeasurement_1ad6b283a423cd46b81ce3f2b98efc55ec" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>referenceScreenLength</name></member>
+      <member refid="classQfScaleBarMeasurement_1a4f2b55bccf59a1875bda6fe64d2a3905" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>referenceScreenLength</name></member>
+      <member refid="classQfScaleBarMeasurement_1ae515bfd3c2f4b6493edbccc17c5be89f" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>referenceScreenLengthChanged</name></member>
+      <member refid="classQfScaleBarMeasurement_1a23951d825c14ae3af84c35f89f40470c" prot="private" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>resetDistanceArea</name></member>
+      <member refid="classQfScaleBarMeasurement_1a1ca326c6c1a2ade339ac1690af389010" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>screenLength</name></member>
+      <member refid="classQfScaleBarMeasurement_1ae03ab326fdd28aa716ff2c14b5f38e95" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>screenLength</name></member>
+      <member refid="classQfScaleBarMeasurement_1a9b3e9ddfa07a9294d069300b2345c4d6" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>screenLengthChanged</name></member>
+      <member refid="classQfScaleBarMeasurement_1ac27d0f5873c0a5f6a9a5c91f37bb9a5b" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>setMapSettings</name></member>
+      <member refid="classQfScaleBarMeasurement_1a46b5f9cc7807be65f815909682314f19" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>setProject</name></member>
+      <member refid="classQfScaleBarMeasurement_1a77d8bea4bf133d4c049aa9b05fe6bb88" prot="public" virt="non-virtual"><scope>QfScaleBarMeasurement</scope><name>setReferenceScreenLength</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

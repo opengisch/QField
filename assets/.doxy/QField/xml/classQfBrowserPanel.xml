@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfBrowserPanel" kind="class" language="C++" prot="public">
+    <compoundname>QfBrowserPanel</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <derivedcompoundref refid="classBrowserPanel" prot="public" virt="non-virtual">BrowserPanel</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfBrowserPanel_1a7cd77b55ec393d9511aedffc4a14595d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfBrowserPanel::browserView</definition>
+        <argsstring></argsstring>
+        <name>browserView</name>
+        <qualifiedname>QfBrowserPanel::browserView</qualifiedname>
+        <read>dummyGetter_browserView_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="15" column="1" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBrowserPanel_1a17aee04d59a609708bda5fd3b731a437" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>var</type>
+        <definition>var QfBrowserPanel::browserCookies</definition>
+        <argsstring></argsstring>
+        <name>browserCookies</name>
+        <qualifiedname>QfBrowserPanel::browserCookies</qualifiedname>
+        <read>dummyGetter_browserCookies_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="17" column="1" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBrowserPanel_1a1ce93d58616c0979476af9eff5146e34" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfBrowserPanel::url</definition>
+        <argsstring></argsstring>
+        <name>url</name>
+        <qualifiedname>QfBrowserPanel::url</qualifiedname>
+        <read>dummyGetter_url_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="19" column="1" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBrowserPanel_1a9672083ee2739a2e8147b0b9fff8d5f6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfBrowserPanel::fullscreen</definition>
+        <argsstring></argsstring>
+        <name>fullscreen</name>
+        <qualifiedname>QfBrowserPanel::fullscreen</qualifiedname>
+        <read>dummyGetter_fullscreen_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="21" column="1" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfBrowserPanel_1abf5a3c4a9cc92435efab52211d57796f" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfBrowserPanel::clearCookiesOnOpen</definition>
+        <argsstring></argsstring>
+        <name>clearCookiesOnOpen</name>
+        <qualifiedname>QfBrowserPanel::clearCookiesOnOpen</qualifiedname>
+        <read>dummyGetter_clearCookiesOnOpen_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="23" column="1" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfBrowserPanel_1af91dea19a44fa759b8aaae04223d3362" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBrowserPanel::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfBrowserPanel::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="25" column="5" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBrowserPanel_1a67caee283572138c7282c5e6295d17c9" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBrowserPanel::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfBrowserPanel::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="26" column="5" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBrowserPanel_1a69092d6a81f9915aef08cbd9da25a19e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBrowserPanel::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfBrowserPanel::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="27" column="5" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBrowserPanel_1a6fc7666d17389320611135d3a8813e08" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBrowserPanel::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfBrowserPanel::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="28" column="5" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBrowserPanel_1a96ab6d79303dcb9fe6d01c8f8c77fb7e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBrowserPanel::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <qualifiedname>QfBrowserPanel::padding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="29" column="5" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBrowserPanel_1a498f9187ab83b4a85a50e9d4fce4ac46" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBrowserPanel::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfBrowserPanel::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="30" column="5" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBrowserPanel_1a8db4669944dae69b154f4577f9f2865c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBrowserPanel::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfBrowserPanel::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="31" column="5" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBrowserPanel_1a8696f344d872384fafdbea74407611e4" prot="private" static="no" mutable="no">
+        <type>Page</type>
+        <definition>Page QfBrowserPanel::browserContainer</definition>
+        <argsstring></argsstring>
+        <name>browserContainer</name>
+        <qualifiedname>QfBrowserPanel::browserContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="32" column="6" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBrowserPanel_1ac4a32bbc7449cf63f8d24d07a136689e" prot="private" static="no" mutable="no">
+        <type>Loader</type>
+        <definition>Loader QfBrowserPanel::webViewLoader</definition>
+        <argsstring></argsstring>
+        <name>webViewLoader</name>
+        <qualifiedname>QfBrowserPanel::webViewLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="33" column="8" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBrowserPanel_1a7b3d5164577bab213ac2c2b181666cae" prot="private" static="no" mutable="no">
+        <type>Component</type>
+        <definition>Component QfBrowserPanel::webViewComponent</definition>
+        <argsstring></argsstring>
+        <name>webViewComponent</name>
+        <qualifiedname>QfBrowserPanel::webViewComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="34" column="11" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBrowserPanel_1a95db93207eae6d9cf23b33bfac5975d1" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBrowserPanel::onAboutToHide</definition>
+        <argsstring></argsstring>
+        <name>onAboutToHide</name>
+        <qualifiedname>QfBrowserPanel::onAboutToHide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="35" column="5" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfBrowserPanel_1a9baf69cdc00dd9e93c9eba10ef48370a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfBrowserPanel::onAboutToShow</definition>
+        <argsstring></argsstring>
+        <name>onAboutToShow</name>
+        <qualifiedname>QfBrowserPanel::onAboutToShow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="36" column="5" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfBrowserPanel_1a5f7e862e18b67f9eda499aa01fa815b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBrowserPanel::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>QfBrowserPanel::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="13" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfBrowserPanel_1a7efbb16bda69a64b5fefe399174acb81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBrowserPanel::deleteCookies</definition>
+        <argsstring>()</argsstring>
+        <name>deleteCookies</name>
+        <qualifiedname>QfBrowserPanel::deleteCookies</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfBrowserPanel.qml" line="39" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>BrowserPanel</label>
+        <link refid="classBrowserPanel"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfBrowserPanel</label>
+        <link refid="classQfBrowserPanel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfBrowserPanel</label>
+        <link refid="classQfBrowserPanel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfBrowserPanel.qml" line="10" column="1" bodyfile="src/gui/qml/QfBrowserPanel.qml" bodystart="10" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classQfBrowserPanel_1a8696f344d872384fafdbea74407611e4" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>browserContainer</name></member>
+      <member refid="classQfBrowserPanel_1a17aee04d59a609708bda5fd3b731a437" prot="public" virt="non-virtual"><scope>QfBrowserPanel</scope><name>browserCookies</name></member>
+      <member refid="classQfBrowserPanel_1a7cd77b55ec393d9511aedffc4a14595d" prot="public" virt="non-virtual"><scope>QfBrowserPanel</scope><name>browserView</name></member>
+      <member refid="classQfBrowserPanel_1a5f7e862e18b67f9eda499aa01fa815b8" prot="public" virt="non-virtual"><scope>QfBrowserPanel</scope><name>cancel</name></member>
+      <member refid="classQfBrowserPanel_1abf5a3c4a9cc92435efab52211d57796f" prot="public" virt="non-virtual"><scope>QfBrowserPanel</scope><name>clearCookiesOnOpen</name></member>
+      <member refid="classQfBrowserPanel_1a498f9187ab83b4a85a50e9d4fce4ac46" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>closePolicy</name></member>
+      <member refid="classQfBrowserPanel_1a7efbb16bda69a64b5fefe399174acb81" prot="public" virt="non-virtual"><scope>QfBrowserPanel</scope><name>deleteCookies</name></member>
+      <member refid="classQfBrowserPanel_1a8db4669944dae69b154f4577f9f2865c" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>focus</name></member>
+      <member refid="classQfBrowserPanel_1a9672083ee2739a2e8147b0b9fff8d5f6" prot="public" virt="non-virtual"><scope>QfBrowserPanel</scope><name>fullscreen</name></member>
+      <member refid="classQfBrowserPanel_1a67caee283572138c7282c5e6295d17c9" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>height</name></member>
+      <member refid="classQfBrowserPanel_1a95db93207eae6d9cf23b33bfac5975d1" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>onAboutToHide</name></member>
+      <member refid="classQfBrowserPanel_1a9baf69cdc00dd9e93c9eba10ef48370a" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>onAboutToShow</name></member>
+      <member refid="classQfBrowserPanel_1a96ab6d79303dcb9fe6d01c8f8c77fb7e" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>padding</name></member>
+      <member refid="classQfBrowserPanel_1a1ce93d58616c0979476af9eff5146e34" prot="public" virt="non-virtual"><scope>QfBrowserPanel</scope><name>url</name></member>
+      <member refid="classQfBrowserPanel_1a7b3d5164577bab213ac2c2b181666cae" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>webViewComponent</name></member>
+      <member refid="classQfBrowserPanel_1ac4a32bbc7449cf63f8d24d07a136689e" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>webViewLoader</name></member>
+      <member refid="classQfBrowserPanel_1af91dea19a44fa759b8aaae04223d3362" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>width</name></member>
+      <member refid="classQfBrowserPanel_1a69092d6a81f9915aef08cbd9da25a19e" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>x</name></member>
+      <member refid="classQfBrowserPanel_1a6fc7666d17389320611135d3a8813e08" prot="private" virt="non-virtual"><scope>QfBrowserPanel</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

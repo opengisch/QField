@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfProjectCreationScreen" kind="class" language="C++" prot="public">
+    <compoundname>QfProjectCreationScreen</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Page</basecompoundref>
+    <derivedcompoundref refid="classProjectCreationScreen" prot="public" virt="non-virtual">ProjectCreationScreen</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1a293962711be3f05e242a919345dc529e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProjectCreationScreen::leftPadding</definition>
+        <argsstring></argsstring>
+        <name>leftPadding</name>
+        <qualifiedname>QfProjectCreationScreen::leftPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="11" column="5" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1abad91825d8bfc8b7185f139b56abbab4" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProjectCreationScreen::rightPadding</definition>
+        <argsstring></argsstring>
+        <name>rightPadding</name>
+        <qualifiedname>QfProjectCreationScreen::rightPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="12" column="5" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1ac0c8ab293bc449563df33e02db599deb" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProjectCreationScreen::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>QfProjectCreationScreen::header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="21" column="5" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1aa069d04b563a0187dbd8281e03971070" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable QfProjectCreationScreen::contentFlickable</definition>
+        <argsstring></argsstring>
+        <name>contentFlickable</name>
+        <qualifiedname>QfProjectCreationScreen::contentFlickable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="22" column="11" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1abc8c76ece8d930fbb28bde9f6d58d437" prot="private" static="no" mutable="no">
+        <type>Column</type>
+        <definition>Column QfProjectCreationScreen::newProjectConfigColumn</definition>
+        <argsstring></argsstring>
+        <name>newProjectConfigColumn</name>
+        <qualifiedname>QfProjectCreationScreen::newProjectConfigColumn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="23" column="8" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1a16eb0885bd0ac394f87f84274087bb81" prot="private" static="no" mutable="no">
+        <type>TextField</type>
+        <definition>TextField QfProjectCreationScreen::projectName</definition>
+        <argsstring></argsstring>
+        <name>projectName</name>
+        <qualifiedname>QfProjectCreationScreen::projectName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="24" column="11" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1aae69910f07868d9e671cbb272df4bca0" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfExpandableGroupBox" kindref="compound">QfExpandableGroupBox</ref></type>
+        <definition>QfExpandableGroupBox QfProjectCreationScreen::basemapExpandablePanel</definition>
+        <argsstring></argsstring>
+        <name>basemapExpandablePanel</name>
+        <qualifiedname>QfProjectCreationScreen::basemapExpandablePanel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="25" column="22" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1a07e1ba90b79cfe32ea78a9347481ed56" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfExpandableGroupBox" kindref="compound">QfExpandableGroupBox</ref></type>
+        <definition>QfExpandableGroupBox QfProjectCreationScreen::takeNotesGroupBox</definition>
+        <argsstring></argsstring>
+        <name>takeNotesGroupBox</name>
+        <qualifiedname>QfProjectCreationScreen::takeNotesGroupBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="26" column="22" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1a6b3dd20cf1ce493abb45b7aec9796f20" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfExpandableGroupBox" kindref="compound">QfExpandableGroupBox</ref></type>
+        <definition>QfExpandableGroupBox QfProjectCreationScreen::trackPositionGroupBox</definition>
+        <argsstring></argsstring>
+        <name>trackPositionGroupBox</name>
+        <qualifiedname>QfProjectCreationScreen::trackPositionGroupBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="27" column="22" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1a543b23db27a88f42697e2dac59918cf8" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfExpandableGroupBox" kindref="compound">QfExpandableGroupBox</ref></type>
+        <definition>QfExpandableGroupBox QfProjectCreationScreen::qfieldCloudGroupBox</definition>
+        <argsstring></argsstring>
+        <name>qfieldCloudGroupBox</name>
+        <qualifiedname>QfProjectCreationScreen::qfieldCloudGroupBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="28" column="22" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1ae65e8cfa38af1c89cb960957508c466f" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfProjectCreationScreen::bottomRow</definition>
+        <argsstring></argsstring>
+        <name>bottomRow</name>
+        <qualifiedname>QfProjectCreationScreen::bottomRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="29" column="11" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1a7e9c184f88c621f8cfac74ff34b34b52" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfProjectCreationScreen::createProjectButton</definition>
+        <argsstring></argsstring>
+        <name>createProjectButton</name>
+        <qualifiedname>QfProjectCreationScreen::createProjectButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="30" column="10" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1afa8aa85946ad360e8841188ea41ad948" prot="private" static="no" mutable="no">
+        <type>Connections</type>
+        <definition>Connections QfProjectCreationScreen::connection</definition>
+        <argsstring></argsstring>
+        <name>connection</name>
+        <qualifiedname>QfProjectCreationScreen::connection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="31" column="13" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1a2be42388d6624f6a593dee7843e24e0e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfProjectCreationScreen::onVisibleChanged</definition>
+        <argsstring></argsstring>
+        <name>onVisibleChanged</name>
+        <qualifiedname>QfProjectCreationScreen::onVisibleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="36" column="5" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfProjectCreationScreen_1a1ac985dfb67cf3558be85ce5c245930e" prot="private" static="no" mutable="no">
+        <type>var Keys</type>
+        <definition>var Keys QfProjectCreationScreen::onReleased</definition>
+        <argsstring></argsstring>
+        <name>onReleased</name>
+        <qualifiedname>QfProjectCreationScreen::onReleased</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="37" column="9" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfProjectCreationScreen_1a874feeb4ff16f3dcf657a4de8086389d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectCreationScreen::triggerConnection</definition>
+        <argsstring>()</argsstring>
+        <name>triggerConnection</name>
+        <qualifiedname>QfProjectCreationScreen::triggerConnection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="15" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfProjectCreationScreen_1ab8c5ef0e28a2c2fc8388bef73befc9d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectCreationScreen::triggerCloudify</definition>
+        <argsstring>(string title, string path)</argsstring>
+        <name>triggerCloudify</name>
+        <qualifiedname>QfProjectCreationScreen::triggerCloudify</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="17" column="17"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfProjectCreationScreen_1a17f1a793b543e0fc7a0763d19aab7479" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectCreationScreen::triggerProjectLoad</definition>
+        <argsstring>(string title, string path)</argsstring>
+        <name>triggerProjectLoad</name>
+        <qualifiedname>QfProjectCreationScreen::triggerProjectLoad</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="19" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfProjectCreationScreen_1ad3a0deaa75f0310973f844110bbc781c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfProjectCreationScreen::show</definition>
+        <argsstring>()</argsstring>
+        <name>show</name>
+        <qualifiedname>QfProjectCreationScreen::show</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfProjectCreationScreen.qml" line="34" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="3">
+        <label>ProjectCreationScreen</label>
+        <link refid="classProjectCreationScreen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfProjectCreationScreen</label>
+        <link refid="classQfProjectCreationScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Page</label>
+      </node>
+      <node id="1">
+        <label>QfProjectCreationScreen</label>
+        <link refid="classQfProjectCreationScreen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfProjectCreationScreen.qml" line="10" column="1" bodyfile="src/gui/qml/QfProjectCreationScreen.qml" bodystart="10" bodyend="38"/>
+    <listofallmembers>
+      <member refid="classQfProjectCreationScreen_1aae69910f07868d9e671cbb272df4bca0" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>basemapExpandablePanel</name></member>
+      <member refid="classQfProjectCreationScreen_1ae65e8cfa38af1c89cb960957508c466f" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>bottomRow</name></member>
+      <member refid="classQfProjectCreationScreen_1afa8aa85946ad360e8841188ea41ad948" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>connection</name></member>
+      <member refid="classQfProjectCreationScreen_1aa069d04b563a0187dbd8281e03971070" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>contentFlickable</name></member>
+      <member refid="classQfProjectCreationScreen_1a7e9c184f88c621f8cfac74ff34b34b52" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>createProjectButton</name></member>
+      <member refid="classQfProjectCreationScreen_1ac0c8ab293bc449563df33e02db599deb" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>header</name></member>
+      <member refid="classQfProjectCreationScreen_1a293962711be3f05e242a919345dc529e" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>leftPadding</name></member>
+      <member refid="classQfProjectCreationScreen_1abc8c76ece8d930fbb28bde9f6d58d437" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>newProjectConfigColumn</name></member>
+      <member refid="classQfProjectCreationScreen_1a1ac985dfb67cf3558be85ce5c245930e" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>onReleased</name></member>
+      <member refid="classQfProjectCreationScreen_1a2be42388d6624f6a593dee7843e24e0e" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>onVisibleChanged</name></member>
+      <member refid="classQfProjectCreationScreen_1a16eb0885bd0ac394f87f84274087bb81" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>projectName</name></member>
+      <member refid="classQfProjectCreationScreen_1a543b23db27a88f42697e2dac59918cf8" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>qfieldCloudGroupBox</name></member>
+      <member refid="classQfProjectCreationScreen_1abad91825d8bfc8b7185f139b56abbab4" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>rightPadding</name></member>
+      <member refid="classQfProjectCreationScreen_1ad3a0deaa75f0310973f844110bbc781c" prot="public" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>show</name></member>
+      <member refid="classQfProjectCreationScreen_1a07e1ba90b79cfe32ea78a9347481ed56" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>takeNotesGroupBox</name></member>
+      <member refid="classQfProjectCreationScreen_1a6b3dd20cf1ce493abb45b7aec9796f20" prot="private" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>trackPositionGroupBox</name></member>
+      <member refid="classQfProjectCreationScreen_1ab8c5ef0e28a2c2fc8388bef73befc9d7" prot="public" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>triggerCloudify</name></member>
+      <member refid="classQfProjectCreationScreen_1a874feeb4ff16f3dcf657a4de8086389d" prot="public" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>triggerConnection</name></member>
+      <member refid="classQfProjectCreationScreen_1a17f1a793b543e0fc7a0763d19aab7479" prot="public" virt="non-virtual"><scope>QfProjectCreationScreen</scope><name>triggerProjectLoad</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

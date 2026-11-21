@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfBarcodeVideoModel" kind="class" language="C++" prot="public">
+    <compoundname>QfBarcodeVideoModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="qfbarcodevideomodel_8h" local="no">qfbarcodevideomodel.h</includes>
+    <innerclass refid="structQfBarcodeVideoModel_1_1Barcode" prot="public">QfBarcodeVideoModel::Barcode</innerclass>
+    <innerclass refid="structQfBarcodeVideoModel_1_1TrackedBarcode" prot="private">QfBarcodeVideoModel::TrackedBarcode</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfBarcodeVideoModel_1a7c74169a343ad50bfca736b181e15d4a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>QfBarcodeVideoModel::Roles</qualifiedname>
+        <enumvalue id="classQfBarcodeVideoModel_1a7c74169a343ad50bfca736b181e15d4aacb3007c451ee3ee929b9712f5e89b4f3" prot="public">
+          <name>BarcodeText</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfBarcodeVideoModel_1a7c74169a343ad50bfca736b181e15d4aa3a4775a283fa76f90e5bac1a86bc3f4e" prot="public">
+          <name>BarcodeBounds</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="33" column="5" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="34" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classQfBarcodeVideoModel_1abe809fe83930a5e95ac39d318842e6d8" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int QfBarcodeVideoModel::sMaximumMissedFrameCount</definition>
+        <argsstring></argsstring>
+        <name>sMaximumMissedFrameCount</name>
+        <qualifiedname>QfBarcodeVideoModel::sMaximumMissedFrameCount</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="87" column="26" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfBarcodeVideoModel_1a73d6ad695ebc61cbac2af58b8eb17de2" prot="private" static="no" mutable="no">
+        <type>QList&lt; TrackedBarcode &gt;</type>
+        <definition>QList&lt;TrackedBarcode&gt; QfBarcodeVideoModel::mVisibleBarcodes</definition>
+        <argsstring></argsstring>
+        <name>mVisibleBarcodes</name>
+        <qualifiedname>QfBarcodeVideoModel::mVisibleBarcodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="89" column="11" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfBarcodeVideoModel_1a5bb1fd3ef55413cd36496789be3f329e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfBarcodeVideoModel::QfBarcodeVideoModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfBarcodeVideoModel</name>
+        <qualifiedname>QfBarcodeVideoModel::QfBarcodeVideoModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="52" column="14" bodyfile="src/core/qfbarcodevideomodel.cpp" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeVideoModel_1a9036cd5a9f2e284830496d536eaee3c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfBarcodeVideoModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfBarcodeVideoModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="54" column="9" bodyfile="src/core/qfbarcodevideomodel.cpp" bodystart="26" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeVideoModel_1ac1651aee1862a3d20c070368b186c839" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfBarcodeVideoModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfBarcodeVideoModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="55" column="14" bodyfile="src/core/qfbarcodevideomodel.cpp" bodystart="36" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeVideoModel_1a0628097dcd53798105034c1e51bf3194" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfBarcodeVideoModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfBarcodeVideoModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="56" column="11" bodyfile="src/core/qfbarcodevideomodel.cpp" bodystart="57" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeVideoModel_1a4b0b4ad41a665bc5477803047472f8ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfBarcodeVideoModel::updateBarcodes</definition>
+        <argsstring>(const QList&lt; Barcode &gt; &amp;barcodes)</argsstring>
+        <name>updateBarcodes</name>
+        <qualifiedname>QfBarcodeVideoModel::updateBarcodes</qualifiedname>
+        <param>
+          <type>const QList&lt; <ref refid="structQfBarcodeVideoModel_1_1Barcode" kindref="compound">Barcode</ref> &gt; &amp;</type>
+          <declname>barcodes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates the model with the <emphasis>barcodes</emphasis> found in a video frame. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="61" column="10" bodyfile="src/core/qfbarcodevideomodel.cpp" bodystart="65" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeVideoModel_1a4da24cd14b6758a3b6ba268bf4db0d0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfBarcodeVideoModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>QfBarcodeVideoModel::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes all barcodes from the model. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="66" column="22" bodyfile="src/core/qfbarcodevideomodel.cpp" bodystart="122" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfBarcodeVideoModel_1af289d54a26d23dd6f4632be1f906c3bc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfBarcodeVideoModel::rowForText</definition>
+        <argsstring>(const QString &amp;text) const</argsstring>
+        <name>rowForText</name>
+        <qualifiedname>QfBarcodeVideoModel::rowForText</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the row matching a given <emphasis>text</emphasis>. If the text is not found, the returned value will be -1. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="72" column="9" bodyfile="src/core/qfbarcodevideomodel.cpp" bodystart="109" bodyend="120"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A list model of the barcodes seen in a video feed. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfBarcodeVideoModel</label>
+        <link refid="classQfBarcodeVideoModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfBarcodeVideoModel</label>
+        <link refid="classQfBarcodeVideoModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfbarcodevideomodel.h" line="28" column="1" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="29" bodyend="90"/>
+    <listofallmembers>
+      <member refid="classQfBarcodeVideoModel_1a7c74169a343ad50bfca736b181e15d4aa3a4775a283fa76f90e5bac1a86bc3f4e" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>BarcodeBounds</name></member>
+      <member refid="classQfBarcodeVideoModel_1a7c74169a343ad50bfca736b181e15d4aacb3007c451ee3ee929b9712f5e89b4f3" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>BarcodeText</name></member>
+      <member refid="classQfBarcodeVideoModel_1a4da24cd14b6758a3b6ba268bf4db0d0a" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>clear</name></member>
+      <member refid="classQfBarcodeVideoModel_1ac1651aee1862a3d20c070368b186c839" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>data</name></member>
+      <member refid="classQfBarcodeVideoModel_1a73d6ad695ebc61cbac2af58b8eb17de2" prot="private" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>mVisibleBarcodes</name></member>
+      <member refid="classQfBarcodeVideoModel_1a5bb1fd3ef55413cd36496789be3f329e" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>QfBarcodeVideoModel</name></member>
+      <member refid="classQfBarcodeVideoModel_1a0628097dcd53798105034c1e51bf3194" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>roleNames</name></member>
+      <member refid="classQfBarcodeVideoModel_1a7c74169a343ad50bfca736b181e15d4a" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>Roles</name></member>
+      <member refid="classQfBarcodeVideoModel_1a9036cd5a9f2e284830496d536eaee3c0" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>rowCount</name></member>
+      <member refid="classQfBarcodeVideoModel_1af289d54a26d23dd6f4632be1f906c3bc" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>rowForText</name></member>
+      <member refid="classQfBarcodeVideoModel_1abe809fe83930a5e95ac39d318842e6d8" prot="private" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>sMaximumMissedFrameCount</name></member>
+      <member refid="classQfBarcodeVideoModel_1a4b0b4ad41a665bc5477803047472f8ee" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel</scope><name>updateBarcodes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

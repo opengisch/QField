@@ -1,0 +1,926 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfFlatLayerTreeModel" kind="class" language="C++" prot="public">
+    <compoundname>QfFlatLayerTreeModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QSortFilterProxyModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Roles</name>
+        <qualifiedname>QfFlatLayerTreeModel::Roles</qualifiedname>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a16b9243b4e06b92f456f61c30c72c4b7" prot="public">
+          <name>VectorLayerPointer</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a71c30f63271f73a148ed8583cd8dfe68" prot="public">
+          <name>MapLayerPointer</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a7af46117ffa1d32dab6e2c14d17e3806" prot="public">
+          <name>HasSpatialExtent</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38af072ff504e6a11b11d83253f0aff4261" prot="public">
+          <name>LegendImage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a89b7951b8d5659bdcf1a403fdd4f17bb" prot="public">
+          <name>Type</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a12d89f135ae2e61406a7366d52254122" prot="public">
+          <name>Name</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a3f081cf05bf6941b90b93a214ff614c0" prot="public">
+          <name>Visible</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38adb67dbff5eb017ad5a967777ea588e47" prot="public">
+          <name>Trackable</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38ae5bb6733f46ca9dbd23c8011a86f69e6" prot="public">
+          <name>InTracking</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a6fc84c9b4e513bacfad790bd4372ec7f" prot="public">
+          <name>ReadOnly</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38aa77f4598279a25ab8dfb13c2f2eddd54" prot="public">
+          <name>FeatureAdditionLocked</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a4aa41e8b920118848eb1b706728f8d71" prot="public">
+          <name>AttributeEditingLocked</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38ac27189c9a9d8fa3d17897e644b7d42de" prot="public">
+          <name>GeometryEditingLocked</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a6c05933b9fe871c84a166b3b31d7a48a" prot="public">
+          <name>FeatureDeletionLocked</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a22fd5bc8dcc4b28bc0340ef56a99d7f1" prot="public">
+          <name>TreeLevel</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a68d86e4ae3a39f71abee7ce1405413f2" prot="public">
+          <name>LayerType</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a2fffb64e43fa9a0667a63a3749ba6b30" prot="public">
+          <name>IsValid</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a53c59ef778a096681e333cd4bd8265cc" prot="public">
+          <name>FeatureCount</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a765503bc71c5bc913cbf9df374a89325" prot="public">
+          <name>IsCollapsed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a64c39ab5376bc3537706d7ddb0150b3d" prot="public">
+          <name>IsParentCollapsed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a32af0d6ab68290f43909a677ab9c82c9" prot="public">
+          <name>HasChildren</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38aada0bce7920d6baf812689db447b3a2c" prot="public">
+          <name>CanReloadData</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38abea2bdb614bb03cd146494e4b168aa8b" prot="public">
+          <name>HasLabels</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a000dff1ce4295ff3376a4c1b7b5c3c77" prot="public">
+          <name>LabelsVisible</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a3ab393c234335a29ca3212677a6be480" prot="public">
+          <name>Opacity</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a8b3e8a9621f6ffc1a647415e01cee37f" prot="public">
+          <name>FilterExpression</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38ac5591a490b2d0329f5af73fb8dbf010f" prot="public">
+          <name>Credits</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a25e6e2d8c139f3a6a7a6c8534ce2d31e" prot="public">
+          <name>SnappingEnabled</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a48ee846b4f53a421fb0aae905d883e6b" prot="public">
+          <name>HasNotes</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a785512e0c2ecc38b19189964a7dea5e3" prot="public">
+          <name>Notes</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38adee18c9e97dd6c6c95088e0f073f2235" prot="public">
+          <name>Checkable</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="150" column="5" bodyfile="src/core/qflayertreemodel.h" bodystart="151" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="enum" id="classQfFlatLayerTreeModel_1a69a2828c1010251c7fcea95c9b4a8299" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Types</name>
+        <qualifiedname>QfFlatLayerTreeModel::Types</qualifiedname>
+        <enumvalue id="classQfFlatLayerTreeModel_1a69a2828c1010251c7fcea95c9b4a8299a67446795151e03d129e37660b5cdc33a" prot="public">
+          <name>Layer</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a69a2828c1010251c7fcea95c9b4a8299aef68a7a42244db949b5b4725940d730b" prot="public">
+          <name>Group</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a69a2828c1010251c7fcea95c9b4a8299a5f0e9f9a0a6227a97831ac2553918316" prot="public">
+          <name>Image</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfFlatLayerTreeModel_1a69a2828c1010251c7fcea95c9b4a8299a31f804fb0e942621ef8b9f465e7d3d05" prot="public">
+          <name>Legend</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="186" column="5" bodyfile="src/core/qflayertreemodel.h" bodystart="187" bodyend="192"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfFlatLayerTreeModel_1aa2f7ba4098940a5ac293a44ce1ac2a08" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfFlatLayerTreeModel::mapTheme</definition>
+        <argsstring></argsstring>
+        <name>mapTheme</name>
+        <qualifiedname>QfFlatLayerTreeModel::mapTheme</qualifiedname>
+        <read>mapTheme</read>
+        <write>setMapTheme</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="141" column="5" bodyfile="src/core/qflayertreemodel.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFlatLayerTreeModel_1a37b14c0b4f8686d34d79ff4907c00738" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFlatLayerTreeModel::hasCollapsibleItems</definition>
+        <argsstring></argsstring>
+        <name>hasCollapsibleItems</name>
+        <qualifiedname>QfFlatLayerTreeModel::hasCollapsibleItems</qualifiedname>
+        <read>hasCollapsibleItems</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="143" column="5" bodyfile="src/core/qflayertreemodel.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFlatLayerTreeModel_1af5371d3a1dc6f958e01821228e9acbbf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFlatLayerTreeModel::isCollapsed</definition>
+        <argsstring></argsstring>
+        <name>isCollapsed</name>
+        <qualifiedname>QfFlatLayerTreeModel::isCollapsed</qualifiedname>
+        <read>isCollapsed</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="144" column="5" bodyfile="src/core/qflayertreemodel.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFlatLayerTreeModel_1a71f3c0ea41169dee6d3fab214b724730" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFlatLayerTreeModel::isTemporal</definition>
+        <argsstring></argsstring>
+        <name>isTemporal</name>
+        <qualifiedname>QfFlatLayerTreeModel::isTemporal</qualifiedname>
+        <read>isTemporal</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="146" column="5" bodyfile="src/core/qflayertreemodel.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFlatLayerTreeModel_1afc4eb4ccc9ed21be5c56d4685db97008" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFlatLayerTreeModel::isFrozen</definition>
+        <argsstring></argsstring>
+        <name>isFrozen</name>
+        <qualifiedname>QfFlatLayerTreeModel::isFrozen</qualifiedname>
+        <read>isFrozen</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="147" column="5" bodyfile="src/core/qflayertreemodel.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfFlatLayerTreeModel_1ab2cdd31bf76dd32767d4dfd88c748a0b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfFlatLayerTreeModelBase" kindref="compound">QfFlatLayerTreeModelBase</ref> *</type>
+        <definition>QfFlatLayerTreeModelBase* QfFlatLayerTreeModel::mSourceModel</definition>
+        <argsstring></argsstring>
+        <name>mSourceModel</name>
+        <qualifiedname>QfFlatLayerTreeModel::mSourceModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="250" column="30" bodyfile="src/core/qflayertreemodel.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a78c256d9aaae39bf77eb7c0ca936ed38" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFlatLayerTreeModel::QfFlatLayerTreeModel</definition>
+        <argsstring>(QgsLayerTree *layerTree, QgsProject *project, QObject *parent=nullptr)</argsstring>
+        <name>QfFlatLayerTreeModel</name>
+        <qualifiedname>QfFlatLayerTreeModel::QfFlatLayerTreeModel</qualifiedname>
+        <param>
+          <type>QgsLayerTree *</type>
+          <declname>layerTree</declname>
+        </param>
+        <param>
+          <type>QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="195" column="14" bodyfile="src/core/qflayertreemodel.cpp" bodystart="33" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1ac8d76f0d83aff7c501a38388af666f90" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>QVariant QfFlatLayerTreeModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfFlatLayerTreeModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="197" column="26" bodyfile="src/core/qflayertreemodel.cpp" bodystart="47" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a45c5d42f369e52a1a53ab785af492945" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfFlatLayerTreeModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>QfFlatLayerTreeModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="198" column="22" bodyfile="src/core/qflayertreemodel.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1aaaa92bbc5d7814d530a311104453d8ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfFlatLayerTreeModel::mapTheme</definition>
+        <argsstring>() const</argsstring>
+        <name>mapTheme</name>
+        <qualifiedname>QfFlatLayerTreeModel::mapTheme</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="200" column="13" bodyfile="src/core/qflayertreemodel.cpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1ad071b526c2806696cdfac0fc25bcc8ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFlatLayerTreeModel::setMapTheme</definition>
+        <argsstring>(const QString &amp;mapTheme)</argsstring>
+        <name>setMapTheme</name>
+        <qualifiedname>QfFlatLayerTreeModel::setMapTheme</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>mapTheme</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="201" column="10" bodyfile="src/core/qflayertreemodel.cpp" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a82e3a86328af7d0414078eaa26a533ec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFlatLayerTreeModel::isTemporal</definition>
+        <argsstring>() const</argsstring>
+        <name>isTemporal</name>
+        <qualifiedname>QfFlatLayerTreeModel::isTemporal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="203" column="10" bodyfile="src/core/qflayertreemodel.cpp" bodystart="67" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1adea64392275ca835eff89d29884ec984" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFlatLayerTreeModel::updateCurrentMapTheme</definition>
+        <argsstring>()</argsstring>
+        <name>updateCurrentMapTheme</name>
+        <qualifiedname>QfFlatLayerTreeModel::updateCurrentMapTheme</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update map theme as currently used by the model This should be triggered after a project has been loaded </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="207" column="22" bodyfile="src/core/qflayertreemodel.cpp" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a29fbc21d685572e451c8c464bd5e3ca7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFlatLayerTreeModel::isFrozen</definition>
+        <argsstring>() const</argsstring>
+        <name>isFrozen</name>
+        <qualifiedname>QfFlatLayerTreeModel::isFrozen</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if the model is frozen. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="210" column="10" bodyfile="src/core/qflayertreemodel.cpp" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1aa25b3d9b4b2172bf6f1cac6ed51e22ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFlatLayerTreeModel::freeze</definition>
+        <argsstring>()</argsstring>
+        <name>freeze</name>
+        <qualifiedname>QfFlatLayerTreeModel::freeze</qualifiedname>
+        <briefdescription>
+<para>Freezes the model as is, with any source model signals ignored. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="212" column="22" bodyfile="src/core/qflayertreemodel.cpp" bodystart="82" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a72d9247919da8902b6f7b6cb5fb6b261" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFlatLayerTreeModel::unfreeze</definition>
+        <argsstring>(bool resetModel=false)</argsstring>
+        <name>unfreeze</name>
+        <qualifiedname>QfFlatLayerTreeModel::unfreeze</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>resetModel</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Unfreezes the model and resume listening to source model signals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="214" column="22" bodyfile="src/core/qflayertreemodel.cpp" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a8c4d3f90acff3ec51df81c910c62a162" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFlatLayerTreeModel::setLayerInTracking</definition>
+        <argsstring>(QgsLayerTreeLayer *nodeLayer, bool tracking)</argsstring>
+        <name>setLayerInTracking</name>
+        <qualifiedname>QfFlatLayerTreeModel::setLayerInTracking</qualifiedname>
+        <param>
+          <type>QgsLayerTreeLayer *</type>
+          <declname>nodeLayer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>tracking</declname>
+        </param>
+        <briefdescription>
+<para>Sets the information if the <emphasis>nodeLayer</emphasis> is currently in <emphasis>tracking</emphasis> state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="217" column="10" bodyfile="src/core/qflayertreemodel.cpp" bodystart="92" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1aea6912b73b3a3ee02abdc838ee83c4a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsProject *</type>
+        <definition>QgsProject * QfFlatLayerTreeModel::project</definition>
+        <argsstring>() const</argsstring>
+        <name>project</name>
+        <qualifiedname>QfFlatLayerTreeModel::project</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="219" column="16" bodyfile="src/core/qflayertreemodel.cpp" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a6a6ed51d4162132c6c2059cbba827498" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsLayerTreeModel *</type>
+        <definition>QgsLayerTreeModel * QfFlatLayerTreeModel::layerTreeModel</definition>
+        <argsstring>() const</argsstring>
+        <name>layerTreeModel</name>
+        <qualifiedname>QfFlatLayerTreeModel::layerTreeModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="221" column="23" bodyfile="src/core/qflayertreemodel.cpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a4beb0bbf44b5644b4ebc259fde6bc049" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsLayerTree *</type>
+        <definition>QgsLayerTree * QfFlatLayerTreeModel::layerTree</definition>
+        <argsstring>() const</argsstring>
+        <name>layerTree</name>
+        <qualifiedname>QfFlatLayerTreeModel::layerTree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="223" column="18" bodyfile="src/core/qflayertreemodel.cpp" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a8941f4737e5bbb73bde70bd31bbc47f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QgsRectangle</type>
+        <definition>QgsRectangle QfFlatLayerTreeModel::nodeExtent</definition>
+        <argsstring>(const QModelIndex &amp;index, QgsQuickMapSettings *mapSettings, const float buffer=0.02)</argsstring>
+        <name>nodeExtent</name>
+        <qualifiedname>QfFlatLayerTreeModel::nodeExtent</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classQgsQuickMapSettings" kindref="compound">QgsQuickMapSettings</ref> *</type>
+          <declname>mapSettings</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>buffer</declname>
+          <defval>0.02</defval>
+        </param>
+        <briefdescription>
+<para>Calculate layer tree node extent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="226" column="30" bodyfile="src/core/qflayertreemodel.cpp" bodystart="117" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a18b4b2ae73f5d1b788b14ca98c181abe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfFlatLayerTreeModel::setAllCollapsed</definition>
+        <argsstring>(bool collapsed)</argsstring>
+        <name>setAllCollapsed</name>
+        <qualifiedname>QfFlatLayerTreeModel::setAllCollapsed</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>collapsed</declname>
+        </param>
+        <briefdescription>
+<para>Collapses or expands all collapsible items in the layer tree. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="229" column="22" bodyfile="src/core/qflayertreemodel.cpp" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a7890b02e0573c183d2e24cc28bd56f32" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFlatLayerTreeModel::hasCollapsibleItems</definition>
+        <argsstring>() const</argsstring>
+        <name>hasCollapsibleItems</name>
+        <qualifiedname>QfFlatLayerTreeModel::hasCollapsibleItems</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if the layer tree has at least one collapsible item. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="232" column="10" bodyfile="src/core/qflayertreemodel.cpp" bodystart="127" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a54d3c061df029ea02675663565239e3d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFlatLayerTreeModel::isCollapsed</definition>
+        <argsstring>() const</argsstring>
+        <name>isCollapsed</name>
+        <qualifiedname>QfFlatLayerTreeModel::isCollapsed</qualifiedname>
+        <briefdescription>
+<para>Returns TRUE if all collapsible items are currently collapsed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="235" column="10" bodyfile="src/core/qflayertreemodel.cpp" bodystart="131" bodyend="134"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfFlatLayerTreeModel_1a8d7708a10bdec35dc9e52cf120462f8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFlatLayerTreeModel::layersAdded</definition>
+        <argsstring>()</argsstring>
+        <name>layersAdded</name>
+        <qualifiedname>QfFlatLayerTreeModel::layersAdded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="238" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFlatLayerTreeModel_1ac7694f7a35bd4cbb03672ce9706586b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFlatLayerTreeModel::layersRemoved</definition>
+        <argsstring>()</argsstring>
+        <name>layersRemoved</name>
+        <qualifiedname>QfFlatLayerTreeModel::layersRemoved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="239" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFlatLayerTreeModel_1adc50d78664a49a4b636deb189334c99b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFlatLayerTreeModel::mapThemeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>mapThemeChanged</name>
+        <qualifiedname>QfFlatLayerTreeModel::mapThemeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="240" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFlatLayerTreeModel_1a6da82ef6c665eeb03222c6ed0f09ac4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFlatLayerTreeModel::hasCollapsibleItemsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasCollapsibleItemsChanged</name>
+        <qualifiedname>QfFlatLayerTreeModel::hasCollapsibleItemsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="241" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFlatLayerTreeModel_1a4044f12fcc3e4ee5ffd74b9d5c0629c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFlatLayerTreeModel::isCollapsedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isCollapsedChanged</name>
+        <qualifiedname>QfFlatLayerTreeModel::isCollapsedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="242" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFlatLayerTreeModel_1afdf89a61fccb7ed51c0eeca8317436c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFlatLayerTreeModel::isTemporalChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isTemporalChanged</name>
+        <qualifiedname>QfFlatLayerTreeModel::isTemporalChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="243" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFlatLayerTreeModel_1aa22288d072c8d677600a35071fcfe697" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFlatLayerTreeModel::isFrozenChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isFrozenChanged</name>
+        <qualifiedname>QfFlatLayerTreeModel::isFrozenChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="244" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classQfFlatLayerTreeModel_1a3e5637fc24244ca8f3171c94fe079b95" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool QfFlatLayerTreeModel::filterAcceptsRow</definition>
+        <argsstring>(int source_row, const QModelIndex &amp;source_parent) const override</argsstring>
+        <name>filterAcceptsRow</name>
+        <qualifiedname>QfFlatLayerTreeModel::filterAcceptsRow</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>source_row</declname>
+        </param>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>source_parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qflayertreemodel.h" line="247" column="18" bodyfile="src/core/qflayertreemodel.cpp" bodystart="112" bodyend="115"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfFlatLayerTreeModel</label>
+        <link refid="classQfFlatLayerTreeModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="1">
+        <label>QfFlatLayerTreeModel</label>
+        <link refid="classQfFlatLayerTreeModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qflayertreemodel.h" line="137" column="1" bodyfile="src/core/qflayertreemodel.h" bodystart="138" bodyend="251"/>
+    <listofallmembers>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a4aa41e8b920118848eb1b706728f8d71" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>AttributeEditingLocked</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38aada0bce7920d6baf812689db447b3a2c" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>CanReloadData</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38adee18c9e97dd6c6c95088e0f073f2235" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Checkable</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38ac5591a490b2d0329f5af73fb8dbf010f" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Credits</name></member>
+      <member refid="classQfFlatLayerTreeModel_1ac8d76f0d83aff7c501a38388af666f90" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>data</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38aa77f4598279a25ab8dfb13c2f2eddd54" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>FeatureAdditionLocked</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a53c59ef778a096681e333cd4bd8265cc" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>FeatureCount</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a6c05933b9fe871c84a166b3b31d7a48a" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>FeatureDeletionLocked</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a3e5637fc24244ca8f3171c94fe079b95" prot="protected" virt="virtual"><scope>QfFlatLayerTreeModel</scope><name>filterAcceptsRow</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a8b3e8a9621f6ffc1a647415e01cee37f" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>FilterExpression</name></member>
+      <member refid="classQfFlatLayerTreeModel_1aa25b3d9b4b2172bf6f1cac6ed51e22ac" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>freeze</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38ac27189c9a9d8fa3d17897e644b7d42de" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>GeometryEditingLocked</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a69a2828c1010251c7fcea95c9b4a8299aef68a7a42244db949b5b4725940d730b" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Group</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a32af0d6ab68290f43909a677ab9c82c9" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>HasChildren</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a37b14c0b4f8686d34d79ff4907c00738" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>hasCollapsibleItems</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a7890b02e0573c183d2e24cc28bd56f32" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>hasCollapsibleItems</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6da82ef6c665eeb03222c6ed0f09ac4b" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>hasCollapsibleItemsChanged</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38abea2bdb614bb03cd146494e4b168aa8b" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>HasLabels</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a48ee846b4f53a421fb0aae905d883e6b" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>HasNotes</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a7af46117ffa1d32dab6e2c14d17e3806" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>HasSpatialExtent</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a69a2828c1010251c7fcea95c9b4a8299a5f0e9f9a0a6227a97831ac2553918316" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Image</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38ae5bb6733f46ca9dbd23c8011a86f69e6" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>InTracking</name></member>
+      <member refid="classQfFlatLayerTreeModel_1af5371d3a1dc6f958e01821228e9acbbf" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>isCollapsed</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a54d3c061df029ea02675663565239e3d" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>isCollapsed</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a765503bc71c5bc913cbf9df374a89325" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>IsCollapsed</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a4044f12fcc3e4ee5ffd74b9d5c0629c7" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>isCollapsedChanged</name></member>
+      <member refid="classQfFlatLayerTreeModel_1afc4eb4ccc9ed21be5c56d4685db97008" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>isFrozen</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a29fbc21d685572e451c8c464bd5e3ca7" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>isFrozen</name></member>
+      <member refid="classQfFlatLayerTreeModel_1aa22288d072c8d677600a35071fcfe697" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>isFrozenChanged</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a64c39ab5376bc3537706d7ddb0150b3d" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>IsParentCollapsed</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a71f3c0ea41169dee6d3fab214b724730" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>isTemporal</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a82e3a86328af7d0414078eaa26a533ec" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>isTemporal</name></member>
+      <member refid="classQfFlatLayerTreeModel_1afdf89a61fccb7ed51c0eeca8317436c0" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>isTemporalChanged</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a2fffb64e43fa9a0667a63a3749ba6b30" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>IsValid</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a000dff1ce4295ff3376a4c1b7b5c3c77" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>LabelsVisible</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a69a2828c1010251c7fcea95c9b4a8299a67446795151e03d129e37660b5cdc33a" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Layer</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a8d7708a10bdec35dc9e52cf120462f8d" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>layersAdded</name></member>
+      <member refid="classQfFlatLayerTreeModel_1ac7694f7a35bd4cbb03672ce9706586b3" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>layersRemoved</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a4beb0bbf44b5644b4ebc259fde6bc049" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>layerTree</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6a6ed51d4162132c6c2059cbba827498" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>layerTreeModel</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a68d86e4ae3a39f71abee7ce1405413f2" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>LayerType</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a69a2828c1010251c7fcea95c9b4a8299a31f804fb0e942621ef8b9f465e7d3d05" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Legend</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38af072ff504e6a11b11d83253f0aff4261" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>LegendImage</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a71c30f63271f73a148ed8583cd8dfe68" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>MapLayerPointer</name></member>
+      <member refid="classQfFlatLayerTreeModel_1aa2f7ba4098940a5ac293a44ce1ac2a08" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>mapTheme</name></member>
+      <member refid="classQfFlatLayerTreeModel_1aaaa92bbc5d7814d530a311104453d8ce" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>mapTheme</name></member>
+      <member refid="classQfFlatLayerTreeModel_1adc50d78664a49a4b636deb189334c99b" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>mapThemeChanged</name></member>
+      <member refid="classQfFlatLayerTreeModel_1ab2cdd31bf76dd32767d4dfd88c748a0b" prot="private" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>mSourceModel</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a12d89f135ae2e61406a7366d52254122" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Name</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a8941f4737e5bbb73bde70bd31bbc47f4" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>nodeExtent</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a785512e0c2ecc38b19189964a7dea5e3" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Notes</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a3ab393c234335a29ca3212677a6be480" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Opacity</name></member>
+      <member refid="classQfFlatLayerTreeModel_1aea6912b73b3a3ee02abdc838ee83c4a9" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>project</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a78c256d9aaae39bf77eb7c0ca936ed38" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>QfFlatLayerTreeModel</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a6fc84c9b4e513bacfad790bd4372ec7f" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>ReadOnly</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Roles</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a18b4b2ae73f5d1b788b14ca98c181abe" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>setAllCollapsed</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a45c5d42f369e52a1a53ab785af492945" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>setData</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a8c4d3f90acff3ec51df81c910c62a162" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>setLayerInTracking</name></member>
+      <member refid="classQfFlatLayerTreeModel_1ad071b526c2806696cdfac0fc25bcc8ad" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>setMapTheme</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a25e6e2d8c139f3a6a7a6c8534ce2d31e" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>SnappingEnabled</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38adb67dbff5eb017ad5a967777ea588e47" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Trackable</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a22fd5bc8dcc4b28bc0340ef56a99d7f1" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>TreeLevel</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a89b7951b8d5659bdcf1a403fdd4f17bb" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Type</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a69a2828c1010251c7fcea95c9b4a8299" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Types</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a72d9247919da8902b6f7b6cb5fb6b261" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>unfreeze</name></member>
+      <member refid="classQfFlatLayerTreeModel_1adea64392275ca835eff89d29884ec984" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>updateCurrentMapTheme</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a16b9243b4e06b92f456f61c30c72c4b7" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>VectorLayerPointer</name></member>
+      <member refid="classQfFlatLayerTreeModel_1a6ac3f52a42995fa7c08ce13e59bf2a38a3f081cf05bf6941b90b93a214ff614c0" prot="public" virt="non-virtual"><scope>QfFlatLayerTreeModel</scope><name>Visible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
