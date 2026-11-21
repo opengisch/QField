@@ -320,3 +320,55 @@ TEST_CASE( "FeatureListModel behaviours" )
     REQUIRE( featureListModel.findKey( QVariant( 4 ) ) >= 0 );
   }
 }
+
+TEST_CASE( "FeatureListModel unique values" )
+{
+  if ( !QCoreApplication::instance() )
+  {
+    static int applicationArgumentCount = 1;
+    static char applicationArgumentZero[] = "qfield-tests";
+    static char *applicationArgumentValues[] = { applicationArgumentZero, nullptr };
+    static QCoreApplication coreApplication( applicationArgumentCount, applicationArgumentValues );
+    Q_UNUSED( coreApplication );
+  }
+
+  static const int maximumWaitTimeMilliseconds = 5000;
+
+  std::unique_ptr<QgsVectorLayer> vectorLayerDummy(
+    new QgsVectorLayer(
+      "Point?crs=epsg:4326&field=species:string",
+      "test",
+      "memory" ) );
+
+  REQUIRE( vectorLayerDummy->isValid() );
+
+  vectorLayerDummy->startEditing();
+  for ( const QVariant &species : { QVariant( "oak" ), QVariant( "pine" ), QVariant( "oak" ), QVariant( "birch" ), QVariant( "pine" ), QVariant() } )
+  {
+    QgsFeature feature( vectorLayerDummy->fields() );
+    feature.setAttribute( "species", species );
+    vectorLayerDummy->addFeature( feature );
+  }
+  vectorLayerDummy->commitChanges();
+
+  QfFeatureListModel featureListModel;
+  featureListModel.setKeyField( QStringLiteral( "species" ) );
+  featureListModel.setDisplayValueField( QStringLiteral( "species" ) );
+  featureListModel.setOrderByValue( true );
+  featureListModel.setUniqueValues( true );
+  featureListModel.setCurrentLayer( vectorLayerDummy.get() );
+
+  QElapsedTimer waitForPopulationTimer;
+  waitForPopulationTimer.start();
+  while ( featureListModel.rowCount() != 3 && waitForPopulationTimer.elapsed() < maximumWaitTimeMilliseconds )
+  {
+    QCoreApplication::processEvents( QEventLoop::AllEvents, 50 );
+  }
+
+  // Duplicated values are only listed once and NULL values are skipped
+  REQUIRE( featureListModel.rowCount() == 3 );
+  REQUIRE( featureListModel.dataFromRowIndex( 0, QfFeatureListModel::DisplayStringRole ).toString() == QStringLiteral( "birch" ) );
+  REQUIRE( featureListModel.dataFromRowIndex( 1, QfFeatureListModel::DisplayStringRole ).toString() == QStringLiteral( "oak" ) );
+  REQUIRE( featureListModel.dataFromRowIndex( 2, QfFeatureListModel::DisplayStringRole ).toString() == QStringLiteral( "pine" ) );
+  REQUIRE( featureListModel.findKey( QStringLiteral( "oak" ) ) == 1 );
+}

@@ -16,6 +16,7 @@ Item {
   property bool useCompleter: false
   property bool useSearch: false
   property bool allowAddFeature: false
+  property bool allowNewValues: false
   property var relation: undefined
   property var layerResolver: undefined
   property var currentKeyValue: value
@@ -248,10 +249,15 @@ Item {
       valueRole: 'keyFieldValue'
 
       onCurrentIndexChanged: {
-        if (searchFeaturePopup.opened)
+        if (searchFeaturePopup.opened) {
           return;
-        if (!featureListModel)
+        }
+        if (!featureListModel) {
           return;
+        }
+        if (allowNewValues && currentIndex === -1) {
+          return;
+        }
         const newValue = featureListModel.dataFromRowIndex(currentIndex, QfFeatureListModel.KeyFieldRole);
         if (newValue !== currentKeyValue) {
           valueChangeRequested(newValue, false);
@@ -317,6 +323,9 @@ Item {
           return qsTr("Empty");
         } else if (!isEditing && QfFeatureUtils.attributeIsNull(value)) {
           return qsTr("NULL");
+        }
+        if (allowNewValues && comboBox.currentIndex === -1) {
+          return QfFeatureUtils.attributeIsNull(value) ? "" : String(value);
         }
         return comboBox.currentIndex === -1 && value !== undefined ? '(' + value + ')' : comboBox.currentText;
       }
@@ -415,6 +424,7 @@ Item {
 
       TextField {
         id: searchableText
+        objectName: "relationComboBoxSearchableText"
 
         property string typedFilter: ''
 
@@ -446,7 +456,7 @@ Item {
                 color = QfTheme.mainTextColor;
               } else {
                 searchableLabel.completer = '';
-                color = QfTheme.warningColor;
+                color = allowNewValues ? QfTheme.mainTextColor : QfTheme.warningColor;
               }
             } else {
               searchableLabel.completer = '';
@@ -504,6 +514,12 @@ Item {
               // remember the typed filter in case users want to see the multiple hits by clicking on the search button
               typedFilter = trimmedText;
               searchableTimer.restart();
+            }
+          } else if (allowNewValues && trimmedText !== '') {
+            text = '';
+            searchableLabel.completer = trimmedText;
+            if (trimmedText !== comboBox.displayText) {
+              valueChangeRequested(trimmedText, false);
             }
           } else if (resetIfNone) {
             text = '';

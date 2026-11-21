@@ -109,6 +109,7 @@ set(QFIELD_GUI_QML_FILES
     editorwidgets/QfEditorWidgetRange.qml
     editorwidgets/QfEditorWidgetRelationReference.qml
     editorwidgets/QfEditorWidgetTextEdit.qml
+    editorwidgets/QfEditorWidgetUniqueValues.qml
     editorwidgets/QfEditorWidgetUuidGenerator.qml
     editorwidgets/QfEditorWidgetValueMap.qml
     editorwidgets/QfEditorWidgetValueRelation.qml
