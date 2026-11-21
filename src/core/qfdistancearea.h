@@ -33,6 +33,7 @@ class QfDistanceArea : public QObject
     Q_PROPERTY( QfRubberbandModel *rubberbandModel READ rubberbandModel WRITE setRubberbandModel NOTIFY rubberbandModelChanged )
     Q_PROPERTY( QgsCoordinateReferenceSystem crs READ crs WRITE setCrs NOTIFY crsChanged )
     Q_PROPERTY( QgsProject *project READ project WRITE setProject NOTIFY projectChanged )
+    Q_PROPERTY( bool useZValues READ useZValues WRITE setUseZValues NOTIFY useZValuesChanged )
 
     Q_PROPERTY( qreal length READ length NOTIFY lengthChanged )
     Q_PROPERTY( bool lengthValid READ lengthValid NOTIFY lengthChanged )
@@ -79,6 +80,9 @@ class QfDistanceArea : public QObject
     QgsProject *project() const;
     void setProject( QgsProject *project );
 
+    bool useZValues() const;
+    void setUseZValues( bool useZValues );
+
     Q_INVOKABLE double convertLengthMeansurement( double length, Qgis::DistanceUnit toUnits ) const;
     Q_INVOKABLE double convertAreaMeansurement( double area, Qgis::AreaUnit toUnits ) const;
 
@@ -86,6 +90,7 @@ class QfDistanceArea : public QObject
     void rubberbandModelChanged();
     void crsChanged();
     void projectChanged();
+    void useZValuesChanged();
 
     void lengthChanged();
     void perimeterChanged();
@@ -102,6 +107,7 @@ class QfDistanceArea : public QObject
     QfRubberbandModel *mRubberbandModel = nullptr;
     QgsCoordinateReferenceSystem mCrs;
     QgsProject *mProject = nullptr;
+    bool mUseZValues = false;
 
     QgsDistanceArea mDistanceArea;
 };

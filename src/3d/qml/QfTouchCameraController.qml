@@ -165,7 +165,7 @@ Item {
     target: null
     acceptedButtons: Qt.LeftButton
     grabPermissions: PointerHandler.CanTakeOverFromHandlersOfDifferentType | PointerHandler.ApprovesTakeOverByHandlersOfDifferentType
-    acceptedDevices: PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.TouchPad
+    acceptedDevices: PointerDevice.TouchScreen | PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
 
     onDoubleTapped: resetView()
     onSingleTapped: (eventPoint, button) => {

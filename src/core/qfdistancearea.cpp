@@ -21,6 +21,7 @@
 #include <qgslinestring.h>
 #include <qgspolygon.h>
 #include <qgsproject.h>
+#include <qgsunittypes.h>
 #include <qgsvectorlayer.h>
 
 QfDistanceArea::QfDistanceArea( QObject *parent )
@@ -67,6 +68,27 @@ void QfDistanceArea::setProject( QgsProject *project )
   init();
 
   emit projectChanged();
+}
+
+bool QfDistanceArea::useZValues() const
+{
+  return mUseZValues;
+}
+
+void QfDistanceArea::setUseZValues( bool useZValues )
+{
+  if ( mUseZValues == useZValues )
+  {
+    return;
+  }
+
+  mUseZValues = useZValues;
+  emit useZValuesChanged();
+
+  emit lengthChanged();
+  emit perimeterChanged();
+  emit areaChanged();
+  emit segmentLengthChanged();
 }
 
 QfRubberbandModel *QfDistanceArea::rubberbandModel() const
@@ -144,7 +166,15 @@ qreal QfDistanceArea::length() const
   {
     try
     {
-      length = mDistanceArea.measureLine( mRubberbandModel->flatPointSequence( mCrs ) );
+      if ( mUseZValues )
+      {
+        const QgsLineString line( mRubberbandModel->pointSequence( mCrs, Qgis::WkbType::PointZ ) );
+        length = line.length3D() * QgsUnitTypes::fromUnitToUnitFactor( mCrs.mapUnits(), mDistanceArea.lengthUnits() );
+      }
+      else
+      {
+        length = mDistanceArea.measureLine( mRubberbandModel->flatPointSequence( mCrs ) );
+      }
     }
     catch ( const QgsException & )
     {
@@ -179,6 +209,12 @@ qreal QfDistanceArea::perimeter() const
 {
   if ( mRubberbandModel )
   {
+    if ( mUseZValues )
+    {
+      const QgsLineString ring( mRubberbandModel->pointSequence( mCrs, Qgis::WkbType::PointZ, true ) );
+      return ring.length3D() * QgsUnitTypes::fromUnitToUnitFactor( mCrs.mapUnits(), mDistanceArea.lengthUnits() );
+    }
+
     QgsGeometry geom( new QgsPolygon( new QgsLineString( mRubberbandModel->flatPointSequence( mCrs ) ) ) );
     return mDistanceArea.measurePerimeter( geom );
   }
@@ -213,7 +249,15 @@ qreal QfDistanceArea::area() const
   {
     try
     {
-      area = mDistanceArea.measurePolygon( mRubberbandModel->flatPointSequence( mCrs ) );
+      if ( mUseZValues )
+      {
+        const QgsGeometry polygon( new QgsPolygon( new QgsLineString( mRubberbandModel->pointSequence( mCrs, Qgis::WkbType::PointZ, true ) ) ) );
+        area = polygon.area3D() * QgsUnitTypes::fromUnitToUnitFactor( QgsUnitTypes::distanceToAreaUnit( mCrs.mapUnits() ), mDistanceArea.areaUnits() );
+      }
+      else
+      {
+        area = mDistanceArea.measurePolygon( mRubberbandModel->flatPointSequence( mCrs ) );
+      }
     }
     catch ( const QgsException & )
     {
@@ -252,6 +296,12 @@ qreal QfDistanceArea::segmentLength() const
 
   if ( mRubberbandModel->vertexCount() < 2 )
     return qQNaN();
+
+  if ( mUseZValues )
+  {
+    const QgsPointSequence points = mRubberbandModel->pointSequence( mCrs, Qgis::WkbType::PointZ );
+    return points.at( points.size() - 1 ).distance3D( points.at( points.size() - 2 ) ) * QgsUnitTypes::fromUnitToUnitFactor( mCrs.mapUnits(), mDistanceArea.lengthUnits() );
+  }
 
   QVector<QgsPointXY> points = mRubberbandModel->flatPointSequence( mCrs );
 

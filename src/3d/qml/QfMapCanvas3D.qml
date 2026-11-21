@@ -4,6 +4,7 @@ import QtQuick3D
 import QtQuick3D.Helpers
 import org.qfield._3d
 import org.qfield.core
+import org.qgis
 
 /**
  * \defgroup qml_3d QML 3D
@@ -41,11 +42,20 @@ Item {
 
   property QfTrackingModel trackingModel: null
 
+  property QfRubberbandModel rubberbandModel: null
+  property alias rubberbandColor: rubberbandGeometry.color
+  property var crosshairCoordinate: undefined
+  readonly property point crosshairPosition: hoverHandler.hovered ? hoverHandler.point.position : Qt.point(width / 2, height / 2)
+  property bool mouseAsTouchScreen: false
+  property alias hovered: hoverHandler.hovered
+  property alias crosshair: crosshair
+
   property alias terrainProvider: mapTerrainProvider
   property Item pluginContainer: null
 
   signal cameraInteractionDetected
   signal featureIdentifyRequested(point screenPoint)
+  signal addVertexRequested
 
   Qf3DTerrainProvider {
     id: mapTerrainProvider
@@ -248,6 +258,27 @@ Item {
       }
     }
 
+    Model {
+      geometry: Qf3DGeometry {
+        id: rubberbandGeometry
+        crs: mapArea.mapSettings ? mapArea.mapSettings.destinationCrs : QfCoordinateReferenceSystemUtils.invalidCrs()
+        qgsGeometry: {
+          const model = mapArea.rubberbandModel;
+          if (!model || model.vertices.length < 2) {
+            return QfGeometryUtils.createGeometryFromWkt("");
+          }
+          return model.geometryType === Qgis.GeometryType.Polygon ? QfGeometryUtils.polygonFromRubberband(model, crs) : QfGeometryUtils.lineFromRubberband(model, crs);
+        }
+        terrainProvider: mapTerrainProvider
+      }
+      materials: PrincipledMaterial {
+        vertexColorsEnabled: true
+        alphaMode: PrincipledMaterial.Blend
+        depthDrawMode: Material.OpaqueOnlyDepthDraw
+        cullMode: PrincipledMaterial.NoCulling
+      }
+    }
+
     Repeater3D {
       model: mapArea.pluginContainer ? mapArea.pluginContainer.children : null
 
@@ -275,6 +306,31 @@ Item {
     }
   }
 
+  QfCrosshair {
+    id: crosshair
+    x: mapArea.crosshairPosition.x - halfWidth
+    y: mapArea.crosshairPosition.y - halfWidth
+    visible: mapArea.rubberbandModel !== null
+  }
+
+  HoverHandler {
+    id: hoverHandler
+    enabled: crosshair.visible
+    acceptedDevices: !mapArea.mouseAsTouchScreen ? PointerDevice.TouchPad | PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+  }
+
+  Connections {
+    target: mapArea.Window.window
+    enabled: crosshair.visible
+
+    function onFrameSwapped() {
+      const pickResult = view3d.pick(mapArea.crosshairPosition.x, mapArea.crosshairPosition.y);
+      if (pickResult.objectHit) {
+        mapArea.crosshairCoordinate = mapTerrainProvider.scene3DToGeo(pickResult.scenePosition.x, pickResult.scenePosition.z);
+      }
+    }
+  }
+
   QfTouchCameraController {
     id: cameraController
     anchors.fill: parent
@@ -295,6 +351,11 @@ Item {
       }
 
       const geoPoint = mapTerrainProvider.scene3DToGeo(pickResult.scenePosition.x, pickResult.scenePosition.z);
+      if (hoverHandler.hovered) {
+        mapArea.crosshairCoordinate = geoPoint;
+        mapArea.addVertexRequested();
+        return;
+      }
       mapArea.featureIdentifyRequested(mapArea.mapSettings.coordinateToScreen(geoPoint));
     }
     onUserInteractionStarted: {

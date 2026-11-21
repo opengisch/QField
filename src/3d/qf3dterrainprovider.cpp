@@ -336,8 +336,10 @@ QgsPoint Qf3DTerrainProvider::scene3DToGeo( double sceneX, double sceneZ ) const
   const double nx = sceneX / mSize.width() + 0.5;
   const double nz = 0.5 - sceneZ / mSize.height();
 
-  return QgsPoint( mExtent.xMinimum() + nx * mExtent.width(),
-                   mExtent.yMinimum() + nz * mExtent.height() );
+  const double x = mExtent.xMinimum() + nx * mExtent.width();
+  const double y = mExtent.yMinimum() + nz * mExtent.height();
+
+  return QgsPoint( x, y, normalizedHeightAt( x, y ) * mOffsetScale / mHeightScale + mMinRealHeight );
 }
 
 void Qf3DTerrainProvider::calcNormalizedData()
