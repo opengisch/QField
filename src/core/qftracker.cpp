@@ -19,6 +19,7 @@
 #include "qgsquickcoordinatetransformer.h"
 
 #include <QRandomGenerator>
+#include <qgsexpressioncontextutils.h>
 #include <qgsproject.h>
 #include <qgssensormanager.h>
 
@@ -41,6 +42,7 @@ void QfTracker::setColor( const QColor &color )
     return;
   }
 
+  qDebug() << "xxx" << color.name();
   mColor = color;
   emit colorChanged();
 }
@@ -48,7 +50,9 @@ void QfTracker::setColor( const QColor &color )
 void QfTracker::setVisible( bool visible )
 {
   if ( mVisible == visible )
+  {
     return;
+  }
 
   mVisible = visible;
   emit visibleChanged();
@@ -57,7 +61,9 @@ void QfTracker::setVisible( bool visible )
 void QfTracker::setVectorLayer( QgsVectorLayer *vectorLayer )
 {
   if ( mVectorLayer == vectorLayer )
+  {
     return;
+  }
 
   mVectorLayer = vectorLayer;
   emit vectorLayerChanged();
@@ -71,7 +77,9 @@ QfRubberbandModel *QfTracker::rubberbandModel() const
 void QfTracker::setRubberbandModel( QfRubberbandModel *rubberbandModel )
 {
   if ( mRubberbandModel == rubberbandModel )
+  {
     return;
+  }
 
   if ( mRubberbandModel )
   {
@@ -96,7 +104,9 @@ QfFeatureModel *QfTracker::featureModel() const
 void QfTracker::setFeatureModel( QfFeatureModel *featureModel )
 {
   if ( mFeatureModel == featureModel )
+  {
     return;
+  }
 
   mFeatureModel = featureModel;
   emit featureModelChanged();
@@ -110,16 +120,67 @@ QgsFeature QfTracker::feature() const
 void QfTracker::setFeature( const QgsFeature &feature )
 {
   if ( mFeature == feature )
+  {
     return;
+  }
 
   mFeature = feature;
   emit featureChanged();
+
+  if ( mVectorLayer && mVectorLayer->renderer() )
+  {
+    QgsRenderContext context;
+    context.setExpressionContext( QgsExpressionContext( QgsExpressionContextUtils::globalProjectLayerScopes( mVectorLayer ) ) );
+    context.expressionContext().setFeature( mFeature );
+    mVectorLayer->renderer()->startRender( context, mVectorLayer->fields() );
+
+    const QgsSymbol *symbol = mVectorLayer->renderer()->symbolForFeature( mFeature, context );
+    if ( symbol )
+    {
+      QColor color;
+      for ( const QgsSymbolLayer *symbolLayer : symbol->symbolLayers() )
+      {
+        // return color of the first unlocked layer
+        if ( !symbolLayer->isLocked() )
+        {
+          color = symbolLayer->color();
+          if ( symbolLayer->hasDataDefinedProperties() )
+          {
+            qDebug() << "FUCK!";
+            if ( symbolLayer->dataDefinedProperties().isActive( QgsSymbolLayer::Property::FillColor ) )
+            {
+              color = symbolLayer->dataDefinedProperties().valueAsColor( QgsSymbolLayer::Property::FillColor, context.expressionContext(), color );
+            }
+            else if ( symbolLayer->dataDefinedProperties().isActive( QgsSymbolLayer::Property::StrokeColor ) )
+            {
+              color = symbolLayer->dataDefinedProperties().valueAsColor( QgsSymbolLayer::Property::StrokeColor, context.expressionContext(), color );
+            }
+          }
+
+          if ( color.isValid() )
+          {
+            break;
+          }
+        }
+      }
+
+      if ( color.isValid() )
+      {
+        color.setAlphaF( 0.6 );
+        setColor( color );
+      }
+    }
+
+    mVectorLayer->renderer()->stopRender( context );
+  }
 }
 
 void QfTracker::setTimeInterval( double timeInterval )
 {
   if ( mTimeInterval == timeInterval )
+  {
     return;
+  }
 
   mTimeInterval = timeInterval;
   emit timeIntervalChanged();
@@ -128,7 +189,9 @@ void QfTracker::setTimeInterval( double timeInterval )
 void QfTracker::setMinimumDistance( double minimumDistance )
 {
   if ( mMinimumDistance == minimumDistance )
+  {
     return;
+  }
 
   mMinimumDistance = minimumDistance;
   emit minimumDistanceChanged();
@@ -137,7 +200,9 @@ void QfTracker::setMinimumDistance( double minimumDistance )
 void QfTracker::setMaximumDistance( double maximumDistance )
 {
   if ( mMaximumDistance == maximumDistance )
+  {
     return;
+  }
 
   mMaximumDistance = maximumDistance;
   emit maximumDistanceChanged();
@@ -146,7 +211,9 @@ void QfTracker::setMaximumDistance( double maximumDistance )
 void QfTracker::setSensorCapture( bool capture )
 {
   if ( mSensorCapture == capture )
+  {
     return;
+  }
 
   mSensorCapture = capture;
   emit sensorCaptureChanged();
@@ -155,7 +222,9 @@ void QfTracker::setSensorCapture( bool capture )
 void QfTracker::setConjunction( bool conjunction )
 {
   if ( mConjunction == conjunction )
+  {
     return;
+  }
 
   mConjunction = conjunction;
   emit conjunctionChanged();
@@ -164,7 +233,9 @@ void QfTracker::setConjunction( bool conjunction )
 void QfTracker::setMeasureType( MeasureType type )
 {
   if ( mMeasureType == type )
+  {
     return;
+  }
 
   mMeasureType = type;
   emit measureTypeChanged();
