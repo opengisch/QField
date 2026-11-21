@@ -1334,6 +1334,7 @@ Page {
                 Layout.columnSpan: 2
 
                 QfButton {
+                  id: addPositioningDeviceButton
                   leftPadding: 10
                   rightPadding: 10
                   text: qsTr('Add')
@@ -1351,6 +1352,7 @@ Page {
                 }
 
                 QfButton {
+                  id: editPositioningDeviceButton
                   leftPadding: 10
                   rightPadding: 10
                   text: qsTr('Edit')
@@ -1363,11 +1365,15 @@ Page {
                     positioningDeviceSettings.name = name;
                     positioningDeviceSettings.setType(positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceType));
                     positioningDeviceSettings.setSettings(positioningDeviceModel.data(modelIndex, QfPositioningDeviceModel.DeviceSettings));
+                    if (name === positioningDeviceSettings.generateName()) {
+                      positioningDeviceSettings.name = '';
+                    }
                     positioningDeviceSettings.open();
                   }
                 }
 
                 QfButton {
+                  id: removePositioningDeviceButton
                   leftPadding: 10
                   rightPadding: 10
                   text: qsTr('Remove')
@@ -2264,13 +2270,14 @@ Page {
       if (originalName != '') {
         positioningDeviceModel.removeDevice(originalName);
       }
-      var name = positioningDeviceSettings.name;
-      var type = positioningDeviceSettings.type;
-      var settings = positioningDeviceSettings.getSettings();
+      let name = positioningDeviceSettings.name;
+      const type = positioningDeviceSettings.type;
+      const settings = positioningDeviceSettings.getSettings();
       if (name === '') {
         name = positioningDeviceSettings.generateName();
       }
-      var index = positioningDeviceModel.addDevice(type, name, settings);
+      const index = positioningDeviceModel.addDevice(type, name, settings);
+      positioningDeviceComboBox.currentIndex = -1;
       positioningDeviceComboBox.currentIndex = index;
     }
   }

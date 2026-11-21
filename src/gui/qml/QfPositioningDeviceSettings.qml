@@ -103,6 +103,7 @@ QfPopup {
     padding: 5
     header: QfPageHeader {
       id: pageHeader
+      objectName: "positioningDeviceSettingsPageHeader"
       title: qsTr("Positioning Device Settings")
 
       showBackButton: false
