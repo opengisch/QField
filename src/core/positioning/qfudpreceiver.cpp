@@ -96,7 +96,7 @@ void QfUdpReceiver::handleDisconnectDevice()
   }
   else
   {
-    // The socket state might not have been set to unconnected due to auto-reconnect, insure it is updated
+    // The socket state might not have been set to unconnected due to auto-reconnect, ensure it is updated
     setSocketState( QAbstractSocket::UnconnectedState );
   }
 }
