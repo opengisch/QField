@@ -184,6 +184,13 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
   QList<QgsMapLayer *> createdProjectLayers;
   QgsProject *createdProject = new QgsProject();
 
+#if _QGIS_VERSION_INT >= 40300
+  std::unique_ptr<QgsVectorFileWriter> writer;
+#else
+  QgsVectorFileWriter *writer = nullptr;
+#endif
+  QgsVectorFileWriter::SaveVectorOptions writerOptions;
+
   // Metadata
   QgsProjectMetadata projectMetadata = createdProject->metadata();
   projectMetadata.setTitle( projectTitle );
@@ -216,10 +223,12 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
     notesFields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
     notesFields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
-    QgsVectorFileWriter::SaveVectorOptions writerOptions;
     writerOptions.layerName = "notes_point";
-    QgsVectorFileWriter *writer = QgsVectorFileWriter::create( notesFilepath, notesFields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+    writer = QgsVectorFileWriter::create( notesFilepath, notesFields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+    writer->finalize();
+#if _QGIS_VERSION_INT < 40300
     delete writer;
+#endif
 
     writerOptions.actionOnExistingFile = QgsVectorFileWriter::CreateOrOverwriteLayer;
 
@@ -235,7 +244,10 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
     {
       writerOptions.layerName = "notes_line";
       writer = QgsVectorFileWriter::create( notesFilepath, notesFields, Qgis::WkbType::LineStringZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+      writer->finalize();
+#if _QGIS_VERSION_INT < 40300
       delete writer;
+#endif
 
       notesLineLayer = new QgsVectorLayer( QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName ), QStringLiteral( "%1 — %2" ).arg( tr( "Notes" ), tr( "Line" ) ) );
       notesLayers << notesLineLayer;
@@ -244,7 +256,10 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
 
       writerOptions.layerName = "notes_polygon";
       writer = QgsVectorFileWriter::create( notesFilepath, notesFields, Qgis::WkbType::PolygonZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+      writer->finalize();
+#if _QGIS_VERSION_INT < 40300
       delete writer;
+#endif
 
       notesPolygonLayer = new QgsVectorLayer( QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName ), QStringLiteral( "%1 — %2" ).arg( tr( "Notes" ), tr( "Polygon" ) ) );
       notesLayers << notesPolygonLayer;
@@ -263,8 +278,11 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
       attachFields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
       writerOptions.layerName = QStringLiteral( "notes_attachments" );
-      QgsVectorFileWriter *attachWriter = QgsVectorFileWriter::create( notesFilepath, attachFields, Qgis::WkbType::NoGeometry, QgsCoordinateReferenceSystem(), createdProject->transformContext(), writerOptions );
-      delete attachWriter;
+      writer = QgsVectorFileWriter::create( notesFilepath, attachFields, Qgis::WkbType::NoGeometry, QgsCoordinateReferenceSystem(), createdProject->transformContext(), writerOptions );
+      writer->finalize();
+#if _QGIS_VERSION_INT < 40300
+      delete writer;
+#endif
 
       const QString attachUri = QStringLiteral( "%1|layername=%2" ).arg( notesFilepath, writerOptions.layerName );
       attachmentsLayer = new QgsVectorLayer( attachUri, tr( "Note attachments" ) );
@@ -465,9 +483,12 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
-    QgsVectorFileWriter::SaveVectorOptions writerOptions;
-    QgsVectorFileWriter *writer = QgsVectorFileWriter::create( tracksFilepath, fields, Qgis::WkbType::LineStringZM, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+    writerOptions.layerName = QString();
+    writer = QgsVectorFileWriter::create( tracksFilepath, fields, Qgis::WkbType::LineStringZM, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+    writer->finalize();
+#if _QGIS_VERSION_INT < 40300
     delete writer;
+#endif
 
     tracksLayer = new QgsVectorLayer( tracksFilepath, tr( "Tracks" ) );
     fields = tracksLayer->fields();
