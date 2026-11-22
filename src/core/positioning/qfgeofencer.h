@@ -48,6 +48,7 @@ class QfGeofencer : public QObject
     Q_PROPERTY( QgsCoordinateReferenceSystem positionCrs READ positionCrs WRITE setPositionCrs NOTIFY positionCrsChanged )
 
     Q_PROPERTY( QgsVectorLayer *areasLayer READ areasLayer WRITE setAreasLayer NOTIFY areasLayerChanged )
+    Q_PROPERTY( QString areasFilterExpression READ areasFilterExpression WRITE setAreasFilterExpression NOTIFY areasFilterExpressionChanged )
 
     Q_PROPERTY( bool isAlerting READ isAlerting NOTIFY isAlertingChanged )
 
@@ -154,6 +155,16 @@ class QfGeofencer : public QObject
     void setAreasLayer( QgsVectorLayer *layer );
 
     /**
+     * Returns the expression used to filter polygons within the areas layer.
+     */
+    QString areasFilterExpression() const { return mAreasFilterExpression; }
+
+    /**
+     * Sets the expression used to filter polygons within the areas layer.
+     */
+    void setAreasFilterExpression( const QString &areasFilterExpression );
+
+    /**
      * Returns TRUE when the geofencer's behavior is triggering an alarm.
      */
     bool isAlerting() const { return mIsAlerting; }
@@ -191,6 +202,7 @@ class QfGeofencer : public QObject
     void positionChanged();
     void positionCrsChanged();
     void areasLayerChanged();
+    void areasFilterExpressionChanged();
     void isAlertingChanged();
     void isWithinChanged();
     void lastFeedbackChanged();
@@ -213,6 +225,7 @@ class QfGeofencer : public QObject
     QgsCoordinateReferenceSystem mPositionCrs;
 
     QPointer<QgsVectorLayer> mAreasLayer;
+    QString mAreasFilterExpression;
     QList<QfFeatureExpressionValuesGatherer::Entry> mAreas;
 
     bool mIsAlerting = false;

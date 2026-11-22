@@ -43,16 +43,27 @@ void QfGeofencer::cleanupGatherer()
 void QfGeofencer::gatherAreas()
 {
   if ( !mAreasLayer || !mAreasLayer->isValid() || !mPositionCrs.isValid() )
+  {
     return;
+  }
 
   QgsFeatureRequest request;
   request.setDestinationCrs( mPositionCrs, QgsProject::instance()->transformContext() );
 
   QgsExpressionContext context = mAreasLayer->createExpressionContext();
+  request.setExpressionContext( context );
+
   QgsExpression expression( mAreasLayer->displayExpression() );
   expression.prepare( &context );
-
   QSet<QString> referencedColumns = expression.referencedColumns();
+  if ( !mAreasFilterExpression.isEmpty() )
+  {
+    request.setFilterExpression( mAreasFilterExpression );
+    QgsExpression filterExpression( mAreasFilterExpression );
+    filterExpression.prepare( &context );
+    referencedColumns.unite( filterExpression.referencedColumns() );
+  }
+
   QgsFields fields = mAreasLayer->fields();
   request.setSubsetOfAttributes( referencedColumns, fields );
 
@@ -333,13 +344,28 @@ void QfGeofencer::setAreasLayer( QgsVectorLayer *layer )
   gatherAreas();
 }
 
+void QfGeofencer::setAreasFilterExpression( const QString &areasFilterExpression )
+{
+  if ( mAreasFilterExpression == areasFilterExpression )
+  {
+    return;
+  }
+
+  mAreasFilterExpression = areasFilterExpression;
+  emit areasFilterExpressionChanged();
+
+  gatherAreas();
+}
+
 void QfGeofencer::applyProjectSettings( QgsProject *project )
 {
   bool active = false;
   Behaviors behavior = AlertWhenInsideGeofencedArea;
   bool vibration = true;
   AudioTypes audio = AudioSpeech;
+
   QgsVectorLayer *layer = nullptr;
+  QString filterExpression;
 
   if ( project )
   {
@@ -352,11 +378,17 @@ void QfGeofencer::applyProjectSettings( QgsProject *project )
     {
       layer = qobject_cast<QgsVectorLayer *>( project->mapLayer( layerId ) );
     }
+    filterExpression = project->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingFilterExpression" ) );
   }
 
-  setActive( active );
+  // Temporarily deactivate to avoid needless feature gathering
+  setActive( false );
+
   setBehavior( behavior );
   setVibration( vibration );
   setAudio( audio );
+  setAreasFilterExpression( filterExpression );
   setAreasLayer( layer );
+
+  setActive( active );
 }
