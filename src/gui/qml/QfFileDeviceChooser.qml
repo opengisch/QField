@@ -31,11 +31,9 @@ Item {
     };
   }
 
-  GridLayout {
+  ColumnLayout {
     width: parent.width
-    columns: 1
-    columnSpacing: 10
-    rowSpacing: 10
+    spacing: 10
 
     RowLayout {
       Layout.fillWidth: true

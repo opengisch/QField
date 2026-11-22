@@ -34,11 +34,9 @@ Item {
     serialPortModel.refresh();
   }
 
-  GridLayout {
+  ColumnLayout {
     width: parent.width
-    columns: 1
-    columnSpacing: 0
-    rowSpacing: 5
+    spacing: 5
 
     Label {
       Layout.fillWidth: true
