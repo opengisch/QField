@@ -42,7 +42,6 @@ void QfTracker::setColor( const QColor &color )
     return;
   }
 
-  qDebug() << "xxx" << color.name();
   mColor = color;
   emit colorChanged();
 }
@@ -146,7 +145,6 @@ void QfTracker::setFeature( const QgsFeature &feature )
           color = symbolLayer->color();
           if ( symbolLayer->hasDataDefinedProperties() )
           {
-            qDebug() << "FUCK!";
             if ( symbolLayer->dataDefinedProperties().isActive( QgsSymbolLayer::Property::FillColor ) )
             {
               color = symbolLayer->dataDefinedProperties().valueAsColor( QgsSymbolLayer::Property::FillColor, context.expressionContext(), color );
