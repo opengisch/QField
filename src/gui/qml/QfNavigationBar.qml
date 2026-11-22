@@ -653,6 +653,7 @@ Rectangle {
         iconSource: QfTheme.getThemeVectorIcon("ic_cut_black_24dp")
         iconColor: enabled ? QfTheme.mainTextColor : QfTheme.mainTextDisabledColor
         bgcolor: enabled && hovered ? parent.hoveredColor : "#00ffffff"
+        enabled: deleteFeatureBtn.enabled
 
         onClicked: {
           clipboardManager.copyFeatureToClipboard(featureForm.model.featureModel.currentLayer, featureForm.model.featureModel.feature.id, true, true);
