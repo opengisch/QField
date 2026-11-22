@@ -3802,28 +3802,30 @@ ApplicationWindow {
     function ensureEditableLayerSelected() {
       let firstEditableLayer = null;
       let activeLayerLocked = false;
-      for (let i = 0; i < layerTree.rowCount(); i++) {
-        let index = layerTree.index(i, 0);
-        let vectorLayer = layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer);
-        if (vectorLayer == null) {
-          continue;
-        }
-
-        if (firstEditableLayer === null) {
-          if (vectorLayer.supportsEditing && layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === false) {
-            firstEditableLayer = vectorLayer;
+      if (projectInfo.insertRights) {
+        for (let i = 0; i < layerTree.rowCount(); i++) {
+          let index = layerTree.index(i, 0);
+          let vectorLayer = layerTree.data(index, QfFlatLayerTreeModel.VectorLayerPointer);
+          if (vectorLayer == null) {
+            continue;
           }
-        }
-        if (activeLayer !== null && activeLayer === vectorLayer) {
-          if (vectorLayer.supportsEditing && layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === true || layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === true) {
-            activeLayerLocked = true;
-          } else {
+
+          if (firstEditableLayer === null) {
+            if (vectorLayer.supportsEditing && layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === false && layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === false) {
+              firstEditableLayer = vectorLayer;
+            }
+          }
+          if (activeLayer !== null && activeLayer === vectorLayer) {
+            if (vectorLayer.supportsEditing && layerTree.data(index, QfFlatLayerTreeModel.ReadOnly) === true || layerTree.data(index, QfFlatLayerTreeModel.FeatureAdditionLocked) === true) {
+              activeLayerLocked = true;
+            } else {
+              break;
+            }
+          }
+          if (firstEditableLayer !== null && (activeLayer === null || activeLayerLocked)) {
+            activeLayer = firstEditableLayer;
             break;
           }
-        }
-        if (firstEditableLayer !== null && (activeLayer === null || activeLayerLocked)) {
-          activeLayer = firstEditableLayer;
-          break;
         }
       }
       if (firstEditableLayer == null && (activeLayer === null || activeLayerLocked)) {
@@ -5181,7 +5183,6 @@ ApplicationWindow {
         }
         switch (cloudProjectsModel.currentProject.userRole) {
         case 'reader':
-          stateMachine.state = "browse";
           projectInfo.hasInsertRights = false;
           projectInfo.hasEditRights = false;
           break;

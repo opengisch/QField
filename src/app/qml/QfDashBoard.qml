@@ -682,7 +682,7 @@ Drawer {
             width: modeSwitch.height * 0.75
             height: width
             radius: modeSwitch.height / 12
-            color: projectInfo.insertRights ? QfTheme.mainColor : QfTheme.darkTheme ? QfTheme.mainBackgroundColorSemiOpaque : QfTheme.lightestGray
+            color: QfTheme.mainColor
             border.color: QfTheme.mainOverlayColor
             Image {
               width: modeSwitch.height * 0.58
@@ -702,12 +702,7 @@ Drawer {
         }
 
         onClicked: {
-          if (projectInfo.insertRights) {
-            mainWindow.toggleDigitizeMode();
-          } else {
-            checked = false;
-            displayToast(qsTr("The project is read-only."));
-          }
+          mainWindow.toggleDigitizeMode();
         }
       }
     }
