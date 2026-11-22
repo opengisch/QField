@@ -22,6 +22,7 @@ set(QFIELD_GUI_QML_FILES
     QfCompassDial.qml
     QfConfirmationToolbar.qml
     QfContainerCard.qml
+    QfDial.qml
     QfDialog.qml
     QfDigitizingLayerInformationView.qml
     QfDigitizingToolbar.qml
