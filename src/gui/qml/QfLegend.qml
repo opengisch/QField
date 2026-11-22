@@ -42,6 +42,9 @@ ListView {
         if (!allowActiveLayerChange) {
           return;
         }
+        if (!projectInfo.insertRights) {
+          return;
+        }
         if (VectorLayerPointer && VectorLayerPointer.isValid) {
           activeLayer = VectorLayerPointer;
           projectInfo.activeLayer = VectorLayerPointer;
