@@ -1017,10 +1017,12 @@ Popup {
     enabled: cloudProjectsModel.currentProjectId !== ""
 
     function onCollectionItemsChanged(uuid) {
-      const collectionPath = markupManager.collectionPath(uuid);
-      if (collectionPath !== "") {
-        QfCloudUtils.addPendingAttachments(cloudConnection.username, cloudProjectsModel.currentProjectId, [collectionPath], cloudConnection, true);
-        delayedPendingAttachmentsUploadTimer.start();
+      if (cloudProjectsModel.currentProject.userRole !== "reader") {
+        const collectionPath = markupManager.collectionPath(uuid);
+        if (collectionPath !== "") {
+          QfCloudUtils.addPendingAttachments(cloudConnection.username, cloudProjectsModel.currentProjectId, [collectionPath], cloudConnection, true);
+          delayedPendingAttachmentsUploadTimer.start();
+        }
       }
     }
   }
