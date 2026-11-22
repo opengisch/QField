@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Shapes
 import org.qfield.core
 import org.qfield.gui
 
@@ -356,29 +355,20 @@ QfEditorWidgetBase {
           }
         }
 
-        Dial {
+        QfDial {
           id: dial
-          width: QfTheme.toolButtonSize * 2.75
-          height: width
-
-          readonly property bool hasValue: !isNull && !isEmpty
-          readonly property real trackWidth: 6
-          readonly property real handleSize: 20
-          readonly property real trackRadius: width / 2 - handleSize / 2 - 1
-          readonly property color activeColor: enabled ? QfTheme.mainColor : QfTheme.mainTextDisabledColor
 
           from: Number.isFinite(rangeItem.min) ? rangeItem.min : -Number.MAX_VALUE
           to: Number.isFinite(rangeItem.max) ? rangeItem.max : Number.MAX_VALUE
           stepSize: Number.isFinite(rangeItem.step) && rangeItem.step > 0 ? rangeItem.step : 1
           snapMode: Dial.SnapAlways
-          wrap: true
-          startAngle: 0
-          // The range plus one step spans the full circle, so min and max do not overlap and 0 to 359 maps onto actual degrees
-          endAngle: {
-            const range = to - from;
-            return Number.isFinite(range) && range > 0 ? 360 * range / (range + stepSize) : 360;
-          }
           value: hasValue ? Number(dialItem.fieldValue) : from
+
+          hasValue: !isNull && !isEmpty
+          placeholderText: isEmpty ? qsTr("Empty") : qsTr("NULL")
+          precision: rangeItem.precision
+          suffixText: rangeItem.suffix
+          textColor: !isEditable && isEditing ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
 
           onMoved: {
             rangeItem.valueChangeRequested(rangeItem.roundValue(value, rangeItem.precision), false);
@@ -394,105 +384,6 @@ QfEditorWidgetBase {
             if (value !== previousValue || !hasValue) {
               rangeItem.valueChangeRequested(rangeItem.roundValue(value, rangeItem.precision), false);
             }
-          }
-
-          background: Shape {
-            width: dial.width
-            height: dial.height
-            preferredRendererType: Shape.CurveRenderer
-
-            ShapePath {
-              strokeWidth: dial.trackWidth
-              strokeColor: Qt.alpha(QfTheme.mainTextColor, 0.1)
-              fillColor: "transparent"
-
-              PathAngleArc {
-                centerX: dial.width / 2
-                centerY: dial.height / 2
-                radiusX: dial.trackRadius
-                radiusY: dial.trackRadius
-                startAngle: -90
-                sweepAngle: 360
-              }
-            }
-
-            ShapePath {
-              strokeWidth: dial.trackWidth
-              strokeColor: dial.hasValue ? dial.activeColor : "transparent"
-              fillColor: "transparent"
-              capStyle: ShapePath.RoundCap
-
-              PathAngleArc {
-                centerX: dial.width / 2
-                centerY: dial.height / 2
-                radiusX: dial.trackRadius
-                radiusY: dial.trackRadius
-                startAngle: dial.startAngle - 90
-                sweepAngle: dial.angle - dial.startAngle
-              }
-            }
-          }
-
-          handle: Rectangle {
-            x: dial.width / 2 + dial.trackRadius * Math.sin(dial.angle * Math.PI / 180) - width / 2
-            y: dial.height / 2 - dial.trackRadius * Math.cos(dial.angle * Math.PI / 180) - height / 2
-            width: dial.pressed ? dial.handleSize + 4 : dial.handleSize
-            height: width
-            radius: width / 2
-            color: QfTheme.controlBackgroundColor
-            border.width: 4
-            border.color: dial.hasValue ? dial.activeColor : QfTheme.mainTextDisabledColor
-            layer.enabled: true
-            layer.effect: QfDropShadow {
-              transparentBorder: true
-              color: "#33000000"
-              horizontalOffset: 0
-              verticalOffset: 1
-              blurMax: 8
-              shadowBlur: 0.6
-            }
-          }
-
-          Column {
-            anchors.centerIn: parent
-
-            Row {
-              anchors.horizontalCenter: parent.horizontalCenter
-              spacing: 2
-
-              Text {
-                id: dialValueText
-                text: dial.hasValue ? Number(dial.value).toFixed(rangeItem.precision) : isEmpty ? qsTr("Empty") : qsTr("NULL")
-                font.family: QfTheme.defaultFont.family
-                font.pointSize: dial.hasValue ? Math.max(QfTheme.tipFont.pointSize, dialValueMetrics.font.pointSize * Math.min(1, dial.width * 0.55 / Math.max(1, dialValueMetrics.advanceWidth))) : QfTheme.defaultFont.pointSize
-                font.weight: dial.hasValue ? Font.DemiBold : Font.Normal
-                color: (!isEditable && isEditing) || !dial.hasValue ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
-              }
-
-              Text {
-                anchors.baseline: dialValueText.baseline
-                visible: dial.hasValue && rangeItem.suffix !== ""
-                text: rangeItem.suffix
-                font: QfTheme.tipFont
-                color: QfTheme.secondaryTextColor
-              }
-            }
-
-            Text {
-              anchors.horizontalCenter: parent.horizontalCenter
-              visible: Number.isFinite(dial.to - dial.from)
-              text: Number(dial.from).toFixed(rangeItem.precision) + " – " + Number(dial.to).toFixed(rangeItem.precision)
-              font: QfTheme.tinyFont
-              color: QfTheme.secondaryTextColor
-            }
-          }
-
-          TextMetrics {
-            id: dialValueMetrics
-            font.family: QfTheme.defaultFont.family
-            font.pointSize: QfTheme.defaultFont.pointSize * 1.8
-            font.weight: Font.DemiBold
-            text: dialValueText.text
           }
         }
 
