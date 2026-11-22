@@ -3633,7 +3633,7 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation type="unfinished">Connecting to %1</translation>
+        <translation type="obsolete">Connecting to %1</translation>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
@@ -3813,6 +3813,10 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel connection to %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -3595,7 +3595,7 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Conectando a %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
@@ -3775,6 +3775,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel connection to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

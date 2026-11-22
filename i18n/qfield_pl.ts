@@ -3599,7 +3599,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Łączenie z %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
@@ -3780,6 +3780,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
         <translation>Jeśli ta opcja jest włączona, na ekranie powitalnym będą wyświetlane najnowsze wiadomości i przydatne wskazówki.</translation>
+    </message>
+    <message>
+        <source>Cancel connection to %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

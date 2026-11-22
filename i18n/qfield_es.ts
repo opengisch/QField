@@ -3596,7 +3596,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Conectando a %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
@@ -3776,6 +3776,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel connection to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

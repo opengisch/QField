@@ -3577,7 +3577,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>ເຊື່ອມຕໍ່ກັບ %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
@@ -3758,6 +3758,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel connection to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

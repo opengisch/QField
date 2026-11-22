@@ -3597,7 +3597,7 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Yhdistetään laitteeseen %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
@@ -3778,6 +3778,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
         <translation>Jos käytössä, uusimmat uutiset ja hyödylliset vinkit näytetään tervetulonäytöllä.</translation>
+    </message>
+    <message>
+        <source>Cancel connection to %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

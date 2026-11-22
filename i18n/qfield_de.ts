@@ -3592,7 +3592,7 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Verbindung zu %1 wird hergestellt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
@@ -3772,6 +3772,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel connection to %1</source>
         <translation type="unfinished"/>
     </message>
 </context>

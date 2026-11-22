@@ -3596,7 +3596,7 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>S&apos;està connectant a %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable NTRIP corrections</source>
@@ -3777,6 +3777,10 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     <message>
         <source>If enabled, the latest news and useful tips will be displayed on the welcome screen.</source>
         <translation>Si està activat, les darreres notícies i consells útils es mostraran a la pantalla de benvinguda.</translation>
+    </message>
+    <message>
+        <source>Cancel connection to %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
