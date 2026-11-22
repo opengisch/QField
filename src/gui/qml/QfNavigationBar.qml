@@ -350,14 +350,18 @@ Rectangle {
     id: editButton
 
     property bool supportsEditing: false
+
     property bool isCreatedCloudFeature: false
     property bool isMarkupItem: false
+
+    property bool isEditable: projectInfo.editRights || isMarkupItem
+    property bool isInsertable: projectInfo.insertRights || isMarkupItem
 
     anchors.right: menuButton.left
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin + 5
 
-    visible: toolBar.state === "Navigation" && supportsEditing && !featureForm.model.featureModel.attributeEditingLocked && (projectInfo.editRights || isCreatedCloudFeature)
+    visible: toolBar.state === "Navigation" && supportsEditing && (isEditable || isCreatedCloudFeature) && !featureForm.model.featureModel.attributeEditingLocked
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
     clip: true
@@ -476,7 +480,7 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: toolBar.topMargin + 5
 
-    visible: toolBar.state === "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
+    visible: editButton.isEditable && toolBar.state === "Indication" && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1
     width: visible ? QfTheme.toolButtonSize : 0
     height: QfTheme.toolButtonSize
     clip: true
@@ -484,7 +488,7 @@ Rectangle {
     iconSource: QfTheme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
     iconColor: QfTheme.mainTextColor
 
-    enabled: toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
+    enabled: editButton.isEditable && toolBar.model && toolBar.model.canEditAttributesSelection && toolBar.model.selectedCount > 1
 
     onClicked: {
       multiEditClicked();
@@ -553,7 +557,7 @@ Rectangle {
       visible: !editButton.isMarkupItem
       height: !editButton.isMarkupItem ? 48 : 0
       icon.source: QfTheme.getThemeVectorIcon("ic_merge_features_white_24dp")
-      enabled: toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1 && projectInfo.editRights
+      enabled: editButton.isEditable && toolBar.model && toolBar.model.canMergeSelection && toolBar.model.selectedCount > 1
 
       font: QfTheme.defaultFont
       leftPadding: QfTheme.menuItemLeftPadding
@@ -566,7 +570,7 @@ Rectangle {
       text: qsTr('Move Selected Feature(s)')
       height: 48
       icon.source: QfTheme.getThemeVectorIcon("ic_move_white_24dp")
-      enabled: toolBar.model && toolBar.model.canMoveSelection && projectInfo.editRights
+      enabled: editButton.isEditable && toolBar.model && toolBar.model.canMoveSelection
 
       font: QfTheme.defaultFont
       leftPadding: QfTheme.menuItemLeftPadding
@@ -579,7 +583,7 @@ Rectangle {
       text: qsTr('Duplicate Selected Feature(s)')
       height: 48
       icon.source: QfTheme.getThemeVectorIcon("ic_duplicate_black_24dp")
-      enabled: toolBar.model && toolBar.model.canDuplicateSelection && projectInfo.insertRights
+      enabled: editButton.isInsertable && toolBar.model && toolBar.model.canDuplicateSelection
 
       font: QfTheme.defaultFont
       leftPadding: QfTheme.menuItemLeftPadding
@@ -591,7 +595,7 @@ Rectangle {
       id: deleteSelectedFeaturesBtn
       text: qsTr('Delete Selected Feature(s)')
       icon.source: QfTheme.getThemeVectorIcon("ic_delete_forever_white_24dp")
-      enabled: toolBar.model && toolBar.model.canDeleteSelection && projectInfo.editRights
+      enabled: editButton.isEditable && toolBar.model && toolBar.model.canDeleteSelection
       visible: enabled
       height: enabled ? 48 : 0
 
@@ -614,7 +618,7 @@ Rectangle {
       visible: !editButton.isMarkupItem
       height: !editButton.isMarkupItem ? 48 : 0
       icon.source: QfTheme.getThemeVectorIcon("ic_processing_black_24dp")
-      enabled: toolBar.model && toolBar.model.canProcessSelection && projectInfo.editRights
+      enabled: editButton.isEditable && toolBar.model && toolBar.model.canProcessSelection
 
       font: QfTheme.defaultFont
       leftPadding: QfTheme.menuItemLeftPadding
@@ -767,7 +771,7 @@ Rectangle {
       id: processFeatureButton
       text: qsTr('Process Feature')
       icon.source: QfTheme.getThemeVectorIcon("ic_processing_black_24dp")
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && !editButton.isMarkupItem && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked))
+      enabled: ((editButton.isEditable || editButton.isCreatedCloudFeature) && !editButton.isMarkupItem && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked))
       visible: enabled
 
       font: QfTheme.defaultFont
@@ -781,7 +785,7 @@ Rectangle {
       id: moveFeatureBtn
       text: qsTr('Move Feature')
       icon.source: QfTheme.getThemeVectorIcon("ic_move_white_24dp")
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked))
+      enabled: ((editButton.isEditable || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked))
       visible: enabled
 
       font: QfTheme.defaultFont
@@ -795,7 +799,7 @@ Rectangle {
       id: duplicateFeatureBtn
       text: qsTr('Duplicate Feature')
       icon.source: QfTheme.getThemeVectorIcon("ic_duplicate_black_24dp")
-      enabled: (projectInfo.insertRights && (!selection.focusedLayer || (!selection.focusedLayer.readOnly && !featureForm.model.featureModel.featureAdditionLocked)))
+      enabled: (editButton.isInsertable && (!selection.focusedLayer || (!selection.focusedLayer.readOnly && !featureForm.model.featureModel.featureAdditionLocked)))
       visible: enabled
 
       font: QfTheme.defaultFont
@@ -822,7 +826,7 @@ Rectangle {
         }
         return false;
       }
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked)) && isGeometryCompatible
+      enabled: ((editButton.isEditable || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.geometryEditingLocked)) && isGeometryCompatible
       visible: enabled
 
       font: QfTheme.defaultFont
@@ -836,7 +840,7 @@ Rectangle {
       id: transferFeatureAttributesBtn
       text: qsTr('Update Attributes from Feature')
       icon.source: QfTheme.getThemeVectorIcon("ic_transfer_into_black_24dp")
-      enabled: (projectInfo.insertRights && !editButton.isMarkupItem && (!selection.focusedLayer || !featureForm.model.featureModel.attributeEditingLocked))
+      enabled: (editButton.isInsertable && !editButton.isMarkupItem && (!selection.focusedLayer || !featureForm.model.featureModel.attributeEditingLocked))
       visible: enabled
 
       font: QfTheme.defaultFont
@@ -850,7 +854,7 @@ Rectangle {
       id: deleteFeatureBtn
       text: qsTr('Delete Feature')
       icon.source: QfTheme.getThemeVectorIcon("ic_delete_forever_white_24dp")
-      enabled: ((projectInfo.editRights || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.featureDeletionLocked))
+      enabled: ((editButton.isEditable || editButton.isCreatedCloudFeature) && (!selection.focusedLayer || !featureForm.model.featureModel.featureDeletionLocked))
       visible: enabled
 
       font: QfTheme.defaultFont
