@@ -20,6 +20,7 @@
 #include "qffeatureexpressionvaluesgatherer.h"
 
 #include <QObject>
+#include <QSoundEffect>
 #include <QTimer>
 #include <qgscoordinatereferencesystem.h>
 #include <qgspoint.h>
@@ -239,6 +240,7 @@ class QfGeofencer : public QObject
 #ifdef WITH_TEXTTOSPEECH
     std::unique_ptr<QTextToSpeech> mTextToSpeech;
 #endif
+    std::unique_ptr<QSoundEffect> mAudioAlarmSound;
 };
 
 #endif // QFGEOFENCER_H

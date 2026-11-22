@@ -15,6 +15,7 @@
 </qresource>
 <qresource prefix="/sounds">
     <file alias="proximity_alarm.wav">@RESOURCES_DIR@/sounds/proximity_alarm.wav</file>
+    <file alias="geofencing_alarm.wav">@RESOURCES_DIR@/sounds/geofencing_alarm.wav</file>
 </qresource>
 <qresource prefix="/oauth2method">
     <file alias="oauth2_verification_finished.html">@RESOURCES_DIR@/templates/oauth2_verification_finished.html</file>

@@ -203,14 +203,13 @@ void QfGeofencer::processWithinChanged()
       if ( !mTextToSpeech )
       {
         mTextToSpeech = std::make_unique<QTextToSpeech>();
-        mTextToSpeech->setRate( 0.25 );
         mTextToSpeech->setLocale( QLocale() );
-
         const QList<QVoice> voices = mTextToSpeech->findVoices( QVoice::Male );
         if ( !voices.isEmpty() )
         {
           mTextToSpeech->setVoice( voices.first() );
         }
+        mTextToSpeech->setRate( 0.1 );
       }
 
       if ( !mLastFeedback.isEmpty() )
@@ -225,6 +224,15 @@ void QfGeofencer::processWithinChanged()
       break;
 
     case AudioAlarm:
+      if ( mIsAlerting )
+      {
+        if ( !mAudioAlarmSound )
+        {
+          mAudioAlarmSound = std::make_unique<QSoundEffect>();
+          mAudioAlarmSound->setSource( QUrl( QStringLiteral( "qrc:/sounds/geofencing_alarm.wav" ) ) );
+        }
+        mAudioAlarmSound->play();
+      }
       break;
 
     case AudioMuted:
