@@ -46,7 +46,7 @@ Rectangle {
         model: QfDigitizingLayerModel {
           id: digitizingLayerModel
           enabled: true
-          project: qgisProject
+          project: projectInfo.insertRights ? qgisProject : null
           markups: markupManager
         }
         textRole: "Name"
