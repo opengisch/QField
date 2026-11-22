@@ -1987,6 +1987,7 @@ ApplicationWindow {
 
   QfGeofencer {
     id: geofencer
+    objectName: "geofencer"
 
     position: positionSource.projectedPosition
     positionCrs: mapCanvas.mapSettings.destinationCrs
