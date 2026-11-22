@@ -307,7 +307,7 @@ ApplicationWindow {
     state: "browse"
 
     onStateChanged: {
-      if (state !== "browse" && is3DView) {
+      if (state === "digitize" && is3DView) {
         mapCanvas3DLoader.close();
       }
     }
@@ -363,7 +363,9 @@ ApplicationWindow {
 
   onClose3DView: {
     mapCanvas3DLoader.close();
-    changeMode(mapCanvas3DLoader.previousMode);
+    if (stateMachine.state !== 'measure') {
+      changeMode(mapCanvas3DLoader.previousMode);
+    }
   }
 
   /**
@@ -813,6 +815,20 @@ ApplicationWindow {
         item.mapSettings = mapCanvas.mapSettings;
         item.markups = markupManager;
         item.trackingModel = trackingModel;
+        item.rubberbandModel = Qt.binding(() => stateMachine.state === 'measure' ? measuringTool.measuringRubberband.model : null);
+        item.rubberbandColor = measuringTool.measuringRubberband.color;
+        if (stateMachine.state === 'measure') {
+          // Vertices added on the 2D canvas have no Z value, take it from the terrain when the 3D map loads
+          const model = measuringTool.measuringRubberband.model;
+          for (let i = 0; i < model.vertexCount; i++) {
+            const vertex = model.vertices[i];
+            model.setVertex(i, QfGeometryUtils.point(vertex.x, vertex.y, item.terrainProvider.heightAt(vertex.x, vertex.y)));
+          }
+        }
+        item.mouseAsTouchScreen = Qt.binding(() => qfieldSettings.mouseAsTouchScreen);
+        item.crosshair.fillColor = Qt.binding(() => coordinateLocator.cursorFillColor);
+        item.crosshair.outlineColor = Qt.binding(() => coordinateLocator.cursorOutlineColor);
+        item.crosshair.sizeScale = Qt.binding(() => coordinateLocator.cursorSizeScale);
         item.eyeDomeLightingMode = settings.valueBool('3d/eyeDomeLightingMode', false);
         item.selectionColor = Qt.binding(() => QfTheme.mainColor);
 
@@ -828,6 +844,12 @@ ApplicationWindow {
           if (gnssButton.followActive) {
             mapCanvasMap.unfreeze('follow');
             gnssButton.followActive = false;
+          }
+        });
+
+        item.addVertexRequested.connect(function () {
+          if (!coordinateLocator.positionLocked) {
+            digitizingToolbar.addVertex();
           }
         });
 
@@ -1322,7 +1344,7 @@ ApplicationWindow {
       rubberbandModel: geometryEditorsToolbar.stateVisible ? geometryEditorsToolbar.editorRubberbandModel : digitizingToolbar.rubberbandModel
       averagedPosition: positionSource.averagedPosition
       averagedPositionCount: positionSource.averagedPositionCount
-      overrideLocation: positionLocked ? positionSource.projectedPosition : undefined
+      overrideLocation: positionLocked ? positionSource.projectedPosition : stateMachine.is3DView && mapCanvas3DLoader.item ? mapCanvas3DLoader.item.crosshairCoordinate : undefined
 
       snapToCommonAngles: qfieldSettings.snapToCommonAngleIsEnabled && (dashBoard.activeLayer && (dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Polygon || dashBoard.activeLayer.geometryType() === Qgis.GeometryType.Line))
       snappingIsRelative: qfieldSettings.snapToCommonAngleIsRelative
@@ -2223,6 +2245,7 @@ ApplicationWindow {
 
       property bool coordinatesIsXY: QfCoordinateReferenceSystemUtils.defaultCoordinateOrderForCrsIsXY(projectInfo.coordinateDisplayCrs)
       property bool coordinatesIsGeographic: projectInfo.coordinateDisplayCrs.isGeographic
+      readonly property point crosshairPosition: stateMachine.is3DView && mapCanvas3DLoader.item ? mapCanvas3DLoader.item.crosshairPosition : coordinateLocator.displayPosition
 
       QfDistanceArea {
         id: digitizingGeometryMeasure
@@ -2232,17 +2255,18 @@ ApplicationWindow {
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         project: qgisProject
         crs: qgisProject ? qgisProject.crs : QfCoordinateReferenceSystemUtils.invalidCrs()
+        useZValues: stateMachine.is3DView
       }
 
       // The position is dynamically calculated to follow the coordinate locator
       x: {
-        var newX = coordinateLocator.displayPosition.x + 20;
+        let newX = crosshairPosition.x + 20;
         if (newX + width > mapCanvas.x + mapCanvas.width)
           newX -= width + 40;
         return newX;
       }
       y: {
-        var newY = coordinateLocator.displayPosition.y + 14;
+        let newY = crosshairPosition.y + 14;
         if (newY + height > mapCanvas.y + mapCanvas.height)
           newY -= height - 28;
         return newY;
@@ -2250,18 +2274,45 @@ ApplicationWindow {
 
       textFormat: Text.PlainText
       text: {
-        if ((qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize") || stateMachine.state === 'measure') {
-          var point = QfGeometryUtils.reprojectPoint(coordinateLocator.currentCoordinate, coordinateLocator.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs);
-          var coordinates;
-          if (coordinatesIsXY) {
-            coordinates = '%1: %2\n%3: %4\n'.arg(coordinatesIsGeographic ? qsTr('Lon') : 'X').arg(point.x.toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2)).arg(coordinatesIsGeographic ? qsTr('Lat') : 'Y').arg(point.y.toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2));
-          } else {
-            coordinates = '%1: %2\n%3: %4\n'.arg(coordinatesIsGeographic ? qsTr('Lat') : 'Y').arg(point.y.toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2)).arg(coordinatesIsGeographic ? qsTr('Lon') : 'X').arg(point.x.toLocaleString(Qt.locale(), 'f', coordinatesIsGeographic ? 5 : 2));
-          }
-          return '%1%2%3%4%5%6'.arg(stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing ? coordinates : '').arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0 ? '%1: %2\n'.arg(digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? qsTr('Segment') : qsTr('Length')).arg(UnitTypes.formatDistance(digitizingGeometryMeasure.convertLengthMeansurement(digitizingGeometryMeasure.segmentLength, projectInfo.distanceUnits), 3, projectInfo.distanceUnits)) : '').arg(digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0 ? '%1: %2\n'.arg(qsTr('Azimuth')).arg(UnitTypes.formatAngle(digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, Qgis.AngleUnit.Degrees)) : '').arg(currentRubberband && currentRubberband.model && currentRubberband.model.geometryType === Qgis.GeometryType.Polygon ? digitizingGeometryMeasure.perimeterValid ? '%1: %2\n'.arg(qsTr('Perimeter')).arg(UnitTypes.formatDistance(digitizingGeometryMeasure.convertLengthMeansurement(digitizingGeometryMeasure.perimeter, projectInfo.distanceUnits), 3, projectInfo.distanceUnits)) : '' : digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length ? '%1: %2\n'.arg(qsTr('Length')).arg(UnitTypes.formatDistance(digitizingGeometryMeasure.convertLengthMeansurement(digitizingGeometryMeasure.length, projectInfo.distanceUnits), 3, projectInfo.distanceUnits)) : '').arg(digitizingGeometryMeasure.areaValid ? '%1: %2\n'.arg(qsTr('Area')).arg(UnitTypes.formatArea(digitizingGeometryMeasure.convertAreaMeansurement(digitizingGeometryMeasure.area, projectInfo.areaUnits), 3, projectInfo.areaUnits)) : '').arg(stateMachine.state === 'measure' && digitizingToolbar.isDigitizing ? coordinates : '');
-        } else {
+        const showInformation = (qfieldSettings.numericalDigitizingInformation && stateMachine.state === "digitize") || stateMachine.state === 'measure';
+        if (!showInformation) {
           return '';
         }
+
+        const point = QfGeometryUtils.reprojectPoint(coordinateLocator.currentCoordinate, coordinateLocator.mapSettings.destinationCrs, projectInfo.coordinateDisplayCrs);
+        const decimals = coordinatesIsGeographic ? 5 : 2;
+        const xLine = '%1: %2\n'.arg(coordinatesIsGeographic ? qsTr('Lon') : 'X').arg(point.x.toLocaleString(Qt.locale(), 'f', decimals));
+        const yLine = '%1: %2\n'.arg(coordinatesIsGeographic ? qsTr('Lat') : 'Y').arg(point.y.toLocaleString(Qt.locale(), 'f', decimals));
+        const coordinates = coordinatesIsXY ? xLine + yLine : yLine + xLine;
+
+        const isPolygon = currentRubberband && currentRubberband.model && currentRubberband.model.geometryType === Qgis.GeometryType.Polygon;
+        const hasMultipleSegments = digitizingGeometryMeasure.segmentLength != digitizingGeometryMeasure.length;
+        const formatLength = length => UnitTypes.formatDistance(digitizingGeometryMeasure.convertLengthMeansurement(length, projectInfo.distanceUnits), 3, projectInfo.distanceUnits);
+
+        const details = [];
+        const addDetail = (label, value) => details.push('%1: %2\n'.arg(label).arg(value));
+
+        if (stateMachine.state === 'digitize' || !digitizingToolbar.isDigitizing) {
+          details.push(coordinates);
+        }
+        if (digitizingGeometryMeasure.lengthValid && digitizingGeometryMeasure.segmentLength != 0.0) {
+          addDetail(digitizingGeometryMeasure.useZValues ? (hasMultipleSegments ? qsTr('Segment (3D)') : qsTr('Length (3D)')) : (hasMultipleSegments ? qsTr('Segment') : qsTr('Length')), formatLength(digitizingGeometryMeasure.segmentLength));
+          addDetail(qsTr('Azimuth'), UnitTypes.formatAngle(digitizingGeometryMeasure.azimuth < 0 ? digitizingGeometryMeasure.azimuth + 360 : digitizingGeometryMeasure.azimuth, 2, Qgis.AngleUnit.Degrees));
+        }
+        if (isPolygon) {
+          if (digitizingGeometryMeasure.perimeterValid) {
+            addDetail(digitizingGeometryMeasure.useZValues ? qsTr('Perimeter (3D)') : qsTr('Perimeter'), formatLength(digitizingGeometryMeasure.perimeter));
+          }
+        } else if (digitizingGeometryMeasure.lengthValid && hasMultipleSegments) {
+          addDetail(digitizingGeometryMeasure.useZValues ? qsTr('Length (3D)') : qsTr('Length'), formatLength(digitizingGeometryMeasure.length));
+        }
+        if (digitizingGeometryMeasure.areaValid) {
+          addDetail(digitizingGeometryMeasure.useZValues ? qsTr('Surface') : qsTr('Area'), UnitTypes.formatArea(digitizingGeometryMeasure.convertAreaMeansurement(digitizingGeometryMeasure.area, projectInfo.areaUnits), 3, projectInfo.areaUnits));
+        }
+        if (stateMachine.state === 'measure' && digitizingToolbar.isDigitizing) {
+          details.push(coordinates);
+        }
+        return details.join('');
       }
 
       font: QfTheme.strongTipFont
@@ -2473,7 +2524,7 @@ ApplicationWindow {
 
       QfActionButton {
         id: close3DView
-        visible: stateMachine.is3DView
+        visible: stateMachine.is3DView && stateMachine.state !== 'measure'
         toolImage: QfTheme.getThemeVectorIcon("ic_3d_white_24dp")
         toolText: qsTr('Close 3D view')
 
@@ -2977,7 +3028,7 @@ ApplicationWindow {
         iconSource: QfTheme.getThemeVectorIcon('ic_3d_settings_white_24dp')
         iconColor: QfTheme.toolButtonColor
         spacing: 4
-        visible: stateMachine.is3DView && mapCanvas3DLoader.item
+        visible: stateMachine.is3DView && mapCanvas3DLoader.item && stateMachine.state !== 'measure'
 
         QfToolButton {
           id: extentModeButton
@@ -3374,7 +3425,7 @@ ApplicationWindow {
         rubberbandModel: currentRubberband ? currentRubberband.model : null
         mapSettings: mapCanvas.mapSettings
         showConfirmButton: stateMachine.state === "digitize"
-        screenHovering: mapCanvasMap.hovered
+        screenHovering: mapCanvasMap.hovered || (stateMachine.is3DView && mapCanvas3DLoader.item && mapCanvas3DLoader.item.hovered)
         cogoOperationSettings: informationDrawer.cogoOperationSettings
 
         digitizingLogger.type: stateMachine.state === 'measure' ? '' : 'add'
@@ -3807,8 +3858,12 @@ ApplicationWindow {
     mainMenu.close();
     dashBoard.close();
     if (!stateMachine.is3DView) {
-      mapCanvas3DLoader.previousMode = stateMachine.state;
-      changeMode('browse');
+      if (stateMachine.state === 'measure') {
+        mapCanvas3DLoader.previousMode = stateMachine.lastState;
+      } else {
+        mapCanvas3DLoader.previousMode = stateMachine.state;
+        changeMode('browse');
+      }
       stateMachine.is3DView = true;
     }
   }
