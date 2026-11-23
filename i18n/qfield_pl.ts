@@ -3783,7 +3783,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Cancel connection to %1</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj połączenie z %1</translation>
     </message>
 </context>
 <context>
@@ -4696,7 +4696,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message numerus="yes">
         <source>Show %n empty field(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Pokaż %n puste pole</numerusform><numerusform>Pokaż %n puste pola</numerusform><numerusform>Pokaż %n pustych pól</numerusform><numerusform>Pokaż %n pustych pól</numerusform></translation>
     </message>
     <message>
         <source>Discard change</source>
@@ -5135,7 +5135,7 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Enlarge</source>
-        <translation type="unfinished"/>
+        <translation>Powiększ</translation>
     </message>
 </context>
 <context>
@@ -9883,6 +9883,22 @@ aby wyświetlić działania</translation>
     <message>
         <source>Cancel rotation</source>
         <translation>Anuluj obrót</translation>
+    </message>
+    <message>
+        <source>Segment (3D)</source>
+        <translation>Segment (3D)</translation>
+    </message>
+    <message>
+        <source>Length (3D)</source>
+        <translation>Długość (3D)</translation>
+    </message>
+    <message>
+        <source>Perimeter (3D)</source>
+        <translation>Obwód (3D)</translation>
+    </message>
+    <message>
+        <source>Surface</source>
+        <translation>Powierzchnia</translation>
     </message>
 </context>
 <context>

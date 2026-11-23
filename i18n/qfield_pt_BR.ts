@@ -9874,6 +9874,22 @@ para mostrar as ações</translation>
         <source>Cancel rotation</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Segment (3D)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Length (3D)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Perimeter (3D)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Surface</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

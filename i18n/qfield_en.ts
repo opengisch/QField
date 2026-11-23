@@ -9452,6 +9452,22 @@ to show actions</source>
         <source>Cancel rotation</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Segment (3D)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length (3D)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Perimeter (3D)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Surface</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>

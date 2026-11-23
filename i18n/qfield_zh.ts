@@ -3777,7 +3777,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cancel connection to %1</source>
-        <translation type="unfinished"/>
+        <translation>取消与%1的连接</translation>
     </message>
 </context>
 <context>
@@ -9871,6 +9871,22 @@ to show actions</source>
     <message>
         <source>Cancel rotation</source>
         <translation>取消旋转</translation>
+    </message>
+    <message>
+        <source>Segment (3D)</source>
+        <translation>线段 (3D)</translation>
+    </message>
+    <message>
+        <source>Length (3D)</source>
+        <translation>长度 (3D)</translation>
+    </message>
+    <message>
+        <source>Perimeter (3D)</source>
+        <translation>周长 (3D)</translation>
+    </message>
+    <message>
+        <source>Surface</source>
+        <translation>表面</translation>
     </message>
 </context>
 <context>
