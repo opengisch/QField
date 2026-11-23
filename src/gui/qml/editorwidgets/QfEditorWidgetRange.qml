@@ -42,6 +42,8 @@ QfEditorWidgetBase {
     id: spinBoxComponent
 
     Row {
+      property var currentValue: textField.text
+
       spacing: 5
 
       Label {
@@ -197,66 +199,6 @@ QfEditorWidgetBase {
         }
       }
 
-      Timer {
-        id: changeValueTimer
-        property int initialInterval: 500
-        interval: initialInterval
-        repeat: true
-
-        property bool increase: true
-
-        onTriggered: {
-          let hitBoundary = false;
-          if (increase) {
-            increaseValue();
-            hitBoundary = textField.text === rangeItem.max;
-          } else {
-            decreaseValue();
-            hitBoundary = textField.text === rangeItem.min;
-          }
-          if (!hitBoundary) {
-            if (interval > 50)
-              interval = interval * 0.7;
-          } else {
-            stop();
-          }
-        }
-      }
-
-      function decreaseValue() {
-        const currentValue = Number.parseFloat(textField.text);
-        let newValue;
-        if (!isNaN(currentValue)) {
-          newValue = rangeItem.roundValue(currentValue - rangeItem.step, rangeItem.precision);
-          newValue = Math.max(rangeItem.min, Math.min(rangeItem.max, newValue));
-          valueChangeRequested(newValue, false);
-        } else {
-          if (rangeItem.max <= 0) {
-            newValue = Math.max(0, rangeItem.min);
-          } else {
-            newValue = rangeItem.min;
-          }
-          valueChangeRequested(newValue, false);
-        }
-      }
-
-      function increaseValue() {
-        const currentValue = Number.parseFloat(textField.text);
-        let newValue;
-        if (!isNaN(currentValue)) {
-          newValue = rangeItem.roundValue(currentValue + rangeItem.step, rangeItem.precision);
-          newValue = Math.min(rangeItem.max, Math.max(rangeItem.min, newValue));
-          valueChangeRequested(newValue, false);
-        } else {
-          if (rangeItem.max >= 0) {
-            newValue = Math.max(0, rangeItem.min);
-          } else {
-            newValue = rangeItem.min;
-          }
-          valueChangeRequested(newValue, false);
-        }
-      }
-
       DoubleValidator {
         id: doubleValidator
 
@@ -274,6 +216,9 @@ QfEditorWidgetBase {
 
     Row {
       id: sliderRow
+
+      property var currentValue: slider.value
+
       height: childrenRect.height
 
       Text {
@@ -329,6 +274,7 @@ QfEditorWidgetBase {
       id: dialItem
 
       readonly property var fieldValue: value
+      property var currentValue: dial.value
 
       height: dialRow.height + 12
 
@@ -351,7 +297,22 @@ QfEditorWidgetBase {
           bgcolor: "transparent"
 
           onClicked: {
-            dial.stepValue(false);
+            decreaseValue();
+          }
+          onDoubleClicked: {
+            decreaseValue();
+          }
+          onPressAndHold: {
+            changeValueTimer.increase = false;
+            changeValueTimer.interval = changeValueTimer.initialInterval;
+            changeValueTimer.triggered();
+            changeValueTimer.restart();
+          }
+          onReleased: {
+            changeValueTimer.stop();
+          }
+          onCanceled: {
+            changeValueTimer.stop();
           }
         }
 
@@ -373,18 +334,6 @@ QfEditorWidgetBase {
           onMoved: {
             rangeItem.valueChangeRequested(rangeItem.roundValue(value, rangeItem.precision), false);
           }
-
-          function stepValue(increase) {
-            const previousValue = value;
-            if (increase) {
-              dial.increase();
-            } else {
-              dial.decrease();
-            }
-            if (value !== previousValue || !hasValue) {
-              rangeItem.valueChangeRequested(rangeItem.roundValue(value, rangeItem.precision), false);
-            }
-          }
         }
 
         QfToolButton {
@@ -400,10 +349,85 @@ QfEditorWidgetBase {
           bgcolor: "transparent"
 
           onClicked: {
-            dial.stepValue(true);
+            increaseValue();
+          }
+          onDoubleClicked: {
+            increaseValue();
+          }
+          onPressAndHold: {
+            changeValueTimer.increase = true;
+            changeValueTimer.interval = changeValueTimer.initialInterval;
+            changeValueTimer.triggered();
+            changeValueTimer.restart();
+          }
+          onReleased: {
+            changeValueTimer.stop();
+          }
+          onCanceled: {
+            changeValueTimer.stop();
           }
         }
       }
+    }
+  }
+
+  Timer {
+    id: changeValueTimer
+    property int initialInterval: 500
+    interval: initialInterval
+    repeat: true
+
+    property bool increase: true
+
+    onTriggered: {
+      let hitBoundary = false;
+      if (increase) {
+        increaseValue();
+        hitBoundary = textField.text === rangeItem.max;
+      } else {
+        decreaseValue();
+        hitBoundary = textField.text === rangeItem.min;
+      }
+      if (!hitBoundary) {
+        if (interval > 50)
+          interval = interval * 0.7;
+      } else {
+        stop();
+      }
+    }
+  }
+
+  function decreaseValue() {
+    const currentValue = Number.parseFloat(widgetStyleLoader.item.currentValue);
+    let newValue;
+    if (!isNaN(currentValue)) {
+      newValue = rangeItem.roundValue(currentValue - rangeItem.step, rangeItem.precision);
+      newValue = Math.max(rangeItem.min, Math.min(rangeItem.max, newValue));
+      valueChangeRequested(newValue, false);
+    } else {
+      if (rangeItem.max <= 0) {
+        newValue = Math.max(0, rangeItem.min);
+      } else {
+        newValue = rangeItem.min;
+      }
+      valueChangeRequested(newValue, false);
+    }
+  }
+
+  function increaseValue() {
+    const currentValue = Number.parseFloat(widgetStyleLoader.item.currentValue);
+    let newValue;
+    if (!isNaN(currentValue)) {
+      newValue = rangeItem.roundValue(currentValue + rangeItem.step, rangeItem.precision);
+      newValue = Math.min(rangeItem.max, Math.max(rangeItem.min, newValue));
+      valueChangeRequested(newValue, false);
+    } else {
+      if (rangeItem.max >= 0) {
+        newValue = Math.max(0, rangeItem.min);
+      } else {
+        newValue = rangeItem.min;
+      }
+      valueChangeRequested(newValue, false);
     }
   }
 }
