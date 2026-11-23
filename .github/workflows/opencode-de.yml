@@ -13,5 +13,5 @@ jobs:
         run: |
           git clone --bare https://github.com/opengisch/QField.git qfield
           cd qfield
-          git push --prune https://oauth2:${{ secrets.OPENCODE_TOKEN }}@gitlab.opencode.de/GROUP-PATH/qfield.git \
+          git push --prune https://oauth2:${{ secrets.OPENCODE_TOKEN }}@gitlab.opencode.de/geoinformationssystem-gis/qfield.git \
             '+refs/heads/*:refs/heads/*' '+refs/tags/*:refs/tags/*'
