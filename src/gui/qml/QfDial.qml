@@ -99,10 +99,8 @@ Dial {
       fontSizeMode: Text.Fit
       minimumPointSize: QfTheme.tinyFont.pointSize / 2
       elide: Text.ElideRight
-      text: dial.hasValue ? Number(dial.value).toFixed(dial.precision) + dial.suffixText : dial.placeholderText
-      font.family: QfTheme.defaultFont.family
-      font.pointSize: dial.hasValue ? QfTheme.defaultFont.pointSize * 1.8 : QfTheme.defaultFont.pointSize
-      font.weight: dial.hasValue ? Font.DemiBold : Font.Normal
+      text: dial.hasValue ? Number(dial.value).toFixed(dial.precision) + (dial.suffixText !== "" ? " " + dial.suffixText : "") : dial.placeholderText
+      font.family: QfTheme.defaultFont
       color: dial.hasValue ? dial.textColor : QfTheme.mainTextDisabledColor
     }
 
@@ -123,6 +121,7 @@ Dial {
       text: Number(dial.from).toFixed(dial.precision) + " – " + Number(dial.to).toFixed(dial.precision)
       font: QfTheme.tinyFont
       color: QfTheme.secondaryTextColor
+      opacity: 0.5
     }
 
     FontMetrics {
