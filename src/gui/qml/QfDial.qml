@@ -27,11 +27,7 @@ Dial {
 
   wrap: true
   startAngle: 0
-  // The range plus one step spans the full circle, so min and max do not overlap and 0 to 359 maps onto actual degrees
-  endAngle: {
-    const range = to - from;
-    return Number.isFinite(range) && range > 0 ? 360 * range / (range + stepSize) : 360;
-  }
+  endAngle: 360
 
   background: Shape {
     width: dial.width
@@ -58,7 +54,7 @@ Dial {
       strokeWidth: dial.trackWidth
       strokeColor: !dial.hasValue ? "transparent" : dial.enabled ? dial.Material.accentColor : dial.Material.sliderDisabledColor
       fillColor: "transparent"
-      capStyle: ShapePath.RoundCap
+      capStyle: ShapePath.FlatCap
 
       PathAngleArc {
         centerX: dial.width / 2
