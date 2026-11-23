@@ -1,0 +1,16 @@
+name: Mirror QField to opencode.de
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirror
+        run: |
+          git clone --bare https://github.com/opengisch/QField.git qfield
+          cd qfield
+          git push --prune https://oauth2:${{ secrets.OPENCODE_TOKEN }}@gitlab.opencode.de/GROUP-PATH/qfield.git \
+            '+refs/heads/*:refs/heads/*' '+refs/tags/*:refs/tags/*'
