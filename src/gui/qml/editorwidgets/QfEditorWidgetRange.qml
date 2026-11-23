@@ -383,10 +383,10 @@ QfEditorWidgetBase {
       let hitBoundary = false;
       if (increase) {
         increaseValue();
-        hitBoundary = textField.text === rangeItem.max;
+        hitBoundary = Number.parseFloat(widgetStyleLoader.item.currentValue) >= rangeItem.max;
       } else {
         decreaseValue();
-        hitBoundary = textField.text === rangeItem.min;
+        hitBoundary = Number.parseFloat(widgetStyleLoader.item.currentValue) <= rangeItem.min;
       }
       if (!hitBoundary) {
         if (interval > 50)
