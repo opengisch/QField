@@ -100,7 +100,7 @@ Dial {
       minimumPointSize: QfTheme.tinyFont.pointSize / 2
       elide: Text.ElideRight
       text: dial.hasValue ? Number(dial.value).toFixed(dial.precision) + (dial.suffixText !== "" ? " " + dial.suffixText : "") : dial.placeholderText
-      font.family: QfTheme.defaultFont
+      font: QfTheme.defaultFont
       color: dial.hasValue ? dial.textColor : QfTheme.mainTextDisabledColor
     }
 
