@@ -360,7 +360,7 @@ QfEditorWidgetBase {
 
           from: Number.isFinite(rangeItem.min) ? rangeItem.min : -Number.MAX_VALUE
           to: Number.isFinite(rangeItem.max) ? rangeItem.max : Number.MAX_VALUE
-          stepSize: Number.isFinite(rangeItem.step) && rangeItem.step > 0 ? rangeItem.step : 1
+          stepSize: 1
           snapMode: Dial.SnapAlways
           value: hasValue ? Number(dialItem.fieldValue) : from
 
