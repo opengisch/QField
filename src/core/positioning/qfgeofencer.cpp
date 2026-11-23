@@ -87,11 +87,11 @@ void QfGeofencer::processAreas()
 
   if ( mActive )
   {
-    checkWithin();
+    checkWithin( true );
   }
 }
 
-void QfGeofencer::checkWithin()
+void QfGeofencer::checkWithin( bool forceProcess )
 {
   int isWithinIndex = -1;
   if ( mActive && !mAreas.isEmpty() && !mPosition.isEmpty() )
@@ -125,6 +125,10 @@ void QfGeofencer::checkWithin()
 
     processWithinChanged();
   }
+  else if ( forceProcess )
+  {
+    processWithinChanged();
+  }
 }
 
 void QfGeofencer::processWithinChanged()
@@ -137,13 +141,13 @@ void QfGeofencer::processWithinChanged()
     switch ( mBehavior )
     {
       case AlertWhenInsideGeofencedArea:
-        feedback = tr( "Position has trespassed into \"%1\"." ).arg( isWithinAreaName() );
+        feedback = tr( "Position has trespassed into \"%1\"" ).arg( isWithinAreaName() );
         vibrationDuration = 1000;
         isAlerting = true;
         break;
 
       case InformWhenEnteringLeavingGeofencedArea:
-        feedback = tr( "Position entered into \"%1\"." ).arg( isWithinAreaName() );
+        feedback = tr( "Position entered into \"%1\"" ).arg( isWithinAreaName() );
         vibrationDuration = 500;
         isAlerting = false;
         break;
@@ -166,13 +170,23 @@ void QfGeofencer::processWithinChanged()
         break;
 
       case InformWhenEnteringLeavingGeofencedArea:
-        feedback = tr( "Position left from \"%1\"." ).arg( lastWithinAreaName() );
-        vibrationDuration = 500;
+        if ( mLastWithinIndex != -1 )
+        {
+          feedback = tr( "Position left from \"%1\"" ).arg( lastWithinAreaName() );
+          vibrationDuration = 500;
+        }
         isAlerting = false;
         break;
 
       case AlertWhenOutsideGeofencedArea:
-        feedback = tr( "Position outside areas after leaving \"%1\"." ).arg( lastWithinAreaName() );
+        if ( mLastWithinIndex != -1 )
+        {
+          feedback = tr( "Position outside areas after leaving \"%1\"" ).arg( lastWithinAreaName() );
+        }
+        else
+        {
+          feedback = tr( "Position outside areas" );
+        }
         vibrationDuration = 1000;
         isAlerting = true;
         break;
@@ -275,7 +289,7 @@ void QfGeofencer::setActive( bool active )
   mActive = active;
   emit activeChanged();
 
-  checkWithin();
+  checkWithin( true );
 }
 
 void QfGeofencer::setBehavior( Behaviors behavior )
@@ -288,7 +302,7 @@ void QfGeofencer::setBehavior( Behaviors behavior )
   mBehavior = behavior;
   emit behaviorChanged();
 
-  checkWithin();
+  checkWithin( true );
 }
 
 void QfGeofencer::setVibration( bool vibration )

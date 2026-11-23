@@ -214,7 +214,7 @@ class QfGeofencer : public QObject
     void gatherAreas();
     void processAreas();
 
-    void checkWithin();
+    void checkWithin( bool forceProcess = false );
     void processWithinChanged();
 
     bool mActive = false;
