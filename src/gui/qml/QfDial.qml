@@ -78,6 +78,41 @@ Dial {
     handleHovered: dial.hovered
   }
 
+  TapHandler {
+    id: ringTapHandler
+
+    property real tappedValue: 0
+    property bool applyingTap: false
+
+    acceptedDevices: PointerDevice.TouchScreen
+
+    onTapped: (eventPoint, button) => {
+      const dx = eventPoint.position.x - dial.width / 2;
+      const dy = eventPoint.position.y - dial.height / 2;
+      if (Math.abs(Math.hypot(dx, dy) - dial.trackRadius) > QfTheme.toolButtonSize / 2) {
+        return;
+      }
+      const tapAngle = (Math.atan2(dx, -dy) * 180 / Math.PI + 360) % 360;
+      const tapPosition = Math.min(1, Math.max(0, (tapAngle - dial.startAngle) / (dial.endAngle - dial.startAngle)));
+      let tapValue = dial.from + tapPosition * (dial.to - dial.from);
+      if (dial.snapMode !== Dial.NoSnap && dial.stepSize > 0) {
+        tapValue = dial.from + Math.round((tapValue - dial.from) / dial.stepSize) * dial.stepSize;
+      }
+      tappedValue = Math.min(Math.max(tapValue, Math.min(dial.from, dial.to)), Math.max(dial.from, dial.to));
+      applyingTap = true;
+      dial.moved();
+      applyingTap = false;
+    }
+  }
+
+  Binding {
+    target: dial
+    property: "value"
+    value: ringTapHandler.tappedValue
+    when: ringTapHandler.applyingTap
+    restoreMode: Binding.RestoreBinding
+  }
+
   Item {
     id: labels
     x: (dial.width - width) / 2
