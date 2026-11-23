@@ -1987,28 +1987,14 @@ ApplicationWindow {
 
   QfGeofencer {
     id: geofencer
+    objectName: "geofencer"
 
     position: positionSource.projectedPosition
     positionCrs: mapCanvas.mapSettings.destinationCrs
 
-    readonly property int longVibration: 1000
-    readonly property int shortVibration: 500
-
-    onIsWithinChanged: {
-      if (behavior === QfGeofencer.AlertWhenInsideGeofencedArea && geofencer.isWithin) {
-        platformUtilities.vibrate(longVibration);
-        displayToast(qsTr("Position has trespassed into ‘%1’").arg(isWithinAreaName), 'error');
-      } else if (behavior === QfGeofencer.AlertWhenOutsideGeofencedArea && !geofencer.isWithin) {
-        platformUtilities.vibrate(longVibration);
-        displayToast(qsTr("Position outside areas after leaving ‘%1’").arg(lastWithinAreaName), 'error');
-      } else if (behavior === QfGeofencer.InformWhenEnteringLeavingGeofencedArea) {
-        if (isWithin) {
-          platformUtilities.vibrate(shortVibration);
-          displayToast(qsTr("Position entered into ‘%1’").arg(isWithinAreaName));
-        } else if (lastWithinAreaName != '') {
-          platformUtilities.vibrate(shortVibration);
-          displayToast(qsTr("Position left from ‘%1’").arg(lastWithinAreaName));
-        }
+    onLastFeedbackChanged: {
+      if (lastFeedback !== "") {
+        displayToast(lastFeedback, isAlerting ? 'error' : '');
       }
     }
   }

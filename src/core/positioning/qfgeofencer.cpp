@@ -15,6 +15,7 @@
  ***************************************************************************/
 
 #include "qfgeofencer.h"
+#include "qfplatformutilities.h"
 
 #include <qgsgeometryengine.h>
 #include <qgsproject.h>
@@ -42,16 +43,27 @@ void QfGeofencer::cleanupGatherer()
 void QfGeofencer::gatherAreas()
 {
   if ( !mAreasLayer || !mAreasLayer->isValid() || !mPositionCrs.isValid() )
+  {
     return;
+  }
 
   QgsFeatureRequest request;
   request.setDestinationCrs( mPositionCrs, QgsProject::instance()->transformContext() );
 
   QgsExpressionContext context = mAreasLayer->createExpressionContext();
+  request.setExpressionContext( context );
+
   QgsExpression expression( mAreasLayer->displayExpression() );
   expression.prepare( &context );
-
   QSet<QString> referencedColumns = expression.referencedColumns();
+  if ( !mAreasFilterExpression.isEmpty() )
+  {
+    request.setFilterExpression( mAreasFilterExpression );
+    QgsExpression filterExpression( mAreasFilterExpression );
+    filterExpression.prepare( &context );
+    referencedColumns.unite( filterExpression.referencedColumns() );
+  }
+
   QgsFields fields = mAreasLayer->fields();
   request.setSubsetOfAttributes( referencedColumns, fields );
 
@@ -75,12 +87,11 @@ void QfGeofencer::processAreas()
 
   if ( mActive )
   {
-    checkWithin();
-    checkAlert();
+    checkWithin( true );
   }
 }
 
-void QfGeofencer::checkWithin()
+void QfGeofencer::checkWithin( bool forceProcess )
 {
   int isWithinIndex = -1;
   if ( mActive && !mAreas.isEmpty() && !mPosition.isEmpty() )
@@ -112,81 +123,72 @@ void QfGeofencer::checkWithin()
 
     emit isWithinChanged();
 
-    processAudio();
+    processWithinChanged();
+  }
+  else if ( forceProcess )
+  {
+    processWithinChanged();
   }
 }
 
-void QfGeofencer::processAudio()
+void QfGeofencer::processWithinChanged()
 {
-#ifdef WITH_TEXTTOSPEECH
-  if ( !mTextToSpeech )
-  {
-    mTextToSpeech = std::make_unique<QTextToSpeech>();
-    mTextToSpeech->setRate( 0.25 );
-    mTextToSpeech->setLocale( QLocale() );
-
-    const QList<QVoice> voices = mTextToSpeech->findVoices( QVoice::Male );
-    if ( !voices.isEmpty() )
-    {
-      mTextToSpeech->setVoice( voices.first() );
-    }
-  }
-
-  if ( isWithin() )
-  {
-    switch ( mBehavior )
-    {
-      case AlertWhenInsideGeofencedArea:
-        mTextToSpeech->say( QStringLiteral( "Position has trespassed into \"%1\"." ).arg( isWithinAreaName() ) );
-        break;
-
-      case InformWhenEnteringLeavingGeofencedArea:
-        mTextToSpeech->say( QStringLiteral( "Position entered into \"%1\"." ).arg( isWithinAreaName() ) );
-        break;
-
-      case AlertWhenOutsideGeofencedArea:
-        mTextToSpeech->stop();
-        break;
-    }
-  }
-  else
-  {
-    switch ( mBehavior )
-    {
-      case AlertWhenInsideGeofencedArea:
-        mTextToSpeech->stop();
-        break;
-
-      case InformWhenEnteringLeavingGeofencedArea:
-        mTextToSpeech->say( QStringLiteral( "Position left from \"%1\"." ).arg( lastWithinAreaName() ) );
-        break;
-
-      case AlertWhenOutsideGeofencedArea:
-        mTextToSpeech->say( QStringLiteral( "Position outside areas after leaving \"%1\"." ).arg( lastWithinAreaName() ) );
-        break;
-    }
-  }
-#endif
-}
-
-void QfGeofencer::checkAlert()
-{
+  QString feedback;
   bool isAlerting = false;
-
-  if ( mActive && !mAreas.isEmpty() && !mPosition.isEmpty() )
+  int vibrationDuration = 0;
+  if ( mActive && isWithin() )
   {
     switch ( mBehavior )
     {
       case AlertWhenInsideGeofencedArea:
-        isAlerting = isWithin();
-        break;
-
-      case AlertWhenOutsideGeofencedArea:
-        isAlerting = !isWithin();
+        feedback = tr( "Position has trespassed into \"%1\"" ).arg( isWithinAreaName() );
+        vibrationDuration = 1000;
+        isAlerting = true;
         break;
 
       case InformWhenEnteringLeavingGeofencedArea:
+        feedback = tr( "Position entered into \"%1\"" ).arg( isWithinAreaName() );
+        vibrationDuration = 500;
         isAlerting = false;
+        break;
+
+      case AlertWhenOutsideGeofencedArea:
+        feedback = QString();
+        vibrationDuration = 0;
+        isAlerting = false;
+        break;
+    }
+  }
+  else if ( mActive && !isWithin() )
+  {
+    switch ( mBehavior )
+    {
+      case AlertWhenInsideGeofencedArea:
+        feedback = QString();
+        vibrationDuration = 0;
+        isAlerting = false;
+        break;
+
+      case InformWhenEnteringLeavingGeofencedArea:
+        if ( mLastWithinIndex != -1 )
+        {
+          feedback = tr( "Position left from \"%1\"" ).arg( lastWithinAreaName() );
+          vibrationDuration = 500;
+        }
+        isAlerting = false;
+        break;
+
+      case AlertWhenOutsideGeofencedArea:
+        if ( mLastWithinIndex != -1 )
+        {
+          feedback = tr( "Position outside areas after leaving \"%1\"" ).arg( lastWithinAreaName() );
+        }
+        else
+        {
+          feedback = tr( "Position outside areas" );
+        }
+        vibrationDuration = 1000;
+        isAlerting = true;
         break;
     }
   }
@@ -194,8 +196,61 @@ void QfGeofencer::checkAlert()
   if ( mIsAlerting != isAlerting )
   {
     mIsAlerting = isAlerting;
-
     emit isAlertingChanged();
+  }
+
+  if ( mLastFeedback != feedback )
+  {
+    mLastFeedback = feedback;
+    emit lastFeedbackChanged();
+  }
+
+  if ( mVibration && vibrationDuration > 0 )
+  {
+    QfPlatformUtilities::instance()->vibrate( vibrationDuration );
+  }
+
+  switch ( mAudio )
+  {
+    case AudioSpeech:
+#ifdef WITH_TEXTTOSPEECH
+      if ( !mTextToSpeech )
+      {
+        mTextToSpeech = std::make_unique<QTextToSpeech>();
+        mTextToSpeech->setLocale( QLocale() );
+        const QList<QVoice> voices = mTextToSpeech->findVoices( QVoice::Male );
+        if ( !voices.isEmpty() )
+        {
+          mTextToSpeech->setVoice( voices.first() );
+        }
+        mTextToSpeech->setRate( 0.1 );
+      }
+
+      if ( !mLastFeedback.isEmpty() )
+      {
+        mTextToSpeech->say( mLastFeedback );
+      }
+      else
+      {
+        mTextToSpeech->stop();
+      }
+#endif
+      break;
+
+    case AudioAlarm:
+      if ( mIsAlerting )
+      {
+        if ( !mAudioAlarmSound )
+        {
+          mAudioAlarmSound = std::make_unique<QSoundEffect>();
+          mAudioAlarmSound->setSource( QUrl( QStringLiteral( "qrc:/sounds/geofencing_alarm.wav" ) ) );
+        }
+        mAudioAlarmSound->play();
+      }
+      break;
+
+    case AudioMuted:
+      break;
   }
 }
 
@@ -234,8 +289,7 @@ void QfGeofencer::setActive( bool active )
   mActive = active;
   emit activeChanged();
 
-  checkWithin();
-  checkAlert();
+  checkWithin( true );
 }
 
 void QfGeofencer::setBehavior( Behaviors behavior )
@@ -246,10 +300,31 @@ void QfGeofencer::setBehavior( Behaviors behavior )
   }
 
   mBehavior = behavior;
-
   emit behaviorChanged();
 
-  checkAlert();
+  checkWithin( true );
+}
+
+void QfGeofencer::setVibration( bool vibration )
+{
+  if ( mVibration == vibration )
+  {
+    return;
+  }
+
+  mVibration = vibration;
+  emit vibrationChanged();
+}
+
+void QfGeofencer::setAudio( AudioTypes audio )
+{
+  if ( mAudio == audio )
+  {
+    return;
+  }
+
+  mAudio = audio;
+  emit audioChanged();
 }
 
 void QfGeofencer::setPosition( const QgsPoint &position )
@@ -263,7 +338,6 @@ void QfGeofencer::setPosition( const QgsPoint &position )
   emit positionChanged();
 
   checkWithin();
-  checkAlert();
 }
 
 void QfGeofencer::setPositionCrs( const QgsCoordinateReferenceSystem &crs )
@@ -292,24 +366,51 @@ void QfGeofencer::setAreasLayer( QgsVectorLayer *layer )
   gatherAreas();
 }
 
+void QfGeofencer::setAreasFilterExpression( const QString &areasFilterExpression )
+{
+  if ( mAreasFilterExpression == areasFilterExpression )
+  {
+    return;
+  }
+
+  mAreasFilterExpression = areasFilterExpression;
+  emit areasFilterExpressionChanged();
+
+  gatherAreas();
+}
+
 void QfGeofencer::applyProjectSettings( QgsProject *project )
 {
   bool active = false;
   Behaviors behavior = AlertWhenInsideGeofencedArea;
+  bool vibration = true;
+  AudioTypes audio = AudioSpeech;
+
   QgsVectorLayer *layer = nullptr;
+  QString filterExpression;
 
   if ( project )
   {
     active = project->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingIsActive" ), false );
+    behavior = static_cast<Behaviors>( project->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingBehavior" ), static_cast<int>( AlertWhenOutsideGeofencedArea ) ) );
+    vibration = project->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingVibration" ), true );
+    audio = static_cast<AudioTypes>( project->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingAudio" ), static_cast<int>( AudioSpeech ) ) );
     const QString layerId = project->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingLayer" ) );
     if ( !layerId.isEmpty() )
     {
       layer = qobject_cast<QgsVectorLayer *>( project->mapLayer( layerId ) );
     }
-    behavior = static_cast<Behaviors>( project->readNumEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingBehavior" ), static_cast<int>( AlertWhenOutsideGeofencedArea ) ) );
+    filterExpression = project->readEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "geofencingFilterExpression" ) );
   }
 
-  setActive( active );
+  // Temporarily deactivate to avoid needless feature gathering
+  setActive( false );
+
   setBehavior( behavior );
+  setVibration( vibration );
+  setAudio( audio );
+  setAreasFilterExpression( filterExpression );
   setAreasLayer( layer );
+
+  setActive( active );
 }
