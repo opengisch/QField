@@ -896,6 +896,103 @@ bool QfFileUtils::unzip( const QString &zipFilename, const QString &dir, QString
   return true;
 }
 
+bool QfFileUtils::zip( const QString &zipFilename, const QStringList &files, const QString &filesRoot, bool overwrite )
+{
+  if ( zipFilename.isEmpty() )
+  {
+    QgsMessageLog::logMessage( QObject::tr( "Error zip filename is empty" ) );
+    return false;
+  }
+
+  QDir filesRootDir( filesRoot );
+
+  int rc = 0;
+  const QByteArray zipFileNamePtr = zipFilename.toUtf8();
+  struct zip *z = zip_open( zipFileNamePtr.constData(), overwrite ? ( ZIP_CREATE | ZIP_TRUNCATE ) : ZIP_CREATE, &rc );
+
+  if ( rc == ZIP_ER_OK && z )
+  {
+    for ( const auto &file : files )
+    {
+      const QFileInfo fileInfo( file );
+      if ( !fileInfo.exists() )
+      {
+        QgsMessageLog::logMessage( QObject::tr( "Error input file does not exist: '%1'" ).arg( file ) );
+        zip_close( z );
+        return false;
+      }
+
+      QString relativeFileName = fileInfo.fileName();
+      if ( !filesRoot.isEmpty() )
+      {
+        QString relativeFilePath = filesRootDir.relativeFilePath( fileInfo.absoluteFilePath() );
+        if ( !relativeFilePath.startsWith( QStringLiteral( ".." ) ) )
+        {
+          relativeFileName = relativeFilePath;
+        }
+      }
+
+      const QByteArray fileNamePtr = file.toUtf8();
+      zip_source *src = zip_source_file( z, fileNamePtr.constData(), 0, 0 );
+      if ( src )
+      {
+        const QByteArray fileInfoPtr = relativeFileName.toUtf8();
+#if LIBZIP_VERSION_MAJOR < 1
+        rc = ( int ) zip_add( z, fileInfoPtr.constData(), src );
+#else
+        rc = ( int ) zip_file_add( z, fileInfoPtr.constData(), src, 0 );
+#endif
+        if ( rc == -1 )
+        {
+          QgsMessageLog::logMessage( QObject::tr( "Error adding file '%1': %2" ).arg( file, zip_strerror( z ) ) );
+          zip_close( z );
+          return false;
+        }
+      }
+      else
+      {
+        QgsMessageLog::logMessage( QObject::tr( "Error creating data source '%1': %2" ).arg( file, zip_strerror( z ) ) );
+        zip_close( z );
+        return false;
+      }
+    }
+
+    zip_close( z );
+  }
+  else
+  {
+    QgsMessageLog::logMessage( QObject::tr( "Error creating zip archive '%1': %2" ).arg( zipFilename, z ? zip_strerror( z ) : zipFilename ) );
+    return false;
+  }
+
+  return true;
+}
+
+QStringList QfFileUtils::safeUnzip( const QString &zipFilename, const QString &dir, bool checkConsistency )
+{
+  QStringList files;
+  if ( isWithinProjectDirectory( zipFilename ) && isWithinProjectDirectory( dir ) )
+  {
+    unzip( zipFilename, dir, files, checkConsistency );
+  }
+  return files;
+}
+
+bool QfFileUtils::safeZip( const QString &zipFilename, const QStringList &files, const QString &filesRoot, bool overwrite )
+{
+  if ( !isWithinProjectDirectory( zipFilename ) )
+  {
+    return false;
+  }
+
+  if ( files.isEmpty() || std::any_of( files.begin(), files.end(), []( const QString &file ) { return !isWithinProjectDirectory( file ); } ) )
+  {
+    return false;
+  }
+
+  return zip( zipFilename, files, filesRoot, overwrite );
+}
+
 bool QfFileUtils::isDeletable( const QString &filePath )
 {
   const QFileInfo fileInfo( filePath );
