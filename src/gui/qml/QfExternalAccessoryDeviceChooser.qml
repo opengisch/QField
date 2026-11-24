@@ -49,7 +49,7 @@ Item {
     QfComboBox {
       id: externalAccessoryComboBox
       Layout.fillWidth: true
-      visible: externalAccessoryComboBox.count
+      visible: externalAccessoryComboBox.count > 0
       font: QfTheme.defaultFont
 
       popup.font: QfTheme.defaultFont
@@ -68,8 +68,8 @@ Item {
           return;
         }
         const modelIndex = externalAccessoryModel.index(currentIndex, 0);
-        deviceName = externalAccessoryModel.data(modelIndex, QfExternalAccessoryModel.NameRole);
-        deviceAddress = externalAccessoryModel.data(modelIndex, QfExternalAccessoryModel.SerialNumberRole);
+        deviceName = externalAccessoryModel.data(modelIndex, QfExternalAccessoryModel.AccessoryNameRole);
+        deviceAddress = externalAccessoryModel.data(modelIndex, QfExternalAccessoryModel.AccessorySerialNumberRole);
       }
     }
 
