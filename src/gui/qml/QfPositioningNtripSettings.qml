@@ -145,7 +145,7 @@ QfPopup {
             padding: 0
 
             onClicked: {
-              removePreset();
+              ntripPresetRemoveDialog.open();
             }
           }
         }
@@ -509,6 +509,29 @@ QfPopup {
       } else {
         addPreset(name);
       }
+    }
+  }
+
+  QfDialog {
+    id: ntripPresetRemoveDialog
+    parent: mainWindow.contentItem
+
+    title: qsTr("Remove Preset")
+
+    Label {
+      id: ntripPresetRemoveLabel
+      width: mainWindow.width - 60
+      wrapMode: Text.WordWrap
+      font: QfTheme.defaultFont
+      color: QfTheme.mainTextColor
+    }
+
+    onAboutToShow: {
+      ntripPresetRemoveLabel.text = qsTr("Are you sure you want to remove `%1`?").arg(presets[presetIndex].name);
+    }
+
+    onAccepted: {
+      removePreset();
     }
   }
 
