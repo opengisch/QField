@@ -19,6 +19,7 @@ Item {
   signal extentZoomFinished
 
   property bool extentMode: false
+  property bool panOnDrag: false
 
   property vector3d target: Qt.vector3d(0, 100, 0)
 
@@ -196,8 +197,12 @@ Item {
         const dx = centroid.position.x - lastPoint.x;
         const dy = centroid.position.y - lastPoint.y;
 
-        root.yaw -= dx * orbitSensitivity;
-        root.pitch = clampPitch(pitch + dy * orbitSensitivity);
+        if (root.panOnDrag) {
+          applyPan(dx, dy);
+        } else {
+          root.yaw -= dx * orbitSensitivity;
+          root.pitch = clampPitch(pitch + dy * orbitSensitivity);
+        }
 
         lastPoint = centroid.position;
       }
@@ -260,6 +265,8 @@ Item {
           const sceneX = (dx * s * Math.cos(yawRad) - dy * s * Math.sin(yawRad));
           const sceneZ = (dx * s * Math.sin(yawRad) + dy * s * Math.cos(yawRad));
           root.extentPan(sceneX, sceneZ);
+        } else if (root.panOnDrag) {
+          applyPan(dx, dy);
         } else {
           root.yaw -= dx * orbitSensitivity;
           root.pitch = clampPitch(pitch + dy * orbitSensitivity);
