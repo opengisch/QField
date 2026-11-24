@@ -344,16 +344,37 @@ bool QfDeltaFileWrapper::toFile()
 
 QString QfDeltaFileWrapper::toFileForPush( const QString &outFileName ) const
 {
-  QString fileName = outFileName;
-
-  if ( fileName.isEmpty() )
+  QString fileName;
+  if ( outFileName.isEmpty() )
   {
     QTemporaryFile tempFile;
-
     if ( !tempFile.open() )
+    {
       return QString();
+    }
 
     fileName = tempFile.fileName();
+  }
+  else
+  {
+    QFileInfo fi( outFileName );
+    if ( !fi.exists() )
+    {
+      const QDir dir( fi.absolutePath() );
+      if ( !dir.mkpath( "." ) )
+      {
+        return QString();
+      }
+    }
+    else
+    {
+      if ( !QFile::remove( fi.absoluteFilePath() ) )
+      {
+        return QString();
+      }
+    }
+
+    fileName = fi.absoluteFilePath();
   }
 
   QJsonObject jsonRoot( mJsonRoot );
@@ -363,10 +384,14 @@ QString QfDeltaFileWrapper::toFileForPush( const QString &outFileName ) const
   QFile deltaFile( fileName );
 
   if ( !deltaFile.open( QIODevice::WriteOnly | QIODevice::Unbuffered ) )
+  {
     return QString();
+  }
 
   if ( deltaFile.write( QJsonDocument( jsonRoot ).toJson( QJsonDocument::Indented ) ) == -1 )
+  {
     return QString();
+  }
 
   return fileName;
 }
