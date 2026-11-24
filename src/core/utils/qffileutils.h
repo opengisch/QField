@@ -154,9 +154,24 @@ class QFIELD_CORE_EXPORT QfFileUtils : public QObject
      * \param dir The output directory
      * \param files The absolute path of unzipped files
      * \param checkConsistency Perform additional stricter consistency checks on the archive, and error if they fail (since QGIS 3.30)
+     * \param restricted
      * \returns FALSE if the zip filename does not exist, the output directory does not exist or is not writable.
      */
     static bool unzip( const QString &zipFilename, const QString &dir, QStringList &files, bool checkConsistency );
+
+    Q_INVOKABLE static QStringList safeUnzip( const QString &zipFilename, const QString &dir, bool checkConsistency );
+
+    /**
+     * Zip the list of files in the zip file. If the zip file already exists (and overwrite is false) or is empty,
+     * an error is returned. If an input file does not exist, an error is also returned.
+     * \param zip The zip filename
+     * \param files The absolute path to files to embed within the zip
+     * \param overwrite	Set to true to allow overwriting existing files
+     * \return  True if the operation was successful
+     */
+    static bool zip( const QString &zipFilename, const QStringList &files, const QString &filesRoot, bool overwrite );
+
+    Q_INVOKABLE static bool safeZip( const QString &zipFilename, const QStringList &files, const QString &filesRoot, bool overwrite );
 
     /**
      * Checks if a file can be safely deleted.
