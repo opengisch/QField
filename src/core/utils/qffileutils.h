@@ -205,6 +205,14 @@ class QFIELD_CORE_EXPORT QfFileUtils : public QObject
     Q_INVOKABLE static QVariantMap deleteFiles( const QStringList &filePaths );
 
     /**
+     * Deletes a directory.
+     * Only deletes files that pass isDeletable() checks and are within the project or cloud directories.
+     * If all files within the directory were successfully deleted, the directory itself will be removed.
+     * \return A map with file paths as keys and boolean success status as values
+     */
+    Q_INVOKABLE static QVariantMap deleteDirectory( const QString &path );
+
+    /**
      * Returns the existing files accompanying \a filePath which carry no meaning on their
      * own and must therefore follow it wherever it goes - when shared, exported, moved
      * into an attachment folder or deleted.
