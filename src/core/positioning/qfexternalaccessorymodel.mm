@@ -71,19 +71,19 @@ QVariant QfExternalAccessoryModel::data(const QModelIndex &index,
                                                accessory.serialNumber)
                : accessory.name;
 
-  case NameRole:
+  case AccessoryNameRole:
     return accessory.name;
 
-  case ManufacturerRole:
+  case AccessoryManufacturerRole:
     return accessory.manufacturer;
 
-  case ModelNumberRole:
+  case AccessoryModelNumberRole:
     return accessory.modelNumber;
 
-  case SerialNumberRole:
+  case AccessorySerialNumberRole:
     return accessory.serialNumber;
 
-  case ProtocolsRole:
+  case AccessoryProtocolsRole:
     return accessory.protocols;
   }
 
@@ -93,11 +93,11 @@ QVariant QfExternalAccessoryModel::data(const QModelIndex &index,
 QHash<int, QByteArray> QfExternalAccessoryModel::roleNames() const {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
 
-  roles[NameRole] = "Name";
-  roles[ManufacturerRole] = "Manufacturer";
-  roles[ModelNumberRole] = "ModelNumber";
-  roles[SerialNumberRole] = "SerialNumber";
-  roles[ProtocolsRole] = "Protocols";
+  roles[AccessoryNameRole] = "AccessoryName";
+  roles[AccessoryManufacturerRole] = "AccessoryManufacturer";
+  roles[AccessoryModelNumberRole] = "AccessoryModelNumber";
+  roles[AccessorySerialNumberRole] = "AccessorySerialNumber";
+  roles[AccessoryProtocolsRole] = "AccessoryProtocols";
 
   return roles;
 }

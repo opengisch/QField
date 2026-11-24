@@ -31,11 +31,11 @@ class QfExternalAccessoryModel : public QAbstractListModel
     //! The roles provided by this model
     enum Roles
     {
-      NameRole = Qt::UserRole + 1,
-      ManufacturerRole,
-      ModelNumberRole,
-      SerialNumberRole,
-      ProtocolsRole,
+      AccessoryNameRole = Qt::UserRole + 1,
+      AccessoryManufacturerRole,
+      AccessoryModelNumberRole,
+      AccessorySerialNumberRole,
+      AccessoryProtocolsRole,
     };
     Q_ENUM( Roles )
 
