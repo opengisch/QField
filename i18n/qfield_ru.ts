@@ -5746,10 +5746,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>Главный экран</translation>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation>Проект только для чтения.</translation>
-    </message>
-    <message>
         <source>Markups</source>
         <translation>Разметка</translation>
     </message>
@@ -6443,6 +6439,29 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Finnish address search</source>
         <translation>Поиск финских адресов</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9285,22 +9304,6 @@ to show actions</source>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation>Нажмите и удерживайте маркер пункта назначения, чтобы показать действия</translation>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>Позиция вплотную к ‘%1’</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>Позиция вне области (после выхода из)  &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>Позиция в &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>Позиция слева от &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Lon</source>

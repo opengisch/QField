@@ -5745,10 +5745,6 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Markups</source>
         <translation type="unfinished"/>
     </message>
@@ -6442,6 +6438,29 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Finnish address search</source>
         <translation>Hledání finské adresy</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9278,22 +9297,6 @@ to show actions</source>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
         <translation type="unfinished"/>
     </message>
     <message>

@@ -5746,10 +5746,6 @@ Tot i que encara podeu veure i utilitzar el projecte, es recomana vivament resta
         <translation>Torna a l&apos;inici</translation>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation>El projecte és de només lectura.</translation>
-    </message>
-    <message>
         <source>Markups</source>
         <translation>Marcatges</translation>
     </message>
@@ -6440,6 +6436,29 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>Finnish address search</source>
         <translation>Cerca d&apos;adreces a Finlàndia</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9282,22 +9301,6 @@ per mostrar les accions</translation>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation>Premeu i manteniu premut el marcador de destinació per mostrar les accions</translation>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>La posició ha entrat sense permís a &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>Posició fora de les àrees després de sortir de ‘%1’</translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>Posició introduïda a ‘%1’</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>Posició a l&apos;esquerra de &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Lon</source>

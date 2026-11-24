@@ -5738,10 +5738,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>வீட்டுக்குத் திரும்பு</translation>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation>திட்டம் படிக்க மட்டுமே.</translation>
-    </message>
-    <message>
         <source>Markups</source>
         <translation type="unfinished"/>
     </message>
@@ -6427,6 +6423,29 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Finnish address search</source>
         <translation>ஃபின்னிச் முகவரி தேடல்</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9268,22 +9287,6 @@ to show actions</source>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>நிலை &apos;% 1&apos; இல் மீறப்பட்டுள்ளது</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>&apos;% 1&apos; ஐ விட்டு வெளியேறிய பிறகு பகுதிகளுக்கு வெளியே நிலை</translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>நிலை &apos;% 1&apos; இல் உள்ளிடப்பட்டது</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>&apos;% 1&apos; இலிருந்து நிலை</translation>
     </message>
     <message>
         <source>Lon</source>

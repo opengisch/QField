@@ -5728,10 +5728,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation>Projekt je samo za branje.</translation>
-    </message>
-    <message>
         <source>Markups</source>
         <translation type="unfinished"/>
     </message>
@@ -6416,6 +6412,29 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Finnish address search</source>
         <translation>Iskanje naslovov na Finskem</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9249,22 +9268,6 @@ to show actions</source>
     </message>
     <message>
         <source>Long press on the destination marker to show actions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
         <translation type="unfinished"/>
     </message>
     <message>

@@ -5721,10 +5721,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>ກັບໄປໜ້າຫຼັກ</translation>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation>ໂຄງການສາມາດອ່ານໄດ້ເທົ່ານັ້ນ</translation>
-    </message>
-    <message>
         <source>Markups</source>
         <translation type="unfinished"/>
     </message>
@@ -6409,6 +6405,29 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Finnish address search</source>
         <translation>ຊອກຫາທີ່ຢູ່ Finnish</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9243,22 +9262,6 @@ to show actions</source>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>ຕຳແໜ່ງໄດ້ລ່ວງລະເມີດ &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>ວາງຕຳແໜ່ງຢູ່ນອກພື້ນທີ່ຫຼັງຈາກອອກຈາກ &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>ຕຳແໜ່ງທີ່ໃສ່ໃນ &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>ຕຳແໜ່ງທີ່ເຫຼືອຈາກ &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Lon</source>

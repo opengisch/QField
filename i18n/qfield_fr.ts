@@ -5740,10 +5740,6 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <translation>Accueil</translation>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation>Ce projet est en lecture seule.</translation>
-    </message>
-    <message>
         <source>Markups</source>
         <translation>Marques</translation>
     </message>
@@ -6435,6 +6431,29 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     <message>
         <source>Finnish address search</source>
         <translation>Recherche d&apos;adresse Finlandaise</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9277,22 +9296,6 @@ pour afficher des actions</translation>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation>Appuie longuement sur le marqueur de destination pour afficher les actions</translation>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>La position a franchi la limite de &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>Positionner les zones extérieures après avoir quitté &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>Position saisie dans &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>Position à gauche de &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Lon</source>

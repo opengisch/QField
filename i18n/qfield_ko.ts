@@ -5741,10 +5741,6 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>홈으로 돌아가기</translation>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation>이 프로젝트는 읽기 전용입니다.</translation>
-    </message>
-    <message>
         <source>Markups</source>
         <translation type="unfinished"/>
     </message>
@@ -6432,6 +6428,29 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Finnish address search</source>
         <translation>핀란드 주소 검색</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9273,22 +9292,6 @@ to show actions</source>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation>목적지 표시를 길게 누르면 작업 메뉴가 표시됩니다</translation>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>위치가 ‘%1’ 안으로 들어왔습니다</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>‘%1’을(를) 벗어나 지정된 구역 밖에 있습니다</translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>위치가 ‘%1’에 진입했습니다</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>위치가 ‘%1’에서 벗어났습니다</translation>
     </message>
     <message>
         <source>Lon</source>

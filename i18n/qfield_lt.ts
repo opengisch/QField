@@ -5747,10 +5747,6 @@ Projektą vis dar galite peržiūrėti ir naudoti, tačiau primygtinai rekomendu
         <translation>Grįžti į pradžią</translation>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation>Projektas skirtas tik skaityti.</translation>
-    </message>
-    <message>
         <source>Markups</source>
         <translation type="unfinished"/>
     </message>
@@ -6444,6 +6440,29 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     <message>
         <source>Finnish address search</source>
         <translation>Suomijos adresų paieška</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9286,22 +9305,6 @@ kad būtų parodyti veiksmai</translation>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation>Paspauskite ir palaikykite kelionės tikslo žymeklį, kad būtų parodyti veiksmai</translation>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>Padėtis pažeidė „%1“ ribą</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>Išėjus iš „%1“, padėtis yra už sričių ribų</translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>Padėtis pateko į „%1“</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>Padėtis išėjo iš „%1“</translation>
     </message>
     <message>
         <source>Lon</source>

@@ -5745,10 +5745,6 @@ epäonnistui, syy: %2</translation>
         <translation>Palaa etusivulle</translation>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation>Projekti on vain luku -tilassa.</translation>
-    </message>
-    <message>
         <source>Markups</source>
         <translation>Merkinnät</translation>
     </message>
@@ -6438,6 +6434,29 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Finnish address search</source>
         <translation>Suomen osoitehaku</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9277,22 +9296,6 @@ näyttääksesi toiminnot</translation>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation>Paina kohdemerkkiä pitkään näyttääksesi toiminnat</translation>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>Sijainti on saapunut tasolle &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>Sijainti alueiden ulkopuolella, koska tason alueelta ‘%1’ poistuttu </translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>Sijainti saapunut tasolle ‘%1’</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>Sijainti poistunut tasolta ‘%1’</translation>
     </message>
     <message>
         <source>Lon</source>

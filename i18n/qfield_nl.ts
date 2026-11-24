@@ -5742,10 +5742,6 @@ Hoewel u het project nog steeds kunt bekijken en gebruiken, wordt het ten zeerst
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation>Het project is alleen-lezen.</translation>
-    </message>
-    <message>
         <source>Markups</source>
         <translation type="unfinished"/>
     </message>
@@ -6435,6 +6431,29 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Finnish address search</source>
         <translation>Fins adres zoeken</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9275,22 +9294,6 @@ to show actions</source>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>Positie is overschreden in &apos;%1&apos;.</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>Positie buiten gebied na het verlaten van &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>Positie bereikt op &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>Positie verlaten van &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Lon</source>

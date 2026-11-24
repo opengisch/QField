@@ -5739,10 +5739,6 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
         <translation>Zurück zur Startseite</translation>
     </message>
     <message>
-        <source>The project is read-only.</source>
-        <translation>Das Projekt ist schreibgesützt.</translation>
-    </message>
-    <message>
         <source>Markups</source>
         <translation type="unfinished"/>
     </message>
@@ -6432,6 +6428,29 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Finnish address search</source>
         <translation>Finnische Adresssuche</translation>
+    </message>
+</context>
+<context>
+    <name>QfGeofencer</name>
+    <message>
+        <source>Position has trespassed into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position entered into &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position left from &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas after leaving &quot;%1&quot;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position outside areas</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -9272,22 +9291,6 @@ um Aktionen anzuzeigen</translation>
     <message>
         <source>Long press on the destination marker to show actions</source>
         <translation>Tippe lang auf die Zielmarkierung um Aktionen anzuzeigen</translation>
-    </message>
-    <message>
-        <source>Position has trespassed into ‘%1’</source>
-        <translation>Position hat ‘%1’ überschritten</translation>
-    </message>
-    <message>
-        <source>Position outside areas after leaving ‘%1’</source>
-        <translation>Position außerhalb der Flächen nach Verlassen von &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>Position entered into ‘%1’</source>
-        <translation>Position in ‘%1’ gewandert</translation>
-    </message>
-    <message>
-        <source>Position left from ‘%1’</source>
-        <translation>Position hat ‘%1’ verlassen</translation>
     </message>
     <message>
         <source>Lon</source>
