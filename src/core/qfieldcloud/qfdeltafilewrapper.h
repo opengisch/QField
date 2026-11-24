@@ -39,7 +39,7 @@ class QfDeltaFileWrapper : public QObject
     Q_PROPERTY( int addedCount READ addedCount NOTIFY countChanged )
     Q_PROPERTY( int editedCount READ editedCount NOTIFY countChanged )
     Q_PROPERTY( int deletedCount READ deletedCount NOTIFY countChanged )
-    Q_PROPERTY( bool isPushing READ isPushing NOTIFY isPushingChanged )
+    Q_PROPERTY( bool isPushing READ isPushing WRITE setIsPushing NOTIFY isPushingChanged )
     Q_PROPERTY( bool hasError READ hasError NOTIFY errorChanged )
     Q_PROPERTY( ErrorType errorType READ errorType NOTIFY errorChanged )
     Q_PROPERTY( QString errorString READ errorString NOTIFY errorChanged )
@@ -283,7 +283,7 @@ class QfDeltaFileWrapper : public QObject
      *
      * @return QMap<QString, QString> unique file names
      */
-    QMap<QString, QString> attachmentFileNames() const;
+    Q_INVOKABLE QMap<QString, QString> attachmentFileNames() const;
 
 
     /**
