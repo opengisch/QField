@@ -1154,6 +1154,31 @@ QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
   return results;
 }
 
+QVariantMap QfFileUtils::deleteDirectory( const QString &path )
+{
+  QVariantMap results;
+  if ( !isWithinProjectDirectory( path ) )
+  {
+    return results;
+  }
+
+  QStringList filePaths;
+  QDirIterator dirIterator( path, QDir::Files, QDirIterator::Subdirectories );
+  while ( dirIterator.hasNext() )
+  {
+    filePaths << dirIterator.next();
+  }
+
+  results = deleteFiles( filePaths );
+  if ( !results.values().contains( false ) )
+  {
+    QDir dir( path );
+    dir.removeRecursively();
+  }
+
+  return results;
+}
+
 QSet<QString> QfFileUtils::sidecarFilesForPath( const QString &filePath )
 {
   if ( filePath.isEmpty() )
