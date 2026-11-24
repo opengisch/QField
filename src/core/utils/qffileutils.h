@@ -78,6 +78,18 @@ class QFIELD_CORE_EXPORT QfFileUtils : public QObject
     Q_INVOKABLE static bool isWithinProjectDirectory( const QString &filePath );
 
     /**
+     * Copies the file named \a filePath to \a destinationFilePath.
+     * \return True if the copying operation was successful
+     *
+     * \note Platform restrictions apply:
+     * - On Android: Writing is only permitted within the app's internal storage or
+     *   properly requested scoped storage locations.
+     * - On iOS: Writing is restricted to the app's sandbox.
+     * - Use QfPlatformUtilities.applicationDirectory() to get a safe write location.
+     */
+    Q_INVOKABLE static bool copyFile( const QString &filePath, const QString &destinationFilePath );
+
+    /**
     * Reads the entire content of a file and returns it as a byte array.
     * \param filePath The path to the file to be read
     * \return The file content as a QByteArray
