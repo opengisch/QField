@@ -279,11 +279,12 @@ class QfDeltaFileWrapper : public QObject
 
 
     /**
-     * Returns a set of file names to be uploaded
+     * Returns a set of file names to be uploaded.
      *
-     * @return QMap<QString, QString> unique file names
+     * @return A QVariantMap where keys are unique file names relative to the project
+     * file with their associated values being checkums
      */
-    Q_INVOKABLE QMap<QString, QString> attachmentFileNames() const;
+    Q_INVOKABLE QVariantMap attachmentFileNames() const;
 
 
     /**
