@@ -366,6 +366,7 @@ Item {
     id: cameraController
     anchors.fill: parent
     camera: camera
+    panOnDrag: crosshair.visible && !mapArea.hovered
     onSingleTapped: function (x, y) {
       const pickResult = view3d.pick(x, y);
       if (!pickResult.objectHit) {
