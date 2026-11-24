@@ -45,11 +45,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install NSIS
-        uses: negrutiu/nsis-install@v3
-        with:
-          version: 'v3.10.7422.0'
-
       - name: 🧹 Cleanup space
         shell: bash
         run: |
