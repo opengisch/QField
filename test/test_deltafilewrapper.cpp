@@ -827,8 +827,8 @@ TEST_CASE( "DeltaFileWrapper" )
 
     REQUIRE( !dfw.hasError() );
 
-    QMap<QString, QString> attachmentFileNames = dfw.attachmentFileNames();
-    QMap<QString, QString> expectedAttachmentFileNames(
+    QVariantMap attachmentFileNames = dfw.attachmentFileNames();
+    QVariantMap expectedAttachmentFileNames(
       { { "FILE1.jpg", "" },
         { "FILE3.jpg", "" } } );
 
