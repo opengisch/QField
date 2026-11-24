@@ -45,9 +45,9 @@ Item {
   property QfRubberbandModel rubberbandModel: null
   property alias rubberbandColor: rubberbandGeometry.color
   property var crosshairCoordinate: undefined
-  readonly property point crosshairPosition: hoverHandler.hovered ? hoverHandler.point.position : Qt.point(width / 2, height / 2)
+  readonly property point crosshairPosition: hovered ? hoverHandler.point.position : Qt.point(width / 2, height / 2)
   property bool mouseAsTouchScreen: false
-  property alias hovered: hoverHandler.hovered
+  readonly property bool hovered: hoverHandler.hovered && !touchHoverHandler.skipHover
   property alias crosshair: crosshair
 
   property alias terrainProvider: mapTerrainProvider
@@ -317,6 +317,37 @@ Item {
     id: hoverHandler
     enabled: crosshair.visible
     acceptedDevices: !mapArea.mouseAsTouchScreen ? PointerDevice.TouchPad | PointerDevice.Stylus | PointerDevice.Mouse : PointerDevice.Stylus
+
+    onHoveredChanged: {
+      if (!hovered && touchHoverHandler.skipHover) {
+        skipHoverTimer.restart();
+      }
+    }
+  }
+
+  HoverHandler {
+    id: touchHoverHandler
+
+    property bool skipHover: false
+
+    enabled: hoverHandler.enabled && !mapArea.mouseAsTouchScreen
+    acceptedDevices: PointerDevice.TouchScreen
+
+    onHoveredChanged: {
+      if (hovered) {
+        skipHoverTimer.stop();
+        skipHover = true;
+      }
+    }
+  }
+
+  Timer {
+    id: skipHoverTimer
+    interval: 500
+
+    onTriggered: {
+      touchHoverHandler.skipHover = false;
+    }
   }
 
   Connections {
@@ -351,7 +382,7 @@ Item {
       }
 
       const geoPoint = mapTerrainProvider.scene3DToGeo(pickResult.scenePosition.x, pickResult.scenePosition.z);
-      if (hoverHandler.hovered) {
+      if (mapArea.hovered) {
         mapArea.crosshairCoordinate = geoPoint;
         mapArea.addVertexRequested();
         return;
