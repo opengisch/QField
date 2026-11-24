@@ -452,7 +452,7 @@ QString QfDeltaFileWrapper::nameByLayerId( const QgsProject *project, const QStr
 }
 
 
-QMap<QString, QString> QfDeltaFileWrapper::attachmentFileNames() const
+QVariantMap QfDeltaFileWrapper::attachmentFileNames() const
 {
   // NOTE represents { layerId: { featureId: { attributeName: fileName } } }
   // We store all the changes in such mapping that we can return only the last attachment file name that is associated with a feature.
@@ -514,7 +514,7 @@ QMap<QString, QString> QfDeltaFileWrapper::attachmentFileNames() const
     }
   }
 
-  QMap<QString, QString> fileNameChecksum;
+  QVariantMap fileNameChecksum;
   const QStringList fileNamesList = fileNames.values();
 
   for ( const QString &fileName : fileNamesList )
