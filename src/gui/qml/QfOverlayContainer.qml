@@ -36,7 +36,7 @@ Rectangle {
         Layout.fillWidth: true
         Layout.leftMargin: 6
         Layout.rightMargin: 6
-        text: qsTr("Positioning")
+        text: ""
         font: QfTheme.strongTipFont
         color: QfTheme.mainTextColor
       }

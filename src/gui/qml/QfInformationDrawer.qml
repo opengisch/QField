@@ -129,10 +129,21 @@ Item {
 
       header: RowLayout {
         Text {
+          Layout.fillWidth: true
+          Layout.leftMargin: 20
           visible: positioningSettings.enableNtrip && positionSource.deviceCapabilities & QfAbstractGnssReceiver.NtripCorrection
-          text: qsTr("NTRIP")
+          text: {
+            const presetName = positioningSettings.ntripPresetIndex < positioningSettings.ntripPresets.length ? positioningSettings.ntripPresets[positioningSettings.ntripPresetIndex].name : "";
+            const isDefaultPreset = presetName === qsTr("Default server");
+            if (presetName !== "" && !isDefaultPreset) {
+              return qsTr("NTRIP") + ' — ' + presetName;
+            }
+            return qsTr("NTRIP");
+          }
           font: QfTheme.tipFont
+          horizontalAlignment: Text.AlignRight
           color: positionSource.ntripState === QfPositioning.NtripState.Connected ? QfTheme.mainTextColor : QfTheme.secondaryTextColor
+          elide: Text.ElideRight
         }
 
         Rectangle {
