@@ -1454,7 +1454,7 @@ Page {
                   clip: true
 
                   onClicked: {
-                    positioningNtripSettings.updateFromNtripSettings(QfPositioningUtils.createNtripSettings(positioningSettings.ntripSettings));
+                    positioningNtripSettings.updateFromNtripPresets(positioningSettings.ntripPresets, positioningSettings.ntripPresetIndex);
                     positioningNtripSettings.open();
                   }
                 }
@@ -1499,13 +1499,15 @@ Page {
                   wrapMode: Text.WordWrap
                   text: {
                     if (positionSource.ntripSettings.isValid) {
+                      const isDefaultPreset = positioningSettings.ntripPresetIndex === 0;
+                      const presetName = positioningSettings.ntripPresetIndex < positioningSettings.ntripPresets.length ? positioningSettings.ntripPresets[positioningSettings.ntripPresetIndex].name : "";
                       switch (positionSource.ntripState) {
                       case QfPositioning.NtripState.Disconnected:
-                        return qsTr("NTRIP client disconnected");
+                        return isDefaultPreset ? qsTr("Disconnected from default server") : qsTr("Disconnected from '%1'").arg(presetName);
                       case QfPositioning.NtripState.Connecting:
-                        return qsTr("NTRIP client connecting");
+                        return isDefaultPreset ? qsTr("Connecting to default server") : qsTr("Connecting to '%1'").arg(presetName);
                       case QfPositioning.NtripState.Connected:
-                        return qsTr("NTRIP client connected");
+                        return isDefaultPreset ? qsTr("Connected to default server") : qsTr("Connected to '%1'").arg(presetName);
                       }
                     } else {
                       return qsTr("Please provide valid NTRIP settings");
@@ -2294,7 +2296,8 @@ Page {
     id: positioningNtripSettings
 
     onApply: {
-      positioningSettings.ntripSettings = createSettingsMap();
+      positioningSettings.ntripPresets = presets;
+      positioningSettings.ntripPresetIndex = presetIndex;
     }
   }
 

@@ -403,7 +403,7 @@ ApplicationWindow {
     logging: positioningSettings.logging
 
     enableNtrip: positioningSettings.enableNtrip
-    ntripSettings: QfPositioningUtils.createNtripSettings(positioningSettings.ntripSettings)
+    ntripSettings: QfPositioningUtils.createNtripSettings(positioningSettings.ntripPresetSettings())
 
     onPositionInformationChanged: {
       if (active) {
