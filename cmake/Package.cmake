@@ -37,11 +37,6 @@ if(WIN32)
     else()
         set(CPACK_WIX_ARCHITECTURE "x64")
     endif()
-
-    #message(STATUS "   + NSIS                             YES ")
-    #set(CPACK_NSIS_EXECUTABLES_DIRECTORY "usr\\\\bin")
-    #set(CPACK_NSIS_DISPLAY_NAME "QField")
-    #list(APPEND CPACK_GENERATOR "NSIS")
 endif()
 
 if(PACKAGE_ZIP)
