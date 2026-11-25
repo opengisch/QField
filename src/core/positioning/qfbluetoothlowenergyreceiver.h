@@ -108,7 +108,7 @@ class QfBluetoothLowEnergyReceiver : public QfNmeaGnssReceiver
     int mConnectionFailureCount = 0;
     QTimer mReconnectTimer;
 
-    static constexpr int CORRECTION_TIMER_INTERVAL_MS = 20;
+    static constexpr int CORRECTION_TIMER_INTERVAL_MS = 8;
     static constexpr qsizetype CORRECTION_CATCH_UP_THRESHOLD_BYTES = 4096;
     static constexpr int NORMAL_CORRECTION_CHUNKS_PER_TICK = 3;
     static constexpr int CATCH_UP_CORRECTION_CHUNKS_PER_TICK = 6;

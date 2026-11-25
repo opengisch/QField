@@ -182,17 +182,6 @@ void QfBluetoothLowEnergyReceiver::deviceConnected()
                .arg( mtu )
                .arg( mBleTxPayloadSize );
 
-  QLowEnergyConnectionParameters parameters;
-  parameters.setIntervalRange( 15.0, 30.0 );
-  parameters.setLatency( 0 );
-  parameters.setSupervisionTimeout( 2000 );
-  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Requesting faster BLE connection parameters, interval=%1-%2 ms, latency=%3, supervisionTimeout=%4 ms" )
-               .arg( parameters.minimumInterval() )
-               .arg( parameters.maximumInterval() )
-               .arg( parameters.latency() )
-               .arg( parameters.supervisionTimeout() );
-  mController->requestConnectionUpdate( parameters );
-
   mController->discoverServices();
 }
 
@@ -272,6 +261,17 @@ void QfBluetoothLowEnergyReceiver::serviceDiscoveryFinished()
   }
 
   clearService();
+
+  QLowEnergyConnectionParameters parameters;
+  parameters.setIntervalRange( 15.0, 30.0 );
+  parameters.setLatency( 0 );
+  parameters.setSupervisionTimeout( 2000 );
+  qInfo() << QStringLiteral( "BluetoothLowEnergyReceiver: Requesting faster BLE connection parameters, interval=%1-%2 ms, latency=%3, supervisionTimeout=%4 ms" )
+               .arg( parameters.minimumInterval() )
+               .arg( parameters.maximumInterval() )
+               .arg( parameters.latency() )
+               .arg( parameters.supervisionTimeout() );
+  mController->requestConnectionUpdate( parameters );
 
   const QList<QBluetoothUuid> controllerServices = mController->services();
   if ( !controllerServices.isEmpty() )
@@ -525,13 +525,28 @@ void QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
     return;
   }
 
+  QLowEnergyService::WriteMode writeMode;
+  int maxChunksPerTick = 1;
+
+  if ( mRxCharacteristic.uuid() == QBluetoothUuid( "0000ffe1-0000-1000-8000-00805f9b34fb" ) ) // Beken Corp. handling
+  {
+    qDebug() << "BEKEN";
+    writeMode = QLowEnergyService::WriteWithoutResponse;
+    maxChunksPerTick = 1;
+  }
+  else
+  {
+    writeMode = ( mTxCharacteristic.properties() & QLowEnergyCharacteristic::Write ) ? QLowEnergyService::WriteWithResponse : QLowEnergyService::WriteWithoutResponse;
+    if ( writeMode == QLowEnergyService::WriteWithResponse )
+    {
+      maxChunksPerTick = mCorrectionData.size() > CORRECTION_CATCH_UP_THRESHOLD_BYTES ? CATCH_UP_CORRECTION_CHUNKS_PER_TICK : NORMAL_CORRECTION_CHUNKS_PER_TICK;
+    }
+  }
+  qDebug() << "WRITEMODE" << writeMode << "MAXCHUNKSPERTICK" << maxChunksPerTick;
+
   qsizetype bytesWrittenThisTick = 0;
   qsizetype lastChunkSize = 0;
   int chunksWrittenThisTick = 0;
-  // With the default BLE MTU, each write carries 20 payload bytes. At a
-  // 20 ms timer interval, 3 chunks/tick keeps up with typical 2-3 KB/s RTCM
-  // streams while 6 chunks/tick allows catching up after short bursts.
-  const int maxChunksPerTick = mCorrectionData.size() > CORRECTION_CATCH_UP_THRESHOLD_BYTES ? CATCH_UP_CORRECTION_CHUNKS_PER_TICK : NORMAL_CORRECTION_CHUNKS_PER_TICK;
 
   while ( !mCorrectionData.isEmpty() && chunksWrittenThisTick < maxChunksPerTick )
   {
@@ -539,7 +554,9 @@ void QfBluetoothLowEnergyReceiver::forwardCorrectionDataChunk()
     const qsizetype chunkSize = std::min( mBleTxPayloadSize, mCorrectionData.size() );
     QByteArray chunk = mCorrectionData.left( chunkSize );
     mCorrectionData.remove( 0, chunkSize );
-    mService->writeCharacteristic( mTxCharacteristic, chunk, QLowEnergyService::WriteWithoutResponse );
+
+    mService->writeCharacteristic( mTxCharacteristic, chunk, writeMode );
+
     mCorrectionBytesWritten += chunk.size();
     mCorrectionChunksWritten++;
     bytesWrittenThisTick += chunk.size();
