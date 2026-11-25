@@ -35,6 +35,7 @@ class QfPositioningDeviceModel : public QAbstractListModel
       EgenioussDevice,
       SerialPortDevice,
       FileDevice,
+      ExternalAccessoryDevice,
     };
     Q_ENUM( Type )
 
