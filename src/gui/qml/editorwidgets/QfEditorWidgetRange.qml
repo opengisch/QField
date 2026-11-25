@@ -331,7 +331,7 @@ QfEditorWidgetBase {
           suffixText: rangeItem.suffix
           textColor: !isEditable && isEditing ? QfTheme.mainTextDisabledColor : QfTheme.mainTextColor
 
-          onMoved: {
+          onValueChanged: {
             rangeItem.valueChangeRequested(rangeItem.roundValue(value, rangeItem.precision), false);
           }
         }
