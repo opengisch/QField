@@ -111,13 +111,14 @@ TestCase {
     compare(ntripSettings.createSettingsMap().host, "alpha.example.com");
   }
 
-  function test_06_firstPresetCannotBeRenamedOrRemoved() {
+  function test_06_renameAndRemovingLastPresetRecreatesDefaultServer() {
+    ntripSettings.switchToPreset(0);
     ntripSettings.renamePreset("Renamed");
+    compare(ntripSettings.presets[0].name, "Renamed");
     ntripSettings.removePreset();
-    compare(ntripSettings.presets.length, 2);
-    compare(ntripSettings.presetIndex, 0);
-    compare(ntripSettings.presets[0].name, "Alpha");
-    compare(ntripSettings.createSettingsMap().host, "alpha.example.com");
+    compare(ntripSettings.presets[0].name, "Default server");
+    compare(ntripSettings.createSettingsMap().host, "");
+    compare(ntripSettings.createSettingsMap().port, "2101");
   }
 
   function test_07_presetNameAvailability() {
