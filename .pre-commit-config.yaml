@@ -65,7 +65,7 @@ repos:
   rev: v13.0.0
   hooks:
   - id: clang-format
-    types_or: [c++, c, c#, java]
+    types_or: [c++, c, c#, java, objective-c]
 
 - repo: https://github.com/sirosen/check-jsonschema
   rev: 0.8.2

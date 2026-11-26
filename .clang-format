@@ -1,4 +1,4 @@
-Language:        Cpp
+# No Language here, so C++ and Objective-C share this style
 AccessModifierOffset: -2
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: false
@@ -114,6 +114,7 @@ UseTab:       Never
 ---
 
 Language:        Java
+BasedOnStyle:    LLVM
 TabWidth:        4
 IndentWidth:     4
 AllowShortBlocksOnASingleLine: false
