@@ -3600,18 +3600,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>启用NTRIP校正</translation>
     </message>
     <message>
-        <source>NTRIP client disconnected</source>
-        <translation>NTRIP客户端断开连接</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>NTRIP客户端连接</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>NTRIP客户端已连接</translation>
-    </message>
-    <message>
         <source>Please provide valid NTRIP settings</source>
         <translation>请提供有效的NTRIP设置</translation>
     </message>
@@ -3778,6 +3766,30 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Cancel connection to %1</source>
         <translation>取消与%1的连接</translation>
+    </message>
+    <message>
+        <source>Disconnected from default server</source>
+        <translation>已从默认服务器断开连接</translation>
+    </message>
+    <message>
+        <source>Disconnected from &apos;%1&apos;</source>
+        <translation>已断开与 &apos;%1&apos; 的连接</translation>
+    </message>
+    <message>
+        <source>Connecting to default server</source>
+        <translation>正在连接默认服务器</translation>
+    </message>
+    <message>
+        <source>Connecting to &apos;%1&apos;</source>
+        <translation>正在连接到 &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Connected to default server</source>
+        <translation>已连接到默认服务器</translation>
+    </message>
+    <message>
+        <source>Connected to &apos;%1&apos;</source>
+        <translation>已连接到 &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
@@ -6435,23 +6447,23 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfGeofencer</name>
     <message>
         <source>Position has trespassed into &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>位置已侵入 &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Position entered into &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>位置已进入 &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Position left from &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>位置已离开 &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Position outside areas after leaving &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>离开 &quot;%1&quot; 后位置在外部区域</translation>
     </message>
     <message>
         <source>Position outside areas</source>
-        <translation type="unfinished"/>
+        <translation>位置位于区域之外</translation>
     </message>
 </context>
 <context>
@@ -7966,6 +7978,30 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Forward position to NTRIP caster</source>
         <translation>将位置转发至NTRIP中转站</translation>
     </message>
+    <message>
+        <source>Preset</source>
+        <translation>预设</translation>
+    </message>
+    <message>
+        <source>Rename Preset</source>
+        <translation>重命名预设</translation>
+    </message>
+    <message>
+        <source>Add Preset</source>
+        <translation>添加预设</translation>
+    </message>
+    <message>
+        <source>Enter the preset name</source>
+        <translation>输入预设名称</translation>
+    </message>
+    <message>
+        <source>Remove Preset</source>
+        <translation>移除预设</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>确定要移除 `%1` 吗？</translation>
+    </message>
 </context>
 <context>
     <name>QfPositioningPreciseView</name>
@@ -8007,6 +8043,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Internal device</source>
         <translation>内部设备</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation>默认服务器</translation>
     </message>
 </context>
 <context>

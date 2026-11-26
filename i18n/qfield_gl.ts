@@ -3602,18 +3602,6 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Please provide valid NTRIP settings</source>
         <translation type="unfinished"/>
     </message>
@@ -3779,6 +3767,30 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Cancel connection to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to &apos;%1&apos;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7967,6 +7979,30 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Forward position to NTRIP caster</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rename Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter the preset name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfPositioningPreciseView</name>
@@ -8008,6 +8044,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Internal device</source>
         <translation>Dispositivo interno</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3602,18 +3602,6 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
         <translation>Aktivera NTRIP-korrigeringar</translation>
     </message>
     <message>
-        <source>NTRIP client disconnected</source>
-        <translation>NTRIP-klienten är frånkopplad</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>NTRIP-klienten ansluter</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>NTRIP-klienten är ansluten</translation>
-    </message>
-    <message>
         <source>Please provide valid NTRIP settings</source>
         <translation>Ange giltiga NTRIP-inställningar</translation>
     </message>
@@ -3779,6 +3767,30 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
     </message>
     <message>
         <source>Cancel connection to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to &apos;%1&apos;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7968,6 +7980,30 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
         <source>Forward position to NTRIP caster</source>
         <translation>Skicka positionen till NTRIP-servern</translation>
     </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rename Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter the preset name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>Är du säker på att du vill ta bort `%1`?</translation>
+    </message>
 </context>
 <context>
     <name>QfPositioningPreciseView</name>
@@ -8009,6 +8045,10 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
     <message>
         <source>Internal device</source>
         <translation>Intern enhet</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3600,18 +3600,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>NTRIP 보정 사용</translation>
     </message>
     <message>
-        <source>NTRIP client disconnected</source>
-        <translation>NTRIP 클라이언트 연결 끊김</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>NTRIP 클라이언트 연결 중</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>NTRIP 클라이언트 연결됨</translation>
-    </message>
-    <message>
         <source>Please provide valid NTRIP settings</source>
         <translation>유효한 NTRIP 설정을 입력하십시오</translation>
     </message>
@@ -3777,6 +3765,30 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cancel connection to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to &apos;%1&apos;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7964,6 +7976,30 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Forward position to NTRIP caster</source>
         <translation>NTRIP 캐스터로 위치 전송</translation>
     </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rename Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter the preset name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>`%1`을(를) 삭제하시겠습니까?</translation>
+    </message>
 </context>
 <context>
     <name>QfPositioningPreciseView</name>
@@ -8005,6 +8041,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Internal device</source>
         <translation>내장 장치</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3604,18 +3604,6 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <translation>Ota NTRIP-korjaukset käyttöön</translation>
     </message>
     <message>
-        <source>NTRIP client disconnected</source>
-        <translation>NTRIP-client yhteys katkesi</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>NTRIP-client yhdistetään</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>NTRIP-client yhdistetty</translation>
-    </message>
-    <message>
         <source>Please provide valid NTRIP settings</source>
         <translation>Syötä kelvolliset NTRIP-asetukset</translation>
     </message>
@@ -3781,6 +3769,30 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Cancel connection to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to &apos;%1&apos;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7971,6 +7983,30 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>Forward position to NTRIP caster</source>
         <translation>Välitä sijainti NTRIP-casterille</translation>
     </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rename Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter the preset name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>Haluatko varmasti poistaa kohteen ´%1´?</translation>
+    </message>
 </context>
 <context>
     <name>QfPositioningPreciseView</name>
@@ -8012,6 +8048,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Internal device</source>
         <translation>Sisäinen laite</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

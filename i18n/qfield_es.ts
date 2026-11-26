@@ -3603,18 +3603,6 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <translation>Activar correcciones NTRIP</translation>
     </message>
     <message>
-        <source>NTRIP client disconnected</source>
-        <translation>El cliente NTRIP se ha desconectado</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>Conexión del cliente NTRIP</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>Cliente NTRIP conectado</translation>
-    </message>
-    <message>
         <source>Please provide valid NTRIP settings</source>
         <translation>Introduce unos parámetros NTRIP válidos</translation>
     </message>
@@ -3780,6 +3768,30 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Cancel connection to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to &apos;%1&apos;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7969,6 +7981,30 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
         <source>Forward position to NTRIP caster</source>
         <translation>Reenviar la posición al emisor NTRIP</translation>
     </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rename Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter the preset name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>¿Está seguro de que quiere eliminar `%1`?</translation>
+    </message>
 </context>
 <context>
     <name>QfPositioningPreciseView</name>
@@ -8010,6 +8046,10 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Internal device</source>
         <translation>Dispositivo interno</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3603,18 +3603,6 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
         <translation>Habilita les correccions NTRIP</translation>
     </message>
     <message>
-        <source>NTRIP client disconnected</source>
-        <translation>Client NTRIP desconnectat</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>El client NTRIP s&apos;està connectant</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>Client NTRIP connectat</translation>
-    </message>
-    <message>
         <source>Please provide valid NTRIP settings</source>
         <translation>Si us plau, proporcioneu una configuració NTRIP vàlida.</translation>
     </message>
@@ -3780,6 +3768,30 @@ Cancel·leu per fer una anàlisi mínima del dispositiu.</translation>
     </message>
     <message>
         <source>Cancel connection to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to &apos;%1&apos;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7973,6 +7985,30 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
         <source>Forward position to NTRIP caster</source>
         <translation>Enviar posició al transmissor NTRIP</translation>
     </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rename Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter the preset name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>Esteu segur que voleu eliminar `%1`?</translation>
+    </message>
 </context>
 <context>
     <name>QfPositioningPreciseView</name>
@@ -8014,6 +8050,10 @@ Les geometries dels objectes es combinaran en l&apos;objecte &apos;%1&apos;, que
     <message>
         <source>Internal device</source>
         <translation>Dispositiu intern</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

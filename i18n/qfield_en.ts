@@ -3640,18 +3640,6 @@ Cancel to make a minimal device scan instead.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>NTRIP client disconnected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Please provide valid NTRIP settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3817,6 +3805,30 @@ Cancel to make a minimal device scan instead.</translation>
     </message>
     <message>
         <source>Cancel connection to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disconnected from default server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disconnected from &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connecting to default server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connecting to &apos;%1&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connected to default server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connected to &apos;%1&apos;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7541,6 +7553,30 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Forward position to NTRIP caster</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename Preset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Preset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter the preset name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove Preset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QfPositioningPreciseView</name>
@@ -7582,6 +7618,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Internal device</source>
         <translation type="unfinished">Internal device</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -3606,18 +3606,6 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <translation>Włącz poprawki NTRIP</translation>
     </message>
     <message>
-        <source>NTRIP client disconnected</source>
-        <translation>Klient NTRIP się rozłączył</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>Łączenie z klientem NTRIP</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>Klient NTRIP połączony</translation>
-    </message>
-    <message>
         <source>Please provide valid NTRIP settings</source>
         <translation>Podaj poprawne ustawienia NTRIP</translation>
     </message>
@@ -3784,6 +3772,30 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>Cancel connection to %1</source>
         <translation>Anuluj połączenie z %1</translation>
+    </message>
+    <message>
+        <source>Disconnected from default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7978,6 +7990,30 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Forward position to NTRIP caster</source>
         <translation>Przekazuj pozycję do nadajnika NTRIP</translation>
     </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rename Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter the preset name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>Czy na pewno chcesz usunąć `%1`?</translation>
+    </message>
 </context>
 <context>
     <name>QfPositioningPreciseView</name>
@@ -8019,6 +8055,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Internal device</source>
         <translation>Urządzenie wbudowane</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

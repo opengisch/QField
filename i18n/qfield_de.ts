@@ -3599,18 +3599,6 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <translation>Aktiviere Ntrip Korrekturen</translation>
     </message>
     <message>
-        <source>NTRIP client disconnected</source>
-        <translation>Ntrip Client getrennt</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>Ntrip Client wird verbunden</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>Ntrip Client verbunden</translation>
-    </message>
-    <message>
         <source>Please provide valid NTRIP settings</source>
         <translation>Bitte gib gültige Ntrip Einstellungen an</translation>
     </message>
@@ -3776,6 +3764,30 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     </message>
     <message>
         <source>Cancel connection to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to &apos;%1&apos;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7963,6 +7975,30 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
         <source>Forward position to NTRIP caster</source>
         <translation>Position an Ntrip Caster weitergeben</translation>
     </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rename Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter the preset name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>Bist du sicher, dass du `%1` löschen möchtest?</translation>
+    </message>
 </context>
 <context>
     <name>QfPositioningPreciseView</name>
@@ -8004,6 +8040,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Internal device</source>
         <translation>Internes Antenne</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

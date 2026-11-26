@@ -3599,18 +3599,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>Activer les corrections NTRIP</translation>
     </message>
     <message>
-        <source>NTRIP client disconnected</source>
-        <translation>Client NTRIP déconnecté</translation>
-    </message>
-    <message>
-        <source>NTRIP client connecting</source>
-        <translation>Connexion d&apos;un client NTRIP</translation>
-    </message>
-    <message>
-        <source>NTRIP client connected</source>
-        <translation>Client NTRIP connecté</translation>
-    </message>
-    <message>
         <source>Please provide valid NTRIP settings</source>
         <translation>Veuillez de fournir des paramètres NTRIP valides</translation>
     </message>
@@ -3776,6 +3764,30 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cancel connection to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnected from &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to default server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connected to &apos;%1&apos;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -7968,6 +7980,30 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
         <source>Forward position to NTRIP caster</source>
         <translation>Transmettre la position au diffuseur NTRIP</translation>
     </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rename Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enter the preset name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remove Preset</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to remove `%1`?</source>
+        <translation>Êtes-vous sûr de vouloir supprimer `%1` ?</translation>
+    </message>
 </context>
 <context>
     <name>QfPositioningPreciseView</name>
@@ -8009,6 +8045,10 @@ Les géométries des entités vont être combinées dans l&apos;entité &apos;%1
     <message>
         <source>Internal device</source>
         <translation>Stockage interne</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
