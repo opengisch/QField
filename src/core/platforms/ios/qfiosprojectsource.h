@@ -17,6 +17,7 @@
 
 #include "qfprojectsource.h"
 
+class QQuickItem;
 
 class QfIosProjectSource : public QfProjectSource
 {
