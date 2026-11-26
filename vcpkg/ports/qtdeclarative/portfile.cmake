@@ -1,16 +1,15 @@
 set(SCRIPT_PATH "${CURRENT_INSTALLED_DIR}/share/qtbase")
 include("${SCRIPT_PATH}/qt_install_submodule.cmake")
 
-set(${PORT}_PATCHES
-    v4_crash.patch
-)
-
 vcpkg_buildpath_length_warning(44)
+
+set(${PORT}_PATCHES "")
 
  set(TOOL_NAMES
         qml
         qmlaotstats
         qmlcachegen
+        qmlcontextpropertydump
         qmleasing
         qmlformat
         qmlimportscanner
