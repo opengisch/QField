@@ -325,7 +325,7 @@ TestCase {
     range.config = {
       "Style": "Dial",
       "Min": 0,
-      "Max": 359,
+      "Max": 360,
       "Step": 1,
       "Suffix": "°"
     };
@@ -336,7 +336,7 @@ TestCase {
     const dial = dialRow.children[1];
     const increaseButton = dialRow.children[2];
     compare(dial.startAngle, 0);
-    compare(dial.endAngle, 359);
+    compare(dial.endAngle, 360);
     compare(dial.wrap, true);
     compare(dial.value, 90);
     fuzzyCompare(dial.angle, 90, 0.0001);
@@ -347,9 +347,9 @@ TestCase {
     decreaseButton.clicked();
     compare(range.value, 89);
 
-    range.value = 359;
+    range.value = 360;
     increaseButton.clicked();
-    compare(range.value, 359);
+    compare(range.value, 360);
 
     dial.value = 180;
     dial.moved();

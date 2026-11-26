@@ -27,11 +27,8 @@ Dial {
 
   wrap: true
   startAngle: 0
-  // The range plus one step spans the full circle, so min and max do not overlap and 0 to 359 maps onto actual degrees
-  endAngle: {
-    const range = to - from;
-    return Number.isFinite(range) && range > 0 ? 360 * range / (range + stepSize) : 360;
-  }
+  endAngle: 360
+  wheelEnabled: true
 
   background: Shape {
     width: dial.width
@@ -58,7 +55,7 @@ Dial {
       strokeWidth: dial.trackWidth
       strokeColor: !dial.hasValue ? "transparent" : dial.enabled ? dial.Material.accentColor : dial.Material.sliderDisabledColor
       fillColor: "transparent"
-      capStyle: ShapePath.RoundCap
+      capStyle: ShapePath.FlatCap
 
       PathAngleArc {
         centerX: dial.width / 2
@@ -99,10 +96,8 @@ Dial {
       fontSizeMode: Text.Fit
       minimumPointSize: QfTheme.tinyFont.pointSize / 2
       elide: Text.ElideRight
-      text: dial.hasValue ? Number(dial.value).toFixed(dial.precision) + dial.suffixText : dial.placeholderText
-      font.family: QfTheme.defaultFont.family
-      font.pointSize: dial.hasValue ? QfTheme.defaultFont.pointSize * 1.8 : QfTheme.defaultFont.pointSize
-      font.weight: dial.hasValue ? Font.DemiBold : Font.Normal
+      text: dial.hasValue ? Number(dial.value).toFixed(dial.precision) + (dial.suffixText !== "" ? " " + dial.suffixText : "") : dial.placeholderText
+      font: QfTheme.defaultFont
       color: dial.hasValue ? dial.textColor : QfTheme.mainTextDisabledColor
     }
 
@@ -123,6 +118,7 @@ Dial {
       text: Number(dial.from).toFixed(dial.precision) + " – " + Number(dial.to).toFixed(dial.precision)
       font: QfTheme.tinyFont
       color: QfTheme.secondaryTextColor
+      opacity: 0.5
     }
 
     FontMetrics {
@@ -134,5 +130,41 @@ Dial {
       id: rangeMetrics
       font: rangeLabel.font
     }
+  }
+
+  TapHandler {
+    id: ringTapHandler
+
+    property real tappedValue: 0
+    property bool applyingTap: false
+
+    enabled: dial.enabled
+    acceptedDevices: PointerDevice.TouchScreen
+
+    onTapped: (eventPoint, button) => {
+      const dx = eventPoint.position.x - dial.width / 2;
+      const dy = eventPoint.position.y - dial.height / 2;
+      if (Math.abs(Math.hypot(dx, dy) - dial.trackRadius) > QfTheme.toolButtonSize / 2) {
+        return;
+      }
+      const tapAngle = (Math.atan2(dx, -dy) * 180 / Math.PI + 360) % 360;
+      const tapPosition = Math.min(1, Math.max(0, (tapAngle - dial.startAngle) / (dial.endAngle - dial.startAngle)));
+      let tapValue = dial.from + tapPosition * (dial.to - dial.from);
+      if (dial.snapMode !== Dial.NoSnap && dial.stepSize > 0) {
+        tapValue = dial.from + Math.round((tapValue - dial.from) / dial.stepSize) * dial.stepSize;
+      }
+      tappedValue = Math.min(Math.max(tapValue, Math.min(dial.from, dial.to)), Math.max(dial.from, dial.to));
+      applyingTap = true;
+      dial.moved();
+      applyingTap = false;
+    }
+  }
+
+  Binding {
+    target: dial
+    property: "value"
+    value: ringTapHandler.tappedValue
+    when: ringTapHandler.applyingTap
+    restoreMode: Binding.RestoreBinding
   }
 }
