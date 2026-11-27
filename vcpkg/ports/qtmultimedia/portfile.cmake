@@ -4,9 +4,8 @@ include("${SCRIPT_PATH}/qt_install_submodule.cmake")
 set(${PORT}_PATCHES
     static_find_modules.patch
     remove-static-ssl-stub.patch
-    ffmpeg-compile-def-and-devendor-signalsmith-stretch.patch
+    ffmpeg-devendor-signalsmith-stretch.patch
     ffmpeg.patch
-    android_camera.patch
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
@@ -18,8 +17,12 @@ INVERTED_FEATURES
     "widgets"       CMAKE_DISABLE_FIND_PACKAGE_Qt6Widgets
     "gstreamer"     CMAKE_DISABLE_FIND_PACKAGE_GStreamer
     "ffmpeg"        CMAKE_DISABLE_FIND_PACKAGE_FFmpeg
+    "pipewire"      CMAKE_DISABLE_FIND_PACKAGE_PipeWire
+    "pulseaudio"    CMAKE_DISABLE_FIND_PACKAGE_WrapPulseAudio
     # Features not yet added in the manifest:
     "vaapi"         CMAKE_DISABLE_FIND_PACKAGE_VAAPI # not in vpckg
+    #"mmrenderer"    CMAKE_DISABLE_FIND_PACKAGE_MMRenderer # OS = QNX ?
+    #"mmrenderer"    CMAKE_DISABLE_FIND_PACKAGE_MMRendererCore
 )
 
 list(APPEND FEATURE_OPTIONS "-DCMAKE_DISABLE_FIND_PACKAGE_ALSA=ON")
@@ -39,14 +42,15 @@ else()
     list(APPEND FEATURE_OPTIONS "-DINPUT_gstreamer='no'")
 endif()
 
-if(VCPKG_TARGET_IS_WINDOWS)
-    list(APPEND FEATURE_OPTIONS "-DFEATURE_wmf=ON")
-else()
-    list(APPEND FEATURE_OPTIONS "-DFEATURE_wmf=OFF")
-endif()
+list(APPEND FEATURE_OPTIONS "-DINPUT_pipewire='no'")
 
 if("ffmpeg" IN_LIST FEATURES)
     # Note: Requires pulsadio on linux and wmfsdk on windows
+    # Qt searches for pkg-config before the FFmpeg wrapper can select a host tool.
+    if(NOT VCPKG_TARGET_IS_WINDOWS)
+        vcpkg_find_acquire_program(PKGCONFIG)
+        set(ENV{PKG_CONFIG} "${PKGCONFIG}")
+    endif()
     list(APPEND FEATURE_OPTIONS "-DINPUT_ffmpeg='yes'")
     if(VCPKG_TARGET_IS_LINUX)
         list(APPEND FEATURE_OPTIONS "-DINPUT_pulseaudio='yes'")
@@ -58,7 +62,12 @@ else()
     list(APPEND FEATURE_OPTIONS "-DINPUT_pulseaudio='no'")
 endif()
 
-list(APPEND FEATURE_OPTIONS "-DINPUT_pipewire='no'")
+if(VCPKG_TARGET_IS_WINDOWS)
+    list(APPEND FEATURE_OPTIONS "-DFEATURE_wmf=ON")
+else()
+    list(APPEND FEATURE_OPTIONS "-DFEATURE_wmf=OFF")
+endif()
+
 
 qt_install_submodule(PATCHES    ${${PORT}_PATCHES}
                      CONFIGURE_OPTIONS

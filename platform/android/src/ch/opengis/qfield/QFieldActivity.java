@@ -526,7 +526,7 @@ public class QFieldActivity extends QtActivity {
         }
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setClass(QFieldActivity.this, QtActivity.class);
+        intent.setClass(QFieldActivity.this, this.getClass());
         // Prevent activity restart
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
                         Intent.FLAG_ACTIVITY_SINGLE_TOP);
