@@ -111,16 +111,7 @@ TestCase {
     compare(ntripSettings.createSettingsMap().host, "alpha.example.com");
   }
 
-  function test_06_firstPresetCannotBeRenamedOrRemoved() {
-    ntripSettings.renamePreset("Renamed");
-    ntripSettings.removePreset();
-    compare(ntripSettings.presets.length, 2);
-    compare(ntripSettings.presetIndex, 0);
-    compare(ntripSettings.presets[0].name, "Alpha");
-    compare(ntripSettings.createSettingsMap().host, "alpha.example.com");
-  }
-
-  function test_07_presetNameAvailability() {
+  function test_06_presetNameAvailability() {
     verify(!ntripSettings.isPresetNameAvailable("", -1));
     verify(!ntripSettings.isPresetNameAvailable("Beta", -1));
     verify(!ntripSettings.isPresetNameAvailable("Beta", 0));
@@ -128,7 +119,7 @@ TestCase {
     verify(ntripSettings.isPresetNameAvailable("Gamma", -1));
   }
 
-  function test_08_closingSavesIntoSelectedPreset() {
+  function test_07_closingSavesIntoSelectedPreset() {
     ntripSettings.switchToPreset(1);
     ntripSettings.open();
     tryCompare(ntripSettings, "opened", true);
@@ -139,5 +130,19 @@ TestCase {
     compare(ntripSettings.presets[1].settings.host, "closed.example.com");
     compare(ntripSettings.presets[0].settings.host, "alpha.example.com");
     tryCompare(ntripSettings, "visible", false);
+  }
+
+  function test_08_renameAndRemovingLastPresetRecreatesDefaultServer() {
+    ntripSettings.switchToPreset(0);
+    ntripSettings.renamePreset("Renamed");
+    compare(ntripSettings.presets[0].name, "Renamed");
+    const presetsLength = ntripSettings.presets.length;
+    for (let i = presetsLength - 1; i >= 0; i--) {
+      ntripSettings.switchToPreset(i);
+      ntripSettings.removePreset();
+    }
+    compare(ntripSettings.presets[0].name, "Default server");
+    compare(ntripSettings.createSettingsMap().host, "");
+    compare(ntripSettings.createSettingsMap().port, "2101");
   }
 }

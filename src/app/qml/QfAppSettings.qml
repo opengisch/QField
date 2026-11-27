@@ -1499,8 +1499,8 @@ Page {
                   wrapMode: Text.WordWrap
                   text: {
                     if (positionSource.ntripSettings.isValid) {
-                      const isDefaultPreset = positioningSettings.ntripPresetIndex === 0;
                       const presetName = positioningSettings.ntripPresetIndex < positioningSettings.ntripPresets.length ? positioningSettings.ntripPresets[positioningSettings.ntripPresetIndex].name : "";
+                      const isDefaultPreset = presetName === qsTr("Default server");
                       switch (positionSource.ntripState) {
                       case QfPositioning.NtripState.Disconnected:
                         return isDefaultPreset ? qsTr("Disconnected from default server") : qsTr("Disconnected from '%1'").arg(presetName);
