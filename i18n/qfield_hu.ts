@@ -3100,6 +3100,22 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
         <source>Failed to delete sidecar file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Error input file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error adding file &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating data source &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating zip archive &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3787,6 +3803,10 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Connected to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default server</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6618,6 +6638,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>Elevation profile</source>
         <translation>Magassági szelvény</translation>
     </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfInformationPopup</name>
@@ -7580,7 +7604,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
-        <translation>Pozícionálás</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7995,6 +8019,10 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation>Valóban törölni kívánod `%1`-t?</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3105,6 +3105,22 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
         <source>Failed to delete sidecar file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Error input file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error adding file &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating data source &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating zip archive &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3791,6 +3807,10 @@ Annuleer om in plaats daarvan een minimale apparaatscan uit te voeren.</translat
     </message>
     <message>
         <source>Connected to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default server</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6625,6 +6645,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
         <source>Elevation profile</source>
         <translation>Hoogteprofiel</translation>
     </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfInformationPopup</name>
@@ -7587,7 +7611,7 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
-        <translation>Positie</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8002,6 +8026,10 @@ De geometrieën van objecten zullen worden gecombineerd tot object &apos;%1&apos
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation>Weet u zeker dat u `%1` wilt verwijderen?</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

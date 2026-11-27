@@ -3107,6 +3107,22 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>Failed to delete sidecar file: %1 - %2</source>
         <translation>Sidecar-tiedoston poistaminen epäonnistui: %1 - %2</translation>
     </message>
+    <message>
+        <source>Error input file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error adding file &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating data source &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating zip archive &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3793,6 +3809,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     </message>
     <message>
         <source>Connected to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default server</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6628,6 +6648,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
         <source>Elevation profile</source>
         <translation>Korkeusprofiili</translation>
     </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfInformationPopup</name>
@@ -7591,7 +7615,7 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
-        <translation>Paikannus</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8006,6 +8030,10 @@ Kohteen geometriat yhdistetään kohteeseen &apos;%1&apos;, johon sisällytetä�
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation>Haluatko varmasti poistaa kohteen ´%1´?</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

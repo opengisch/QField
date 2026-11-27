@@ -3109,6 +3109,22 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
         <source>Failed to delete sidecar file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Error input file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error adding file &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating data source &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating zip archive &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3795,6 +3811,10 @@ Atšaukite, jei vietoj jos norite atlikti minimalią įrenginių paiešką.</tra
     </message>
     <message>
         <source>Connected to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default server</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6634,6 +6654,10 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
         <source>Elevation profile</source>
         <translation>Aukščio profilis</translation>
     </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfInformationPopup</name>
@@ -7597,7 +7621,7 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
-        <translation>Padėties nustatymas</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8012,6 +8036,10 @@ Geoobjektų geometrijos bus sujungtos į geoobjektą „%1“, kuris išsaugos s
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation>Ar tikrai norite pašalinti „%1“?</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -3103,6 +3103,22 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete sidecar file: %1 - %2</source>
         <translation>无法删除附属文件: %1 - %2</translation>
     </message>
+    <message>
+        <source>Error input file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error adding file &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating data source &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating zip archive &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3790,6 +3806,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Connected to &apos;%1&apos;</source>
         <translation>已连接到 &apos;%1&apos;</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation>默认服务器</translation>
     </message>
 </context>
 <context>
@@ -6623,6 +6643,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Elevation profile</source>
         <translation>纵剖面</translation>
     </message>
+    <message>
+        <source>Default server</source>
+        <translation>默认服务器</translation>
+    </message>
 </context>
 <context>
     <name>QfInformationPopup</name>
@@ -7586,7 +7610,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
-        <translation>定位</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8001,6 +8025,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation>确定要移除 `%1` 吗？</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation>默认服务器</translation>
     </message>
 </context>
 <context>

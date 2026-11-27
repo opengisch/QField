@@ -3105,6 +3105,22 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
         <source>Failed to delete sidecar file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Error input file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error adding file &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating data source &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating zip archive &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3791,6 +3807,10 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>Connected to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default server</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6625,6 +6645,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
         <source>Elevation profile</source>
         <translation>Perfil de elevacións</translation>
     </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfInformationPopup</name>
@@ -7587,7 +7611,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
-        <translation>Posicionamento</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8001,6 +8025,10 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default server</source>
         <translation type="unfinished"/>
     </message>
 </context>

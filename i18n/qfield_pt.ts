@@ -3107,6 +3107,22 @@ Cancele para fazer uma verificação mínima.</translation>
         <source>Failed to delete sidecar file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Error input file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error adding file &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating data source &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating zip archive &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3793,6 +3809,10 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>Connected to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default server</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6629,6 +6649,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
         <source>Elevation profile</source>
         <translation>Perfil de Elevação</translation>
     </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfInformationPopup</name>
@@ -7591,7 +7615,7 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
-        <translation>Posicionamento</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8005,6 +8029,10 @@ As geometrias dos recursos serão combinadas no recurso &apos;% &apos;, que mant
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default server</source>
         <translation type="unfinished"/>
     </message>
 </context>

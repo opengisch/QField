@@ -3109,6 +3109,22 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to delete sidecar file: %1 - %2</source>
         <translation>Не вдалося видалити супутній файл: %1 - %2</translation>
     </message>
+    <message>
+        <source>Error input file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error adding file &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating data source &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating zip archive &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3795,6 +3811,10 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Connected to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default server</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6634,6 +6654,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>Elevation profile</source>
         <translation>Профіль місцевості</translation>
     </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfInformationPopup</name>
@@ -7597,7 +7621,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
-        <translation>Позиціювання</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8012,6 +8036,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation>Ви впевнені, що хочете видалити `%1`?</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

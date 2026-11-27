@@ -3109,6 +3109,22 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Failed to delete sidecar file: %1 - %2</source>
         <translation>Nie udało się usunąć pliku sidecar: %1 - %2</translation>
     </message>
+    <message>
+        <source>Error input file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error adding file &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating data source &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating zip archive &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3795,6 +3811,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Connected to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default server</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6635,6 +6655,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>Elevation profile</source>
         <translation>Profil wysokościowy</translation>
     </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfInformationPopup</name>
@@ -7598,7 +7622,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
-        <translation>Lokalizacja</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8013,6 +8037,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation>Czy na pewno chcesz usunąć `%1`?</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

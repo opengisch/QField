@@ -3105,6 +3105,22 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
         <source>Failed to delete sidecar file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Error input file does not exist: &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error adding file &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating data source &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Error creating zip archive &apos;%1&apos;: %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfAbout</name>
@@ -3791,6 +3807,10 @@ Välj Avbryt för att i stället göra en begränsad enhetssökning.</translatio
     </message>
     <message>
         <source>Connected to &apos;%1&apos;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default server</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6626,6 +6646,10 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
         <source>Elevation profile</source>
         <translation>Höjdprofil</translation>
     </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfInformationPopup</name>
@@ -7588,7 +7612,7 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
     <name>QfOverlayContainer</name>
     <message>
         <source>Positioning</source>
-        <translation>Positionering</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -8003,6 +8027,10 @@ Objektens geometrier kommer att slås samman med objektet &apos;%1&apos;, som be
     <message>
         <source>Are you sure you want to remove `%1`?</source>
         <translation>Är du säker på att du vill ta bort `%1`?</translation>
+    </message>
+    <message>
+        <source>Default server</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
