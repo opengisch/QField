@@ -13,16 +13,16 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "qfiosprojectsource.h"
+
 #include <QDir>
 #include <QGuiApplication>
 #include <QQuickItem>
 #include <QQuickWindow>
+#include <qpa/qplatformnativeinterface.h>
 
 #include <MobileCoreServices/MobileCoreServices.h>
 #include <UIKit/UIKit.h>
-#include <qpa/qplatformnativeinterface.h>
-
-#include "qfiosprojectsource.h"
 
 static NSString *const FIELD_URI = @"uri";
 static NSString *const FIELD_FILE_COPY_URI = @"fileCopyUri";
@@ -30,7 +30,7 @@ static NSString *const FIELD_COPY_ERR = @"copyError";
 static NSString *const FIELD_NAME = @"name";
 
 @interface ProjectDelegate
-    : NSObject <UIDocumentPickerDelegate, UINavigationControllerDelegate> {
+  : NSObject <UIDocumentPickerDelegate, UINavigationControllerDelegate> {
   QfIosProjectSource *mIosProjectSource;
 }
 @end
@@ -39,45 +39,53 @@ static NSString *const FIELD_NAME = @"name";
   NSMutableArray *urlsInOpenMode;
 }
 
-- (id)initWithIosProjectSource:(QfIosProjectSource *)iosProjectSource {
+- ( id )initWithIosProjectSource:( QfIosProjectSource * )iosProjectSource
+{
   self = [super init];
-  if (self) {
+  if ( self )
+  {
     mIosProjectSource = iosProjectSource;
     urlsInOpenMode = [NSMutableArray new];
   }
   return self;
 }
 
-- (void)dealloc {
-  for (NSURL *url in urlsInOpenMode) {
+- ( void )dealloc
+{
+  for ( NSURL *url in urlsInOpenMode )
+  {
     [url stopAccessingSecurityScopedResource];
   }
 }
 
-+ (BOOL)requiresMainQueueSetup {
++ ( BOOL )requiresMainQueueSetup
+{
   return NO;
 }
 
-- (dispatch_queue_t)methodQueue {
+- ( dispatch_queue_t )methodQueue
+{
   return dispatch_get_main_queue();
 }
 
-- (void)documentPicker:(UIDocumentPickerViewController *)picker
-    didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls {
-
+- ( void )documentPicker:( UIDocumentPickerViewController * )picker
+  didPickDocumentsAtURLs:( NSArray<NSURL *> * )urls
+{
   NSMutableArray *results = [NSMutableArray array];
-  for (id url in urls) {
+  for ( id url in urls )
+  {
     NSError *error;
     NSMutableDictionary *result = [self getMetadataForUrl:url error:&error];
     const QString projectPath = mIosProjectSource->projectFromFolder(
-        QString::fromNSString(result[FIELD_FILE_COPY_URI]));
-    emit mIosProjectSource->projectOpened(projectPath);
+      QString::fromNSString( result[FIELD_FILE_COPY_URI] ) );
+    emit mIosProjectSource->projectOpened( projectPath );
     break;
   }
 }
 
-- (NSMutableDictionary *)getMetadataForUrl:(NSURL *)url
-                                     error:(NSError **)error {
+- ( NSMutableDictionary * )getMetadataForUrl:( NSURL * )url
+                                       error:( NSError ** )error
+{
   __block NSMutableDictionary *result = [NSMutableDictionary dictionary];
 
   [urlsInOpenMode addObject:url];
@@ -91,51 +99,59 @@ static NSString *const FIELD_NAME = @"name";
   // TODO double check this implemenation, see eg.
   // https://developer.apple.com/documentation/foundation/nsfilecoordinator/1412420-prepareforreadingitemsaturls
   [coordinator
-      coordinateReadingItemAtURL:url
-                         options:NSFileCoordinatorReadingResolvesSymbolicLink
-                           error:&fileError
-                      byAccessor:^(NSURL *newURL) {
-                          // If the coordinated operation fails, then the
-                          // accessor block never runs
-                          result[FIELD_URI] = url.absoluteString;
+    coordinateReadingItemAtURL:url
+                       options:NSFileCoordinatorReadingResolvesSymbolicLink
+                         error:&fileError
+                    byAccessor:^( NSURL *newURL ) {
+                        // If the coordinated operation fails, then the
+                        // accessor block never runs
+                        result[FIELD_URI] = url.absoluteString;
 
-                          NSError *copyError;
-                          NSString *copyPath =
-                              [ProjectDelegate
-                                  copyToUniqueDestinationFrom:newURL
-                                                        error:copyError]
-                                  .absoluteString;
+                        NSError *copyError;
+                        NSString *copyPath =
+                          [ProjectDelegate
+                            copyToUniqueDestinationFrom:newURL
+                                                  error:copyError]
+                            .absoluteString;
 
-                          if (!copyError) {
-                            result[FIELD_FILE_COPY_URI] = copyPath;
-                          } else {
-                            result[FIELD_COPY_ERR] =
-                                copyError.localizedDescription;
-                            result[FIELD_FILE_COPY_URI] = [NSNull null];
-                          }
+                        if ( !copyError )
+                        {
+                          result[FIELD_FILE_COPY_URI] = copyPath;
+                        }
+                        else
+                        {
+                          result[FIELD_COPY_ERR] = copyError.localizedDescription;
+                          result[FIELD_FILE_COPY_URI] = [NSNull null];
+                        }
 
-                          result[FIELD_NAME] = newURL.lastPathComponent;
-                      }];
+                        result[FIELD_NAME] = newURL.lastPathComponent;
+                    }];
 
-  if (fileError) {
+  if ( fileError )
+  {
     *error = fileError;
     return nil;
-  } else {
+  }
+  else
+  {
     return result;
   }
 }
 
-- (void)documentPickerWasCancelled:
-    (UIDocumentPickerViewController *)controller {
+- ( void )documentPickerWasCancelled:
+  ( UIDocumentPickerViewController * )controller
+{
   [self rejectAsUserCancellationError];
 }
 
-- (void)presentationControllerDidDismiss:
-    (UIPresentationController *)presentationController {
+- ( void )presentationControllerDidDismiss:
+  ( UIPresentationController * )presentationController
+{
   [self rejectAsUserCancellationError];
 }
 
-- (void)rejectAsUserCancellationError {
+- ( void )rejectAsUserCancellationError
+{
   // TODO make error nullable?
   NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain
                                        code:NSUserCancelledError
@@ -144,91 +160,103 @@ static NSString *const FIELD_NAME = @"name";
   // withCode:E_DOCUMENT_PICKER_CANCELED withError:error];
 }
 
-+ (NSURL *)copyToUniqueDestinationFrom:(NSURL *)url error:(NSError *)error {
++ ( NSURL * )copyToUniqueDestinationFrom:( NSURL * )url error:( NSError * )error
+{
   // destination can be NSDocumentDirectory or NSCachesDirectory
   NSURL *destinationRootDir =
-      [NSFileManager.defaultManager URLsForDirectory:NSDocumentDirectory
-                                           inDomains:NSUserDomainMask]
-          .firstObject;
+    [NSFileManager.defaultManager URLsForDirectory:NSDocumentDirectory
+                                         inDomains:NSUserDomainMask]
+      .firstObject;
   // we don't want to rename the file so we put it into a unique location
   NSString *uniqueSubDirName = [[NSUUID UUID] UUIDString];
   NSURL *destinationDir = [destinationRootDir
-      URLByAppendingPathComponent:[NSString stringWithFormat:@"%@/",
-                                                             uniqueSubDirName]];
+    URLByAppendingPathComponent:[NSString stringWithFormat:@"%@/",
+                                                           uniqueSubDirName]];
   NSURL *destinationUrl = [destinationDir
-      URLByAppendingPathComponent:[NSString
-                                      stringWithFormat:@"%@",
-                                                       url.lastPathComponent]];
+    URLByAppendingPathComponent:[NSString
+                                  stringWithFormat:@"%@",
+                                                   url.lastPathComponent]];
 
   [NSFileManager.defaultManager createDirectoryAtURL:destinationDir
                          withIntermediateDirectories:YES
                                           attributes:nil
                                                error:&error];
-  if (error) {
+  if ( error )
+  {
     return url;
   }
   [NSFileManager.defaultManager copyItemAtURL:url
                                         toURL:destinationUrl
                                         error:&error];
-  if (error) {
+  if ( error )
+  {
     return url;
-  } else {
+  }
+  else
+  {
     return destinationUrl;
   }
 }
 
 @end
 
-class QfIosProjectSource::ProjectDelegateContainer {
-public:
-  ProjectDelegate *_projectDelegate = nullptr;
+class QfIosProjectSource::ProjectDelegateContainer
+{
+  public:
+    ProjectDelegate *_projectDelegate = nullptr;
 };
 
-QfIosProjectSource::QfIosProjectSource(QObject *parent)
-    : QfProjectSource(parent), mDelegate(new ProjectDelegateContainer()) {
-  mParent = qobject_cast<QQuickItem *>(parent);
-  Q_ASSERT(mParent);
+QfIosProjectSource::QfIosProjectSource( QObject *parent )
+  : QfProjectSource( parent ), mDelegate( new ProjectDelegateContainer() )
+{
+  mParent = qobject_cast<QQuickItem *>( parent );
+  Q_ASSERT( mParent );
   mDelegate->_projectDelegate =
-      [[ProjectDelegate alloc] initWithIosProjectSource:this];
+    [[ProjectDelegate alloc] initWithIosProjectSource:this];
 }
 
-void QfIosProjectSource::pickProject() {
+void QfIosProjectSource::pickProject()
+{
   // Get the UIView that backs our QQuickWindow:
-  UIView *view = (__bridge UIView *)(QGuiApplication::platformNativeInterface()
-                                         ->nativeResourceForWindow(
-                                             "uiview", mParent->window()));
+  UIView *view = ( __bridge UIView * ) ( QGuiApplication::platformNativeInterface()
+                                           ->nativeResourceForWindow(
+                                             "uiview", mParent->window() ) );
   UIViewController *qtController = [[view window] rootViewController];
 
   UIDocumentPickerViewController *controller =
-      [[UIDocumentPickerViewController alloc]
-          initWithDocumentTypes:@[ (__bridge NSString *)kUTTypeFolder ]
-                         inMode:UIDocumentPickerModeOpen
-          // inMode:UIDocumentPickerModeImport
+    [[UIDocumentPickerViewController alloc]
+      initWithDocumentTypes:@[( __bridge NSString * ) kUTTypeFolder]
+                     inMode:UIDocumentPickerModeOpen
+      // inMode:UIDocumentPickerModeImport
   ];
 
-  [controller setDelegate:id(mDelegate->_projectDelegate)];
+  [controller setDelegate:id( mDelegate->_projectDelegate )];
 
   // Tell the imagecontroller to animate on top:
   [qtController presentViewController:controller animated:YES completion:nil];
 }
 
-QString QfIosProjectSource::projectFromFolder(const QString &folder) const {
+QString QfIosProjectSource::projectFromFolder( const QString &folder ) const
+{
   QString folderPath = folder;
-  folderPath.remove(QStringLiteral("file://"));
-  QDir directory(folderPath);
-  if (!directory.exists()) {
+  folderPath.remove( QStringLiteral( "file://" ) );
+  QDir directory( folderPath );
+  if ( !directory.exists() )
+  {
     return QString();
   }
-  const QStringList projects = directory.entryList(QStringList() << "*.qgs"
-                                                                 << "*.QGS"
-                                                                 << "*.qgz"
-                                                                 << "*.QGZ",
-                                                   QDir::Files);
-  if (projects.count() > 0) {
-    const QString projectPath =
-        QStringLiteral("%1/%2").arg(folderPath, projects.at(0));
+  const QStringList projects = directory.entryList( QStringList() << "*.qgs"
+                                                                  << "*.QGS"
+                                                                  << "*.qgz"
+                                                                  << "*.QGZ",
+                                                    QDir::Files );
+  if ( projects.count() > 0 )
+  {
+    const QString projectPath = QStringLiteral( "%1/%2" ).arg( folderPath, projects.at( 0 ) );
     return projectPath;
-  } else {
+  }
+  else
+  {
   }
   return QString();
 }

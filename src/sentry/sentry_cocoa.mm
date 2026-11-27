@@ -22,44 +22,47 @@
 
 @import Sentry;
 
-namespace sentry_wrapper {
-static QtMessageHandler originalMessageHandler = nullptr;
-const char *const applicationName = "QField";
-void qfMessageHandler(QtMsgType type, const QMessageLogContext &context,
-                      const QString &msg) {
-  SentryBreadcrumb *crumb = [[SentryBreadcrumb alloc] init];
-  crumb.level = kSentryLevelInfo;
-  crumb.category = QString(context.category).toNSString();
-  crumb.message =
-      QString(QStringLiteral("(%1:%2) %3")
-                  .arg(context.file, QString::number(context.line), msg))
-          .toNSString();
-  // TODO: implement below in a way that compiles :)
-  // crumb.data[@"file"] = QString(context.file).toNSString();
-  // crumb.data[@"line"] = context.line;
-  [SentrySDK addBreadcrumb:crumb];
+namespace sentry_wrapper
+{
+  static QtMessageHandler originalMessageHandler = nullptr;
+  const char *const applicationName = "QField";
+  void qfMessageHandler( QtMsgType type, const QMessageLogContext &context,
+                         const QString &msg )
+  {
+    SentryBreadcrumb *crumb = [[SentryBreadcrumb alloc] init];
+    crumb.level = kSentryLevelInfo;
+    crumb.category = QString( context.category ).toNSString();
+    crumb.message = QString( QStringLiteral( "(%1:%2) %3" )
+                               .arg( context.file, QString::number( context.line ), msg ) )
+                      .toNSString();
+    // TODO: implement below in a way that compiles :)
+    // crumb.data[@"file"] = QString(context.file).toNSString();
+    // crumb.data[@"line"] = context.line;
+    [SentrySDK addBreadcrumb:crumb];
 
-  if (originalMessageHandler)
-    originalMessageHandler(type, context, msg);
-}
+    if ( originalMessageHandler )
+      originalMessageHandler( type, context, msg );
+  }
 
-void init() {
-  [SentrySDK startWithConfigureOptions:^(SentryOptions *options) {
-      options.dsn = [NSString stringWithUTF8String:sentryDsn];
-      options.environment = [NSString stringWithUTF8String:sentryEnv];
-      options.debug =
-          YES; // Enabled debug when first installing is always helpful
-  }];
-}
+  void init()
+  {
+    [SentrySDK startWithConfigureOptions:^( SentryOptions *options ) {
+        options.dsn = [NSString stringWithUTF8String:sentryDsn];
+        options.environment = [NSString stringWithUTF8String:sentryEnv];
+        options.debug = YES; // Enabled debug when first installing is always helpful
+    }];
+  }
 
-void close() {}
+  void close() {}
 
-void install_message_handler() {
-  originalMessageHandler = qInstallMessageHandler(qfMessageHandler);
-}
+  void install_message_handler()
+  {
+    originalMessageHandler = qInstallMessageHandler( qfMessageHandler );
+  }
 
-void capture_event(const char *message, const char *cloudUser) {
-  SentryId *eventId =
+  void capture_event( const char *message, const char *cloudUser )
+  {
+    SentryId *eventId =
       [SentrySDK captureMessage:[NSString stringWithUTF8String:message]];
 #if 0
     // How can we send info level and title with cocoa?
@@ -68,5 +71,5 @@ void capture_event(const char *message, const char *cloudUser) {
       "custom",
       message ) );
 #endif
-}
+  }
 }
