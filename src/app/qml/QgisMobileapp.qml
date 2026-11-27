@@ -3922,6 +3922,7 @@ ApplicationWindow {
         text: qsTr("Redo")
         font: QfTheme.defaultFont
         icon.source: QfTheme.getThemeVectorIcon("ic_redo_black_24dp")
+        icon.color: enabled ? Material.foreground : Material.hintTextColor
 
         contentItem: IconLabel {
           leftPadding: undoButton.leftPadding
