@@ -1085,7 +1085,11 @@ bool QfFileUtils::isDeletable( const QString &filePath )
     const QString projectFileName = QgsProject::instance()->fileName();
     QFileInfo fi( projectFileName );
     const QDir projectDir = fi.absoluteDir();
-    static const QStringList prohibitedProjectFiles = { "deltafile.json" };
+    const QStringList prohibitedProjectFiles = {
+      fi.fileName(),                                           // project file (.qgz, .qgs)
+      QStringLiteral( "%1.qml" ).arg( fi.completeBaseName() ), // project plugin
+      QStringLiteral( "deltafile.json" )                       // project local changes
+    };
     if ( std::any_of( prohibitedProjectFiles.begin(), prohibitedProjectFiles.end(), [&projectDir, &fileInfo]( const QString &prohibitedProjectFile ) {
            return projectDir.absoluteFilePath( prohibitedProjectFile ) == fileInfo.absoluteFilePath();
          } ) )
