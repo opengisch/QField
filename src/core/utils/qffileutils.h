@@ -78,7 +78,8 @@ class QFIELD_CORE_EXPORT QfFileUtils : public QObject
     Q_INVOKABLE static bool isWithinProjectDirectory( const QString &filePath );
 
     /**
-     * Copies the file named \a filePath to \a destinationFilePath.
+     * Copies the file named \a filePath to \a destinationFilePath. Use the optional \a overwrite
+     * parameter to allow for the copying process to overwrite an already present destination file.
      * \return True if the copying operation was successful
      *
      * \note Platform restrictions apply:
@@ -87,7 +88,7 @@ class QFIELD_CORE_EXPORT QfFileUtils : public QObject
      * - On iOS: Writing is restricted to the app's sandbox.
      * - Use QfPlatformUtilities.applicationDirectory() to get a safe write location.
      */
-    Q_INVOKABLE static bool copyFile( const QString &filePath, const QString &destinationFilePath );
+    Q_INVOKABLE static bool copyFile( const QString &filePath, const QString &destinationFilePath, bool overwrite = false );
 
     /**
     * Reads the entire content of a file and returns it as a byte array.

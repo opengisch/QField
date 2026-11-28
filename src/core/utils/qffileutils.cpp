@@ -624,14 +624,14 @@ bool QfFileUtils::isWithinProjectDirectory( const QString &filePath )
   return result;
 }
 
-bool QfFileUtils::copyFile( const QString &filePath, const QString &destinationFilePath )
+bool QfFileUtils::copyFile( const QString &filePath, const QString &destinationFilePath, bool overwrite )
 {
   if ( !isWithinProjectDirectory( filePath ) || !isWithinProjectDirectory( destinationFilePath ) )
   {
     return false;
   }
 
-  if ( !QFileInfo::exists( filePath ) )
+  if ( QFileInfo::exists( filePath ) )
   {
     return false;
   }
@@ -639,6 +639,11 @@ bool QfFileUtils::copyFile( const QString &filePath, const QString &destinationF
   QFileInfo fi( destinationFilePath );
   QDir dir( fi.absolutePath() );
   if ( !dir.exists() && !dir.mkpath( "." ) )
+  {
+    return false;
+  }
+
+  if ( QFileInfo::exists( destinationFilePath ) && ( !overwrite || !QFile::remove( destinationFilePath ) ) )
   {
     return false;
   }
