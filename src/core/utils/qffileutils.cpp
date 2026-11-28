@@ -18,6 +18,7 @@
 #include "qfcloudutils.h"
 #include "qffileutils.h"
 #include "qfgnsspositioninformation.h"
+#include "qfprojectutils.h"
 #include "qfsubtitlewriter.h"
 #include "qgsmessagelog.h"
 
@@ -1002,43 +1003,47 @@ bool QfFileUtils::isDeletable( const QString &filePath )
   }
 
   const QString canonicalFilePath = fileInfo.canonicalFilePath();
+  const bool isWithinProjectDirectoryCheck = isWithinProjectDirectory( filePath );
 
-  // Collect all allowed directories
-  QStringList allowedDirectories;
-
-  const QString appDataDir = QFileInfo( QfPlatformUtilities::instance()->applicationDirectory() ).canonicalFilePath();
-  if ( !appDataDir.isEmpty() )
+  if ( !isWithinProjectDirectoryCheck )
   {
-    allowedDirectories << appDataDir;
-  }
+    // Collect all allowed directories
+    QStringList allowedDirectories;
 
-  const QString cloudDataDir = QFileInfo( QfCloudUtils::localCloudDirectory() ).canonicalFilePath();
-  if ( !cloudDataDir.isEmpty() )
-  {
-    allowedDirectories << cloudDataDir;
-  }
-
-  const QStringList extraDirs = QfPlatformUtilities::instance()->additionalApplicationDirectories();
-  for ( const QString &dir : extraDirs )
-  {
-    if ( !dir.isEmpty() )
+    const QString appDataDir = QFileInfo( QfPlatformUtilities::instance()->applicationDirectory() ).canonicalFilePath();
+    if ( !appDataDir.isEmpty() )
     {
-      const QString canonicalDir = QFileInfo( dir ).canonicalFilePath();
-      if ( !canonicalDir.isEmpty() )
+      allowedDirectories << appDataDir;
+    }
+
+    const QString cloudDataDir = QFileInfo( QfCloudUtils::localCloudDirectory() ).canonicalFilePath();
+    if ( !cloudDataDir.isEmpty() )
+    {
+      allowedDirectories << cloudDataDir;
+    }
+
+    const QStringList extraDirs = QfPlatformUtilities::instance()->additionalApplicationDirectories();
+    for ( const QString &dir : extraDirs )
+    {
+      if ( !dir.isEmpty() )
       {
-        allowedDirectories << canonicalDir;
+        const QString canonicalDir = QFileInfo( dir ).canonicalFilePath();
+        if ( !canonicalDir.isEmpty() )
+        {
+          allowedDirectories << canonicalDir;
+        }
       }
     }
-  }
 
-  // Check if file is inside any of the allowed directories
-  const bool isInsideAllowedDir = std::any_of( allowedDirectories.begin(), allowedDirectories.end(), [&canonicalFilePath]( const QString &dir ) {
-    return canonicalFilePath.startsWith( dir );
-  } );
+    // Check if file is inside any of the allowed directories
+    const bool isInsideAllowedDir = std::any_of( allowedDirectories.begin(), allowedDirectories.end(), [&canonicalFilePath]( const QString &dir ) {
+      return canonicalFilePath.startsWith( dir );
+    } );
 
-  if ( !isInsideAllowedDir )
-  {
-    return false;
+    if ( !isInsideAllowedDir )
+    {
+      return false;
+    }
   }
 
   if ( fileInfo.isDir() )
@@ -1057,7 +1062,9 @@ bool QfFileUtils::isDeletable( const QString &filePath )
                     appRoots.end() );
 
     if ( appRoots.isEmpty() )
+    {
       return false;
+    }
 
     const QString parentCanonicalPath = QFileInfo( fileInfo.absolutePath() ).canonicalFilePath();
     return std::any_of( appRoots.cbegin(), appRoots.cend(), [&parentCanonicalPath]( const QString &appRoot ) {
@@ -1073,11 +1080,30 @@ bool QfFileUtils::isDeletable( const QString &filePath )
     return false;
   }
 
-  const QString suffix = fileInfo.suffix().toLower();
+  if ( isWithinProjectDirectoryCheck )
+  {
+    const QString projectFileName = QgsProject::instance()->fileName();
+    QFileInfo fi( projectFileName );
+    const QDir projectDir = fi.absoluteDir();
+    const QStringList prohibitedProjectFiles = {
+      fi.fileName(),                                           // project file (.qgz, .qgs)
+      QStringLiteral( "%1.qml" ).arg( fi.completeBaseName() ), // project plugin
+      QStringLiteral( "deltafile.json" )                       // project local changes
+    };
+    if ( std::any_of( prohibitedProjectFiles.begin(), prohibitedProjectFiles.end(), [&projectDir, &fileInfo]( const QString &prohibitedProjectFile ) {
+           return projectDir.absoluteFilePath( prohibitedProjectFile ) == fileInfo.absoluteFilePath();
+         } ) )
+    {
+      return false;
+    }
 
-  static const QStringList allowedExtensions = { "pdf", "png", "jpg", "jpeg", "mp4", "mp4a", "mp3", "srt" };
+    if ( QfProjectUtils::isLayerDataset( QgsProject::instance(), fileInfo.absoluteFilePath() ) )
+    {
+      return false;
+    }
+  }
 
-  return allowedExtensions.contains( suffix );
+  return true;
 }
 
 QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
@@ -1149,6 +1175,31 @@ QVariantMap QfFileUtils::deleteFiles( const QStringList &filePaths )
     }
 
     results[filePath] = success;
+  }
+
+  return results;
+}
+
+QVariantMap QfFileUtils::deleteDirectory( const QString &path )
+{
+  QVariantMap results;
+  if ( !isWithinProjectDirectory( path ) )
+  {
+    return results;
+  }
+
+  QStringList filePaths;
+  QDirIterator dirIterator( path, QDir::Files, QDirIterator::Subdirectories );
+  while ( dirIterator.hasNext() )
+  {
+    filePaths << dirIterator.next();
+  }
+
+  results = deleteFiles( filePaths );
+  if ( !results.values().contains( false ) )
+  {
+    QDir dir( path );
+    dir.removeRecursively();
   }
 
   return results;
