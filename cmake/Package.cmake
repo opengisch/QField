@@ -3,7 +3,6 @@ if(QT_MOC_EXECUTABLE)
 endif()
 find_program(LINUXDEPLOY_EXECUTABLE linuxdeploy linuxdeploy-x86_64.AppImage)
 find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${VCPKG_INSTALLED_DIR}/arm64-osx/tools/Qt6/bin" NO_DEFAULT_PATH)
-find_program(ANDROIDDEPLOYQT_EXECUTABLE androiddeployqt HINTS "${QT_HOST_PATH}/tools/Qt6/bin")
 
 set(CPACK_GENERATOR)
 set(CPACK_PACKAGE_EXECUTABLES qfield;QField)
@@ -54,10 +53,15 @@ set(CPACK_PACKAGE_INSTALL_DIRECTORY "${PROJECT_NAME}")
 set(CPACK_PACKAGE_DIRECTORY "${CMAKE_BINARY_DIR}")
 set(CPACK_PACKAGING_INSTALL_PREFIX "/usr")
 
-add_custom_target(bundle
-                  COMMAND ${CMAKE_CPACK_COMMAND} "--config" "${CMAKE_BINARY_DIR}/BundleConfig.cmake"
-                  COMMENT "Running CPACK. Please wait..."
-                  DEPENDS qfield)
+if(ANDROID)
+  add_dependencies(qfield_make_apk qfield_make_aab)
+  add_custom_target(bundle DEPENDS qfield_make_apk)
+else()
+  add_custom_target(bundle
+                    COMMAND ${CMAKE_CPACK_COMMAND} "--config" "${CMAKE_BINARY_DIR}/BundleConfig.cmake"
+                    COMMENT "Running CPACK. Please wait..."
+                    DEPENDS qfield)
+endif()
 
 # Qt IFW packaging framework
 if(BINARYCREATOR_EXECUTABLE)
@@ -77,9 +81,8 @@ else()
     message(STATUS "   + AppImage                              NO ")
 endif()
 
-if(ANDROID AND ANDROIDDEPLOYQT_EXECUTABLE)
+if(ANDROID)
     message(STATUS "   + Android                              YES ")
-    set(CPACK_GENERATOR "External;${CPACK_GENERATOR}")
     set(AT "@")
     set(WITH_ALL_FILES_ACCESS OFF CACHE STRING "[ANDROID] Enable All Files Access to be able to work with data anywhere on your device. If this is enabled, publishing via Google Play requires a permissions declaration and a review approval by Google.")
     if(WITH_ALL_FILES_ACCESS)
@@ -87,19 +90,18 @@ if(ANDROID AND ANDROIDDEPLOYQT_EXECUTABLE)
         <uses-permission android:name=\"android.permission.READ_MEDIA_IMAGES\" />
         <uses-permission android:name=\"android.permission.READ_MEDIA_VIDEO\" />")
     endif()
+
     configure_file(${CMAKE_SOURCE_DIR}/platform/android/AndroidManifest.xml.in ${CMAKE_SOURCE_DIR}/platform/android/AndroidManifest.xml @ONLY)
     configure_file(${CMAKE_SOURCE_DIR}/platform/android/generated.xml.in ${CMAKE_SOURCE_DIR}/platform/android/generated.xml @ONLY)
     configure_file(${CMAKE_SOURCE_DIR}/platform/android/build.gradle.in ${CMAKE_SOURCE_DIR}/platform/android/build.gradle @ONLY)
-    configure_file(${CMAKE_SOURCE_DIR}/platform/android/CPackAndroidDeployQt.cmake.in "${CMAKE_BINARY_DIR}/CPackExternal.cmake" @ONLY)
 
-    set(ANDROID_TEMPLATE_FOLDER "${CMAKE_BINARY_DIR}/android-template")
-    file(COPY ${CMAKE_SOURCE_DIR}/platform/android/ DESTINATION ${ANDROID_TEMPLATE_FOLDER}/)
-    file(REMOVE ${ANDROID_TEMPLATE_FOLDER}/res/drawable/splash.xml.in)
+    file(COPY ${CMAKE_SOURCE_DIR}/platform/android/ DESTINATION ${ANDROID_PACKAGE_SOURCE_DIR}/)
+    file(REMOVE ${ANDROID_PACKAGE_SOURCE_DIR}/res/drawable/splash.xml.in)
     configure_file(${CMAKE_SOURCE_DIR}/platform/android/res/drawable/splash.xml.in ${ANDROID_PACKAGE_SOURCE_DIR}/res/drawable/splash.xml @ONLY)
-    set(SRC_FOLDER "${ANDROID_TEMPLATE_FOLDER}/src/ch/opengis/${APP_PACKAGE_NAME}")
+    set(SRC_FOLDER "${ANDROID_PACKAGE_SOURCE_DIR}/src/ch/opengis/${APP_PACKAGE_NAME}")
     if (NOT APP_PACKAGE_NAME STREQUAL "qfield")
         file(REMOVE_RECURSE ${SRC_FOLDER}) # remove any pre-existing content
-        file(RENAME "${ANDROID_TEMPLATE_FOLDER}/src/ch/opengis/qfield" ${SRC_FOLDER})
+        file(RENAME "${ANDROID_PACKAGE_SOURCE_DIR}/src/ch/opengis/qfield" ${SRC_FOLDER})
     endif()
     file(GLOB JAVA_FILES "${SRC_FOLDER}/*.java")
     foreach(JAVA_FILE ${JAVA_FILES})
@@ -109,8 +111,6 @@ if(ANDROID AND ANDROIDDEPLOYQT_EXECUTABLE)
                            CONTENT "${CONTENT}")
       file(WRITE ${JAVA_FILE} "${CONTENT}")
     endforeach()
-
-    set(CPACK_EXTERNAL_PACKAGE_SCRIPT "${CMAKE_BINARY_DIR}/CPackExternal.cmake")
 endif()
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin") # macOS

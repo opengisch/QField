@@ -143,9 +143,12 @@ jobs:
       - name: 🌱 Install dependencies and generate project files
         env:
           WORKSPACE: ${{ github.workspace }}
+          HAS_SIGNING_KEY: ${{ secrets.KEYPASS != '' }}
         run: |
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/version_number.sh
           TRIPLET=${{ matrix.triplet }} ALL_FILES_ACCESS=${{ matrix.all_files_access }} source ./scripts/ci/generate-version-details.sh
+
+          SIGN_BUILD=$([ "$HAS_SIGNING_KEY" = "true" ] && echo "ON" || echo "OFF")
 
           cmake -S "${{ github.workspace }}" \
                 -B "${CMAKE_BUILD_DIR}" \
@@ -170,6 +173,8 @@ jobs:
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
                 -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni \
+                -D QT_ANDROID_SIGN_AAB=${SIGN_BUILD} \
+                -D QT_ANDROID_SIGN_APK=${SIGN_BUILD} \
                 -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
       - name: 📑 Upload Dep Build Logs
@@ -182,7 +187,7 @@ jobs:
 
       - name: 🌋 Build
         run: |
-          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --target qfield --config ${{ env.BUILD_TYPE }}
 
       - name: 🔑 Setup signing key
         env:
@@ -192,16 +197,29 @@ jobs:
 
       - name: Package
         env:
-          KEYNAME: qfield
-          KEYPASS: ${{ secrets.KEYPASS }}
-          STOREPASS: ${{ secrets.STOREPASS }}
+          QT_ANDROID_KEYSTORE_PATH: ${{ github.workspace }}/keystore.p12
+          QT_ANDROID_KEYSTORE_ALIAS: qfield
+          QT_ANDROID_KEYSTORE_KEY_PASS: ${{ secrets.KEYPASS }}
+          QT_ANDROID_KEYSTORE_STORE_PASS: ${{ secrets.STOREPASS }}
         run: |
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
-          if [ -f "${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk" ]; then
-            cp ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}.apk
+
+          # Signed AAB
+          if [ -f "${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/bundle/release/android-build-release.aab" ]; then
+            cp "${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/bundle/release/android-build-release.aab" \
+               "/tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}.aab"
           fi
+
+          # Signed APK
+          if [ -f "${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk" ]; then
+            cp "${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk" \
+               "/tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}.apk"
+          fi
+
+          # Unsigned, debug APK
           if [ -f "${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/android-build-debug.apk" ]; then
-            cp ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/android-build-debug.apk /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}-debug.apk
+            cp "${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/android-build-debug.apk" \
+                "/tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}-debug.apk"
           fi
 
       - name: 📦 Upload artifacts
@@ -209,6 +227,7 @@ jobs:
         with:
           name: ${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}
           path: |
+            /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}.aab
             /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}.apk
             /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}-debug.apk
 
@@ -254,13 +273,13 @@ jobs:
         run: |
           ./scripts/ci/env_gh.sh
 
-      - name: Download apks
+      - name: Download aabs
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.aab
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.aab
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.aab
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.aab
 
       - name: Upload to Google Play Store
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
@@ -274,11 +293,11 @@ jobs:
             RELEASE_MESSAGE="Update from commit ${GITHUB_SHA}"
           fi
 
-          ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ env.APP_PACKAGE_NAME }} beta "${RELEASE_MESSAGE}" \
-              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk \
-              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk \
-              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk \
-              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk
+          ./scripts/basic_upload_aabs_service_account.py ch.opengis.${{ env.APP_PACKAGE_NAME }} beta "${RELEASE_MESSAGE}" \
+              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.aab \
+              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.aab \
+              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.aab \
+              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.aab
         env:
           GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
 
