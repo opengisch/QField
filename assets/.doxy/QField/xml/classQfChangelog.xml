@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfChangelog" kind="class" language="C++" prot="public">
+    <compoundname>QfChangelog</compoundname>
+    <basecompoundref refid="classQfPopup" prot="public" virt="non-virtual">QfPopup</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfChangelog_1a83bea2a6d3dc8b61f0d1ad0bdaaf37f3" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfChangelog::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <qualifiedname>QfChangelog::parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="11" column="5" bodyfile="src/app/qml/QfChangelog.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1aa9ebdb628256f883ccd590c3ca998d34" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfChangelog::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfChangelog::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="12" column="5" bodyfile="src/app/qml/QfChangelog.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1a5a71a544a09639e5840ffd46dbcc9b0a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfChangelog::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfChangelog::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="13" column="5" bodyfile="src/app/qml/QfChangelog.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1a06a5cf08eb1db3b356b91933c590c01c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfChangelog::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>QfChangelog::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="14" column="5" bodyfile="src/app/qml/QfChangelog.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1a5009390295079c9a2f4bec89909bf97e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfChangelog::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>QfChangelog::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="15" column="5" bodyfile="src/app/qml/QfChangelog.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1a2f1daa4f0b950c8f03a3cf508b1a4300" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfChangelog::closePolicy</definition>
+        <argsstring></argsstring>
+        <name>closePolicy</name>
+        <qualifiedname>QfChangelog::closePolicy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="16" column="5" bodyfile="src/app/qml/QfChangelog.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1aae6dbb159cf0c739558c95c76ea5886b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfChangelog::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <qualifiedname>QfChangelog::focus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="17" column="5" bodyfile="src/app/qml/QfChangelog.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1aac81896ffc90a3332caa9ef4c8410a3d" prot="private" static="no" mutable="no">
+        <type>Flickable</type>
+        <definition>Flickable QfChangelog::changelogFlickable</definition>
+        <argsstring></argsstring>
+        <name>changelogFlickable</name>
+        <qualifiedname>QfChangelog::changelogFlickable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="18" column="11" bodyfile="src/app/qml/QfChangelog.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1aa0bf339a348b7e606559a861a329f404" prot="private" static="no" mutable="no">
+        <type>GridLayout</type>
+        <definition>GridLayout QfChangelog::changelogGrid</definition>
+        <argsstring></argsstring>
+        <name>changelogGrid</name>
+        <qualifiedname>QfChangelog::changelogGrid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="19" column="12" bodyfile="src/app/qml/QfChangelog.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1aaf85df71de30b182c6f06efafbc324fd" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfChangelog::changelogBody</definition>
+        <argsstring></argsstring>
+        <name>changelogBody</name>
+        <qualifiedname>QfChangelog::changelogBody</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="20" column="6" bodyfile="src/app/qml/QfChangelog.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1aaf603e29f7f02e6ddf53dadbbfe13274" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfChangelog::sponsorshipButton</definition>
+        <argsstring></argsstring>
+        <name>sponsorshipButton</name>
+        <qualifiedname>QfChangelog::sponsorshipButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="21" column="10" bodyfile="src/app/qml/QfChangelog.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1ad8ff4b40ea95044de6630160aadfe10b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfChangelogContents" kindref="compound">QfChangelogContents</ref></type>
+        <definition>QfChangelogContents QfChangelog::changelogContents</definition>
+        <argsstring></argsstring>
+        <name>changelogContents</name>
+        <qualifiedname>QfChangelog::changelogContents</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="22" column="21" bodyfile="src/app/qml/QfChangelog.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1ae2d8e52e702964a38dc65da7eaa1cbe3" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfChangelog::onClosed</definition>
+        <argsstring></argsstring>
+        <name>onClosed</name>
+        <qualifiedname>QfChangelog::onClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="23" column="5" bodyfile="src/app/qml/QfChangelog.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfChangelog_1ae6d7cdf53d03983a68e246d6c4f15cce" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfChangelog::onOpened</definition>
+        <argsstring></argsstring>
+        <name>onOpened</name>
+        <qualifiedname>QfChangelog::onOpened</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/app/qml/QfChangelog.qml" line="24" column="5" bodyfile="src/app/qml/QfChangelog.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfChangelog</label>
+        <link refid="classQfChangelog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>QfChangelog</label>
+        <link refid="classQfChangelog"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml/QfChangelog.qml" line="10" column="1" bodyfile="src/app/qml/QfChangelog.qml" bodystart="10" bodyend="25"/>
+    <listofallmembers>
+      <member refid="classQfChangelog_1aaf85df71de30b182c6f06efafbc324fd" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>changelogBody</name></member>
+      <member refid="classQfChangelog_1ad8ff4b40ea95044de6630160aadfe10b" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>changelogContents</name></member>
+      <member refid="classQfChangelog_1aac81896ffc90a3332caa9ef4c8410a3d" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>changelogFlickable</name></member>
+      <member refid="classQfChangelog_1aa0bf339a348b7e606559a861a329f404" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>changelogGrid</name></member>
+      <member refid="classQfChangelog_1a2f1daa4f0b950c8f03a3cf508b1a4300" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>closePolicy</name></member>
+      <member refid="classQfChangelog_1aae6dbb159cf0c739558c95c76ea5886b" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>focus</name></member>
+      <member refid="classQfChangelog_1a5a71a544a09639e5840ffd46dbcc9b0a" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>height</name></member>
+      <member refid="classQfChangelog_1ae2d8e52e702964a38dc65da7eaa1cbe3" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>onClosed</name></member>
+      <member refid="classQfChangelog_1ae6d7cdf53d03983a68e246d6c4f15cce" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>onOpened</name></member>
+      <member refid="classQfChangelog_1a83bea2a6d3dc8b61f0d1ad0bdaaf37f3" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>parent</name></member>
+      <member refid="classQfChangelog_1aaf603e29f7f02e6ddf53dadbbfe13274" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>sponsorshipButton</name></member>
+      <member refid="classQfChangelog_1aa9ebdb628256f883ccd590c3ca998d34" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>width</name></member>
+      <member refid="classQfChangelog_1a06a5cf08eb1db3b356b91933c590c01c" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>x</name></member>
+      <member refid="classQfChangelog_1a5009390295079c9a2f4bec89909bf97e" prot="private" virt="non-virtual"><scope>QfChangelog</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

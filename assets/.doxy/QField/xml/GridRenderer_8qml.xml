@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="GridRenderer_8qml" kind="file" language="C++">
+    <compoundname>GridRenderer.qml</compoundname>
+    <innerclass refid="classGridRenderer" prot="public">GridRenderer</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">import</highlight><highlight class="normal"><sp/>org.qfield.core</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">import<sp/>org.qfield.gui</highlight></codeline>
+<codeline lineno="3" refid="classGridRenderer" refkind="compound"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">QfGridRenderer<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/>annotationFont:<sp/>QfTheme.tinyFont</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/app/qml_compat/GridRenderer.qml"/>
+  </compounddef>
+</doxygen>

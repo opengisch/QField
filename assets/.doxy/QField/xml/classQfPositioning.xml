@@ -1,0 +1,2489 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfPositioning" kind="class" language="C++" prot="public">
+    <compoundname>QfPositioning</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="qfpositioning_8h" local="no">qfpositioning.h</includes>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfPositioning_1a3abf5ee099cd83a0a91d7db1cd637c95" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::active</definition>
+        <argsstring></argsstring>
+        <name>active</name>
+        <qualifiedname>QfPositioning::active</qualifiedname>
+        <read>active</read>
+        <write>setActive</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="41" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1a1fd63500411b8abf5ada828db0c4ccd4" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>QfPositioning::valid</qualifiedname>
+        <read>valid</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="42" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1a6f1811b3ba94d12d805b7851bbbfd00a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPositioning::deviceId</definition>
+        <argsstring></argsstring>
+        <name>deviceId</name>
+        <qualifiedname>QfPositioning::deviceId</qualifiedname>
+        <read>deviceId</read>
+        <write>setDeviceId</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="44" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1abc8c1348926bb5a93dc22d18f5a70570" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QfAbstractGnssReceiver::Capabilities</type>
+        <definition>QfAbstractGnssReceiver::Capabilities QfPositioning::deviceCapabilities</definition>
+        <argsstring></argsstring>
+        <name>deviceCapabilities</name>
+        <qualifiedname>QfPositioning::deviceCapabilities</qualifiedname>
+        <read>deviceCapabilities</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="45" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1a531dc598ff1bd58b74577626d6cb1b98" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPositioning::deviceLastError</definition>
+        <argsstring></argsstring>
+        <name>deviceLastError</name>
+        <qualifiedname>QfPositioning::deviceLastError</qualifiedname>
+        <read>deviceLastError</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="46" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1aaf4e22fbbc051ef23ff76fbf9be26c92" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QAbstractSocket::SocketState</type>
+        <definition>QAbstractSocket::SocketState QfPositioning::deviceSocketState</definition>
+        <argsstring></argsstring>
+        <name>deviceSocketState</name>
+        <qualifiedname>QfPositioning::deviceSocketState</qualifiedname>
+        <read>deviceSocketState</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="47" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1ae59f7af5cad5ee31dea7b39d0dbf0a68" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPositioning::deviceSocketStateString</definition>
+        <argsstring></argsstring>
+        <name>deviceSocketStateString</name>
+        <qualifiedname>QfPositioning::deviceSocketStateString</qualifiedname>
+        <read>deviceSocketStateString</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="48" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1afeae7b2e826116a26da8504ebe63bacf" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioning::deviceBatteryLevel</definition>
+        <argsstring></argsstring>
+        <name>deviceBatteryLevel</name>
+        <qualifiedname>QfPositioning::deviceBatteryLevel</qualifiedname>
+        <read>deviceBatteryLevel</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="49" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1a778fc0d936643167b2f8f72d56edd046" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> *</type>
+        <definition>QgsQuickCoordinateTransformer * QfPositioning::coordinateTransformer</definition>
+        <argsstring></argsstring>
+        <name>coordinateTransformer</name>
+        <qualifiedname>QfPositioning::coordinateTransformer</qualifiedname>
+        <read>coordinateTransformer</read>
+        <write>setCoordinateTransformer</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="51" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1adb5ae19c8160c313302d31be351609b0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref></type>
+        <definition>QfGnssPositionInformation QfPositioning::positionInformation</definition>
+        <argsstring></argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>QfPositioning::positionInformation</qualifiedname>
+        <read>positionInformation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="53" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1a66f949fc6f80d5e65b1a501b65ffc0a7" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfPositioning::sourcePosition</definition>
+        <argsstring></argsstring>
+        <name>sourcePosition</name>
+        <qualifiedname>QfPositioning::sourcePosition</qualifiedname>
+        <read>sourcePosition</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="55" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1af26b28ee4f0686a62ffe6a3d92a664d6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfPositioning::projectedPosition</definition>
+        <argsstring></argsstring>
+        <name>projectedPosition</name>
+        <qualifiedname>QfPositioning::projectedPosition</qualifiedname>
+        <read>projectedPosition</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="56" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1afa8f0eceec0f57780d92ff8f8e0be66d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioning::projectedHorizontalAccuracy</definition>
+        <argsstring></argsstring>
+        <name>projectedHorizontalAccuracy</name>
+        <qualifiedname>QfPositioning::projectedHorizontalAccuracy</qualifiedname>
+        <read>projectedHorizontalAccuracy</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="57" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1aecb3299b0c6c932160b43fc522a8aa51" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::averagedPositionFilterAccuracy</definition>
+        <argsstring></argsstring>
+        <name>averagedPositionFilterAccuracy</name>
+        <qualifiedname>QfPositioning::averagedPositionFilterAccuracy</qualifiedname>
+        <read>averagedPositionFilterAccuracy</read>
+        <write>setAveragedPositionFilterAccuracy</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="59" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1ab148a8864f130002c5044a3e4871454a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::averagedPosition</definition>
+        <argsstring></argsstring>
+        <name>averagedPosition</name>
+        <qualifiedname>QfPositioning::averagedPosition</qualifiedname>
+        <read>averagedPosition</read>
+        <write>setAveragedPosition</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="60" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1af4219d4e61c9d063c52c7c1289a8f1fd" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfPositioning::averagedPositionCount</definition>
+        <argsstring></argsstring>
+        <name>averagedPositionCount</name>
+        <qualifiedname>QfPositioning::averagedPositionCount</qualifiedname>
+        <read>averagedPositionCount</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="61" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1ae5a11ec418f012cd0a6080e473f80f31" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfPositioningSource_1a772ad2279447adb968b2e2b7271775c8" kindref="member">QfPositioningSource::ElevationCorrectionMode</ref></type>
+        <definition>QfPositioningSource::ElevationCorrectionMode QfPositioning::elevationCorrectionMode</definition>
+        <argsstring></argsstring>
+        <name>elevationCorrectionMode</name>
+        <qualifiedname>QfPositioning::elevationCorrectionMode</qualifiedname>
+        <read>elevationCorrectionMode</read>
+        <write>setElevationCorrectionMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="63" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1af6346bd0b1756f3857e5dc88f923f4ff" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioning::antennaHeight</definition>
+        <argsstring></argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>QfPositioning::antennaHeight</qualifiedname>
+        <read>antennaHeight</read>
+        <write>setAntennaHeight</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="64" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1aa04b961132350ab2323c9a52d05d0c6d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioning::orientation</definition>
+        <argsstring></argsstring>
+        <name>orientation</name>
+        <qualifiedname>QfPositioning::orientation</qualifiedname>
+        <read>orientation</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="66" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1af2ffc7e1e01bb721c877cd32c177d070" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::logging</definition>
+        <argsstring></argsstring>
+        <name>logging</name>
+        <qualifiedname>QfPositioning::logging</qualifiedname>
+        <read>logging</read>
+        <write>setLogging</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="68" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1a42d48acf50e71095d4d44219c25e8d85" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString QfPositioning::loggingPath</definition>
+        <argsstring></argsstring>
+        <name>loggingPath</name>
+        <qualifiedname>QfPositioning::loggingPath</qualifiedname>
+        <read>loggingPath</read>
+        <write>setLoggingPath</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="69" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1a24a091388c9a74d5f0ce81e553fc13fb" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::serviceMode</definition>
+        <argsstring></argsstring>
+        <name>serviceMode</name>
+        <qualifiedname>QfPositioning::serviceMode</qualifiedname>
+        <read>serviceMode</read>
+        <write>setServiceMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="71" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1a9ed393462675d45eb3ea9db3d23cfd31" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::backgroundMode</definition>
+        <argsstring></argsstring>
+        <name>backgroundMode</name>
+        <qualifiedname>QfPositioning::backgroundMode</qualifiedname>
+        <read>backgroundMode</read>
+        <write>setBackgroundMode</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="72" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1a6493784949315b5c1137b4ca2d83226e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::enableNtrip</definition>
+        <argsstring></argsstring>
+        <name>enableNtrip</name>
+        <qualifiedname>QfPositioning::enableNtrip</qualifiedname>
+        <read>enableNtrip</read>
+        <write>setEnableNtrip</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="74" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1ace61087d9b49f4eaca1fb3f98d7d0414" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfNtripSettings" kindref="compound">QfNtripSettings</ref></type>
+        <definition>QfNtripSettings QfPositioning::ntripSettings</definition>
+        <argsstring></argsstring>
+        <name>ntripSettings</name>
+        <qualifiedname>QfPositioning::ntripSettings</qualifiedname>
+        <read>ntripSettings</read>
+        <write>setNtripSettings</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="75" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1ade20fb20b68a12ffb527de14663ecdbe" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfPositioningSource_1ab855eccb389f5737ac9b93a7e0be4bab" kindref="member">QfPositioningSource::NtripState</ref></type>
+        <definition>QfPositioningSource::NtripState QfPositioning::ntripState</definition>
+        <argsstring></argsstring>
+        <name>ntripState</name>
+        <qualifiedname>QfPositioning::ntripState</qualifiedname>
+        <read>ntripState</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="76" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1a4b83b299b073373026b1ebf338a4843d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qint64</type>
+        <definition>qint64 QfPositioning::ntripBytesSent</definition>
+        <argsstring></argsstring>
+        <name>ntripBytesSent</name>
+        <qualifiedname>QfPositioning::ntripBytesSent</qualifiedname>
+        <read>ntripBytesSent</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="77" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1ab24d43997e3bf558e2b180fe153d9346" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>qint64</type>
+        <definition>qint64 QfPositioning::ntripBytesReceived</definition>
+        <argsstring></argsstring>
+        <name>ntripBytesReceived</name>
+        <qualifiedname>QfPositioning::ntripBytesReceived</qualifiedname>
+        <read>ntripBytesReceived</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="78" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1ab39061a40b3d4c9e63ca6566480cfd44" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime QfPositioning::ntripLastBytesReceivedUtcDateTime</definition>
+        <argsstring></argsstring>
+        <name>ntripLastBytesReceivedUtcDateTime</name>
+        <qualifiedname>QfPositioning::ntripLastBytesReceivedUtcDateTime</qualifiedname>
+        <read>ntripLastBytesReceivedUtcDateTime</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="79" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1ac826899f16ffb6e3edee9bd244c166ab" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioning::badAccuracyThreshold</definition>
+        <argsstring></argsstring>
+        <name>badAccuracyThreshold</name>
+        <qualifiedname>QfPositioning::badAccuracyThreshold</qualifiedname>
+        <read>badAccuracyThreshold</read>
+        <write>setBadAccuracyThreshold</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="81" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfPositioning_1a2c4800402fd0ade0fc82ecbcbb98ac9d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfPositioning::excellentAccuracyThreshold</definition>
+        <argsstring></argsstring>
+        <name>excellentAccuracyThreshold</name>
+        <qualifiedname>QfPositioning::excellentAccuracyThreshold</qualifiedname>
+        <read>excellentAccuracyThreshold</read>
+        <write>setExcellentAccuracyThreshold</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="82" column="5" bodyfile="src/core/positioning/qfpositioning.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfPositioning_1a3cf9c409cff6871ecec0756e8ba96e85" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfPositioningSource" kindref="compound">QfPositioningSource</ref> *</type>
+        <definition>QfPositioningSource* QfPositioning::mPositioningSource</definition>
+        <argsstring></argsstring>
+        <name>mPositioningSource</name>
+        <qualifiedname>QfPositioning::mPositioningSource</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="421" column="25" bodyfile="src/core/positioning/qfpositioning.h" bodystart="421" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1a4ffd95171beb4477d7c8c2da2ef5c0ec" prot="private" static="no" mutable="no">
+        <type>QRemoteObjectHost</type>
+        <definition>QRemoteObjectHost QfPositioning::mHost</definition>
+        <argsstring></argsstring>
+        <name>mHost</name>
+        <qualifiedname>QfPositioning::mHost</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="422" column="23" bodyfile="src/core/positioning/qfpositioning.h" bodystart="422" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1a0a253fc7b8b5eebf2c611c483c45b0bf" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QRemoteObjectNode &gt;</type>
+        <definition>std::unique_ptr&lt;QRemoteObjectNode&gt; QfPositioning::mNode</definition>
+        <argsstring></argsstring>
+        <name>mNode</name>
+        <qualifiedname>QfPositioning::mNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="424" column="21" bodyfile="src/core/positioning/qfpositioning.h" bodystart="424" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1acb69219a05520cbcf2868bf0c479e4e1" prot="private" static="no" mutable="no">
+        <type>QSharedPointer&lt; QRemoteObjectDynamicReplica &gt;</type>
+        <definition>QSharedPointer&lt;QRemoteObjectDynamicReplica&gt; QfPositioning::mPositioningSourceReplica</definition>
+        <argsstring></argsstring>
+        <name>mPositioningSourceReplica</name>
+        <qualifiedname>QfPositioning::mPositioningSourceReplica</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="425" column="20" bodyfile="src/core/positioning/qfpositioning.h" bodystart="425" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1affc02a32a832b76ed1a96575928eed82" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::mValid</definition>
+        <argsstring></argsstring>
+        <name>mValid</name>
+        <qualifiedname>QfPositioning::mValid</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="427" column="10" bodyfile="src/core/positioning/qfpositioning.h" bodystart="427" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1ad78e2ebdbb8e6c3b7db7ab9b3f657b40" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref></type>
+        <definition>QfGnssPositionInformation QfPositioning::mPositionInformation</definition>
+        <argsstring></argsstring>
+        <name>mPositionInformation</name>
+        <qualifiedname>QfPositioning::mPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="428" column="31" bodyfile="src/core/positioning/qfpositioning.h" bodystart="428" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1a177a7e3e08e21dbc38d4f67184c03209" prot="private" static="no" mutable="no">
+        <type>QVariantMap</type>
+        <definition>QVariantMap QfPositioning::mProperties</definition>
+        <argsstring></argsstring>
+        <name>mProperties</name>
+        <qualifiedname>QfPositioning::mProperties</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="429" column="17" bodyfile="src/core/positioning/qfpositioning.h" bodystart="429" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1ab83a25b5ea4cd9e33f8bb1bd7551b07c" prot="private" static="no" mutable="no">
+        <type><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> *</type>
+        <definition>QgsQuickCoordinateTransformer* QfPositioning::mCoordinateTransformer</definition>
+        <argsstring></argsstring>
+        <name>mCoordinateTransformer</name>
+        <qualifiedname>QfPositioning::mCoordinateTransformer</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="431" column="35" bodyfile="src/core/positioning/qfpositioning.h" bodystart="431" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1ad91f1722a6accdcf87bcc1922078cd67" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfPositioning::mSourcePosition</definition>
+        <argsstring></argsstring>
+        <name>mSourcePosition</name>
+        <qualifiedname>QfPositioning::mSourcePosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="432" column="14" bodyfile="src/core/positioning/qfpositioning.h" bodystart="432" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1a56fff2fbe4cf497fd6c8c6b34c96d904" prot="private" static="no" mutable="no">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfPositioning::mProjectedPosition</definition>
+        <argsstring></argsstring>
+        <name>mProjectedPosition</name>
+        <qualifiedname>QfPositioning::mProjectedPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="433" column="14" bodyfile="src/core/positioning/qfpositioning.h" bodystart="433" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1ab267be67cd69d1f6fe2e0e240e378496" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfPositioning::mProjectedHorizontalAccuracy</definition>
+        <argsstring></argsstring>
+        <name>mProjectedHorizontalAccuracy</name>
+        <qualifiedname>QfPositioning::mProjectedHorizontalAccuracy</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="434" column="12" bodyfile="src/core/positioning/qfpositioning.h" bodystart="434" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1a7a4076470d96a4c16c67545be69c4fc5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::mInternalPermissionChecked</definition>
+        <argsstring></argsstring>
+        <name>mInternalPermissionChecked</name>
+        <qualifiedname>QfPositioning::mInternalPermissionChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="437" column="10" bodyfile="src/core/positioning/qfpositioning.h" bodystart="437" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1a25db980bd2b4444f298153e3d81a01c1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::mBluetoothPermissionChecked</definition>
+        <argsstring></argsstring>
+        <name>mBluetoothPermissionChecked</name>
+        <qualifiedname>QfPositioning::mBluetoothPermissionChecked</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="438" column="10" bodyfile="src/core/positioning/qfpositioning.h" bodystart="438" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1ab4fc7298ee7f415bd00868a749266aee" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::mServiceMode</definition>
+        <argsstring></argsstring>
+        <name>mServiceMode</name>
+        <qualifiedname>QfPositioning::mServiceMode</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="440" column="10" bodyfile="src/core/positioning/qfpositioning.h" bodystart="440" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1a09c7f2a2dad6f37a21c2368772581c68" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::mBackgroundMode</definition>
+        <argsstring></argsstring>
+        <name>mBackgroundMode</name>
+        <qualifiedname>QfPositioning::mBackgroundMode</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="441" column="10" bodyfile="src/core/positioning/qfpositioning.h" bodystart="441" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1afa602b6c893e7ca1cf0d435c916eff1e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::mAveragedPosition</definition>
+        <argsstring></argsstring>
+        <name>mAveragedPosition</name>
+        <qualifiedname>QfPositioning::mAveragedPosition</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="443" column="10" bodyfile="src/core/positioning/qfpositioning.h" bodystart="443" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1acdf55e740c010e762bfee1b38e769f15" prot="private" static="no" mutable="no">
+        <type>QList&lt; <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> &gt;</type>
+        <definition>QList&lt;QfGnssPositionInformation&gt; QfPositioning::mCollectedPositionInformations</definition>
+        <argsstring></argsstring>
+        <name>mCollectedPositionInformations</name>
+        <qualifiedname>QfPositioning::mCollectedPositionInformations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="444" column="11" bodyfile="src/core/positioning/qfpositioning.h" bodystart="444" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1a41c26e48400a6b34ffd982c69dc7d95d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfPositioning::mAveragedPositionFilterAccuracy</definition>
+        <argsstring></argsstring>
+        <name>mAveragedPositionFilterAccuracy</name>
+        <qualifiedname>QfPositioning::mAveragedPositionFilterAccuracy</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="446" column="10" bodyfile="src/core/positioning/qfpositioning.h" bodystart="446" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1aa2d9033c5c7d6bfea43950799a90eeb1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfPositioning::mBadAccuracyThreshold</definition>
+        <argsstring></argsstring>
+        <name>mBadAccuracyThreshold</name>
+        <qualifiedname>QfPositioning::mBadAccuracyThreshold</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="447" column="12" bodyfile="src/core/positioning/qfpositioning.h" bodystart="447" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfPositioning_1aef36bf25471e127d2155965c3c6ae135" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfPositioning::mExcellentAccuracyThreshold</definition>
+        <argsstring></argsstring>
+        <name>mExcellentAccuracyThreshold</name>
+        <qualifiedname>QfPositioning::mExcellentAccuracyThreshold</qualifiedname>
+        <initializer>= std::numeric_limits&lt;double&gt;::quiet_NaN()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="448" column="12" bodyfile="src/core/positioning/qfpositioning.h" bodystart="448" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfPositioning_1a3cc0e69a478a7f86aa16276a4d6fb23d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfPositioning::QfPositioning</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfPositioning</name>
+        <qualifiedname>QfPositioning::QfPositioning</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="85" column="14" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="35" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a2008dd5924a61e22216a22a02bc7d001" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual QfPositioning::~QfPositioning</definition>
+        <argsstring>()=default</argsstring>
+        <name>~QfPositioning</name>
+        <qualifiedname>QfPositioning::~QfPositioning</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="86" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1abe45bfc61b55f09c23cfe51d49977bae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPositioning::active</definition>
+        <argsstring>() const</argsstring>
+        <name>active</name>
+        <qualifiedname>QfPositioning::active</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when positioning is active. <simplesect kind="see"><para><ref refid="classQfPositioning_1a1665a41d82dd3dc28dd89c962d111f9c" kindref="member">setActive</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="92" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="187" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a1665a41d82dd3dc28dd89c962d111f9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setActive</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>setActive</name>
+        <qualifiedname>QfPositioning::setActive</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the positioning <emphasis>active</emphasis> status. <simplesect kind="see"><para>active </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="98" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="192" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a2954552cfb3d2c74f367faad404f09fb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPositioning::valid</definition>
+        <argsstring>() const</argsstring>
+        <name>valid</name>
+        <qualifiedname>QfPositioning::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when the positioning device is valid. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="103" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="295" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a327bd73d6b66b73f8e76818d80818a2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setValid</definition>
+        <argsstring>(bool valid)</argsstring>
+        <name>setValid</name>
+        <qualifiedname>QfPositioning::setValid</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>valid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the positioning device is valid. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="108" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="300" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1ad4ff954fdf3a8e10d9e5ae3d247e5a37" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfPositioning::deviceId</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceId</name>
+        <qualifiedname>QfPositioning::deviceId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current positioning device <emphasis>id</emphasis> used to fetch position information. <simplesect kind="see"><para>setDevice </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="114" column="13" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="324" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1ac3f898f72b71095d031ad5e1f22fbc96" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfGnssPositionDetails" kindref="compound">QfGnssPositionDetails</ref></type>
+        <definition>QfGnssPositionDetails QfPositioning::deviceDetails</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceDetails</name>
+        <qualifiedname>QfPositioning::deviceDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns extra details (such as hdop, vdop, pdop) provided by the positioning device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="119" column="27" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="362" bodyend="370"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a53e05eec96c82942c91c78cbda84db9d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfPositioning::deviceLastError</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceLastError</name>
+        <qualifiedname>QfPositioning::deviceLastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns positioning device&apos;s last error string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="124" column="13" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="342" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a555a5ae7ed896a8ac8cb2ac8220a0d38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QAbstractSocket::SocketState</type>
+        <definition>QAbstractSocket::SocketState QfPositioning::deviceSocketState</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceSocketState</name>
+        <qualifiedname>QfPositioning::deviceSocketState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns positioning device&apos;s socket state. <simplesect kind="see"><para>deviceSocketStateString </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="130" column="34" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="347" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a1c7d0117d04a47ebf3ead4c15feb2e23" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfPositioning::deviceSocketStateString</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceSocketStateString</name>
+        <qualifiedname>QfPositioning::deviceSocketStateString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a string representation of the positioning device&apos;s socket state. <simplesect kind="see"><para>deviceSocketState </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="136" column="13" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="352" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1acab01029e86432d4e532c627abed1f75" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfPositioning::deviceBatteryLevel</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceBatteryLevel</name>
+        <qualifiedname>QfPositioning::deviceBatteryLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the device current battery level as a 0.0 to 1.0 double range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="141" column="12" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="357" bodyend="360"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a9db4cefe1a5ec9bfb5df84537ccdf74b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setDeviceId</definition>
+        <argsstring>(const QString &amp;id)</argsstring>
+        <name>setDeviceId</name>
+        <qualifiedname>QfPositioning::setDeviceId</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the positioning device <emphasis>id</emphasis> used to fetch position information. <simplesect kind="note"><para>A blank string will connect the internal positioning device; bluetooth addresses will trigger an NMEA connection to external devices. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="148" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="329" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a8554f6cf36574584f5f4e142de014a04" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QfAbstractGnssReceiver::Capabilities</type>
+        <definition>QfAbstractGnssReceiver::Capabilities QfPositioning::deviceCapabilities</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceCapabilities</name>
+        <qualifiedname>QfPositioning::deviceCapabilities</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="150" column="42" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="372" bodyend="375"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a966dd941a49f6f96c403b3b5bc35d0bc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> *</type>
+        <definition>QgsQuickCoordinateTransformer * QfPositioning::coordinateTransformer</definition>
+        <argsstring>() const</argsstring>
+        <name>coordinateTransformer</name>
+        <qualifiedname>QfPositioning::coordinateTransformer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the coordinate transformer object used to reproject the position location. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="155" column="35" bodyfile="src/core/positioning/qfpositioning.h" bodystart="155" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1ad18aff57ce16a70d231590e72d560230" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setCoordinateTransformer</definition>
+        <argsstring>(QgsQuickCoordinateTransformer *coordinateTransformer)</argsstring>
+        <name>setCoordinateTransformer</name>
+        <qualifiedname>QfPositioning::setCoordinateTransformer</qualifiedname>
+        <param>
+          <type><ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> *</type>
+          <declname>coordinateTransformer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the coordinate transformer object used to reproject the position location. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coordinateTransformer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="classQgsQuickCoordinateTransformer" kindref="compound">QgsQuickCoordinateTransformer</ref> object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="161" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="689" bodyend="715"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1aa61370b6dfcf55dedc2ea9bd2392a82d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref></type>
+        <definition>QfGnssPositionInformation QfPositioning::positionInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>positionInformation</name>
+        <qualifiedname>QfPositioning::positionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> position information object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="166" column="31" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="659" bodyend="662"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1aa2e482037ac411306004887dbbde7845" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfPositioning::sourcePosition</definition>
+        <argsstring>() const</argsstring>
+        <name>sourcePosition</name>
+        <qualifiedname>QfPositioning::sourcePosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the position point in its original WGS84 projection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="171" column="14" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="717" bodyend="720"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a47abdf10615e451f3cd68315c5a96c33" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsPoint</type>
+        <definition>QgsPoint QfPositioning::projectedPosition</definition>
+        <argsstring>() const</argsstring>
+        <name>projectedPosition</name>
+        <qualifiedname>QfPositioning::projectedPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the position point in its destination CRS defined in the coordinate transformer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="176" column="14" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="722" bodyend="725"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a8137766f426bb03438825518083fbfde" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfPositioning::projectedHorizontalAccuracy</definition>
+        <argsstring>() const</argsstring>
+        <name>projectedHorizontalAccuracy</name>
+        <qualifiedname>QfPositioning::projectedHorizontalAccuracy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the position horizontal accuracy in the destination CRS&apos; map units. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="181" column="12" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="727" bodyend="730"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a689c934fcc8d3e23b8dbebdb7ca2e184" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPositioning::averagedPositionFilterAccuracy</definition>
+        <argsstring>() const</argsstring>
+        <name>averagedPositionFilterAccuracy</name>
+        <qualifiedname>QfPositioning::averagedPositionFilterAccuracy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the average position filter accuracy is enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="186" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="849" bodyend="852"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1aa565df0c0b4f7161a8fea098b1a39e02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setAveragedPositionFilterAccuracy</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setAveragedPositionFilterAccuracy</name>
+        <qualifiedname>QfPositioning::setAveragedPositionFilterAccuracy</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enables or disables the average position filter accuracy. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="191" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="854" bodyend="861"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1ab24b6220691b4496b9c59af048dc5dfa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPositioning::averagedPosition</definition>
+        <argsstring>() const</argsstring>
+        <name>averagedPosition</name>
+        <qualifiedname>QfPositioning::averagedPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the position information is averaged from an ongoing stream of incoming positions from the device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="196" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="382" bodyend="385"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a9370d36d79cc6d3ae12723cbe8f3a70b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setAveragedPosition</definition>
+        <argsstring>(bool averaged)</argsstring>
+        <name>setAveragedPosition</name>
+        <qualifiedname>QfPositioning::setAveragedPosition</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>averaged</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the position information is <emphasis>averaged</emphasis> from an ongoing stream of incoming positions from the device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="201" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="387" bodyend="404"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a621cf8ba7841998b660a0f93388da941" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfPositioning::averagedPositionCount</definition>
+        <argsstring>() const</argsstring>
+        <name>averagedPositionCount</name>
+        <qualifiedname>QfPositioning::averagedPositionCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current number of collected position informations from which the averaged position is calculated. <simplesect kind="note"><para>When averaged position is off, the value is zero. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="207" column="9" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="377" bodyend="380"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a4bb1f632225c0c799110bc750211b2f2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfPositioningSource_1a772ad2279447adb968b2e2b7271775c8" kindref="member">QfPositioningSource::ElevationCorrectionMode</ref></type>
+        <definition>QfPositioningSource::ElevationCorrectionMode QfPositioning::elevationCorrectionMode</definition>
+        <argsstring>() const</argsstring>
+        <name>elevationCorrectionMode</name>
+        <qualifiedname>QfPositioning::elevationCorrectionMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current elevation correction mode. <simplesect kind="note"><para>Some modes depends on device capabilities. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="213" column="50" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="612" bodyend="615"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1ab399e30970623d89f3436fa42d9c9f84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setElevationCorrectionMode</definition>
+        <argsstring>(QfPositioningSource::ElevationCorrectionMode elevationCorrectionMode)</argsstring>
+        <name>setElevationCorrectionMode</name>
+        <qualifiedname>QfPositioning::setElevationCorrectionMode</qualifiedname>
+        <param>
+          <type><ref refid="classQfPositioningSource_1a772ad2279447adb968b2e2b7271775c8" kindref="member">QfPositioningSource::ElevationCorrectionMode</ref></type>
+          <declname>elevationCorrectionMode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current elevation correction mode. <simplesect kind="note"><para>Some modes depends on device capabilities. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="219" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="617" bodyend="628"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a19d436062feb40fee54152ad885f83a4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfPositioning::antennaHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>antennaHeight</name>
+        <qualifiedname>QfPositioning::antennaHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the GNSS device antenna height. This should be the pole height + sensore phase height. <simplesect kind="note"><para>When IMU is active this value is ignored as the device does the correction internally. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="225" column="12" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="641" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1aae35c4feb6bb875af169a11c480981bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setAntennaHeight</definition>
+        <argsstring>(double antennaHeight)</argsstring>
+        <name>setAntennaHeight</name>
+        <qualifiedname>QfPositioning::setAntennaHeight</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>antennaHeight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the GNSS device antenna height. This should be the pole height + sensore phase height. <simplesect kind="note"><para>When IMU is active this value is ignored as the device does the correction internally. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="231" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="646" bodyend="657"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1aebf8f5c71ad74aeee8da902e6b29d7e9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfPositioning::orientation</definition>
+        <argsstring>() const</argsstring>
+        <name>orientation</name>
+        <qualifiedname>QfPositioning::orientation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current device orientation </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="236" column="12" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="664" bodyend="667"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a1a5f49bc613561a2e7f9b7458e9af705" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPositioning::logging</definition>
+        <argsstring>() const</argsstring>
+        <name>logging</name>
+        <qualifiedname>QfPositioning::logging</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether GNSS devices will log their incoming position stream into a logfile. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="242" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="417" bodyend="420"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a752b9296f5f39010a7b8e503f27522a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setLogging</definition>
+        <argsstring>(bool logging)</argsstring>
+        <name>setLogging</name>
+        <qualifiedname>QfPositioning::setLogging</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>logging</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether GNSS devices will log their incoming position stream into a logfile. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="248" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="422" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a77bfcb02a6acd366e5ca34ff34bc6cdd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString QfPositioning::loggingPath</definition>
+        <argsstring>() const</argsstring>
+        <name>loggingPath</name>
+        <qualifiedname>QfPositioning::loggingPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the path where GNSS devices will log their incoming position stream into logfiles. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="254" column="13" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="446" bodyend="449"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a3780074158e370807cc4af5e124211eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setLoggingPath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>setLoggingPath</name>
+        <qualifiedname>QfPositioning::setLoggingPath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the path where GNSS devices will log their incoming position stream into logfiles. <simplesect kind="note"><para>Requires a device type with logging capability </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="260" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="451" bodyend="462"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1accb8ecb832a9d69dc22312644e836a12" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPositioning::serviceMode</definition>
+        <argsstring>() const</argsstring>
+        <name>serviceMode</name>
+        <qualifiedname>QfPositioning::serviceMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the service mode is active. On supported platform, positioning runs into a dedicated service that is not suspended when devices are locked or the application is put suspended. <simplesect kind="see"><para><ref refid="classQfPositioning_1a8fca1a139969091d0aed9eb6e3f13896" kindref="member">setServiceMode()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="268" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="464" bodyend="467"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a8fca1a139969091d0aed9eb6e3f13896" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setServiceMode</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setServiceMode</name>
+        <qualifiedname>QfPositioning::setServiceMode</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the service mode is active. On supported platform, positioning runs into a dedicated service that is not suspended when devices are locked or the application is put suspended. <simplesect kind="see"><para>serviceMode() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="276" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="469" bodyend="482"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1aa5135e2655211382d0be0315bcb0d1de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPositioning::backgroundMode</definition>
+        <argsstring>() const</argsstring>
+        <name>backgroundMode</name>
+        <qualifiedname>QfPositioning::backgroundMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the background mode is active. When activated, position information details will not be signaled but instead saved to disk until deactivated. <simplesect kind="see"><para><ref refid="classQfPositioning_1a060ed4ca44d3b45f98952bfa45da81c4" kindref="member">getBackgroundPositionInformation()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="283" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="484" bodyend="487"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a86b366195f49b16e7fe3e7c64dee1638" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setBackgroundMode</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setBackgroundMode</name>
+        <qualifiedname>QfPositioning::setBackgroundMode</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the background mode is active. When activated, position information details will not be signaled but instead saved to disk until deactivated. <simplesect kind="see"><para><ref refid="classQfPositioning_1a060ed4ca44d3b45f98952bfa45da81c4" kindref="member">getBackgroundPositionInformation()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="290" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="489" bodyend="519"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a6cb310a7174cd7afe096acce17ac4cc0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPositioning::enableNtrip</definition>
+        <argsstring>() const</argsstring>
+        <name>enableNtrip</name>
+        <qualifiedname>QfPositioning::enableNtrip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE if the NTRIP client is enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="296" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="521" bodyend="524"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1ae2090dd4d688d0c758d9793a82fbc5c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setEnableNtrip</definition>
+        <argsstring>(bool enableNtrip)</argsstring>
+        <name>setEnableNtrip</name>
+        <qualifiedname>QfPositioning::setEnableNtrip</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enableNtrip</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether the NTRIP client is enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="301" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="526" bodyend="537"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1afcebd7325d582985c64640aa1c8c6ca6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfNtripSettings" kindref="compound">QfNtripSettings</ref></type>
+        <definition>QfNtripSettings QfPositioning::ntripSettings</definition>
+        <argsstring>() const</argsstring>
+        <name>ntripSettings</name>
+        <qualifiedname>QfPositioning::ntripSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the NTRIP settings. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="306" column="21" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="539" bodyend="551"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a5711b58287a4f1cc22a3c4c81e989083" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setNtripSettings</definition>
+        <argsstring>(const QfNtripSettings &amp;ntripSettings)</argsstring>
+        <name>setNtripSettings</name>
+        <qualifiedname>QfPositioning::setNtripSettings</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfNtripSettings" kindref="compound">QfNtripSettings</ref> &amp;</type>
+          <declname>ntripSettings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the NTRIP settings. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="311" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="553" bodyend="564"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1ac2e0de76177bd2519cd5f97c7f3efbde" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfPositioningSource_1ab855eccb389f5737ac9b93a7e0be4bab" kindref="member">QfPositioningSource::NtripState</ref></type>
+        <definition>QfPositioningSource::NtripState QfPositioning::ntripState</definition>
+        <argsstring>() const</argsstring>
+        <name>ntripState</name>
+        <qualifiedname>QfPositioning::ntripState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current NTRIP connection status. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="316" column="37" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="566" bodyend="569"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a3b8d5b9bd00bd892912cfc01c311f7d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qint64</type>
+        <definition>qint64 QfPositioning::ntripBytesSent</definition>
+        <argsstring>() const</argsstring>
+        <name>ntripBytesSent</name>
+        <qualifiedname>QfPositioning::ntripBytesSent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of bytes sent via NTRIP. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="321" column="12" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="571" bodyend="574"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a5bbbb3b3e6d5d976c8351e19bfe18f91" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>qint64</type>
+        <definition>qint64 QfPositioning::ntripBytesReceived</definition>
+        <argsstring>() const</argsstring>
+        <name>ntripBytesReceived</name>
+        <qualifiedname>QfPositioning::ntripBytesReceived</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of bytes received via NTRIP. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="326" column="12" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="576" bodyend="579"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1ad02a94a540ecbab4125da0ab2038b17a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QDateTime</type>
+        <definition>QDateTime QfPositioning::ntripLastBytesReceivedUtcDateTime</definition>
+        <argsstring>() const</argsstring>
+        <name>ntripLastBytesReceivedUtcDateTime</name>
+        <qualifiedname>QfPositioning::ntripLastBytesReceivedUtcDateTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the last received bytes time in UTC. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="331" column="15" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="581" bodyend="584"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a060ed4ca44d3b45f98952bfa45da81c4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QList&lt; <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> &gt;</type>
+        <definition>QList&lt; QfGnssPositionInformation &gt; QfPositioning::getBackgroundPositionInformation</definition>
+        <argsstring>() const</argsstring>
+        <name>getBackgroundPositionInformation</name>
+        <qualifiedname>QfPositioning::getBackgroundPositionInformation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a list of position information collected while background mode is active. <simplesect kind="see"><para>backgroundMode() </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classQfPositioning_1a86b366195f49b16e7fe3e7c64dee1638" kindref="member">setBackgroundMode()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="338" column="23" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="586" bodyend="599"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a597f4425301e517166afb0f982b7cf47" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfPositioning::badAccuracyThreshold</definition>
+        <argsstring>() const</argsstring>
+        <name>badAccuracyThreshold</name>
+        <qualifiedname>QfPositioning::badAccuracyThreshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the threshold above which accuracy is considered bad. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="343" column="12" bodyfile="src/core/positioning/qfpositioning.h" bodystart="343" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a96692202ec05c2a4b37a56c9ec965bec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setBadAccuracyThreshold</definition>
+        <argsstring>(double threshold)</argsstring>
+        <name>setBadAccuracyThreshold</name>
+        <qualifiedname>QfPositioning::setBadAccuracyThreshold</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the threshold above which accuracy is considered bad. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="348" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="831" bodyend="838"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a1b7f42336e78611bd4cab8e401cbb093" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfPositioning::excellentAccuracyThreshold</definition>
+        <argsstring>() const</argsstring>
+        <name>excellentAccuracyThreshold</name>
+        <qualifiedname>QfPositioning::excellentAccuracyThreshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the threshold below which accuracy is considered excellent. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="353" column="12" bodyfile="src/core/positioning/qfpositioning.h" bodystart="353" bodyend="353"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a00b167e9c59aaadc5e2bc85d05f52730" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setExcellentAccuracyThreshold</definition>
+        <argsstring>(double threshold)</argsstring>
+        <name>setExcellentAccuracyThreshold</name>
+        <qualifiedname>QfPositioning::setExcellentAccuracyThreshold</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the threshold below which accuracy is considered excellent. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="358" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="840" bodyend="847"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfPositioning_1a128577333df49c62ace001f6c918e449" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::activeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>activeChanged</name>
+        <qualifiedname>QfPositioning::activeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="362" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a0975a9f4d0b3f5cc4a7117314267ac58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::validChanged</definition>
+        <argsstring>()</argsstring>
+        <name>validChanged</name>
+        <qualifiedname>QfPositioning::validChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="363" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a4011e577c8da17b6e8fc3527ba1de520" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::deviceIdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceIdChanged</name>
+        <qualifiedname>QfPositioning::deviceIdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="364" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1ae88c351049afaaf63c6e5079c51acaa1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::deviceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceChanged</name>
+        <qualifiedname>QfPositioning::deviceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="365" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1aafc569d43e2c2d8916e159ff11acde7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::elevationCorrectionModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>elevationCorrectionModeChanged</name>
+        <qualifiedname>QfPositioning::elevationCorrectionModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="366" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a30ee6aa798beaac3979615b3f92cb8ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::antennaHeightChanged</definition>
+        <argsstring>()</argsstring>
+        <name>antennaHeightChanged</name>
+        <qualifiedname>QfPositioning::antennaHeightChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="367" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1acb665132199bb1d91c3bc02157112c88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::loggingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>loggingChanged</name>
+        <qualifiedname>QfPositioning::loggingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="368" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a9997819301c0503d01c1efd896b797df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::loggingPathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>loggingPathChanged</name>
+        <qualifiedname>QfPositioning::loggingPathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="369" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1afb810666e80fac89981f3f78addb49f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::positionInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>positionInformationChanged</name>
+        <qualifiedname>QfPositioning::positionInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="370" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a3126e2ee3d8aa34c303424bd76ea3e8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::deviceLastErrorChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceLastErrorChanged</name>
+        <qualifiedname>QfPositioning::deviceLastErrorChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="373" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1ab6e029a0309bbfc6b074c61c4d61b92d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::deviceSocketStateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceSocketStateChanged</name>
+        <qualifiedname>QfPositioning::deviceSocketStateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="374" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a29427f4f4c05a5b7aeafa7bbfcef53ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::deviceSocketStateStringChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceSocketStateStringChanged</name>
+        <qualifiedname>QfPositioning::deviceSocketStateStringChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="375" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a15e6711ed2513a0539ac1fbd564ce81b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::deviceBatteryLevelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>deviceBatteryLevelChanged</name>
+        <qualifiedname>QfPositioning::deviceBatteryLevelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="376" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a9876800b5f4edafe3406c3f3ba2d7d2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::orientationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>orientationChanged</name>
+        <qualifiedname>QfPositioning::orientationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="377" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1ab20381ca593eed7c0d925cc0035e46d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::enableNtripChanged</definition>
+        <argsstring>()</argsstring>
+        <name>enableNtripChanged</name>
+        <qualifiedname>QfPositioning::enableNtripChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="380" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1acf5368ee4be9154443538ab0555f341d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::ntripSettingsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>ntripSettingsChanged</name>
+        <qualifiedname>QfPositioning::ntripSettingsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="381" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1ae870ca38586b9658154e651d9e05a020" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::ntripStateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>ntripStateChanged</name>
+        <qualifiedname>QfPositioning::ntripStateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="382" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1abf04e12a314377aa849670eb76fc1985" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::ntripBytesSentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>ntripBytesSentChanged</name>
+        <qualifiedname>QfPositioning::ntripBytesSentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="383" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a29495da611d6307d54bf417f6b0a6282" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::ntripBytesReceivedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>ntripBytesReceivedChanged</name>
+        <qualifiedname>QfPositioning::ntripBytesReceivedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="384" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a4e219d579d57171344ef83702c7759bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::ntripLastBytesReceivedUtcDateTimeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>ntripLastBytesReceivedUtcDateTimeChanged</name>
+        <qualifiedname>QfPositioning::ntripLastBytesReceivedUtcDateTimeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="385" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a0cebb8a948b235f611a63109000cbce1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::triggerConnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>triggerConnectDevice</name>
+        <qualifiedname>QfPositioning::triggerConnectDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="388" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a3fb5d35c3a0cbc07e294464b610c8800" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::triggerDisconnectDevice</definition>
+        <argsstring>()</argsstring>
+        <name>triggerDisconnectDevice</name>
+        <qualifiedname>QfPositioning::triggerDisconnectDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="389" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a7a95ca47d429961aa9c9482d001bd8fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::coordinateTransformerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>coordinateTransformerChanged</name>
+        <qualifiedname>QfPositioning::coordinateTransformerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="392" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1af5eb3c21c83f6a4ffeef262e3dae68bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::projectedPositionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>projectedPositionChanged</name>
+        <qualifiedname>QfPositioning::projectedPositionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="393" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a8ebb4a348ac3457545f52b91421dad6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::averagedPositionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>averagedPositionChanged</name>
+        <qualifiedname>QfPositioning::averagedPositionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="394" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1ae9bbb66494ea16ed978531c6933de804" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::averagedPositionCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>averagedPositionCountChanged</name>
+        <qualifiedname>QfPositioning::averagedPositionCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="395" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a8a2acbcc9957be8d3b3157febcf48e73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::averagedPositionFilterAccuracyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>averagedPositionFilterAccuracyChanged</name>
+        <qualifiedname>QfPositioning::averagedPositionFilterAccuracyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="396" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a2905fe747fbe381ed6daa67e94e66cb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::badAccuracyThresholdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>badAccuracyThresholdChanged</name>
+        <qualifiedname>QfPositioning::badAccuracyThresholdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="397" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1ae6497cba8538784e85ef3aa68604c573" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::excellentAccuracyThresholdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>excellentAccuracyThresholdChanged</name>
+        <qualifiedname>QfPositioning::excellentAccuracyThresholdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="398" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a4d28b027155f4c5d0a250b9f0ae6d814" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::serviceModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>serviceModeChanged</name>
+        <qualifiedname>QfPositioning::serviceModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="399" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfPositioning_1a91ce0cd3b05ef19b988fb91ec57bc831" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::backgroundModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>backgroundModeChanged</name>
+        <qualifiedname>QfPositioning::backgroundModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="400" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfPositioning_1a4222886dc30255ab2de1c62f542c7d1e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::onActiveChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onActiveChanged</name>
+        <qualifiedname>QfPositioning::onActiveChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="403" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="176" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfPositioning_1a49a48849be600e080021a95b08ee63ab" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::onValidChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onValidChanged</name>
+        <qualifiedname>QfPositioning::onValidChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="404" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="284" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfPositioning_1a2f858b926cda10304bf49c753f12ace8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::onDeviceIdChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onDeviceIdChanged</name>
+        <qualifiedname>QfPositioning::onDeviceIdChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="405" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="313" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfPositioning_1abbd4080aead298f9e3b312a2134b4e97" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::onElevationCorrectionModeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onElevationCorrectionModeChanged</name>
+        <qualifiedname>QfPositioning::onElevationCorrectionModeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="406" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="601" bodyend="610"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfPositioning_1ac5d4c17d21d3e06ccda8aa7db541d0e4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::onAntennaHeightChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onAntennaHeightChanged</name>
+        <qualifiedname>QfPositioning::onAntennaHeightChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="407" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="630" bodyend="639"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfPositioning_1a836cfb35d02bf570148038c8a53399ac" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::onLoggingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onLoggingChanged</name>
+        <qualifiedname>QfPositioning::onLoggingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="408" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="406" bodyend="415"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfPositioning_1a6cf9b0bd079bdfa5d2390a02a789f1fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::onLoggingPathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onLoggingPathChanged</name>
+        <qualifiedname>QfPositioning::onLoggingPathChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="409" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="435" bodyend="444"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfPositioning_1a11d3eb2b04f36f2d6bdf3f26a03b75d3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::onPositionInformationChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onPositionInformationChanged</name>
+        <qualifiedname>QfPositioning::onPositionInformationChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="410" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="732" bodyend="805"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfPositioning_1aa803ff9e506d572fab9c03435cdda398" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::onApplicationStateChanged</definition>
+        <argsstring>(Qt::ApplicationState state)</argsstring>
+        <name>onApplicationStateChanged</name>
+        <qualifiedname>QfPositioning::onApplicationStateChanged</qualifiedname>
+        <param>
+          <type>Qt::ApplicationState</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="412" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="138" bodyend="174"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfPositioning_1a20cf22561164de23afca889538d300c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::setupSource</definition>
+        <argsstring>()</argsstring>
+        <name>setupSource</name>
+        <qualifiedname>QfPositioning::setupSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="415" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="47" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a641a43167aa087cd47b3f7ae5a8f98ad" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfPositioning::isSourceAvailable</definition>
+        <argsstring>() const</argsstring>
+        <name>isSourceAvailable</name>
+        <qualifiedname>QfPositioning::isSourceAvailable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="416" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="133" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a918bac3f245617d362cdb1383c71731e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfPositioning::processProjectedPosition</definition>
+        <argsstring>()</argsstring>
+        <name>processProjectedPosition</name>
+        <qualifiedname>QfPositioning::processProjectedPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="418" column="10" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="807" bodyend="828"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a20e09c5e8e87c5f89e5b018998b40ab4" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfPositioning::adjustOrientation</definition>
+        <argsstring>(double orientation) const</argsstring>
+        <name>adjustOrientation</name>
+        <qualifiedname>QfPositioning::adjustOrientation</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>orientation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="419" column="12" bodyfile="src/core/positioning/qfpositioning.cpp" bodystart="669" bodyend="687"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfPositioning_1a1b5a1e3d9ca302d18266802f8b3177aa" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>QList&lt; QPair&lt; QString, QVariant &gt; &gt;</type>
+        <definition>virtual QList&lt; QPair&lt; QString, QVariant &gt; &gt; QfPositioning::details</definition>
+        <argsstring>() const</argsstring>
+        <name>details</name>
+        <qualifiedname>QfPositioning::details</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/positioning/qfpositioning.h" line="435" column="19" bodyfile="src/core/positioning/qfpositioning.h" bodystart="435" bodyend="435"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class manages the positioning source and offers positioning details. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfPositioning</label>
+        <link refid="classQfPositioning"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfPositioning</label>
+        <link refid="classQfPositioning"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/positioning/qfpositioning.h" line="37" column="1" bodyfile="src/core/positioning/qfpositioning.h" bodystart="38" bodyend="449"/>
+    <listofallmembers>
+      <member refid="classQfPositioning_1a3abf5ee099cd83a0a91d7db1cd637c95" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>active</name></member>
+      <member refid="classQfPositioning_1abe45bfc61b55f09c23cfe51d49977bae" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>active</name></member>
+      <member refid="classQfPositioning_1a128577333df49c62ace001f6c918e449" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>activeChanged</name></member>
+      <member refid="classQfPositioning_1a20e09c5e8e87c5f89e5b018998b40ab4" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>adjustOrientation</name></member>
+      <member refid="classQfPositioning_1af6346bd0b1756f3857e5dc88f923f4ff" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>antennaHeight</name></member>
+      <member refid="classQfPositioning_1a19d436062feb40fee54152ad885f83a4" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>antennaHeight</name></member>
+      <member refid="classQfPositioning_1a30ee6aa798beaac3979615b3f92cb8ad" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>antennaHeightChanged</name></member>
+      <member refid="classQfPositioning_1ab148a8864f130002c5044a3e4871454a" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>averagedPosition</name></member>
+      <member refid="classQfPositioning_1ab24b6220691b4496b9c59af048dc5dfa" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>averagedPosition</name></member>
+      <member refid="classQfPositioning_1a8ebb4a348ac3457545f52b91421dad6e" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>averagedPositionChanged</name></member>
+      <member refid="classQfPositioning_1af4219d4e61c9d063c52c7c1289a8f1fd" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>averagedPositionCount</name></member>
+      <member refid="classQfPositioning_1a621cf8ba7841998b660a0f93388da941" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>averagedPositionCount</name></member>
+      <member refid="classQfPositioning_1ae9bbb66494ea16ed978531c6933de804" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>averagedPositionCountChanged</name></member>
+      <member refid="classQfPositioning_1aecb3299b0c6c932160b43fc522a8aa51" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>averagedPositionFilterAccuracy</name></member>
+      <member refid="classQfPositioning_1a689c934fcc8d3e23b8dbebdb7ca2e184" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>averagedPositionFilterAccuracy</name></member>
+      <member refid="classQfPositioning_1a8a2acbcc9957be8d3b3157febcf48e73" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>averagedPositionFilterAccuracyChanged</name></member>
+      <member refid="classQfPositioning_1a9ed393462675d45eb3ea9db3d23cfd31" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>backgroundMode</name></member>
+      <member refid="classQfPositioning_1aa5135e2655211382d0be0315bcb0d1de" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>backgroundMode</name></member>
+      <member refid="classQfPositioning_1a91ce0cd3b05ef19b988fb91ec57bc831" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>backgroundModeChanged</name></member>
+      <member refid="classQfPositioning_1ac826899f16ffb6e3edee9bd244c166ab" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>badAccuracyThreshold</name></member>
+      <member refid="classQfPositioning_1a597f4425301e517166afb0f982b7cf47" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>badAccuracyThreshold</name></member>
+      <member refid="classQfPositioning_1a2905fe747fbe381ed6daa67e94e66cb9" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>badAccuracyThresholdChanged</name></member>
+      <member refid="classQfPositioning_1a778fc0d936643167b2f8f72d56edd046" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>coordinateTransformer</name></member>
+      <member refid="classQfPositioning_1a966dd941a49f6f96c403b3b5bc35d0bc" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>coordinateTransformer</name></member>
+      <member refid="classQfPositioning_1a7a95ca47d429961aa9c9482d001bd8fd" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>coordinateTransformerChanged</name></member>
+      <member refid="classQfPositioning_1a1b5a1e3d9ca302d18266802f8b3177aa" prot="private" virt="virtual"><scope>QfPositioning</scope><name>details</name></member>
+      <member refid="classQfPositioning_1afeae7b2e826116a26da8504ebe63bacf" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceBatteryLevel</name></member>
+      <member refid="classQfPositioning_1acab01029e86432d4e532c627abed1f75" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceBatteryLevel</name></member>
+      <member refid="classQfPositioning_1a15e6711ed2513a0539ac1fbd564ce81b" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceBatteryLevelChanged</name></member>
+      <member refid="classQfPositioning_1abc8c1348926bb5a93dc22d18f5a70570" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceCapabilities</name></member>
+      <member refid="classQfPositioning_1a8554f6cf36574584f5f4e142de014a04" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceCapabilities</name></member>
+      <member refid="classQfPositioning_1ae88c351049afaaf63c6e5079c51acaa1" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceChanged</name></member>
+      <member refid="classQfPositioning_1ac3f898f72b71095d031ad5e1f22fbc96" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceDetails</name></member>
+      <member refid="classQfPositioning_1a6f1811b3ba94d12d805b7851bbbfd00a" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceId</name></member>
+      <member refid="classQfPositioning_1ad4ff954fdf3a8e10d9e5ae3d247e5a37" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceId</name></member>
+      <member refid="classQfPositioning_1a4011e577c8da17b6e8fc3527ba1de520" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceIdChanged</name></member>
+      <member refid="classQfPositioning_1a531dc598ff1bd58b74577626d6cb1b98" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceLastError</name></member>
+      <member refid="classQfPositioning_1a53e05eec96c82942c91c78cbda84db9d" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceLastError</name></member>
+      <member refid="classQfPositioning_1a3126e2ee3d8aa34c303424bd76ea3e8a" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceLastErrorChanged</name></member>
+      <member refid="classQfPositioning_1aaf4e22fbbc051ef23ff76fbf9be26c92" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceSocketState</name></member>
+      <member refid="classQfPositioning_1a555a5ae7ed896a8ac8cb2ac8220a0d38" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceSocketState</name></member>
+      <member refid="classQfPositioning_1ab6e029a0309bbfc6b074c61c4d61b92d" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceSocketStateChanged</name></member>
+      <member refid="classQfPositioning_1ae59f7af5cad5ee31dea7b39d0dbf0a68" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceSocketStateString</name></member>
+      <member refid="classQfPositioning_1a1c7d0117d04a47ebf3ead4c15feb2e23" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceSocketStateString</name></member>
+      <member refid="classQfPositioning_1a29427f4f4c05a5b7aeafa7bbfcef53ab" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>deviceSocketStateStringChanged</name></member>
+      <member refid="classQfPositioning_1ae5a11ec418f012cd0a6080e473f80f31" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>elevationCorrectionMode</name></member>
+      <member refid="classQfPositioning_1a4bb1f632225c0c799110bc750211b2f2" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>elevationCorrectionMode</name></member>
+      <member refid="classQfPositioning_1aafc569d43e2c2d8916e159ff11acde7b" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>elevationCorrectionModeChanged</name></member>
+      <member refid="classQfPositioning_1a6493784949315b5c1137b4ca2d83226e" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>enableNtrip</name></member>
+      <member refid="classQfPositioning_1a6cb310a7174cd7afe096acce17ac4cc0" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>enableNtrip</name></member>
+      <member refid="classQfPositioning_1ab20381ca593eed7c0d925cc0035e46d1" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>enableNtripChanged</name></member>
+      <member refid="classQfPositioning_1a2c4800402fd0ade0fc82ecbcbb98ac9d" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>excellentAccuracyThreshold</name></member>
+      <member refid="classQfPositioning_1a1b7f42336e78611bd4cab8e401cbb093" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>excellentAccuracyThreshold</name></member>
+      <member refid="classQfPositioning_1ae6497cba8538784e85ef3aa68604c573" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>excellentAccuracyThresholdChanged</name></member>
+      <member refid="classQfPositioning_1a060ed4ca44d3b45f98952bfa45da81c4" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>getBackgroundPositionInformation</name></member>
+      <member refid="classQfPositioning_1a641a43167aa087cd47b3f7ae5a8f98ad" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>isSourceAvailable</name></member>
+      <member refid="classQfPositioning_1af2ffc7e1e01bb721c877cd32c177d070" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>logging</name></member>
+      <member refid="classQfPositioning_1a1a5f49bc613561a2e7f9b7458e9af705" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>logging</name></member>
+      <member refid="classQfPositioning_1acb665132199bb1d91c3bc02157112c88" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>loggingChanged</name></member>
+      <member refid="classQfPositioning_1a42d48acf50e71095d4d44219c25e8d85" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>loggingPath</name></member>
+      <member refid="classQfPositioning_1a77bfcb02a6acd366e5ca34ff34bc6cdd" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>loggingPath</name></member>
+      <member refid="classQfPositioning_1a9997819301c0503d01c1efd896b797df" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>loggingPathChanged</name></member>
+      <member refid="classQfPositioning_1afa602b6c893e7ca1cf0d435c916eff1e" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mAveragedPosition</name></member>
+      <member refid="classQfPositioning_1a41c26e48400a6b34ffd982c69dc7d95d" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mAveragedPositionFilterAccuracy</name></member>
+      <member refid="classQfPositioning_1a09c7f2a2dad6f37a21c2368772581c68" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mBackgroundMode</name></member>
+      <member refid="classQfPositioning_1aa2d9033c5c7d6bfea43950799a90eeb1" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mBadAccuracyThreshold</name></member>
+      <member refid="classQfPositioning_1a25db980bd2b4444f298153e3d81a01c1" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mBluetoothPermissionChecked</name></member>
+      <member refid="classQfPositioning_1acdf55e740c010e762bfee1b38e769f15" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mCollectedPositionInformations</name></member>
+      <member refid="classQfPositioning_1ab83a25b5ea4cd9e33f8bb1bd7551b07c" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mCoordinateTransformer</name></member>
+      <member refid="classQfPositioning_1aef36bf25471e127d2155965c3c6ae135" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mExcellentAccuracyThreshold</name></member>
+      <member refid="classQfPositioning_1a4ffd95171beb4477d7c8c2da2ef5c0ec" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mHost</name></member>
+      <member refid="classQfPositioning_1a7a4076470d96a4c16c67545be69c4fc5" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mInternalPermissionChecked</name></member>
+      <member refid="classQfPositioning_1a0a253fc7b8b5eebf2c611c483c45b0bf" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mNode</name></member>
+      <member refid="classQfPositioning_1ad78e2ebdbb8e6c3b7db7ab9b3f657b40" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mPositionInformation</name></member>
+      <member refid="classQfPositioning_1a3cf9c409cff6871ecec0756e8ba96e85" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mPositioningSource</name></member>
+      <member refid="classQfPositioning_1acb69219a05520cbcf2868bf0c479e4e1" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mPositioningSourceReplica</name></member>
+      <member refid="classQfPositioning_1ab267be67cd69d1f6fe2e0e240e378496" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mProjectedHorizontalAccuracy</name></member>
+      <member refid="classQfPositioning_1a56fff2fbe4cf497fd6c8c6b34c96d904" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mProjectedPosition</name></member>
+      <member refid="classQfPositioning_1a177a7e3e08e21dbc38d4f67184c03209" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mProperties</name></member>
+      <member refid="classQfPositioning_1ab4fc7298ee7f415bd00868a749266aee" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mServiceMode</name></member>
+      <member refid="classQfPositioning_1ad91f1722a6accdcf87bcc1922078cd67" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mSourcePosition</name></member>
+      <member refid="classQfPositioning_1affc02a32a832b76ed1a96575928eed82" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>mValid</name></member>
+      <member refid="classQfPositioning_1ab24d43997e3bf558e2b180fe153d9346" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripBytesReceived</name></member>
+      <member refid="classQfPositioning_1a5bbbb3b3e6d5d976c8351e19bfe18f91" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripBytesReceived</name></member>
+      <member refid="classQfPositioning_1a29495da611d6307d54bf417f6b0a6282" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripBytesReceivedChanged</name></member>
+      <member refid="classQfPositioning_1a4b83b299b073373026b1ebf338a4843d" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripBytesSent</name></member>
+      <member refid="classQfPositioning_1a3b8d5b9bd00bd892912cfc01c311f7d5" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripBytesSent</name></member>
+      <member refid="classQfPositioning_1abf04e12a314377aa849670eb76fc1985" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripBytesSentChanged</name></member>
+      <member refid="classQfPositioning_1ab39061a40b3d4c9e63ca6566480cfd44" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripLastBytesReceivedUtcDateTime</name></member>
+      <member refid="classQfPositioning_1ad02a94a540ecbab4125da0ab2038b17a" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripLastBytesReceivedUtcDateTime</name></member>
+      <member refid="classQfPositioning_1a4e219d579d57171344ef83702c7759bc" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripLastBytesReceivedUtcDateTimeChanged</name></member>
+      <member refid="classQfPositioning_1ace61087d9b49f4eaca1fb3f98d7d0414" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripSettings</name></member>
+      <member refid="classQfPositioning_1afcebd7325d582985c64640aa1c8c6ca6" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripSettings</name></member>
+      <member refid="classQfPositioning_1acf5368ee4be9154443538ab0555f341d" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripSettingsChanged</name></member>
+      <member refid="classQfPositioning_1ade20fb20b68a12ffb527de14663ecdbe" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripState</name></member>
+      <member refid="classQfPositioning_1ac2e0de76177bd2519cd5f97c7f3efbde" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripState</name></member>
+      <member refid="classQfPositioning_1ae870ca38586b9658154e651d9e05a020" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>ntripStateChanged</name></member>
+      <member refid="classQfPositioning_1a4222886dc30255ab2de1c62f542c7d1e" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>onActiveChanged</name></member>
+      <member refid="classQfPositioning_1ac5d4c17d21d3e06ccda8aa7db541d0e4" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>onAntennaHeightChanged</name></member>
+      <member refid="classQfPositioning_1aa803ff9e506d572fab9c03435cdda398" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>onApplicationStateChanged</name></member>
+      <member refid="classQfPositioning_1a2f858b926cda10304bf49c753f12ace8" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>onDeviceIdChanged</name></member>
+      <member refid="classQfPositioning_1abbd4080aead298f9e3b312a2134b4e97" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>onElevationCorrectionModeChanged</name></member>
+      <member refid="classQfPositioning_1a836cfb35d02bf570148038c8a53399ac" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>onLoggingChanged</name></member>
+      <member refid="classQfPositioning_1a6cf9b0bd079bdfa5d2390a02a789f1fa" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>onLoggingPathChanged</name></member>
+      <member refid="classQfPositioning_1a11d3eb2b04f36f2d6bdf3f26a03b75d3" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>onPositionInformationChanged</name></member>
+      <member refid="classQfPositioning_1a49a48849be600e080021a95b08ee63ab" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>onValidChanged</name></member>
+      <member refid="classQfPositioning_1aa04b961132350ab2323c9a52d05d0c6d" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>orientation</name></member>
+      <member refid="classQfPositioning_1aebf8f5c71ad74aeee8da902e6b29d7e9" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>orientation</name></member>
+      <member refid="classQfPositioning_1a9876800b5f4edafe3406c3f3ba2d7d2a" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>orientationChanged</name></member>
+      <member refid="classQfPositioning_1adb5ae19c8160c313302d31be351609b0" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>positionInformation</name></member>
+      <member refid="classQfPositioning_1aa61370b6dfcf55dedc2ea9bd2392a82d" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>positionInformation</name></member>
+      <member refid="classQfPositioning_1afb810666e80fac89981f3f78addb49f6" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>positionInformationChanged</name></member>
+      <member refid="classQfPositioning_1a918bac3f245617d362cdb1383c71731e" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>processProjectedPosition</name></member>
+      <member refid="classQfPositioning_1afa8f0eceec0f57780d92ff8f8e0be66d" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>projectedHorizontalAccuracy</name></member>
+      <member refid="classQfPositioning_1a8137766f426bb03438825518083fbfde" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>projectedHorizontalAccuracy</name></member>
+      <member refid="classQfPositioning_1af26b28ee4f0686a62ffe6a3d92a664d6" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>projectedPosition</name></member>
+      <member refid="classQfPositioning_1a47abdf10615e451f3cd68315c5a96c33" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>projectedPosition</name></member>
+      <member refid="classQfPositioning_1af5eb3c21c83f6a4ffeef262e3dae68bf" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>projectedPositionChanged</name></member>
+      <member refid="classQfPositioning_1a3cc0e69a478a7f86aa16276a4d6fb23d" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>QfPositioning</name></member>
+      <member refid="classQfPositioning_1a24a091388c9a74d5f0ce81e553fc13fb" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>serviceMode</name></member>
+      <member refid="classQfPositioning_1accb8ecb832a9d69dc22312644e836a12" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>serviceMode</name></member>
+      <member refid="classQfPositioning_1a4d28b027155f4c5d0a250b9f0ae6d814" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>serviceModeChanged</name></member>
+      <member refid="classQfPositioning_1a1665a41d82dd3dc28dd89c962d111f9c" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setActive</name></member>
+      <member refid="classQfPositioning_1aae35c4feb6bb875af169a11c480981bb" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setAntennaHeight</name></member>
+      <member refid="classQfPositioning_1a9370d36d79cc6d3ae12723cbe8f3a70b" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setAveragedPosition</name></member>
+      <member refid="classQfPositioning_1aa565df0c0b4f7161a8fea098b1a39e02" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setAveragedPositionFilterAccuracy</name></member>
+      <member refid="classQfPositioning_1a86b366195f49b16e7fe3e7c64dee1638" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setBackgroundMode</name></member>
+      <member refid="classQfPositioning_1a96692202ec05c2a4b37a56c9ec965bec" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setBadAccuracyThreshold</name></member>
+      <member refid="classQfPositioning_1ad18aff57ce16a70d231590e72d560230" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setCoordinateTransformer</name></member>
+      <member refid="classQfPositioning_1a9db4cefe1a5ec9bfb5df84537ccdf74b" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setDeviceId</name></member>
+      <member refid="classQfPositioning_1ab399e30970623d89f3436fa42d9c9f84" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setElevationCorrectionMode</name></member>
+      <member refid="classQfPositioning_1ae2090dd4d688d0c758d9793a82fbc5c4" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setEnableNtrip</name></member>
+      <member refid="classQfPositioning_1a00b167e9c59aaadc5e2bc85d05f52730" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setExcellentAccuracyThreshold</name></member>
+      <member refid="classQfPositioning_1a752b9296f5f39010a7b8e503f27522a0" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setLogging</name></member>
+      <member refid="classQfPositioning_1a3780074158e370807cc4af5e124211eb" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setLoggingPath</name></member>
+      <member refid="classQfPositioning_1a5711b58287a4f1cc22a3c4c81e989083" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setNtripSettings</name></member>
+      <member refid="classQfPositioning_1a8fca1a139969091d0aed9eb6e3f13896" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setServiceMode</name></member>
+      <member refid="classQfPositioning_1a20cf22561164de23afca889538d300c6" prot="private" virt="non-virtual"><scope>QfPositioning</scope><name>setupSource</name></member>
+      <member refid="classQfPositioning_1a327bd73d6b66b73f8e76818d80818a2b" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>setValid</name></member>
+      <member refid="classQfPositioning_1a66f949fc6f80d5e65b1a501b65ffc0a7" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>sourcePosition</name></member>
+      <member refid="classQfPositioning_1aa2e482037ac411306004887dbbde7845" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>sourcePosition</name></member>
+      <member refid="classQfPositioning_1a0cebb8a948b235f611a63109000cbce1" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>triggerConnectDevice</name></member>
+      <member refid="classQfPositioning_1a3fb5d35c3a0cbc07e294464b610c8800" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>triggerDisconnectDevice</name></member>
+      <member refid="classQfPositioning_1a1fd63500411b8abf5ada828db0c4ccd4" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>valid</name></member>
+      <member refid="classQfPositioning_1a2954552cfb3d2c74f367faad404f09fb" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>valid</name></member>
+      <member refid="classQfPositioning_1a0975a9f4d0b3f5cc4a7117314267ac58" prot="public" virt="non-virtual"><scope>QfPositioning</scope><name>validChanged</name></member>
+      <member refid="classQfPositioning_1a2008dd5924a61e22216a22a02bc7d001" prot="public" virt="virtual"><scope>QfPositioning</scope><name>~QfPositioning</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

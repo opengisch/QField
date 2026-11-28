@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfWelcomeAction" kind="class" language="C++" prot="public">
+    <compoundname>QfWelcomeAction</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ColumnLayout</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfWelcomeAction_1a98de4cd8e28a62a33709f6bddc82b03a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>url</type>
+        <definition>url QfWelcomeAction::iconSource</definition>
+        <argsstring></argsstring>
+        <name>iconSource</name>
+        <qualifiedname>QfWelcomeAction::iconSource</qualifiedname>
+        <read>dummyGetter_iconSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeAction.qml" line="11" column="1" bodyfile="src/gui/qml/QfWelcomeAction.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfWelcomeAction_1a50272e47a7cb5f0bb1fa1e2937d096a3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfWelcomeAction::iconColor</definition>
+        <argsstring></argsstring>
+        <name>iconColor</name>
+        <qualifiedname>QfWelcomeAction::iconColor</qualifiedname>
+        <read>dummyGetter_iconColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeAction.qml" line="13" column="1" bodyfile="src/gui/qml/QfWelcomeAction.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfWelcomeAction_1a72bbc4f84d5cb98e8b48e2c7df974b5d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfWelcomeAction::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <qualifiedname>QfWelcomeAction::label</qualifiedname>
+        <read>dummyGetter_label_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeAction.qml" line="15" column="1" bodyfile="src/gui/qml/QfWelcomeAction.qml" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfWelcomeAction_1ab0f2eb1da553828b837e158a4d3d0be3" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfWelcomeAction::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfWelcomeAction::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeAction.qml" line="19" column="5" bodyfile="src/gui/qml/QfWelcomeAction.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeAction_1aec986794eb4113a4f6a0f4fdfe110296" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfWelcomeAction::actionButton</definition>
+        <argsstring></argsstring>
+        <name>actionButton</name>
+        <qualifiedname>QfWelcomeAction::actionButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeAction.qml" line="20" column="14" bodyfile="src/gui/qml/QfWelcomeAction.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfWelcomeAction_1aff3626dcd1c71952deb0d5480d259630" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfWelcomeAction::clicked</definition>
+        <argsstring>()</argsstring>
+        <name>clicked</name>
+        <qualifiedname>QfWelcomeAction::clicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeAction.qml" line="17" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ColumnLayout</label>
+      </node>
+      <node id="1">
+        <label>QfWelcomeAction</label>
+        <link refid="classQfWelcomeAction"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ColumnLayout</label>
+      </node>
+      <node id="1">
+        <label>QfWelcomeAction</label>
+        <link refid="classQfWelcomeAction"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfWelcomeAction.qml" line="8" column="1" bodyfile="src/gui/qml/QfWelcomeAction.qml" bodystart="8" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classQfWelcomeAction_1aec986794eb4113a4f6a0f4fdfe110296" prot="private" virt="non-virtual"><scope>QfWelcomeAction</scope><name>actionButton</name></member>
+      <member refid="classQfWelcomeAction_1aff3626dcd1c71952deb0d5480d259630" prot="public" virt="non-virtual"><scope>QfWelcomeAction</scope><name>clicked</name></member>
+      <member refid="classQfWelcomeAction_1a50272e47a7cb5f0bb1fa1e2937d096a3" prot="public" virt="non-virtual"><scope>QfWelcomeAction</scope><name>iconColor</name></member>
+      <member refid="classQfWelcomeAction_1a98de4cd8e28a62a33709f6bddc82b03a" prot="public" virt="non-virtual"><scope>QfWelcomeAction</scope><name>iconSource</name></member>
+      <member refid="classQfWelcomeAction_1a72bbc4f84d5cb98e8b48e2c7df974b5d" prot="public" virt="non-virtual"><scope>QfWelcomeAction</scope><name>label</name></member>
+      <member refid="classQfWelcomeAction_1ab0f2eb1da553828b837e158a4d3d0be3" prot="private" virt="non-virtual"><scope>QfWelcomeAction</scope><name>spacing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

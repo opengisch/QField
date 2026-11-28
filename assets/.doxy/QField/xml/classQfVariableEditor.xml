@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfVariableEditor" kind="class" language="C++" prot="public">
+    <compoundname>QfVariableEditor</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ColumnLayout</basecompoundref>
+    <derivedcompoundref refid="classVariableEditor" prot="public" virt="non-virtual">VariableEditor</derivedcompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfVariableEditor_1ac892423841a33370ec5ade2e3cd2f195" prot="private" static="no" mutable="no">
+        <type>var anchors</type>
+        <definition>var anchors QfVariableEditor::fill</definition>
+        <argsstring></argsstring>
+        <name>fill</name>
+        <qualifiedname>QfVariableEditor::fill</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVariableEditor.qml" line="16" column="12" bodyfile="src/gui/qml/QfVariableEditor.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVariableEditor_1aafe8015c79192be62b920d091321f034" prot="private" static="no" mutable="no">
+        <type>var Layout</type>
+        <definition>var Layout QfVariableEditor::fillWidth</definition>
+        <argsstring></argsstring>
+        <name>fillWidth</name>
+        <qualifiedname>QfVariableEditor::fillWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVariableEditor.qml" line="17" column="11" bodyfile="src/gui/qml/QfVariableEditor.qml" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVariableEditor_1ae7f1c05edb360d9ede61f63a04066998" prot="private" static="no" mutable="no">
+        <type>var Layout</type>
+        <definition>var Layout QfVariableEditor::fillHeight</definition>
+        <argsstring></argsstring>
+        <name>fillHeight</name>
+        <qualifiedname>QfVariableEditor::fillHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVariableEditor.qml" line="18" column="11" bodyfile="src/gui/qml/QfVariableEditor.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVariableEditor_1ac5a7a14d96d071e67bdb190d66a4057e" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfVariableEditor::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfVariableEditor::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVariableEditor.qml" line="19" column="5" bodyfile="src/gui/qml/QfVariableEditor.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVariableEditor_1af63fa0ec9f7d55ee696c87e2852f104e" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView QfVariableEditor::table</definition>
+        <argsstring></argsstring>
+        <name>table</name>
+        <qualifiedname>QfVariableEditor::table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVariableEditor.qml" line="20" column="10" bodyfile="src/gui/qml/QfVariableEditor.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfVariableEditor_1a07fe921982f6802eac5d5956ad05d9bc" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfButton" kindref="compound">QfButton</ref></type>
+        <definition>QfButton QfVariableEditor::addCustomVariableButton</definition>
+        <argsstring></argsstring>
+        <name>addCustomVariableButton</name>
+        <qualifiedname>QfVariableEditor::addCustomVariableButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVariableEditor.qml" line="21" column="10" bodyfile="src/gui/qml/QfVariableEditor.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfVariableEditor_1a66f1dd6a1ff2421a7a04c0aae50927fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVariableEditor::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>QfVariableEditor::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVariableEditor.qml" line="12" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfVariableEditor_1a3c28e18db1ce9fc2db610a0181b790ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfVariableEditor::apply</definition>
+        <argsstring>()</argsstring>
+        <name>apply</name>
+        <qualifiedname>QfVariableEditor::apply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfVariableEditor.qml" line="14" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ColumnLayout</label>
+      </node>
+      <node id="1">
+        <label>QfVariableEditor</label>
+        <link refid="classQfVariableEditor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>VariableEditor</label>
+        <link refid="classVariableEditor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ColumnLayout</label>
+      </node>
+      <node id="1">
+        <label>QfVariableEditor</label>
+        <link refid="classQfVariableEditor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfVariableEditor.qml" line="9" column="1" bodyfile="src/gui/qml/QfVariableEditor.qml" bodystart="9" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classQfVariableEditor_1a07fe921982f6802eac5d5956ad05d9bc" prot="private" virt="non-virtual"><scope>QfVariableEditor</scope><name>addCustomVariableButton</name></member>
+      <member refid="classQfVariableEditor_1a3c28e18db1ce9fc2db610a0181b790ba" prot="public" virt="non-virtual"><scope>QfVariableEditor</scope><name>apply</name></member>
+      <member refid="classQfVariableEditor_1ac892423841a33370ec5ade2e3cd2f195" prot="private" virt="non-virtual"><scope>QfVariableEditor</scope><name>fill</name></member>
+      <member refid="classQfVariableEditor_1ae7f1c05edb360d9ede61f63a04066998" prot="private" virt="non-virtual"><scope>QfVariableEditor</scope><name>fillHeight</name></member>
+      <member refid="classQfVariableEditor_1aafe8015c79192be62b920d091321f034" prot="private" virt="non-virtual"><scope>QfVariableEditor</scope><name>fillWidth</name></member>
+      <member refid="classQfVariableEditor_1a66f1dd6a1ff2421a7a04c0aae50927fd" prot="public" virt="non-virtual"><scope>QfVariableEditor</scope><name>reset</name></member>
+      <member refid="classQfVariableEditor_1ac5a7a14d96d071e67bdb190d66a4057e" prot="private" virt="non-virtual"><scope>QfVariableEditor</scope><name>spacing</name></member>
+      <member refid="classQfVariableEditor_1af63fa0ec9f7d55ee696c87e2852f104e" prot="private" virt="non-virtual"><scope>QfVariableEditor</scope><name>table</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

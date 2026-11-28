@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfsnappingresult_8h" kind="file" language="C++">
+    <compoundname>qfsnappingresult.h</compoundname>
+    <includes local="no">qgspoint.h</includes>
+    <includes local="no">qgspointlocator.h</includes>
+    <includes local="no">qgsvectorlayer.h</includes>
+    <includedby refid="qgismobileapp_8cpp" local="yes">src/app/qgismobileapp.cpp</includedby>
+    <includedby refid="qfdigitizinglogger_8h" local="yes">src/core/qfdigitizinglogger.h</includedby>
+    <includedby refid="qffeaturemodel_8h" local="yes">src/core/qffeaturemodel.h</includedby>
+    <includedby refid="qfsnappingresult_8cpp" local="yes">src/core/qfsnappingresult.cpp</includedby>
+    <includedby refid="qfexpressioncontextutils_8h" local="yes">src/core/utils/qfexpressioncontextutils.h</includedby>
+    <includedby refid="qfsnappingutils_8h" local="yes">src/core/utils/qfsnappingutils.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/qfsnappingresult.h</label>
+        <link refid="qfsnappingresult_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qgspoint.h</label>
+      </node>
+      <node id="3">
+        <label>qgspointlocator.h</label>
+      </node>
+      <node id="4">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/core/qfdigitizinglogger.h</label>
+        <link refid="qfdigitizinglogger_8h_source"/>
+      </node>
+      <node id="3">
+        <label>src/core/qffeaturemodel.h</label>
+        <link refid="qffeaturemodel_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/core/qfsnappingresult.h</label>
+        <link refid="qfsnappingresult_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/core/utils/qfexpressioncontextutils.h</label>
+        <link refid="qfexpressioncontextutils_8h_source"/>
+      </node>
+      <node id="8">
+        <label>src/core/utils/qfsnappingutils.h</label>
+        <link refid="qfsnappingutils_8h_source"/>
+      </node>
+      <node id="5">
+        <label>src/gui/qfattributeformmodel.h</label>
+        <link refid="qfattributeformmodel_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/gui/qfattributeformmodelbase.h</label>
+        <link refid="qfattributeformmodelbase_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/gui/qfexpressionevaluator.h</label>
+        <link refid="qfexpressionevaluator_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classQfSnappingResult" prot="public">QfSnappingResult</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>qfsnappingresult.h<sp/>-<sp/>QfSnappingResult</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>---------------------</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>8.10.2016</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2016<sp/>by<sp/>Matthias<sp/>Kuhn</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>matthias@opengis.ch</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>QFSNAPPINGRESULT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QFSNAPPINGRESULT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgspoint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgspointlocator.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;qgsvectorlayer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="classQfSnappingResult" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_GADGET</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/>QgsPoint<sp/>point<sp/>READ<sp/>point<sp/>WRITE<sp/><ref refid="classQfSnappingResult_1a6d2ef09d9c3412661320e5796ace9773" kindref="member">setPoint</ref><sp/>)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_PROPERTY(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isValid<sp/>READ<sp/>isValid<sp/>)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="36" refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50" kindref="member">Type</ref></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="38" refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a335ff4b351c3bff4ef9fc726d401201f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a335ff4b351c3bff4ef9fc726d401201f" kindref="member">Invalid</ref><sp/>=<sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39" refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a3b49dc00e5887b73adaa1aa7ab27fce8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a3b49dc00e5887b73adaa1aa7ab27fce8" kindref="member">Vertex</ref><sp/>=<sp/>1,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40" refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a62bd539cf4535511291f7b001ebe45a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a62bd539cf4535511291f7b001ebe45a3" kindref="member">Edge</ref><sp/>=<sp/>2,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41" refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a1c269f8a966b771e642d836d0ac10546" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a1c269f8a966b771e642d836d0ac10546" kindref="member">Area</ref><sp/>=<sp/>4,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a2b5cea940afe4a0efe9a99483049f9e2" kindref="member">All</ref><sp/>=<sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a3b49dc00e5887b73adaa1aa7ab27fce8" kindref="member">Vertex</ref><sp/>|<sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a62bd539cf4535511291f7b001ebe45a3" kindref="member">Edge</ref><sp/>|<sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a1c269f8a966b771e642d836d0ac10546" kindref="member">Area</ref><sp/></highlight></codeline>
+<codeline lineno="43" refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50a2b5cea940afe4a0efe9a99483049f9e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>Q_DECLARE_FLAGS(<sp/>Types,<sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50" kindref="member">Type</ref><sp/>)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfSnappingResult_1aeb05fa07fb3331253dabd147000918e4" kindref="member">QfSnappingResult</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfSnappingResult_1aeb05fa07fb3331253dabd147000918e4" kindref="member">QfSnappingResult</ref>(<sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50" kindref="member">Type</ref><sp/>t,<sp/>QgsVectorLayer<sp/>*vl,<sp/>QgsFeatureId<sp/>fid,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dist,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPoint<sp/>&amp;pt,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQfSnappingResult_1a7896162275528b2664eec0cc820ac4e7" kindref="member">vertexIndex</ref><sp/>=<sp/>0,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPoint<sp/>*<ref refid="classQfSnappingResult_1a91342f492a9a6d3482c4d483d38d928e" kindref="member">edgePoints</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator==(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref><sp/>&amp;other<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator!=(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classQfSnappingResult" kindref="compound">QfSnappingResult</ref><sp/>&amp;other<sp/>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!operator==(<sp/>other<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classQfSnappingResult_1aeb05fa07fb3331253dabd147000918e4" kindref="member">QfSnappingResult</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPointLocator::Match<sp/>&amp;match<sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50" kindref="member">Type</ref><sp/>type()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isValid()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasVertex()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasEdge()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasArea()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classQfSnappingResult_1a5b31d349ef6bfdb013256946d6f1751f" kindref="member">distance</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/>point()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfSnappingResult_1a6d2ef09d9c3412661320e5796ace9773" kindref="member">setPoint</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QgsPoint<sp/>point<sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classQfSnappingResult_1a7896162275528b2664eec0cc820ac4e7" kindref="member">vertexIndex</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsVectorLayer<sp/>*<ref refid="classQfSnappingResult_1ac05ffc6965e48c64d12f89fe69e5da6c" kindref="member">layer</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsFeatureId<sp/><ref refid="classQfSnappingResult_1a175c3d240b1f20f0b22b0893d9f9ca33" kindref="member">featureId</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfSnappingResult_1a91342f492a9a6d3482c4d483d38d928e" kindref="member">edgePoints</ref>(<sp/>QgsPoint<sp/>&amp;pt1,<sp/>QgsPoint<sp/>&amp;pt2<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classQfSnappingResult_1a9df283db28ebafb2ef4ba40a498bde50" kindref="member">Type</ref><sp/>mType;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mDist;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/>mPoint;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>QPointer&lt;QgsVectorLayer&gt;<sp/>mLayer;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsFeatureId<sp/>mFid;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mVertexIndex;<sp/></highlight><highlight class="comment">//<sp/>e.g.<sp/>vertex<sp/>index</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>QgsPoint<sp/>mEdgePoints[2];</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>QFSNAPPINGRESULT_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfsnappingresult.h"/>
+  </compounddef>
+</doxygen>

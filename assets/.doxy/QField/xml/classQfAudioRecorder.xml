@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfAudioRecorder" kind="class" language="C++" prot="public">
+    <compoundname>QfAudioRecorder</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QMediaRecorder</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfAudioRecorder_1afc1ad06519c72f9f263ff368111577a9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAudioRecorder::recording</definition>
+        <argsstring></argsstring>
+        <name>recording</name>
+        <qualifiedname>QfAudioRecorder::recording</qualifiedname>
+        <read>recording</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="49" column="5" bodyfile="src/core/qfaudiorecorder.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfAudioRecorder_1accd8d35fcbacce9cd5fde638c2ea00fb" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfAudioRecorder::hasLevel</definition>
+        <argsstring></argsstring>
+        <name>hasLevel</name>
+        <qualifiedname>QfAudioRecorder::hasLevel</qualifiedname>
+        <read>hasLevel</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="50" column="5" bodyfile="src/core/qfaudiorecorder.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfAudioRecorder_1a077fa85c1b956beeccca4489cfa30718" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfAudioRecorder::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <qualifiedname>QfAudioRecorder::level</qualifiedname>
+        <read>level</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="51" column="5" bodyfile="src/core/qfaudiorecorder.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfAudioRecorder_1a264b1d0d9223c0a5904acf5658399a14" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfAudioRecorder::mHasLevel</definition>
+        <argsstring></argsstring>
+        <name>mHasLevel</name>
+        <qualifiedname>QfAudioRecorder::mHasLevel</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="96" column="10" bodyfile="src/core/qfaudiorecorder.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioRecorder_1a857dd135cb2322118a3752b5513071f1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfAudioRecorder::mLevel</definition>
+        <argsstring></argsstring>
+        <name>mLevel</name>
+        <qualifiedname>QfAudioRecorder::mLevel</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="97" column="12" bodyfile="src/core/qfaudiorecorder.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioRecorder_1a570de7b44eb1c3ea737facb545c4b92f" prot="private" static="no" mutable="no">
+        <type>QAudioSource *</type>
+        <definition>QAudioSource* QfAudioRecorder::mAudioSource</definition>
+        <argsstring></argsstring>
+        <name>mAudioSource</name>
+        <qualifiedname>QfAudioRecorder::mAudioSource</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="99" column="18" bodyfile="src/core/qfaudiorecorder.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfAudioRecorder_1ae7c12e90fb479aee313184d665e7dc95" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfAudioProbe" kindref="compound">QfAudioProbe</ref> *</type>
+        <definition>QfAudioProbe* QfAudioRecorder::mProbe</definition>
+        <argsstring></argsstring>
+        <name>mProbe</name>
+        <qualifiedname>QfAudioRecorder::mProbe</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="100" column="18" bodyfile="src/core/qfaudiorecorder.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfAudioRecorder_1a3bc32ee7a56c8810af30be528c7cbce9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfAudioRecorder::QfAudioRecorder</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>QfAudioRecorder</name>
+        <qualifiedname>QfAudioRecorder::QfAudioRecorder</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="54" column="14" bodyfile="src/core/qfaudiorecorder.cpp" bodystart="54" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAudioRecorder_1a3e7139574b41a63ec68c51f5d68e42b3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAudioRecorder::recording</definition>
+        <argsstring>() const</argsstring>
+        <name>recording</name>
+        <qualifiedname>QfAudioRecorder::recording</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when audio is being recorded. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="59" column="10" bodyfile="src/core/qfaudiorecorder.cpp" bodystart="93" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAudioRecorder_1ad8ffcb30e4d2523e8bc648e67f2df0ab" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfAudioRecorder::hasLevel</definition>
+        <argsstring>() const</argsstring>
+        <name>hasLevel</name>
+        <qualifiedname>QfAudioRecorder::hasLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns TRUE when audio level/amplitude is available during recording. <simplesect kind="note"><para>this reflects whether a given platform supports QAudioProbe </para>
+</simplesect>
+<simplesect kind="see"><para>level() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="66" column="10" bodyfile="src/core/qfaudiorecorder.cpp" bodystart="103" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfAudioRecorder_1a769c4bedeb1f0afc6ceadd2e0b7b468b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double QfAudioRecorder::level</definition>
+        <argsstring>() const</argsstring>
+        <name>level</name>
+        <qualifiedname>QfAudioRecorder::level</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current level (0.0 to 1.0) of the audio being recorded. <simplesect kind="see"><para>hasLevel() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="72" column="12" bodyfile="src/core/qfaudiorecorder.cpp" bodystart="98" bodyend="101"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfAudioRecorder_1a13bf6e7be1822524629d1da2b55356ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAudioRecorder::recordingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>recordingChanged</name>
+        <qualifiedname>QfAudioRecorder::recordingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the recording state has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="78" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAudioRecorder_1aa22996ddf18f09d2184bd9df9790cc1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAudioRecorder::hasLevelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>hasLevelChanged</name>
+        <qualifiedname>QfAudioRecorder::hasLevelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted upon successfully setting up the audio probe used to return audio levels. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="83" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAudioRecorder_1a9f2276aa5405e9c20a59d78b891eeef9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAudioRecorder::levelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>levelChanged</name>
+        <qualifiedname>QfAudioRecorder::levelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when the current audio level being recorded has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="88" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfAudioRecorder_1adee6c6d3157477e4d13f563bff1528ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfAudioRecorder::recordingLoaded</definition>
+        <argsstring>()</argsstring>
+        <name>recordingLoaded</name>
+        <qualifiedname>QfAudioRecorder::recordingLoaded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emitted when a recorded audio file is finalized and loaded. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfaudiorecorder.h" line="93" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QMediaRecorder</label>
+      </node>
+      <node id="1">
+        <label>QfAudioRecorder</label>
+        <link refid="classQfAudioRecorder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QMediaRecorder</label>
+      </node>
+      <node id="1">
+        <label>QfAudioRecorder</label>
+        <link refid="classQfAudioRecorder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qfaudiorecorder.h" line="45" column="1" bodyfile="src/core/qfaudiorecorder.h" bodystart="46" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classQfAudioRecorder_1accd8d35fcbacce9cd5fde638c2ea00fb" prot="public" virt="non-virtual"><scope>QfAudioRecorder</scope><name>hasLevel</name></member>
+      <member refid="classQfAudioRecorder_1ad8ffcb30e4d2523e8bc648e67f2df0ab" prot="public" virt="non-virtual"><scope>QfAudioRecorder</scope><name>hasLevel</name></member>
+      <member refid="classQfAudioRecorder_1aa22996ddf18f09d2184bd9df9790cc1e" prot="public" virt="non-virtual"><scope>QfAudioRecorder</scope><name>hasLevelChanged</name></member>
+      <member refid="classQfAudioRecorder_1a077fa85c1b956beeccca4489cfa30718" prot="public" virt="non-virtual"><scope>QfAudioRecorder</scope><name>level</name></member>
+      <member refid="classQfAudioRecorder_1a769c4bedeb1f0afc6ceadd2e0b7b468b" prot="public" virt="non-virtual"><scope>QfAudioRecorder</scope><name>level</name></member>
+      <member refid="classQfAudioRecorder_1a9f2276aa5405e9c20a59d78b891eeef9" prot="public" virt="non-virtual"><scope>QfAudioRecorder</scope><name>levelChanged</name></member>
+      <member refid="classQfAudioRecorder_1a570de7b44eb1c3ea737facb545c4b92f" prot="private" virt="non-virtual"><scope>QfAudioRecorder</scope><name>mAudioSource</name></member>
+      <member refid="classQfAudioRecorder_1a264b1d0d9223c0a5904acf5658399a14" prot="private" virt="non-virtual"><scope>QfAudioRecorder</scope><name>mHasLevel</name></member>
+      <member refid="classQfAudioRecorder_1a857dd135cb2322118a3752b5513071f1" prot="private" virt="non-virtual"><scope>QfAudioRecorder</scope><name>mLevel</name></member>
+      <member refid="classQfAudioRecorder_1ae7c12e90fb479aee313184d665e7dc95" prot="private" virt="non-virtual"><scope>QfAudioRecorder</scope><name>mProbe</name></member>
+      <member refid="classQfAudioRecorder_1a3bc32ee7a56c8810af30be528c7cbce9" prot="public" virt="non-virtual"><scope>QfAudioRecorder</scope><name>QfAudioRecorder</name></member>
+      <member refid="classQfAudioRecorder_1afc1ad06519c72f9f263ff368111577a9" prot="public" virt="non-virtual"><scope>QfAudioRecorder</scope><name>recording</name></member>
+      <member refid="classQfAudioRecorder_1a3e7139574b41a63ec68c51f5d68e42b3" prot="public" virt="non-virtual"><scope>QfAudioRecorder</scope><name>recording</name></member>
+      <member refid="classQfAudioRecorder_1a13bf6e7be1822524629d1da2b55356ad" prot="public" virt="non-virtual"><scope>QfAudioRecorder</scope><name>recordingChanged</name></member>
+      <member refid="classQfAudioRecorder_1adee6c6d3157477e4d13f563bff1528ee" prot="public" virt="non-virtual"><scope>QfAudioRecorder</scope><name>recordingLoaded</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

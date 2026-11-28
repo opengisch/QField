@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfCrosshair" kind="class" language="C++" prot="public">
+    <compoundname>QfCrosshair</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Shape</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfCrosshair_1a5fc4baa3c3480ba34e7e6fbb036a768e" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCrosshair::fillColor</definition>
+        <argsstring></argsstring>
+        <name>fillColor</name>
+        <qualifiedname>QfCrosshair::fillColor</qualifiedname>
+        <read>dummyGetter_fillColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="10" column="1" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCrosshair_1a5fa048234baf4f61625d41f4a1a1ee04" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfCrosshair::outlineColor</definition>
+        <argsstring></argsstring>
+        <name>outlineColor</name>
+        <qualifiedname>QfCrosshair::outlineColor</qualifiedname>
+        <read>dummyGetter_outlineColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="12" column="1" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCrosshair_1a4ad6a5ade4a140e0a09b807637357639" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCrosshair::sizeScale</definition>
+        <argsstring></argsstring>
+        <name>sizeScale</name>
+        <qualifiedname>QfCrosshair::sizeScale</qualifiedname>
+        <read>dummyGetter_sizeScale_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="14" column="1" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCrosshair_1a9451058da6fb2c07f177296641026903" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfCrosshair::isSnapped</definition>
+        <argsstring></argsstring>
+        <name>isSnapped</name>
+        <qualifiedname>QfCrosshair::isSnapped</qualifiedname>
+        <read>dummyGetter_isSnapped_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="16" column="1" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCrosshair_1acccfd561d0a18d04a2cafb53a0061b5a" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCrosshair::halfWidth</definition>
+        <argsstring></argsstring>
+        <name>halfWidth</name>
+        <qualifiedname>QfCrosshair::halfWidth</qualifiedname>
+        <read>dummyGetter_halfWidth_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="19" column="1" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCrosshair_1aa48523e52dd510ff90bc3669623f2bf9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCrosshair::arcSpacing</definition>
+        <argsstring></argsstring>
+        <name>arcSpacing</name>
+        <qualifiedname>QfCrosshair::arcSpacing</qualifiedname>
+        <read>dummyGetter_arcSpacing_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="22" column="1" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfCrosshair_1a160769045b031cc88cb810667e2c3750" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>real</type>
+        <definition>real QfCrosshair::crossHalfLength</definition>
+        <argsstring></argsstring>
+        <name>crossHalfLength</name>
+        <qualifiedname>QfCrosshair::crossHalfLength</qualifiedname>
+        <read>dummyGetter_crossHalfLength_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="25" column="1" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfCrosshair_1a8a95f6b9f2f4afd250433f09cc4bb1bc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCrosshair::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfCrosshair::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="27" column="5" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCrosshair_1aa1eb99f5fd643a953960f58ac4ea9b6a" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCrosshair::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfCrosshair::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="28" column="5" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCrosshair_1a0cad1779e2409f3545472fcff1825922" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfCrosshair::preferredRendererType</definition>
+        <argsstring></argsstring>
+        <name>preferredRendererType</name>
+        <qualifiedname>QfCrosshair::preferredRendererType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="29" column="5" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCrosshair_1a1d0461c3933a3b018b758cf697cbb0e8" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath QfCrosshair::crosshairPathBuffer</definition>
+        <argsstring></argsstring>
+        <name>crosshairPathBuffer</name>
+        <qualifiedname>QfCrosshair::crosshairPathBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="30" column="11" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCrosshair_1adc45106c03f3a95f1a1a2b04dc0f5aac" prot="private" static="no" mutable="no">
+        <type>ShapePath</type>
+        <definition>ShapePath QfCrosshair::crosshairPath</definition>
+        <argsstring></argsstring>
+        <name>crosshairPath</name>
+        <qualifiedname>QfCrosshair::crosshairPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="31" column="11" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfCrosshair_1a4f4dd14d62307c1cabc48c862debb471" prot="private" static="no" mutable="no">
+        <type>var Component</type>
+        <definition>var Component QfCrosshair::onCompleted</definition>
+        <argsstring></argsstring>
+        <name>onCompleted</name>
+        <qualifiedname>QfCrosshair::onCompleted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qml/QfCrosshair.qml" line="32" column="14" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The crosshair cursor shown on top of the 2D and 3D map canvases. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfCrosshair</label>
+        <link refid="classQfCrosshair"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Shape</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfCrosshair</label>
+        <link refid="classQfCrosshair"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Shape</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qml/QfCrosshair.qml" line="7" column="1" bodyfile="src/core/qml/QfCrosshair.qml" bodystart="7" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classQfCrosshair_1aa48523e52dd510ff90bc3669623f2bf9" prot="public" virt="non-virtual"><scope>QfCrosshair</scope><name>arcSpacing</name></member>
+      <member refid="classQfCrosshair_1adc45106c03f3a95f1a1a2b04dc0f5aac" prot="private" virt="non-virtual"><scope>QfCrosshair</scope><name>crosshairPath</name></member>
+      <member refid="classQfCrosshair_1a1d0461c3933a3b018b758cf697cbb0e8" prot="private" virt="non-virtual"><scope>QfCrosshair</scope><name>crosshairPathBuffer</name></member>
+      <member refid="classQfCrosshair_1a160769045b031cc88cb810667e2c3750" prot="public" virt="non-virtual"><scope>QfCrosshair</scope><name>crossHalfLength</name></member>
+      <member refid="classQfCrosshair_1a5fc4baa3c3480ba34e7e6fbb036a768e" prot="public" virt="non-virtual"><scope>QfCrosshair</scope><name>fillColor</name></member>
+      <member refid="classQfCrosshair_1acccfd561d0a18d04a2cafb53a0061b5a" prot="public" virt="non-virtual"><scope>QfCrosshair</scope><name>halfWidth</name></member>
+      <member refid="classQfCrosshair_1aa1eb99f5fd643a953960f58ac4ea9b6a" prot="private" virt="non-virtual"><scope>QfCrosshair</scope><name>height</name></member>
+      <member refid="classQfCrosshair_1a9451058da6fb2c07f177296641026903" prot="public" virt="non-virtual"><scope>QfCrosshair</scope><name>isSnapped</name></member>
+      <member refid="classQfCrosshair_1a4f4dd14d62307c1cabc48c862debb471" prot="private" virt="non-virtual"><scope>QfCrosshair</scope><name>onCompleted</name></member>
+      <member refid="classQfCrosshair_1a5fa048234baf4f61625d41f4a1a1ee04" prot="public" virt="non-virtual"><scope>QfCrosshair</scope><name>outlineColor</name></member>
+      <member refid="classQfCrosshair_1a0cad1779e2409f3545472fcff1825922" prot="private" virt="non-virtual"><scope>QfCrosshair</scope><name>preferredRendererType</name></member>
+      <member refid="classQfCrosshair_1a4ad6a5ade4a140e0a09b807637357639" prot="public" virt="non-virtual"><scope>QfCrosshair</scope><name>sizeScale</name></member>
+      <member refid="classQfCrosshair_1a8a95f6b9f2f4afd250433f09cc4bb1bc" prot="private" virt="non-virtual"><scope>QfCrosshair</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

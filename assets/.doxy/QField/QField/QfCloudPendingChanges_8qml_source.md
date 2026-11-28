@@ -1,0 +1,394 @@
+
+
+# File QfCloudPendingChanges.qml
+
+[**File List**](files.md) **>** [**app**](dir_5194e5fea318fda12687127c23f8aba1.md) **>** [**qml**](dir_408f7dc2ccecf14179dc3d37678eaa5b.md) **>** [**QfCloudPendingChanges.qml**](QfCloudPendingChanges_8qml.md)
+
+[Go to the documentation of this file](QfCloudPendingChanges_8qml.md)
+
+
+```C++
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.qgis
+import org.qfield.core
+import org.qfield.gui
+
+Rectangle {
+  id: pendingChanges
+
+  property alias deltaFileWrapper: deltaChangesModel.deltaFileWrapper
+  property bool isProjectBusy: false
+
+  signal revertRequested(string deltaUuid)
+
+  function deltaMethodColor(method) {
+    switch (method) {
+    case QfDeltaChangesModel.CreateMethod:
+      return QfTheme.mainColor;
+    case QfDeltaChangesModel.PatchMethod:
+      return QfTheme.secondaryTextColor;
+    case QfDeltaChangesModel.DeleteMethod:
+      return QfTheme.errorColor;
+    default:
+      return QfTheme.secondaryTextColor;
+    }
+  }
+
+  function deltaMethodBackgroundColor(method) {
+    switch (method) {
+    case QfDeltaChangesModel.CreateMethod:
+      return Qt.rgba(QfTheme.mainColor.r, QfTheme.mainColor.g, QfTheme.mainColor.b, 0.12);
+    case QfDeltaChangesModel.PatchMethod:
+      return QfTheme.groupBoxBackgroundColor;
+    case QfDeltaChangesModel.DeleteMethod:
+      return Qt.rgba(QfTheme.errorColor.r, QfTheme.errorColor.g, QfTheme.errorColor.b, 0.12);
+    default:
+      return QfTheme.groupBoxBackgroundColor;
+    }
+  }
+
+  function deltaMethodLabel(method) {
+    switch (method) {
+    case QfDeltaChangesModel.CreateMethod:
+      return qsTr('added');
+    case QfDeltaChangesModel.PatchMethod:
+      return qsTr('edited');
+    case QfDeltaChangesModel.DeleteMethod:
+      return qsTr('deleted');
+    default:
+      return '';
+    }
+  }
+
+  function layerGeometryIcon(geometryType) {
+    switch (geometryType) {
+    case Qgis.GeometryType.Point:
+      return QfTheme.getThemeVectorIcon('ic_geometry_point_24dp');
+    case Qgis.GeometryType.Line:
+      return QfTheme.getThemeVectorIcon('ic_geometry_line_24dp');
+    case Qgis.GeometryType.Polygon:
+      return QfTheme.getThemeVectorIcon('ic_geometry_polygon_24dp');
+    default:
+      return QfTheme.getThemeVectorIcon('ic_info_white_24dp');
+    }
+  }
+
+  function attributeChangeValueText(value) {
+    if (value === '') {
+      return qsTr('Empty');
+    }
+    return QfFeatureUtils.attributeIsNull(value) ? qsTr('NULL') : String(value);
+  }
+
+  function isEmptyAttributeChange(change, method) {
+    if (method === QfDeltaChangesModel.PatchMethod) {
+      return false;
+    }
+    const value = method === QfDeltaChangesModel.DeleteMethod ? change.oldValue : change.newValue;
+    return value === '' || QfFeatureUtils.attributeIsNull(value);
+  }
+
+  color: QfTheme.controlBackgroundColor
+  border.color: QfTheme.controlBorderColor
+  border.width: 1
+
+  ListView {
+    id: pendingChangesList
+    anchors.fill: parent
+    anchors.margins: 1
+    clip: true
+    ScrollBar.vertical: QfScrollBar {}
+
+    model: QfDeltaChangesModel {
+      id: deltaChangesModel
+    }
+
+    section.property: "LayerId"
+    section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
+    section.delegate: Rectangle {
+      id: layerHeader
+
+      required property string section
+
+      readonly property string layerName: deltaChangesModel.layerName(layerHeader.section)
+      readonly property int layerGeometryType: deltaChangesModel.layerGeometryType(layerHeader.section)
+      readonly property int layerChangesCount: pendingChangesList.count > 0 ? deltaChangesModel.layerChangesCount(layerHeader.section) : 0
+
+      width: pendingChangesList.width
+      height: 30
+      color: QfTheme.controlBorderColor
+
+      RowLayout {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.leftMargin: 10
+        anchors.rightMargin: 10
+        spacing: 10
+
+        QfToolButton {
+          Layout.alignment: Qt.AlignVCenter
+          Layout.preferredWidth: 20
+          Layout.preferredHeight: 20
+          padding: 0
+          icon.width: 20
+          icon.height: 20
+          enabled: false
+          bgcolor: "transparent"
+          iconSource: pendingChanges.layerGeometryIcon(layerHeader.layerGeometryType)
+          iconColor: QfTheme.secondaryTextColor
+        }
+
+        Text {
+          Layout.fillWidth: true
+          font: QfTheme.tipFont
+          color: QfTheme.mainTextColor
+          elide: Text.ElideRight
+          text: layerHeader.layerName
+        }
+
+        Text {
+          Layout.alignment: Qt.AlignVCenter
+          font: QfTheme.tinyFont
+          color: QfTheme.secondaryTextColor
+          text: qsTr('%n change(s)', '', layerHeader.layerChangesCount)
+        }
+      }
+    }
+
+    delegate: Rectangle {
+      id: featureRow
+
+      readonly property int deltaMethod: Method
+      readonly property color badgeColor: pendingChanges.deltaMethodColor(featureRow.deltaMethod)
+      readonly property color badgeBackgroundColor: pendingChanges.deltaMethodBackgroundColor(featureRow.deltaMethod)
+      readonly property bool hasDetails: AttributeChanges.length > 0 || HasGeometryChange
+      readonly property int emptyAttributesCount: AttributeChanges.filter(change => pendingChanges.isEmptyAttributeChange(change, featureRow.deltaMethod)).length
+      readonly property bool isRecording: trackingModel.activeCount > 0 && trackingModel.layerInActiveTracking(qgisProject.mapLayer(LayerId)) && featureRow.deltaMethod !== QfDeltaChangesModel.DeleteMethod && trackingModel.trackerForLayer(qgisProject.mapLayer(LayerId)).feature.id === FeatureId
+      property bool expanded: false
+      property bool showEmptyAttributes: false
+
+      width: pendingChangesList.width
+      height: featureHeader.height + (featureRow.expanded ? featureDetails.height + 10 : 0)
+      color: "transparent"
+      clip: true
+
+      Behavior on height {
+        NumberAnimation {
+          duration: 150
+          easing.type: Easing.OutQuad
+        }
+      }
+
+      Item {
+        id: featureHeader
+        width: parent.width
+        height: Math.max(48, featureHeaderRow.implicitHeight)
+
+        RowLayout {
+          id: featureHeaderRow
+          anchors.left: parent.left
+          anchors.right: parent.right
+          anchors.leftMargin: 10
+          anchors.rightMargin: 10
+          anchors.verticalCenter: parent.verticalCenter
+          spacing: 10
+
+          Text {
+            Layout.fillWidth: true
+            font: QfTheme.defaultFont
+            color: QfTheme.mainTextColor
+            elide: Text.ElideRight
+            text: FeatureName
+          }
+
+          QfToolButton {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: 20
+            Layout.preferredHeight: 20
+            padding: 0
+            icon.width: 20
+            icon.height: 20
+            visible: featureRow.isRecording
+            enabled: false
+            bgcolor: "transparent"
+            iconSource: QfTheme.getThemeVectorIcon('directions_walk_24dp')
+            iconColor: QfTheme.mainTextColor
+          }
+
+          Rectangle {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: methodBadgeLabel.implicitWidth + 10
+            Layout.preferredHeight: methodBadgeLabel.implicitHeight + 5
+            radius: 4
+            color: featureRow.badgeBackgroundColor
+
+            Text {
+              id: methodBadgeLabel
+              anchors.centerIn: parent
+              font: QfTheme.tinyFont
+              color: featureRow.badgeColor
+              text: pendingChanges.deltaMethodLabel(featureRow.deltaMethod)
+            }
+          }
+
+          QfToolButton {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: 20
+            Layout.preferredHeight: 20
+            padding: 0
+            icon.width: 20
+            icon.height: 20
+            visible: featureRow.hasDetails
+            enabled: false
+            bgcolor: "transparent"
+            iconSource: QfTheme.getThemeVectorIcon(featureRow.expanded ? 'ic_chevron_up' : 'ic_chevron_down')
+            iconColor: QfTheme.secondaryTextColor
+          }
+        }
+
+        MouseArea {
+          anchors.fill: parent
+          enabled: featureRow.hasDetails
+          onClicked: featureRow.expanded = !featureRow.expanded
+        }
+      }
+
+      Column {
+        id: featureDetails
+        anchors.top: featureHeader.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: 10
+        anchors.rightMargin: 10
+        spacing: 5
+
+        GridLayout {
+          width: featureDetails.width
+          columns: featureDetails.width > 330 ? 2 : 1
+          columnSpacing: 10
+          rowSpacing: 10
+
+          QfButton {
+            Layout.fillWidth: parent.columns === 1
+            Layout.preferredHeight: 32
+            visible: featureRow.emptyAttributesCount > 0
+            bgcolor: "transparent"
+            color: QfTheme.mainColor
+            font: QfTheme.tipFont
+            text: featureRow.showEmptyAttributes ? qsTr('Hide empty fields') : qsTr('Show %n empty field(s)', '', featureRow.emptyAttributesCount)
+            onClicked: featureRow.showEmptyAttributes = !featureRow.showEmptyAttributes
+          }
+
+          QfButton {
+            Layout.alignment: Qt.AlignRight
+            Layout.fillWidth: parent.columns === 1
+            Layout.preferredHeight: 32
+            enabled: !featureRow.isRecording && !pendingChanges.isProjectBusy
+            bgcolor: "transparent"
+            color: enabled ? QfTheme.warningColor : QfTheme.mainTextDisabledColor
+            font: QfTheme.tipFont
+            text: qsTr('Discard change')
+            onClicked: pendingChanges.revertRequested(DeltaUuid)
+          }
+        }
+
+        Repeater {
+          model: featureRow.showEmptyAttributes ? AttributeChanges : AttributeChanges.filter(change => !pendingChanges.isEmptyAttributeChange(change, featureRow.deltaMethod))
+
+          Item {
+            width: featureDetails.width
+            height: attributeRow.implicitHeight + 10
+
+            RowLayout {
+              id: attributeRow
+              anchors.left: parent.left
+              anchors.right: parent.right
+              y: 4
+              spacing: 10
+
+              Text {
+                Layout.preferredWidth: parent.width * 0.4
+                font: QfTheme.tipFont
+                color: QfTheme.secondaryTextColor
+                elide: Text.ElideRight
+                text: modelData.name
+              }
+
+              function attributeChangeValue(change, method) {
+                switch (method) {
+                case QfDeltaChangesModel.PatchMethod:
+                  return qsTr('%1 to %2').arg(attributeValueText(change.oldValue)).arg(attributeValueText(change.newValue));
+                case QfDeltaChangesModel.DeleteMethod:
+                  return change.oldValue;
+                default:
+                  return change.newValue;
+                }
+              }
+
+              ColumnLayout {
+                spacing: 2
+
+                Text {
+                  Layout.fillWidth: true
+                  visible: featureRow.deltaMethod === QfDeltaChangesModel.PatchMethod
+                  font: QfTheme.tipFont
+                  color: QfTheme.mainTextColor
+                  wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                  text: featureRow.deltaMethod === QfDeltaChangesModel.PatchMethod ? pendingChanges.attributeChangeValueText(modelData.oldValue) : ""
+                  opacity: QfFeatureUtils.attributeIsNull(modelData.oldValue) ? 0.125 : 0.5
+                }
+
+                Text {
+                  Layout.fillWidth: true
+                  font: QfTheme.tipFont
+                  color: QfTheme.mainTextColor
+                  wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                  text: pendingChanges.attributeChangeValueText(featureRow.deltaMethod === QfDeltaChangesModel.DeleteMethod ? modelData.oldValue : modelData.newValue)
+                  opacity: {
+                    const value = featureRow.deltaMethod === QfDeltaChangesModel.DeleteMethod ? modelData.oldValue : modelData.newValue;
+                    return value === '' || QfFeatureUtils.attributeIsNull(value) ? 0.25 : 1.0;
+                  }
+                }
+              }
+            }
+
+            Rectangle {
+              anchors.left: parent.left
+              anchors.leftMargin: 20
+              anchors.right: parent.right
+              anchors.rightMargin: 20
+              anchors.bottom: parent.bottom
+              height: 1
+              color: QfTheme.controlBorderColor
+              opacity: 0.5
+            }
+          }
+        }
+
+        Text {
+          width: featureDetails.width
+          visible: HasGeometryChange
+          font: QfTheme.tipFont
+          color: QfTheme.secondaryTextColor
+          wrapMode: Text.WordWrap
+          text: qsTr('Geometry modified')
+        }
+      }
+
+      Rectangle {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        height: 1
+        color: QfTheme.controlBorderColor
+        visible: featureRow.ListView.section === featureRow.ListView.nextSection
+      }
+    }
+  }
+}
+```
+
+

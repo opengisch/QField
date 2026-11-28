@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_4f691f982165d1317925cee58b4b4f56" kind="dir">
+    <compoundname>src/service</compoundname>
+    <innerfile refid="qfieldcloudservice_8cpp">qfieldcloudservice.cpp</innerfile>
+    <innerfile refid="qfieldcloudservice_8h">qfieldcloudservice.h</innerfile>
+    <innerfile refid="qfieldpositioningservice_8cpp">qfieldpositioningservice.cpp</innerfile>
+    <innerfile refid="qfieldpositioningservice_8h">qfieldpositioningservice.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/service/"/>
+  </compounddef>
+</doxygen>

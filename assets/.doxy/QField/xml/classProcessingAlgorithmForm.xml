@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classProcessingAlgorithmForm" kind="class" language="C++" prot="public">
+    <compoundname>ProcessingAlgorithmForm</compoundname>
+    <basecompoundref refid="classQfProcessingAlgorithmForm" prot="public" virt="non-virtual">QfProcessingAlgorithmForm</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ProcessingAlgorithmForm</label>
+        <link refid="classProcessingAlgorithmForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProcessingAlgorithmForm</label>
+        <link refid="classQfProcessingAlgorithmForm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ProcessingAlgorithmForm</label>
+        <link refid="classProcessingAlgorithmForm"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfProcessingAlgorithmForm</label>
+        <link refid="classQfProcessingAlgorithmForm"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/ProcessingAlgorithmForm.qml" line="2" column="1" bodyfile="src/app/qml_compat/ProcessingAlgorithmForm.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfProcessingAlgorithmForm_1a3ef6593a860ed0d34eccdffe25e787df" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>algorithmDisplayName</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a623c00959244ffffec9e3601d2538b7e" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>algorithmId</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1a7f54b29759a052bda08a8a51eb08fb08" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>algorithmParametersModel</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1aa8244fc8d62977892b49a8f931a672ec" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>algorithmShortHelp</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1ad6655528c0fae9261ae0b4456bcf2ef8" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>bottomMargin</name></member>
+      <member refid="classQfProcessingAlgorithmForm_1aac5696cec3e82be49f660b9e7c78d720" prot="public" virt="non-virtual"><scope>ProcessingAlgorithmForm</scope><name>inPlaceLayer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPositioningNtripSettings" kind="class" language="C++" prot="public">
+    <compoundname>PositioningNtripSettings</compoundname>
+    <basecompoundref refid="classQfPositioningNtripSettings" prot="public" virt="non-virtual">QfPositioningNtripSettings</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>PositioningNtripSettings</label>
+        <link refid="classPositioningNtripSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPositioningNtripSettings</label>
+        <link refid="classQfPositioningNtripSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Popup</label>
+      </node>
+      <node id="1">
+        <label>PositioningNtripSettings</label>
+        <link refid="classPositioningNtripSettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfPopup</label>
+        <link refid="classQfPopup"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfPositioningNtripSettings</label>
+        <link refid="classQfPositioningNtripSettings"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/PositioningNtripSettings.qml" line="2" column="1" bodyfile="src/app/qml_compat/PositioningNtripSettings.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfPositioningNtripSettings_1a336e848a21d63d48d3fca5169ab6ece2" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>addPreset</name></member>
+      <member refid="classQfPositioningNtripSettings_1a2523e8de735ddef151bdc172ab82a680" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>apply</name></member>
+      <member refid="classQfPositioningNtripSettings_1ab11172d4020d4499f1db321342acb36f" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>clearMountPoints</name></member>
+      <member refid="classQfPositioningNtripSettings_1ab16e3b795644439d2c8a990f59b6ff6e" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>createSettingsMap</name></member>
+      <member refid="classQfPositioningNtripSettings_1ac2ab943e2269ffd20a825f07eaeb3c7e" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>isPresetNameAvailable</name></member>
+      <member refid="classQfPositioningNtripSettings_1a354e137b87f742ce291535eede73b714" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>loadPreset</name></member>
+      <member refid="classQfPositioningNtripSettings_1a486a6ce825f302ac75e80cb1d1a92611" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>presetIndex</name></member>
+      <member refid="classQfPositioningNtripSettings_1ac0c43786ae4b0f9335b2bf03e279b80d" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>presets</name></member>
+      <member refid="classQfPositioningNtripSettings_1a8de2320889522ea12212e8fa235fc0ce" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>removePreset</name></member>
+      <member refid="classQfPositioningNtripSettings_1ad03235fd9dcf965973fca143f97d7d74" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>renamePreset</name></member>
+      <member refid="classQfPositioningNtripSettings_1a474dcdc16bb23b1f05cabdc65caf5012" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>savePreset</name></member>
+      <member refid="classQfPositioningNtripSettings_1aa7b82c34d3f20be9d30e78bdedc1b0bf" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>switchToPreset</name></member>
+      <member refid="classQfPositioningNtripSettings_1add75b43852d50ab9b47bde0d60ca1280" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>updateFromNtripPresets</name></member>
+      <member refid="classQfPositioningNtripSettings_1acff22aaf35472db588761e2ec773aa57" prot="public" virt="non-virtual"><scope>PositioningNtripSettings</scope><name>updateFromNtripSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

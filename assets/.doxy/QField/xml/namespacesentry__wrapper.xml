@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacesentry__wrapper" kind="namespace" language="C++">
+    <compoundname>sentry_wrapper</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="sentry__classic_8cpp_1a89215001cadb2b629161073ebfafaf8a" prot="public" static="yes" mutable="no">
+        <type>QtMessageHandler</type>
+        <definition>QtMessageHandler sentry_wrapper::originalMessageHandler</definition>
+        <argsstring></argsstring>
+        <name>originalMessageHandler</name>
+        <qualifiedname>sentry_wrapper::originalMessageHandler</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/sentry/sentry_classic.cpp" line="49" column="27" bodyfile="src/sentry/sentry_classic.cpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="sentry__classic_8cpp_1aba82582a8e125e65d78694d890f313dc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>static const char * sentry_wrapper::logLevelForMessageType</definition>
+        <argsstring>(QtMsgType msgType)</argsstring>
+        <name>logLevelForMessageType</name>
+        <qualifiedname>sentry_wrapper::logLevelForMessageType</qualifiedname>
+        <param>
+          <type>QtMsgType</type>
+          <declname>msgType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/sentry/sentry_classic.cpp" line="52" column="5" bodyfile="src/sentry/sentry_classic.cpp" bodystart="52" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="sentry__classic_8cpp_1ada5e277c72a93ec39269f121eae4f7b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sentry_wrapper::qfMessageHandler</definition>
+        <argsstring>(QtMsgType type, const QMessageLogContext &amp;context, const QString &amp;msg)</argsstring>
+        <name>qfMessageHandler</name>
+        <qualifiedname>sentry_wrapper::qfMessageHandler</qualifiedname>
+        <param>
+          <type>QtMsgType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QMessageLogContext &amp;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/sentry/sentry_classic.cpp" line="71" column="8" bodyfile="src/sentry/sentry_classic.cpp" bodystart="71" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="sentry__classic_8cpp_1a844b806057a4a473403f4411a1921b68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sentry_wrapper::install_message_handler</definition>
+        <argsstring>()</argsstring>
+        <name>install_message_handler</name>
+        <qualifiedname>sentry_wrapper::install_message_handler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/sentry/sentry_classic.cpp" line="138" column="8" bodyfile="src/sentry/sentry_classic.cpp" bodystart="138" bodyend="141" declfile="src/sentry/sentry_wrapper.h" declline="21" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="sentry__classic_8cpp_1a99555701cf3a3d3697ce529e906afa10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sentry_wrapper::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>sentry_wrapper::init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/sentry/sentry_classic.cpp" line="143" column="8" bodyfile="src/sentry/sentry_classic.cpp" bodystart="143" bodyend="161" declfile="src/sentry/sentry_wrapper.h" declline="19" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="sentry__classic_8cpp_1a43121a263f35759c7f204751cac20c56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sentry_wrapper::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <qualifiedname>sentry_wrapper::close</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/sentry/sentry_classic.cpp" line="163" column="8" bodyfile="src/sentry/sentry_classic.cpp" bodystart="163" bodyend="166" declfile="src/sentry/sentry_wrapper.h" declline="20" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="sentry__classic_8cpp_1aac785a17431b54773f180bb94be3551f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sentry_wrapper::capture_event</definition>
+        <argsstring>(const char *message, const char *cloudUser)</argsstring>
+        <name>capture_event</name>
+        <qualifiedname>sentry_wrapper::capture_event</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>cloudUser</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/sentry/sentry_classic.cpp" line="168" column="8" bodyfile="src/sentry/sentry_classic.cpp" bodystart="168" bodyend="182" declfile="src/sentry/sentry_wrapper.h" declline="22" declcolumn="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/sentry/sentry_classic.cpp" line="47" column="1"/>
+  </compounddef>
+</doxygen>

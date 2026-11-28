@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfGeometryEditorReshape" kind="class" language="C++" prot="public">
+    <compoundname>QfGeometryEditorReshape</compoundname>
+    <basecompoundref refid="classQfGeometryEditorBase" prot="public" virt="non-virtual">QfGeometryEditorBase</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfGeometryEditorReshape_1a0198bdb11934e148ab11d45544e18028" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGeometryEditorReshape::screenHovering</definition>
+        <argsstring></argsstring>
+        <name>screenHovering</name>
+        <qualifiedname>QfGeometryEditorReshape::screenHovering</qualifiedname>
+        <read>dummyGetter_screenHovering_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" line="8" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfGeometryEditorReshape_1a35c626ae4111bcf807f8086f1b6ca8a1" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfGeometryEditorReshape::blocking</definition>
+        <argsstring></argsstring>
+        <name>blocking</name>
+        <qualifiedname>QfGeometryEditorReshape::blocking</qualifiedname>
+        <read>dummyGetter_blocking_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This property is read-only </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" line="11" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfGeometryEditorReshape_1ae2bf3127a54122c689e0817f9d38036c" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfGeometryEditorReshape::spacing</definition>
+        <argsstring></argsstring>
+        <name>spacing</name>
+        <qualifiedname>QfGeometryEditorReshape::spacing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" line="13" column="5" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfGeometryEditorReshape_1a48eb5e594434ede9156b50ac883a8cbe" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfDigitizingToolbar" kindref="compound">QfDigitizingToolbar</ref></type>
+        <definition>QfDigitizingToolbar QfGeometryEditorReshape::drawPolygonToolbar</definition>
+        <argsstring></argsstring>
+        <name>drawPolygonToolbar</name>
+        <qualifiedname>QfGeometryEditorReshape::drawPolygonToolbar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" line="20" column="21" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfGeometryEditorReshape_1af1098a856911033f10bd18149babf89d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorReshape::canvasClicked</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasClicked</name>
+        <qualifiedname>QfGeometryEditorReshape::canvasClicked</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" line="16" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorReshape_1a82af5a20058dc5927ab953a38f30930b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorReshape::canvasLongPressed</definition>
+        <argsstring>(point, type)</argsstring>
+        <name>canvasLongPressed</name>
+        <qualifiedname>QfGeometryEditorReshape::canvasLongPressed</qualifiedname>
+        <param>
+          <type>point</type>
+        </param>
+        <param>
+          <type>type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" line="18" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorReshape_1acbc9328b667d338a130107da06fd6631" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorReshape::init</definition>
+        <argsstring>(featureModel, mapSettings, editorRubberbandModel, editorRenderer)</argsstring>
+        <name>init</name>
+        <qualifiedname>QfGeometryEditorReshape::init</qualifiedname>
+        <param>
+          <type>featureModel</type>
+        </param>
+        <param>
+          <type>mapSettings</type>
+        </param>
+        <param>
+          <type>editorRubberbandModel</type>
+        </param>
+        <param>
+          <type>editorRenderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" line="23" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfGeometryEditorReshape_1a0df933ff3a4472ae4982c53681b6298e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfGeometryEditorReshape::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <qualifiedname>QfGeometryEditorReshape::cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" line="25" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QfGeometryEditorBase</label>
+        <link refid="classQfGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfGeometryEditorReshape</label>
+        <link refid="classQfGeometryEditorReshape"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QfGeometryEditorBase</label>
+        <link refid="classQfGeometryEditorBase"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>QfGeometryEditorReshape</label>
+        <link refid="classQfGeometryEditorReshape"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" line="5" column="1" bodyfile="src/gui/qml/geometryeditors/QfGeometryEditorReshape.qml" bodystart="5" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classQfGeometryEditorReshape_1a35c626ae4111bcf807f8086f1b6ca8a1" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>blocking</name></member>
+      <member refid="classQfGeometryEditorReshape_1a0df933ff3a4472ae4982c53681b6298e" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>cancel</name></member>
+      <member refid="classQfGeometryEditorReshape_1af1098a856911033f10bd18149babf89d" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>canvasClicked</name></member>
+      <member refid="classQfGeometryEditorReshape_1a82af5a20058dc5927ab953a38f30930b" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>canvasLongPressed</name></member>
+      <member refid="classQfGeometryEditorReshape_1a48eb5e594434ede9156b50ac883a8cbe" prot="private" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>drawPolygonToolbar</name></member>
+      <member refid="classQfGeometryEditorBase_1a1a7164a5fbdf15d31c6e23b6983bc32c" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>editorRenderer</name></member>
+      <member refid="classQfGeometryEditorBase_1a14439ec56a3b30ac66c32579af50a219" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>featureModel</name></member>
+      <member refid="classQfGeometryEditorBase_1ac6337b14ccc5df9f36430f9a91c85f21" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>finished</name></member>
+      <member refid="classQfGeometryEditorReshape_1acbc9328b667d338a130107da06fd6631" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>init</name></member>
+      <member refid="classQfGeometryEditorBase_1a30b2a489e975563b19b92e10064073b8" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>mapSettings</name></member>
+      <member refid="classQfGeometryEditorBase_1ae68efe596c2c9c14fba8d1d546dcfde0" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfGeometryEditorReshape_1a0198bdb11934e148ab11d45544e18028" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>screenHovering</name></member>
+      <member refid="classQfGeometryEditorReshape_1ae2bf3127a54122c689e0817f9d38036c" prot="private" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>spacing</name></member>
+      <member refid="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" virt="non-virtual"><scope>QfGeometryEditorReshape</scope><name>stateVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

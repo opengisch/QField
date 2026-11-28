@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfActionButton" kind="class" language="C++" prot="public">
+    <compoundname>QfActionButton</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ToolButton</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfActionButton_1abd79fec705a7b4d8c04f9552f4df0547" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfActionButton::toolImage</definition>
+        <argsstring></argsstring>
+        <name>toolImage</name>
+        <qualifiedname>QfActionButton::toolImage</qualifiedname>
+        <read>dummyGetter_toolImage_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfActionButton.qml" line="12" column="1" bodyfile="src/gui/qml/QfActionButton.qml" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfActionButton_1af7c7ca6acb2585d2f77b2bbe736f4e77" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfActionButton::toolText</definition>
+        <argsstring></argsstring>
+        <name>toolText</name>
+        <qualifiedname>QfActionButton::toolText</qualifiedname>
+        <read>dummyGetter_toolText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfActionButton.qml" line="14" column="1" bodyfile="src/gui/qml/QfActionButton.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfActionButton_1ac30de5b6328b97bd3e445b4e839bf4a0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfActionButton::backgroundless</definition>
+        <argsstring></argsstring>
+        <name>backgroundless</name>
+        <qualifiedname>QfActionButton::backgroundless</qualifiedname>
+        <read>dummyGetter_backgroundless_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfActionButton.qml" line="16" column="1" bodyfile="src/gui/qml/QfActionButton.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfActionButton_1a0292971bc79c2d7c291261c2de8562ea" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfActionButton::innerActionIcon</definition>
+        <argsstring></argsstring>
+        <name>innerActionIcon</name>
+        <qualifiedname>QfActionButton::innerActionIcon</qualifiedname>
+        <read>dummyGetter_innerActionIcon_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfActionButton.qml" line="18" column="1" bodyfile="src/gui/qml/QfActionButton.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfActionButton_1aeae546babe20cf20be6377c400a2c63b" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfActionButton::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>QfActionButton::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfActionButton.qml" line="20" column="5" bodyfile="src/gui/qml/QfActionButton.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfActionButton_1acdeee01b23b8d1fa336aaf53ec57c966" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfActionButton::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>QfActionButton::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfActionButton.qml" line="21" column="5" bodyfile="src/gui/qml/QfActionButton.qml" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfActionButton_1ab1d2a6c0e74903521fe4004968fadc92" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfActionButton::clip</definition>
+        <argsstring></argsstring>
+        <name>clip</name>
+        <qualifiedname>QfActionButton::clip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfActionButton.qml" line="22" column="5" bodyfile="src/gui/qml/QfActionButton.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfActionButton_1a3a86caf5a76f3f94d4e9897af049d667" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfActionButton::background</definition>
+        <argsstring></argsstring>
+        <name>background</name>
+        <qualifiedname>QfActionButton::background</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfActionButton.qml" line="23" column="5" bodyfile="src/gui/qml/QfActionButton.qml" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfActionButton_1a9f95b44d80acc1431593c902219e14b2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfActionButton::contentItem</definition>
+        <argsstring></argsstring>
+        <name>contentItem</name>
+        <qualifiedname>QfActionButton::contentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfActionButton.qml" line="24" column="5" bodyfile="src/gui/qml/QfActionButton.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfActionButton</label>
+        <link refid="classQfActionButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ToolButton</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfActionButton</label>
+        <link refid="classQfActionButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ToolButton</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfActionButton.qml" line="9" column="1" bodyfile="src/gui/qml/QfActionButton.qml" bodystart="9" bodyend="25"/>
+    <listofallmembers>
+      <member refid="classQfActionButton_1a3a86caf5a76f3f94d4e9897af049d667" prot="private" virt="non-virtual"><scope>QfActionButton</scope><name>background</name></member>
+      <member refid="classQfActionButton_1ac30de5b6328b97bd3e445b4e839bf4a0" prot="public" virt="non-virtual"><scope>QfActionButton</scope><name>backgroundless</name></member>
+      <member refid="classQfActionButton_1ab1d2a6c0e74903521fe4004968fadc92" prot="private" virt="non-virtual"><scope>QfActionButton</scope><name>clip</name></member>
+      <member refid="classQfActionButton_1a9f95b44d80acc1431593c902219e14b2" prot="private" virt="non-virtual"><scope>QfActionButton</scope><name>contentItem</name></member>
+      <member refid="classQfActionButton_1aeae546babe20cf20be6377c400a2c63b" prot="private" virt="non-virtual"><scope>QfActionButton</scope><name>height</name></member>
+      <member refid="classQfActionButton_1a0292971bc79c2d7c291261c2de8562ea" prot="public" virt="non-virtual"><scope>QfActionButton</scope><name>innerActionIcon</name></member>
+      <member refid="classQfActionButton_1abd79fec705a7b4d8c04f9552f4df0547" prot="public" virt="non-virtual"><scope>QfActionButton</scope><name>toolImage</name></member>
+      <member refid="classQfActionButton_1af7c7ca6acb2585d2f77b2bbe736f4e77" prot="public" virt="non-virtual"><scope>QfActionButton</scope><name>toolText</name></member>
+      <member refid="classQfActionButton_1acdeee01b23b8d1fa336aaf53ec57c966" prot="private" virt="non-virtual"><scope>QfActionButton</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="qfcloudattachmentswatcher_8cpp" kind="file" language="C++">
+    <compoundname>qfcloudattachmentswatcher.cpp</compoundname>
+    <includes refid="qfcloudattachmentswatcher_8h" local="yes">qfcloudattachmentswatcher.h</includes>
+    <includes refid="qfcloudutils_8h" local="yes">qfcloudutils.h</includes>
+    <includes local="no">QFileInfo</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/core/qfieldcloud/qfcloudattachmentswatcher.cpp</label>
+        <link refid="qfcloudattachmentswatcher_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>qfcloudattachmentswatcher.h</label>
+        <link refid="qfcloudattachmentswatcher_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>qfcloudconnection.h</label>
+        <link refid="qfcloudconnection_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>qfcloudproject.h</label>
+        <link refid="qfcloudproject_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>qfcloudprojectsmodel.h</label>
+        <link refid="qfcloudprojectsmodel_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>qfdeltafilewrapper.h</label>
+        <link refid="qfdeltafilewrapper_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>qfnetworkmanager.h</label>
+        <link refid="qfnetworkmanager_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>qfnetworkreply.h</label>
+        <link refid="qfnetworkreply_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>qgsgpkgflusher.h</label>
+        <link refid="qgsgpkgflusher_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>qfcloudutils.h</label>
+        <link refid="qfcloudutils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="34">
+        <label>QFileInfo</label>
+      </node>
+      <node id="32">
+        <label>QFileSystemWatcher</label>
+      </node>
+      <node id="8">
+        <label>QJsonArray</label>
+      </node>
+      <node id="9">
+        <label>QJsonDocument</label>
+      </node>
+      <node id="10">
+        <label>QJsonObject</label>
+      </node>
+      <node id="17">
+        <label>QNetworkAccessManager</label>
+      </node>
+      <node id="29">
+        <label>QNetworkInformation</label>
+      </node>
+      <node id="18">
+        <label>QNetworkReply</label>
+      </node>
+      <node id="15">
+        <label>QObject</label>
+      </node>
+      <node id="20">
+        <label>QPointer</label>
+      </node>
+      <node id="30">
+        <label>QSet</label>
+      </node>
+      <node id="26">
+        <label>QSortFilterProxyModel</label>
+      </node>
+      <node id="23">
+        <label>QThread</label>
+      </node>
+      <node id="27">
+        <label>QTimer</label>
+      </node>
+      <node id="21">
+        <label>QVariantMap</label>
+      </node>
+      <node id="31">
+        <label>functional</label>
+      </node>
+      <node id="33">
+        <label>memory</label>
+      </node>
+      <node id="11">
+        <label>qgsfeature.h</label>
+      </node>
+      <node id="12">
+        <label>qgslogger.h</label>
+      </node>
+      <node id="24">
+        <label>qgsmaplayer.h</label>
+      </node>
+      <node id="19">
+        <label>qgsnetworkaccessmanager.h</label>
+      </node>
+      <node id="28">
+        <label>qgsproject.h</label>
+      </node>
+      <node id="13">
+        <label>qgsvectorlayer.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>qfcloudattachmentswatcher.cpp</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/>---------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>begin<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>November<sp/>2026</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/>copyright<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(C)<sp/>2026<sp/>by<sp/>Kaustuv<sp/>Pokharel</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/><sp/>email<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>kaustuv@opengis.ch</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>***************************************************************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfcloudattachmentswatcher.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;qfcloudutils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QFileInfo&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">QfCloudAttachmentsWatcher::QfCloudAttachmentsWatcher(<sp/>QObject<sp/>*parent<sp/>)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>:<sp/>QObject(<sp/>parent<sp/>)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">QfCloudAttachmentsWatcher::~QfCloudAttachmentsWatcher()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classQfCloudAttachmentsWatcher_1a63b893e28b8af7005fc56a785fb4bcb3" kindref="member">QfCloudAttachmentsWatcher::active</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="30"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mActive;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfCloudAttachmentsWatcher_1a90e9af46d900a65adec798ad6108914d" kindref="member">QfCloudAttachmentsWatcher::setActive</ref>(<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>active<sp/>)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mActive<sp/>==<sp/><ref refid="classQfCloudAttachmentsWatcher_1a63b893e28b8af7005fc56a785fb4bcb3" kindref="member">active</ref><sp/>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>mActive<sp/>=<sp/><ref refid="classQfCloudAttachmentsWatcher_1a63b893e28b8af7005fc56a785fb4bcb3" kindref="member">active</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>attachWatcher();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref><sp/>*<ref refid="classQfCloudAttachmentsWatcher_1a5fd1e491a32d517db1f5b5a355a83620" kindref="member">QfCloudAttachmentsWatcher::cloudConnection</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="46"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mCloudConnection;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classQfCloudAttachmentsWatcher_1ae18b3c6609f15688ccd9caa36c352c02" kindref="member">QfCloudAttachmentsWatcher::setCloudConnection</ref>(<sp/><ref refid="classQfCloudConnection" kindref="compound">QfCloudConnection</ref><sp/>*cloudConnection<sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mCloudConnection<sp/>==<sp/><ref refid="classQfCloudAttachmentsWatcher_1a5fd1e491a32d517db1f5b5a355a83620" kindref="member">cloudConnection</ref><sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mCloudConnection<sp/>)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>disconnect(<sp/>mCloudConnection,<sp/>&amp;QfCloudConnection::usernameChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;QfCloudAttachmentsWatcher::attachWatcher<sp/>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>mCloudConnection<sp/>=<sp/><ref refid="classQfCloudAttachmentsWatcher_1a5fd1e491a32d517db1f5b5a355a83620" kindref="member">cloudConnection</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mCloudConnection<sp/>)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<sp/>mCloudConnection,<sp/>&amp;QfCloudConnection::usernameChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;QfCloudAttachmentsWatcher::attachWatcher<sp/>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>attachWatcher();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>QfCloudAttachmentsWatcher::attachWatcher()</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>mWatcher.reset();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>mAttachmentsFilePath.clear();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>mQueueOutstanding<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mActive<sp/>||<sp/>!mCloudConnection<sp/>||<sp/>mCloudConnection-&gt;username().isEmpty()<sp/>)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString<sp/>directory<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/%2&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/><ref refid="classQfCloudUtils_1adea231346e476b9d942d4ac0369e6e08" kindref="member">QfCloudUtils::localCloudDirectory</ref>(),<sp/>mCloudConnection-&gt;username()<sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!QFileInfo(<sp/>directory<sp/>).isDir()<sp/>)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>mAttachmentsFilePath<sp/>=<sp/>QStringLiteral(<sp/></highlight><highlight class="stringliteral">&quot;%1/attachments.csv&quot;</highlight><highlight class="normal"><sp/>).arg(<sp/>directory<sp/>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>mWatcher<sp/>=<sp/>std::make_unique&lt;QFileSystemWatcher&gt;();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>connect(<sp/>mWatcher.get(),<sp/>&amp;QFileSystemWatcher::fileChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;QfCloudAttachmentsWatcher::onFileChanged<sp/>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>connect(<sp/>mWatcher.get(),<sp/>&amp;QFileSystemWatcher::directoryChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;QfCloudAttachmentsWatcher::onDirectoryChanged<sp/>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>directory<sp/>is<sp/>only<sp/>watched<sp/>until<sp/>the<sp/>attachments<sp/>file<sp/>gets<sp/>created</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QFileInfo<sp/>attachmentsFileInfo(<sp/>mAttachmentsFilePath<sp/>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>attachmentsFileInfo.exists()<sp/>)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>mWatcher-&gt;addPath(<sp/>mAttachmentsFilePath<sp/>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>mQueueOutstanding<sp/>=<sp/>attachmentsFileInfo.size()<sp/>&gt;<sp/>0;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>mWatcher-&gt;addPath(<sp/>directory<sp/>);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>QfCloudAttachmentsWatcher::onFileChanged()</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>emit<sp/><ref refid="classQfCloudAttachmentsWatcher_1a310b3b605431dcd02dd749cd53a61d3c" kindref="member">queueChanged</ref>();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>queueOutstanding<sp/>=<sp/>QFileInfo(<sp/>mAttachmentsFilePath<sp/>).size()<sp/>&gt;<sp/>0;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mQueueOutstanding<sp/>&amp;&amp;<sp/>!queueOutstanding<sp/>)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classQfCloudAttachmentsWatcher_1a380faa6f4075be4e5d8c3af1de88dbe7" kindref="member">queueFinished</ref>();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>mQueueOutstanding<sp/>=<sp/>queueOutstanding;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>QfCloudAttachmentsWatcher::onDirectoryChanged()</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>directory<sp/>also<sp/>changes<sp/>whenever<sp/>the<sp/>attachments<sp/>lock<sp/>file<sp/>is<sp/>taken,<sp/>only<sp/>switch<sp/>once<sp/>the<sp/>attachments<sp/>file<sp/>exists</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!mWatcher<sp/>||<sp/>mWatcher-&gt;files().contains(<sp/>mAttachmentsFilePath<sp/>)<sp/>||<sp/>!QFileInfo::exists(<sp/>mAttachmentsFilePath<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mWatcher-&gt;addPath(<sp/>mAttachmentsFilePath<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>mWatcher-&gt;removePath(<sp/>QFileInfo(<sp/>mAttachmentsFilePath<sp/>).absolutePath()<sp/>);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>An<sp/>empty<sp/>attachments<sp/>file<sp/>does<sp/>not<sp/>hold<sp/>a<sp/>queue<sp/>yet,<sp/>its<sp/>first<sp/>write<sp/>is<sp/>reported<sp/>as<sp/>a<sp/>file<sp/>change</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>mQueueOutstanding<sp/>=<sp/>QFileInfo(<sp/>mAttachmentsFilePath<sp/>).size()<sp/>&gt;<sp/>0;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>mQueueOutstanding<sp/>)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classQfCloudAttachmentsWatcher_1a310b3b605431dcd02dd749cd53a61d3c" kindref="member">queueChanged</ref>();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/core/qfieldcloud/qfcloudattachmentswatcher.cpp"/>
+  </compounddef>
+</doxygen>

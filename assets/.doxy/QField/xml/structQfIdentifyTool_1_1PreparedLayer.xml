@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfIdentifyTool_1_1PreparedLayer" kind="struct" language="C++" prot="private">
+    <compoundname>QfIdentifyTool::PreparedLayer</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1aba33a829fd22e375765fe8689e58cbac" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfIdentifyTool::PreparedLayer::isValid</definition>
+        <argsstring></argsstring>
+        <name>isValid</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::isValid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="113" column="14" bodyfile="src/core/qfidentifytool.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1ab0043e5b2999427ebaa088e6c3a1d4ff" prot="public" static="no" mutable="no">
+        <type>Qgis::LayerType</type>
+        <definition>Qgis::LayerType QfIdentifyTool::PreparedLayer::layerType</definition>
+        <argsstring></argsstring>
+        <name>layerType</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::layerType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="115" column="25" bodyfile="src/core/qfidentifytool.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1aae293b71a25142a4aebde440935c8010" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfIdentifyTool::PreparedLayer::layerId</definition>
+        <argsstring></argsstring>
+        <name>layerId</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::layerId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="116" column="17" bodyfile="src/core/qfidentifytool.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1a8c4d417afc8cb882cd284ff42768de97" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfIdentifyTool::PreparedLayer::layerName</definition>
+        <argsstring></argsstring>
+        <name>layerName</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::layerName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="117" column="17" bodyfile="src/core/qfidentifytool.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1a2527ad97b97f55b1fd695e612712b44c" prot="public" static="no" mutable="no">
+        <type>QgsRectangle</type>
+        <definition>QgsRectangle QfIdentifyTool::PreparedLayer::extent</definition>
+        <argsstring></argsstring>
+        <name>extent</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::extent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="118" column="22" bodyfile="src/core/qfidentifytool.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1a493d96c04bb0a555d66f391952e49d9a" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsVectorLayerFeatureSource &gt;</type>
+        <definition>std::unique_ptr&lt;QgsVectorLayerFeatureSource&gt; QfIdentifyTool::PreparedLayer::vectorFeatureSource</definition>
+        <argsstring></argsstring>
+        <name>vectorFeatureSource</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::vectorFeatureSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="120" column="25" bodyfile="src/core/qfidentifytool.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1ad59436896f8af5902ae360346c702122" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsFeatureRenderer &gt;</type>
+        <definition>std::unique_ptr&lt;QgsFeatureRenderer&gt; QfIdentifyTool::PreparedLayer::vectorRenderer</definition>
+        <argsstring></argsstring>
+        <name>vectorRenderer</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::vectorRenderer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="121" column="25" bodyfile="src/core/qfidentifytool.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1a6edc816783a6ba3a7e7f88b1df60ddef" prot="public" static="no" mutable="no">
+        <type>QgsFields</type>
+        <definition>QgsFields QfIdentifyTool::PreparedLayer::fields</definition>
+        <argsstring></argsstring>
+        <name>fields</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::fields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="122" column="19" bodyfile="src/core/qfidentifytool.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1aa742d40ea692e429accc07b548b0ac94" prot="public" static="no" mutable="no">
+        <type>QgsFeatureRequest</type>
+        <definition>QgsFeatureRequest QfIdentifyTool::PreparedLayer::request</definition>
+        <argsstring></argsstring>
+        <name>request</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::request</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="123" column="27" bodyfile="src/core/qfidentifytool.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1aeb528e3cd1368f9c9bde2c23fe2e165e" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsRasterDataProvider &gt;</type>
+        <definition>std::unique_ptr&lt;QgsRasterDataProvider&gt; QfIdentifyTool::PreparedLayer::rasterDataProvider</definition>
+        <argsstring></argsstring>
+        <name>rasterDataProvider</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::rasterDataProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="125" column="25" bodyfile="src/core/qfidentifytool.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1ae1ec53166eb81ddb314a9a8b523036a2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfIdentifyTool::PreparedLayer::rasterWidth</definition>
+        <argsstring></argsstring>
+        <name>rasterWidth</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::rasterWidth</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="126" column="13" bodyfile="src/core/qfidentifytool.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1a7c5c2eb370d8bed106b9e5547033ee4b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int QfIdentifyTool::PreparedLayer::rasterHeight</definition>
+        <argsstring></argsstring>
+        <name>rasterHeight</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::rasterHeight</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="127" column="13" bodyfile="src/core/qfidentifytool.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1ad15af722edb9bafc7ddaffc21dfa792a" prot="public" static="no" mutable="no">
+        <type>QgsPointXY</type>
+        <definition>QgsPointXY QfIdentifyTool::PreparedLayer::rasterPoint</definition>
+        <argsstring></argsstring>
+        <name>rasterPoint</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::rasterPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="128" column="20" bodyfile="src/core/qfidentifytool.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1a46ea77b426aa34ddf5d1c394b828cb64" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; QgsVectorTileDataProvider &gt;</type>
+        <definition>std::unique_ptr&lt;QgsVectorTileDataProvider&gt; QfIdentifyTool::PreparedLayer::vectorTileDataProvider</definition>
+        <argsstring></argsstring>
+        <name>vectorTileDataProvider</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::vectorTileDataProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="130" column="25" bodyfile="src/core/qfidentifytool.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1aa7197cc4498cc7b17a40157eae16a90d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double QfIdentifyTool::PreparedLayer::vectorTileScale</definition>
+        <argsstring></argsstring>
+        <name>vectorTileScale</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::vectorTileScale</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="131" column="16" bodyfile="src/core/qfidentifytool.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfIdentifyTool_1_1PreparedLayer_1a23a6458c8ef2dc03a5ad792b6c5c6622" prot="public" static="no" mutable="no">
+        <type>QgsRenderContext</type>
+        <definition>QgsRenderContext QfIdentifyTool::PreparedLayer::renderContext</definition>
+        <argsstring></argsstring>
+        <name>renderContext</name>
+        <qualifiedname>QfIdentifyTool::PreparedLayer::renderContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfidentifytool.h" line="133" column="26" bodyfile="src/core/qfidentifytool.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfidentifytool.h" line="110" column="5" bodyfile="src/core/qfidentifytool.h" bodystart="111" bodyend="134"/>
+    <listofallmembers>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1a2527ad97b97f55b1fd695e612712b44c" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>extent</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1a6edc816783a6ba3a7e7f88b1df60ddef" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>fields</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1aba33a829fd22e375765fe8689e58cbac" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>isValid</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1aae293b71a25142a4aebde440935c8010" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>layerId</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1a8c4d417afc8cb882cd284ff42768de97" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>layerName</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1ab0043e5b2999427ebaa088e6c3a1d4ff" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>layerType</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1aeb528e3cd1368f9c9bde2c23fe2e165e" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>rasterDataProvider</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1a7c5c2eb370d8bed106b9e5547033ee4b" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>rasterHeight</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1ad15af722edb9bafc7ddaffc21dfa792a" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>rasterPoint</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1ae1ec53166eb81ddb314a9a8b523036a2" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>rasterWidth</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1a23a6458c8ef2dc03a5ad792b6c5c6622" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>renderContext</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1aa742d40ea692e429accc07b548b0ac94" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>request</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1a493d96c04bb0a555d66f391952e49d9a" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>vectorFeatureSource</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1ad59436896f8af5902ae360346c702122" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>vectorRenderer</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1a46ea77b426aa34ddf5d1c394b828cb64" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>vectorTileDataProvider</name></member>
+      <member refid="structQfIdentifyTool_1_1PreparedLayer_1aa7197cc4498cc7b17a40157eae16a90d" prot="public" virt="non-virtual"><scope>QfIdentifyTool::PreparedLayer</scope><name>vectorTileScale</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

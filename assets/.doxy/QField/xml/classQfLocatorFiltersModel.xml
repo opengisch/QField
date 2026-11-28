@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfLocatorFiltersModel" kind="class" language="C++" prot="public">
+    <compoundname>QfLocatorFiltersModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Role</name>
+        <qualifiedname>QfLocatorFiltersModel::Role</qualifiedname>
+        <enumvalue id="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07aae63d938556c5b5f37550ce5afc6d0610" prot="public">
+          <name>NameRole</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07aa65802f22f4b2b59a6796bb8eb0fb61fb" prot="public">
+          <name>DescriptionRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07aa8ab5021d1c784087874676e567d402ad" prot="public">
+          <name>PrefixRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07aa5e748ec42a57cf2904c33a344e2779d7" prot="public">
+          <name>ActiveRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07aa8f60bb2cbdade49b28f5bacb66072ac4" prot="public">
+          <name>DefaultRole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Custom model roles. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="196" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="197" bodyend="203"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfLocatorFiltersModel_1aa37ef342b5153b72d1d3656b5b691f30" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+        <definition>QfLocatorModelSuperBridge * QfLocatorFiltersModel::locatorModelSuperBridge</definition>
+        <argsstring></argsstring>
+        <name>locatorModelSuperBridge</name>
+        <qualifiedname>QfLocatorFiltersModel::locatorModelSuperBridge</qualifiedname>
+        <read>locatorModelSuperBridge</read>
+        <write>setLocatorModelSuperBridge</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="192" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfLocatorFiltersModel_1aecd87e4b15475ef1e4369e0830a6e27b" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+        <definition>QfLocatorModelSuperBridge* QfLocatorFiltersModel::mLocatorModelSuperBridge</definition>
+        <argsstring></argsstring>
+        <name>mLocatorModelSuperBridge</name>
+        <qualifiedname>QfLocatorFiltersModel::mLocatorModelSuperBridge</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="230" column="31" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfLocatorFiltersModel_1a3c7b9308155b74ad2a31df3449ddc143" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfLocatorFiltersModel::QfLocatorFiltersModel</definition>
+        <argsstring>()</argsstring>
+        <name>QfLocatorFiltersModel</name>
+        <qualifiedname>QfLocatorFiltersModel::QfLocatorFiltersModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for QgsLocatorFiltersModel. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="209" column="5" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="267" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorFiltersModel_1a6fc0bc1345372f4a3fc31c51b6941dad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int QfLocatorFiltersModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>QfLocatorFiltersModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="211" column="9" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="272" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorFiltersModel_1a6c7aaf8f3a5101ffad6ba7252b91f1ae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; QfLocatorFiltersModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>QfLocatorFiltersModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="212" column="11" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="280" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorFiltersModel_1ac6f4fef34bb6d9241341219d55291107" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant QfLocatorFiltersModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>QfLocatorFiltersModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::DisplayRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="213" column="14" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="293" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorFiltersModel_1aabb75ce742b320c23f375d5b129d1c0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfLocatorFiltersModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>QfLocatorFiltersModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+          <defval>Qt::EditRole</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="214" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="320" bodyend="364"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorFiltersModel_1a2a2c0a53e612f06adac1d938e5cda5bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QgsLocatorFilter *</type>
+        <definition>QgsLocatorFilter * QfLocatorFiltersModel::filterForIndex</definition>
+        <argsstring>(const QModelIndex &amp;index) const</argsstring>
+        <name>filterForIndex</name>
+        <qualifiedname>QfLocatorFiltersModel::filterForIndex</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="216" column="22" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="397" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorFiltersModel_1a88443b6f50bed4739fa00f85cef1a903" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+        <definition>QfLocatorModelSuperBridge * QfLocatorFiltersModel::locatorModelSuperBridge</definition>
+        <argsstring>() const</argsstring>
+        <name>locatorModelSuperBridge</name>
+        <qualifiedname>QfLocatorFiltersModel::locatorModelSuperBridge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="218" column="31" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="405" bodyend="408"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorFiltersModel_1a7f4bdc2695d15798b247eedf1d25fd4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorFiltersModel::setLocatorModelSuperBridge</definition>
+        <argsstring>(QfLocatorModelSuperBridge *locatorModelSuperBridge)</argsstring>
+        <name>setLocatorModelSuperBridge</name>
+        <qualifiedname>QfLocatorFiltersModel::setLocatorModelSuperBridge</qualifiedname>
+        <param>
+          <type><ref refid="classQfLocatorModelSuperBridge" kindref="compound">QfLocatorModelSuperBridge</ref> *</type>
+          <declname>locatorModelSuperBridge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="219" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="416" bodyend="431"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfLocatorFiltersModel_1a0aa2d0088da9b80e60a731bd2df63e9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void QfLocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition</definition>
+        <argsstring>(const QfGnssPositionInformation &amp;position)</argsstring>
+        <name>setGeocoderLocatorFiltersDefaulByPosition</name>
+        <qualifiedname>QfLocatorFiltersModel::setGeocoderLocatorFiltersDefaulByPosition</qualifiedname>
+        <param>
+          <type>const <ref refid="classQfGnssPositionInformation" kindref="compound">QfGnssPositionInformation</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="221" column="22" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="366" bodyend="395"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfLocatorFiltersModel_1a0aec5f232b132ac86af3804df1025f21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorFiltersModel::locatorModelSuperBridgeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>locatorModelSuperBridgeChanged</name>
+        <qualifiedname>QfLocatorFiltersModel::locatorModelSuperBridgeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="224" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfLocatorFiltersModel_1a49c2a63a10fb2c632dd3a7b992a7ee67" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfLocatorFiltersModel::locatorFiltersChanged</definition>
+        <argsstring>()</argsstring>
+        <name>locatorFiltersChanged</name>
+        <qualifiedname>QfLocatorFiltersModel::locatorFiltersChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/locator/qflocatormodelsuperbridge.h" line="227" column="10" bodyfile="src/core/locator/qflocatormodelsuperbridge.cpp" bodystart="410" bodyend="414"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfLocatorFiltersModel</label>
+        <link refid="classQfLocatorFiltersModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+      <node id="1">
+        <label>QfLocatorFiltersModel</label>
+        <link refid="classQfLocatorFiltersModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/locator/qflocatormodelsuperbridge.h" line="189" column="1" bodyfile="src/core/locator/qflocatormodelsuperbridge.h" bodystart="190" bodyend="231"/>
+    <listofallmembers>
+      <member refid="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07aa5e748ec42a57cf2904c33a344e2779d7" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>ActiveRole</name></member>
+      <member refid="classQfLocatorFiltersModel_1ac6f4fef34bb6d9241341219d55291107" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>data</name></member>
+      <member refid="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07aa8f60bb2cbdade49b28f5bacb66072ac4" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>DefaultRole</name></member>
+      <member refid="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07aa65802f22f4b2b59a6796bb8eb0fb61fb" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>DescriptionRole</name></member>
+      <member refid="classQfLocatorFiltersModel_1a2a2c0a53e612f06adac1d938e5cda5bf" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>filterForIndex</name></member>
+      <member refid="classQfLocatorFiltersModel_1a49c2a63a10fb2c632dd3a7b992a7ee67" prot="private" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>locatorFiltersChanged</name></member>
+      <member refid="classQfLocatorFiltersModel_1aa37ef342b5153b72d1d3656b5b691f30" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>locatorModelSuperBridge</name></member>
+      <member refid="classQfLocatorFiltersModel_1a88443b6f50bed4739fa00f85cef1a903" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>locatorModelSuperBridge</name></member>
+      <member refid="classQfLocatorFiltersModel_1a0aec5f232b132ac86af3804df1025f21" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>locatorModelSuperBridgeChanged</name></member>
+      <member refid="classQfLocatorFiltersModel_1aecd87e4b15475ef1e4369e0830a6e27b" prot="private" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>mLocatorModelSuperBridge</name></member>
+      <member refid="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07aae63d938556c5b5f37550ce5afc6d0610" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>NameRole</name></member>
+      <member refid="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07aa8ab5021d1c784087874676e567d402ad" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>PrefixRole</name></member>
+      <member refid="classQfLocatorFiltersModel_1a3c7b9308155b74ad2a31df3449ddc143" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>QfLocatorFiltersModel</name></member>
+      <member refid="classQfLocatorFiltersModel_1a1c9e80cd7b384470a815807b97a2c07a" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>Role</name></member>
+      <member refid="classQfLocatorFiltersModel_1a6c7aaf8f3a5101ffad6ba7252b91f1ae" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>roleNames</name></member>
+      <member refid="classQfLocatorFiltersModel_1a6fc0bc1345372f4a3fc31c51b6941dad" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>rowCount</name></member>
+      <member refid="classQfLocatorFiltersModel_1aabb75ce742b320c23f375d5b129d1c0b" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>setData</name></member>
+      <member refid="classQfLocatorFiltersModel_1a0aa2d0088da9b80e60a731bd2df63e9a" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>setGeocoderLocatorFiltersDefaulByPosition</name></member>
+      <member refid="classQfLocatorFiltersModel_1a7f4bdc2695d15798b247eedf1d25fd4e" prot="public" virt="non-virtual"><scope>QfLocatorFiltersModel</scope><name>setLocatorModelSuperBridge</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

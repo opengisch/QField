@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGeometryRenderer" kind="class" language="C++" prot="public">
+    <compoundname>GeometryRenderer</compoundname>
+    <basecompoundref refid="classQfGeometryRenderer" prot="public" virt="non-virtual">QfGeometryRenderer</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GeometryRenderer</label>
+        <link refid="classGeometryRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfGeometryRenderer</label>
+        <link refid="classQfGeometryRenderer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GeometryRenderer</label>
+        <link refid="classGeometryRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfGeometryRenderer</label>
+        <link refid="classQfGeometryRenderer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/GeometryRenderer.qml" line="2" column="1" bodyfile="src/app/qml_compat/GeometryRenderer.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfGeometryRenderer_1acac3243e9f4a2b602a6805267b25ce15" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>borderSize</name></member>
+      <member refid="classQfGeometryRenderer_1a7e18e877db3db6736aa4402a32ab5b53" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>color</name></member>
+      <member refid="classQfGeometryRenderer_1ac8184eb61319e9f163d2f54f232263d9" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>geometryWrapper</name></member>
+      <member refid="classQfGeometryRenderer_1a455767eee1a700a6f1cb429c1a2fd59e" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>lineWidth</name></member>
+      <member refid="classQfGeometryRenderer_1aac819e6d097b39440c00d1fa37ae9ff7" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>mapSettings</name></member>
+      <member refid="classQfGeometryRenderer_1a11bcd1aa4d923f24a87046841d15f832" prot="public" virt="non-virtual"><scope>GeometryRenderer</scope><name>pointSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

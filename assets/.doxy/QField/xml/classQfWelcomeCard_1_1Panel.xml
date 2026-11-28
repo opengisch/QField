@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfWelcomeCard_1_1Panel" kind="class" language="C++" prot="public">
+    <compoundname>QfWelcomeCard::Panel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfWelcomeCard_1_1Panel_1a452ae313c36061f8221d571c80a27691" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfWelcomeCard::Panel::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <qualifiedname>QfWelcomeCard::Panel::title</qualifiedname>
+        <read>dummyGetter_title_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="31" column="1" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfWelcomeCard_1_1Panel_1a5731e5e9b872bcd9acb9296bda39f4a0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfWelcomeCard::Panel::message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <qualifiedname>QfWelcomeCard::Panel::message</qualifiedname>
+        <read>dummyGetter_message_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="33" column="1" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfWelcomeCard_1_1Panel_1a6037622238239cfc9b4f85abfbf16591" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfWelcomeCard::Panel::messageMaximumLineCount</definition>
+        <argsstring></argsstring>
+        <name>messageMaximumLineCount</name>
+        <qualifiedname>QfWelcomeCard::Panel::messageMaximumLineCount</qualifiedname>
+        <read>dummyGetter_messageMaximumLineCount_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="35" column="1" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfWelcomeCard_1_1Panel_1ab13297656a1ff1a9ed719b0e6fe9f789" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfWelcomeCard::Panel::closable</definition>
+        <argsstring></argsstring>
+        <name>closable</name>
+        <qualifiedname>QfWelcomeCard::Panel::closable</qualifiedname>
+        <read>dummyGetter_closable_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="37" column="1" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfWelcomeCard_1_1Panel_1a69f4e2a48b3d8c9783cd52d5bfe2e599" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfWelcomeCard::Panel::collapseOnClose</definition>
+        <argsstring></argsstring>
+        <name>collapseOnClose</name>
+        <qualifiedname>QfWelcomeCard::Panel::collapseOnClose</qualifiedname>
+        <read>dummyGetter_collapseOnClose_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="39" column="1" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfWelcomeCard_1_1Panel_1a2cf8e66b1a1a5af643a4cb546164ecd6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>url</type>
+        <definition>url QfWelcomeCard::Panel::imageSource</definition>
+        <argsstring></argsstring>
+        <name>imageSource</name>
+        <qualifiedname>QfWelcomeCard::Panel::imageSource</qualifiedname>
+        <read>dummyGetter_imageSource_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="41" column="1" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfWelcomeCard_1_1Panel_1a4443e4e32472dea57fd086bbdbf1e806" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfWelcomeCard::Panel::actions</definition>
+        <argsstring></argsstring>
+        <name>actions</name>
+        <qualifiedname>QfWelcomeCard::Panel::actions</qualifiedname>
+        <read>dummyGetter_actions_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This is the default property </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="44" column="1" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfWelcomeCard_1_1Panel_1ae46e199c6d7d984efbb3ca5aaf6cb4d2" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfWelcomeCard::Panel::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>QfWelcomeCard::Panel::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="48" column="5" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1_1Panel_1ae10ca852f21d2cae77a88a0a1c9dc7d4" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle QfWelcomeCard::Panel::imageFadeMask</definition>
+        <argsstring></argsstring>
+        <name>imageFadeMask</name>
+        <qualifiedname>QfWelcomeCard::Panel::imageFadeMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="49" column="11" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1_1Panel_1ab5bcd92890a3bd030fde34206ac783b8" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image QfWelcomeCard::Panel::backgroundImage</definition>
+        <argsstring></argsstring>
+        <name>backgroundImage</name>
+        <qualifiedname>QfWelcomeCard::Panel::backgroundImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="50" column="7" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1_1Panel_1a5d2a779ce619e7e278e5db600f3d92d7" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfWelcomeCard::Panel::panelLayout</definition>
+        <argsstring></argsstring>
+        <name>panelLayout</name>
+        <qualifiedname>QfWelcomeCard::Panel::panelLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="51" column="14" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1_1Panel_1aa3dc3c07459456608655165e22a9bea0" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfWelcomeCard::Panel::textColumn</definition>
+        <argsstring></argsstring>
+        <name>textColumn</name>
+        <qualifiedname>QfWelcomeCard::Panel::textColumn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="52" column="14" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1_1Panel_1af8a19d936f914ddf51e590250e72f2e5" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfWelcomeCard::Panel::titleText</definition>
+        <argsstring></argsstring>
+        <name>titleText</name>
+        <qualifiedname>QfWelcomeCard::Panel::titleText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="53" column="6" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1_1Panel_1a1109a98ea631dd31666dc6755b26039f" prot="private" static="no" mutable="no">
+        <type>Text</type>
+        <definition>Text QfWelcomeCard::Panel::messageText</definition>
+        <argsstring></argsstring>
+        <name>messageText</name>
+        <qualifiedname>QfWelcomeCard::Panel::messageText</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="54" column="6" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1_1Panel_1ab83cb7c53075dd4e5a47b94482584a05" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfWelcomeCard::Panel::actionRow</definition>
+        <argsstring></argsstring>
+        <name>actionRow</name>
+        <qualifiedname>QfWelcomeCard::Panel::actionRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="55" column="11" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfWelcomeCard_1_1Panel_1aec98adf34a7e3a879938bf81fd7b2396" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfToolButton" kindref="compound">QfToolButton</ref></type>
+        <definition>QfToolButton QfWelcomeCard::Panel::closeButton</definition>
+        <argsstring></argsstring>
+        <name>closeButton</name>
+        <qualifiedname>QfWelcomeCard::Panel::closeButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="56" column="14" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="56" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfWelcomeCard_1_1Panel_1a766698bb7780a3e11cb8706a8db2c6a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfWelcomeCard::Panel::closeClicked</definition>
+        <argsstring>()</argsstring>
+        <name>closeClicked</name>
+        <qualifiedname>QfWelcomeCard::Panel::closeClicked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfWelcomeCard.qml" line="46" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfWelcomeCard::Panel</label>
+        <link refid="classQfWelcomeCard_1_1Panel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfWelcomeCard::Panel</label>
+        <link refid="classQfWelcomeCard_1_1Panel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfWelcomeCard.qml" line="28" column="1" bodyfile="src/gui/qml/QfWelcomeCard.qml" bodystart="28" bodyend="57"/>
+    <listofallmembers>
+      <member refid="classQfWelcomeCard_1_1Panel_1ab83cb7c53075dd4e5a47b94482584a05" prot="private" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>actionRow</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1a4443e4e32472dea57fd086bbdbf1e806" prot="public" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>actions</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1ab5bcd92890a3bd030fde34206ac783b8" prot="private" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>backgroundImage</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1ab13297656a1ff1a9ed719b0e6fe9f789" prot="public" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>closable</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1aec98adf34a7e3a879938bf81fd7b2396" prot="private" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>closeButton</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1a766698bb7780a3e11cb8706a8db2c6a0" prot="public" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>closeClicked</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1a69f4e2a48b3d8c9783cd52d5bfe2e599" prot="public" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>collapseOnClose</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1ae10ca852f21d2cae77a88a0a1c9dc7d4" prot="private" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>imageFadeMask</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1a2cf8e66b1a1a5af643a4cb546164ecd6" prot="public" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>imageSource</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1ae46e199c6d7d984efbb3ca5aaf6cb4d2" prot="private" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>implicitHeight</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1a5731e5e9b872bcd9acb9296bda39f4a0" prot="public" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>message</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1a6037622238239cfc9b4f85abfbf16591" prot="public" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>messageMaximumLineCount</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1a1109a98ea631dd31666dc6755b26039f" prot="private" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>messageText</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1a5d2a779ce619e7e278e5db600f3d92d7" prot="private" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>panelLayout</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1aa3dc3c07459456608655165e22a9bea0" prot="private" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>textColumn</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1a452ae313c36061f8221d571c80a27691" prot="public" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>title</name></member>
+      <member refid="classQfWelcomeCard_1_1Panel_1af8a19d936f914ddf51e590250e72f2e5" prot="private" virt="non-virtual"><scope>QfWelcomeCard::Panel</scope><name>titleText</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

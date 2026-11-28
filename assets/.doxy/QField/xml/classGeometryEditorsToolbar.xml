@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGeometryEditorsToolbar" kind="class" language="C++" prot="public">
+    <compoundname>GeometryEditorsToolbar</compoundname>
+    <basecompoundref refid="classQfGeometryEditorsToolbar" prot="public" virt="non-virtual">QfGeometryEditorsToolbar</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GeometryEditorsToolbar</label>
+        <link refid="classGeometryEditorsToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfGeometryEditorsToolbar</label>
+        <link refid="classQfGeometryEditorsToolbar"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GeometryEditorsToolbar</label>
+        <link refid="classGeometryEditorsToolbar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfGeometryEditorsToolbar</label>
+        <link refid="classQfGeometryEditorsToolbar"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QfVisibilityFadingRow</label>
+        <link refid="classQfVisibilityFadingRow"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Row</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/GeometryEditorsToolbar.qml" line="2" column="1" bodyfile="src/app/qml_compat/GeometryEditorsToolbar.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfGeometryEditorsToolbar_1a423a5a61c3152c3b771981ebc5175f6d" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>cancelEditors</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a09165537290d3583421164e7982b27be" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>canvasClicked</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1ae4da7bb00eda38bf4641276aba726ea5" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>canvasFreehandBegin</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a5b27754b8248b7528c8225139b4dd8dc" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>canvasFreehandEnd</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1ab85bd74d747b13d860ed6891b9064825" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>canvasLongPressed</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a8d068ef86dfbad0b895809f57ac68540" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>editorChanged</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1afe7bd40fe3518d5b7f572e0218e85c75" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>editorRenderer</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1ac743b67e5109291c1ca1fdc17a29257c" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>editorRubberbandModel</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a379efd24b82c9fc336ff2460a252d0b1" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>featureModel</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1afd0990d94db3684f7b1aeff3963f7c08" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>image</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a0dc9a5c2ede965b31aa851d7b3a9b339" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>init</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1aafa63ba0e679443e8b6b57a3069174b4" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>mapSettings</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a27718e6a5e03de51e4135225409da2d7" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>requestJumpToPoint</name></member>
+      <member refid="classQfGeometryEditorsToolbar_1a2576c4d61e73682e2324a6bdeb5bbd7c" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>screenHovering</name></member>
+      <member refid="classQfVisibilityFadingRow_1a5d1f0f93c91ad72de4d2911efcf31c2e" prot="public" virt="non-virtual"><scope>GeometryEditorsToolbar</scope><name>stateVisible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

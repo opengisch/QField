@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structQfBarcodeVideoModel_1_1Barcode" kind="struct" language="C++" prot="public">
+    <compoundname>QfBarcodeVideoModel::Barcode</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structQfBarcodeVideoModel_1_1Barcode_1a47016344d94cfc4d9adc82a73b51af03" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString QfBarcodeVideoModel::Barcode::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>QfBarcodeVideoModel::Barcode::text</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="48" column="17" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structQfBarcodeVideoModel_1_1Barcode_1a1086d59da83a9d4cf527d708dd3e5bf4" prot="public" static="no" mutable="no">
+        <type>QRectF</type>
+        <definition>QRectF QfBarcodeVideoModel::Barcode::bounds</definition>
+        <argsstring></argsstring>
+        <name>bounds</name>
+        <qualifiedname>QfBarcodeVideoModel::Barcode::bounds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="49" column="16" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structQfBarcodeVideoModel_1_1Barcode_1a1ef47179238787dd651237c4e07affcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfBarcodeVideoModel::Barcode::Barcode</definition>
+        <argsstring>()=default</argsstring>
+        <name>Barcode</name>
+        <qualifiedname>QfBarcodeVideoModel::Barcode::Barcode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="41" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structQfBarcodeVideoModel_1_1Barcode_1ab4b214e0caa94d3657d96a4b332fe72d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>QfBarcodeVideoModel::Barcode::Barcode</definition>
+        <argsstring>(const QString &amp;text, const QRectF &amp;bounds)</argsstring>
+        <name>Barcode</name>
+        <qualifiedname>QfBarcodeVideoModel::Barcode::Barcode</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>const QRectF &amp;</type>
+          <declname>bounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qfbarcodevideomodel.h" line="43" column="9" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="43" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/core/qfbarcodevideomodel.h" line="39" column="5" bodyfile="src/core/qfbarcodevideomodel.h" bodystart="40" bodyend="50"/>
+    <listofallmembers>
+      <member refid="structQfBarcodeVideoModel_1_1Barcode_1a1ef47179238787dd651237c4e07affcc" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel::Barcode</scope><name>Barcode</name></member>
+      <member refid="structQfBarcodeVideoModel_1_1Barcode_1ab4b214e0caa94d3657d96a4b332fe72d" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel::Barcode</scope><name>Barcode</name></member>
+      <member refid="structQfBarcodeVideoModel_1_1Barcode_1a1086d59da83a9d4cf527d708dd3e5bf4" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel::Barcode</scope><name>bounds</name></member>
+      <member refid="structQfBarcodeVideoModel_1_1Barcode_1a47016344d94cfc4d9adc82a73b51af03" prot="public" virt="non-virtual"><scope>QfBarcodeVideoModel::Barcode</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

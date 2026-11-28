@@ -1,0 +1,323 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfMeterBar" kind="class" language="C++" prot="public">
+    <compoundname>QfMeterBar</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QtQuick::Item</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfMeterBar_1a49219bdbfdca7d72011f4249aa788c3c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMeterBar::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>QfMeterBar::value</qualifiedname>
+        <read>dummyGetter_value_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="14" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1a75ad26caea45150f6a53e85876d14bd0" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfMeterBar::loading</definition>
+        <argsstring></argsstring>
+        <name>loading</name>
+        <qualifiedname>QfMeterBar::loading</qualifiedname>
+        <read>dummyGetter_loading_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="16" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1a3fab1c4cfffdda35b4e717af1a5ad2a6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMeterBar::showTitleLabel</definition>
+        <argsstring></argsstring>
+        <name>showTitleLabel</name>
+        <qualifiedname>QfMeterBar::showTitleLabel</qualifiedname>
+        <read>dummyGetter_showTitleLabel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="18" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1a7c59f892a0c210cb46a7fa2223b4115c" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMeterBar::showUsageLabel</definition>
+        <argsstring></argsstring>
+        <name>showUsageLabel</name>
+        <qualifiedname>QfMeterBar::showUsageLabel</qualifiedname>
+        <read>dummyGetter_showUsageLabel_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="20" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1a4e75cbec20664979a3224adfbf6c50f3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>alias</type>
+        <definition>alias QfMeterBar::usageText</definition>
+        <argsstring></argsstring>
+        <name>usageText</name>
+        <qualifiedname>QfMeterBar::usageText</qualifiedname>
+        <read>dummyGetter_usageText_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="22" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1aad644a896a743e30c53250282be4016d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string QfMeterBar::relatedUrl</definition>
+        <argsstring></argsstring>
+        <name>relatedUrl</name>
+        <qualifiedname>QfMeterBar::relatedUrl</qualifiedname>
+        <read>dummyGetter_relatedUrl_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="24" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1a895527c6db830557928a318b4c4e8c36" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfMeterBar::normalColor</definition>
+        <argsstring></argsstring>
+        <name>normalColor</name>
+        <qualifiedname>QfMeterBar::normalColor</qualifiedname>
+        <read>dummyGetter_normalColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="26" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1a1f1d793ebb662ad3b1fa40030ea9a37d" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfMeterBar::warningColor</definition>
+        <argsstring></argsstring>
+        <name>warningColor</name>
+        <qualifiedname>QfMeterBar::warningColor</qualifiedname>
+        <read>dummyGetter_warningColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="28" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1acad02225bd0dbc03b39e4de29ab14150" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>color</type>
+        <definition>color QfMeterBar::criticalColor</definition>
+        <argsstring></argsstring>
+        <name>criticalColor</name>
+        <qualifiedname>QfMeterBar::criticalColor</qualifiedname>
+        <read>dummyGetter_criticalColor_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="30" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1adcc1977544dc438d4fd724658693c4b9" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfMeterBar::warningThreshold</definition>
+        <argsstring></argsstring>
+        <name>warningThreshold</name>
+        <qualifiedname>QfMeterBar::warningThreshold</qualifiedname>
+        <read>dummyGetter_warningThreshold_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="32" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1a6fe1f7ed8a3014a88f7af78d5d3223b6" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double QfMeterBar::criticalThreshold</definition>
+        <argsstring></argsstring>
+        <name>criticalThreshold</name>
+        <qualifiedname>QfMeterBar::criticalThreshold</qualifiedname>
+        <read>dummyGetter_criticalThreshold_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="34" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1ac1eeca12ab053932c7ccb9df9af14a29" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfMeterBar::animationDuration</definition>
+        <argsstring></argsstring>
+        <name>animationDuration</name>
+        <qualifiedname>QfMeterBar::animationDuration</qualifiedname>
+        <read>dummyGetter_animationDuration_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="36" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfMeterBar_1af00ba196efd919848e3da56122c1fbd8" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int QfMeterBar::barHeight</definition>
+        <argsstring></argsstring>
+        <name>barHeight</name>
+        <qualifiedname>QfMeterBar::barHeight</qualifiedname>
+        <read>dummyGetter_barHeight_ignore</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="38" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfMeterBar_1a66dc751fbefc06996c74f7fe12adf5fc" prot="private" static="no" mutable="no">
+        <type>var</type>
+        <definition>var QfMeterBar::implicitHeight</definition>
+        <argsstring></argsstring>
+        <name>implicitHeight</name>
+        <qualifiedname>QfMeterBar::implicitHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="40" column="5" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMeterBar_1ade1b2797a1a4b079bd9bc5aa3911983a" prot="private" static="no" mutable="no">
+        <type>ColumnLayout</type>
+        <definition>ColumnLayout QfMeterBar::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <qualifiedname>QfMeterBar::content</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="41" column="14" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMeterBar_1aa399d7dc31390b5a46f3f7ffe10919c5" prot="private" static="no" mutable="no">
+        <type>RowLayout</type>
+        <definition>RowLayout QfMeterBar::titleLabel</definition>
+        <argsstring></argsstring>
+        <name>titleLabel</name>
+        <qualifiedname>QfMeterBar::titleLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="42" column="11" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMeterBar_1a492b0a4e8787eca2e68964a635daf6a0" prot="private" static="no" mutable="no">
+        <type>ProgressBar</type>
+        <definition>ProgressBar QfMeterBar::progressBar</definition>
+        <argsstring></argsstring>
+        <name>progressBar</name>
+        <qualifiedname>QfMeterBar::progressBar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="43" column="13" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfMeterBar_1a5e29175b1f1c91f3165d38d7e3d2c211" prot="private" static="no" mutable="no">
+        <type>Label</type>
+        <definition>Label QfMeterBar::usageLabel</definition>
+        <argsstring></argsstring>
+        <name>usageLabel</name>
+        <qualifiedname>QfMeterBar::usageLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/gui/qml/QfMeterBar.qml" line="44" column="7" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>QfMeterBar</label>
+        <link refid="classQfMeterBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>QfMeterBar</label>
+        <link refid="classQfMeterBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/gui/qml/QfMeterBar.qml" line="11" column="1" bodyfile="src/gui/qml/QfMeterBar.qml" bodystart="11" bodyend="45"/>
+    <listofallmembers>
+      <member refid="classQfMeterBar_1ac1eeca12ab053932c7ccb9df9af14a29" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>animationDuration</name></member>
+      <member refid="classQfMeterBar_1af00ba196efd919848e3da56122c1fbd8" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>barHeight</name></member>
+      <member refid="classQfMeterBar_1ade1b2797a1a4b079bd9bc5aa3911983a" prot="private" virt="non-virtual"><scope>QfMeterBar</scope><name>content</name></member>
+      <member refid="classQfMeterBar_1acad02225bd0dbc03b39e4de29ab14150" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>criticalColor</name></member>
+      <member refid="classQfMeterBar_1a6fe1f7ed8a3014a88f7af78d5d3223b6" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>criticalThreshold</name></member>
+      <member refid="classQfMeterBar_1a66dc751fbefc06996c74f7fe12adf5fc" prot="private" virt="non-virtual"><scope>QfMeterBar</scope><name>implicitHeight</name></member>
+      <member refid="classQfMeterBar_1a75ad26caea45150f6a53e85876d14bd0" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>loading</name></member>
+      <member refid="classQfMeterBar_1a895527c6db830557928a318b4c4e8c36" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>normalColor</name></member>
+      <member refid="classQfMeterBar_1a492b0a4e8787eca2e68964a635daf6a0" prot="private" virt="non-virtual"><scope>QfMeterBar</scope><name>progressBar</name></member>
+      <member refid="classQfMeterBar_1aad644a896a743e30c53250282be4016d" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>relatedUrl</name></member>
+      <member refid="classQfMeterBar_1a3fab1c4cfffdda35b4e717af1a5ad2a6" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>showTitleLabel</name></member>
+      <member refid="classQfMeterBar_1a7c59f892a0c210cb46a7fa2223b4115c" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>showUsageLabel</name></member>
+      <member refid="classQfMeterBar_1aa399d7dc31390b5a46f3f7ffe10919c5" prot="private" virt="non-virtual"><scope>QfMeterBar</scope><name>titleLabel</name></member>
+      <member refid="classQfMeterBar_1a5e29175b1f1c91f3165d38d7e3d2c211" prot="private" virt="non-virtual"><scope>QfMeterBar</scope><name>usageLabel</name></member>
+      <member refid="classQfMeterBar_1a4e75cbec20664979a3224adfbf6c50f3" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>usageText</name></member>
+      <member refid="classQfMeterBar_1a49219bdbfdca7d72011f4249aa788c3c" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>value</name></member>
+      <member refid="classQfMeterBar_1a1f1d793ebb662ad3b1fa40030ea9a37d" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>warningColor</name></member>
+      <member refid="classQfMeterBar_1adcc1977544dc438d4fd724658693c4b9" prot="public" virt="non-virtual"><scope>QfMeterBar</scope><name>warningThreshold</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

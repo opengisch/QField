@@ -1,0 +1,667 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classQfFeatureHistory" kind="class" language="C++" prot="public">
+    <compoundname>QfFeatureHistory</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <innerclass refid="structQfFeatureHistory_1_1FeatureModifications" prot="public">QfFeatureHistory::FeatureModifications</innerclass>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="classQfFeatureHistory_1a14f2ef91021cae1e4d7bf6ba359b8943" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureHistory::isUndoAvailable</definition>
+        <argsstring></argsstring>
+        <name>isUndoAvailable</name>
+        <qualifiedname>QfFeatureHistory::isUndoAvailable</qualifiedname>
+        <read>isUndoAvailable</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="36" column="5" bodyfile="src/core/qffeaturehistory.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classQfFeatureHistory_1a2ccca44ed26de121b8398a53a7e874e3" prot="public" static="no" readable="yes" writable="no" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureHistory::isRedoAvailable</definition>
+        <argsstring></argsstring>
+        <name>isRedoAvailable</name>
+        <qualifiedname>QfFeatureHistory::isRedoAvailable</qualifiedname>
+        <read>isRedoAvailable</read>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="37" column="5" bodyfile="src/core/qffeaturehistory.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classQfFeatureHistory_1a3f7893040e545effd084a1bf70225d39" prot="private" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int QfFeatureHistory::sTimeoutMs</definition>
+        <argsstring></argsstring>
+        <name>sTimeoutMs</name>
+        <qualifiedname>QfFeatureHistory::sTimeoutMs</qualifiedname>
+        <initializer>= 50</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="110" column="22" bodyfile="src/core/qffeaturehistory.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classQfFeatureHistory_1ada4fbf3ebb37e111fbc22113d39a4f54" prot="private" static="no" mutable="no">
+        <type>const QgsProject *</type>
+        <definition>const QgsProject* QfFeatureHistory::mProject</definition>
+        <argsstring></argsstring>
+        <name>mProject</name>
+        <qualifiedname>QfFeatureHistory::mProject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>The current project instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="122" column="22" bodyfile="src/core/qffeaturehistory.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureHistory_1a7e7422cb0a76dbaa2c6643851a246371" prot="private" static="no" mutable="no">
+        <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref> *</type>
+        <definition>QfTrackingModel* QfFeatureHistory::mTrackingModel</definition>
+        <argsstring></argsstring>
+        <name>mTrackingModel</name>
+        <qualifiedname>QfFeatureHistory::mTrackingModel</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>Tracking model. Used to check if the currently modified layer is in tracking, so all changes should be ignored to prevent cluttering the undo history. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="125" column="21" bodyfile="src/core/qffeaturehistory.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureHistory_1a73afbac2b1b5c25cc9ed5efed42a1951" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool QfFeatureHistory::mIsApplyingModifications</definition>
+        <argsstring></argsstring>
+        <name>mIsApplyingModifications</name>
+        <qualifiedname>QfFeatureHistory::mIsApplyingModifications</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>If currently applying undo or redo feature modifications. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="128" column="10" bodyfile="src/core/qffeaturehistory.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureHistory_1a66208ccb980ac84514ced9b4fe6a09c7" prot="private" static="no" mutable="no">
+        <type>QTimer</type>
+        <definition>QTimer QfFeatureHistory::mTimer</definition>
+        <argsstring></argsstring>
+        <name>mTimer</name>
+        <qualifiedname>QfFeatureHistory::mTimer</qualifiedname>
+        <briefdescription>
+<para>Timer to wait for short time before all features (and child features) are saved. When timeouts, all temporary modifications are added as a new undo step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="131" column="12" bodyfile="src/core/qffeaturehistory.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureHistory_1a608ab4e51a0fab67717e327ce09bafd5" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, <ref refid="structQfFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt;</type>
+        <definition>QMap&lt;QString, FeatureModifications&gt; QfFeatureHistory::mTempHistoryStep</definition>
+        <argsstring></argsstring>
+        <name>mTempHistoryStep</name>
+        <qualifiedname>QfFeatureHistory::mTempHistoryStep</qualifiedname>
+        <briefdescription>
+<para>Temporary storage of all modifications before creating a new undo step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="134" column="10" bodyfile="src/core/qffeaturehistory.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureHistory_1ab9f96825c2c2bee21a880e455a569858" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QgsFeatureIds &gt;</type>
+        <definition>QMap&lt;QString, QgsFeatureIds&gt; QfFeatureHistory::mTempModifiedFeatureIdsByLayerId</definition>
+        <argsstring></argsstring>
+        <name>mTempModifiedFeatureIdsByLayerId</name>
+        <qualifiedname>QfFeatureHistory::mTempModifiedFeatureIdsByLayerId</qualifiedname>
+        <briefdescription>
+<para>Track committed feature IDs that were added, modified, or removed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="137" column="10" bodyfile="src/core/qffeaturehistory.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureHistory_1ad61e8da23c5c99bbb48c3a56f7eea36f" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QMap&lt; QgsFeatureId, QgsFeature &gt; &gt;</type>
+        <definition>QMap&lt;QString, QMap&lt;QgsFeatureId, QgsFeature&gt; &gt; QfFeatureHistory::mTempModifiedFeaturesByLayerId</definition>
+        <argsstring></argsstring>
+        <name>mTempModifiedFeaturesByLayerId</name>
+        <qualifiedname>QfFeatureHistory::mTempModifiedFeaturesByLayerId</qualifiedname>
+        <briefdescription>
+<para>Temporary storage of all features that have been modified before creating a new undo step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="140" column="10" bodyfile="src/core/qffeaturehistory.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureHistory_1a6fb9f9a7614580dc074dd4743d9e6058" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, QgsFeatureIds &gt;</type>
+        <definition>QMap&lt;QString, QgsFeatureIds&gt; QfFeatureHistory::mTempDeletedFeatureIdsByLayerId</definition>
+        <argsstring></argsstring>
+        <name>mTempDeletedFeatureIdsByLayerId</name>
+        <qualifiedname>QfFeatureHistory::mTempDeletedFeatureIdsByLayerId</qualifiedname>
+        <briefdescription>
+<para>Temporary storage of the deleted feature ids before creating a new undo step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="143" column="10" bodyfile="src/core/qffeaturehistory.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureHistory_1a78986ba47f37edd95b8aa978ff6639d5" prot="private" static="no" mutable="no">
+        <type>QList&lt; QMap&lt; QString, <ref refid="structQfFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt; &gt;</type>
+        <definition>QList&lt;QMap&lt;QString, FeatureModifications&gt; &gt; QfFeatureHistory::mUndoHistory</definition>
+        <argsstring></argsstring>
+        <name>mUndoHistory</name>
+        <qualifiedname>QfFeatureHistory::mUndoHistory</qualifiedname>
+        <briefdescription>
+<para>Undo history records. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="146" column="11" bodyfile="src/core/qffeaturehistory.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureHistory_1a26f4ef945c1e8c7a1c8c1e5d19395b8d" prot="private" static="no" mutable="no">
+        <type>QList&lt; QMap&lt; QString, <ref refid="structQfFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt; &gt;</type>
+        <definition>QList&lt;QMap&lt;QString, FeatureModifications&gt; &gt; QfFeatureHistory::mRedoHistory</definition>
+        <argsstring></argsstring>
+        <name>mRedoHistory</name>
+        <qualifiedname>QfFeatureHistory::mRedoHistory</qualifiedname>
+        <briefdescription>
+<para>Redo history records. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="149" column="11" bodyfile="src/core/qffeaturehistory.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classQfFeatureHistory_1a662f7ac3965cc9dd8f72463d27ee817f" prot="private" static="no" mutable="no">
+        <type>QSet&lt; QString &gt;</type>
+        <definition>QSet&lt;QString&gt; QfFeatureHistory::mObservedLayerIds</definition>
+        <argsstring></argsstring>
+        <name>mObservedLayerIds</name>
+        <qualifiedname>QfFeatureHistory::mObservedLayerIds</qualifiedname>
+        <briefdescription>
+<para>Layer ids being observed for changes. Should reset when the project is changed. Used to prevent double event listeners. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="152" column="10" bodyfile="src/core/qffeaturehistory.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classQfFeatureHistory_1a5e165cf5974bb821d587922470455ab4" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>QfFeatureHistory::QfFeatureHistory</definition>
+        <argsstring>(const QgsProject *project, QfTrackingModel *trackingModel=nullptr)</argsstring>
+        <name>QfFeatureHistory</name>
+        <qualifiedname>QfFeatureHistory::QfFeatureHistory</qualifiedname>
+        <param>
+          <type>const QgsProject *</type>
+          <declname>project</declname>
+        </param>
+        <param>
+          <type><ref refid="classQfTrackingModel" kindref="compound">QfTrackingModel</ref> *</type>
+          <declname>trackingModel</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Construct a new Feature history object</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>project</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the current project instance </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trackingModel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the tracking model </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="59" column="14" bodyfile="src/core/qffeaturehistory.cpp" bodystart="26" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureHistory_1ad1e232bcd28cb11517677132dca107f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfFeatureHistory::undo</definition>
+        <argsstring>()</argsstring>
+        <name>undo</name>
+        <qualifiedname>QfFeatureHistory::undo</qualifiedname>
+        <briefdescription>
+<para>Perform undo of the most recent modification step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="62" column="22" bodyfile="src/core/qffeaturehistory.cpp" bodystart="396" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureHistory_1af4fb493792421884daa99039cce7c078" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool QfFeatureHistory::redo</definition>
+        <argsstring>()</argsstring>
+        <name>redo</name>
+        <qualifiedname>QfFeatureHistory::redo</qualifiedname>
+        <briefdescription>
+<para>Perform redo of the most recent modification step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="65" column="22" bodyfile="src/core/qffeaturehistory.cpp" bodystart="420" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureHistory_1a20e228f704b7b6d7c9c9d6a41b9e70ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE const QString</type>
+        <definition>const QString QfFeatureHistory::undoMessage</definition>
+        <argsstring>()</argsstring>
+        <name>undoMessage</name>
+        <qualifiedname>QfFeatureHistory::undoMessage</qualifiedname>
+        <briefdescription>
+<para>Get the undo message to be show in the UI. NOTE should be called before calling <emphasis>undo</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="68" column="31" bodyfile="src/core/qffeaturehistory.cpp" bodystart="455" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureHistory_1a3a3734f07297b52cab3870c4fcae839b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE const QString</type>
+        <definition>const QString QfFeatureHistory::redoMessage</definition>
+        <argsstring>()</argsstring>
+        <name>redoMessage</name>
+        <qualifiedname>QfFeatureHistory::redoMessage</qualifiedname>
+        <briefdescription>
+<para>Get the redo message to be show in the UI. NOTE should be called before calling <emphasis>redo</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="71" column="31" bodyfile="src/core/qffeaturehistory.cpp" bodystart="505" bodyend="552"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureHistory_1ab30b26fd9fcc27ab871397f440291324" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureHistory::isUndoAvailable</definition>
+        <argsstring>()</argsstring>
+        <name>isUndoAvailable</name>
+        <qualifiedname>QfFeatureHistory::isUndoAvailable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="73" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureHistory_1a62d3347ef671b97f6653fc1dcf82f0e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureHistory::isRedoAvailable</definition>
+        <argsstring>()</argsstring>
+        <name>isRedoAvailable</name>
+        <qualifiedname>QfFeatureHistory::isRedoAvailable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="74" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="signal">
+      <memberdef kind="signal" id="classQfFeatureHistory_1a41734d0654a4b7ab3363e7bb4205c970" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureHistory::isUndoAvailableChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isUndoAvailableChanged</name>
+        <qualifiedname>QfFeatureHistory::isUndoAvailableChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="77" column="10"/>
+      </memberdef>
+      <memberdef kind="signal" id="classQfFeatureHistory_1ada0ae53a091904aa136c013806d2e6a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureHistory::isRedoAvailableChanged</definition>
+        <argsstring>()</argsstring>
+        <name>isRedoAvailableChanged</name>
+        <qualifiedname>QfFeatureHistory::isRedoAvailableChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="78" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classQfFeatureHistory_1a239345574f405ad03fb9730ee5b8e03f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureHistory::onLayersAdded</definition>
+        <argsstring>(const QList&lt; QgsMapLayer * &gt; &amp;layers)</argsstring>
+        <name>onLayersAdded</name>
+        <qualifiedname>QfFeatureHistory::onLayersAdded</qualifiedname>
+        <param>
+          <type>const QList&lt; QgsMapLayer * &gt; &amp;</type>
+          <declname>layers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Monitors the current project for new layers.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>layers added </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="86" column="10" bodyfile="src/core/qffeaturehistory.cpp" bodystart="241" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureHistory_1acb7fb978e42e2246d3cbd88e66648d87" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureHistory::onHomePathChanged</definition>
+        <argsstring>()</argsstring>
+        <name>onHomePathChanged</name>
+        <qualifiedname>QfFeatureHistory::onHomePathChanged</qualifiedname>
+        <briefdescription>
+<para>The project file has been changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="89" column="10" bodyfile="src/core/qffeaturehistory.cpp" bodystart="40" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureHistory_1a45286d3b8ce0066e8e1361f566ad86f7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureHistory::onCommittedFeaturesAdded</definition>
+        <argsstring>(const QString &amp;localLayerId, const QgsFeatureList &amp;addedFeatures)</argsstring>
+        <name>onCommittedFeaturesAdded</name>
+        <qualifiedname>QfFeatureHistory::onCommittedFeaturesAdded</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>localLayerId</declname>
+        </param>
+        <param>
+          <type>const QgsFeatureList &amp;</type>
+          <declname>addedFeatures</declname>
+        </param>
+        <briefdescription>
+<para>Called when features are added on the layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="92" column="10" bodyfile="src/core/qffeaturehistory.cpp" bodystart="150" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureHistory_1ad48c7fe710de31d79b1e3b9b554623cd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureHistory::onCommittedFeaturesRemoved</definition>
+        <argsstring>(const QString &amp;layerId, const QgsFeatureIds &amp;deletedFeatureIds)</argsstring>
+        <name>onCommittedFeaturesRemoved</name>
+        <qualifiedname>QfFeatureHistory::onCommittedFeaturesRemoved</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>layerId</declname>
+        </param>
+        <param>
+          <type>const QgsFeatureIds &amp;</type>
+          <declname>deletedFeatureIds</declname>
+        </param>
+        <briefdescription>
+<para>Called after features are committed for deletion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="95" column="10" bodyfile="src/core/qffeaturehistory.cpp" bodystart="176" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureHistory_1aa8425cfcbf94704adc9e9c87b1e602ff" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureHistory::onBeforeCommitChanges</definition>
+        <argsstring>()</argsstring>
+        <name>onBeforeCommitChanges</name>
+        <qualifiedname>QfFeatureHistory::onBeforeCommitChanges</qualifiedname>
+        <briefdescription>
+<para>Called before features are committed. Used to prepare the old state of the features and store it in <emphasis>mHistry</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="98" column="10" bodyfile="src/core/qffeaturehistory.cpp" bodystart="83" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureHistory_1a0bd9594740cef68bb19763d0b7e75505" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureHistory::onAfterCommitChanges</definition>
+        <argsstring>()</argsstring>
+        <name>onAfterCommitChanges</name>
+        <qualifiedname>QfFeatureHistory::onAfterCommitChanges</qualifiedname>
+        <briefdescription>
+<para>Called after features are committed. Used because the added features do not have FID before they are committed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="101" column="10" bodyfile="src/core/qffeaturehistory.cpp" bodystart="200" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureHistory_1a4b4993e34032c906d56b5fce36baa9d2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureHistory::onTimerTimeout</definition>
+        <argsstring>()</argsstring>
+        <name>onTimerTimeout</name>
+        <qualifiedname>QfFeatureHistory::onTimerTimeout</qualifiedname>
+        <briefdescription>
+<para>Timer&apos;s timeout slot. Used to collect multiple feature changes (calls of <emphasis>onBeforeCommitChanges</emphasis> and <emphasis>onAfterCommitChanges</emphasis>) into one undo step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="104" column="10" bodyfile="src/core/qffeaturehistory.cpp" bodystart="265" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="slot" id="classQfFeatureHistory_1a1e1f104eab531542ee248b6cbe04c3c3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureHistory::onLayerInTrackingChanged</definition>
+        <argsstring>(QgsVectorLayer *vl, bool isTracking)</argsstring>
+        <name>onLayerInTrackingChanged</name>
+        <qualifiedname>QfFeatureHistory::onLayerInTrackingChanged</qualifiedname>
+        <param>
+          <type>QgsVectorLayer *</type>
+          <declname>vl</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isTracking</declname>
+        </param>
+        <briefdescription>
+<para>Layer in tracking changed. If layer is in tracking mode, we should not track changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="107" column="10" bodyfile="src/core/qffeaturehistory.cpp" bodystart="247" bodyend="263"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classQfFeatureHistory_1a51f81297ae4a851851db02b850610b80" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void QfFeatureHistory::addLayerListeners</definition>
+        <argsstring>()</argsstring>
+        <name>addLayerListeners</name>
+        <qualifiedname>QfFeatureHistory::addLayerListeners</qualifiedname>
+        <briefdescription>
+<para>Add the needed event listeners to monitor for changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="113" column="10" bodyfile="src/core/qffeaturehistory.cpp" bodystart="50" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureHistory_1aa012c8714c8e976c121160d2aa2c4a8a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool QfFeatureHistory::applyModifications</definition>
+        <argsstring>(QMap&lt; QString, FeatureModifications &gt; &amp;modificationsByLayerId)</argsstring>
+        <name>applyModifications</name>
+        <qualifiedname>QfFeatureHistory::applyModifications</qualifiedname>
+        <param>
+          <type>QMap&lt; QString, <ref refid="structQfFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt; &amp;</type>
+          <declname>modificationsByLayerId</declname>
+        </param>
+        <briefdescription>
+<para>Apply given modifications on all layers in the current project. Used both by undo and redo operations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="116" column="10" bodyfile="src/core/qffeaturehistory.cpp" bodystart="315" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classQfFeatureHistory_1a0abfa8326dd271e5f6602e10d8646791" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QMap&lt; QString, <ref refid="structQfFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt;</type>
+        <definition>QMap&lt; QString, QfFeatureHistory::FeatureModifications &gt; QfFeatureHistory::reverseModifications</definition>
+        <argsstring>(QMap&lt; QString, FeatureModifications &gt; &amp;modificationsByLayerId)</argsstring>
+        <name>reverseModifications</name>
+        <qualifiedname>QfFeatureHistory::reverseModifications</qualifiedname>
+        <param>
+          <type>QMap&lt; QString, <ref refid="structQfFeatureHistory_1_1FeatureModifications" kindref="compound">FeatureModifications</ref> &gt; &amp;</type>
+          <declname>modificationsByLayerId</declname>
+        </param>
+        <briefdescription>
+<para>Reverse the modification. Used to make undo modifications into redo modifications. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/core/qffeaturehistory.h" line="119" column="10" bodyfile="src/core/qffeaturehistory.cpp" bodystart="277" bodyend="312"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureHistory</label>
+        <link refid="classQfFeatureHistory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+      <node id="1">
+        <label>QfFeatureHistory</label>
+        <link refid="classQfFeatureHistory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/core/qffeaturehistory.h" line="32" column="1" bodyfile="src/core/qffeaturehistory.h" bodystart="33" bodyend="153"/>
+    <listofallmembers>
+      <member refid="classQfFeatureHistory_1a51f81297ae4a851851db02b850610b80" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>addLayerListeners</name></member>
+      <member refid="classQfFeatureHistory_1aa012c8714c8e976c121160d2aa2c4a8a" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>applyModifications</name></member>
+      <member refid="classQfFeatureHistory_1a2ccca44ed26de121b8398a53a7e874e3" prot="public" virt="non-virtual"><scope>QfFeatureHistory</scope><name>isRedoAvailable</name></member>
+      <member refid="classQfFeatureHistory_1a62d3347ef671b97f6653fc1dcf82f0e7" prot="public" virt="non-virtual"><scope>QfFeatureHistory</scope><name>isRedoAvailable</name></member>
+      <member refid="classQfFeatureHistory_1ada0ae53a091904aa136c013806d2e6a8" prot="public" virt="non-virtual"><scope>QfFeatureHistory</scope><name>isRedoAvailableChanged</name></member>
+      <member refid="classQfFeatureHistory_1a14f2ef91021cae1e4d7bf6ba359b8943" prot="public" virt="non-virtual"><scope>QfFeatureHistory</scope><name>isUndoAvailable</name></member>
+      <member refid="classQfFeatureHistory_1ab30b26fd9fcc27ab871397f440291324" prot="public" virt="non-virtual"><scope>QfFeatureHistory</scope><name>isUndoAvailable</name></member>
+      <member refid="classQfFeatureHistory_1a41734d0654a4b7ab3363e7bb4205c970" prot="public" virt="non-virtual"><scope>QfFeatureHistory</scope><name>isUndoAvailableChanged</name></member>
+      <member refid="classQfFeatureHistory_1a73afbac2b1b5c25cc9ed5efed42a1951" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>mIsApplyingModifications</name></member>
+      <member refid="classQfFeatureHistory_1a662f7ac3965cc9dd8f72463d27ee817f" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>mObservedLayerIds</name></member>
+      <member refid="classQfFeatureHistory_1ada4fbf3ebb37e111fbc22113d39a4f54" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>mProject</name></member>
+      <member refid="classQfFeatureHistory_1a26f4ef945c1e8c7a1c8c1e5d19395b8d" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>mRedoHistory</name></member>
+      <member refid="classQfFeatureHistory_1a6fb9f9a7614580dc074dd4743d9e6058" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>mTempDeletedFeatureIdsByLayerId</name></member>
+      <member refid="classQfFeatureHistory_1a608ab4e51a0fab67717e327ce09bafd5" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>mTempHistoryStep</name></member>
+      <member refid="classQfFeatureHistory_1ab9f96825c2c2bee21a880e455a569858" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>mTempModifiedFeatureIdsByLayerId</name></member>
+      <member refid="classQfFeatureHistory_1ad61e8da23c5c99bbb48c3a56f7eea36f" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>mTempModifiedFeaturesByLayerId</name></member>
+      <member refid="classQfFeatureHistory_1a66208ccb980ac84514ced9b4fe6a09c7" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>mTimer</name></member>
+      <member refid="classQfFeatureHistory_1a7e7422cb0a76dbaa2c6643851a246371" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>mTrackingModel</name></member>
+      <member refid="classQfFeatureHistory_1a78986ba47f37edd95b8aa978ff6639d5" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>mUndoHistory</name></member>
+      <member refid="classQfFeatureHistory_1a0bd9594740cef68bb19763d0b7e75505" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>onAfterCommitChanges</name></member>
+      <member refid="classQfFeatureHistory_1aa8425cfcbf94704adc9e9c87b1e602ff" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>onBeforeCommitChanges</name></member>
+      <member refid="classQfFeatureHistory_1a45286d3b8ce0066e8e1361f566ad86f7" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>onCommittedFeaturesAdded</name></member>
+      <member refid="classQfFeatureHistory_1ad48c7fe710de31d79b1e3b9b554623cd" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>onCommittedFeaturesRemoved</name></member>
+      <member refid="classQfFeatureHistory_1acb7fb978e42e2246d3cbd88e66648d87" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>onHomePathChanged</name></member>
+      <member refid="classQfFeatureHistory_1a1e1f104eab531542ee248b6cbe04c3c3" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>onLayerInTrackingChanged</name></member>
+      <member refid="classQfFeatureHistory_1a239345574f405ad03fb9730ee5b8e03f" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>onLayersAdded</name></member>
+      <member refid="classQfFeatureHistory_1a4b4993e34032c906d56b5fce36baa9d2" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>onTimerTimeout</name></member>
+      <member refid="classQfFeatureHistory_1a5e165cf5974bb821d587922470455ab4" prot="public" virt="non-virtual"><scope>QfFeatureHistory</scope><name>QfFeatureHistory</name></member>
+      <member refid="classQfFeatureHistory_1af4fb493792421884daa99039cce7c078" prot="public" virt="non-virtual"><scope>QfFeatureHistory</scope><name>redo</name></member>
+      <member refid="classQfFeatureHistory_1a3a3734f07297b52cab3870c4fcae839b" prot="public" virt="non-virtual"><scope>QfFeatureHistory</scope><name>redoMessage</name></member>
+      <member refid="classQfFeatureHistory_1a0abfa8326dd271e5f6602e10d8646791" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>reverseModifications</name></member>
+      <member refid="classQfFeatureHistory_1a3f7893040e545effd084a1bf70225d39" prot="private" virt="non-virtual"><scope>QfFeatureHistory</scope><name>sTimeoutMs</name></member>
+      <member refid="classQfFeatureHistory_1ad1e232bcd28cb11517677132dca107f7" prot="public" virt="non-virtual"><scope>QfFeatureHistory</scope><name>undo</name></member>
+      <member refid="classQfFeatureHistory_1a20e228f704b7b6d7c9c9d6a41b9e70ec" prot="public" virt="non-virtual"><scope>QfFeatureHistory</scope><name>undoMessage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

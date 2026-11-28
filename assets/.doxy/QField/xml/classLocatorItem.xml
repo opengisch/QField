@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classLocatorItem" kind="class" language="C++" prot="public">
+    <compoundname>LocatorItem</compoundname>
+    <basecompoundref refid="classQfLocatorItem" prot="public" virt="non-virtual">QfLocatorItem</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LocatorItem</label>
+        <link refid="classLocatorItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfLocatorItem</label>
+        <link refid="classQfLocatorItem"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LocatorItem</label>
+        <link refid="classLocatorItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QfLocatorItem</label>
+        <link refid="classQfLocatorItem"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtQuick::Item</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/app/qml_compat/LocatorItem.qml" line="2" column="1" bodyfile="src/app/qml_compat/LocatorItem.qml" bodystart="2" bodyend="3"/>
+    <listofallmembers>
+      <member refid="classQfLocatorItem_1a6757892681a73a5cd291ee0c8cf16ec6" prot="public" virt="non-virtual"><scope>LocatorItem</scope><name>locatorBridge</name></member>
+      <member refid="classQfLocatorItem_1a150568525cdd785569655a8973b2a3ca" prot="public" virt="non-virtual"><scope>LocatorItem</scope><name>locatorFiltersModel</name></member>
+      <member refid="classQfLocatorItem_1a65861a5f9840fbaf63c342da627105a1" prot="public" virt="non-virtual"><scope>LocatorItem</scope><name>searchFieldVisible</name></member>
+      <member refid="classQfLocatorItem_1ad34195b2c0b8e7f0f660015c79fc4fe0" prot="public" virt="non-virtual"><scope>LocatorItem</scope><name>searchTermChanged</name></member>
+      <member refid="classQfLocatorItem_1ab661dabd19df4a6c1c23a2b766bc642a" prot="public" virt="non-virtual"><scope>LocatorItem</scope><name>searchTermHandled</name></member>
+      <member refid="classQfLocatorItem_1aa446b97669efc229e4399c990ae5f45f" prot="public" virt="non-virtual"><scope>LocatorItem</scope><name>showAvailableSearchDescription</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
