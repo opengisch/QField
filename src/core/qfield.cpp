@@ -59,3 +59,12 @@ bool Qfield::hasSerialPort() const
   return false;
 #endif
 }
+
+bool Qfield::hasExternalAccessory() const
+{
+#if defined( Q_OS_IOS )
+  return true;
+#else
+  return false;
+#endif
+}

@@ -65,6 +65,9 @@ class QFIELD_CORE_EXPORT Qfield
     //! TRUE when the build supports serial ports
     Q_PROPERTY( bool hasSerialPort READ hasSerialPort CONSTANT )
 
+    //! TRUE when the build supports iOS external accessories
+    Q_PROPERTY( bool hasExternalAccessory READ hasExternalAccessory CONSTANT )
+
   public:
     static inline const QString appName{ QStringLiteral( "@APP_NAME@" ) };
     static inline const QString appVersion{ QStringLiteral( "@APP_VERSION@" ) };
@@ -81,6 +84,7 @@ class QFIELD_CORE_EXPORT Qfield
     bool hasNfc() const;
     bool hasBluetooth() const;
     bool hasSerialPort() const;
+    bool hasExternalAccessory() const;
 };
 
 #cmakedefine QFIELDDEBUG

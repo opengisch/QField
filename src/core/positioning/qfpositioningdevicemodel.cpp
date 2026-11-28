@@ -166,6 +166,7 @@ const QString QfPositioningDeviceModel::deviceId( const Device &device ) const
   switch ( device.type )
   {
     case InternalDevice:
+    case ExternalAccessoryDevice: // no receiver yet
       return QString();
 
     case BluetoothDevice:
