@@ -3105,19 +3105,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Error input file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>错误，输入文件不存在: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error adding file &apos;%1&apos;: %2</source>
-        <translation type="unfinished"/>
+        <translation>添加文件 &apos;%1&apos; 时出错: %2</translation>
     </message>
     <message>
         <source>Error creating data source &apos;%1&apos;: %2</source>
-        <translation type="unfinished"/>
+        <translation>创建数据源 &apos;%1&apos; 时出错: %2</translation>
     </message>
     <message>
         <source>Error creating zip archive &apos;%1&apos;: %2</source>
-        <translation type="unfinished"/>
+        <translation>创建ZIP存档 &apos;%1&apos; 时出错: %2</translation>
     </message>
 </context>
 <context>
