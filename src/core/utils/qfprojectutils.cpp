@@ -226,8 +226,9 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
     writerOptions.layerName = "notes_point";
     writer = QgsVectorFileWriter::create( notesFilepath, notesFields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
     writer->finalize();
+#if _QGIS_VERSION_INT >= 40300
     writer.reset();
-#if _QGIS_VERSION_INT < 40300
+#else
     delete writer;
 #endif
 
@@ -246,8 +247,9 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
       writerOptions.layerName = "notes_line";
       writer = QgsVectorFileWriter::create( notesFilepath, notesFields, Qgis::WkbType::LineStringZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
       writer->finalize();
+#if _QGIS_VERSION_INT >= 40300
       writer.reset();
-#if _QGIS_VERSION_INT < 40300
+#else
       delete writer;
 #endif
 
@@ -259,8 +261,9 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
       writerOptions.layerName = "notes_polygon";
       writer = QgsVectorFileWriter::create( notesFilepath, notesFields, Qgis::WkbType::PolygonZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
       writer->finalize();
+#if _QGIS_VERSION_INT >= 40300
       writer.reset();
-#if _QGIS_VERSION_INT < 40300
+#else
       delete writer;
 #endif
 
@@ -283,8 +286,9 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
       writerOptions.layerName = QStringLiteral( "notes_attachments" );
       writer = QgsVectorFileWriter::create( notesFilepath, attachFields, Qgis::WkbType::NoGeometry, QgsCoordinateReferenceSystem(), createdProject->transformContext(), writerOptions );
       writer->finalize();
+#if _QGIS_VERSION_INT >= 40300
       writer.reset();
-#if _QGIS_VERSION_INT < 40300
+#else
       delete writer;
 #endif
 
@@ -493,8 +497,9 @@ QString QfProjectUtils::createProject( const QVariantMap &options, const QfGnssP
     writerOptions.layerName = QStringLiteral( "tracks" );
     writer = QgsVectorFileWriter::create( tracksFilepath, tracksFields, Qgis::WkbType::LineStringZM, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
     writer->finalize();
+#if _QGIS_VERSION_INT >= 40300
     writer.reset();
-#if _QGIS_VERSION_INT < 40300
+#else
     delete writer;
 #endif
 
