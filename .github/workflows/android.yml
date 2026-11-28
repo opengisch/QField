@@ -222,12 +222,11 @@ jobs:
                 "/tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}-debug.apk"
           fi
 
-      - name: 📦 Upload artifacts
+      - name: 📦 Upload APK artifact
         uses: actions/upload-artifact@v7
         with:
           name: ${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}
           path: |
-            /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}.aab
             /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}.apk
             /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}-debug.apk
 
