@@ -276,10 +276,10 @@ jobs:
       - name: Download aabs
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk
-          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.aab
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.aab
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.aab
+          wget https://sos-ch-dk-2.exo.io/qfieldapks/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.aab
 
       - name: Upload to Google Play Store
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
@@ -293,11 +293,11 @@ jobs:
             RELEASE_MESSAGE="Update from commit ${GITHUB_SHA}"
           fi
 
-          ./scripts/basic_upload_apks_service_account.py ch.opengis.${{ env.APP_PACKAGE_NAME }} beta "${RELEASE_MESSAGE}" \
-              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk \
-              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk \
-              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk \
-              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk
+          ./scripts/basic_upload_aabs_service_account.py ch.opengis.${{ env.APP_PACKAGE_NAME }} beta "${RELEASE_MESSAGE}" \
+              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.aab \
+              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.aab \
+              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.aab \
+              qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.aab
         env:
           GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
 
