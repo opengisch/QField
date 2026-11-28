@@ -187,7 +187,7 @@ jobs:
 
       - name: 🌋 Build
         run: |
-          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --config ${{ env.BUILD_TYPE }}
+          cmake --build "${{ env.CMAKE_BUILD_DIR }}" --target qfield --config ${{ env.BUILD_TYPE }}
 
       - name: 🔑 Setup signing key
         env:
